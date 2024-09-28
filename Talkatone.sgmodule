@@ -1,13 +1,14 @@
 #!name=Talkatone
 #!desc=Talkatone 代理规则模块，使 Talkatone 服务不再对不同代理节点过于敏感
-#仓库地址：https://github.com/LOWERTOP/Talkatone/new/main
-[Rule]
-#某些节点无法直接使用 Talkatone 所以进行策略分流
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
-#tktn.be 需要走代理
+[Rule]
+# 某些节点无法直接使用 Talkatone 所以进行策略分流
+
+# tktn.be 需要走代理
 DOMAIN-SUFFIX,tktn.be,PROXY
 
-#以下需要走直连
+# 以下需要走直连
 DOMAIN-SUFFIX,mobilefuse.com,DIRECT
 DOMAIN-SUFFIX,inmobi.com,DIRECT
 DOMAIN-SUFFIX,crashlytics.com,DIRECT
@@ -21,3 +22,15 @@ IP-CIDR,50.117.27.0/24,DIRECT
 IP-CIDR,69.46.75.0/24,DIRECT
 IP-CIDR,205.164.56.0/24,DIRECT
 IP-CIDR,63.251.124.0/24,DIRECT
+
+# 以下为该软件部分去广告规则
+DOMAIN-SUFFIX,ads.inmobi.com,REJECT-DROP
+DOMAIN-SUFFIX,tappx.com,REJECT-DROP
+DOMAIN-SUFFIX,criteo.com,REJECT-DROP
+DOMAIN-SUFFIX,pubmatic.com,REJECT-DROP
+DOMAIN-SUFFIX,smaato.net,REJECT-DROP
+DOMAIN-SUFFIX,amazon-adsystem.com,REJECT-DROP
+DOMAIN-SUFFIX,googleads.g.doubleclick.net,REJECT-DROP
+DOMAIN-SUFFIX,adsappier.com,REJECT-DROP
+DOMAIN-SUFFIX,appier.net,REJECT-DROP
+DOMAIN-SUFFIX,appiersig.com,REJECT-DROP
