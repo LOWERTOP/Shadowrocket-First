@@ -10,6 +10,7 @@
 DOMAIN-SUFFIX,tktn.be,PROXY
 
 # 以下需要走直连
+DOMAIN-SUFFIX,inner-active.mobi,DIRECT
 DOMAIN-SUFFIX,mobilefuse.com,DIRECT
 DOMAIN-SUFFIX,inmobi.com,DIRECT
 DOMAIN-SUFFIX,crashlytics.com,DIRECT
