@@ -24,7 +24,7 @@ IP-CIDR,69.46.75.0/24,DIRECT
 IP-CIDR,205.164.56.0/24,DIRECT
 IP-CIDR,63.251.124.0/24,DIRECT
 
-# 以下为该软件部分去广告规则，特别鸣谢：@isDoraemon
+# 以下为该软件部分去广告规则
 DOMAIN-SUFFIX,ads.inmobi.com,REJECT-DROP
 DOMAIN-SUFFIX,tappx.com,REJECT-DROP
 DOMAIN-SUFFIX,criteo.com,REJECT-DROP
