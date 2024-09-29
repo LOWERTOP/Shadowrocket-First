@@ -15,20 +15,3 @@ DOMAIN-SUFFIX,eas3.msg.t-mobile.com,PROXY
 DOMAIN-SUFFIX,redirect.ultra.me,PROXY
 DOMAIN-SUFFIX,ultramobile.com,PROXY
 DOMAIN-SUFFIX,optimizely.com,PROXY
-# ----------
-[Host]
-# 域名指定本地值：
-# example.com=1.2.3.4
-# 域名指定DNS服务器：
-# example.com=server:1.2.3.4
-# wifi名称指定DNS服务器，如需指定多个DNS，可用逗号分隔：
-# ssid:wifi名称=server:1.2.3.4
-# ----------
-*.depdg.epc.mnc260.mcc310.pub.3gppnetwork.org=server:199.85.126.10,199.85.127.10
-*.ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org=server:199.85.126.10,199.85.127.10
-*.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org=server:199.85.126.10,199.85.127.10
-*.ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org=server:199.85.126.10,199.85.127.10
-*.eas3.msg.t-mobile.com=server:199.85.126.10,199.85.127.10
-*.redirect.ultra.me=server:199.85.126.10,199.85.127.10
-*.ultramobile.com=server:199.85.126.10,199.85.127.10
-*.optimizely.com=server:199.85.126.10,199.85.127.10
