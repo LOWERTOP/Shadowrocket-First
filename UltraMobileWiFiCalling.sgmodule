@@ -24,8 +24,6 @@ DOMAIN-SUFFIX,optimizely.com,PROXY
 # wifi名称指定DNS服务器，如需指定多个DNS，可用逗号分隔：
 # ssid:wifi名称=server:1.2.3.4
 # ----------
-*.apple.com=server:system
-*.icloud.com=server:system
 *.depdg.epc.mnc260.mcc310.pub.3gppnetwork.org=server:199.85.126.10,199.85.127.10
 *.ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org=server:199.85.126.10,199.85.127.10
 *.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org=server:199.85.126.10,199.85.127.10
