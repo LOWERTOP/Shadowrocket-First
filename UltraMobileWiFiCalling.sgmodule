@@ -3,7 +3,7 @@
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 # 规则来源于互联网收集
 [General]
-dns-server = 8.8.8.8,1.1.1.1
+dns-server = 199.85.126.10,199.85.127.10
 [Rule]
 DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org,PROXY
 DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,PROXY
