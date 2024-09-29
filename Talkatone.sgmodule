@@ -4,7 +4,6 @@
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 # 规则来源：https://t.me/ShadowrocketApp
 
-
 [Rule]
 # 以下为该软件部分去广告规则
 DOMAIN-SUFFIX,ads.inmobi.com,REJECT-DROP
