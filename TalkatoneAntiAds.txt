@@ -1,5 +1,8 @@
 # NAME:TalkatoneAntiAds
 # Talkatone 去广告规则集
+# 本规则集为 Talkatone APP 内部分去广告规则
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+# 规则来源：https://t.me/ShadowrocketApp
 # 类型选择：RULE-SET
 # 策略建议：REJECT-DROP
 DOMAIN-SUFFIX,ads.inmobi.com
