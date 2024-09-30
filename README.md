@@ -1,6 +1,5 @@
-# Shadowrocket-First
+# Shadowrocket 常用设置
 
-Shadowrocket 常用设置
 -----------------------------------------------------
 
 1.[Shadowrocket 使用手册](https://github.com/wlxuf/Shadowrocket)
