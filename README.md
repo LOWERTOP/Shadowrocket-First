@@ -13,7 +13,7 @@ Shadowrocket 初步使用方法
 
 1.[Shadowrocket 使用手册](https://github.com/wlxuf/Shadowrocket)
 
-2.[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf)
+2.[Shadowrocket 懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf)
 
 3.[Shadowrocket 分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket)
 
