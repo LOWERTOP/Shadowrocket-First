@@ -13,8 +13,10 @@ Shadowrocket 初步使用方法
 
 1.配置文件推荐：[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf)
 
-2.[Talkatone 代理规则模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)
+2.[Shadowrocket 使用手册](https://github.com/wlxuf/Shadowrocket)
 
-3.[Talkatone 去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.txt)
+3.[Talkatone 代理规则模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)
 
-4.[Ultra Mobile Paygo Wi-Fi Calling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
+4.[Talkatone 去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.txt)
+
+5.[Ultra Mobile Paygo Wi-Fi Calling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
