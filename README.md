@@ -11,14 +11,12 @@ Shadowrocket 初步使用方法
 
 -----------------------------------------------------
 
-1.[自用配置文件](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/LOWERTOP.conf)
+1.[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf)
 
-2.[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf)
+2.[懒人配置文件（含策略组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf)
 
-3.[懒人配置文件（含策略组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf)
+3.[Talkatone 代理规则模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)
 
-4.[Talkatone 代理规则模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)
+4.[Talkatone 去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.txt)
 
-5.[Talkatone 去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.txt)
-
-6.[Ultra Mobile Paygo wificalling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
+5.[Ultra Mobile Paygo wificalling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
