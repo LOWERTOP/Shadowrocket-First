@@ -10,8 +10,6 @@
 
 4.[Talkatone 代理规则模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) （含[该APP去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.txt)）
 
-5.
-
-6.[Ultra Mobile Paygo Wi-Fi Calling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
+5.[Ultra Mobile Paygo Wi-Fi Calling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
 
 -----------------------------------------------------
