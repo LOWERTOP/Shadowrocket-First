@@ -1,4 +1,4 @@
-# Shadowrocket 常用设置
+# Shadowrocket 常用配置
 
 -----------------------------------------------------
 
@@ -13,3 +13,7 @@
 5.[Ultra Mobile Paygo Wi-Fi Calling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
 
 -----------------------------------------------------
+
+# Shadowrocket 新手上手教程
+
+待定
