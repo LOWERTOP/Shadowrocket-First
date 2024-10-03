@@ -14,7 +14,7 @@
 
 6.[Ultra Mobile Paygo Wi-Fi Calling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
 
-7.[Ultra Mobile Paygo Wi-Fi Calling 配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
+7.[Ultra Mobile Paygo Wi-Fi Calling 配置规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
 
 -----------------------------------------------------
 
