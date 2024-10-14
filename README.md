@@ -10,7 +10,7 @@
 
 4.[Shadowrocket 去广告模块（墨鱼）](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule)
 
-5.[Talkatone 代理规则模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 
+5.[Talkatone 代理规则模块（含去广告规则）](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 
 
 6.[Talkatone 去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.txt)
 
