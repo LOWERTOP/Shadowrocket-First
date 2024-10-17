@@ -10,7 +10,7 @@
 
 4.[Shadowrocket 去广告模块（墨鱼）](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule)
 
-5.[Shadowrocket 仅去广告配置文件](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) 可作为规则集使用
+5.[Shadowrocket 仅去广告配置文件](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) 可作为规则集使用[作者发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 
 6.[Talkatone 代理规则模块（含去广告规则）](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 
 
