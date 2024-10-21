@@ -18,10 +18,10 @@ DOMAIN-SUFFIX,adsappier.com,REJECT-DROP
 DOMAIN-SUFFIX,appier.net,REJECT-DROP
 DOMAIN-SUFFIX,appiersig.com,REJECT-DROP
 
-# tktn.be 需要走代理
+# 以下为该软件需要走代理的规则
 DOMAIN-SUFFIX,tktn.be,PROXY
 
-# 以下需要走直连
+# 以下为该软件需要走直连的规则
 DOMAIN-SUFFIX,inner-active.mobi,DIRECT
 DOMAIN-SUFFIX,mobilefuse.com,DIRECT
 DOMAIN-SUFFIX,inmobi.com,DIRECT
