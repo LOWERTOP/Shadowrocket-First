@@ -6,6 +6,7 @@
 # 规则来源：https://t.me/ShadowrocketApp
 # 类型选择：RULE-SET
 # 策略建议：REJECT-DROP
+
 DOMAIN-SUFFIX,ads.inmobi.com
 DOMAIN-SUFFIX,tappx.com
 DOMAIN-SUFFIX,criteo.com
