@@ -1,5 +1,5 @@
-# NAME:TalkatoneAntiAds
-# Talkatone 去广告规则集
+#!name=Talkatone
+#!desc=Talkatone 去广告规则集
 # 本规则集为 Talkatone APP 内部分去广告规则
 # 整理作者：https://t.me/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
