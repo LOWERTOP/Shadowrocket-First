@@ -3,6 +3,7 @@
 # 本模块主要为 Talkatone 进行策略分流，以解决使用某些节点无法直接使用 Talkatone 的问题，并附带 Talkatone 去广告规则。本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册。
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 # 规则来源：https://t.me/ShadowrocketApp
+# 整理作者：https://t.me/LOWERTOP
 
 [Rule]
 # 以下为该软件部分去广告规则
