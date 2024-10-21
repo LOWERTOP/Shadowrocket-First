@@ -1,7 +1,8 @@
 #!name=UltraMobileWiFiCalling
 #!desc=Ultra Mobile Paygo wificalling 配置规则，使用本规则后打开飞行模式后关闭飞行模式即可正常开启 WiFi calling，并可以正常使用配置模式
+# 整理作者：https://t.me/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
-# 规则来源于互联网收集
+
 # dns-server = 199.85.126.10,199.85.127.10
 DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org
 DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
