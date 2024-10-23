@@ -8,6 +8,8 @@
 
 4.[Ultra Mobile Paygo Wi-Fi Calling 配置规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
 
+5.[Shadowrocket BlueSky 配色](shadowrocket://color?NavigationBarColor=%23161F28&NavigationBar2Color=%23161F28&NavigationBarTextColor=%23ADBBC8&NavigationBar2TextColor=%232473BD&TabBarColor=%23161F28&TabBarBorderColor=%2300000000&TabBarSelectedColor=%232473BD&TabBarUnselectedColor=%23ADBBC8&TableBackgroundColor=%23161F28&TableCellBackgroundColor=%231D2935&TableCellSelectedBackgroundColor=%23ADBBC8&TableSeparatorColor=%23161F28&TextFieldTextColor=%23ADBBC8&PlaceholderColor=%23607A95&TextLabelTextColor=%23ADBBC8&DetailLabelTextColor=%23607A95&TextLabelDeleteColor=%232473BD&HeaderFooterTextColor=%23607A95&SearchFieldBackgroundColor=%231D2935&IndicatorColor=%23ADBBC8&ButtonIconColor=%232473BD&ButtonNormalColor=%23ADBBC8&ButtonNormal2Color=%23ADBBC8&ButtonNormal3Color=%23ADBBC8&ButtonHighlightedColor=%23ADBBC8&ButtonHighlighted2Color=%23ADBBC8&ButtonHighlighted3Color=%231D2935&ButtonDisabledColor=%23ADBBC8&ButtonDisabled2Color=%23ADBBC8&PingSuccessTextColor=%232473BD&PingTimeoutTextColor=%23ADBBC8&DefaultDotColor=%23FF9400&HUDBackgroundColor=%231D2935&v=1.0) 复制链接，配置页面添加 URL 应用
+
 -----------------------------------------------------
 
 # Shadowrocket 收集配置
