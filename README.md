@@ -38,7 +38,7 @@ shadowrocket://color?NavigationBarColor=%23161F28&NavigationBar2Color=%23161F28&
 
 -----------------------------------------------------
 
-以下是关于 Shadowrocket 该颜色配置中的描述翻译：
+以下是关于 Shadowrocket 颜色配置中的描述翻译：
 
 NavigationBarColor: #161F28 (导航栏背景色)
 
