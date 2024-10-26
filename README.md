@@ -28,81 +28,87 @@
 
 # Shadowrocket 配色文件
 
-Shadowrocket BlueSky 配色（深蓝色）
-
-复制下方链接，配置页面添加 URL 并应用
+复制配色链接，配置页面添加 URL 并应用
 
 -----------------------------------------------------
+
+Shadowrocket BlueSky 配色（深蓝色）
 
 shadowrocket://color?NavigationBarColor=%23161F28&NavigationBar2Color=%23161F28&NavigationBarTextColor=%23ADBBC8&NavigationBar2TextColor=%232473BD&TabBarColor=%23161F28&TabBarBorderColor=%2300000000&TabBarSelectedColor=%232473BD&TabBarUnselectedColor=%23ADBBC8&TableBackgroundColor=%23161F28&TableCellBackgroundColor=%231D2935&TableCellSelectedBackgroundColor=%23ADBBC8&TableSeparatorColor=%23161F28&TextFieldTextColor=%23ADBBC8&PlaceholderColor=%23607A95&TextLabelTextColor=%23ADBBC8&DetailLabelTextColor=%23607A95&TextLabelDeleteColor=%232473BD&HeaderFooterTextColor=%23607A95&SearchFieldBackgroundColor=%231D2935&IndicatorColor=%23ADBBC8&ButtonIconColor=%232473BD&ButtonNormalColor=%23ADBBC8&ButtonNormal2Color=%23ADBBC8&ButtonNormal3Color=%23ADBBC8&ButtonHighlightedColor=%23ADBBC8&ButtonHighlighted2Color=%23ADBBC8&ButtonHighlighted3Color=%231D2935&ButtonDisabledColor=%23ADBBC8&ButtonDisabled2Color=%23ADBBC8&PingSuccessTextColor=%232473BD&PingTimeoutTextColor=%23607A95&DefaultDotColor=%232473BD&HUDBackgroundColor=%231D2935&v=1.0
 
 -----------------------------------------------------
 
-以下是以本颜色配色文件为例的关于 Shadowrocket 颜色配置的描述翻译：
+Shadowrocket Chrome 配色（深灰色）
 
-NavigationBarColor: #161F28 (导航栏背景色)
+shadowrocket://color?NavigationBarColor=%2327282B&NavigationBar2Color=%2327282B&NavigationBarTextColor=%23FFFFFF&NavigationBar2TextColor=%23FFFFFF&TabBarColor=%2327282B&TabBarBorderColor=%2300000000&TabBarSelectedColor=%2380BAFF&TabBarUnselectedColor=%23B3B3B3&TableBackgroundColor=%2327282B&TableCellBackgroundColor=%2333363B&TableCellSelectedBackgroundColor=%2333363B&TableSeparatorColor=%2345464B&TextFieldTextColor=%23FFFFFF&PlaceholderColor=%2380BAFF&TextLabelTextColor=%23FFFFFF&DetailLabelTextColor=%2377787D&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%2377787D&SearchFieldBackgroundColor=%2333363B&IndicatorColor=%23FFFFFF&ButtonIconColor=%2380BAFF&ButtonNormalColor=%23FFFFFF&ButtonNormal2Color=%23CCFFFFFF&ButtonNormal3Color=%2327282B&ButtonHighlightedColor=%2399FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23000000&ButtonDisabledColor=%2327282B&ButtonDisabled2Color=%2380FFFFFF&PingSuccessTextColor=%2380BAFF&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%2380BAFF&HUDBackgroundColor=%2327282B&v=1.0
 
-NavigationBar2Color: #161F28 (备用导航栏背景色)
+-----------------------------------------------------
 
-NavigationBarTextColor: #ADBBC8 (导航栏文字颜色)
+以下是 Shadowrocket 颜色配置的描述翻译：
 
-NavigationBar2TextColor: #2473BD (备用导航栏文字颜色)
+NavigationBarColor:导航栏背景色
 
-TabBarColor: #161F28 (标签栏背景色)
+NavigationBar2Color:备用导航栏背景色
 
-TabBarBorderColor: #00000000 (标签栏边框颜色，透明)
+NavigationBarTextColor:导航栏文字颜色
 
-TabBarSelectedColor: #2473BD (标签栏选中项颜色)
+NavigationBar2TextColor:备用导航栏文字颜色
 
-TabBarUnselectedColor: #ADBBC8 (标签栏未选中项颜色)
+TabBarColor:标签栏背景色
 
-TableBackgroundColor: #161F28 (表格背景颜色)
+TabBarBorderColor:标签栏边框颜色，透明
 
-TableCellBackgroundColor: #1D2935 (表格单元格背景颜色)
+TabBarSelectedColor:标签栏选中项颜色
 
-TableCellSelectedBackgroundColor: #ADBBC8 (表格单元格选中背景颜色)
+TabBarUnselectedColor:标签栏未选中项颜色
 
-TableSeparatorColor: #161F28 (表格分隔线颜色)
+TableBackgroundColor:表格背景颜色
 
-TextFieldTextColor: #ADBBC8 (文本框文字颜色)
+TableCellBackgroundColor:表格单元格背景颜色
 
-PlaceholderColor: #607A95 (占位符颜色)
+TableCellSelectedBackgroundColor:表格单元格选中背景颜色
 
-TextLabelTextColor: #ADBBC8 (文本标签文字颜色)
+TableSeparatorColor:表格分隔线颜色
 
-DetailLabelTextColor: #607A95 (详细标签文字颜色)
+TextFieldTextColor:文本框文字颜色
 
-TextLabelDeleteColor: #2473BD (文本标签删除文字颜色)
+PlaceholderColor:占位符颜色
 
-HeaderFooterTextColor: #607A95 (页眉页脚文字颜色)
+TextLabelTextColor:文本标签文字颜色
 
-SearchFieldBackgroundColor: #1D2935 (搜索框背景颜色)
+DetailLabelTextColor:详细标签文字颜色
 
-IndicatorColor: #ADBBC8 (指示器颜色)
+TextLabelDeleteColor:文本标签删除文字颜色
 
-ButtonIconColor: #2473BD (按钮图标颜色)
+HeaderFooterTextColor:页眉页脚文字颜色
 
-ButtonNormalColor: #ADBBC8 (按钮正常状态颜色)
+SearchFieldBackgroundColor:搜索框背景颜色
 
-ButtonNormal2Color: #ADBBC8 (备用按钮正常状态颜色)
+IndicatorColor:指示器颜色
 
-ButtonNormal3Color: #ADBBC8 (备用按钮正常状态颜色3)
+ButtonIconColor:按钮图标颜色
 
-ButtonHighlightedColor: #ADBBC8 (按钮高亮状态颜色)
+ButtonNormalColor:按钮正常状态颜色
 
-ButtonHighlighted2Color: #ADBBC8 (备用按钮高亮状态颜色)
+ButtonNormal2Color:备用按钮正常状态颜色
 
-ButtonHighlighted3Color: #1D2935 (备用按钮高亮状态颜色3)
+ButtonNormal3Color:备用按钮正常状态颜色3
 
-ButtonDisabledColor: #ADBBC8 (按钮禁用状态颜色)
+ButtonHighlightedColor:按钮高亮状态颜色
 
-ButtonDisabled2Color: #ADBBC8 (备用按钮禁用状态颜色)
+ButtonHighlighted2Color:备用按钮高亮状态颜色
 
-PingSuccessTextColor: #2473BD (Ping成功文字颜色)
+ButtonHighlighted3Color:备用按钮高亮状态颜色3
 
-PingTimeoutTextColor: #ADBBC8 (Ping超时文字颜色)
+ButtonDisabledColor:按钮禁用状态颜色
 
-DefaultDotColor: #2473BD (默认点颜色)
+ButtonDisabled2Color:备用按钮禁用状态颜色
+
+PingSuccessTextColor:Ping成功文字颜色
+
+PingTimeoutTextColor:Ping超时文字颜色
+
+DefaultDotColor:默认点颜色
 
 HUDBackgroundColor: #1D2935 (HUD背景颜色)
 
