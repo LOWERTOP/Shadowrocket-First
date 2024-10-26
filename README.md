@@ -12,17 +12,17 @@
 
 # Shadowrocket 收集配置
 
-1.[Shadowrocket 使用手册](https://github.com/wlxuf/Shadowrocket) 官方文档
+1.[使用手册](https://github.com/wlxuf/Shadowrocket) 官方文档
 
-2.[Shadowrocket 懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 替换官方配置
+2.[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 替换官方配置
 
-3.[Shadowrocket 分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) BlackMatrix7 分流规则
+3.[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) BlackMatrix7 分流规则
 
-4.[Shadowrocket 去广告模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) 墨鱼去广告模块
+4.[去广告模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) 墨鱼去广告模块
 
-5.[Shadowrocket 仅去广告配置文件](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) [作者发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 可作为规则集使用
+5.[仅去广告配置文件](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) 也可作为规则集使用 [作者发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 
-6.[Shadowrocket 节点筛选与改名脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) [作者发布页](https://github.com/kiwi707/Shadow-Rocket) 用于节点筛选和修改/规范机场默认节点名称
+6.[节点筛选与改名脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) 用于节点筛选和修改/规范机场默认节点名称 [作者发布页](https://github.com/kiwi707/Shadow-Rocket)
 
 -----------------------------------------------------
 
