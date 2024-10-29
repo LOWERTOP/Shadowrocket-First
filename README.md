@@ -1,3 +1,13 @@
+# Shadowrocket快速使用方法
+
+ 1.首页 - 添加节点
+ 
+ 2.设置 - 延迟测试方法，选择CONNECT
+ 
+ 3.首页 - 连通性测试，选择可用节点连接
+
+ -----------------------------------------------------
+ 
 # Shadowrocket 自制配置
 
 1.[Talkatone 代理规则模块（含去广告规则）](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 
