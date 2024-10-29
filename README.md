@@ -1,4 +1,4 @@
-# Shadowrocket快速使用方法
+# Shadowrocket 快速使用方法
 
  1.首页 - 添加节点
  
