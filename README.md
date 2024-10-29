@@ -24,7 +24,7 @@
 
 1.Shadowrocket 官方关键词列表暨使用文档：[使用手册](https://github.com/wlxuf/Shadowrocket) 
 
-2.Shadowrocket 非常好用且备注非常详尽的配置文件：[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
+2.Shadowrocket 非常好用且备注非常详尽的配置文件：[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组/代理分组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
 
 3.BlackMatrix7 整理的非常详尽的分流规则集：[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) 
 
