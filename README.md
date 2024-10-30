@@ -54,6 +54,12 @@ shadowrocket://color?NavigationBarColor=%2327282B&NavigationBar2Color=%2327282B&
 
 -----------------------------------------------------
 
+Shadowrocket IceCream 配色（淡粉色）
+
+shadowrocket://color?NavigationBarColor=%2300FFFFFF&NavigationBar2Color=%23FFFFFF&NavigationBarTextColor=%23804A88&NavigationBar2TextColor=%23804A88&TabBarColor=%23FFD7E9&TabBarBorderColor=%23FFD7E9&TabBarSelectedColor=%23804A88&TabBarUnselectedColor=%23FFFFFF&TableBackgroundColor=%23FFFFFF&TableCellBackgroundColor=%23FFEBF4&TableCellSelectedBackgroundColor=%23FFD7E9&TableSeparatorColor=%23FFFFFF&TextFieldTextColor=%23F5197B&PlaceholderColor=%23FFD7E9&TextLabelTextColor=%23804A88&DetailLabelTextColor=%23F5197B&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23804A88&SearchFieldBackgroundColor=%23FFEBF4&IndicatorColor=%23804A88&ButtonIconColor=%23804A88&ButtonNormalColor=%23804A88&ButtonNormal2Color=%23804A88&ButtonNormal3Color=%23804A88&ButtonHighlightedColor=%23FFEBF4&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23000000&ButtonDisabledColor=%23FFEBF4&ButtonDisabled2Color=%23FFEBF4&PingSuccessTextColor=%23FFFFFF&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23804A88&HUDBackgroundColor=%23FFEBF4&v=1.0
+
+-----------------------------------------------------
+
 ✨注意：因苹果系统限制，Shadowrocket APP 内部分细节图标不可自定义色彩，且会根据系统深色/浅色模式改变，使用自定义配色时可能会因为此特性导致局部细节图标可视度过高或过低，望知悉
 
 -----------------------------------------------------
