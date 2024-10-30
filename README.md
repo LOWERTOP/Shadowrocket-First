@@ -83,6 +83,7 @@ shadowrocket://color?NavigationBarColor=%232C2B31&NavigationBar2Color=%232C2B31&
 
 以下是 Shadowrocket 颜色配置的描述翻译：
 
+```
 NavigationBarColor: 导航栏背景色
 
 NavigationBar2Color: 备用导航栏背景色
@@ -148,5 +149,6 @@ PingTimeoutTextColor: Ping 超时文字颜色
 DefaultDotColor: 默认点颜色
 
 HUDBackgroundColor: HUD背景颜色
+```
 
 以上所有颜色都以十六进制颜色代码格式表示
