@@ -77,6 +77,14 @@ shadowrocket://color?NavigationBarColor=%232C2B31&NavigationBar2Color=%232C2B31&
 
 -----------------------------------------------------
 
+* Shadowrocket FluoGreen 配色（荧光绿）
+
+```
+shadowrocket://color?NavigationBarColor=%232C2B31&NavigationBar2Color=%232C2B31&NavigationBarTextColor=%23B4FE5F&NavigationBar2TextColor=%23B4FE5F&TabBarColor=%232C2B31&TabBarBorderColor=%232C2B31&TabBarSelectedColor=%23B4FE5F&TabBarUnselectedColor=%23e3ecca&TableBackgroundColor=%232C2B31&TableCellBackgroundColor=%2338373D&TableCellSelectedBackgroundColor=%2338373D&TableSeparatorColor=%232C2B31&TextFieldTextColor=%23B4FE5F&PlaceholderColor=%23e3ecca&TextLabelTextColor=%23B4FE5F&DetailLabelTextColor=%23e3ecca&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23e3ecca&SearchFieldBackgroundColor=%2338373D&IndicatorColor=%23e3ecca&ButtonIconColor=%23B4FE5F&ButtonNormalColor=%23B4FE5F&ButtonNormal2Color=%23B4FE5F&ButtonNormal3Color=%23B4FE5F&ButtonHighlightedColor=%23FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23FFFFFF&ButtonDisabledColor=%23FFFFFF&ButtonDisabled2Color=%23FFFFFF&PingSuccessTextColor=%23e3ecca&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23e3ecca&HUDBackgroundColor=%2338373D&v=1.0
+```
+
+-----------------------------------------------------
+
 > ✨注意：因苹果系统限制，Shadowrocket APP 内部分细节图标不可自定义色彩，且会根据系统深色/浅色模式改变，使用自定义配色时可能会因为此特性导致局部细节图标可视度过高或过低，望知悉
 
 -----------------------------------------------------
