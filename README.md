@@ -79,6 +79,8 @@ shadowrocket://color?NavigationBarColor=%232C2B31&NavigationBar2Color=%232C2B31&
 
 > ✨注意：因苹果系统限制，Shadowrocket APP 内部分细节图标不可自定义色彩，且会根据系统深色/浅色模式改变，使用自定义配色时可能会因为此特性导致局部细节图标可视度过高或过低，望知悉
 
+-----------------------------------------------------
+
 以下是 Shadowrocket 颜色配置的描述翻译：
 
 ```
