@@ -60,6 +60,12 @@ shadowrocket://color?NavigationBarColor=%2300FFFFFF&NavigationBar2Color=%23FFFFF
 
 -----------------------------------------------------
 
+Shadowrocket GodenDark 配色（暗金色）
+
+shadowrocket://color?NavigationBarColor=%232C2930&NavigationBar2Color=%232C2930&NavigationBarTextColor=%23D3AA68&NavigationBar2TextColor=%23D3AA68&TabBarColor=%232C2930&TabBarBorderColor=%232C2930&TabBarSelectedColor=%23D3AA68&TabBarUnselectedColor=%2379623D&TableBackgroundColor=%232C2930&TableCellBackgroundColor=%233F393D&TableCellSelectedBackgroundColor=%233F393D&TableSeparatorColor=%232C2930&TextFieldTextColor=%23D3AA68&PlaceholderColor=%2379623D&TextLabelTextColor=%23D3AA68&DetailLabelTextColor=%2379623D&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%2379623D&SearchFieldBackgroundColor=%233F393D&IndicatorColor=%23D3AA68&ButtonIconColor=%23D3AA68&ButtonNormalColor=%23D3AA68&ButtonNormal2Color=%23D3AA68&ButtonNormal3Color=%23D3AA68&ButtonHighlightedColor=%23FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23000000&ButtonDisabledColor=%23FFFFFF&ButtonDisabled2Color=%23FFFFFF&PingSuccessTextColor=%23D3AA68&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23D3AA68&HUDBackgroundColor=%233F393D&v=1.0
+
+-----------------------------------------------------
+
 ✨注意：因苹果系统限制，Shadowrocket APP 内部分细节图标不可自定义色彩，且会根据系统深色/浅色模式改变，使用自定义配色时可能会因为此特性导致局部细节图标可视度过高或过低，望知悉
 
 -----------------------------------------------------
