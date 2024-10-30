@@ -52,19 +52,25 @@ shadowrocket://color?NavigationBarColor=%23181E26&NavigationBar2Color=%23181E26&
 
 Shadowrocket Chrome 配色（深灰色）
 
+```
 shadowrocket://color?NavigationBarColor=%2327282B&NavigationBar2Color=%2327282B&NavigationBarTextColor=%23FFFFFF&NavigationBar2TextColor=%23FFFFFF&TabBarColor=%2327282B&TabBarBorderColor=%2300000000&TabBarSelectedColor=%2380BAFF&TabBarUnselectedColor=%23B3B3B3&TableBackgroundColor=%2327282B&TableCellBackgroundColor=%2333363B&TableCellSelectedBackgroundColor=%2333363B&TableSeparatorColor=%2345464b&TextFieldTextColor=%23FFFFFF&PlaceholderColor=%2380BAFF&TextLabelTextColor=%23FFFFFF&DetailLabelTextColor=%2377787D&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%2377787D&SearchFieldBackgroundColor=%2333363B&IndicatorColor=%23FFFFFF&ButtonIconColor=%2380BAFF&ButtonNormalColor=%23FFFFFF&ButtonNormal2Color=%23CCFFFFFF&ButtonNormal3Color=%2377787D&ButtonHighlightedColor=%2399FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23000000&ButtonDisabledColor=%2327282B&ButtonDisabled2Color=%2380FFFFFF&PingSuccessTextColor=%2380BAFF&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%2380BAFF&HUDBackgroundColor=%2327282B&v=1.0
+```
 
 -----------------------------------------------------
 
 Shadowrocket IceCream 配色（淡粉色）
 
+```
 shadowrocket://color?NavigationBarColor=%2300FFFFFF&NavigationBar2Color=%23FFFFFF&NavigationBarTextColor=%23804A88&NavigationBar2TextColor=%23804A88&TabBarColor=%23FFD7E9&TabBarBorderColor=%23FFD7E9&TabBarSelectedColor=%23804A88&TabBarUnselectedColor=%23FFFFFF&TableBackgroundColor=%23FFFFFF&TableCellBackgroundColor=%23FFEBF4&TableCellSelectedBackgroundColor=%23FFD7E9&TableSeparatorColor=%23FFFFFF&TextFieldTextColor=%23F5197B&PlaceholderColor=%23FFD7E9&TextLabelTextColor=%23804A88&DetailLabelTextColor=%23F5197B&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23804A88&SearchFieldBackgroundColor=%23FFEBF4&IndicatorColor=%23804A88&ButtonIconColor=%23804A88&ButtonNormalColor=%23804A88&ButtonNormal2Color=%23804A88&ButtonNormal3Color=%23804A88&ButtonHighlightedColor=%23FFEBF4&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23000000&ButtonDisabledColor=%23FFEBF4&ButtonDisabled2Color=%23FFEBF4&PingSuccessTextColor=%23804A88&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23804A88&HUDBackgroundColor=%23FFEBF4&v=1.0
+```
 
 -----------------------------------------------------
 
 Shadowrocket GodenDark 配色（暗金色）
 
+```
 shadowrocket://color?NavigationBarColor=%232C2930&NavigationBar2Color=%232C2930&NavigationBarTextColor=%23D3AA68&NavigationBar2TextColor=%23D3AA68&TabBarColor=%232C2930&TabBarBorderColor=%232C2930&TabBarSelectedColor=%23D3AA68&TabBarUnselectedColor=%2379623D&TableBackgroundColor=%232C2930&TableCellBackgroundColor=%233F393D&TableCellSelectedBackgroundColor=%233F393D&TableSeparatorColor=%232C2930&TextFieldTextColor=%23D3AA68&PlaceholderColor=%2379623D&TextLabelTextColor=%23D3AA68&DetailLabelTextColor=%2379623D&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%2379623D&SearchFieldBackgroundColor=%233F393D&IndicatorColor=%23D3AA68&ButtonIconColor=%23D3AA68&ButtonNormalColor=%23D3AA68&ButtonNormal2Color=%23D3AA68&ButtonNormal3Color=%23D3AA68&ButtonHighlightedColor=%23FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23000000&ButtonDisabledColor=%23FFFFFF&ButtonDisabled2Color=%23FFFFFF&PingSuccessTextColor=%23D3AA68&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23D3AA68&HUDBackgroundColor=%233F393D&v=1.0
+```
 
 -----------------------------------------------------
 
