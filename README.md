@@ -80,6 +80,14 @@ shadowrocket://color?NavigationBarColor=%232C2B31&NavigationBar2Color=%232C2B31&
 
 -----------------------------------------------------
 
+##### Shadowrocket TermiusDark `终端绿` <sub> `暗底色` <sub>
+
+```
+shadowrocket://color?NavigationBarColor=%23141729&NavigationBar2Color=%23141729&NavigationBarTextColor=%2321B869&NavigationBar2TextColor=%2321B869&TabBarColor=%23141729&TabBarBorderColor=%23141729&TabBarSelectedColor=%2321B869&TabBarUnselectedColor=%236621B869&TableBackgroundColor=%23141729&TableCellBackgroundColor=%23141729&TableCellSelectedBackgroundColor=%23141729&TableSeparatorColor=%233321B869&TextFieldTextColor=%2321B869&PlaceholderColor=%236621B869&TextLabelTextColor=%2321B869&DetailLabelTextColor=%236621B869&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%236621B869&SearchFieldBackgroundColor=%23141729&IndicatorColor=%2321B869&ButtonIconColor=%2321B869&ButtonNormalColor=%2321B869&ButtonNormal2Color=%2321B869&ButtonNormal3Color=%232C2E3F&ButtonHighlightedColor=%232C2E3F&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23FFFFFF&ButtonDisabledColor=%236621B869&ButtonDisabled2Color=%236621B869&PingSuccessTextColor=%2321B869&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%2321B869&HUDBackgroundColor=%233321B869&v=1.0
+```
+
+-----------------------------------------------------
+
 > ✨注意：因苹果系统限制，Shadowrocket APP 内部分细节图标不可自定义色彩，且会根据系统深色/浅色模式改变，使用自定义配色时可能会因为此特性导致局部细节图标可视度过高或过低，使用 `暗底色` 时搭配系统深色模式效果更佳，望知悉
 
 -----------------------------------------------------
