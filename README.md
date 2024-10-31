@@ -32,6 +32,14 @@
 
 -----------------------------------------------------
 
+* Shadowrocket BrightGold 配色（亮金色）【浅底色】
+
+```
+shadowrocket://color?NavigationBarColor=%23F7F7F7&NavigationBar2Color=%23FFFFFF&NavigationBarTextColor=%23D4A763&NavigationBar2TextColor=%23D4A763&TabBarColor=%23F7F7F7&TabBarBorderColor=%2300FFFFFF&TabBarSelectedColor=%23D4A763&TabBarUnselectedColor=%23D1C0A2&TableBackgroundColor=%23FFFFFF&TableCellBackgroundColor=%23F7F7F7&TableCellSelectedBackgroundColor=%23F7F7F7&TableSeparatorColor=%23FFFFFF&TextFieldTextColor=%23D4A763&PlaceholderColor=%23D1C0A2&TextLabelTextColor=%23D4A763&DetailLabelTextColor=%23D1C0A2&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23D1C0A2&SearchFieldBackgroundColor=%23F7F7F7&IndicatorColor=%23D1C0A2&ButtonIconColor=%23D4A763&ButtonNormalColor=%23D4A763&ButtonNormal2Color=%23D4A763&ButtonNormal3Color=%23D4A763&ButtonHighlightedColor=%23FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23FFFFFF&ButtonDisabledColor=%23FFFFFF&ButtonDisabled2Color=%23FFFFFF&PingSuccessTextColor=%23D4A763&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23D4A763&HUDBackgroundColor=%23F7F7F7&v=1.0
+```
+
+-----------------------------------------------------
+
 * Shadowrocket IceCream 配色（淡粉色）【浅底色】
 
 ```
