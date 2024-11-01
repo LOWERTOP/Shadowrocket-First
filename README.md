@@ -153,9 +153,7 @@ shadowrocket://color?NavigationBarColor=%23141729&NavigationBar2Color=%23141729&
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Rendering6.png" width="100%" height="100%"> 
 
-` 配色文件以实际效果为准，效果展示仅作示意，实际更新或有调整 `
-
-[反馈途径](https://t.me/ShadowrocketApp)
+` 配色文件以实际效果为准，效果展示仅作示意，实际更新或有调整 `  [反馈途径](https://t.me/ShadowrocketApp)
 
 ------
 
