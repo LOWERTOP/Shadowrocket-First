@@ -200,3 +200,10 @@ HUDBackgroundColor: HUD背景颜色
 以上颜色均以十六进制格式颜色代码表示
 
 ------
+
+<details>
+<summary>测试</summary>
+
+![测试(https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Rendering6.png)
+
+</details>
