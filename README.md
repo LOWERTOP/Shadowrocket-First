@@ -34,7 +34,7 @@
 
 -----------------------------------------------------
 
-### Shadowrocket BrightGold
+#### Shadowrocket BrightGold
 > `亮金色` <sup> `浅底色` <sup>
 
 ```
@@ -43,7 +43,7 @@ shadowrocket://color?NavigationBarColor=%23F7F7F7&NavigationBar2Color=%23F7F7F7&
 
 -----------------------------------------------------
 
-##### Shadowrocket IceCream
+#### Shadowrocket IceCream
 > `淡粉色` <sup> `浅底色` <sup>
 
 ```
@@ -52,7 +52,7 @@ shadowrocket://color?NavigationBarColor=%2300FFFFFF&NavigationBar2Color=%23FFFFF
 
 -----------------------------------------------------
 
-##### Shadowrocket Chrome
+#### Shadowrocket Chrome
 > `深灰色` <sub> `暗底色` <sub>
 
 ```
@@ -61,7 +61,7 @@ shadowrocket://color?NavigationBarColor=%2327282B&NavigationBar2Color=%2327282B&
 
 -----------------------------------------------------
 
-##### Shadowrocket BlueSky
+#### Shadowrocket BlueSky
 > `深蓝色` <sub> `暗底色` <sub>
 
 ```
@@ -70,7 +70,7 @@ shadowrocket://color?NavigationBarColor=%23181E26&NavigationBar2Color=%23181E26&
 
 -----------------------------------------------------
 
-##### Shadowrocket GodenDark
+#### Shadowrocket GodenDark
 > `暗金色` <sub> `暗底色` <sub>
 
 ```
@@ -79,7 +79,7 @@ shadowrocket://color?NavigationBarColor=%232C2B31&NavigationBar2Color=%232C2B31&
 
 -----------------------------------------------------
 
-##### Shadowrocket Fluoresce
+#### Shadowrocket Fluoresce
 > `荧光色` <sub> `暗底色` <sub>
 
 ```
@@ -88,7 +88,7 @@ shadowrocket://color?NavigationBarColor=%232C2B31&NavigationBar2Color=%232C2B31&
 
 -----------------------------------------------------
 
-##### Shadowrocket TermiusDark
+#### Shadowrocket TermiusDark
 > `终端绿` <sub> `暗底色` <sub>
 
 ```
