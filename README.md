@@ -35,7 +35,7 @@
 ------
 
 #### Shadowrocket BrightGold
-> `亮金色` <sup> `浅底色` <sup>
+> `亮金色` <sup> `亮底色` <sup>
 
 ```
 shadowrocket://color?NavigationBarColor=%23F7F7F7&NavigationBar2Color=%23F7F7F7&NavigationBarTextColor=%23D38301&NavigationBar2TextColor=%23D38301&TabBarColor=%23F7F7F7&TabBarBorderColor=%23F7F7F7&TabBarSelectedColor=%23D38301&TabBarUnselectedColor=%23D1C0A2&TableBackgroundColor=%23FFFFFF&TableCellBackgroundColor=%23F7F7F7&TableCellSelectedBackgroundColor=%23F7F7F7&TableSeparatorColor=%23FFFFFF&TextFieldTextColor=%23D38301&PlaceholderColor=%23D4A763&TextLabelTextColor=%23D38301&DetailLabelTextColor=%23D4A763&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23D4A763&SearchFieldBackgroundColor=%23F7F7F7&IndicatorColor=%23D4A763&ButtonIconColor=%23D38301&ButtonNormalColor=%23D38301&ButtonNormal2Color=%23D38301&ButtonNormal3Color=%23D38301&ButtonHighlightedColor=%23FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23FFFFFF&ButtonDisabledColor=%23FFFFFF&ButtonDisabled2Color=%23FFFFFF&PingSuccessTextColor=%23D4A763&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23D38301&HUDBackgroundColor=%23F7F7F7&v=1.0
@@ -44,7 +44,7 @@ shadowrocket://color?NavigationBarColor=%23F7F7F7&NavigationBar2Color=%23F7F7F7&
 ------
 
 #### Shadowrocket IceCream
-> `淡粉色` <sup> `浅底色` <sup>
+> `淡粉色` <sup> `亮底色` <sup>
 
 ```
 shadowrocket://color?NavigationBarColor=%2300FFFFFF&NavigationBar2Color=%23FFFFFF&NavigationBarTextColor=%23804A88&NavigationBar2TextColor=%23804A88&TabBarColor=%23FFD7E9&TabBarBorderColor=%23FFD7E9&TabBarSelectedColor=%23804A88&TabBarUnselectedColor=%23FFFFFF&TableBackgroundColor=%23FFFFFF&TableCellBackgroundColor=%23FFEBF4&TableCellSelectedBackgroundColor=%23FFD7E9&TableSeparatorColor=%23FFFFFF&TextFieldTextColor=%23F5197B&PlaceholderColor=%23FFD7E9&TextLabelTextColor=%23804A88&DetailLabelTextColor=%23F5197B&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23F5197B&SearchFieldBackgroundColor=%23FFEBF4&IndicatorColor=%23804A88&ButtonIconColor=%23804A88&ButtonNormalColor=%23804A88&ButtonNormal2Color=%23804A88&ButtonNormal3Color=%23804A88&ButtonHighlightedColor=%23FFEBF4&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23FFFFFF&ButtonDisabledColor=%23FFEBF4&ButtonDisabled2Color=%23FFEBF4&PingSuccessTextColor=%23804A88&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23804A88&HUDBackgroundColor=%23FFEBF4&v=1.0
