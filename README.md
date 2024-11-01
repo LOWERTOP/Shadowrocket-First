@@ -1,4 +1,4 @@
-# Shadowrocket 自制配置
+## Shadowrocket 自制配置
 
 1.[Talkatone 代理规则模块（含去广告规则）](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 
 
