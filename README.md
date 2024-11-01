@@ -173,6 +173,21 @@ shadowrocket://color?NavigationBarColor=%2330304C&NavigationBar2Color=%2330304C&
 </details>
 
 ------
+
+#### Shadowrocket Rose
+> `玫瑰红` <sub> `暗底色` <sub>
+
+```
+shadowrocket://color?NavigationBarColor=%238E0C36&NavigationBar2Color=%238E0C36&NavigationBarTextColor=%23FFFFFF&NavigationBar2TextColor=%23FFFFFF&TabBarColor=%238E0C36&TabBarBorderColor=%238E0C36&TabBarSelectedColor=%23FFFFFF&TabBarUnselectedColor=%23BE1451&TableBackgroundColor=%238E0C36&TableCellBackgroundColor=%23BE1451&TableCellSelectedBackgroundColor=%23BE1451&TableSeparatorColor=%238E0C36&TextFieldTextColor=%23FFFFFF&PlaceholderColor=%23FFFFFF&TextLabelTextColor=%23FFFFFF&DetailLabelTextColor=%23ADADAD&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23ADADAD&SearchFieldBackgroundColor=%2333363B&IndicatorColor=%23FFFFFF&ButtonIconColor=%23FFFFFF&ButtonNormalColor=%23FFFFFF&ButtonNormal2Color=%238E0C36&ButtonNormal3Color=%238E0C36&ButtonHighlightedColor=%23FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23FFFFFF&ButtonDisabledColor=%23FFFFFF&ButtonDisabled2Color=%23FFFFFF&PingSuccessTextColor=%23FFFFFF&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23FFFFFF&HUDBackgroundColor=%2327282B&v=1.0
+```
+<details>
+<summary>效果截图</summary>
+
+![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/10Rose.png)
+
+</details>
+
+------
 > ✨注意：因苹果系统限制，Shadowrocket APP 内部分细节图标不可自定义色彩，且会根据系统深色/浅色模式改变，使用自定义配色时可能会因为此特性导致局部细节图标可视度过高或过低，建议使用 `浅底色` 时搭配系统浅色模式效果更好，使用 `暗底色` 时搭配系统深色模式效果更佳，望知悉。另外，配色文件以实际效果为准，效果展示仅作示意，实际更新或存在调整  [反馈途径](https://t.me/ShadowrocketApp)
 
 ------
