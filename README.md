@@ -101,6 +101,8 @@ shadowrocket://color?NavigationBarColor=%23141729&NavigationBar2Color=%23141729&
 
 > ✨注意：因苹果系统限制，Shadowrocket APP 内部分细节图标不可自定义色彩，且会根据系统深色/浅色模式改变，使用自定义配色时可能会因为此特性导致局部细节图标可视度过高或过低，使用 `暗底色` 时搭配系统深色模式效果更佳，望知悉
 
+<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="60%" height="60%"> 
+
 ------
 
 以下是 Shadowrocket 颜色配置的描述翻译：
