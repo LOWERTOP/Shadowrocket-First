@@ -34,7 +34,7 @@
 
 -----------------------------------------------------
 
-##### Shadowrocket BrightGold
+### Shadowrocket BrightGold
 > `亮金色` <sup> `浅底色` <sup>
 
 ```
