@@ -202,8 +202,8 @@ HUDBackgroundColor: HUD背景颜色
 ------
 
 <details>
-<summary>测试</summary>
+<summary>示例</summary>
 
-![测试(https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Rendering6.png)
+![测试](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Rendering6.png)
 
 </details>
