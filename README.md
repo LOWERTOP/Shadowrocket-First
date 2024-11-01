@@ -28,7 +28,7 @@
 
 # Shadowrocket 配色文件
 
-<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="20%" height="20%">
+<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="50%" height="50%">
 
 > ` 配色使用说明 `
 > 
