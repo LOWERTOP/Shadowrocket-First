@@ -171,6 +171,6 @@ DefaultDotColor: 默认点颜色
 HUDBackgroundColor: HUD背景颜色
 ```
 
-以上所有颜色都以十六进制颜色代码格式表示
+以上颜色均以十六进制格式颜色代码表示
 
 ------
