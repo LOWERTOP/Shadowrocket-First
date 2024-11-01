@@ -31,6 +31,7 @@
 ` 部分效果展示 `
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Rendering6.png" width="100%" height="100%"> 
+
 ------
 
 > ` 配色使用说明 `
