@@ -28,17 +28,17 @@
 
 # Shadowrocket 配色文件
 
-` TermiusDark 效果示例 `
-
-<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="100%" height="100%"> 
-
-------
-
 > ` 配色使用说明 `
 > 
 > * 点击 ` shadowrocket://color?* ` 配色链接右侧 “ ❐ ” 符号以复制链接，配置页面点击 “ + ” 号，粘贴链接并应用
 > 
 > * 恢复默认颜色设置 ` APP 设置-颜色-重设颜色 `
+
+------
+
+` TermiusDark 效果示例 `
+
+<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="100%" height="100%"> 
 
 ------
 
