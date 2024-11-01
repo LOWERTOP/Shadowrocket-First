@@ -10,7 +10,7 @@
 
 ------
 
-# Shadowrocket 收集配置
+## Shadowrocket 收集配置
 
 1.Shadowrocket 官方关键词列表暨使用文档：[使用手册](https://github.com/wlxuf/Shadowrocket) 
 
@@ -26,7 +26,7 @@
 
 ------
 
-# Shadowrocket 配色文件
+## Shadowrocket 配色文件
 
 > ` 小火箭配色使用说明 `
 > 
