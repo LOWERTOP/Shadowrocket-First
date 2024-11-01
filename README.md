@@ -28,6 +28,8 @@
 
 # Shadowrocket 配色文件
 
+<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="20%" height="20%">
+
 > ` 配色使用说明 `
 > 
 > 点击 ` shadowrocket://color?* ` 配色链接右侧 “ ❐ ” 符号以复制链接，配置页面点击 “ + ” 号，粘贴链接并应用
