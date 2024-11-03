@@ -94,7 +94,7 @@ shadowrocket://color?NavigationBarColor=%23D5DDE0&NavigationBar2Color=%23D5DDE0&
 <details>
 <summary>效果截图</summary>
 
-![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Cloudy.png)
+![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Cloudy.PNG)
 
 </details>
 
