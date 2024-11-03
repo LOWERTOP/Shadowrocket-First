@@ -223,6 +223,21 @@ shadowrocket://color?NavigationBarColor=%231F1F28&NavigationBar2Color=%231F1F28&
 </details>
 
 ------
+
+#### Shadowrocket CyberPurple
+> `赛博紫` <sub> `暗底色` <sub>
+
+```
+shadowrocket://color?NavigationBarColor=%23332A57&NavigationBar2Color=%23332A57&NavigationBarTextColor=%23D2CDB2&NavigationBar2TextColor=%23D2CDB2&TabBarColor=%23332A57&TabBarBorderColor=%23332A57&TabBarSelectedColor=%23D2CDB2&TabBarUnselectedColor=%23564F73&TableBackgroundColor=%23332A57&TableCellBackgroundColor=%23483F68&TableCellSelectedBackgroundColor=%23483F68&TableSeparatorColor=%23332A57&TextFieldTextColor=%23D2CDB2&PlaceholderColor=%23D2CDB2&TextLabelTextColor=%23D2CDB2&DetailLabelTextColor=%2377787D&TextLabelDeleteColor=%23FF9998&HeaderFooterTextColor=%2377787D&SearchFieldBackgroundColor=%23483F68&IndicatorColor=%23FFFFFF&ButtonIconColor=%23D2CDB2&ButtonNormalColor=%23D2CDB2&ButtonNormal2Color=%23CCFFFFFF&ButtonNormal3Color=%2377787D&ButtonHighlightedColor=%2399FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23000000&ButtonDisabledColor=%2327282B&ButtonDisabled2Color=%2380FFFFFF&PingSuccessTextColor=%232A9089&PingTimeoutTextColor=%23FF9998&DefaultDotColor=%23D2CDB2&HUDBackgroundColor=%23483F68&v=1.0
+```
+<details>
+<summary>效果截图</summary>
+
+![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/CyberPurple.PNG)
+
+</details>
+
+------
 > ✨注意：因苹果系统限制，Shadowrocket APP 部分细节图标不可自定义色彩，且会根据系统深色/浅色模式改变，使用自定义配色时可能会因为此特性导致局部细节图标可视度存在问题，建议在使用 `浅底色` 时搭配系统浅色模式，使用 `暗底色` 时搭配系统深色模式效果更佳，望知悉。另外，配色文件以实际效果为准，效果展示仅作示意，实际更新或存在调整  [反馈途径](https://t.me/ShadowrocketApp)
 
 ------
