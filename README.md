@@ -34,6 +34,9 @@
 > 
 > * 恢复默认颜色设置 ` APP 设置-颜色-重设颜色 `
 
+更新时间：2024年11月3日
+配色数量：12
+
 ` TermiusDark 效果示例 `
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="100%" height="100%"> 
