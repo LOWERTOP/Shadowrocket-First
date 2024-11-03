@@ -22,7 +22,7 @@
 
 5.Johnshall 仅去广告配置，不包含代理/直连规则。也可作为规则集使用：[仅去广告配置文件](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [作者发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 
-6.用于节点筛选和修改/规范机场默认节点名称的筛选脚本，订阅页添加到过滤处：[节点筛选与改名脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) + [作者发布页](https://github.com/kiwi707/Shadow-Rocket)
+6.用于节点筛选/修改/规范机场默认节点名称的筛选脚本，订阅页添加到过滤处：[节点筛选与改名脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) + [作者发布页](https://github.com/kiwi707/Shadow-Rocket)
 
 ------
 
