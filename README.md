@@ -336,9 +336,9 @@ PingSuccessTextColor: Ping 成功文字颜色
 
 PingTimeoutTextColor: Ping 超时文字颜色
 
-DefaultDotColor: 默认点颜色
+DefaultDotColor: 默认 “ 点 ” 颜色
 
-HUDBackgroundColor: HUD背景颜色
+HUDBackgroundColor: HUD 弹窗背景颜色
 ```
 
 ------
