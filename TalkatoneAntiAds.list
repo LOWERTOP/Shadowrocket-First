@@ -8,12 +8,12 @@
 # 策略建议：REJECT-DROP
 
 DOMAIN-SUFFIX,ads.inmobi.com
-DOMAIN-SUFFIX,tappx.com
-DOMAIN-SUFFIX,criteo.com
-DOMAIN-SUFFIX,pubmatic.com
-DOMAIN-SUFFIX,smaato.net
-DOMAIN-SUFFIX,amazon-adsystem.com
-DOMAIN-SUFFIX,googleads.g.doubleclick.net
 DOMAIN-SUFFIX,adsappier.com
 DOMAIN-SUFFIX,appier.net
 DOMAIN-SUFFIX,appiersig.com
+DOMAIN-SUFFIX,amazon-adsystem.com
+DOMAIN-SUFFIX,criteo.com
+DOMAIN-SUFFIX,googleads.g.doubleclick.net
+DOMAIN-SUFFIX,pubmatic.com
+DOMAIN-SUFFIX,smaato.net
+DOMAIN-SUFFIX,tappx.com
