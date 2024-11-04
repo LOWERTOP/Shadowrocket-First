@@ -14,6 +14,8 @@
 
 ## Shadowrocket 收集配置
 
+`  本单元配置为收集自官方或靠谱第三方的使用手册、配置文件、模块、规则集、脚本等，可放心食用  `
+
 1.Shadowrocket 官方关键词列表暨使用文档：[使用手册](https://github.com/wlxuf/Shadowrocket) 
 
 2.Shadowrocket 非常好用且备注非常详尽的配置文件：[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组/代理分组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
