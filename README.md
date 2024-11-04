@@ -261,11 +261,9 @@ shadowrocket://color?NavigationBarColor=%23332A57&NavigationBar2Color=%23332A57&
 
 ------
 
-` 部分效果展示 `
+<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingBrightGold.png" width="100%" height="100%">
 
-<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110301.png" width="100%" height="100%">
-
-<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110302.png" width="100%" height="100%">
+` 自恋展示 `
 
 ------
 
