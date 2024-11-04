@@ -71,6 +71,10 @@ shadowrocket://color?NavigationBarColor=%23F7F7F7&NavigationBar2Color=%23F7F7F7&
 
 ------
 
+`  以下为特制小火箭配色文件，自行根据需求选择使用  `
+
+------
+
 #### Shadowrocket IceCream
 > `淡粉色` <sup> `亮底色` <sup>
 
