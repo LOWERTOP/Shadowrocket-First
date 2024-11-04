@@ -269,7 +269,9 @@ shadowrocket://color?NavigationBarColor=%23332A57&NavigationBar2Color=%23332A57&
 
 ### Shadowrocket 颜色配置描述翻译
 
-> 小火箭自定义配色主要使用十六进制色值进行调整，用户可根据自己需要进行自定义，也可以将示例配色链接交给 AI 进行随机/按要求搭配，如有好看配色也接受讨论/投稿，讨论/提交入口： [ Shadowrocket Telegram 官方频道 ](https://t.me/ShadowrocketApp)
+> 小火箭自定义配色使用十六进制色值进行调整，用户可根据自己需要进行自定义，也可以将示例配色链接交给 AI 进行随机/按要求搭配，如有好看配色也接受讨论/投稿，讨论/提交入口： [ Shadowrocket Telegram 官方频道 ](https://t.me/ShadowrocketApp)
+>
+> ` 以下为小火箭配色描述的中文翻译，如有需要可自行对照调整 `
 
 ```
 NavigationBarColor: 导航栏背景色
