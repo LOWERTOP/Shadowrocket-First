@@ -56,6 +56,10 @@
 
 ------
 
+`  以下为特制小火箭配色文件，自行根据需求选择使用  `
+
+------
+
 #### Shadowrocket BrightGold
 > `亮金色` <sup> `亮底色` <sup>
 
@@ -68,10 +72,6 @@ shadowrocket://color?NavigationBarColor=%23F7F7F7&NavigationBar2Color=%23F7F7F7&
 ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01BrightGold.png)
 
 </details>
-
-------
-
-`  以下为特制小火箭配色文件，自行根据需求选择使用  `
 
 ------
 
