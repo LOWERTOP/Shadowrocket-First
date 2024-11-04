@@ -2,13 +2,13 @@
 
 > `  本单元为自制内容，是为特定的自用软件或服务所用，如无需要可直接跳过  `
 
-1.[Talkatone 代理规则模块（含去广告规则）](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 
+1. [Talkatone 代理规则模块（含去广告规则）](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 
 
-2.[Talkatone 去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.txt)
+2. [Talkatone 去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.txt)
 
-3.[Ultra Mobile Paygo SIM card Wi-Fi Calling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
+3. [Ultra Mobile Paygo SIM card Wi-Fi Calling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
 
-4.[Ultra Mobile Paygo SIM card Wi-Fi Calling 配置规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
+4. [Ultra Mobile Paygo SIM card Wi-Fi Calling 配置规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
 
 ------
 
@@ -16,17 +16,17 @@
 
 > `  本单元内容为收集自官方或靠谱第三方的使用手册、配置文件、模块、规则集、脚本等，可放心食用  `
 
-1.Shadowrocket 官方关键词列表暨使用文档：[使用手册](https://github.com/wlxuf/Shadowrocket) 
+1. Shadowrocket 官方关键词列表暨使用文档：[使用手册](https://github.com/wlxuf/Shadowrocket) 
 
-2.Shadowrocket 备注详尽的准官方配置文件：[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组/代理分组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
+2. Shadowrocket 备注详尽的准官方配置文件：[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组/代理分组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
 
-3.BlackMatrix7 整理的非常详尽的分流规则集：[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) 
+3. BlackMatrix7 整理的非常详尽的分流规则集：[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) 
 
-4.Cuttlefish 墨鱼去广告/开屏广告整合模块：[去广告模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) 
+4. Cuttlefish 墨鱼去广告/开屏广告整合模块：[去广告模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) 
 
-5.Johnshall 仅去广告配置文件，不包含代理/直连规则。也可作为规则集使用：[仅去广告配置文件](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [作者发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
+5. Johnshall 仅去广告配置文件，不包含代理/直连规则。也可作为规则集使用：[仅去广告配置文件](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [作者发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 
-6.用于 ` 筛选/修改/规范机场默认节点名称 ` 的脚本，订阅页添加到过滤处：[节点筛选与改名脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) + [作者发布页](https://github.com/kiwi707/Shadow-Rocket)
+6. 用于 ` 筛选/修改/规范机场默认节点名称 ` 的脚本，订阅页添加到过滤处：[节点筛选与改名脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) + [作者发布页](https://github.com/kiwi707/Shadow-Rocket)
 
 ------
 
