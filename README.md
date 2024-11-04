@@ -1,6 +1,6 @@
 ## Shadowrocket 自制配置
 
-`  本单元配置为特定自用软件或服务所用，如无需要可直接跳过  `
+`  本单元为自制内容，是为特定的自用软件或服务所用，如无需要可直接跳过  `
 
 1.[Talkatone 代理规则模块（含去广告规则）](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 
 
@@ -14,7 +14,7 @@
 
 ## Shadowrocket 收集配置
 
-`  本单元配置为收集自官方或靠谱第三方的使用手册、配置文件、模块、规则集、脚本等，可放心食用  `
+`  本单元内容为收集自官方或靠谱第三方的使用手册、配置文件、模块、规则集、脚本等，可放心食用  `
 
 1.Shadowrocket 官方关键词列表暨使用文档：[使用手册](https://github.com/wlxuf/Shadowrocket) 
 
