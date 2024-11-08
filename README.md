@@ -1,6 +1,6 @@
 ## Shadowrocket 自制配置
 
-> `  本单元为自制内容，是为特定的软件或服务所用，如无需要可直接跳过  `
+> `  本单元为自制内容，仅为特定的软件或服务所用，如无需要可直接跳过  `
 
 1. [Talkatone 代理规则模块（含去广告规则）](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 
 
