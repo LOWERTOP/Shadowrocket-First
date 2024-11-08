@@ -85,7 +85,7 @@ shadowrocket://color?NavigationBarColor=%23F7F7F7&NavigationBar2Color=%23F7F7F7&
 
 ------
 
-#### Shadowrocket V2EXDAY
+#### Shadowrocket V2EX DAY
 > `V2EX 白昼` <sup> `亮底色` <sup>
 
 ```
