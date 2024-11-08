@@ -1,4 +1,4 @@
-#!name=UltraMobileWiFiCalling
+#!name=UltraMobile
 #!desc=Ultra Mobile Paygo WiFi Calling 配置模块，本模块仅适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式
 # 整理作者：https://t.me/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
