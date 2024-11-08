@@ -42,6 +42,10 @@
 
 `  配色数量  ` 13
 
+------
+
+`  转载注明出处  `
+
 `  TermiusDark 效果示例  `
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="100%" height="100%"> 
