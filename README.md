@@ -24,7 +24,7 @@
 
 4. Cuttlefish 墨鱼去广告/开屏广告整合模块：[去广告模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) 
 
-5. Spotify 音乐模块：[Spotify](https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module) + [作者发布页](https://github.com/app2smile/rules)
+5. Spotify 音乐模块：[Spotify 模块](https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module) + [作者发布页](https://github.com/app2smile/rules)
 
 6. Johnshall 仅去广告配置文件，不含规则，可作为规则集使用：[仅去广告配置文件](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [作者发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 
