@@ -20,9 +20,9 @@
 >
 > 2. [Talkatone 去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list)
 >
-> 3. [Ultra Mobile WiFiCalling 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
+> 3. [Ultra Mobile WiFiCalling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
 >
-> 4. [Ultra Mobile WiFiCalling 规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
+> 4. [Ultra Mobile WiFiCalling 配置规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
 
 ------
 
@@ -57,7 +57,7 @@
 > [!IMPORTANT]
 > * 因苹果系统限制，Shadowrocket APP 部分细节图标不可自定义色彩，且会根据系统深色/浅色模式改变，使用小火箭自定义配色时可能会因为此特性导致局部细节图标可视度存在问题，建议在使用 `亮底色` 时搭配系统浅色模式，使用 `暗底色` 时搭配系统深色模式效果更佳，望知悉。另外，配色文件以实际效果为准，效果展示仅作示意，实际更新或存在调整。同时接受 ` 反馈/讨论/投稿 `
 > * 反馈入口：[Shadowrocket 官方频道](https://t.me/ShadowrocketApp)
-> * 更新时间：` 2024年11月12日 `
+> * 更新时间：` 2024年11月13日 `
 > * 配色数量：` 18 `
 
 > ` 效果示例：TermiusDark `
