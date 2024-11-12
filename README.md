@@ -350,8 +350,6 @@ shadowrocket://color?NavigationBarColor=%2318222D&NavigationBar2Color=%2318222D&
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingBrightGold.png" width="100%" height="100%">
 
-` 自恋展示 `
-
 ------
 
 ### Shadowrocket 颜色配置描述翻译
