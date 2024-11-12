@@ -43,12 +43,6 @@
 
 ------
 
-> [!NOTE]
-> * 更新时间： ` 2024年11月12日 `
-> * 配色数量： ` 18 `
-
-------
-
 > [!CAUTION]
 > 转载注明出处
 
@@ -67,6 +61,10 @@
 ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110302.png)
 
 </details>
+
+> [!NOTE]
+> * 更新时间： ` 2024年11月12日 `
+> * 配色数量： ` 18 `
 
 ------
 
