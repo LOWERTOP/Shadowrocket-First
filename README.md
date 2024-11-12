@@ -55,6 +55,7 @@
 ------
 
 > 效果示例
+> 
 > ` TermiusDark `
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="100%" height="100%"> 
