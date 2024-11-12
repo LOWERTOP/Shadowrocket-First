@@ -342,6 +342,9 @@
 
 ------
 
+* * To Be Continued * *
+
+------
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingBrightGold.png" width="100%" height="100%">
 
 ------
