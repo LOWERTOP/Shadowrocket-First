@@ -54,19 +54,19 @@
 > * 更新时间： ` 2024年11月12日 `
 > * 配色数量： ` 18 `
 
-------
 
-` 效果示例 TermiusDark `
 
-<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="100%" height="100%"> 
-
-<details>
-<summary>点击查看其他配色案例</summary>
-
-![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110301.png)
-![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110302.png)
-
-</details>
+> ` 效果示例 TermiusDark `
+> 
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="100%" height="100%"> 
+> 
+> <details>
+> <summary>点击查看其他配色案例</summary>
+> 
+> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110301.png)
+> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110302.png)
+> 
+> </details>
 
 ------
 
