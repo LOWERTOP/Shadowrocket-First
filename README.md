@@ -25,19 +25,19 @@
 > [!NOTE]
 > 本单元内容为收集自 ` 官方或靠谱第三方 ` 的使用手册、配置文件、模块、规则集、脚本等，可放心食用
 
-1. Shadowrocket 官方关键词列表暨使用文档：[使用手册](https://github.com/wlxuf/Shadowrocket) 
-
-2. Shadowrocket 备注详尽的准官方配置文件：[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组/代理分组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
-
-3. BlackMatrix7 整理的非常详尽的分流规则集：[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) 
-
-4. Cuttlefish 墨鱼去广告/开屏广告整合模块：[去广告模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) + [作者发布页](https://github.com/ddgksf2013)
-
-5. Spotify 音乐模块：[Spotify 模块](https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module) + [作者发布页](https://github.com/app2smile/rules)
-
-6. Johnshall 仅去广告配置文件，不含规则，可作为规则集使用：[仅去广告配置文件](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [作者发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
-
-7. 用于 ` 筛选/修改/规范机场默认节点名称 ` 的脚本，订阅页添加到过滤处：[节点筛选与改名脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) + [作者发布页](https://github.com/kiwi707/Shadow-Rocket)
+> 1. Shadowrocket 官方关键词列表暨使用文档：[使用手册](https://github.com/wlxuf/Shadowrocket) 
+> 
+> 2. Shadowrocket 备注详尽的准官方配置文件：[懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人配置文件（含策略组/代理分组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
+> 
+> 3. BlackMatrix7 整理的非常详尽的分流规则集：[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) 
+> 
+> 4. Cuttlefish 墨鱼去广告/开屏广告整合模块：[去广告模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) + [作者发布页](https://github.com/ddgksf2013)
+> 
+> 5. Spotify 音乐模块：[Spotify 模块](https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module) + [作者发布页](https://github.com/app2smile/rules)
+> 
+> 6. Johnshall 仅去广告配置文件，不含规则，可作为规则集使用：[仅去广告配置文件](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [作者发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
+> 
+> 7. 用于 ` 筛选/修改/规范机场默认节点名称 ` 的脚本，订阅页添加到过滤处：[节点筛选与改名脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) + [作者发布页](https://github.com/kiwi707/Shadow-Rocket)
 
 ------
 
