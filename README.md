@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
-> ` 小火箭配色 `  ` 小火箭主题 `  ` 小火箭皮肤 ` 
+> ` 小火箭配色 `  ` 小火箭主题 `  ` 小火箭皮肤 `  ` 小火箭配置 ` 
 
 > [!WARNING]
 > 禁止使用本仓库内的任何内容牟利！转载请务必 ` 注明来源 ` 或 ` 标明作者 `
