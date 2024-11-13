@@ -29,13 +29,13 @@
 > [!NOTE]
 > 本单元内容为收集自 ` 官方或靠谱第三方 ` 的使用手册、配置文件、模块、规则集、脚本等，可放心食用
 
-> 1. Shadowrocket 官方关键词列表暨使用文档：[使用手册](https://github.com/wlxuf/Shadowrocket) 
+> 1. Shadowrocket 官方关键词列表及文档：[使用手册](https://github.com/wlxuf/Shadowrocket) 
 > 
-> 2. Shadowrocket 备注详尽的准官方配置文件：[懒人](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人含代理分组](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
+> 2. Shadowrocket 详尽的准官方配置文件：[懒人](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人含代理分组](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
 > 
-> 3. BlackMatrix7 整理的非常详尽的分流规则集：[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) 
+> 3. BlackMatrix7 整理的详尽的分流规则集：[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) 
 > 
-> 4. Cuttlefish 墨鱼去广告/去开屏广告整合模块：[模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) + [发布页](https://github.com/ddgksf2013/ddgksf2013)
+> 4. Cuttlefish 墨鱼去广告整合模块：[模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) + [发布页](https://github.com/ddgksf2013/ddgksf2013)
 > 
 > 5. Spotify 音乐模块：[模块](https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module) + [发布页](https://github.com/app2smile/rules)
 > 
