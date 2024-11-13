@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/001.png" width="100%" height="100%">
+<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
 > [!CAUTION]
 > 禁止使用本仓库内的任何内容牟利！
