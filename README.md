@@ -1,3 +1,5 @@
+> ` 小火箭配色 `  ` 小火箭主题 `  ` 小火箭皮肤 ` 
+
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
 > [!WARNING]
