@@ -437,6 +437,6 @@ _To Be Continued..._
 
 ------
 
-<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/02.png" width="100%" height="100%">
-
 © ` Copyright By LOWERTOP `
+
+<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/02.png" width="100%" height="100%">
