@@ -351,7 +351,9 @@
 _To Be Continued..._
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingBrightGold.png" width="100%" height="100%">
+
 > ` 配色文件以实际效果为准，效果展示仅作示意，实际更新或存在调整 `
+
 ------
 
 ### Shadowrocket 颜色配置描述翻译
