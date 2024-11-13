@@ -34,7 +34,7 @@
 
 > 1. Shadowrocket 官方的关键词列表及文档：[使用手册](https://github.com/wlxuf/Shadowrocket) 
 > 
-> 2. Shadowrocket 很详尽的准官方配置文件：[懒人配置](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 、 [懒人含代理分组](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
+> 2. Shadowrocket 很详尽的准官方配置文件：[懒人配置](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) + [懒人含代理分组](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
 > 
 > 3. BlackMatrix7 整理的详尽的分流规则集：[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) 
 > 
