@@ -1,9 +1,7 @@
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
 > [!CAUTION]
-> 禁止使用本仓库内的任何内容牟利！
-> 
-> 转载请务必 ` 注明来源 ` 或 ` 标明作者 `
+> 禁止使用本仓库内的任何内容牟利！转载请务必 ` 注明来源 ` 或 ` 标明作者 `
 >
 > __对，说的就你！小火箭网站都假冒的小偷！__
 >
