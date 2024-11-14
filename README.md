@@ -370,6 +370,9 @@ _To Be Continued..._
 > [!TIP]
 > 可将配色链接交给 AI 进行随机/按要求搭配，或许有意外 ~~惊吓~~ 惊喜
 
+> <details>
+> <summary>点击查看配色描述翻译</summary>
+> 
 > ```
 > NavigationBarColor: 导航栏背景色
 > 
@@ -437,6 +440,9 @@ _To Be Continued..._
 > 
 > HUDBackgroundColor: HUD 弹窗背景颜色
 > ```
+> 
+> </details>
+
 
 ------
 
