@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
 > [!NOTE]
-> 更新时间：` 2024年11月14日 `
+> ` 2024年11月14日 `
 > 
 > 本仓库主要为自用仓库，同时提供一些自制/收集而来的 ` 小火箭配置文件 `  ` 小火箭模块 `  ` 小火箭规则集 `  ` 小火箭脚本 ` 等内容，同时提供多种自定义修改的 ` 小火箭配色/主题/皮肤 ` 
 
