@@ -373,7 +373,7 @@ _To Be Continued..._
 > <details>
 > <summary>点击查看配色描述翻译</summary>
 > 
-> #### 配色描述中文翻译
+> 配色描述中文翻译：
 > 
 > ```
 > NavigationBarColor: 导航栏背景色
