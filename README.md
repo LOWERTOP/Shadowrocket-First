@@ -372,7 +372,9 @@ _To Be Continued..._
 
 > <details>
 > <summary>点击查看配色描述翻译</summary>
-> 
+>
+> 以下内容使用移动设备查看若显示不全，左右拖动即可
+>
 > ```ruby
 > NavigationBarColor: 导航栏背景色
 > 
