@@ -46,7 +46,7 @@
 > 
 > 5. Johnshall 仅去广告配置文件，可作为规则集使用：[配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 > 
-> 6. kiwi707 制作的用于 ` 筛选/规范订阅节点 ` 的脚本：[脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) + [发布页](https://github.com/kiwi707/Shadow-Rocket)
+> 6. kiwi707 制作的 ` 筛选/规范订阅节点 ` 的脚本：[脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) + [发布页](https://github.com/kiwi707/Shadow-Rocket)
 
 ------
 
