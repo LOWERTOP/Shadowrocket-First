@@ -10,7 +10,7 @@
 >
 > __提醒：小火箭没有官网！__ [唯一官方介绍页面](https://shadowlaunch.com/)
 
-> ` 本仓更新时间：2024年11月14日 `
+> ` 本仓更新时间：2024年11月15日 `
 
 ------
 
@@ -44,11 +44,9 @@
 > 
 > 4. Cuttlefish 墨鱼去广告模块：[模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) + [发布页](https://github.com/ddgksf2013/ddgksf2013)
 > 
-> 5. Spotify 音乐模块：[模块](https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module) + [发布页](https://github.com/app2smile/rules)
+> 5. Johnshall 仅去广告配置文件，可作为规则集使用：[配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 > 
-> 6. Johnshall 仅去广告配置文件，可作为规则集使用：[配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
-> 
-> 7. 用于 ` 筛选/修改/规范订阅节点名称 ` 的脚本，订阅页添加到过滤处：[脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) + [发布页](https://github.com/kiwi707/Shadow-Rocket)
+> 6. 用于 ` 筛选/修改/规范订阅节点名称 ` 的脚本，订阅页添加到过滤处：[脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) + [发布页](https://github.com/kiwi707/Shadow-Rocket)
 
 ------
 
