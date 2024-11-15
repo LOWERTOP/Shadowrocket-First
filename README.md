@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
 > [!NOTE]
-> 本仓库主要为 ` Shadowrocket ` ` 小火箭 ` 相关内容，提供一些自制/收集而来的 ` 小火箭配置文件 ` ` 小火箭模块 ` ` 小火箭规则集 ` ` 小火箭脚本 ` 等配置，同时提供多种自定义设计的 ` 小火箭配色/主题/皮肤 `
+> 本仓库主要为 ` Shadowrocket ` ` 小火箭 ` 相关内容，提供一些自制/收集而来的 ` 小火箭配置文件 ` ` 小火箭模块 ` ` 小火箭规则集 ` ` 小火箭脚本 ` 等配置，同时提供多种设计完成的 ` 小火箭配色/主题/皮肤 `
 
 > [!WARNING]
 > 禁止使用本仓库内的任何内容牟利！转载请务必 ` 注明来源 ` 或 ` 标明作者 `
