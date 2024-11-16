@@ -52,7 +52,7 @@
 
 ## Shadowrocket 配色文件
 
-> [!TIP]
+> [!NOTE]
 > __小火箭配色文件使用说明__
 > * __安装颜色：__ 选择所需配色，在链接代码 ` shadowrocket://color?* ` 右侧点击 “ ❐ ” 符号复制，在 ` 配置 ` 页面点击 “ ✚ ” 号，粘贴并应用
 > * __恢复默认：__ ` APP-设置-颜色-重设颜色 `
@@ -81,7 +81,7 @@
 >
 > __再骂你一遍！连小火箭网站都假冒的家伙是垃圾！！更何况还偷我东西！！！__
 
-> [!NOTE]
+> [!TIP]
 > ` 快捷指令 ` 直接安装地址：[快捷指令](https://www.icloud.com/shortcuts/be37b96c10314e0da9a554b61bc18ae0)
 > 
 > ` 极其鸣谢 ` 快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
