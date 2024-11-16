@@ -82,11 +82,11 @@
 > __再骂你一遍！连小火箭网站都假冒的家伙是垃圾！！更何况还偷我东西！！！__
 
 > [!NOTE]
-> 快捷指令直接安装地址：[快捷指令](https://www.icloud.com/shortcuts/be37b96c10314e0da9a554b61bc18ae0)
+> ` 快捷指令 ` 直接安装地址：[快捷指令](https://www.icloud.com/shortcuts/be37b96c10314e0da9a554b61bc18ae0)
 > 
-> 极其鸣谢快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
+> ` 极其鸣谢 ` 快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
 >
-> 特别鸣谢建议提供好友：[Sage](https://t.me/huskydb)
+> ` 特别鸣谢 ` 建议提供好友：[Sage](https://t.me/huskydb)
 
 ------
 
