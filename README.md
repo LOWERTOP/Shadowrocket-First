@@ -10,7 +10,7 @@
 >
 > __提醒：小火箭没有官网！__ [唯一官方介绍页面](https://shadowlaunch.com/)
 
-> ` 本仓更新时间：2024-11-15 `
+> ` 本仓更新时间：2024-11-16 `
 
 ------
 
@@ -83,7 +83,8 @@
 
 > [!NOTE]
 > 快捷指令直装地址：[快捷指令](https://www.icloud.com/shortcuts/be37b96c10314e0da9a554b61bc18ae0)
-> 特别鸣谢快捷指令作者：[iab](https://t.me/iab000)
+> 
+> 特别鸣谢快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
 
 ------
 
