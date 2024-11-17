@@ -36,7 +36,7 @@
 > [!NOTE]
 > 本单元内容为收集自 ` 官方或靠谱第三方 ` 的使用手册、配置、模块、规则集、脚本等，可放心食用
 
-> 1. Shadowrocket 官方的关键词列表暨文档：[优化版](https://github.com/LOWERTOP/Shadowrocket) + [官方版](https://github.com/wlxuf/Shadowrocket)
+> 1. Shadowrocket 官方的关键词列表暨文档：[优化版本](https://github.com/LOWERTOP/Shadowrocket) + [官方版本](https://github.com/wlxuf/Shadowrocket)
 > 
 > 2. Shadowrocket 很详尽的准官方配置文件：[懒人配置](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) + [懒人含代理分组](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
 > 
