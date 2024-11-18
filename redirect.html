@@ -3,43 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <script>
-        window.onload = function () {
-            // 获取 URL 参数中的待跳转链接
-            const params = new URLSearchParams(window.location.search);
-            let url = params.get('url');
-
-            if (!url) {
-                alert("错误：未提供跳转地址！");
-                return;
-            }
-
-            try {
-                // 解码链接，确保不会因多次编码导致错误
-                url = decodeURIComponent(url);
-
-                // Shadowrocket 的 URL scheme 校验
-                if (url.startsWith("shadowrocket://")) {
-                    // 修复可能的颜色代码解析问题
-                    const correctedUrl = url.replace(/%23/g, '#');
-                    console.log("跳转到 Shadowrocket 配色链接：", correctedUrl);
-
-                    // 强制跳转到 Shadowrocket 应用
-                    window.location.href = correctedUrl;
-                } else {
-                    alert("错误：非 Shadowrocket 配色链接！");
-                    console.error("非 Shadowrocket 配色链接：", url);
-                }
-            } catch (error) {
-                alert("跳转失败：URL 格式错误！");
-                console.error("错误信息：", error);
-            }
-        };
-    </script>
+    <title>URL Redirector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20%;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>正在跳转...</h1>
-    <p>如果未跳转，请检查链接是否正确。</p>
+    <h1>跳转中，请稍候...</h1>
+    <p>如果未自动跳转，请手动点击下面的链接：</p>
+    <a id="redirect-link" href="#">手动跳转</a>
+
+    <script>
+        // 获取 URL 参数
+        function getQueryParam(param) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get(param);
+        }
+
+        // 编解码逻辑
+        function decodeUrl(url) {
+            try {
+                return decodeURIComponent(url);
+            } catch (e) {
+                return url; // 如果解码失败，返回原始 URL
+            }
+        }
+
+        function encodeUrl(url) {
+            try {
+                return encodeURIComponent(url);
+            } catch (e) {
+                return url; // 如果编码失败，返回原始 URL
+            }
+        }
+
+        // 自动编解码处理
+        const rawUrl = getQueryParam('url'); // 原始输入 URL
+        const targetUrl = decodeUrl(rawUrl); // 尝试解码用户输入
+
+        // 校验 URL 是否有效
+        if (targetUrl && (targetUrl.startsWith('http') || targetUrl.includes(':'))) {
+            // 自动跳转
+            window.location.href = targetUrl;
+
+            // 更新手动跳转链接
+            document.getElementById('redirect-link').href = targetUrl;
+            document.getElementById('redirect-link').textContent = `跳转到：${encodeUrl(targetUrl)}`;
+        } else {
+            // 如果 URL 无效，提示用户
+            document.body.innerHTML = `<h1>无效的链接！</h1><p>请检查 URL 是否正确。</p>`;
+        }
+    </script>
 </body>
 </html>
