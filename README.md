@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
+![image](https://github.com/user-attachments/assets/536719d1-f5f6-428f-9ae5-ce9cf96a9e94)<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
 > [!NOTE]
 > 本仓库主要为 ` Shadowrocket ` ` 小火箭 ` 相关内容，提供一些自制/收集而来的 ` 小火箭配置文件 ` ` 小火箭模块 ` ` 小火箭规则集 ` ` 小火箭脚本 ` 等配置，同时提供多种自主设计的 ` 小火箭配色/主题/皮肤 `
@@ -54,8 +54,10 @@
 
 > [!NOTE]
 > __小火箭配色文件使用说明__
-> * __安装颜色：__ 选择所需配色，在链接代码 ` shadowrocket://color?* ` 右侧点击 “ ❐ ” 符号复制，在 ` 配置 ` 页面点击 “ ✚ ” 号，粘贴并应用
-> * __恢复默认：__ ` APP-设置-颜色-重设颜色 `
+> * __一键安装配色：__ 选择所需配色，点击 ` 一键安装 `，允许跳转后点击 ` 使用 ` 即可
+> * __复制代码安装：__ 选择所需配色，在链接代码 ` shadowrocket://color?* ` 右侧点击 “ ❐ ” 符号复制，在 ` 配置 ` 页面点击 “ ✚ ” 号，粘贴并应用
+> * __快捷指令安装：__ 点击安装下文中的快捷指令，在快捷指令中根据需求选择配色并安装
+> * __恢复默认配色：__ ` APP-设置-颜色-重设颜色 `
 
 > [!IMPORTANT]
 > * 因苹果系统限制，小火箭部分细节图标不可自定义配色，且会跟随系统深色/浅色模式改变，自定义小火箭配色时可能会因此特性导致局部细节图标可视度存在问题。建议在使用 `亮底色` 时搭配系统浅色模式，使用 `暗底色` 时搭配系统深色模式，望知悉。另，作者接受 ` 反馈/讨论/投稿 `
@@ -92,6 +94,8 @@
 
 #### Shadowrocket BrightGold
 > `亮金色` <sup> `亮底色` <sup>
+> 
+> [点击一键安装配色](https://lowertop.github.io/Shadowrocket-First/theme.html?target=BrightGold)
 > 
 > ```ruby
 > shadowrocket://color?NavigationBarColor=%23F7F7F7&NavigationBar2Color=%23F7F7F7&NavigationBarTextColor=%23D38301&NavigationBar2TextColor=%23D38301&TabBarColor=%23F7F7F7&TabBarBorderColor=%23F7F7F7&TabBarSelectedColor=%23D38301&TabBarUnselectedColor=%23D1C0A2&TableBackgroundColor=%23FFFFFF&TableCellBackgroundColor=%23F7F7F7&TableCellSelectedBackgroundColor=%23F7F7F7&TableSeparatorColor=%23FFFFFF&TextFieldTextColor=%23D38301&PlaceholderColor=%23D4A763&TextLabelTextColor=%23D38301&DetailLabelTextColor=%23D4A763&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23D4A763&SearchFieldBackgroundColor=%23F7F7F7&IndicatorColor=%23D4A763&ButtonIconColor=%23D38301&ButtonNormalColor=%23D38301&ButtonNormal2Color=%23D38301&ButtonNormal3Color=%23D38301&ButtonHighlightedColor=%23FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23FFFFFF&ButtonDisabledColor=%23FFFFFF&ButtonDisabled2Color=%23FFFFFF&PingSuccessTextColor=%23D4A763&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23D38301&HUDBackgroundColor=%23F7F7F7&v=1.0
