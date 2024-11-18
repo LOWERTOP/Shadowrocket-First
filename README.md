@@ -499,7 +499,7 @@ _To Be Continued..._
 
 > [!TIP]
 > 复制以下链接，粘贴在需要跳转的链接前进行访问即可
-> ```
+> ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=
 > ```
 
