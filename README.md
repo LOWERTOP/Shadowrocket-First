@@ -21,13 +21,13 @@
 > [!NOTE]
 > 本单元为自制内容，仅为 ` 特定软件或服务 ` 所用，如无需要可直接略过
 
-> 1. [Talkatone 代理规则模块（含去广告）](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 
+> 1. [Talkatone 代理规则模块（含去广告）](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 
 >
 > 2. [Talkatone 去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list)
 >
 > 3. [Talkatone 代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list)
 >
-> 4. [Ultra Mobile WiFiCalling 配置模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
+> 4. [Ultra Mobile WiFiCalling 配置模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
 >
 > 5. [Ultra Mobile WiFiCalling 配置规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
 
@@ -40,11 +40,11 @@
 
 > 1. Shadowrocket 官方的关键词列表暨文档：[优化版本](https://github.com/LOWERTOP/Shadowrocket) + [官方版本](https://github.com/wlxuf/Shadowrocket)
 > 
-> 2. Shadowrocket 很详尽的准官方配置文件：[懒人配置](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) + [懒人含代理分组](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
+> 2. Shadowrocket 很详尽的准官方配置文件：[懒人配置](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) + [懒人含代理分组](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
 > 
 > 3. BlackMatrix7 整理的详尽的分流规则集：[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) 
 > 
-> 4. Cuttlefish 墨鱼去广告模块：[模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) + [发布页](https://github.com/ddgksf2013/ddgksf2013)
+> 4. Cuttlefish 墨鱼去广告模块：[模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) + [发布页](https://github.com/ddgksf2013/ddgksf2013)
 > 
 > 5. Johnshall 仅去广告配置文件，可作为规则集使用：[配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 > 
