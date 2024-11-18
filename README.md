@@ -491,10 +491,10 @@ _To Be Continued..._
 
 ------
 
-## 非标准链接重定向跳转
+## HTTP Redirector 非标准链接重定向跳转
 
 > [!NOTE]
-> 作者在使用 GitHub Readme 期间，发现本页不支持非标准链接的超链，遂萌生了使用 HTML 进行跳转的想法，后经 GPT 帮助实现本单元初步设想
+> 作者在使用 ` GitHub ` 期间，发现本页不支持非标准链接的超链，遂萌生了使用 ` HTML ` 进行跳转的想法，后经 ` GPT ` 帮助实现本单元初步设想
 
 > [!TIP]
 > 复制以下链接，粘贴在需要跳转的链接前进行访问即可
@@ -502,7 +502,10 @@ _To Be Continued..._
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=
 > ```
 
-
+> 示例：
+> * 我想使用小火箭的 URL-Schemes ` shadowrocket://install?module= ` 一键安装小火箭的这个模块：` https://12345.com/67890.module `
+> * 复制转换链接粘贴在待安装地址前访问即可，类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
+> * 完成跳转安装
 
 ------
 
