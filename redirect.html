@@ -3,72 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Redirector</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 20%;
+    <title>Redirecting...</title>
+    <script>
+        // 存储访问 IP 的时间戳
+        const rateLimitMap = new Map();
+
+        // 获取用户 IP（通过免费服务，例如 ipify.org 或其他）
+        async function getUserIP() {
+            try {
+                const response = await fetch('https://api64.ipify.org?format=json');
+                const data = await response.json();
+                return data.ip;
+            } catch (error) {
+                console.error('无法获取用户 IP:', error);
+                return null;
+            }
         }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
+
+        // 检查访问频率
+        async function isRateLimited() {
+            const userIP = await getUserIP();
+            if (!userIP) {
+                alert("无法获取用户 IP，无法验证访问频率。");
+                return true;
+            }
+
+            const currentTime = Date.now();
+            const lastVisit = rateLimitMap.get(userIP);
+
+            if (lastVisit && (currentTime - lastVisit) < 5000) {
+                alert("5秒内请勿重复访问！");
+                return true;
+            }
+
+            // 更新用户访问时间
+            rateLimitMap.set(userIP, currentTime);
+            return false;
         }
-        a:hover {
-            background-color: #0056b3;
+
+        // 主逻辑：解析 URL 并跳转
+        async function redirectToTarget() {
+            const params = new URLSearchParams(window.location.search);
+            const url = params.get('url');
+
+            if (!url) {
+                alert("未提供跳转地址！");
+                return;
+            }
+
+            // 检查频率限制
+            if (await isRateLimited()) {
+                return;
+            }
+
+            try {
+                // 解码 URL 并强制跳转
+                const decodedUrl = decodeURIComponent(url);
+                window.location.href = decodedUrl;
+            } catch (error) {
+                alert("跳转失败，URL 格式可能不正确！");
+                console.error("跳转错误：", error);
+            }
         }
-    </style>
+
+        // 在页面加载时自动执行跳转
+        window.onload = redirectToTarget;
+    </script>
 </head>
 <body>
-    <h1>跳转中，请稍候...</h1>
-    <p>如果未自动跳转，请手动点击下面的链接：</p>
-    <a id="redirect-link" href="#">手动跳转</a>
-
-    <script>
-        // 获取 URL 参数
-        function getQueryParam(param) {
-            const params = new URLSearchParams(window.location.search);
-            return params.get(param);
-        }
-
-        // 编解码逻辑
-        function decodeUrl(url) {
-            try {
-                return decodeURIComponent(url);
-            } catch (e) {
-                return url; // 如果解码失败，返回原始 URL
-            }
-        }
-
-        function encodeUrl(url) {
-            try {
-                return encodeURIComponent(url);
-            } catch (e) {
-                return url; // 如果编码失败，返回原始 URL
-            }
-        }
-
-        // 自动编解码处理
-        const rawUrl = getQueryParam('url'); // 原始输入 URL
-        const targetUrl = decodeUrl(rawUrl); // 尝试解码用户输入
-
-        // 校验 URL 是否有效
-        if (targetUrl && (targetUrl.startsWith('http') || targetUrl.includes(':'))) {
-            // 自动跳转
-            window.location.href = targetUrl;
-
-            // 更新手动跳转链接
-            document.getElementById('redirect-link').href = targetUrl;
-            document.getElementById('redirect-link').textContent = `跳转到：${encodeUrl(targetUrl)}`;
-        } else {
-            // 如果 URL 无效，提示用户
-            document.body.innerHTML = `<h1>无效的链接！</h1><p>请检查 URL 是否正确。</p>`;
-        }
-    </script>
+    <h1>Redirecting...</h1>
+    <p>如果页面未跳转，请检查地址是否正确。</p>
 </body>
 </html>
