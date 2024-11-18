@@ -503,9 +503,13 @@ _To Be Continued..._
 > ```
 
 > 示例：
-> * 我想使用小火箭的 URL-Schemes ` shadowrocket://install?module= ` 一键安装小火箭的这个模块：` https://12345.com/67890.module `
-> * 复制转换链接粘贴在待安装地址前访问即可，类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
-> * 完成跳转安装
+> * 你想使用小火箭的 URL-Schemes ` shadowrocket://install?module= ` 一键安装小火箭的这个模块：` https://12345.com/67890.module `
+> * 但是不是所有站点都支持类似地址的超链
+> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
+> * 完成跳转成功安装
+
+> [!IMPORTANT]
+> 注意：已知该方式不可跳转小火箭配色 URL-Schemes，可能存在解码问题，其他链接应该可以正常跳转
 
 ------
 
