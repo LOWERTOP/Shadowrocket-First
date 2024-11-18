@@ -5,62 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        // 存储访问记录的 Map，用于限制访问频率
-        const rateLimitMap = new Map();
-
-        // 获取当前时间戳
-        function getCurrentTimestamp() {
-            return Date.now();
-        }
-
-        // 检查访问频率是否超过限制
-        function isRateLimited(clientIdentifier, interval = 5000) {
-            const currentTime = getCurrentTimestamp();
-            const lastVisitTime = rateLimitMap.get(clientIdentifier);
-
-            if (lastVisitTime && (currentTime - lastVisitTime) < interval) {
-                return true;
-            }
-
-            // 更新访问时间戳
-            rateLimitMap.set(clientIdentifier, currentTime);
-            return false;
-        }
-
-        // 执行跳转逻辑
-        function redirectToTarget() {
-            // 从 URL 参数中获取目标地址
+        // 页面加载时执行跳转
+        window.onload = function () {
+            // 从 URL 中获取参数
             const params = new URLSearchParams(window.location.search);
-            const url = params.get('url');
+            const url = params.get('url'); // 获取跳转目标地址
 
             if (!url) {
+                // 如果未提供有效的跳转地址，显示错误提示
                 alert("错误：未提供有效的跳转地址！");
                 return;
             }
 
-            // 检查访问频率（使用浏览器唯一标识或 IP 模拟限制）
-            const clientIdentifier = "local"; // 可改为 IP 地址或其他唯一标识
-            if (isRateLimited(clientIdentifier)) {
-                alert("访问频率过高，请稍后再试！");
-                return;
-            }
-
             try {
-                // 解码 URL 并跳转
+                // 对目标 URL 进行解码
                 const decodedUrl = decodeURIComponent(url);
+
+                // 强制跳转到目标地址
                 window.location.href = decodedUrl;
             } catch (error) {
-                alert("跳转失败，URL 格式错误！");
+                // 捕获解码失败或其他错误
+                alert("跳转失败：URL 格式错误！");
                 console.error("跳转错误：", error);
             }
-        }
-
-        // 页面加载完成后自动执行跳转
-        window.onload = redirectToTarget;
+        };
     </script>
 </head>
 <body>
-    <h1>Redirecting...</h1>
-    <p>页面正在跳转，如果未跳转，请确认地址是否正确。</p>
+    <h1>正在跳转...</h1>
+    <p>如果跳转未成功，请检查 URL 格式是否正确。</p>
 </body>
 </html>
