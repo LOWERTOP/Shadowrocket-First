@@ -11,6 +11,7 @@
 > __提醒：小火箭没有官网！__ [唯一官方介绍页面](https://shadowlaunch.com/)
 
 > ` 本仓更新时间：2024-11-18 `
+> ` 近期新增内容：一键安装配色文件；快捷指令安装配色文件；新增各式链接 HTTP 重定向跳转单元（含URL-Schemes链接跳转） `
 
 ------
 
@@ -487,6 +488,21 @@ _To Be Continued..._
 > ```
 > 
 > </details>
+
+------
+
+## 非标准链接重定向跳转
+
+> [!NOTE]
+> 作者在使用 GitHub Readme 期间，发现本页不支持非标准链接的超链，遂萌生了使用 HTML 进行跳转的想法，后经 GPT 帮助实现本单元初步设想
+
+> [!TIP]
+> 复制以下链接，粘贴在需要跳转的链接前进行访问即可
+> ```
+> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=
+> ```
+
+
 
 ------
 
