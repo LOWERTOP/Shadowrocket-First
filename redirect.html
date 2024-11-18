@@ -5,73 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        // 存储访问 IP 的时间戳
+        // 存储访问记录的 Map，用于限制访问频率
         const rateLimitMap = new Map();
 
-        // 获取用户 IP（通过免费服务，例如 ipify.org 或其他）
-        async function getUserIP() {
-            try {
-                const response = await fetch('https://api64.ipify.org?format=json');
-                const data = await response.json();
-                return data.ip;
-            } catch (error) {
-                console.error('无法获取用户 IP:', error);
-                return null;
-            }
+        // 获取当前时间戳
+        function getCurrentTimestamp() {
+            return Date.now();
         }
 
-        // 检查访问频率
-        async function isRateLimited() {
-            const userIP = await getUserIP();
-            if (!userIP) {
-                alert("无法获取用户 IP，无法验证访问频率。");
+        // 检查访问频率是否超过限制
+        function isRateLimited(clientIdentifier, interval = 5000) {
+            const currentTime = getCurrentTimestamp();
+            const lastVisitTime = rateLimitMap.get(clientIdentifier);
+
+            if (lastVisitTime && (currentTime - lastVisitTime) < interval) {
                 return true;
             }
 
-            const currentTime = Date.now();
-            const lastVisit = rateLimitMap.get(userIP);
-
-            if (lastVisit && (currentTime - lastVisit) < 5000) {
-                alert("5秒内请勿重复访问！");
-                return true;
-            }
-
-            // 更新用户访问时间
-            rateLimitMap.set(userIP, currentTime);
+            // 更新访问时间戳
+            rateLimitMap.set(clientIdentifier, currentTime);
             return false;
         }
 
-        // 主逻辑：解析 URL 并跳转
-        async function redirectToTarget() {
+        // 执行跳转逻辑
+        function redirectToTarget() {
+            // 从 URL 参数中获取目标地址
             const params = new URLSearchParams(window.location.search);
             const url = params.get('url');
 
             if (!url) {
-                alert("未提供跳转地址！");
+                alert("错误：未提供有效的跳转地址！");
                 return;
             }
 
-            // 检查频率限制
-            if (await isRateLimited()) {
+            // 检查访问频率（使用浏览器唯一标识或 IP 模拟限制）
+            const clientIdentifier = "local"; // 可改为 IP 地址或其他唯一标识
+            if (isRateLimited(clientIdentifier)) {
+                alert("访问频率过高，请稍后再试！");
                 return;
             }
 
             try {
-                // 解码 URL 并强制跳转
+                // 解码 URL 并跳转
                 const decodedUrl = decodeURIComponent(url);
                 window.location.href = decodedUrl;
             } catch (error) {
-                alert("跳转失败，URL 格式可能不正确！");
+                alert("跳转失败，URL 格式错误！");
                 console.error("跳转错误：", error);
             }
         }
 
-        // 在页面加载时自动执行跳转
+        // 页面加载完成后自动执行跳转
         window.onload = redirectToTarget;
     </script>
 </head>
 <body>
     <h1>Redirecting...</h1>
-    <p>如果页面未跳转，请检查地址是否正确。</p>
+    <p>页面正在跳转，如果未跳转，请确认地址是否正确。</p>
 </body>
 </html>
