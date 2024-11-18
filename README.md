@@ -492,7 +492,7 @@ _To Be Continued..._
 
 ------
 
-## HTTP Redirector 非标准链接重定向跳转
+## URL Redirector 非标准链接重定向跳转
 
 > [!NOTE]
 > 作者在使用 ` GitHub ` 期间，发现本页不支持非标准链接的超链，遂萌生了使用 ` HTML ` 进行跳转的想法，后经 ` GPT ` 帮助实现本单元初步设想
