@@ -8,7 +8,7 @@
         window.onload = function () {
             // 获取 URL 参数中的待跳转链接
             const params = new URLSearchParams(window.location.search);
-            const url = params.get('url');
+            let url = params.get('url');
 
             if (!url) {
                 alert("错误：未提供跳转地址！");
@@ -17,15 +17,19 @@
 
             try {
                 // 解码链接，确保不会因多次编码导致错误
-                const decodedUrl = decodeURIComponent(url);
+                url = decodeURIComponent(url);
 
-                // 检查是否是以 shadowrocket:// 开头的配色链接
-                if (decodedUrl.startsWith("shadowrocket://")) {
-                    console.log("跳转到 Shadowrocket 配色链接：", decodedUrl);
-                    window.location.href = decodedUrl; // 强制跳转
+                // Shadowrocket 的 URL scheme 校验
+                if (url.startsWith("shadowrocket://")) {
+                    // 修复可能的颜色代码解析问题
+                    const correctedUrl = url.replace(/%23/g, '#');
+                    console.log("跳转到 Shadowrocket 配色链接：", correctedUrl);
+
+                    // 强制跳转到 Shadowrocket 应用
+                    window.location.href = correctedUrl;
                 } else {
-                    alert("错误：非 Shadowrocket 链接！");
-                    console.error("非 Shadowrocket 链接：", decodedUrl);
+                    alert("错误：非 Shadowrocket 配色链接！");
+                    console.error("非 Shadowrocket 配色链接：", url);
                 }
             } catch (error) {
                 alert("跳转失败：URL 格式错误！");
@@ -35,7 +39,7 @@
     </script>
 </head>
 <body>
-    <h1>LOWERTOP正在努力加班让它跳转...</h1>
-    <p>如果未跳转，请检查链接是否正确</p>
+    <h1>正在跳转...</h1>
+    <p>如果未跳转，请检查链接是否正确。</p>
 </body>
 </html>
