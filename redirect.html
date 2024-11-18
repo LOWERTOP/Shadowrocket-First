@@ -5,34 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        // 页面加载时执行跳转
         window.onload = function () {
-            // 从 URL 中获取参数
+            // 获取 URL 参数中的待跳转链接
             const params = new URLSearchParams(window.location.search);
-            const url = params.get('url'); // 获取跳转目标地址
+            const url = params.get('url');
 
             if (!url) {
-                // 如果未提供有效的跳转地址，显示错误提示
-                alert("错误：未提供有效的跳转地址！");
+                alert("错误：未提供跳转地址！");
                 return;
             }
 
             try {
-                // 对目标 URL 进行解码
+                // 解码链接，确保不会因多次编码导致错误
                 const decodedUrl = decodeURIComponent(url);
 
-                // 强制跳转到目标地址
-                window.location.href = decodedUrl;
+                // 检查是否是以 shadowrocket:// 开头的配色链接
+                if (decodedUrl.startsWith("shadowrocket://")) {
+                    console.log("跳转到 Shadowrocket 配色链接：", decodedUrl);
+                    window.location.href = decodedUrl; // 强制跳转
+                } else {
+                    alert("错误：非 Shadowrocket 链接！");
+                    console.error("非 Shadowrocket 链接：", decodedUrl);
+                }
             } catch (error) {
-                // 捕获解码失败或其他错误
                 alert("跳转失败：URL 格式错误！");
-                console.error("跳转错误：", error);
+                console.error("错误信息：", error);
             }
         };
     </script>
 </head>
 <body>
-    <h1>正在跳转...</h1>
-    <p>如果跳转未成功，请检查 URL 格式是否正确。</p>
+    <h1>LOWERTOP正在努力加班让它跳转...</h1>
+    <p>如果未跳转，请检查链接是否正确</p>
 </body>
 </html>
