@@ -18,7 +18,7 @@
 > * 新增快捷指令安装配色文件，作者：[iab](https://t.me/iab000)
 > * 新增非标准链接经 HTTP 重定向跳转服务，含 URL-Schemes 跳转
 >
-> ` 配色数量 ` 24
+> ` 配色数量 ` 26
 > 
 > ` 更新时间 ` 2024-11-19
 
@@ -310,6 +310,23 @@
 
 ------
 
+#### Shadowrocket LightBlue
+> `远峰蓝` <sup> `亮底色` <sup>
+> 
+> ```ruby
+> shadowrocket://color?NavigationBarColor=%23F0F3FA&NavigationBar2Color=%23F0F3FA&NavigationBarTextColor=%23395886&NavigationBar2TextColor=%23395886&TabBarColor=%23F0F3FA&TabBarBorderColor=%23F0F3FA&TabBarSelectedColor=%23395886&TabBarUnselectedColor=%2366395886&TableBackgroundColor=%23F0F3FA&TableCellBackgroundColor=%23D5DEEF&TableCellSelectedBackgroundColor=%23D5DEEF&TableSeparatorColor=%23F0F3FA&TextFieldTextColor=%23395886&PlaceholderColor=%23628ECB&TextLabelTextColor=%23395886&DetailLabelTextColor=%23628ECB&TextLabelDeleteColor=%23B2390F&HeaderFooterTextColor=%23628ECB&SearchFieldBackgroundColor=%23F0F3FA&IndicatorColor=%23628ECB&ButtonIconColor=%23395886&ButtonNormalColor=%23395886&ButtonNormal2Color=%23395886&ButtonNormal3Color=%23395886&ButtonHighlightedColor=%23F0F3FA&ButtonHighlighted2Color=%23F0F3FA&ButtonHighlighted3Color=%23F0F3FA&ButtonDisabledColor=%23F0F3FA&ButtonDisabled2Color=%23F0F3FA&PingSuccessTextColor=%2366A06C&PingTimeoutTextColor=%23B2390F&DefaultDotColor=%23395886&HUDBackgroundColor=%23F0F3FA&v=1.0
+> ```
+> [点击此处一键安装](https://lowertop.github.io/Shadowrocket-First/theme.html?target=LightBlue)
+> 
+> <details>
+> <summary>效果截图</summary>
+> 
+> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/LightBlue.PNG)
+> 
+> </details>
+
+------
+
 #### Shadowrocket Chrome
 > `金属灰` <sub> `暗底色` <sub>
 > 
@@ -508,6 +525,23 @@
 > <summary>效果截图</summary>
 > 
 > ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/V2EXNIGHT.PNG)
+> 
+> </details>
+
+------
+
+#### Shadowrocket AtomDark
+> `原子灰` <sub> `暗底色` <sub>
+> 
+> ```ruby
+> shadowrocket://color?NavigationBarColor=%231E2127&NavigationBar2Color=%231E2127&NavigationBarTextColor=%23ABB2BF&NavigationBar2TextColor=%23ABB2BF&TabBarColor=%231E2127&TabBarBorderColor=%231E2127&TabBarSelectedColor=%23ABB2BF&TabBarUnselectedColor=%2366ABB2BF&TableBackgroundColor=%231E2127&TableCellBackgroundColor=%23262A31&TableCellSelectedBackgroundColor=%23262A31&TableSeparatorColor=%231E2127&TextFieldTextColor=%23ABB2BF&PlaceholderColor=%23ABB2BF&TextLabelTextColor=%23ABB2BF&DetailLabelTextColor=%23656973&TextLabelDeleteColor=%23D15295&HeaderFooterTextColor=%23656973&SearchFieldBackgroundColor=%2336363E&IndicatorColor=%23ABB2BF&ButtonIconColor=%23ABB2BF&ButtonNormalColor=%23ABB2BF&ButtonNormal2Color=%23ABB2BF&ButtonNormal3Color=%2377787D&ButtonHighlightedColor=%2399FFFFFF&ButtonHighlighted2Color=%23656973&ButtonHighlighted3Color=%231E2127&ButtonDisabledColor=%231E2127&ButtonDisabled2Color=%231E2127&PingSuccessTextColor=%2396B96B&PingTimeoutTextColor=%23D15295&DefaultDotColor=%23ABB2BF&HUDBackgroundColor=%231E2127&v=1.0
+> ```
+> [点击此处一键安装](https://lowertop.github.io/Shadowrocket-First/theme.html?target=AtomDark)
+> 
+> <details>
+> <summary>效果截图</summary>
+> 
+> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/AtomDark.PNG)
 > 
 > </details>
 
