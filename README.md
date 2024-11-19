@@ -29,9 +29,10 @@
 >
 > 因 Talkatone 的特殊性，APP 在使用上需要对部分地址进行代理，对部分地址分流直连，则使用模块对其进行策略分流最为合理，安装生效后可解决使用某些节点无法直接使用 Talkatone 的问题。模块同时附带 Talkatone 去广告规则，可去除 APP 内的部分第三方广告
 > 
+> *本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册*
+> 
 > [模块一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) + [模块链接地址](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)  + [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) + [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list)
 > 
-> **本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册**
 
 > * ` Ultra Mobile PayGo WiFiCalling `
 >
@@ -66,7 +67,7 @@
 
 > [!NOTE]
 > 本单元为小火箭配色文件相关内容
-
+> 
 > 项目出发点是作者在使用小火箭的过程中逐渐对小火箭的配色感到单调，借助本身是设计出身，遂制作了几个配色文件，没想到反响挺好，后就借助 GitHub 平台逐步发布的十数种自己设计的配色文件，以供大家挑选使用
 
 > [!IMPORTANT]
@@ -79,7 +80,7 @@
 > * __复制代码安装：__ 复制所需 ` shadowrocket://color?* ` 配色代码，在 ` 配置 ` 页点击 “ ✚ ” 号，粘贴并应用
 > * __快捷指令安装：__ 点击安装[快捷指令](https://www.icloud.com/shortcuts/be37b96c10314e0da9a554b61bc18ae0)，在快捷指令中选择配色并安装
 > * __恢复默认配色：__ ` APP-设置-颜色-重设颜色 `
-> 
+
 > ` 极其鸣谢 ` 快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
 > 
 > ` 特别鸣谢 ` 建议提供好友：[Sage](https://t.me/huskydb)
