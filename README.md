@@ -76,7 +76,7 @@
 > [!TIP]
 > * __配色一键安装：__ 选择所需配色，点击 ` 一键安装 `，允许跳转后点击 ` 使用 ` 即可
 > * __复制代码安装：__ 复制所需 ` shadowrocket://color?* ` 配色代码，在 ` 配置 ` 页点击 “ ✚ ” 号，粘贴并应用
-> * __快捷指令安装：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/be37b96c10314e0da9a554b61bc18ae0)，在快捷指令中选择配色并安装
+> * __快捷指令安装：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/909aa7ff58f14488bf7022bb885baf84)，在快捷指令中选择配色并安装
 > * __恢复默认配色：__ ` APP-设置-颜色-重设颜色 `
 
 > ` 极其鸣谢 ` 快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
