@@ -10,10 +10,11 @@
 > [!NOTE]
 > 本仓库主要为 ` Shadowrocket/小火箭 ` 相关内容，提供一些自制/收集而来的 ` 配置文件 ` ` 模块 ` ` 规则集 ` ` 脚本 ` 等配置，同时提供多种自主设计的 ` 小火箭配色/主题/皮肤 `
 
-> ` 更新时间：2024-11-19 `
-> 
 > 近期更新内容：一键安装配色文件；快捷指令安装配色文件；新增非标准链接经 HTTP 重定向跳转服务，含 URL-Schemes 跳转
-
+>
+> 本文所有 ` 一键安装 ` 仅适用于 ` iOS 设备 ` 点击
+> 
+> 更新时间：` 2024-11-19 `
 ------
 
 ## Shadowrocket 自制配置
@@ -48,11 +49,11 @@
 
 > 1. Shadowrocket 官方的关键词列表暨文档：[优化版本](https://github.com/LOWERTOP/Shadowrocket) + [官方版本](https://github.com/wlxuf/Shadowrocket)
 > 
-> 2. Shadowrocket 很详尽的准官方配置文件：[懒人配置](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) + [懒人含代理分组](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
+> 2. Shadowrocket 很详尽的准官方配置文件：[懒人配置一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) + [懒人含代理分组一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
 > 
 > 3. BlackMatrix7 整理的分流详尽的规则集：[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) 
 > 
-> 4. Cuttlefish 墨鱼去广告模块：[模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) + [发布页](https://github.com/ddgksf2013/ddgksf2013)
+> 4. Cuttlefish 墨鱼去广告模块：[模块一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) + [发布页](https://github.com/ddgksf2013/ddgksf2013)
 > 
 > 5. Johnshall 仅去广告配置文件，可作为规则集使用：[配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
 > 
