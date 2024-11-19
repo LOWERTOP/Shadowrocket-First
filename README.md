@@ -18,7 +18,7 @@
 > * 新增快捷指令安装配色文件，作者：[iab](https://t.me/iab000)
 > * 新增非标准链接经 HTTP 重定向跳转服务，含 URL-Schemes 跳转
 >
-> ` 配色数量 ` 20
+> ` 配色数量 ` 21
 > 
 > ` 更新时间 ` 2024-11-19
 
@@ -237,6 +237,23 @@
 > <summary>效果截图</summary>
 > 
 > ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Solarized.PNG)
+> 
+> </details>
+
+------
+
+#### Shadowrocket LightOwl
+> `鸮腹色` <sup> `亮底色` <sup>
+> 
+> ```ruby
+> shadowrocket://color?NavigationBarColor=%23FBFBFB&NavigationBar2Color=%23FBFBFB&NavigationBarTextColor=%23403F52&NavigationBar2TextColor=%23403F52&TabBarColor=%23FBFBFB&TabBarBorderColor=%23FBFBFB&TabBarSelectedColor=%23403F52&TabBarUnselectedColor=%2366403F52&TableBackgroundColor=%23FBFBFB&TableCellBackgroundColor=%23EFF1F2&TableCellSelectedBackgroundColor=%23EFF1F2&TableSeparatorColor=%23FBFBFB&TextFieldTextColor=%23403F52&PlaceholderColor=%2390A7B1&TextLabelTextColor=%23403F52&DetailLabelTextColor=%2390A7B1&TextLabelDeleteColor=%23D15499&HeaderFooterTextColor=%2390A7B1&SearchFieldBackgroundColor=%23FBFBFB&IndicatorColor=%2390A7B1&ButtonIconColor=%23403F52&ButtonNormalColor=%23403F52&ButtonNormal2Color=%23403F52&ButtonNormal3Color=%23403F52&ButtonHighlightedColor=%23FBFBFB&ButtonHighlighted2Color=%23FBFBFB&ButtonHighlighted3Color=%23FBFBFB&ButtonDisabledColor=%23FBFBFB&ButtonDisabled2Color=%23FBFBFB&PingSuccessTextColor=%2352eeb9&PingTimeoutTextColor=%23D15499&DefaultDotColor=%2352eeb9&HUDBackgroundColor=%23FBFBFB&v=1.0
+> ```
+> [点击此处一键安装](https://lowertop.github.io/Shadowrocket-First/theme.html?target=LightOwl)
+> 
+> <details>
+> <summary>效果截图</summary>
+> 
+> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/LightOwl.PNG)
 > 
 > </details>
 
