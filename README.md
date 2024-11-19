@@ -25,22 +25,18 @@
 
 > * ` Talkatone `
 >
-> 如有在中国大陆境内使用 Talkatone 服务，推荐使用本文中的代理模块，可使 Talkatone APP 不再对不同代理节点过于敏感。同时提供代理规则、去广告规则、规则集等。
->
-> 因 Talkatone 的特殊性，APP 在使用上需要对部分地址进行代理，对部分地址分流直连，则使用模块对其进行策略分流最为合理，安装生效后可解决使用某些节点无法直接使用 Talkatone 的问题。模块同时附带 Talkatone 去广告规则，可去除 APP 内的部分第三方广告
+> 如有在中国大陆境内使用 Talkatone 服务，推荐使用本文中的代理模块，可使 Talkatone APP 不再对不同代理节点过于敏感。同时提供代理规则、去广告规则、规则集等。因 Talkatone 的特殊性，APP 在使用上需要对部分地址进行代理，对部分地址分流直连，则使用模块对其进行策略分流最为合理，安装生效后可解决使用某些节点无法直接使用 Talkatone 的问题。模块同时附带 Talkatone 去广告规则，可去除 APP 内的部分第三方广告
 > 
 > *本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册*
 > 
-> [模块一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) + [模块链接地址](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)  + [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) + [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list)
+> [模块一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) + [模块链接地址](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)  + [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) + [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list)
 > 
 
 > * ` Ultra Mobile PayGo WiFiCalling `
 >
-> Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile PayGo SIM 卡
+> Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile PayGo SIM 卡。本文推荐使用模块的方式进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式。本文同时提供相关服务的规则集，如有需要，自行取用
 > 
-> 本文推荐使用模块的方式进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式。本文同时提供相关服务的规则集，如有需要，自行取用
-> 
-> [模块一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) + [模块链接地址](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) + [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
+> [模块一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) + [模块链接地址](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) + [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
 
 ------
 
