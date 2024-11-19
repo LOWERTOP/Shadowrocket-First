@@ -655,8 +655,8 @@ _To Be Continued..._
 
 > 示例：
 > * 你想使用小火箭的 URL-Schemes ` shadowrocket://install?module= ` 一键安装小火箭的这个模块：` https://12345.com/67890.module `
-> * 但是不是所有站点都支持类似地址的超链
-> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
+> * 但是不是所有站点都支持类似地址的超链，例如本页就不支持……碎碎念……
+> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，完成组合后类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
 > * 完成跳转成功安装
 
 > [!IMPORTANT]
