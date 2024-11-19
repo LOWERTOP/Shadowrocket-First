@@ -21,7 +21,7 @@
 > [!NOTE]
 > 本单元为自制内容，仅为 ` 特定软件或服务 ` 所用，如无需要可直接略过
 
-> * Talkatone
+> * ` Talkatone `
 >
 > 如有在中国大陆境内使用 Talkatone 服务，推荐使用本文中的代理模块，可使 Talkatone APP 不再对不同代理节点过于敏感。同时提供代理规则、去广告规则、规则集等。
 >
@@ -31,7 +31,7 @@
 > 
 > **本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册**
 
-> * Ultra Mobile PayGo WiFiCalling
+> * ` Ultra Mobile PayGo WiFiCalling `
 >
 > Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile PayGo SIM 卡
 > 
