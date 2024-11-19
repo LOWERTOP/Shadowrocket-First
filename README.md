@@ -79,7 +79,7 @@
 
 > ` 极其鸣谢 ` 快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
 > 
-> ` 特别鸣谢 ` 建议提供好友：[Sage](https://t.me/huskydb)
+> ` 特别鸣谢 ` 提供建议好友：[Sage](https://t.me/huskydb)
 > 
 > ` 配色数量 ` 18
 
