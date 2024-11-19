@@ -276,6 +276,40 @@
 
 ------
 
+#### Shadowrocket RomeDay
+> `假日色` <sup> `亮底色` <sup>
+> 
+> ```ruby
+> shadowrocket://color?NavigationBarColor=%23F5E8E7&NavigationBar2Color=%23F5E8E7&NavigationBarTextColor=%23622229&NavigationBar2TextColor=%23622229&TabBarColor=%23F5E8E7&TabBarBorderColor=%23F5E8E7&TabBarSelectedColor=%23622229&TabBarUnselectedColor=%2367622229&TableBackgroundColor=%23F5E8E7&TableCellBackgroundColor=%23EEE0DF&TableCellSelectedBackgroundColor=%23EEE0DF&TableSeparatorColor=%23F5E8E7&TextFieldTextColor=%23622229&PlaceholderColor=%23AB8587&TextLabelTextColor=%23622229&DetailLabelTextColor=%23AB8587&TextLabelDeleteColor=%23D15499&HeaderFooterTextColor=%23AB8587&SearchFieldBackgroundColor=%23EEE0DF&IndicatorColor=%23AB8587&ButtonIconColor=%23622229&ButtonNormalColor=%23622229&ButtonNormal2Color=%23622229&ButtonNormal3Color=%23622229&ButtonHighlightedColor=%23F5E8E7&ButtonHighlighted2Color=%23F5E8E7&ButtonHighlighted3Color=%23F5E8E7&ButtonDisabledColor=%23F5E8E7&ButtonDisabled2Color=%23F5E8E7&PingSuccessTextColor=%2320817B&PingTimeoutTextColor=%23D15499&DefaultDotColor=%2320817B&HUDBackgroundColor=%23F5E8E7&v=1.0
+> ```
+> [点击此处一键安装](https://lowertop.github.io/Shadowrocket-First/theme.html?target=RomeDay)
+> 
+> <details>
+> <summary>效果截图</summary>
+> 
+> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RomeDay.PNG)
+> 
+> </details>
+
+------
+
+#### Shadowrocket PeachFresh
+> `鲜桃色` <sup> `亮底色` <sup>
+> 
+> ```ruby
+> shadowrocket://color?NavigationBarColor=%23F4C1A0&NavigationBar2Color=%23F4C1A0&NavigationBarTextColor=%23510603&NavigationBar2TextColor=%23510603&TabBarColor=%23F4C1A0&TabBarBorderColor=%23F4C1A0&TabBarSelectedColor=%23510603&TabBarUnselectedColor=%2366510603&TableBackgroundColor=%23F4C1A0&TableCellBackgroundColor=%23E9B898&TableCellSelectedBackgroundColor=%23E9B898&TableSeparatorColor=%23F4C1A0&TextFieldTextColor=%23510603&PlaceholderColor=%23896852&TextLabelTextColor=%23510603&DetailLabelTextColor=%23896852&TextLabelDeleteColor=%23B2390F&HeaderFooterTextColor=%23896852&SearchFieldBackgroundColor=%23E9B898&IndicatorColor=%23896852&ButtonIconColor=%23510603&ButtonNormalColor=%23510603&ButtonNormal2Color=%23510603&ButtonNormal3Color=%23510603&ButtonHighlightedColor=%23F4C1A0&ButtonHighlighted2Color=%23F4C1A0&ButtonHighlighted3Color=%23F4C1A0&ButtonDisabledColor=%23F4C1A0&ButtonDisabled2Color=%23F4C1A0&PingSuccessTextColor=%2366A06C&PingTimeoutTextColor=%23B2390F&DefaultDotColor=%23B2390F&HUDBackgroundColor=%23F4C1A0&v=1.0
+> ```
+> [点击此处一键安装](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Peach)
+> 
+> <details>
+> <summary>效果截图</summary>
+> 
+> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Peach.PNG)
+> 
+> </details>
+
+------
+
 #### Shadowrocket Chrome
 > `金属灰` <sub> `暗底色` <sub>
 > 
