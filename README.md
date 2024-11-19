@@ -12,9 +12,11 @@
 
 > 近期更新内容：
 > 
-> 一键安装配色文件；快捷指令安装配色文件；新增非标准链接经 HTTP 重定向跳转服务，含 URL-Schemes 跳转
+> * 一键安装配色文件
+> * 快捷指令安装配色文件
+> * 新增非标准链接经 HTTP 重定向跳转服务，含 URL-Schemes 跳转
 > 
-> *本文所有 ` 一键安装 ` 仅适用于 ` iOS 设备 ` 点击*
+> 本文所有 ` 一键安装 ` 仅适用于 ` iOS 设备 ` 点击
 > 
 > 更新时间：` 2024-11-19 `
 
@@ -29,7 +31,7 @@
 >
 > 如有在中国大陆境内使用 Talkatone 服务，推荐使用本文中的代理模块，可使 Talkatone APP 不再对不同代理节点过于敏感。同时提供代理规则、去广告规则、规则集等。因 Talkatone 的特殊性，APP 在使用上需要对部分地址进行代理，对部分地址分流直连，则使用模块对其进行策略分流最为合理，安装生效后可解决使用某些节点无法直接使用 Talkatone 的问题。模块同时附带 Talkatone 去广告规则，可去除 APP 内的部分第三方广告
 > 
-> *本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册*
+> 本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册
 > 
 > [模块一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) + [模块链接地址](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)  + [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) + [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list)
 > 
