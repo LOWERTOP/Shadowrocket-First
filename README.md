@@ -125,7 +125,7 @@
 ------
 
 #### Shadowrocket BrightGold
-> `亮金色` `亮底色`
+> `亮金色` <sup> `亮底色` <sup>
 > 
 > [![配色 一键安装](https://img.shields.io/static/v1?label=配色&message=一键安装&color=%23D38301&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=BrightGold)
 > 
@@ -143,7 +143,7 @@
 ------
 
 #### Shadowrocket V2EXDay
-> `V2EX 白昼` `亮底色`
+> `V2EX 白昼` <sup> `亮底色` <sup>
 >
 >  [![配色 一键安装](https://img.shields.io/static/v1?label=配色&message=一键安装&color=%23F5F5F5&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=V2EXDay)
 >
