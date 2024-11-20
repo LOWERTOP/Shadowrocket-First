@@ -43,24 +43,19 @@
 > [!NOTE]
 > 本单元为自制内容，仅为 ` 特定软件或服务 ` 所用，如无需要可直接略过
 
-> __` Talkatone `__
->
-> 如有在中国大陆境内使用 Talkatone 服务，推荐使用本文中的代理模块，该模块可以减少该 APP 对不同代理节点的敏感性。由于 Talkatone 的特殊性，在使用时需要对某些地址进行代理，而对其他地址则进行直连，通过该模块进行策略分流是最合理的选择，安装后可以解决某些节点无法直接使用 Talkatone 的问题。该模块还附带去广告规则，能够去除 APP 中的第三方广告。同时，本页还提供该服务除模块外的去广告规则、规则集等。
+__` Talkatone `__
+
+> 如有在中国大陆境内使用 Talkatone 服务，推荐在使用过程中使用本仓库中的[代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)，该模块可以减少该 APP 对不同代理节点的敏感性。由于 Talkatone 的特殊性，在使用时需要对某些地址进行代理，而对其他地址则进行直连，通过该模块进行策略分流是最合理的选择，安装后可以解决某些节点无法直接使用 Talkatone 的问题。该模块还附带去广告规则，能够去除 APP 中的第三方广告。同时，除模块外本页还提供该服务的[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list)等。
 > 
 > 本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册
 > 
 > [![模块 一键安装](https://img.shields.io/static/v1?label=模块&message=一键安装&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)
->
-> [模块链接地址](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)  + [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) + [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list)
-> 
 
-> __` Ultra Mobile PayGo WiFiCalling `__
->
-> Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile PayGo SIM 卡。本文推荐使用模块的方式进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式。本文同时提供相关服务的规则集，如有需要，自行取用
+__` Ultra Mobile PayGo WiFiCalling `__
+
+> Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile PayGo SIM 卡。本文推荐使用本仓库中的[代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式。本文同时提供相关服务的[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)，如有需要，请自行取用
 >
 > [![模块 一键安装](https://img.shields.io/static/v1?label=模块&message=一键安装&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
->
-> [模块链接地址](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) + [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
 
 ------
 
