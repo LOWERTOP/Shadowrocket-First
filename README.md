@@ -8,6 +8,7 @@
 > __提醒：小火箭没有官网！__ [唯一官方介绍页面](https://shadowlaunch.com/)
 
 ------
+## Shadowrocket-First 仓库自述
 
 > [!NOTE]
 > 本仓库主要为 ` Shadowrocket/小火箭 ` 相关内容，提供一些自制/收集而来的 ` 配置文件 ` ` 模块 ` ` 规则集 ` ` 脚本 ` 等配置，同时提供多种自主设计的 ` 小火箭配色/主题/皮肤 `
@@ -32,7 +33,7 @@
 > [!NOTE]
 > 本单元为自制内容，仅为 ` 特定软件或服务 ` 所用，如无需要可直接略过
 
-> ` Talkatone `
+> #### ` Talkatone `
 >
 > 如有在中国大陆境内使用 Talkatone 服务，推荐使用本文中的代理模块，该模块可以减少该 APP 对不同代理节点的敏感性。由于 Talkatone 的特殊性，在使用时需要对某些地址进行代理，而对其他地址则进行直连，通过该模块进行策略分流是最合理的选择，安装后可以解决某些节点无法直接使用 Talkatone 的问题。该模块还附带去广告规则，能够去除 APP 中的第三方广告。同时，本页还提供该服务除模块外的去广告规则、规则集等。
 > 
@@ -41,7 +42,7 @@
 > [模块一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) + [模块链接地址](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)  + [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) + [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list)
 > 
 
-> ` Ultra Mobile PayGo WiFiCalling `
+> #### ` Ultra Mobile PayGo WiFiCalling `
 >
 > Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile PayGo SIM 卡。本文推荐使用模块的方式进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式。本文同时提供相关服务的规则集，如有需要，自行取用
 > 
