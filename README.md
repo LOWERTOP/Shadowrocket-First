@@ -13,6 +13,7 @@
 
 [![GitHub stars][stars-image]][stars-url]
 [![GitHub forks][forks-image]][forks-url]
+![Static Badge](https://img.shields.io/badge/%E6%A8%A1%E5%9D%97-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85-blue?style=flat-square&logo=rocket&logoColor=white&link=https%3A%2F%2Fgithub.com%2FLOWERTOP%2FShadowrocket-First)
 
 [stars-url]: https://github.com/LOWERTOP/Shadowrocket-First/stargazers "星标"
 [stars-image]: https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=flat-square&logo=github&label=Star
