@@ -11,6 +11,15 @@
 
 ## [Shadowrocket-First 仓库自述](https://github.com/LOWERTOP/Shadowrocket-First)
 
+[![GitHub stars][stars-image]][stars-url]
+[![GitHub forks][forks-image]][forks-url]
+
+[stars-url]: https://github.com/LOWERTOP/Shadowrocket-First/stargazers "星标"
+[stars-image]: https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=flat-square&logo=github&label=Star
+
+[forks-url]: https://github.com/LOWERTOP/Shadowrocket-First/network "复刻"
+[forks-image]: https://img.shields.io/github/forks/LOWERTOP/Shadowrocket-First?style=flat-square&logo=github&label=Fork
+
 > [!NOTE]
 > 本仓库主要为 ` Shadowrocket/小火箭 ` 相关内容，提供一些自制/收集而来的 ` 配置文件 ` ` 模块 ` ` 规则集 ` ` 脚本 ` 等配置，同时提供多种自主设计的 ` 小火箭配色/主题/皮肤 `
 > 
@@ -672,8 +681,3 @@ _To Be Continued..._
 © ` Copyright By LOWERTOP `
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.BTM.png" width="100%" height="100%">
-
-[![GitHub stars][stars-image]][stars-url]
-
-[stars-url]: https://github.com/LOWERTOP/Shadowrocket-First/stargazers "星标"
-[stars-image]: https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=flat-square&logo=github&label=Star
