@@ -14,10 +14,10 @@
 [![GitHub stars][stars-image]][stars-url]
 [![GitHub forks][forks-image]][forks-url]
 
-[stars-url]: https://github.com/LOWERTOP/Shadowrocket-First/stargazers "星标"
+[stars-url]: https://github.com/LOWERTOP/Shadowrocket-First/stargazers "已被星标人数"
 [stars-image]: https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=flat-square&logo=github&label=Star
 
-[forks-url]: https://github.com/LOWERTOP/Shadowrocket-First/network "复刻"
+[forks-url]: https://github.com/LOWERTOP/Shadowrocket-First/network "已被复刻次数"
 [forks-image]: https://img.shields.io/github/forks/LOWERTOP/Shadowrocket-First?style=flat-square&logo=github&label=Fork
 
 > [!NOTE]
