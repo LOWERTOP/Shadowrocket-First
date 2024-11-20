@@ -49,7 +49,7 @@
 > 
 > 本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册
 > 
-> [![一键安装 模块](https://img.shields.io/static/v1?label=一键安装&message=模块&color=orange&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)
+> [![模块 一键安装](https://img.shields.io/static/v1?label=模块&message=一键安装&color=orange&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)
 >
 > [模块链接地址](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)  + [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) + [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list)
 > 
@@ -58,7 +58,7 @@
 >
 > Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile PayGo SIM 卡。本文推荐使用模块的方式进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式。本文同时提供相关服务的规则集，如有需要，自行取用
 >
-> [![一键安装 模块](https://img.shields.io/static/v1?label=一键安装&message=模块&color=orange&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
+> [![模块 一键安装](https://img.shields.io/static/v1?label=模块&message=一键安装&color=orange&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
 >
 > [模块链接地址](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) + [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
 
@@ -127,7 +127,7 @@
 #### Shadowrocket BrightGold
 > `亮金色` `亮底色`
 > 
-> [![一键安装 配色](https://img.shields.io/static/v1?label=一键安装&message=配色&color=%23D38301&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=BrightGold)
+> [![配色 一键安装](https://img.shields.io/static/v1?label=配色&message=一键安装&color=%23D38301&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=BrightGold)
 > 
 > ```ruby
 > shadowrocket://color?NavigationBarColor=%23F7F7F7&NavigationBar2Color=%23F7F7F7&NavigationBarTextColor=%23D38301&NavigationBar2TextColor=%23D38301&TabBarColor=%23F7F7F7&TabBarBorderColor=%23F7F7F7&TabBarSelectedColor=%23D38301&TabBarUnselectedColor=%23D1C0A2&TableBackgroundColor=%23FFFFFF&TableCellBackgroundColor=%23F7F7F7&TableCellSelectedBackgroundColor=%23F7F7F7&TableSeparatorColor=%23FFFFFF&TextFieldTextColor=%23D38301&PlaceholderColor=%23D4A763&TextLabelTextColor=%23D38301&DetailLabelTextColor=%23D4A763&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23D4A763&SearchFieldBackgroundColor=%23F7F7F7&IndicatorColor=%23D4A763&ButtonIconColor=%23D38301&ButtonNormalColor=%23D38301&ButtonNormal2Color=%23D38301&ButtonNormal3Color=%23D38301&ButtonHighlightedColor=%23FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23FFFFFF&ButtonDisabledColor=%23FFFFFF&ButtonDisabled2Color=%23FFFFFF&PingSuccessTextColor=%23D4A763&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23D38301&HUDBackgroundColor=%23F7F7F7&v=1.0
@@ -145,7 +145,7 @@
 #### Shadowrocket V2EXDay
 > `V2EX 白昼` `亮底色`
 >
->  [![一键安装 配色](https://img.shields.io/static/v1?label=一键安装&message=配色&color=%23F5F5F5&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=V2EXDay)
+>  [![配色 一键安装](https://img.shields.io/static/v1?label=配色&message=一键安装&color=%23F5F5F5&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=V2EXDay)
 >
 > ```ruby
 > shadowrocket://color?NavigationBarColor=%23FFFFFF&NavigationBar2Color=%23FFFFFF&NavigationBarTextColor=%23555555&NavigationBar2TextColor=%23555555&TabBarColor=%23FFFFFF&TabBarBorderColor=%23FFFFFF&TabBarSelectedColor=%23555555&TabBarUnselectedColor=%23CCCCCC&TableBackgroundColor=%23FFFFFF&TableCellBackgroundColor=%23F5F5F5&TableCellSelectedBackgroundColor=%23F5F5F5&TableSeparatorColor=%23FFFFFF&TextFieldTextColor=%23555555&PlaceholderColor=%23555555&TextLabelTextColor=%23555555&DetailLabelTextColor=%23778087&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23778087&SearchFieldBackgroundColor=%23F5F5F5&IndicatorColor=%23555555&ButtonIconColor=%23555555&ButtonNormalColor=%23555555&ButtonNormal2Color=%23555555&ButtonNormal3Color=%2377787D&ButtonHighlightedColor=%2399FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23000000&ButtonDisabledColor=%2327282B&ButtonDisabled2Color=%2380FFFFFF&PingSuccessTextColor=%2396B96B&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23555555&HUDBackgroundColor=%23FFFFFF&v=1.0
