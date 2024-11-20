@@ -1,0 +1,33 @@
+name: Update README Timestamp
+
+on:
+  push:
+    branches:
+      - main  # 监控 main 分支
+
+jobs:
+  update-timestamp:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x"
+
+    - name: Install dependencies (if any)
+      run: pip install -r requirements.txt || echo "No dependencies"
+
+    - name: Run timestamp script
+      run: python update_readme.py
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git add README.md
+        git commit -m "Update README timestamp"
+        git push
