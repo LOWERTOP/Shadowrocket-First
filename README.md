@@ -145,7 +145,7 @@
 #### Shadowrocket V2EXDay
 > `V2EX 白昼` `亮底色`
 >
->  [![一键安装 配色](https://img.shields.io/static/v1?label=一键安装&message=配色&color=%23F5F5F5&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=BrightGold)
+>  [![一键安装 配色](https://img.shields.io/static/v1?label=一键安装&message=配色&color=%23F5F5F5&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=V2EXDay)
 >
 > ```ruby
 > shadowrocket://color?NavigationBarColor=%23FFFFFF&NavigationBar2Color=%23FFFFFF&NavigationBarTextColor=%23555555&NavigationBar2TextColor=%23555555&TabBarColor=%23FFFFFF&TabBarBorderColor=%23FFFFFF&TabBarSelectedColor=%23555555&TabBarUnselectedColor=%23CCCCCC&TableBackgroundColor=%23FFFFFF&TableCellBackgroundColor=%23F5F5F5&TableCellSelectedBackgroundColor=%23F5F5F5&TableSeparatorColor=%23FFFFFF&TextFieldTextColor=%23555555&PlaceholderColor=%23555555&TextLabelTextColor=%23555555&DetailLabelTextColor=%23778087&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23778087&SearchFieldBackgroundColor=%23F5F5F5&IndicatorColor=%23555555&ButtonIconColor=%23555555&ButtonNormalColor=%23555555&ButtonNormal2Color=%23555555&ButtonNormal3Color=%2377787D&ButtonHighlightedColor=%2399FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23000000&ButtonDisabledColor=%2327282B&ButtonDisabled2Color=%2380FFFFFF&PingSuccessTextColor=%2396B96B&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23555555&HUDBackgroundColor=%23FFFFFF&v=1.0
