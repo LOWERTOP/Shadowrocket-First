@@ -20,7 +20,7 @@ def update_readme(timestamp):
     with open(readme_path, "r", encoding="utf-8") as file:
         content = file.read()
 
-    # 查找 > ` 更新时间 ` 位置，并插入时间戳
+    # 查找 > ` 更新时间 ` 位置，并替换为 > ` 更新时间 ` 加上时间戳
     position = content.find("> ` 更新时间 `")  # 找到更新时间的标记
     if position != -1:
         # 从 > ` 更新时间 ` 开始，找到换行符的位置
