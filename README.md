@@ -673,7 +673,7 @@ _To Be Continued..._
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.BTM.png" width="100%" height="100%">
 
-[![GitHub issues][issues-image]][issues-url]
+[![GitHub stars][stars-image]][stars-url]
 
 [stars-url]: https://github.com/LOWERTOP/Shadowrocket-First/stargazers "星标"
 [stars-image]: https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=flat-square&logo=github&label=Star
