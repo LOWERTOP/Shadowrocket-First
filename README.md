@@ -9,7 +9,7 @@
 
 ------
 
-## [Shadowrocket-First 仓库自述][project-url]
+## [Shadowrocket-First 仓库自述](https://github.com/LOWERTOP/Shadowrocket-First)
 
 > [!NOTE]
 > 本仓库主要为 ` Shadowrocket/小火箭 ` 相关内容，提供一些自制/收集而来的 ` 配置文件 ` ` 模块 ` ` 规则集 ` ` 脚本 ` 等配置，同时提供多种自主设计的 ` 小火箭配色/主题/皮肤 `
