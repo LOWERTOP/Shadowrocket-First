@@ -125,10 +125,9 @@
 ------
 
 #### Shadowrocket BrightGold
-
-> [![一键安装 亮金色](https://img.shields.io/static/v1?label=一键安装&message=亮金色&color=%23D38301&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=BrightGold)
+> `亮金色` `亮底色`
 > 
-> `亮底色`
+> [![一键安装 配色](https://img.shields.io/static/v1?label=一键安装&message=配色&color=%23D38301&logo=rocket&logoColor=white&labelColor=gray&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=BrightGold)
 > 
 > ```ruby
 > shadowrocket://color?NavigationBarColor=%23F7F7F7&NavigationBar2Color=%23F7F7F7&NavigationBarTextColor=%23D38301&NavigationBar2TextColor=%23D38301&TabBarColor=%23F7F7F7&TabBarBorderColor=%23F7F7F7&TabBarSelectedColor=%23D38301&TabBarUnselectedColor=%23D1C0A2&TableBackgroundColor=%23FFFFFF&TableCellBackgroundColor=%23F7F7F7&TableCellSelectedBackgroundColor=%23F7F7F7&TableSeparatorColor=%23FFFFFF&TextFieldTextColor=%23D38301&PlaceholderColor=%23D4A763&TextLabelTextColor=%23D38301&DetailLabelTextColor=%23D4A763&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23D4A763&SearchFieldBackgroundColor=%23F7F7F7&IndicatorColor=%23D4A763&ButtonIconColor=%23D38301&ButtonNormalColor=%23D38301&ButtonNormal2Color=%23D38301&ButtonNormal3Color=%23D38301&ButtonHighlightedColor=%23FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23FFFFFF&ButtonDisabledColor=%23FFFFFF&ButtonDisabled2Color=%23FFFFFF&PingSuccessTextColor=%23D4A763&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23D38301&HUDBackgroundColor=%23F7F7F7&v=1.0
