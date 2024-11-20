@@ -13,10 +13,6 @@
 
 [![GitHub stars][stars-image]][stars-url]
 [![GitHub forks][forks-image]][forks-url]
-[![模块-调试][模块-image]][模块-url]
-
-[模块-url]: https://github.com/LOWERTOP/Shadowrocket-First "模块"
-[模块-image]: https://img.shields.io/github/rocket/LOWERTOP/Shadowrocket-First?style=flat-square&logo=github&label=模块
 
 [stars-url]: https://github.com/LOWERTOP/Shadowrocket-First/stargazers "星标"
 [stars-image]: https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=flat-square&logo=github&label=Star
