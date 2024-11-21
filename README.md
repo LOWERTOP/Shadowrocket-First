@@ -91,9 +91,9 @@
 >> 
 >> [![模块 墨鱼去广告](https://img.shields.io/static/v1?label=模块&message=墨鱼去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule)
 >> [![模块 酷安去广告](https://img.shields.io/static/v1?label=模块&message=酷安去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule)
->> [![模块 YouTube去广告](https://img.shields.io/static/v1?label=模块&message=YouTube去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)
+>> [![模块 油管去广告](https://img.shields.io/static/v1?label=模块&message=油管去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)
 >> [![规则 去广告规则](https://img.shields.io/static/v1?label=规则&message=去广告规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf)
->> [![脚本 订阅筛选](https://img.shields.io/static/v1?label=脚本&message=订阅筛选&color=grey&logo=rocket&logoColor=white&labelColor=purple&messageColor=white)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/rename.js)
+>> [![脚本 修改与筛选](https://img.shields.io/static/v1?label=脚本&message=修改与筛选&color=grey&logo=rocket&logoColor=white&labelColor=purple&messageColor=white)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/rename.js)
 
 ------
 
