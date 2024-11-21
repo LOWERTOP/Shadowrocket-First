@@ -25,12 +25,12 @@
 > 
 > ` 反馈入口 ` [Shadowrocket 官方频道](https://t.me/ShadowrocketApp)
 
-> ` 近期更新 `
+> __` 近期更新 `__
 >
-> * 配色文件扩充至26个，亮底色和暗底色各13个
-> * 新增一键安装服务，提供一键安装配色文件、配置文件、模块等
-> * 新增快捷指令安装配色文件，作者：[iab](https://t.me/iab000)
-> * 新增非标准链接经 HTTP 重定向跳转服务，含 URL-Schemes 跳转
+>> * 配色文件扩充至26个，亮底色和暗底色各13个
+>> * 新增 ` 一键安装 ` 服务，提供一键安装配色文件、配置文件、模块等
+>> * 新增快捷指令安装配色文件，作者：[iab](https://t.me/iab000)
+>> * 新增 ` 非标准链接 ` 经 HTTP  ` 重定向跳转 ` 服务，含 ` URL-Schemes 跳转 ` 
 >
 > ` 配色数量 ` 26
 > 
@@ -43,19 +43,19 @@
 > [!NOTE]
 > 本单元为自制内容，仅为 ` 特定软件或服务 ` 所用，如无需要可直接略过
 
-__` Talkatone `__
-
-> 如有在中国大陆境内使用 Talkatone 服务，推荐在使用过程中使用本仓库中的[代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)，该模块可以减少该 APP 对不同代理节点的敏感性。由于 Talkatone 的特殊性，在使用时需要对某些地址进行代理，而对其他地址则进行直连，通过该模块进行策略分流是最合理的选择，安装后可以解决某些节点无法直接使用 Talkatone 的问题。该模块还附带去广告规则，能够去除 APP 中的第三方广告。同时，除模块外本页还提供该服务的[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list)等。
-> 
-> 本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册
-> 
-> [![模块 一键安装](https://img.shields.io/static/v1?label=模块&message=一键安装&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)
-
-__` Ultra Mobile PayGo WiFiCalling `__
-
-> Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile PayGo SIM 卡。本文推荐使用本仓库中的[代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式。本文同时提供相关服务的[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)，如有需要，请自行取用
+>__` Talkatone `__
 >
-> [![模块 一键安装](https://img.shields.io/static/v1?label=模块&message=一键安装&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
+>> 如有在中国大陆境内使用 Talkatone 服务，推荐在使用过程中使用本仓库中的[代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)，该模块可以减少该 APP 对不同代理节点的敏感性。由于 Talkatone 的特殊性，在使用时需要对某些地址进行代理，而对其他地址则进行直连，通过该模块进行策略分流是最合理的选择，安装后可以解决某些节点无法直接使用 Talkatone 的问题。该模块还附带去广告规则，能够去除 APP 中的第三方广告。同时，除模块外本页还提供该服务的[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list)等。
+>> 
+>> 本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册
+>> 
+>> [![模块 Talkatone](https://img.shields.io/static/v1?label=模块&message=Talkatone&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)
+>
+>__` Ultra Mobile PayGo WiFiCalling `__
+>
+>> Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile PayGo SIM 卡。本文推荐使用本仓库中的[代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式。本文同时提供相关服务的[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)，如有需要，请自行取用
+>>
+>> [![模块 UltraMobile](https://img.shields.io/static/v1?label=模块&message=UltraMobile&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)
 
 ------
 
@@ -64,17 +64,36 @@ __` Ultra Mobile PayGo WiFiCalling `__
 > [!NOTE]
 > 本单元内容为收集自 ` 官方或靠谱第三方 ` 的使用手册、配置、模块、规则集、脚本等，可放心食用
 
-> 1. Shadowrocket 官方的关键词列表暨文档：[优化版本](https://github.com/LOWERTOP/Shadowrocket) + [官方版本](https://github.com/wlxuf/Shadowrocket)
-> 
-> 2. Shadowrocket 很详尽的准官方配置文件：[懒人配置一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) + [懒人含代理分组一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 
-> 
-> 3. BlackMatrix7 整理的分流详尽的规则集：[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket) 
-> 
-> 4. Cuttlefish 墨鱼去广告模块：[模块一键安装](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) + [发布页](https://github.com/ddgksf2013/ddgksf2013)
-> 
-> 5. Johnshall 仅去广告配置文件，可作为规则集使用：[配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) + [发布页](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)
-> 
-> 6. kiwi707 制作的 ` 筛选/规范订阅节点 ` 的脚本：[脚本](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript) + [发布页](https://github.com/kiwi707/Shadow-Rocket)
+>__` 官方文件 `__
+>
+>> 本页提供[ Shadowrocket 官方 GitHub 主页](https://github.com/LOWERTOP/Shadowrocket)发布的 ` 关键词列表 ` 也可以称为教程/文件/手册/文档，本页提供局部优化/改进/微调的版本。同时，官方“线下”推荐的 [懒人配置](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人策略组/代理分组](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 配置文件也一并提供一键安装链接。该配置文件的备注非常详尽、仔细，基本上把官方的操作手册备注到了配置文件内，非常适合新人上手和进阶调整
+>>    
+>> [![文档 优化版本](https://img.shields.io/static/v1?label=文档&message=优化版本&color=grey&logo=rocket&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket)
+>> [![文档 官方版本](https://img.shields.io/static/v1?label=文档&message=官方版本&color=grey&logo=rocket&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/wlxuf/Shadowrocket)
+>> [![配置 懒人配置](https://img.shields.io/static/v1?label=配置&message=懒人配置&color=grey&logo=rocket&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf)
+>> [![配置 代理分组](https://img.shields.io/static/v1?label=配置&message=代理分组&color=grey&logo=rocket&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf)
+>
+>__` 分流规则 `__
+>
+>> 本页提供[blackmatrix7](https://github.com/blackmatrix7)维护的分类非常详实/丰富的各平台的分流规则、覆写规则及自动化脚本，是代理软件首推的代理规则集。该规则不仅适用于 ` Shadowrocket ` 同样有适配其他代理软件的版本
+>> 
+>> [![规则 分流规则](https://img.shields.io/static/v1?label=规则&message=分流规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket)
+>> [![规则 覆写规则](https://img.shields.io/static/v1?label=规则&message=覆写规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket)
+>
+>__` 配置模块 `__
+>
+>> 本页提供多种收集而来的各类模块，后续还会陆续增加，现有包括：
+>> * [Cuttlefish](https://github.com/ddgksf2013/ddgksf2013) 墨鱼的去[广告整合模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule)，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
+>> * [iab](https://github.com/iab0x00)维护的[酷安去广告模块](https://github.com/iab0x00/ProxyRules/blob/main/Rewrite/Coolapk.sgmodule)，可以去除酷安 APP 的开屏广告和时间线广告
+>> * [Maasea](https://github.com/Maasea)维护的[ YouTube 去广告模块](https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Enhance.sgmodule),支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供[iab](https://github.com/iab0x00)的[转换维护版本](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)以供使用
+>> * [Johnshall](https://github.com/Johnshall) 维护了多款[小火箭配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)，且更新非常及时，每日8时自动重构。本文推荐将其[仅去广告配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf)添加为规则集使用（小火箭兼容这个方式），有不错的效果
+>> * [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的[脚本]([https://github.com/kiwi707](https://github.com/kiwi707/Shadow-Rocket)),该脚本异常强大，主要针对服务器订阅的节点名称进行处理，可以过滤掉无效节点，并将有效节点的名称进行标准化和格式化。此脚本可以协助用户通过特定规则自动重命名节点名称。它通过国家和地区关键词匹配，将节点名称替换为相应的国旗和缩写符号，并根据用户的配置进行进一步调整。使用方式为：点开链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 筛选 ` 区域
+>> 
+>> [![模块 墨鱼去广告](https://img.shields.io/static/v1?label=模块&message=墨鱼去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule)
+>> [![模块 酷安去广告](https://img.shields.io/static/v1?label=模块&message=酷安去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule)
+>> [![模块 YouTube去广告](https://img.shields.io/static/v1?label=模块&message=YouTube去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)
+>> [![规则 去广告规则](https://img.shields.io/static/v1?label=规则&message=去广告规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf)
+>> [![脚本 订阅筛选](https://img.shields.io/static/v1?label=脚本&message=订阅筛选&color=grey&logo=rocket&logoColor=white&labelColor=purple&messageColor=white)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/rename.js)
 
 ------
 
@@ -82,19 +101,20 @@ __` Ultra Mobile PayGo WiFiCalling `__
 
 > [!NOTE]
 > 本单元为小火箭配色文件相关内容。项目出发点是作者在使用小火箭的过程中对小火箭的配色逐渐感到单调，借助本身是设计出身，遂制作了几个配色文件，没想到反响挺好，后就借助 GitHub 平台逐步发布的二十余种自己设计的配色文件，以供大家挑选使用
-
-> [!IMPORTANT]
-> 因苹果系统限制，小火箭部分细节图标不可自定义配色，且会跟随系统深色/浅色模式改变。使用自定义配色时可能会因此特性导致局部细节图标可视度存在问题。建议在使用 `亮底色` 时搭配系统浅色模式，使用 `暗底色` 时搭配系统深色模式
+>
+>> ` 极其鸣谢 ` 快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
+>> 
+>> ` 特别鸣谢 ` 提供建议好友：[Sage](https://t.me/huskydb)
 
 > [!TIP]
 > * __配色一键安装：__ 选择所需配色，点击 ` 一键安装 `，允许跳转后点击 ` 使用 ` 即可
 > * __复制代码安装：__ 复制所需 ` shadowrocket://color?* ` 配色代码，在 ` 配置 ` 页点击 “ ✚ ” 号，粘贴并应用
-> * __快捷指令安装：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/da1fe2d8c0eb416ba50db6c33f922068)，在快捷指令中选择配色并安装
+> * __快捷指令安装：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/eab1a031858d4fd480e1bff95b359c2c)，在 ` 快捷指令 ` 中选择配色并安装
 > * __恢复默认配色：__ ` APP-设置-颜色-重设颜色 `
 
-> ` 极其鸣谢 ` 快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
-> 
-> ` 特别鸣谢 ` 提供建议好友：[Sage](https://t.me/huskydb)
+
+> [!IMPORTANT]
+> 因苹果系统限制，小火箭部分细节图标不可自定义配色，且会跟随系统深色/浅色模式改变。使用自定义配色时可能会因此特性导致局部细节图标可视度存在问题。建议在使用 `亮底色` 时搭配系统浅色模式，使用 `暗底色` 时搭配系统深色模式
 
 > ` 效果示例：TermiusDark `
 > 
