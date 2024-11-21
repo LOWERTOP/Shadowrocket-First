@@ -13,6 +13,8 @@
 
 [![GitHub stars][stars-image]][stars-url]
 [![GitHub forks][forks-image]][forks-url]
+[![Telegram Shadowrocket](https://img.shields.io/static/v1?label=Telegram&message=Shadowrocket&color=blue&logo=telegram&logoColor=white&labelColor=grey&messageColor=white)](https://t.me/ShadowrocketApp)
+[![Telegram LOWERTOP](https://img.shields.io/static/v1?label=Telegram&message=LOWERTOP&color=blue&logo=telegram&logoColor=white&labelColor=grey&messageColor=white)](https://t.me/LowerTopBot)
 
 [stars-url]: https://github.com/LOWERTOP/Shadowrocket-First/stargazers "已被星标人数"
 [stars-image]: https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=static&logo=github&label=Star
