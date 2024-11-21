@@ -86,9 +86,9 @@
 >__` 配置模块 `__
 >
 >> 本页提供多种收集而来的各类模块，后续还会陆续增加，现有包括：
->> * [Cuttlefish](https://github.com/ddgksf2013/ddgksf2013) 墨鱼的去[广告整合模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule)，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
->> * [iab](https://github.com/iab0x00)维护的[酷安去广告模块](https://github.com/iab0x00/ProxyRules/blob/main/Rewrite/Coolapk.sgmodule)，可以去除酷安 APP 的开屏广告和时间线广告
->> * [Maasea](https://github.com/Maasea)维护的[ YouTube 去广告模块](https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Enhance.sgmodule),支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供[iab](https://github.com/iab0x00)的[转换维护版本](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)以供使用
+>> * [Cuttlefish](https://github.com/ddgksf2013/ddgksf2013) 墨鱼 的去[广告整合模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule)，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
+>> * [iab](https://github.com/iab0x00) 维护的[酷安去广告模块](https://github.com/iab0x00/ProxyRules/blob/main/Rewrite/Coolapk.sgmodule)，可以去除酷安 APP 的开屏广告和时间线广告
+>> * [Maasea](https://github.com/Maasea) 维护的[ YouTube 去广告模块](https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Enhance.sgmodule),支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供 [iab](https://github.com/iab0x00) 的[转换维护版本](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)以供使用
 >> * [Johnshall](https://github.com/Johnshall) 维护了多款[小火箭配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)，且更新非常及时，每日8时自动重构。本文推荐将其[仅去广告配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf)添加为规则集使用（小火箭兼容这个方式），有不错的效果
 >> * [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的[脚本]([https://github.com/kiwi707](https://github.com/kiwi707/Shadow-Rocket)),该脚本异常强大，主要针对服务器订阅的节点名称进行处理，可以过滤掉无效节点，并将有效节点的名称进行标准化和格式化。此脚本可以协助用户通过特定规则自动重命名节点名称。它通过国家和地区关键词匹配，将节点名称替换为相应的国旗和缩写符号，并根据用户的配置进行进一步调整。使用方式为：点开链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 筛选 ` 区域
 >> 
