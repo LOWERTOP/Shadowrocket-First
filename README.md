@@ -29,6 +29,7 @@
 
 > __` 近期更新 `__
 >
+>> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html)，用来调优 VPS TCP 缓冲区挺好的 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool)
 >> * 扩充 ` 配色文件 ` 至26个，其中 ` 亮底色 / 暗底色 ` 各13个
 >> * 新增 ` 一键安装 ` 服务，提供一键安装配色文件、配置文件、模块等
 >> * 新增 ` 快捷指令 ` 安装配色文件，作者：[iab](https://t.me/iab000)
