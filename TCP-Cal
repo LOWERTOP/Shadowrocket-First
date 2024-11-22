@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCP缓冲区计算器</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .calculator {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 200px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculator">
+    <h1>TCP缓冲区计算器</h1>
+    <div class="input-group">
+      <label for="bandwidth">带宽 (Mbps):</label>
+      <input type="number" id="bandwidth" placeholder="例如: 600">
+    </div>
+    <div class="input-group">
+      <label for="rtt">RTT (毫秒):</label>
+      <input type="number" id="rtt" placeholder="例如: 170">
+    </div>
+    <button onclick="calculateBDP()">计算</button>
+    <div class="result" id="result" style="display: none;">
+      <h3>计算结果：</h3>
+      <p>BDP (比特) = <span id="bdpBits"></span> bits</p>
+      <p>BDP (字节) = <span id="bdpBytes"></span> bytes</p>
+      <div class="adjustment">
+        <button onclick="adjustValue(-1)">-1 MiB</button>
+        <button onclick="adjustValue(-5)">-5 MiB</button>
+        <button onclick="adjustValue(1)">+1 MiB</button>
+        <button onclick="adjustValue(5)">+5 MiB</button>
+      </div>
+      <h3>建议的 TCP 缓冲区设置：</h3>
+      <p>net.ipv4.tcp_wmem="4096 16384 <span id="recommendedWmem"></span>"</p>
+      <p>net.ipv4.tcp_rmem="4096 87380 <span id="recommendedRmem"></span>"</p>
+      <button onclick="generateScript()">生成永久保存脚本</button>
+      <div id="script" style="display: none;">
+        <h3>永久保存脚本：</h3>
+        <pre id="scriptContent"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentBdpBytes = 0;
+
+    function calculateBDP() {
+      const bandwidth = document.getElementById('bandwidth').value;
+      const rtt = document.getElementById('rtt').value;
+
+      const bps = bandwidth * 1000000;
+      const rttSeconds = rtt / 1000;
+
+      const bdpBits = bps * rttSeconds;
+      currentBdpBytes = Math.ceil(bdpBits / 8);
+
+      updateDisplay();
+    }
+
+    function adjustValue(mebibytes) {
+      const adjustment = mebibytes * 1024 * 1024; // 转换 MiB 为字节
+      currentBdpBytes = Math.max(0, currentBdpBytes + adjustment);
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      document.getElementById('bdpBits').textContent = (currentBdpBytes * 8);
+      document.getElementById('bdpBytes').textContent = currentBdpBytes;
+      document.getElementById('recommendedWmem').textContent = currentBdpBytes;
+      document.getElementById('recommendedRmem').textContent = currentBdpBytes;
+      document.getElementById('result').style.display = 'block';
+    }
+
+    function generateScript() {
+      const scriptContent = `#!/bin/bash
+# 设置TCP缓冲区大小
+sysctl -w net.ipv4.tcp_wmem="4096 16384 ${currentBdpBytes}"
+sysctl -w net.ipv4.tcp_rmem="4096 87380 ${currentBdpBytes}"
+
+# 将设置写入/etc/sysctl.conf以便永久保存
+echo "net.ipv4.tcp_wmem = 4096 16384 ${currentBdpBytes}" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_rmem = 4096 87380 ${currentBdpBytes}" >> /etc/sysctl.conf
+
+# 应用更改
+sysctl -p`;
+
+      document.getElementById('scriptContent').textContent = scriptContent;
+      document.getElementById('script').style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>
