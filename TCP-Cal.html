@@ -63,11 +63,11 @@
   <div class="calculator">
     <h1>TCP缓冲区计算器</h1>
     <div class="input-group">
-      <label for="bandwidth">带宽 (Mbps):</label>
+      <label for="bandwidth">瓶颈带宽 (Mbps)，本地带宽和服务端带宽选最小带宽:</label>
       <input type="number" id="bandwidth" placeholder="例如: 600">
     </div>
     <div class="input-group">
-      <label for="rtt">RTT (毫秒):</label>
+      <label for="rtt">RTT 往返时间 (毫秒)，一般指 Ping 值:</label>
       <input type="number" id="rtt" placeholder="例如: 170">
     </div>
     <button onclick="calculateBDP()">计算</button>
