@@ -1,0 +1,17 @@
+#!name=CMCC_iTV
+#!desc= IPTV 无需 IPV6，三网通看移动 iTV 直播源
+# 规则来源：https://pixman.io/topics/37
+# 整理作者：https://t.me/LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+# 反馈渠道：https://t.me/ShadowrocketApp
+
+[Host]
+cache.ott.ystenlive.itv.cmvideo.cn = pixman.io.ystenlive.dnsany.com
+cache.ott.bestlive.itv.cmvideo.cn = pixman.io.bestlive.dnsany.com
+cache.ott.wasulive.itv.cmvideo.cn = pixman.io.wasulive.dnsany.com
+cache.ott.fifalive.itv.cmvideo.cn = pixman.io.fifalive.dnsany.com
+cache.ott.hnbblive.itv.cmvideo.cn = pixman.io.hnbblive.dnsany.com
+
+[Rule]
+DOMAIN-SUFFIX,cmvideo.cn,DIRECT
+DOMAIN-SUFFIX,dnsany.com,DIRECT
