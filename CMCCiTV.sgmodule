@@ -5,13 +5,13 @@
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 # 反馈渠道：https://t.me/ShadowrocketApp
 
+[Rule]
+DOMAIN-SUFFIX,cmvideo.cn,DIRECT
+DOMAIN-SUFFIX,dnsany.com,DIRECT
+
 [Host]
 cache.ott.ystenlive.itv.cmvideo.cn = pixman.io.ystenlive.dnsany.com
 cache.ott.bestlive.itv.cmvideo.cn = pixman.io.bestlive.dnsany.com
 cache.ott.wasulive.itv.cmvideo.cn = pixman.io.wasulive.dnsany.com
 cache.ott.fifalive.itv.cmvideo.cn = pixman.io.fifalive.dnsany.com
 cache.ott.hnbblive.itv.cmvideo.cn = pixman.io.hnbblive.dnsany.com
-
-[Rule]
-DOMAIN-SUFFIX,cmvideo.cn,DIRECT
-DOMAIN-SUFFIX,dnsany.com,DIRECT
