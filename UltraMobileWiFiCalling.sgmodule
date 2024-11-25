@@ -4,13 +4,6 @@
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 # 反馈渠道：https://t.me/ShadowrocketApp
 
-[Host]
-*.ultra.me = server:199.85.126.10
-*.optimizely.com = server:199.85.126.10
-*.ultramobile.com = server:199.85.126.10
-*.t-mobile.com = server:199.85.126.10
-*.3gppnetwork.org = server:199.85.126.10
-
 [Rule]
 DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org,PROXY
 DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,PROXY
@@ -20,3 +13,10 @@ DOMAIN-SUFFIX,eas3.msg.t-mobile.com,PROXY
 DOMAIN-SUFFIX,redirect.ultra.me,PROXY
 DOMAIN-SUFFIX,ultramobile.com,PROXY
 DOMAIN-SUFFIX,optimizely.com,PROXY
+
+[Host]
+*.ultra.me = server:199.85.126.10
+*.optimizely.com = server:199.85.126.10
+*.ultramobile.com = server:199.85.126.10
+*.t-mobile.com = server:199.85.126.10
+*.3gppnetwork.org = server:199.85.126.10
