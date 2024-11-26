@@ -4,12 +4,12 @@
 # 配置来源：https://pixman.io/topics/37
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
+[General]
+dns-server = https://doh.pub/dns-query,https://dns.alidns.com/dns-query,223.5.5.5,223.6.6.6,119.29.29.29,114.114.114.114
+fallback-dns-server = system
+
 [Rule]
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaMobile/ChinaMobile.list,DIRECT
-RULE-SET,https://https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaUnicom/ChinaUnicom.list,DIRECT
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaTelecom/ChinaTelecom.list,DIRECT
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/IPTVMainland/IPTVMainland.list,DIRECT
-
 DOMAIN-SUFFIX,dnsany.com,DIRECT
 
 [Host]
