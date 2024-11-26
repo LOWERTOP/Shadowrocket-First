@@ -6,11 +6,18 @@
 
 # dns-server = 199.85.126.10,199.85.127.10
 
+DOMAIN-SUFFIX,crl.t-mobile.com
 DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org
-DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
-DOMAIN-SUFFIX,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
-DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org
 DOMAIN-SUFFIX,eas3.msg.t-mobile.com
-DOMAIN-SUFFIX,redirect.ultra.me
-DOMAIN-SUFFIX,ultramobile.com
+DOMAIN-SUFFIX,epdg.epc.mnc240.mcc310.pub.3gppnetwork.org
+DOMAIN-SUFFIX,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
+DOMAIN-SUFFIX,mascns.t-mobile.com
+DOMAIN-SUFFIX,ns.sipgeo.t-mobile.com
 DOMAIN-SUFFIX,optimizely.com
+DOMAIN-SUFFIX,redirect.ultra.me
+DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org
+DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org
+DOMAIN-SUFFIX,ultramobile.com
+IP-CIDR,206.29.177.36/32,no-resolve
+IP-CIDR,208.54.0.0/16,no-resolve
+IP-CIDR,66.94.0.0/19,no-resolve
