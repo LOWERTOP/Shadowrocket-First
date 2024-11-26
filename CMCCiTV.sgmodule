@@ -7,9 +7,8 @@
 
 [Rule]
 DOMAIN-SUFFIX,cmvideo.cn,DIRECT
-DOMAIN-SUFFIX,dnsany.com,DIRECT
 DOMAIN-SUFFIX,migucloud.com,DIRECT
-DOMAIN-SUFFIX,cmvideo,DIRECT
+DOMAIN-SUFFIX,dnsany.com,DIRECT
 
 [Host]
 studentlive.migucloud.com = pixman.io.fifalive.dnsany.com
