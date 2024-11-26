@@ -8,10 +8,12 @@
 [Rule]
 DOMAIN-SUFFIX,cmvideo.cn,DIRECT
 DOMAIN-SUFFIX,dnsany.com,DIRECT
+DOMAIN-SUFFIX,migucloud.com,DIRECT
+DOMAIN-SUFFIX,cmvideo,DIRECT
 
 [Host]
-studentlive.migucloud.com = server:pixman.io.fifalive.dnsany.com
-zqhswlive.itv.cmvideo.cn = server:pixman.io.fifalive.dnsany.com
+studentlive.migucloud.com = pixman.io.fifalive.dnsany.com
+zqhswlive.itv.cmvideo.cn = pixman.io.fifalive.dnsany.com
 cache.ott.ystenlive.itv.cmvideo.cn = pixman.io.ystenlive.dnsany.com
 cache.ott.bestlive.itv.cmvideo.cn = pixman.io.bestlive.dnsany.com
 cache.ott.wasulive.itv.cmvideo.cn = pixman.io.wasulive.dnsany.com
