@@ -85,7 +85,7 @@
 >
 >__` 分流规则 `__
 >
->> 本页提供[blackmatrix7](https://github.com/blackmatrix7)维护的分类非常详实/丰富的各平台的分流规则、覆写规则及自动化脚本，是代理软件首推的代理规则集。该规则不仅适用于 ` Shadowrocket ` 同样有适配其他代理软件的版本
+>> 本页提供[blackmatrix7](https://github.com/blackmatrix7)维护的分类非常详实/丰富的各平台的分流规则、覆写规则等内容，是代理软件首推的代理规则集。该规则不仅适用于 ` Shadowrocket ` 同样有适配其他代理软件的版本
 >> 
 >> [![规则 分流规则](https://img.shields.io/static/v1?label=规则&message=分流规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
 >> [![规则 覆写规则](https://img.shields.io/static/v1?label=规则&message=覆写规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看分类")
