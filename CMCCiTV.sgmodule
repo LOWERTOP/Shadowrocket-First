@@ -4,14 +4,17 @@
 # 配置来源：https://pixman.io/topics/37
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
+[General]
+# 推荐使用以下DNS对默认DNS进行覆写，可最大程度缓和加载缓慢的问题
+dns-server = https://doh.pub/dns-query,https://dns.alidns.com/dns-query,223.5.5.5,223.6.6.6,119.29.29.29,114.114.114.114
+# 默认的系统DNS作为备用DNS
+fallback-dns-server = system
+
 [Rule]
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaMobile/ChinaMobile.list,DIRECT
 DOMAIN-SUFFIX,dnsany.com,DIRECT
 
 [Host]
-# dnsany.com域名有DNS解析问题，需要指定DNS对该域名进行解析
-dnsany.com = server:114.114.114.114
-
 # 如不可用且代理日志中有以下地址解析为1.1.1.1的，则请手动取消映射前的#号（*号别删）
 #*.miguvideo.com = pixman.io.fifalive.dnsany.com
 #*.migucloud.com = pixman.io.fifalive.dnsany.com
