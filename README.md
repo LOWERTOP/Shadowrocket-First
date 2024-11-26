@@ -34,6 +34,7 @@
 >> * 新增 ` 快捷指令 ` 安装配色文件，作者：[iab](https://t.me/iab000)
 >> * 新增 ` 各类链接 ` 经 HTTP  ` 重定向跳转 ` 服务，含 ` URL-Schemes 跳转 ` __【[重要更新](https://github.com/LOWERTOP/Shadowrocket-First#url-redirector-%E9%9D%9E%E6%A0%87%E5%87%86%E9%93%BE%E6%8E%A5%E9%87%8D%E5%AE%9A%E5%90%91%E8%B7%B3%E8%BD%AC)】__
 >> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html)，用来调优 VPS TCP 缓冲区挺好的 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
+>> * 新增 ` CMCCiTV 咪咕直播源模块 ` ` Beta ` 使非移动用户可以使用并访问咪咕直播源
 >
 > ` 配色数量 ` 26
 > 
@@ -60,7 +61,12 @@
 >> Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile Pay As You Go SIM 卡。本文推荐使用本仓库中的[代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式。本文同时提供相关服务的[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)，如有需要，请自行取用
 >>
 >> [![模块 UltraMobile](https://img.shields.io/static/v1?label=模块&message=UltraMobile&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule "一键安装本模块")
-
+>
+>__` CMCCiTV 咪咕直播源模块 ` ` Beta `__
+>
+>> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 IPTV 有关全网使用移动咪咕直播源的问题，因为我也是 [APTV](https://t.me/AptvPlayer) 用户，所以根据他提供的来源资料仔细研究了一遍。原方案是 PIXMAN 的 Coding 大佬提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u) 优化，以解决非移动用户访问咪咕源的错误解析问题，但这个方案经我测试并不适用于所有非移动用户或不同地区的用户。测试发现原贴中需要解析的域名并未出现在我所在的地区，经过日志筛查发现应该是不同地区使用了不同的域名，我所在的地区使用了其他类似域名，导致方案无效。所以经过测试，使用我所在地区域名进行映射后可以在非移动网络下正常使用咪咕源，并且该网络环境下对公共DNS似乎也很敏感，所以制作了一个 [小火箭模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule) ，包含需要直连的地址规则和规则集、DNS覆写、以及必要的地址映射，理论上应该支持所有运营商使用咪咕直播源，如果发现还有不支持的，可以进入文本模式根据说明进行调整。现在提供 ` Beta 版本 ` 欢迎使用、测试
+>>
+>> [![模块 CMCCiTV](https://img.shields.io/static/v1?label=模块&message=CMCCiTV&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
 ------
 
 ## Shadowrocket 收集配置
