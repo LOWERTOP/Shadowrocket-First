@@ -11,5 +11,5 @@ DOMAIN-SUFFIX,migucloud.com,DIRECT
 DOMAIN-SUFFIX,dnsany.com,DIRECT
 
 [Host]
-studentlive.migucloud.com = server:pixman.io.fifalive.dnsany.com
-zqhswlive.itv.cmvideo.cn = server:pixman.io.fifalive.dnsany.com
+*.migucloud.com = pixman.io.fifalive.dnsany.com
+zqhswlive.itv.cmvideo.cn = pixman.io.fifalive.dnsany.com
