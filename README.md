@@ -1,6 +1,6 @@
-[README in English via Google Translate](https://translate.google.com/translate?hl=en&sl=zh-CN&tl=en&u=https://github.com/LOWERTOP/Shadowrocket-First)
-
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
+
+> [README in English via Google Translate](https://translate.google.com/translate?hl=en&sl=zh-CN&tl=en&u=https://github.com/LOWERTOP/Shadowrocket-First/blob/main/README.md)
 
 > [!WARNING]
 > __警告：禁止使用本仓库内的任何内容牟利！如需转载请务必 ` 标明作者 ` 或 ` 注明来源 `__
