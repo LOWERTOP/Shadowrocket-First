@@ -1,8 +1,10 @@
 #!name=CMCCiTV
-#!desc= 测试所用，暂不发布！IPTV 无需 IPV6，三网通看移动 iTV 直播源
+#!desc= IPTV 无需 IPV6，三网通看移动 iTV 直播源 （测试版）
 # 中国移动 iTV 平台中的部分域名在非移动网络下会被解析到CF的DNS服务IP上，导致无法访问，本模块根据PIXMAN大佬Coding自制DNS并提供映射方式的解决方案所制作，可以解决这个问题
 # 配置来源：https://pixman.io/topics/37
+# 整理作者：https://t.me/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+# 反馈渠道：https://t.me/ShadowrocketApp
 
 [General]
 # 推荐使用以下DNS对默认DNS进行覆写，可最大程度缓和加载缓慢的问题
