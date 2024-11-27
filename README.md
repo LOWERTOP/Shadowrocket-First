@@ -27,6 +27,9 @@
 > 
 > ` 反馈入口 ` [Shadowrocket 官方频道](https://t.me/ShadowrocketApp)
 
+> ` 更新时间 `
+2024-11-27 00:17
+
 > __` 近期更新 `__
 >
 >> * 扩充 ` 配色文件 ` 至26个，其中 ` 亮底色 / 暗底色 ` 各13个
@@ -35,11 +38,7 @@
 >> * 新增 ` 各类链接 ` 经 HTTP  ` 重定向跳转 ` 服务，含 ` URL-Schemes 跳转 ` __【[重要更新](https://github.com/LOWERTOP/Shadowrocket-First#url-redirector-%E9%9D%9E%E6%A0%87%E5%87%86%E9%93%BE%E6%8E%A5%E9%87%8D%E5%AE%9A%E5%90%91%E8%B7%B3%E8%BD%AC)】__
 >> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html)，用来调优 VPS TCP 缓冲区挺好的 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 >> * 新增 ` CMCCiTV 咪咕直播源模块 ` ` Beta ` 使非移动用户可以使用并访问咪咕直播源
->
-> ` 配色数量 ` 26
-> 
-> ` 更新时间 `
-2024-11-27 00:17
+
 
 ------
 
