@@ -35,7 +35,7 @@
 >> * 扩充 ` 配色文件 ` 至26个，其中 ` 亮底色 / 暗底色 ` 各13个
 >> * 新增 ` 一键安装 ` 服务，提供一键安装配色文件、配置文件、模块等
 >> * 新增 ` 快捷指令 ` 安装配色文件，作者：[iab](https://t.me/iab000)
->> * 新增 ` 各类链接 ` 经 HTTP  ` 重定向跳转 ` 服务，含 ` URL-Schemes 跳转 ` __【[重要更新](https://github.com/LOWERTOP/Shadowrocket-First#url-redirector-%E9%9D%9E%E6%A0%87%E5%87%86%E9%93%BE%E6%8E%A5%E9%87%8D%E5%AE%9A%E5%90%91%E8%B7%B3%E8%BD%AC)】__
+>> * 新增 ` 各类链接 ` 经 HTTP  ` 重定向跳转 ` 服务，含 ` URL-Schemes 跳转 `
 >> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html)，用来调优 VPS TCP 缓冲区挺好的 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 >> * 新增 ` CMCCiTV 咪咕直播源模块 ` ` Beta ` 使非移动用户可以使用并访问咪咕直播源
 
@@ -49,7 +49,7 @@
 
 >__` Talkatone `__
 >
->> 如有在中国大陆境内使用 Talkatone 服务，推荐在使用过程中使用本仓库中的[代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)，该模块可以减少该 APP 对不同代理节点的敏感性。由于 Talkatone 的特殊性，在使用时需要对某些地址进行代理，而对其他地址则进行直连，通过该模块进行策略分流是最合理的选择，安装后可以解决某些节点无法直接使用 Talkatone 的问题。该模块还附带去广告规则，能够去除 APP 中的第三方广告。同时，除模块外本页还提供该服务的[直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list)、[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list)等，相关用法请查阅规则集内的说明
+>> 如有在中国大陆境内使用 Talkatone 服务，推荐在使用过程中使用本仓库中的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) ，该模块可以减少该 APP 对不同代理节点的敏感性。由于 Talkatone 的特殊性，在使用时需要对某些地址进行代理，而对其他地址则进行直连，通过该模块进行策略分流是最合理的选择，安装后可以解决某些节点无法直接使用 Talkatone 的问题。该模块还附带去广告规则，能够去除 APP 中的第三方广告。同时，除模块外本页还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list) 、[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 等，相关用法请查阅规则集内的说明
 >> 
 >> 本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册
 >> 
@@ -57,13 +57,13 @@
 >
 >__` Ultra Mobile PayGo WiFiCalling `__
 >
->> Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile Pay As You Go SIM 卡。本文推荐使用本仓库中的[代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule)进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式。本文同时提供相关服务的[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)，如有需要，请自行取用
+>> Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile Pay As You Go SIM 卡。本文推荐使用本仓库中的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) 进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式。本文同时提供相关服务的 [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list) ，如有需要，请自行取用
 >>
 >> [![模块 UltraMobile](https://img.shields.io/static/v1?label=模块&message=UltraMobile&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule "一键安装本模块")
 >
 >__` CMCCiTV 咪咕直播源模块 ` ` Beta `__
 >
->> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 IPTV 有关全网使用移动咪咕直播源的问题，因为我也是 [APTV](https://t.me/AptvPlayer) 用户，所以根据他提供的来源资料仔细研究了一遍。原方案是 PIXMAN 的 Coding 大佬提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u) 优化，以解决非移动用户访问咪咕源的错误解析问题，但这个方案经我测试并不适用于所有非移动用户或不同地区的用户。测试发现原贴中需要解析的域名并未出现在我所在的地区，经过日志筛查发现应该是不同地区使用了不同的域名，我所在的地区使用了其他类似域名，导致方案无效。所以经过测试，使用我所在地区域名进行映射后可以在非移动网络下正常使用咪咕源，并且该网络环境下对公共DNS似乎也很敏感，所以制作了一个 [小火箭模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule) ，包含需要直连的地址规则和规则集、DNS覆写、以及必要的地址映射，理论上应该支持所有运营商使用咪咕直播源，如果发现还有不支持的，可以进入文本模式根据说明进行调整。现在提供 ` Beta 版本 ` 欢迎使用、测试
+>> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 IPTV 有关全网使用移动咪咕直播源的问题，因为我也是 [APTV](https://t.me/AptvPlayer) 用户，所以根据他提供的来源资料仔细研究了一遍。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 大佬提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题，但这个方案经我测试并不适用于所有非移动用户或不同地区的用户。测试发现原贴中需要解析的域名并未出现在我所在的地区，经过日志筛查发现应该是不同地区使用了不同的域名，我所在的地区使用了其他类似域名，导致方案无效。所以经过测试，使用我所在地区域名进行映射后可以在非移动网络下正常使用咪咕源，并且该网络环境下对公共DNS似乎也很敏感，所以制作了一个 [小火箭模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule) ，包含需要直连的地址规则和规则集、DNS覆写、以及必要的地址映射，理论上应该支持所有运营商使用咪咕直播源，如果发现还有不支持的，可以进入文本模式根据说明进行调整。现在提供 ` Beta 版本 ` 欢迎试用
 >>
 >> [![模块 CMCCiTV](https://img.shields.io/static/v1?label=模块&message=CMCCiTV&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
 ------
@@ -75,7 +75,7 @@
 
 >__` 官方文件 `__
 >
->> 本页提供[ Shadowrocket 官方 GitHub 主页](https://github.com/wlxuf/Shadowrocket)发布的 ` 关键词列表 ` ，也可以称为教程/文件/手册/文档，本页还提供局部优化/改进/微调的版本。同时，官方“线下”推荐的 [懒人配置](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人策略组/代理分组](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 配置文件也一并提供一键安装链接。该配置文件的备注非常详尽、仔细，基本上把官方的操作手册备注到了配置文件内，非常适合新人上手和进阶调整
+>> 本页提供 [Shadowrocket 官方 GitHub 主页](https://github.com/wlxuf/Shadowrocket) 发布的 ` 关键词列表 ` ，也可以称为教程/文件/手册/文档，本页还提供局部优化/改进/微调的版本。同时，官方“线下”推荐的 [懒人配置](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人策略组/代理分组](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 配置文件也一并提供一键安装链接。该配置文件的备注非常详尽、仔细，基本上把官方的操作手册备注到了配置文件内，非常适合新人上手和进阶调整
 >>
 >> [![文档 官方版本](https://img.shields.io/static/v1?label=文档&message=官方版本&color=grey&logo=rocket&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/wlxuf/Shadowrocket "点击查阅")
 >> [![文档 优化版本](https://img.shields.io/static/v1?label=文档&message=优化版本&color=grey&logo=rocket&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
@@ -92,12 +92,12 @@
 >__` 模块/规则/脚本 `__
 >
 >> 本页提供多种收集而来的各类模块，后续还会陆续增加，现有包括：
->> * __` 模块 `__ : [Cuttlefish](https://github.com/ddgksf2013/ddgksf2013) 墨鱼 的去[广告整合模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule)，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
->> * __` 模块 `__ : [iab](https://github.com/iab0x00) 维护的[酷安去广告模块](https://github.com/iab0x00/ProxyRules/blob/main/Rewrite/Coolapk.sgmodule)，可以去除酷安 APP 的开屏广告和时间线广告
->> * __` 模块 `__ : [Maasea](https://github.com/Maasea) 维护的[ YouTube 去广告模块](https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Enhance.sgmodule),支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供 [iab](https://github.com/iab0x00) 的[转换维护版本](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)以供使用
+>> * __` 模块 `__ : [Cuttlefish](https://github.com/ddgksf2013/ddgksf2013) 墨鱼 的去 [广告整合模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) ，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
+>> * __` 模块 `__ : [iab](https://github.com/iab0x00) 维护的 [酷安去广告模块](https://github.com/iab0x00/ProxyRules/blob/main/Rewrite/Coolapk.sgmodule) ，可以去除酷安 APP 的开屏广告和时间线广告
+>> * __` 模块 `__ : [Maasea](https://github.com/Maasea) 维护的 [ YouTube 去广告模块](https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Enhance.sgmodule) ，支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供 [iab](https://github.com/iab0x00) 的 [转换维护版本](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule) 以供使用
 >> * __` 仓库 `__ : 由于小火箭兼容性比较强，模块可选择类型也很多，本文推荐 [app2smile](https://github.com/app2smile) 、[QingRex](https://github.com/QingRex) 等模块作者，可以自行进他们的仓库进行挑选。本文不保证可用性，某些模块的生效需要使用插件进行转换
->> * __` 规则 `__ : [Johnshall](https://github.com/Johnshall) 维护了多款[小火箭配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)，且更新非常及时，每日8时自动重构。本文推荐将其[仅去广告配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf)添加为规则集使用（小火箭兼容这个方式），有不错的效果
->> * __` 脚本 `__ : [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的[脚本]([https://github.com/kiwi707](https://github.com/kiwi707/Shadow-Rocket)),该脚本异常强大，主要针对服务器订阅的节点名称进行处理，可以过滤掉无效节点，并将有效节点的名称进行标准化和格式化。此脚本可以协助用户通过特定规则自动重命名节点名称。它通过国家和地区关键词匹配，将节点名称替换为相应的国旗和缩写符号，并根据用户的配置进行进一步调整。使用方式为：点开链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 筛选 ` 区域，根据需要进行自定义修改，之后保存即可
+>> * __` 规则 `__ : [Johnshall](https://github.com/Johnshall) 维护了多款 [小火箭配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) ，且更新非常及时，每日8时自动重构。本文推荐将其 [仅去广告配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) 添加为规则集使用（小火箭兼容这个方式），有不错的效果
+>> * __` 脚本 `__ : [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的 [脚本]([https://github.com/kiwi707](https://github.com/kiwi707/Shadow-Rocket)) ，该脚本异常强大，主要针对服务器订阅的节点名称进行处理，可以过滤掉无效节点，并将有效节点的名称进行标准化和格式化。此脚本可以协助用户通过特定规则自动重命名节点名称。它通过国家和地区关键词匹配，将节点名称替换为相应的国旗和缩写符号，并根据用户的配置进行进一步调整。使用方式为：点开链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 筛选 ` 区域，根据需要进行自定义修改，之后保存即可
 >> 
 >> [![模块 墨鱼去广告](https://img.shields.io/static/v1?label=模块&message=墨鱼去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
 >> [![模块 酷安去广告](https://img.shields.io/static/v1?label=模块&message=酷安去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule "一键安装本模块")
@@ -121,7 +121,7 @@
 > [!TIP]
 > * __配色一键安装：__ 选择所需配色，点击 ` 一键安装 `，允许跳转后点击 ` 使用 ` 即可
 > * __复制代码安装：__ 复制所需 ` shadowrocket://color?* ` 配色代码，在 ` 配置 ` 页点击 “ ✚ ” 号，粘贴并应用
-> * __快捷指令安装：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/eab1a031858d4fd480e1bff95b359c2c)，在 ` 快捷指令 ` 中选择配色并安装
+> * __快捷指令安装：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/eab1a031858d4fd480e1bff95b359c2c) ，在 ` 快捷指令 ` 中选择配色并安装
 > * __恢复默认配色：__ ` APP-设置-颜色-重设颜色 `
 
 > [!IMPORTANT]
