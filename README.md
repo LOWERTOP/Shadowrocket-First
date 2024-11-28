@@ -96,7 +96,7 @@
 >__` 模块/规则/脚本 `__
 >
 >> 本页提供多种收集而来的各类模块，后续还会陆续增加，现有包括：
->> * __` 合集 `__ : 群内某不愿透漏姓名的 __` 热心群友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的适用于小火箭的 [模块大合集](https://shadowrocket.module.sagg.us.kg) 。得益于原作者 ` 可莉 ` 的辛勤劳动和 ` 热心群友 ` 的转换跳转，适用的模块数量和种类非常丰富，且更新及时，非常推荐小火箭用户试用。使用本合集模块需要提前安装 [Script-Hub 格式转换模块](https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 并正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)
+>> * __` 合集 `__ : 群内某不愿透漏姓名的 __` 热心群友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的适用于小火箭的 [模块大合集](https://shadowrocket.module.sagg.us.kg) 。得益于原作者 ` 可莉 ` 的辛勤劳动和 ` 热心群友 ` 的转换跳转，适用的模块数量和种类非常丰富，且更新及时，非常推荐小火箭用户试用。使用本合集模块需要提前安装 [Script-Hub 格式转换模块](https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 并正确 [开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)
 >> * __` 模块 `__ : [Cuttlefish](https://github.com/ddgksf2013/ddgksf2013) 墨鱼 的去 [广告整合模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) ，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
 >> * __` 模块 `__ : [iab](https://github.com/iab0x00) 维护的 [酷安去广告模块](https://github.com/iab0x00/ProxyRules/blob/main/Rewrite/Coolapk.sgmodule) ，可以去除酷安 APP 的开屏广告和时间线广告
 >> * __` 模块 `__ : [Maasea](https://github.com/Maasea) 维护的 [ YouTube 去广告模块](https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Enhance.sgmodule) ，支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供 [iab](https://github.com/iab0x00) 的 [转换维护版本](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule) 以供使用
