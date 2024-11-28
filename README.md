@@ -105,13 +105,13 @@
 >> * __` 脚本 `__ : [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的 [脚本](https://github.com/kiwi707/Shadow-Rocket/blob/main/README.md) ，该脚本异常强大，主要针对服务器订阅的节点名称进行处理，可以过滤掉无效节点，并将有效节点的名称进行标准化和格式化。此脚本可以协助用户通过特定规则自动重命名节点名称。它通过国家和地区关键词匹配，将节点名称替换为相应的国旗和缩写符号，并根据用户的配置进行进一步调整。使用方式为：点开链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 筛选 ` 区域，根据需要进行自定义修改，之后保存即可
 >>
 >> [![转换 模块大合集](https://img.shields.io/static/v1?label=转换&message=模块大合集&color=grey&logo=rocket&logoColor=white&labelColor=red&messageColor=white)](https://shadowrocket.module.sagg.us.kg "可莉模块转换合集")
+>> [![规则 去广告规则](https://img.shields.io/static/v1?label=规则&message=去广告规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf "点击访问规则集")
+>> [![脚本 修改与筛选](https://img.shields.io/static/v1?label=脚本&message=修改与筛选&color=grey&logo=rocket&logoColor=white&labelColor=purple&messageColor=white)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/rename.js "点击查看脚本内容")
 >> [![模块 墨鱼去广告](https://img.shields.io/static/v1?label=模块&message=墨鱼去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
 >> [![模块 酷安去广告](https://img.shields.io/static/v1?label=模块&message=酷安去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule "一键安装本模块")
 >> [![模块 油管去广告](https://img.shields.io/static/v1?label=模块&message=油管去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
->> [![规则 去广告规则](https://img.shields.io/static/v1?label=规则&message=去广告规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf "点击访问规则集")
 >> [![仓库 app2smile](https://img.shields.io/static/v1?label=仓库&message=app2smile&color=grey&logo=rocket&logoColor=white&labelColor=green&messageColor=white)](https://github.com/app2smile/rules "点击查看仓库内容")
 >> [![仓库 QingRex](https://img.shields.io/static/v1?label=仓库&message=QingRex&color=grey&logo=rocket&logoColor=white&labelColor=green&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看仓库模块")
->> [![脚本 修改与筛选](https://img.shields.io/static/v1?label=脚本&message=修改与筛选&color=grey&logo=rocket&logoColor=white&labelColor=purple&messageColor=white)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/rename.js "点击查看脚本内容")
 
 ------
 
