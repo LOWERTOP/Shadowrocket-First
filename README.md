@@ -1,4 +1,4 @@
-[![README by Translate](https://img.shields.io/static/v1?label=README&message=by%20Translate&color=blue&logo=googletranslate&logoColor=white&labelColor=grey&messageColor=white)](https://translate.google.com/translate?hl=en&sl=zh-CN&tl=en&u=https://github.com/LOWERTOP/Shadowrocket-First/blob/main/README.md "README in English via Google Translate")
+[![README by Translate](https://img.shields.io/static/v1?label=README&message=by%20Translate&color=orange&logo=googletranslate&logoColor=white&labelColor=grey&messageColor=white)](https://translate.google.com/translate?hl=en&sl=zh-CN&tl=en&u=https://github.com/LOWERTOP/Shadowrocket-First/blob/main/README.md "README in English via Google Translate")
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
