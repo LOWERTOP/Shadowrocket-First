@@ -40,8 +40,7 @@
 >> * 新增 ` 各类链接 ` 经 HTTP  ` 重定向跳转 ` 服务，含 ` URL-Schemes 跳转 `
 >> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html)，用来调优 VPS TCP 缓冲区挺好的 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 >> * 新增 ` CMCCiTV 咪咕直播源模块 ` ` Beta ` 使非移动用户可以使用并访问咪咕直播源
->> * 新增 [![转换 模块大合集](https://img.shields.io/static/v1?label=转换&message=模块大合集&color=grey&logo=rocket&logoColor=white&labelColor=red&messageColor=white)](https://shadowrocket.module.sagg.us.kg "可莉模块转换合集") ，热心群友转换自大佬可莉的 [模块大合集](https://shadowrocket.module.sagg.us.kg)
-
+>> * 新增 ` 模块合集 ` ，热心群友转换自可莉的 [![转换 模块大合集](https://img.shields.io/static/v1?label=转换&message=模块大合集&color=grey&logo=rocket&logoColor=white&labelColor=red&messageColor=white)](https://shadowrocket.module.sagg.us.kg "可莉模块转换合集")
 ------
 
 ## Shadowrocket 自制配置
