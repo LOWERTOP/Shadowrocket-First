@@ -38,10 +38,10 @@
 > ` 近期更新 `
 >> * 扩充 ` 配色文件 ` 至26个，其中 ` 亮底色 / 暗底色 ` 各13个
 >> * 新增 ` 一键安装 ` 服务，提供一键安装配色文件、配置文件、模块等
->> * 新增 ` 快捷指令 ` 安装配色文件，作者：[iab](https://t.me/iab000)
+>> * 新增 ` 快捷指令 ` 安装配色，作者：[iab](https://t.me/iab000)
 >> * 新增 ` 各类链接 ` 经 HTTP  ` 重定向跳转 ` 服务，含 ` URL-Schemes 跳转 `
->> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区挺好的 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
->> * 新增 ` CMCCiTV 咪咕直播源模块 ` ` Beta ` 使非移动用户可以使用并访问咪咕直播源
+>> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
+>> * 新增 ` CMCCiTV 咪咕直播源模块 ` ` Beta ` 使非移动用户可以使用咪咕直播源
 >> * 新增 ` 模块合集 ` 热心群友提供的模块改写网页 [![转换 模块大合集](https://img.shields.io/static/v1?label=转换&message=模块大合集&color=grey&logo=rocket&logoColor=white&labelColor=red&messageColor=white)](https://shadowrocket.module.sagg.us.kg "可莉模块转换合集")
 >
 > ` 更新时间 `
@@ -70,7 +70,7 @@
 >
 >__` CMCCiTV 咪咕直播源模块 ` ` Beta `__
 >
->> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 IPTV 有关全网使用移动咪咕直播源的问题，因为我也是 [APTV](https://t.me/AptvPlayer) 用户，所以根据他提供的来源资料仔细研究了一遍。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 大佬提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题，但这个方案经我测试并不适用于所有非移动用户或不同地区的用户。测试发现原贴中需要解析的域名并未出现在我所在的地区，经过日志筛查发现应该是不同地区使用了不同的域名，我所在的地区使用了其他类似域名，导致方案无效。所以经过测试，使用我所在地区域名进行映射后可以在非移动网络下正常使用咪咕源，并且该网络环境下对公共DNS似乎也很敏感，所以制作了一个 [小火箭模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule) ，包含需要直连的地址规则和规则集、DNS覆写、以及必要的地址映射，理论上应该支持所有运营商使用咪咕直播源，如果发现还有不支持的，可以进入文本模式根据说明进行调整。现在提供 ` Beta 版本 ` 欢迎试用
+>> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 IPTV 有关全网使用移动咪咕直播源的问题，因为我也是 [APTV](https://t.me/AptvPlayer) 用户，所以根据来源资料仔细研究了一遍。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题，但该方案经测试并不适用于所有非移动用户或不同地区的用户。测试发现原贴中需要解析的域名并未出现在我所在的地区，经过日志筛查发现应该是不同地区使用了不同的域名，导致方案无效。所以经过测试，使用我所在地区域名进行映射后可以在非移动网络下正常使用咪咕源，并且该网络环境下对公共DNS似乎也很敏感，所以制作了一个 [小火箭模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule) ，包含需要直连的地址规则和规则集、DNS覆写、以及必要的地址映射，理论上应该支持所有运营商使用咪咕直播源，如果发现不支持，可以进入文本模式根据说明进行调整。现在提供 ` Beta 版本 ` 欢迎试用
 >>
 >> [![模块 CMCCiTV](https://img.shields.io/static/v1?label=模块&message=CMCCiTV&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
 ------
@@ -103,9 +103,9 @@
 >> * __` 模块 `__ : [Cuttlefish](https://github.com/ddgksf2013/ddgksf2013) 墨鱼 的去 [广告整合模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) ，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
 >> * __` 模块 `__ : [iab](https://github.com/iab0x00) 维护的 [酷安去广告模块](https://github.com/iab0x00/ProxyRules/blob/main/Rewrite/Coolapk.sgmodule) ，可以去除酷安 APP 的开屏广告和时间线广告
 >> * __` 模块 `__ : [Maasea](https://github.com/Maasea) 维护的 [ YouTube 去广告模块](https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Enhance.sgmodule) ，支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供 [iab](https://github.com/iab0x00) 的 [转换维护版本](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule) 以供使用
->> * __` 仓库 `__ : 由于小火箭兼容性比较强，模块可选择类型也很多，本文也推荐 [app2smile](https://github.com/app2smile) 、[QingRex](https://github.com/QingRex) 等模块作者，可以自行进他们的仓库进行挑选。本文不保证可用性，某些模块的生效或者完全生效可能同样需要使用插件进行转换
->> * __` 规则 `__ : [Johnshall](https://github.com/Johnshall) 维护了多款 [小火箭配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) ，且更新非常及时，每日8时自动重构。本文推荐将其 [仅去广告配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) 添加为规则集使用（小火箭兼容这个方式），有不错的效果
->> * __` 脚本 `__ : [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的 [脚本](https://github.com/kiwi707/Shadow-Rocket/blob/main/README.md) ，该脚本异常强大，主要针对服务器订阅的节点名称进行处理，可以过滤掉无效节点，并将有效节点的名称进行标准化和格式化。此脚本可以协助用户通过特定规则自动重命名节点名称。它通过国家和地区关键词匹配，将节点名称替换为相应的国旗和缩写符号，并根据用户的配置进行进一步调整。使用方式为：点开链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要进行自定义修改，之后保存即可
+>> * __` 仓库 `__ : 本文也推荐 [app2smile](https://github.com/app2smile) 、[QingRex](https://github.com/QingRex) 等模块作者，可以进他们的仓库自行挑选。本文不保证可用性，某些模块的生效或者完全生效可能同样需要使用插件进行转换
+>> * __` 规则 `__ : [Johnshall](https://github.com/Johnshall) 维护多款 [小火箭配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) ，每日8时自动重构。本文推荐将其 [仅去广告配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) 添加为规则集使用（小火箭兼容这个方式），有不错的效果
+>> * __` 脚本 `__ : [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的 [脚本](https://github.com/kiwi707/Shadow-Rocket/blob/main/README.md) ，该脚本异常强大，主要针对服务器订阅的节点名进行处理，可自定义过滤节点并将保留的节点的名称进行标准化和格式化。使用方式为：点开链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要进行自定义修改，之后保存即可
 >>
 >> [![转换 模块大合集](https://img.shields.io/static/v1?label=转换&message=模块大合集&color=grey&logo=rocket&logoColor=white&labelColor=red&messageColor=white)](https://shadowrocket.module.sagg.us.kg "可莉模块转换合集")
 >> [![规则 去广告规则](https://img.shields.io/static/v1?label=规则&message=去广告规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf "点击访问规则集")
