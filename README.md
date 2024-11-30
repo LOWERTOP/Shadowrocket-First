@@ -33,7 +33,7 @@
 >> * [Shadowrocket 自制配置](#shadowrocket-自制配置)
 >> * [Shadowrocket 收集配置](#shadowrocket-收集配置)
 >> * [Shadowrocket 配色文件](#shadowrocket-配色文件)
->> * [URL Redirector 链接重定向](#url-redirector-非标准链接重定向跳转)
+>> * [非标准链接重定向跳转](#url-redirector-非标准链接重定向跳转)
 >
 > ` 近期更新 `
 >> * 扩充 ` 配色文件 ` 至26个，其中 ` 亮底色 / 暗底色 ` 各13个
