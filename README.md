@@ -29,11 +29,13 @@
 > 
 > ` 反馈入口 ` [Shadowrocket 官方频道](https://t.me/ShadowrocketApp)
 
-> ` 更新时间 `
-2024-11-30 19:46
+> ` 项目目录 `
+>> * [Shadowrocket 自制配置](#shadowrocket-自制配置)
+>> * [Shadowrocket 收集配置](#shadowrocket-收集配置)
+>> * [Shadowrocket 配色文件](#shadowrocket-配色文件)
+>> * [URL Redirector 链接重定向](#url-redirector-非标准链接重定向跳转)
 >
-> ` 更新内容 `
->
+> ` 近期更新 `
 >> * 扩充 ` 配色文件 ` 至26个，其中 ` 亮底色 / 暗底色 ` 各13个
 >> * 新增 ` 一键安装 ` 服务，提供一键安装配色文件、配置文件、模块等
 >> * 新增 ` 快捷指令 ` 安装配色文件，作者：[iab](https://t.me/iab000)
@@ -41,6 +43,10 @@
 >> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区挺好的 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 >> * 新增 ` CMCCiTV 咪咕直播源模块 ` ` Beta ` 使非移动用户可以使用并访问咪咕直播源
 >> * 新增 ` 模块合集 ` 热心群友提供的模块改写网页 [![转换 模块大合集](https://img.shields.io/static/v1?label=转换&message=模块大合集&color=grey&logo=rocket&logoColor=white&labelColor=red&messageColor=white)](https://shadowrocket.module.sagg.us.kg "可莉模块转换合集")
+>
+> ` 更新时间 `
+2024-11-30 19:46
+
 ------
 
 ## Shadowrocket 自制配置
