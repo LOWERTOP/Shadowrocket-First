@@ -762,7 +762,7 @@ _To Be Continued..._
 >> 切换 VPN 隧道
 >> shadowrocket://toggle
 >> 
->> 添加订阅/节点
+>> 添加 订阅/节点
 >> shadowrocket://add/{url}
 >> 
 >> 安装/使用 配置
