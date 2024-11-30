@@ -730,6 +730,56 @@ _To Be Continued..._
 > * 但是不是所有站点都支持类似地址的超链，例如本页就不支持……碎碎念……
 > * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，完成组合后类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
 > * 完成跳转成功安装
+ 
+> 附小火箭各配置 ` 一键安装 ` 的跳转链接
+>   
+>> 一键安装 ` 配置文件 ` 的跳转链接（后面直接跟配置文件链接）
+>> ```ruby
+>> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/
+>> ```
+>>
+>> 一键安装 ` 模块 ` 的跳转链接（后面直接跟模块链接）
+>> ```ruby
+>> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=
+>> ```
+>>
+>> 一键添加 ` 订阅/节点 ` 的跳转链接（后面直接跟订阅/节点链接）
+>> ```ruby
+>> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
+>> ```
+>
+> 小火箭可用的 ` URL-Schemes `
+>
+>> ```ruby
+>> 启动 VPN 隧道
+>> shadowrocket://connect
+>> shadowrocket://open
+>> 
+>> 停止 VPN 隧道
+>> shadowrocket://disconnect
+>> shadowrocket://close
+>> 
+>> 切换 VPN 隧道
+>> shadowrocket://toggle
+>> 
+>> 添加订阅/节点
+>> shadowrocket://add/{url}
+>> 
+>> 安装/使用 配置
+>> shadowrocket://config/add/{url}
+>>
+>> 安装/使用 模块
+>> shadowrocket://install?module={url}
+>> 
+>> 切换路由（代理/配置/直连/场景）
+>> shadowrocket://route/proxy
+>> shadowrocket://route/config
+>> shadowrocket://route/direct
+>> shadowrocket://route/scene
+>>
+>> 安装/使用 配色
+>> shadowrocket://color?{配色设置}
+>> ```
 
 > [!IMPORTANT]
 > 注意：已知该方式跳转小火箭配色链接可能存在解码问题，其他链接应该可以正常跳转
