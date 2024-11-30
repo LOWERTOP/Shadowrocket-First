@@ -725,12 +725,12 @@ _To Be Continued..._
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=
 > ```
 
-> 示例：
-> * 你想使用小火箭的 URL-Schemes ` shadowrocket://install?module= ` 一键安装小火箭的这个模块：` https://12345.com/67890.module `
-> * 但是不是所有站点都支持类似地址的超链，例如本页就不支持……碎碎念……
-> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，完成组合后类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
-> * 完成跳转成功安装
- 
+> 示例
+>> * 你想使用小火箭的 URL-Schemes ` shadowrocket://install?module= ` 一键安装小火箭的这个模块：` https://12345.com/67890.module `
+>> * 但是不是所有站点都支持类似地址的超链，例如本页就不支持……碎碎念……
+>> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，完成组合后类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
+>> * 完成跳转成功安装
+>
 > 附小火箭各配置 ` 一键安装 ` 的跳转链接
 >   
 >> 一键安装 ` 配置文件 ` 的跳转链接（后面直接跟配置文件链接）
@@ -782,7 +782,7 @@ _To Be Continued..._
 >> ```
 
 > [!IMPORTANT]
-> 注意：已知该方式跳转小火箭配色链接可能存在解码问题，其他链接应该可以正常跳转
+> 注意：已知本项目跳转小火箭配色链接可能存在解码问题，除此之外其他链接应该可以正常跳转
 
 ------
 
