@@ -26,7 +26,7 @@
 > [!NOTE]
 > 本仓库主要为 ` Shadowrocket/小火箭 ` 相关内容，提供一些自制/收集而来的 ` 配置文件 ` ` 模块 ` ` 规则集 ` ` 脚本 ` 等配置，同时提供多种自主设计的 ` 小火箭配色/主题/皮肤 `
 > 
-> [![反馈入口 Shadowrocket](https://img.shields.io/static/v1?label=反馈入口&message=Shadowrocket&color=blue&logo=telegram&logoColor=white&labelColor=grey&messageColor=white)](https://t.me/ShadowrocketApp "Shadowrocket 官方频道")
+> [![交流群组 Shadowrocket](https://img.shields.io/static/v1?label=交流群组&message=Shadowrocket&color=blue&logo=telegram&logoColor=white&labelColor=grey&messageColor=white)](https://t.me/ShadowrocketApp "Shadowrocket 官方频道")
 
 > ` 项目目录 `
 >> * [Shadowrocket 自制配置](#shadowrocket-自制配置)
