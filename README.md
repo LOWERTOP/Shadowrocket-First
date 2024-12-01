@@ -764,8 +764,11 @@ _To Be Continued..._
 >> shadowrocket://disconnect
 >> shadowrocket://close
 >> 
->> 切换 VPN 隧道
+>> 切换 VPN 开关状态
 >> shadowrocket://toggle
+>>
+>> 使用特定节点
+>> shadowrocket://select?s=节点名称
 >> 
 >> 添加 订阅/节点
 >> shadowrocket://add/{url}
@@ -776,7 +779,7 @@ _To Be Continued..._
 >> 安装/使用 模块
 >> shadowrocket://install?module={url}
 >> 
->> 切换路由（代理/配置/直连/场景）
+>> 切换全局路由（代理/配置/直连/场景）
 >> shadowrocket://route/proxy
 >> shadowrocket://route/config
 >> shadowrocket://route/direct
