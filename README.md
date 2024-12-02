@@ -38,11 +38,11 @@
 >> * 扩充 ` 配色文件 ` 至26个，其中 ` 亮底色 / 暗底色 ` 各13个
 >> * 新增 ` 一键安装 ` 服务，提供一键安装配色文件、配置文件、模块等
 >> * 新增 ` 快捷指令 ` 安装配色，作者：[iab](https://t.me/iab000)
->> * 新增 ` 各类链接 ` 经 HTTP  ` 重定向跳转 ` 服务，含 ` URL-Schemes 跳转 `
+>> * 新增 ` 各类链接 ` 经 HTTP 进行[重定向跳转服务](#url-redirector-非标准链接重定向跳转)，含 ` URL-Schemes 跳转 `
 >> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
->> * 新增 ` CMCCiTV 咪咕直播源模块 ` ` Beta ` 使非移动用户可以使用咪咕直播源
->> * 新增 ` 模块合集 ` 热心群友提供的模块改写网页 [![转换 模块大合集](https://img.shields.io/static/v1?label=转换&message=模块大合集&color=grey&logo=rocket&logoColor=white&labelColor=red&messageColor=white)](https://shadowrocket.module.sagg.us.kg "可莉模块转换合集")
->> * 新增 ` 小火箭 URL-Schemes ` 复制粘贴更方便
+>> * 新增 ` CMCCiTV 咪咕直播源模块 ` ` Beta ` 使[非移动用户可以使用咪咕直播源](#shadowrocket-自制配置)
+>> * 新增 ` 模块合集 ` 热心群友提供的模块改写[网页](https://shadowrocket.module.sagg.us.kg "模块大合集")
+>> * 新增 ` 小火箭 URL-Schemes ` [复制粘贴更方便](#url-redirector-非标准链接重定向跳转)
 >
 > ` 更新时间 `
 2024-12-02 18:20
