@@ -35,7 +35,7 @@
 >> * [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
 >
 > ` 近期更新 `
->> * 扩充 ` 配色文件 ` 至26个，其中 ` 亮底色 / 暗底色 ` 各13个
+>> * 扩充 ` 配色文件 ` 至28个，其中 ` 亮底色 / 暗底色 ` 各14个
 >> * 新增 ` 快捷指令 ` 安装[配色](#shadowrocket-配色文件)，作者：[iab](https://t.me/iab000)
 >> * 新增 ` 一键安装 ` 服务，提供一键安装配色文件、配置文件、模块等
 >> * 新增 ` 各类链接 ` 经 HTTP 进行[重定向跳转服务](#url-redirector-非标准链接重定向跳转)，含 ` URL-Schemes 跳转 `
@@ -170,6 +170,24 @@
 > <summary>效果截图</summary>
 > 
 > ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01BrightGold.png)
+> 
+> </details>
+
+------
+
+#### Shadowrocket GitHubLight
+> `GitHub 白昼` <sup> `亮底色` <sup>
+>
+> [![配色 一键安装](https://img.shields.io/static/v1?label=配色&message=一键安装&color=%23F5F5F5&logo=rocket&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23555555)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=GitHubLight "亮底色配色")
+>
+> ```ruby
+> shadowrocket://color?NavigationBarColor=%23FFFFFF&NavigationBar2Color=%23FFFFFF&NavigationBarTextColor=%23161B22&NavigationBar2TextColor=%23161B22&TabBarColor=%23F0F1F3&TabBarBorderColor=%23F0F1F3&TabBarSelectedColor=%23161B22&TabBarUnselectedColor=%2365161B22&TableBackgroundColor=%23FFFFFF&TableCellBackgroundColor=%23F0F1F3&TableCellSelectedBackgroundColor=%23F0F1F3&TableSeparatorColor=%23FFFFFF&TextFieldTextColor=%2359616B&PlaceholderColor=%2359616B&TextLabelTextColor=%23202328&DetailLabelTextColor=%23959BA4&TextLabelDeleteColor=%23E8886D&HeaderFooterTextColor=%23959BA4&SearchFieldBackgroundColor=%23F0F1F3&IndicatorColor=%23F2F7FC&ButtonIconColor=%23959BA4&ButtonNormalColor=%23959BA4&ButtonNormal2Color=%23959BA4&ButtonNormal3Color=%2377787D&ButtonHighlightedColor=%2399FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23161B22&ButtonDisabledColor=%23161B22&ButtonDisabled2Color=%2380FFFFFF&PingSuccessTextColor=%2396B96B&PingTimeoutTextColor=%23E8886D&DefaultDotColor=%23DBB556&HUDBackgroundColor=%23F0F1F3&v=1.0
+> ```
+> 
+> <details>
+> <summary>效果截图</summary>
+> 
+> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/GitHubLight.PNG)
 > 
 > </details>
 
@@ -584,6 +602,24 @@
 > <summary>效果截图</summary>
 > 
 > ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/CyberPurple.PNG)
+> 
+> </details>
+
+------
+
+#### Shadowrocket GitHubDark
+> `GitHub 暗夜` <sub> `暗底色` <sub>
+>
+> [![配色 一键安装](https://img.shields.io/static/v1?label=配色&message=一键安装&color=%2322303F&logo=rocket&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=GitHubDark "暗底色配色")
+>
+> ```ruby
+> shadowrocket://color?NavigationBarColor=%23161B22&NavigationBar2Color=%23161B22&NavigationBarTextColor=%23F2F7FC&NavigationBar2TextColor=%23F2F7FC&TabBarColor=%23161B22&TabBarBorderColor=%23161B22&TabBarSelectedColor=%23F2F7FC&TabBarUnselectedColor=%23959BA4&TableBackgroundColor=%23161B22&TableCellBackgroundColor=%2322282F&TableCellSelectedBackgroundColor=%2322282F&TableSeparatorColor=%23161B22&TextFieldTextColor=%23F2F7FC&PlaceholderColor=%23F2F7FC&TextLabelTextColor=%23F2F7FC&DetailLabelTextColor=%23959BA4&TextLabelDeleteColor=%23E8886D&HeaderFooterTextColor=%23959BA4&SearchFieldBackgroundColor=%2322282F&IndicatorColor=%23F2F7FC&ButtonIconColor=%23959BA4&ButtonNormalColor=%23959BA4&ButtonNormal2Color=%23959BA4&ButtonNormal3Color=%2377787D&ButtonHighlightedColor=%2399FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23161B22&ButtonDisabledColor=%23161B22&ButtonDisabled2Color=%2380FFFFFF&PingSuccessTextColor=%2396B96B&PingTimeoutTextColor=%23E8886D&DefaultDotColor=%23DBB556&HUDBackgroundColor=%2322282F&v=1.0
+> ```
+> 
+> <details>
+> <summary>效果截图</summary>
+> 
+> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/GitHubDark.PNG)
 > 
 > </details>
 
