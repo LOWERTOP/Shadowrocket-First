@@ -1,52 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect with Theme</title>
-
-    <script>
-        // 解析并处理 shadowrocket://color?* 的 URL
-        function handleThemeRedirect() {
-            let url = window.location.href;
-            
-            // 检测 URL 是否包含 shadowrocket://color? 的关键词
-            if (url.includes('shadowrocket://color?')) {
-                let params = new URLSearchParams(window.location.search);
-                let theme = params.get('theme');  // 获取主题参数
-                
-                if (theme === 'dark') {
-                    document.body.style.backgroundColor = '#333';
-                    document.body.style.color = '#fff';
-                } else if (theme === 'light') {
-                    document.body.style.backgroundColor = '#fff';
-                    document.body.style.color = '#000';
-                } else {
-                    // 默认情况下不做任何主题改变
-                    document.body.style.backgroundColor = '#fff';
-                    document.body.style.color = '#000';
-                }
-
-                // 完成主题设置后可以执行页面跳转或其他操作
-                let redirectUrl = params.get('url') || 'https://example.com';  // 获取跳转的URL，如果没有提供则使用默认URL
-                setTimeout(function() {
-                    window.location.href = redirectUrl;  // 跳转到目标URL
-                }, 2000);  // 延迟2秒跳转
-            } else {
-                // 不是 shadowrocket://color? 的 URL，执行普通跳转
-                let redirectUrl = "https://example.com";  // 默认重定向URL
-                window.location.href = redirectUrl;
-            }
-        }
-
-        // 页面加载时执行跳转和主题切换
-        window.onload = function() {
-            handleThemeRedirect();
-        }
-    </script>
+    <title>跳转到 Shadowrocket</title>
 </head>
 <body>
-    <h1>Welcome to the Redirect and Theme Page</h1>
-    <p>页面将在几秒钟后重定向...</p>
+    <h1>点击下面的链接跳转到 Shadowrocket 设置</h1>
+    <a href="shadowrocket://color?*">点击这里跳转</a>
 </body>
 </html>
