@@ -3,10 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>跳转到 Shadowrocket</title>
+    <title>Shadowrocket Color Redirect</title>
+    <script>
+        // 示例：你可能需要从URL中获取颜色参数或其他信息
+        const urlParams = new URLSearchParams(window.location.search);
+        let colorCode = urlParams.get('color') || "#FF5733";  // 从URL中获取 color 参数，默认颜色为 #FF5733
+
+        // 如果颜色代码为空或无效，使用默认颜色
+        if (!/^#[0-9A-Fa-f]{6}$/.test(colorCode)) {
+            colorCode = "#FF5733";  // 默认颜色
+        }
+
+        // 确保颜色代码经过URL编码，避免特殊字符影响链接解析
+        let encodedColor = encodeURIComponent(colorCode);
+
+        // 构建 Shadowrocket 的跳转链接
+        let redirectUrl = `shadowrocket://color?${encodedColor}`;
+
+        // 在页面加载时进行跳转
+        window.onload = function() {
+            // 你可以在这里添加提示信息，告诉用户正在跳转
+            console.log("正在跳转到 Shadowrocket: " + redirectUrl);
+
+            // 执行跳转
+            window.location.href = redirectUrl;
+        };
+    </script>
 </head>
 <body>
-    <h1>点击下面的链接跳转到 Shadowrocket 设置</h1>
-    <a href="shadowrocket://color?*">点击这里跳转</a>
+    <h1>正在跳转到 Shadowrocket...</h1>
+    <p>如果没有自动跳转，请点击下面的链接。</p>
+    <a href="shadowrocket://color?%23FF5733">点击这里手动跳转</a>
+
+    <!-- 显示当前的颜色代码，方便调试 -->
+    <p>当前颜色代码: <span id="currentColor">#FF5733</span></p>
+
+    <script>
+        // 显示当前的颜色代码
+        document.getElementById("currentColor").textContent = colorCode;
+    </script>
 </body>
 </html>
