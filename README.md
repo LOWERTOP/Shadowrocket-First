@@ -20,7 +20,7 @@
 [stars-url]: https://github.com/LOWERTOP/Shadowrocket-First/stargazers "已被星标次数"
 [stars-image]: https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=static&logo=github&label=Star
 
-[forks-url]: https://github.com/LOWERTOP/Shadowrocket-First/network "已被复刻次数"
+[forks-url]: https://github.com/LOWERTOP/Shadowrocket-First/network/members "已被复刻次数"
 [forks-image]: https://img.shields.io/github/forks/LOWERTOP/Shadowrocket-First?style=static&logo=github&label=Fork
 
 > [!NOTE]
