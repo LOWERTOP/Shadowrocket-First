@@ -36,8 +36,8 @@
 >
 > ` 近期更新 `
 >> * 扩充 ` 配色文件 ` 至26个，其中 ` 亮底色 / 暗底色 ` 各13个
+>> * 新增 ` 快捷指令 ` 安装[配色](#shadowrocket-配色文件)，作者：[iab](https://t.me/iab000)
 >> * 新增 ` 一键安装 ` 服务，提供一键安装配色文件、配置文件、模块等
->> * 新增 ` 快捷指令 ` 安装配色，作者：[iab](https://t.me/iab000)
 >> * 新增 ` 各类链接 ` 经 HTTP 进行[重定向跳转服务](#url-redirector-非标准链接重定向跳转)，含 ` URL-Schemes 跳转 `
 >> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 >> * 新增 ` CMCCiTV 咪咕直播源模块 ` ` Beta ` 使[非移动用户可以使用咪咕直播源](#shadowrocket-自制配置)
