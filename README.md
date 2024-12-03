@@ -83,8 +83,8 @@
 >
 >> 本页提供 [Shadowrocket 官方 GitHub 主页](https://github.com/wlxuf/Shadowrocket) 发布的 ` 关键词列表 ` ，也可以称为教程/文件/手册/文档，本页还提供局部优化/改进/微调的版本。同时，官方“线下”推荐的 [懒人配置](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人策略组/代理分组](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 配置文件也一并提供一键安装链接。该配置文件的备注非常详尽、仔细，基本上把官方的操作手册备注到了配置文件内，非常适合新人上手和进阶调整
 >>
->> [![查看文档 官方版本](https://img.shields.io/static/v1?label=查看文档&message=官方版本&color=grey&logo=rocket&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/wlxuf/Shadowrocket "点击查阅")
->> [![查看文档 优化版本](https://img.shields.io/static/v1?label=查看文档&message=优化版本&color=grey&logo=rocket&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
+>> [![查看文档 官方版本](https://img.shields.io/static/v1?label=查看文档&message=官方版本&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/wlxuf/Shadowrocket "点击查阅")
+>> [![查看文档 优化版本](https://img.shields.io/static/v1?label=查看文档&message=优化版本&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
 >> [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=rocket&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf "一键安装本配置文件")
 >> [![安装配置 代理分组](https://img.shields.io/static/v1?label=安装配置&message=代理分组&color=grey&logo=rocket&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 >
@@ -92,8 +92,8 @@
 >
 >> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常详实/丰富的各平台的分流规则、覆写规则等内容，是代理软件首推的代理规则集。该规则不仅适用于 ` Shadowrocket ` 同样有适配其他代理软件的版本
 >> 
->> [![查看规则 分流规则](https://img.shields.io/static/v1?label=查看规则&message=分流规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
->> [![查看规则 覆写规则](https://img.shields.io/static/v1?label=查看规则&message=覆写规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看分类")
+>> [![查看规则 分流规则](https://img.shields.io/static/v1?label=查看规则&message=分流规则&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
+>> [![查看规则 覆写规则](https://img.shields.io/static/v1?label=查看规则&message=覆写规则&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看分类")
 >
 >__` 模块/规则/脚本 `__
 >
@@ -106,14 +106,14 @@
 >> * __` 规则 `__ : [Johnshall](https://github.com/Johnshall) 维护多款 [小火箭配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) ，每日8时自动重构。其实，也可以将其 [仅去广告配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) 添加为规则集使用（小火箭兼容这个方式），有不错的效果
 >> * __` 脚本 `__ : [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的 [脚本](https://github.com/kiwi707/Shadow-Rocket/blob/main/README.md) ，该脚本异常强大，可根据自定义过滤节点并将保留的节点的名称进行标准化和格式化。_使用方式为：点开链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要修改后保存即可_
 >>
->> [![查看网页 模块大合集](https://img.shields.io/static/v1?label=查看网页&message=模块大合集&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "模块转换合集")
+>> [![查看网页 模块大合集](https://img.shields.io/static/v1?label=查看网页&message=模块大合集&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "模块转换合集")
 >> [![安装模块 墨鱼去广告](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
 >> [![安装模块 油管去广告](https://img.shields.io/static/v1?label=安装模块&message=油管去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 >> [![安装模块 酷安去广告](https://img.shields.io/static/v1?label=安装模块&message=酷安去广告&color=grey&logo=rocket&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule "一键安装本模块")
->> [![查看规则 去广告规则](https://img.shields.io/static/v1?label=查看规则&message=去广告规则&color=grey&logo=rocket&logoColor=white&labelColor=%231797a5&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf "点击访问规则集")
->> [![查看脚本 筛选与修改](https://img.shields.io/static/v1?label=查看脚本&message=筛选与修改&color=grey&logo=rocket&logoColor=white&labelColor=purple&messageColor=white)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/rename.js "点击查看脚本内容")
->> [![查看仓库 app2smile](https://img.shields.io/static/v1?label=查看仓库&message=app2smile&color=grey&logo=rocket&logoColor=white&labelColor=green&messageColor=white)](https://github.com/app2smile/rules "点击查看仓库内容")
->> [![查看仓库 QingRex](https://img.shields.io/static/v1?label=查看仓库&message=QingRex&color=grey&logo=rocket&logoColor=white&labelColor=green&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看仓库模块")
+>> [![查看规则 去广告规则](https://img.shields.io/static/v1?label=查看规则&message=去广告规则&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf "点击访问规则集")
+>> [![查看脚本 筛选与修改](https://img.shields.io/static/v1?label=查看脚本&message=筛选与修改&color=grey&logo=javascript&logoColor=white&labelColor=%231797a5&messageColor=white)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/rename.js "点击查看脚本内容")
+>> [![查看仓库 app2smile](https://img.shields.io/static/v1?label=查看仓库&message=app2smile&color=grey&logo=bookstack&logoColor=white&labelColor=%231C8139&messageColor=white)](https://github.com/app2smile/rules "点击查看仓库内容")
+>> [![查看仓库 QingRex](https://img.shields.io/static/v1?label=查看仓库&message=QingRex&color=grey&logo=bookstack&logoColor=white&labelColor=%231C8139&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看仓库模块")
 
 ------
 
@@ -789,8 +789,9 @@ _To Be Continued..._
 >> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
 >> ```
 >
-> 小火箭可用的 ` URL-Schemes `
->
+> <details>
+> <summary>点击查看小火箭可用的 URL-Schemes</summary>
+> 
 >> ```ruby
 >> 启动 VPN 隧道
 >> shadowrocket://connect
@@ -824,6 +825,8 @@ _To Be Continued..._
 >> 安装/使用 配色
 >> shadowrocket://color?{配色设置}
 >> ```
+> 
+> </details>
 
 > [!IMPORTANT]
 > 注意：已知小火箭配色文件的设置链接和普通链接编码不同，使用本项目跳转小火箭配色链接可能存在解码问题，除此之外其他链接应该可以正常跳转
