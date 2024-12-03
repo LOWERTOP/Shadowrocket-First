@@ -78,6 +78,8 @@
 
 > [!NOTE]
 > 本单元内容为收集自 ` 官方或靠谱第三方 ` 的使用手册、配置、模块、规则集、脚本等，可放心食用
+> 
+> __需要注意：__ 使用下文中的绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)
 
 >__` 官方文件 `__
 >
@@ -90,19 +92,19 @@
 >
 >__` 分流规则 `__
 >
->> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常详实/丰富的各平台的分流规则、覆写规则等内容，是代理软件首推的代理规则集。该规则不仅适用于 ` Shadowrocket ` 同样有适配其他代理软件的版本
+>> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常详实/丰富的各平台的分流规则、覆写规则等内容入口，它是代理软件首推的代理规则集。该规则不仅适用于 ` Shadowrocket ` 同样有适配其他代理软件的版本
 >> 
 >> [![查看规则 分流规则](https://img.shields.io/static/v1?label=查看规则&message=分流规则&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
 >> [![查看规则 覆写规则](https://img.shields.io/static/v1?label=查看规则&message=覆写规则&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看分类")
 >
 >__` 模块/规则/脚本 `__
 >
->> 本页提供多种收集而来的各类模块，后续还会陆续增加，现有包括：
+>> 本页提供多种收集而来的各类模块/规则/脚本等配置的入口和一键安装，后续还会陆续增加，现有包括：
 >> * __` 模块 `__ : [Cuttlefish](https://github.com/ddgksf2013/ddgksf2013) 墨鱼 的去 [广告整合模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) ，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
 >> * __` 模块 `__ : [Maasea](https://github.com/Maasea) 维护的 [ YouTube 去广告模块](https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/YouTube.Enhance.sgmodule) ，支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供 [iab](https://github.com/iab0x00) 的 [转换维护版本](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule) 以供使用
 >> * __` 模块 `__ : [app2smile](https://github.com/app2smile) 维护的 [Spotify / 声破天 模块](https://raw.githubusercontent.com/app2smile/rules/refs/heads/master/module/spotify.module) ，可以去除播放广告、歌手/专辑列表正常展示、去除随机播放
 >> * __` 模块 `__ : [iab](https://github.com/iab0x00) 维护的 [酷安去广告模块](https://github.com/iab0x00/ProxyRules/blob/main/Rewrite/Coolapk.sgmodule) ，可以去除酷安 APP 的开屏广告和时间线广告
->> * __` 合集 `__ : 群内某不愿透漏姓名的 __` 热心群友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的适用于小火箭的 [模块大合集](https://shadowrocket.module.sagg.us.kg) ，非常推荐小火箭用户试用。使用本合集中的模块需要提前 ` 一键安装 ` [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 并正确 [开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)
+>> * __` 合集 `__ : 群内某不愿透漏姓名的 __` 热心群友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的适用于小火箭的 [模块大合集](https://shadowrocket.module.sagg.us.kg) ，非常推荐小火箭用户试用。使用本合集中的模块需要提前 ` 一键安装 ` [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 并正确开启 HTTPS 解密
 >> * __` 脚本 `__ : [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的 [脚本](https://github.com/kiwi707/Shadow-Rocket/blob/main/README.md) ，该脚本异常强大，可根据自定义过滤节点并将保留的节点的名称进行标准化和格式化。_使用方式为：点开链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要修改后保存即可_
 >> * __` 规则 `__ : [Johnshall](https://github.com/Johnshall) 维护多款 [小火箭配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) ，每日8时自动重构。其实，也可以将其 [仅去广告配置](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf) 添加为规则集使用（小火箭兼容这个方式），有不错的效果
 >> * __` 仓库 `__ : 本文也推荐 [app2smile](https://github.com/app2smile) 、[QingRex](https://github.com/QingRex) 等模块作者，可以进他们的仓库自行挑选。本文不保证可用性，某些模块的生效或者完全生效可能同样需要使用插件进行转换
