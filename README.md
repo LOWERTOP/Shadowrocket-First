@@ -97,7 +97,7 @@
 >> [![查看规则 分流规则](https://img.shields.io/static/v1?label=查看规则&message=分流规则&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
 >> [![查看规则 覆写规则](https://img.shields.io/static/v1?label=查看规则&message=覆写规则&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看分类")
 >
->__` 模块/规则/脚本 `__
+>__` 模块/规则/脚本及其他内容 `__
 >
 >> 本页提供多种收集而来的各类模块/规则/脚本等配置的入口和一键安装，后续还会陆续增加，现有包括：
 >> 
