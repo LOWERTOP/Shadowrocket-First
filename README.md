@@ -99,7 +99,7 @@
 >
 >__` 模块/规则/脚本及其他内容 `__
 >
->> 本页提供多种收集而来的各类模块/规则/脚本等配置的入口和一键安装，后续还会陆续增加，现有包括：
+>> 本页提供多种收集而来的各类模块/规则/脚本等配置的访问入口和一键安装服务，现有包括：
 >> 
 >> __` 模块大合集 `__ : 群内某不愿透漏姓名的 __` 热心群友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的适用于小火箭的 [模块大合集](https://shadowrocket.module.sagg.us.kg) ，非常推荐小火箭用户试用。使用本合集中的模块需要提前 ` 一键安装 ` [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 并正确开启 HTTPS 解密
 >>   
