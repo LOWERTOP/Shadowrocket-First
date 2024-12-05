@@ -77,7 +77,7 @@
 ## Shadowrocket 收集配置
 
 > [!NOTE]
-> 本单元内容为收集自 ` 官方或靠谱第三方 ` 的使用手册、配置、模块、规则集、脚本等，可放心食用
+> 本单元内容为收集自官方或靠谱第三方的 ` 使用手册 ` 、` 配置文件 ` 、` 模块 ` 、` 规则集 ` 、` 脚本 ` 等，可放心食用
 > 
 > __需要注意：__ 使用下文中的绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)
 
