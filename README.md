@@ -83,19 +83,19 @@
 
 >__` 官方文件 `__
 >
->> 本页提供 [Shadowrocket 官方 GitHub 主页](https://github.com/wlxuf/Shadowrocket) 发布的 ` 关键词列表 ` ，也可以称为教程/文件/手册/文档，本页还提供局部优化/改进/微调的版本。同时，官方“线下”推荐的 [懒人配置](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人策略组/代理分组](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 配置文件也一并提供一键安装链接。该配置文件的备注非常详尽、仔细，基本上把官方的操作手册备注到了配置文件内，非常适合新人上手和进阶调整
+>> 本页提供 [Shadowrocket 官方 GitHub 主页](https://github.com/wlxuf/Shadowrocket) 发布的 ` 关键词列表 ` ，也可以称为教程/文件/手册/文档，本页还提供局部优化/改进/微调的版本。同时，官方“线下”推荐的 [懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人含分流/策略组/代理分组配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 也一并提供一键安装链接。该配置文件的备注非常详细，基本上把官方的操作手册都备注到了配置文件内，非常适合新人上手和进阶调整
 >>
 >> [![查看文档 官方版本](https://img.shields.io/static/v1?label=查看文档&message=官方版本&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/wlxuf/Shadowrocket "点击查阅")
 >> [![查看文档 优化版本](https://img.shields.io/static/v1?label=查看文档&message=优化版本&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
 >> [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=rocket&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf "一键安装本配置文件")
->> [![安装配置 代理分组](https://img.shields.io/static/v1?label=安装配置&message=代理分组&color=grey&logo=rocket&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
+>> [![安装配置 懒人分流](https://img.shields.io/static/v1?label=安装配置&message=懒人分流&color=grey&logo=rocket&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 >
 >__` 分流规则 `__
 >
 >> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常详实/丰富的各平台的分流规则、覆写规则等内容入口，它是代理软件首推的代理规则集。该规则不仅适用于 ` Shadowrocket ` 同样有适配其他代理软件的版本
 >> 
->> [![查看规则 分流规则](https://img.shields.io/static/v1?label=查看规则&message=分流规则&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
->> [![查看规则 覆写规则](https://img.shields.io/static/v1?label=查看规则&message=覆写规则&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看分类")
+>> [![查看列表 分流规则集](https://img.shields.io/static/v1?label=查看列表&message=分流规则集&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
+>> [![查看列表 覆写模块集](https://img.shields.io/static/v1?label=查看列表&message=覆写模块集&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看分类")
 >
 >__` 模块/规则/脚本及其他内容 `__
 >
@@ -103,7 +103,7 @@
 >> 
 >> __` 模块大合集 `__ : 群内某不愿透漏姓名的 __` 热心群友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的适用于小火箭的 [模块大合集](https://shadowrocket.module.sagg.us.kg) ，非常推荐小火箭用户试用。使用本合集中的模块需要提前 ` 一键安装 ` [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 并正确开启 HTTPS 解密
 >>   
->> [![查看页面 模块大合集](https://img.shields.io/static/v1?label=查看页面&message=模块大合集&color=grey&logo=html5&logoColor=white&labelColor=%23E44D26&messageColor=white)](https://shadowrocket.module.sagg.us.kg "模块转换合集")
+>> [![查看列表 模块大合集](https://img.shields.io/static/v1?label=查看列表&message=模块大合集&color=grey&logo=html5&logoColor=white&labelColor=%23E44D26&messageColor=white)](https://shadowrocket.module.sagg.us.kg "模块转换合集")
 >> 
 >> __` 墨鱼去广告模块 `__ : [Cuttlefish](https://github.com/ddgksf2013/ddgksf2013) 墨鱼 的去 [广告整合模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule) ，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
 >>   
