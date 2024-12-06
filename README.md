@@ -96,43 +96,57 @@
 >> 
 >> [![检索规则 分流规则集](https://img.shields.io/static/v1?label=检索规则&message=分流规则集&color=grey&logo=quicklook&logoColor=white&labelColor=%231797a5&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
 >
->__` 模块/规则/脚本及其他内容 `__
+> __` 去广告规则 `__
 >
->> 本页提供多种收集而来的各类模块/规则/脚本等配置的访问入口和一键安装服务，现有包括：
->> 
->> __` 去广告规则 `__ : [Johnshall](https://github.com/Johnshall) 维护了多款 [小火箭配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 。可以将其【仅去广告配置文件】[添加为规则集](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99) ，并将策略设置为 ` Reject ` ，用以作为去广告规则使用
+>> [Johnshall](https://github.com/Johnshall) 维护了多款 [小火箭配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 。可以将其【仅去广告配置文件】[添加为规则集](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99) ，并将策略设置为 ` Reject ` ，用以作为去广告规则使用
 >>   
 >> [![规则文件 去广告规则](https://img.shields.io/static/v1?label=规则文件&message=去广告规则&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf "点击访问规则集")
->> 
->> __` 模块大合集 `__ : 群内某不愿透漏姓名的 __` 热心群友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的适用于小火箭的模块大合集。使用本合集中的模块需要提前安装并启用 [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) ，且需要正确开启 HTTPS 解密
+>
+> __` 模块大合集 `__
+>
+>> 群内某不愿透漏姓名的 __` 热心群友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的适用于小火箭的模块大合集。使用本合集中的模块需要提前安装并启用 [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) ，且需要正确开启 HTTPS 解密
 >>   
 >> [![检索模块 模块大合集](https://img.shields.io/static/v1?label=检索模块&message=模块大合集&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "模块转换合集")
->> 
->> __` 覆写规则模块 `__ [blackmatrix7](https://github.com/blackmatrix7) 维护的覆写规则模块，包含去广告、重定向、安全重定向、屏蔽 HTTP DNS 、获取 Cookie 、知乎助手、系统升级等模块
+>
+> __` 覆写规则模块 `__
+>
+>> [blackmatrix7](https://github.com/blackmatrix7) 维护的覆写规则模块，包含去广告、重定向、安全重定向、屏蔽 HTTP DNS 、获取 Cookie 、知乎助手、系统升级等模块
 >> 
 >> [![检索模块 覆写模块集](https://img.shields.io/static/v1?label=检索模块&message=覆写模块集&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看分类")
->> 
->> __` 墨鱼去广告模块 `__ : [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的去【广告整合模块】，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
+>
+> __` 墨鱼去广告模块 `__
+>
+>> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的去【广告整合模块】，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
 >>   
 >> [![安装模块 墨鱼去广告](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去广告&color=grey&logo=elm&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
->> 
->> __` YouTube 去广告模块 `__ : [Maasea](https://github.com/Maasea) 维护的【YouTube 去广告模块】，支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供 [iab](https://github.com/iab0x00) 修改并维护的【小火箭版本】以供使用
+>
+> __` YouTube 去广告模块 `__
+>
+>> [Maasea](https://github.com/Maasea) 维护的【YouTube 去广告模块】，支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供 [iab](https://github.com/iab0x00) 修改并维护的【小火箭版本】以供使用
 >>   
 >> [![安装模块 油管去广告](https://img.shields.io/static/v1?label=安装模块&message=油管去广告&color=grey&logo=elm&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
->> 
->> __` Spotify 模块 `__ : [app2smile](https://github.com/app2smile) 维护的【Spotify / 声破天 模块】，可以去除播放广告、去除随机播放、歌手/专辑列表正常展示
+>
+> __` Spotify 模块 `__
+>
+>> [app2smile](https://github.com/app2smile) 维护的【Spotify / 声破天 模块】，可以去除播放广告、去除随机播放、歌手/专辑列表正常展示
 >>   
 >> [![安装模块 声破天模块](https://img.shields.io/static/v1?label=安装模块&message=声破天模块&color=grey&logo=elm&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/refs/heads/master/module/spotify.module "一键安装本模块")
->> 
->> __` 酷安去广告模块 `__ : [iab](https://github.com/iab0x00) 维护的【酷安去广告模块】，可以去除酷安 APP 的开屏广告和时间线广告
+>
+> __` 酷安去广告模块 `__
+>
+>> [iab](https://github.com/iab0x00) 维护的【酷安去广告模块】，可以去除酷安 APP 的开屏广告和时间线广告
 >>   
 >> [![安装模块 酷安去广告](https://img.shields.io/static/v1?label=安装模块&message=酷安去广告&color=grey&logo=elm&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule "一键安装本模块")
->> 
->> __` 筛选订阅脚本 `__ : [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化。使用方式为：打开下方脚本文件链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要修改后保存即可
+>
+> __` 筛选订阅脚本 `__
+>
+>> [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化。使用方式为：打开下方脚本文件链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要修改后保存即可
 >>   
 >> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=gold&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/rename.js "点击查看脚本内容")
->> 
->> __` 其他仓库 `__ : 本文也推荐 [app2smile](https://github.com/app2smile) 、[QingRex](https://github.com/QingRex) 等模块作者，可以进他们的仓库自行挑选。本文不保证可用性，某些模块的生效或者完全生效可能同样需要使用插件进行转换
+>
+> __` 其他仓库 `__
+>
+>> 本文也推荐 [app2smile](https://github.com/app2smile) 、[QingRex](https://github.com/QingRex) 等模块作者，可以进他们的仓库自行挑选。本文不保证可用性，某些模块的生效或者完全生效可能同样需要使用插件进行转换
 >>   
 >> [![查看仓库 app2smile](https://img.shields.io/static/v1?label=查看仓库&message=app2smile&color=grey&logo=bookstack&logoColor=white&labelColor=%2364BC4B&messageColor=white)](https://github.com/app2smile/rules "点击查看仓库内容")
 >> [![查看仓库 QingRex](https://img.shields.io/static/v1?label=查看仓库&message=QingRex&color=grey&logo=bookstack&logoColor=white&labelColor=%2364BC4B&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看仓库模块")
