@@ -140,14 +140,14 @@
 >
 >> [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 的脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化。使用方式为：打开下方脚本文件链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要修改后保存即可
 >>   
->> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=gold&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/rename.js "点击查看脚本内容")
+>> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/rename.js "点击查看脚本内容")
 >
 > __` 其他仓库 `__
 >
 >> 本文也推荐 [app2smile](https://github.com/app2smile) 、[QingRex](https://github.com/QingRex) 等模块作者，可以进他们的仓库自行挑选。本文不保证可用性，某些模块的生效或者完全生效可能同样需要使用插件进行转换
 >>   
->> [![查看仓库 app2smile](https://img.shields.io/static/v1?label=查看仓库&message=app2smile&color=grey&logo=bookstack&logoColor=white&labelColor=%2364BC4B&messageColor=white)](https://github.com/app2smile/rules "点击查看仓库内容")
->> [![查看仓库 QingRex](https://img.shields.io/static/v1?label=查看仓库&message=QingRex&color=grey&logo=bookstack&logoColor=white&labelColor=%2364BC4B&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看仓库模块")
+>> [![查看仓库 app2smile](https://img.shields.io/static/v1?label=查看仓库&message=app2smile&color=grey&logo=bookstack&logoColor=white&labelColor=%239E95B7&messageColor=white)](https://github.com/app2smile/rules "点击查看仓库内容")
+>> [![查看仓库 QingRex](https://img.shields.io/static/v1?label=查看仓库&message=QingRex&color=grey&logo=bookstack&logoColor=white&labelColor=%239E95B7&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看仓库模块")
 
 ------
 
