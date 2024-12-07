@@ -841,8 +841,9 @@ _To Be Continued..._
 >> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，也就是【跳转链接】+【URL-Scheme 指令】+【模块连接】。完成组合后类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
 >> * 完成跳转成功安装
 >
-> 附小火箭各配置 ` 一键安装 ` 的跳转链接
->   
+> <details>
+> <summary>点击查看小火箭各配置 一键安装 的跳转链接</summary>
+> 
 >> 一键安装 ` 配置文件 ` 的跳转链接（后面直接跟配置文件链接）
 >> ```ruby
 >> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/
@@ -857,6 +858,7 @@ _To Be Continued..._
 >> ```ruby
 >> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
 >> ```
+> </details>
 >
 > <details>
 > <summary>点击查看小火箭可用的 URL-Schemes</summary>
@@ -894,7 +896,6 @@ _To Be Continued..._
 >> 安装/使用 配色
 >> shadowrocket://color?{配色设置}
 >> ```
-> 
 > </details>
 
 > [!IMPORTANT]
