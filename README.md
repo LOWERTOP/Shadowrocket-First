@@ -57,19 +57,19 @@
 >> 
 >>_本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册_
 >> 
->> [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=baserow&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule "一键安装本模块")
+>> [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule "一键安装本模块")
 >
 >__` Ultra Mobile PayGo WiFiCalling `__
 >
 >> Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile Pay As You Go SIM 卡。本文推荐使用本仓库中的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) 进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用小火箭的配置模式。本文同时提供相关服务的 [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list) ，如有需要请自行取用
 >>
->> [![安装模块 UltraMobile](https://img.shields.io/static/v1?label=安装模块&message=UltraMobile&color=grey&logo=baserow&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule "一键安装本模块")
+>> [![安装模块 UltraMobile](https://img.shields.io/static/v1?label=安装模块&message=UltraMobile&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule "一键安装本模块")
 >
 >__` CMCCiTV 咪咕直播源模块 ` ` Beta `__
 >
 >> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。但测试中发现原贴中需要解析的域名并未出现在我所在的地区，而是出现了其他域名，导致方案无效，在将该域名进行映射后可以在非移动网络下正常观看。所以原方案似乎并不适用于所有非移动用户或不同地区的用户，并且我网络环境下该服务似乎对公共DNS也很敏感。所以制作了一个 [小火箭模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule) ，包含了必要的规则、DNS覆写、以及地址映射，理论上应该支持所有运营商使用咪咕直播源。现在提供 ` Beta 版本 ` 欢迎试用，如果发现在当地网络环境下还存在类似问题，可以进入模块文本根据说明进行调整。
 >>
->> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=baserow&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
+>> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
 ------
 
 ## Shadowrocket 收集配置
@@ -116,25 +116,25 @@
 >
 >> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的去【广告整合模块】，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
 >>   
->> [![安装模块 墨鱼去广告](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去广告&color=grey&logo=baserow&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
+>> [![安装模块 墨鱼去广告](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
 >
 > __` YouTube 去广告模块 `__
 >
 >> [Maasea](https://github.com/Maasea) 维护的【YouTube 去广告模块】，支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供 [iab](https://github.com/iab0x00) 修改并维护的【小火箭版本】以供使用
 >>   
->> [![安装模块 油管去广告](https://img.shields.io/static/v1?label=安装模块&message=油管去广告&color=grey&logo=baserow&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
+>> [![安装模块 油管去广告](https://img.shields.io/static/v1?label=安装模块&message=油管去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 >
 > __` Spotify 模块 `__
 >
 >> [app2smile](https://github.com/app2smile) 维护的【Spotify / 声破天 模块】，可以去除播放广告、去除随机播放、歌手/专辑列表正常展示
 >>   
->> [![安装模块 声破天模块](https://img.shields.io/static/v1?label=安装模块&message=声破天模块&color=grey&logo=baserow&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/refs/heads/master/module/spotify.module "一键安装本模块")
+>> [![安装模块 声破天模块](https://img.shields.io/static/v1?label=安装模块&message=声破天模块&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/refs/heads/master/module/spotify.module "一键安装本模块")
 >
 > __` 酷安去广告模块 `__
 >
 >> [iab](https://github.com/iab0x00) 维护的【酷安去广告模块】，可以去除酷安 APP 的开屏广告和时间线广告
 >>   
->> [![安装模块 酷安去广告](https://img.shields.io/static/v1?label=安装模块&message=酷安去广告&color=grey&logo=baserow&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule "一键安装本模块")
+>> [![安装模块 酷安去广告](https://img.shields.io/static/v1?label=安装模块&message=酷安去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule "一键安装本模块")
 >
 > __` 筛选订阅脚本 `__
 >
