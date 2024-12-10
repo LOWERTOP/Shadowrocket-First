@@ -8,7 +8,10 @@
 # 策略建议：PROXY
 
 [Rule]
+# 以下规则必须走代理
 DOMAIN-SUFFIX,tktn.be
+
+# 以下规则其实可以走直连
 DOMAIN-SUFFIX,inner-active.mobi
 DOMAIN-SUFFIX,mobilefuse.com
 DOMAIN-SUFFIX,inmobi.com
