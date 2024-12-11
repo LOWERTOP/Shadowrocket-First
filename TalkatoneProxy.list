@@ -7,7 +7,6 @@
 # 类型选择：RULE-SET
 # 策略建议：PROXY
 
-[Rule]
 # 以下规则必须走代理
 DOMAIN-SUFFIX,tktn.be
 
