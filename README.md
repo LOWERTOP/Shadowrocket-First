@@ -78,7 +78,7 @@
 > [!NOTE]
 > 本单元内容为收集自官方或靠谱第三方的 ` 使用手册 ` 、` 配置文件 ` 、` 模块 ` 、` 规则集 ` 、` 脚本 ` 等，可放心食用
 > 
-> __需要注意：__ 使用下文中的绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)
+> __需要注意：__ 本页不保证各配置的实时可用性，请自行甄别，且使用下文中的绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)
 
 >__` 官方文件 `__
 >
@@ -119,23 +119,35 @@
 >>   
 >> [![安装模块 墨鱼去广告](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
 >
-> __` YouTube 去广告模块 `__
->
->> [Maasea](https://github.com/Maasea) 维护的【YouTube 去广告模块】，支持去除软件内的各类广告以及提供画中画功能。但由于该原版模块是其他软件的原生版本，本文提供 [iab](https://github.com/iab0x00) 修改并维护的【小火箭版本】以供使用
->>   
->> [![安装模块 油管去广告](https://img.shields.io/static/v1?label=安装模块&message=油管去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
->
 > __` Spotify 模块 `__
 >
 >> [app2smile](https://github.com/app2smile) 维护的【Spotify / 声破天 模块】，可以去除播放广告、去除随机播放、歌手/专辑列表正常展示
 >>   
 >> [![安装模块 声破天模块](https://img.shields.io/static/v1?label=安装模块&message=声破天模块&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/refs/heads/master/module/spotify.module "一键安装本模块")
 >
+> __` YouTube 去广告模块 `__
+>
+>> [Maasea](https://github.com/Maasea) 维护有 YouTube 去广告模块，支持去除软件内的各类广告以及提供画中画功能。但原模块是其他软件的版本，本文提供 [iab](https://github.com/iab0x00) 修改并维护的【小火箭版本】以供使用
+>>   
+>> [![安装模块 油管去广告](https://img.shields.io/static/v1?label=安装模块&message=油管去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
+>
 > __` 酷安去广告模块 `__
 >
 >> [iab](https://github.com/iab0x00) 维护的【酷安去广告模块】，可以去除酷安 APP 的开屏广告和时间线广告
 >>   
 >> [![安装模块 酷安去广告](https://img.shields.io/static/v1?label=安装模块&message=酷安去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule "一键安装本模块")
+>
+> __` 滴滴去广告模块 `__
+>
+>> [iab](https://github.com/iab0x00) 维护的【滴滴去广告模块】，可以去除滴滴的开屏广告及内部广告页面
+>>   
+>> [![安装模块 滴滴去广告](https://img.shields.io/static/v1?label=安装模块&message=滴滴去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/DidiNoAd.sgmodule "一键安装本模块")
+>
+> __` 微博轻享版去广告模块 `__
+>
+>> [iab](https://github.com/iab0x00) 维护的【微博轻享版去广告模块】，可以去除开屏、时间线及我的页面广告
+>>   
+>> [![安装模块 微博轻享版](https://img.shields.io/static/v1?label=安装模块&message=微博轻享版&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/WeiBoIntl.sgmodule "一键安装本模块")
 >
 > __` 筛选订阅脚本 `__
 >
