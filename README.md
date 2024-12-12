@@ -47,7 +47,7 @@
 
 ------
 
-## Shadowrocket 自制配置
+## [Shadowrocket 自制配置](https://github.com/LOWERTOP/Shadowrocket-First#shadowrocket-%E8%87%AA%E5%88%B6%E9%85%8D%E7%BD%AE)
 
 > [!NOTE]
 > 本单元为自制内容，是为 ` 特定软件或服务 ` 所用，如有需要请自行取用
@@ -73,7 +73,7 @@
 >> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
 ------
 
-## Shadowrocket 收集配置
+## [Shadowrocket 收集配置](https://github.com/LOWERTOP/Shadowrocket-First?tab=readme-ov-file#shadowrocket-%E6%94%B6%E9%9B%86%E9%85%8D%E7%BD%AE)
 
 > [!NOTE]
 > 本单元内容为收集自官方或靠谱第三方的 ` 使用手册 ` 、` 配置文件 ` 、` 模块 ` 、` 规则集 ` 、` 脚本 ` 等，可放心食用
@@ -152,7 +152,7 @@
 
 ------
 
-## Shadowrocket 配色文件
+## [Shadowrocket 配色文件](https://github.com/LOWERTOP/Shadowrocket-First?tab=readme-ov-file#shadowrocket-%E9%85%8D%E8%89%B2%E6%96%87%E4%BB%B6)
 
 > [!NOTE]
 > 本单元为小火箭配色文件相关内容。项目出发点是作者在使用小火箭的过程中对小火箭的配色逐渐感到单调，借助本身是设计出身，遂制作了几个配色文件，没想到反响挺好，后就借助 GitHub 平台逐步发布多种自己设计的配色文件，以供大家挑选使用
@@ -823,7 +823,7 @@ _To Be Continued..._
 
 ------
 
-## URL Redirector 非标准链接重定向跳转
+## [URL Redirector 非标准链接重定向跳转](https://github.com/LOWERTOP/Shadowrocket-First?tab=readme-ov-file#url-redirector-%E9%9D%9E%E6%A0%87%E5%87%86%E9%93%BE%E6%8E%A5%E9%87%8D%E5%AE%9A%E5%90%91%E8%B7%B3%E8%BD%AC)
 
 > [!NOTE]
 > 本单元为 URL Redirector 非标准链接重定向跳转相关内容，主要服务于向 GitHub 等网站发布内容的作者朋友们。本服务的出发点是作者在使用 ` GitHub ` 进行小火箭相关配置设置期间，发现本页不能使用 ` URL-Schemes ` 的链接作为超链一键安装，也就是本页不支持非标准链接的超链，遂萌生了使用 ` HTML ` 进行跳转的想法，后经 ` GPT ` 帮助实现本单元初步设想和现有功能。GitHub 中也有其他类似功能的仓库，可以自行翻阅
