@@ -15,7 +15,7 @@
 
 [![GitHub stars][stars-image]][stars-url]
 [![GitHub forks][forks-image]][forks-url]
-[![交流群组 Shadowrocket](https://img.shields.io/static/v1?label=交流群组&message=Shadowrocket&color=blue&logo=telegram&logoColor=white&labelColor=grey&messageColor=white)](https://t.me/ShadowrocketApp "Shadowrocket 官方频道")
+[![交流群组 Shadowrocket](https://img.shields.io/static/v1?label=交流群组&message=Shadowrocket&color=blue&logo=telegram&logoColor=white&labelColor=grey&messageColor=white)](https://t.me/ShadowrocketApp "Shadowrocket 官方群组")
 
 [stars-url]: https://github.com/LOWERTOP/Shadowrocket-First/stargazers "已被星标次数"
 [stars-image]: https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=static&logo=github&label=Star
