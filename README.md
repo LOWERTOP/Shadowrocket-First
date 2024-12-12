@@ -828,7 +828,7 @@ _To Be Continued..._
 > [!NOTE]
 > 本单元为 URL Redirector 非标准链接重定向跳转相关内容，主要服务于向 GitHub 等网站发布内容的作者朋友们。本服务的出发点是作者在使用 ` GitHub ` 进行小火箭相关配置设置期间，发现本页不能使用 ` URL-Schemes ` 的链接作为超链一键安装，也就是本页不支持非标准链接的超链，遂萌生了使用 ` HTML ` 进行跳转的想法，后经 ` GPT ` 帮助实现本单元初步设想和现有功能。GitHub 中也有其他类似功能的仓库，可以自行翻阅
 >
-> 当然，本服务虽然主要指向 ` 非标准链接 ` 的跳转，但是例如 ` HTTP ` ` HTTPS ` 等类型的 ` 标准链接 ` 自然也是支持跳转的哦
+> 当然，本服务虽然主要指向 ` 非标准链接 ` 的跳转，但是例如 ` HTTP ` ` HTTPS ` 等类型的 ` 标准链接 ` 自然也是支持跳转
 
 > [!TIP]
 > 复制以下链接，粘贴在需要跳转的链接前进行访问即可
@@ -837,10 +837,10 @@ _To Be Continued..._
 > ```
 
 > 示例
->> * 你想使用小火箭的 URL-Scheme ` shadowrocket://install?module= ` 一键安装小火箭的这个模块：` https://12345.com/67890.module `
->> * 但是不是所有站点都支持类似地址的超链，例如本页就不支持……碎碎念……
->> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，也就是【跳转链接】+【URL-Scheme 指令】+【模块连接】。完成组合后类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
->> * 完成跳转成功安装
+>> * 你想使用小火箭的 URL-Scheme ` shadowrocket://install?module= ` 一键安装小火箭的这个模块 ` https://12345.com/67890.module ` ，也就是 ` shadowrocket://install?module=https://12345.com/67890.module ` 
+>> * 但是不是所有站点都支持类似地址的超链，无法完成点击跳转安装，例如本页或者 TG 就不支持……
+>> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，也就是【跳转链接】+【URL-Scheme】+【模块地址】。完成组合后类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
+>> * 完成后即可点击跳转并成功安装
 >
 > <details>
 > <summary>点击查看小火箭各配置适用于 一键安装 的跳转链接</summary>
