@@ -131,7 +131,7 @@
 >
 > __` iab 原生模块 `__
 >
->> 以下为管理员 [iab](https://github.com/iab0x00) 维护的小火箭原生模块，根据需要一键安装即可
+>> 以下为管理员 [iab](https://github.com/iab0x00) 维护的原生模块，根据需要一键安装即可
 >> 
 >> YouTube 去广告模块，支持去除软件内的各类广告以及提供画中画功能。原始代码由 [Maasea](https://github.com/Maasea) 维护
 >>   
