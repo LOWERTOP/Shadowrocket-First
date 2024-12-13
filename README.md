@@ -99,18 +99,20 @@
 >
 >> [Cats-Team](https://github.com/Cats-Team) 维护的 [去广告规则](https://github.com/Cats-Team/AdRules) 。应该能去除大部分开屏广告，将其 [添加为规则集](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99) ，并将策略设置为 ` Reject ` 即可使用
 >> 
+>> [![规则文件 Cats-Team](https://img.shields.io/static/v1?label=规则文件&message=Cats-Team&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules.list "点击访问规则集")
+>> 
 >> [Johnshall](https://github.com/Johnshall) 维护了多款 [配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 。可以将其 ` 仅去广告配置 ` [添加为规则集](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99) ，并将策略设置为 ` Reject ` ，作为去广告规则使用
 >>   
->> [![规则文件 Cats-Team](https://img.shields.io/static/v1?label=规则文件&message=Cats-Team&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules.list "点击访问规则集")
 >> [![规则文件 Johnshall](https://img.shields.io/static/v1?label=规则文件&message=Johnshall&color=grey&logo=todoist&logoColor=white&labelColor=%231797a5&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf "点击访问规则集")
 >
 > __` 模块合集 `__
 >
 >> 某不愿透漏姓名的 __` 热心网友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要一键安装。安装先请阅读页面内的说明。
 >> 
+>> [![检索模块 模块大合集](https://img.shields.io/static/v1?label=检索模块&message=模块大合集&color=grey&logo=quicklook&logoColor=white&labelColor=%2300945E&messageColor=white)](https://shadowrocket.module.sagg.us.kg "模块转换合集")
+>> 
 >> [blackmatrix7](https://github.com/blackmatrix7) 、[QingRex](https://github.com/QingRex) 、[app2smile](https://github.com/app2smile) 等作者也有模块仓库，可以进他们的仓库自行挑选。不过除 ` blackmatrix7 ` 仓库外的其他模块不属于原生模块，本文不保证可用性，使用他们的模块可能需要提前安装并启用 [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) ，且需要正确开启 HTTPS 解密，请自行甄别。
 >>   
->> [![检索模块 模块大合集](https://img.shields.io/static/v1?label=检索模块&message=模块大合集&color=grey&logo=quicklook&logoColor=white&labelColor=%2300945E&messageColor=white)](https://shadowrocket.module.sagg.us.kg "模块转换合集")
 >> [![检索模块 blackmatrix7](https://img.shields.io/static/v1?label=检索模块&message=blackmatrix7&color=grey&logo=quicklook&logoColor=white&labelColor=%2300945E&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看分类")
 >> [![检索模块 QingRex](https://img.shields.io/static/v1?label=检索模块&message=QingRex&color=grey&logo=quicklook&logoColor=white&labelColor=%2300945E&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看仓库模块")
 >> [![检索模块 app2smile](https://img.shields.io/static/v1?label=检索模块&message=app2smile&color=grey&logo=quicklook&logoColor=white&labelColor=%2300945E&messageColor=white)](https://github.com/app2smile/rules "点击查看仓库内容")
@@ -123,31 +125,27 @@
 >
 > __` Spotify 模块 `__
 >
->> [app2smile](https://github.com/app2smile) 维护的【Spotify / 声破天 模块】，可以去除播放广告、去除随机播放、歌手/专辑列表正常展示
+>> [app2smile](https://github.com/app2smile) 维护的【Spotify / 声破天 模块】，可以去除播放广告、去除随机播放、歌手/专辑列表正常展示，部分解锁 Premium
 >>   
 >> [![安装模块 声破天模块](https://img.shields.io/static/v1?label=安装模块&message=声破天模块&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/refs/heads/master/module/spotify.module "一键安装本模块")
 >
-> __` YouTube 去广告模块 `__
+> __` iab 原生模块 `__
 >
->> [iab](https://github.com/iab0x00) 维护的 YouTube 去广告模块，支持去除软件内的各类广告以及提供画中画功能。原始代码由 [Maasea](https://github.com/Maasea) 维护
+>> 以下为管理员 [iab](https://github.com/iab0x00) 维护的小火箭原生模块，根据需要一键安装即可
+> 
+>> YouTube 去广告模块，支持去除软件内的各类广告以及提供画中画功能。原始代码由 [Maasea](https://github.com/Maasea) 维护
 >>   
 >> [![安装模块 油管去广告](https://img.shields.io/static/v1?label=安装模块&message=油管去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
->
-> __` 酷安去广告模块 `__
->
->> [iab](https://github.com/iab0x00) 维护的酷安去广告模块，可以去除酷安 APP 的开屏广告和时间线广告
+>> 
+>> 酷安去广告模块，可以去除酷安 APP 的开屏广告和时间线广告
 >>   
 >> [![安装模块 酷安去广告](https://img.shields.io/static/v1?label=安装模块&message=酷安去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule "一键安装本模块")
->
-> __` 滴滴去广告模块 `__
->
->> [iab](https://github.com/iab0x00) 维护的滴滴去广告模块，可以去除滴滴的开屏广告及内部广告页面
+>> 
+>> 滴滴去广告模块，可以去除滴滴的开屏广告及内部广告页面
 >>   
 >> [![安装模块 滴滴去广告](https://img.shields.io/static/v1?label=安装模块&message=滴滴去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/DidiNoAd.sgmodule "一键安装本模块")
->
-> __` 微博轻享版去广告模块 `__
->
->> [iab](https://github.com/iab0x00) 维护的微博轻享版去广告模块，可以去除开屏、时间线及我的页面广告
+>> 
+>> 微博轻享版去广告模块，可以去除开屏、时间线及我的页面广告
 >>   
 >> [![安装模块 微博轻享版](https://img.shields.io/static/v1?label=安装模块&message=微博轻享版&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/WeiBoIntl.sgmodule "一键安装本模块")
 >
