@@ -78,7 +78,7 @@
 > [!NOTE]
 > 本单元内容为收集自官方或第三方相对靠谱的 ` 使用手册 ` 、` 配置文件 ` 、` 模块 ` 、` 规则集 ` 、` 脚本 ` 等，可放心食用
 > 
-> __注意：__ 使用绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86) ，且请自行甄别相关文件的时效性
+> __注意：__ 请自行甄别相关文件的时效性，使用绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)
 
 >__` 官方文件 `__
 >
