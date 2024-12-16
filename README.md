@@ -111,7 +111,7 @@
 >> 
 >> [![模块检索 模块大合集](https://img.shields.io/static/v1?label=模块检索&message=模块大合集&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "模块转换合集")
 >> 
->> [blackmatrix7](https://github.com/blackmatrix7) 、[QingRex](https://github.com/QingRex) 、[app2smile](https://github.com/app2smile) 等作者也有模块仓库，可以进他们的仓库自行挑选。不过除 ` blackmatrix7 ` 仓库外的其他模块不属于原生模块，本文不保证可用性，使用他们的模块可能需要提前安装并启用 [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) ，且需要正确开启 HTTPS 解密，请自行甄别。
+>> [blackmatrix7](https://github.com/blackmatrix7) 、[QingRex](https://github.com/QingRex) 、[app2smile](https://github.com/app2smile) 等作者也有模块仓库，可以进他们的仓库自行挑选。不过除 ` blackmatrix7 ` 仓库外的其他模块不属于原生模块，本文不保证可用性，使用他们的模块可能需要使用 [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) ，请自行甄选。
 >>   
 >> [![模块检索 blackmatrix7](https://img.shields.io/static/v1?label=模块检索&message=blackmatrix7&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看分类")
 >> [![模块检索 QingRex](https://img.shields.io/static/v1?label=模块检索&message=QingRex&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看仓库模块")
