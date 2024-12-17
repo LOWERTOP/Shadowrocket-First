@@ -833,7 +833,7 @@ _To Be Continued..._
 > [!NOTE]
 > 本单元为 URL Redirector 非标准链接重定向跳转相关内容，主要服务于向 GitHub 等网站发布内容的作者朋友们。本服务的出发点是作者在使用 ` GitHub ` 进行小火箭相关配置设置期间，发现本页不能使用 ` URL-Schemes ` 的链接作为超链一键安装，也就是本页不支持非标准链接的超链，遂萌生了使用 ` HTML ` 进行跳转的想法，后经 ` GPT ` 帮助实现本单元初步设想和现有功能。GitHub 中也有其他类似功能的仓库，可以自行翻阅
 >
-> 当然，本服务虽然主要指向 ` 非标准链接 ` 的跳转，但是例如 ` HTTP ` ` HTTPS ` 等类型的 ` 标准链接 ` 自然也是支持跳转
+> 当然，本服务虽然主要指向 ` 非标准链接 ` 的跳转，但是例如 ` HTTP ` ` HTTPS ` 等类型的 ` 标准链接 ` 自然也是支持跳转。另外小火箭配色文件的设置链接和普通链接编码不同，使用本项目跳转小火箭配色链接可能存在解码问题，除此之外暂未发现其他链接跳转不正常的案例
 
 > [!TIP]
 > 复制以下链接，粘贴在需要跳转的链接前进行访问即可
@@ -850,17 +850,17 @@ _To Be Continued..._
 > <details>
 > <summary>点击查看小火箭各配置适用于 一键安装 的跳转链接</summary>
 > 
->> 一键安装 ` 配置文件 ` 的跳转链接（后面直接跟配置文件链接）
+>> ` 配置文件 ` 的一键安装跳转链接（后面直接跟配置文件地址）
 >> ```ruby
 >> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/
 >> ```
 >>
->> 一键安装 ` 模块 ` 的跳转链接（后面直接跟模块链接）
+>> ` 模块文件 ` 的一键安装跳转链接（后面直接跟模块地址）
 >> ```ruby
 >> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=
 >> ```
 >>
->> 一键添加 ` 订阅/节点 ` 的跳转链接（后面直接跟订阅/节点链接）
+>> ` 订阅/节点 ` 的一键安装跳转链接（后面直接跟订阅/节点地址）
 >> ```ruby
 >> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
 >> ```
@@ -869,43 +869,66 @@ _To Be Continued..._
 > <details>
 > <summary>点击查看小火箭可用的 URL-Schemes</summary>
 > 
+>> ` 启动 VPN 隧道 ` 
 >> ```ruby
->> 启动 VPN 隧道
 >> shadowrocket://connect
+>> ```
+>> ```ruby
 >> shadowrocket://open
+>> ```
 >> 
->> 停止 VPN 隧道
+>>  ` 停止 VPN 隧道 ` 
+>> ```ruby
 >> shadowrocket://disconnect
+>> ```
+>> ```ruby
 >> shadowrocket://close
+>> ```
 >> 
->> 切换 VPN 开关状态
+>>  ` 切换 VPN 开关状态 ` 
+>> ```ruby
 >> shadowrocket://toggle
+>> ```
 >>
->> 使用特定节点
+>>  ` 使用特定节点 ` 
+>> ```ruby
 >> shadowrocket://select?s=节点名称
+>> ```
 >> 
->> 添加 订阅/节点
+>>  ` 添加 订阅/节点 ` 
+>> ```ruby
 >> shadowrocket://add/{url}
+>> ```
 >> 
->> 安装/使用 配置
+>>  ` 安装/使用 配置 ` 
+>> ```ruby
 >> shadowrocket://config/add/{url}
+>> ```
 >>
->> 安装/使用 模块
+>>  ` 安装/使用 模块 ` 
+>> ```ruby
 >> shadowrocket://install?module={url}
+>> ```
 >> 
->> 切换全局路由（代理/配置/直连/场景）
+>>  ` 切换全局路由（代理/配置/直连/场景） ` 
+>> ```ruby
 >> shadowrocket://route/proxy
+>> ```
+>> ```ruby
 >> shadowrocket://route/config
+>> ```
+>> ```ruby
 >> shadowrocket://route/direct
+>> ```
+>> ```ruby
 >> shadowrocket://route/scene
+>> ```
 >>
->> 安装/使用 配色
+>>  ` 安装/使用 配色 ` 
+>> ```ruby
 >> shadowrocket://color?{配色设置}
 >> ```
 > </details>
-
-> [!IMPORTANT]
-> 注意：已知小火箭配色文件的设置链接和普通链接编码不同，使用本项目跳转小火箭配色链接可能存在解码问题，除此之外其他链接应该可以正常跳转
 
 ------
 
