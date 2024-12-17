@@ -125,7 +125,7 @@
 >
 > __` Spotify 模块 `__
 >
->> [app2smile](https://github.com/app2smile) 维护的【Spotify / 声破天 模块】，可以去除播放广告、去除随机播放、歌手/专辑列表正常展示，部分解锁 Premium
+>> [app2smile](https://github.com/app2smile) 维护的【Spotify / 声破天 模块】，部分解锁 Premium ，同时可以去除播放广告、去除随机播放、歌手/专辑列表可以正常展示
 >>   
 >> [![安装模块 声破天模块](https://img.shields.io/static/v1?label=安装模块&message=声破天模块&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/refs/heads/master/module/spotify.module "一键安装本模块")
 >
