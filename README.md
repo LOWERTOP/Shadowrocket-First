@@ -850,84 +850,84 @@ _To Be Continued..._
 > <details>
 > <summary>点击查看小火箭各配置适用于 一键安装 的跳转链接</summary>
 > 
->> ` 配置文件 ` 的一键安装跳转链接（后面直接跟配置文件地址）
->> ```ruby
->> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/
->> ```
->>
->> ` 模块文件 ` 的一键安装跳转链接（后面直接跟模块地址）
->> ```ruby
->> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=
->> ```
->>
->> ` 订阅/节点 ` 的一键安装跳转链接（后面直接跟订阅/节点地址）
->> ```ruby
->> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
->> ```
+> ` 配置文件 ` 的一键安装跳转链接（后面直接跟配置文件地址）
+> ```ruby
+> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/
+> ```
+>
+> ` 模块文件 ` 的一键安装跳转链接（后面直接跟模块地址）
+> ```ruby
+> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=
+> ```
+>
+> ` 订阅/节点 ` 的一键安装跳转链接（后面直接跟订阅/节点地址）
+> ```ruby
+> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
+> ```
 > </details>
 >
 > <details>
 > <summary>点击查看小火箭可用的 URL-Schemes</summary>
 > 
->> ` 启动 VPN 隧道 ` 
->> ```ruby
->> shadowrocket://connect
->> ```
->> ```ruby
->> shadowrocket://open
->> ```
->> 
->>  ` 停止 VPN 隧道 ` 
->> ```ruby
->> shadowrocket://disconnect
->> ```
->> ```ruby
->> shadowrocket://close
->> ```
->> 
->>  ` 切换 VPN 开关状态 ` 
->> ```ruby
->> shadowrocket://toggle
->> ```
->>
->>  ` 使用特定节点 ` 
->> ```ruby
->> shadowrocket://select?s=节点名称
->> ```
->> 
->>  ` 添加 订阅/节点 ` 
->> ```ruby
->> shadowrocket://add/{url}
->> ```
->> 
->>  ` 安装/使用 配置 ` 
->> ```ruby
->> shadowrocket://config/add/{url}
->> ```
->>
->>  ` 安装/使用 模块 ` 
->> ```ruby
->> shadowrocket://install?module={url}
->> ```
->> 
->>  ` 切换全局路由（代理/配置/直连/场景） ` 
->> ```ruby
->> shadowrocket://route/proxy
->> ```
->> ```ruby
->> shadowrocket://route/config
->> ```
->> ```ruby
->> shadowrocket://route/direct
->> ```
->> ```ruby
->> shadowrocket://route/scene
->> ```
->>
->>  ` 安装/使用 配色 ` 
->> ```ruby
->> shadowrocket://color?{配色设置}
->> ```
+> ` 启动 VPN 隧道 ` 
+> ```ruby
+> shadowrocket://connect
+> ```
+> ```ruby
+> shadowrocket://open
+> ```
+> 
+>  ` 停止 VPN 隧道 ` 
+> ```ruby
+> shadowrocket://disconnect
+> ```
+> ```ruby
+> shadowrocket://close
+> ```
+> 
+>  ` 切换 VPN 开关状态 ` 
+> ```ruby
+> shadowrocket://toggle
+> ```
+>
+>  ` 使用特定节点 ` 
+> ```ruby
+> shadowrocket://select?s=节点名称
+> ```
+> 
+>  ` 添加 订阅/节点 ` 
+> ```ruby
+> shadowrocket://add/{url}
+> ```
+> 
+>  ` 安装/使用 配置 ` 
+> ```ruby
+> shadowrocket://config/add/{url}
+> ```
+>
+>  ` 安装/使用 模块 ` 
+> ```ruby
+> shadowrocket://install?module={url}
+> ```
+> 
+>  ` 切换全局路由（代理/配置/直连/场景） ` 
+> ```ruby
+> shadowrocket://route/proxy
+> ```
+> ```ruby
+> shadowrocket://route/config
+> ```
+> ```ruby
+> shadowrocket://route/direct
+> ```
+> ```ruby
+> shadowrocket://route/scene
+> ```
+>
+>  ` 安装/使用 配色 ` 
+> ```ruby
+> shadowrocket://color?{配色设置}
+> ```
 > </details>
 
 ------
