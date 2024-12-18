@@ -56,7 +56,7 @@
 >
 >> 在中国大陆境内使用 Talkatone 服务，推荐使用小火箭加载本仓库中的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 使用，该模块可以减少该 APP 对不同代理节点的敏感性。由于 Talkatone 的特殊性，在使用时需要对特殊地址进行代理，而对其他地址进行直连，通过模块进行分流是最合理的选择。该模块还附带去广告规则，能够去除 APP 中的部分第三方广告。同时，除模块外本页还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list) 、[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 等，相关用法请查阅规则集内的说明
 >> 
->>_本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册_
+>>_注意：本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册_
 >> 
 >> [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule "一键安装本模块")
 >
@@ -76,7 +76,7 @@
 ## [Shadowrocket 收集配置](https://github.com/LOWERTOP/Shadowrocket-First?tab=readme-ov-file#shadowrocket-%E6%94%B6%E9%9B%86%E9%85%8D%E7%BD%AE)
 
 > [!NOTE]
-> 本单元内容为收集自官方或第三方相对靠谱的 ` 手册 ` 、` 配置文件 ` 、` 模块 ` 、` 规则集 ` 、` 脚本 ` 等，可放心食用
+> 本单元内容为收集自官方或第三方相对靠谱的 ` 手册 ` ` 配置文件 ` ` 模块 ` ` 规则集 ` ` 脚本 ` 等，可放心食用
 > 
 > _注意：请自行甄别相关文件的时效性，使用绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)_
 
@@ -93,7 +93,7 @@
 >
 >> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各平台的分流规则的官方入口，它是代理软件首推的代理规则集。该规则不仅适用于 ` Shadowrocket ` 同样有适配其他代理软件的版本
 >> 
->> _注意：使用时请务必阅读相应页面内的 ` 配置建议 `_
+>> _注意：使用时请务必阅读相应的 ` 配置建议 `_
 >> 
 >> [![规则检索 分流规则集](https://img.shields.io/static/v1?label=规则检索&message=分流规则集&color=grey&logo=quicklook&logoColor=white&labelColor=%2325A162&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
 >
@@ -103,13 +103,15 @@
 >> 
 >> [![规则文件 Cats-Team](https://img.shields.io/static/v1?label=规则文件&message=Cats-Team&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules.list "点击访问规则集")
 >> 
->> [Johnshall](https://github.com/Johnshall) 维护了多款 [配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 。可以将其 ` 仅去广告配置 ` [添加为规则集](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99) ，并将策略设置为 ` Reject ` ，作为去广告规则使用
+>> [Johnshall](https://github.com/Johnshall) 维护了多款 [配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) 。可将其 ` 仅去广告配置 ` 作为去广告规则集使用
 >>   
 >> [![规则文件 Johnshall](https://img.shields.io/static/v1?label=规则文件&message=Johnshall&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf "点击访问规则集")
 >
 > __` 模块合集 `__
 >
->> 某不愿透漏姓名的 __` 热心网友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要一键安装。安装先请阅读页面内的说明
+>> 某不愿透漏姓名的 __` 热心网友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要一键安装
+>> 
+>> _注意：安装前请认真阅读页面内的说明_
 >> 
 >> [![模块检索 模块大合集](https://img.shields.io/static/v1?label=模块检索&message=模块大合集&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "模块转换合集")
 >> 
@@ -133,7 +135,7 @@
 >
 > __` iab 原生模块 `__
 >
->> 以下为管理员 [iab](https://github.com/iab0x00) 维护的原生模块，根据需要一键安装即可
+>> _以下为管理员 [iab](https://github.com/iab0x00) 维护的原生模块，根据需要一键安装即可_
 >> 
 >> YouTube 去广告模块，支持去除软件内的各类广告以及提供画中画功能。原始代码由 [Maasea](https://github.com/Maasea) 维护
 >>   
