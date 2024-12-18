@@ -78,7 +78,7 @@
 > [!NOTE]
 > 本单元内容为收集自官方或第三方相对靠谱的 ` 手册 ` 、` 配置文件 ` 、` 模块 ` 、` 规则集 ` 、` 脚本 ` 等，可放心食用
 > 
-> __注意：__ 请自行甄别相关文件的时效性，使用绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)
+> _注意：请自行甄别相关文件的时效性，使用绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)_
 
 >__` 官方文件 `__
 >
@@ -92,6 +92,7 @@
 >__` 分流规则 `__
 >
 >> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各平台的分流规则的官方入口，它是代理软件首推的代理规则集。该规则不仅适用于 ` Shadowrocket ` 同样有适配其他代理软件的版本
+>> 
 >> _注意：使用时请务必阅读相应页面内的 ` 配置建议 `_
 >> 
 >> [![规则检索 分流规则集](https://img.shields.io/static/v1?label=规则检索&message=分流规则集&color=grey&logo=quicklook&logoColor=white&labelColor=%2325A162&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
@@ -154,7 +155,7 @@
 >
 >> [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
 >> 
->> _使用方式为：打开下方脚本文件链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要修改后保存即可_
+>> _使用方法：打开下方脚本文件链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要修改后保存即可_
 >>   
 >> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript "点击查看脚本内容")
 
