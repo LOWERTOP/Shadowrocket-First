@@ -854,19 +854,21 @@ _To Be Continued..._
 >> * 完成后即可点击跳转并成功安装
 >
 > <details>
-> <summary>点击查看小火箭各配置适用于 一键安装 的跳转链接</summary>
-> 
-> ` 配置文件 ` 的一键安装跳转链接（后面直接跟配置文件地址）
+> <summary>点击查看小火箭各配置的 一键安装 跳转链接</summary>
+>
+> 以下跳转链接后接相应文件地址
+>
+> ` 配置文件 ` 的一键安装跳转链接
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/
 > ```
 >
-> ` 模块文件 ` 的一键安装跳转链接（后面直接跟模块地址）
+> ` 模块文件 ` 的一键安装跳转链接
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=
 > ```
 >
-> ` 订阅/节点 ` 的一键安装跳转链接（后面直接跟订阅/节点地址）
+> ` 订阅/节点 ` 的一键安装跳转链接
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
 > ```
