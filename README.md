@@ -157,7 +157,7 @@
 >
 >> [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
 >> 
->> _使用方法：打开下方脚本文件链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要修改后保存即可_
+>> _使用方法：打开下方脚件链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要修改后保存即可_
 >>   
 >> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript "点击查看脚本内容")
 
