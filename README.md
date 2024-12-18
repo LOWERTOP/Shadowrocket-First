@@ -92,6 +92,7 @@
 >__` 分流规则 `__
 >
 >> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各平台的分流规则的官方入口，它是代理软件首推的代理规则集。该规则不仅适用于 ` Shadowrocket ` 同样有适配其他代理软件的版本
+>> _注意：使用时请务必阅读相应页面内的 ` 配置建议 `_
 >> 
 >> [![规则检索 分流规则集](https://img.shields.io/static/v1?label=规则检索&message=分流规则集&color=grey&logo=quicklook&logoColor=white&labelColor=%2325A162&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
 >
