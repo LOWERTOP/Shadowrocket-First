@@ -33,6 +33,7 @@
 >> * ` 04 ` · [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
 >
 > ` 近期更新 `
+>> * 新增 ` 反 IP 追踪模块 ` 用以解决部分网站或服务的 IP 追踪现象
 >> * 修复使用其他代理软件加载本仓部分规则集时可能存在的兼容性问题 感谢：[Huidong Chen](https://github.com/UncleDeron)
 >> * 新增 ` 配色文件 ` 至 30 个，其中 ` 亮底色 / 暗底色 ` 各 15 个
 >> * 新增 ` 快捷指令 ` 安装[配色](#shadowrocket-配色文件)，作者：[iab](https://t.me/iab000)
@@ -71,6 +72,12 @@
 >> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。但测试中发现原贴中需要解析的域名并未出现在我所在的地区，而是出现了其他域名，导致方案无效，在将该域名进行映射后可以在非移动网络下正常观看。所以原方案似乎并不适用于所有非移动用户或不同地区的用户，并且我网络环境下该服务似乎对公共DNS也很敏感。所以制作了一个 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule) ，包含了必要的规则、DNS覆写、以及地址映射，理论上应该支持所有运营商使用咪咕直播源。现在提供 ` Beta 版本 ` 欢迎试用，如果发现在当地网络环境下还存在类似问题，可以进入模块文本根据说明进行调整
 >>
 >> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
+>
+>__` 反 IP 追踪模块 ` ` Beta `__
+>
+>> 来源于 [SunsetMkt](https://github.com/SunsetMkt) 的 [anti-ip-attribution](https://github.com/SunsetMkt/anti-ip-attribution) 仓库，针对部分网站显示 IP 归属地的反跟踪规则。需要注意本模块为测试版，作者无法保证配置文件一定能起到作用，有可能会触发账号风控。同时其中规则存在多种策略，可能造成相应网站走代理或分流失效。详细说明请参见 [这里的备注](https://github.com/SunsetMkt/anti-ip-attribution/blob/main/rules.yaml)
+>>
+>> [![安装模块 AntiIPtracking](https://img.shields.io/static/v1?label=安装模块&message=AntiIPtracking&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule "一键安装本模块")
 ------
 
 ## [Shadowrocket 收集配置](https://github.com/LOWERTOP/Shadowrocket-First?tab=readme-ov-file#shadowrocket-%E6%94%B6%E9%9B%86%E9%85%8D%E7%BD%AE)
