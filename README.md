@@ -81,7 +81,7 @@
 >
 >__` 自用去广告规则集 `__
 >
->> 本规则集仅适用于自用需求，所含内容不多，仅包含 小蚁摄像机 等自用服务的一部分去广告规则，建议跳过
+>> 本规则集是作者自用规则，仅适用于作者的自用需求。规则集所含内容不多，仅包含 小蚁摄像机 等自用服务的一部分去广告规则，建议略过本内容
 >>
 >> [![规则文件 AntiAD](https://img.shields.io/static/v1?label=规则文件&message=AntiAD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list "点击访问规则集")
 ------
