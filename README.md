@@ -78,6 +78,12 @@
 >> 来源于 [SunsetMkt](https://github.com/SunsetMkt) 的 [anti-ip-attribution](https://github.com/SunsetMkt/anti-ip-attribution) 仓库，针对部分网站显示 IP 归属地的反跟踪规则。需要注意本模块为测试版，作者无法保证本模块一定能起到作用，甚至可能存在触发账号风控的风险。同时，其中规则存在多种策略，可能造成相应网站走代理或分流失效。详细说明请参见 [这里的备注](https://github.com/LOWERTOP/anti-ip-attribution/blob/main/rules.yaml)
 >>
 >> [![安装模块 AntiIPtracking](https://img.shields.io/static/v1?label=安装模块&message=AntiIPtracking&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule "一键安装本模块")
+>
+>__` 自用去广告规则集 `__
+>
+>> 本规则集仅适用于自用需求，所含内容不多，仅包含 小蚁摄像机 等自用服务的一部分去广告规则，建议跳过
+>>
+>> [![规则文件 AntiAD](https://img.shields.io/static/v1?label=规则文件&message=AntiAD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list "点击访问规则集")
 ------
 
 ## [Shadowrocket 收集配置](https://github.com/LOWERTOP/Shadowrocket-First?tab=readme-ov-file#shadowrocket-%E6%94%B6%E9%9B%86%E9%85%8D%E7%BD%AE)
