@@ -3,11 +3,11 @@
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
 > [!WARNING]
-> __警告：禁止使用本仓库内的任何内容牟利！如需转载请务必 ` 标明作者 ` 或 ` 注明来源 `__
+> __警告：禁止使用本仓库内的任何内容牟利！如需转载请 ` 标明作者 ` 或 ` 注明来源 `__
 >
 >> 没错！说的就你！假冒小火箭网站的小偷！
 >>
->> 提醒：小火箭没官网！ [唯一官方介绍页面](https://shadowlaunch.com/)
+>> 提醒：小火箭没官网！[唯一官方介绍页面](https://shadowlaunch.com/)
 
 ------
 
