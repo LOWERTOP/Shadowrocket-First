@@ -1,0 +1,33 @@
+#!name=AntiAD
+#!desc=AntiAD 自用去广告规则集。本规则集仅适用于自用需求
+# 整理作者：https://t.me/LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+# 类型选择：RULE-SET
+# 策略建议：REJECT
+# MITM 建议：*.xiaoyi.com
+
+DOMAIN-KEYWORD,beizi
+DOMAIN-KEYWORD,cloudbuy
+DOMAIN-KEYWORD,pangle
+DOMAIN-KEYWORD,pangolin
+DOMAIN-KEYWORD,pglstatp
+DOMAIN-KEYWORD,umeng
+DOMAIN-SUFFIX,ads.dcard.tw
+DOMAIN-SUFFIX,adtracker.medproad.com
+DOMAIN-SUFFIX,bncloudfl.com
+DOMAIN-SUFFIX,citadelpathstatue.com
+DOMAIN-SUFFIX,citatumpity.com
+DOMAIN-SUFFIX,endowmentoverhangutmost.com
+DOMAIN-SUFFIX,lf-cdn-tos.bytescm.com
+DOMAIN-SUFFIX,limbecculvers.com
+DOMAIN-SUFFIX,magsrv.com
+DOMAIN-SUFFIX,mssdk.volces.com
+DOMAIN-SUFFIX,open.e.kuaishou.com
+DOMAIN-SUFFIX,p2-ad.adukwai.com
+DOMAIN-SUFFIX,p3-ad.adukwai.com
+DOMAIN-SUFFIX,p4-ad.adukwai.com
+DOMAIN-SUFFIX,p5-ad.adukwai.com
+DOMAIN-SUFFIX,publicfiles.xiaoyi.com
+DOMAIN-SUFFIX,sdk.tj-haorui.cn
+DOMAIN-SUFFIX,statcounter.com
+DOMAIN-SUFFIX,xiaoyi-publicfiles.oss-cn-shanghai.aliyuncs.com
