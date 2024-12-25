@@ -91,10 +91,10 @@
 >
 >> 本页提供 [Shadowrocket 官方 GitHub](https://github.com/wlxuf/Shadowrocket) 发布的 ` 关键词列表 ` ，也可以称为教程/文件/手册/文档，本页还提供局部优化/改进/微调的版本。同时，官方“线下”推荐的 [懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人含分流/策略组/代理分组配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 也一并提供一键安装链接。该配置文件的备注非常详细，基本上把官方的操作手册都备注到了配置文件内，非常适合新人上手和进阶调整
 >>
->> [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf "一键安装本配置文件")
->> [![安装配置 懒人分流](https://img.shields.io/static/v1?label=安装配置&message=懒人分流&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 >> [![查看文档 官方版本](https://img.shields.io/static/v1?label=查看文档&message=官方版本&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/wlxuf/Shadowrocket "点击查阅")
 >> [![查看文档 优化版本](https://img.shields.io/static/v1?label=查看文档&message=优化版本&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
+>> [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf "一键安装本配置文件")
+>> [![安装配置 懒人分流](https://img.shields.io/static/v1?label=安装配置&message=懒人分流&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 >
 >__` 分流规则 `__
 >
