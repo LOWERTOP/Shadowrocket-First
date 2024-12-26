@@ -144,6 +144,10 @@
 >>   
 >> [![安装模块 京东历史比价](https://img.shields.io/static/v1?label=安装模块&message=京东历史比价&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/JD_Price.sgmodule "一键安装本模块")
 >
+>> [XiangwanGuan 向晚](https://github.com/XiangwanGuan) 维护的基于墨鱼去广告模块及其他内容修改的的融合去广告模块，包含且不限于墨鱼去开屏、高德地图去广告、小红书去广告、菜鸟去广告、哔哩哔哩去广告、YouTube去广告、京东历史比价等功能，有自动更新/重建策略，可能会根据需要增减内容，详情可参阅 [README](https://github.com/XiangwanGuan/Shadowrocket/blob/main/README.md)
+>>   
+>> [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule "一键安装本模块")
+>
 > __` iab 原生模块 `__
 >
 >> _以下为管理员 [iab](https://github.com/iab0x00) 维护的原生模块，根据需要一键安装即可_
