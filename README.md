@@ -882,7 +882,7 @@ _To Be Continued..._
 > <details>
 > <summary>点击查看小火箭各配置的 一键安装 跳转链接</summary>
 >
-> 以下跳转链接后接相应文件地址
+> ` 以下跳转链接后接相应文件地址 `
 >
 > ` 配置文件 ` 的一键安装跳转链接
 > ```ruby
@@ -902,6 +902,8 @@ _To Be Continued..._
 >
 > <details>
 > <summary>点击查看小火箭可用的 URL-Schemes</summary>
+> 
+> ` 以下代码中若有大括号，请使用相应内容直接替换大括号及其内容 `
 > 
 > ` 启动 VPN 隧道 ` 
 > ```ruby
