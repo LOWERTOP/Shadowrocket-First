@@ -126,6 +126,8 @@
 >> 
 >> _注意：安装前请认真阅读页面内的说明_
 >> 
+>> _US.KG 域名暂时失效，请等待修复_
+>> 
 >> [![模块检索 模块大合集](https://img.shields.io/static/v1?label=模块检索&message=模块大合集&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "模块转换合集")
 >> 
 >> [blackmatrix7](https://github.com/blackmatrix7) 、[QingRex](https://github.com/QingRex) 、[app2smile](https://github.com/app2smile) 等作者也有模块仓库，可以进他们的仓库自行挑选。不过除 ` blackmatrix7 ` 仓库外的其他模块不属于原生模块，本文不保证可用性，使用他们的模块可能需要使用 [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) ，请自行甄选
