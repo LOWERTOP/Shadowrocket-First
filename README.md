@@ -926,7 +926,7 @@ _To Be Continued..._
 >
 >  ` 使用特定节点 ` 
 > ```ruby
-> shadowrocket://select?s=节点名称
+> shadowrocket://select?s={节点名称}
 > ```
 > 
 >  ` 添加 订阅/节点 ` 
