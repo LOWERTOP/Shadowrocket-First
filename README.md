@@ -52,7 +52,7 @@
 
 >__` Talkatone `__
 >
->> 在中国大陆境内使用 Talkatone 服务，推荐使用小火箭加载本仓库中的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 使用，该模块可以减少该 APP 对不同代理节点的敏感性。由于 Talkatone 的特殊性，在使用时需要对特殊地址进行代理，而对其他地址进行直连，通过模块进行分流是最合理的选择。该模块还附带去广告规则，能够去除 APP 中的部分第三方广告。同时，除模块外本页还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list) 、[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 等，相关用法请查阅规则集内的说明
+>> 在中国大陆境内使用 Talkatone 服务，推荐使用小火箭加载本仓库中的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 使用，该模块可以降低该 APP 对不同代理节点的敏感性。由于 Talkatone 的特殊性，在使用时需要对特殊地址进行代理，而对其他地址进行直连，通过模块进行分流是最合理的选择。该模块还附带去广告规则，能够去除 APP 中的部分第三方广告。同时，除模块外本页还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list) 、[代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 等，相关用法请查阅相应规则集内的说明
 >> 
 >>_注意：本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册_
 >> 
@@ -88,7 +88,7 @@
 > [!NOTE]
 > 本单元内容为收集自官方或第三方相对靠谱的 ` 手册 ` ` 配置 ` ` 模块 ` ` 规则 ` ` 脚本 ` 等，可放心食用
 > 
-> _注意：使用绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)_ ，部分 APP 需要启用模块后重装以生效
+> _注意：使用绝大部分模块需要 [开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86) ，部分 APP 需要启用模块后重装以生效_
 
 >__` 官方文件 `__
 >
