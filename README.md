@@ -899,7 +899,7 @@ _To Be Continued..._
 > <details>
 > <summary>点击查看小火箭可用的 URL-Schemes</summary>
 > 
-> ` 以下代码中若有大括号，请使用相应内容直接替换大括号及其内容 `
+> ` 请使用相应内容直接替换代码中的大括号及其内容 `
 > 
 > ` 启动 VPN 隧道 ` 
 > ```ruby
