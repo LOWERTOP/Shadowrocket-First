@@ -32,16 +32,12 @@
 >> * ` 03 ` · [Shadowrocket 配色文件](#shadowrocket-配色文件)
 >> * ` 04 ` · [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
 >
-> ` 近期更新 `
+> ` 更新概述 `
 >> * 新增 多款模块或规则文件，请自行查阅
->> * 新增 ` 反 IP 追踪模块 ` 用以解决部分网站或服务的 IP 追踪现象
 >> * 修复使用其他代理软件加载本仓部分规则集时可能存在的兼容性问题 感谢：[Huidong Chen](https://github.com/UncleDeron)
 >> * 新增 ` 配色文件 ` 至 30 个，其中 ` 亮底色 / 暗底色 ` 各 15 个
->> * 新增 ` 快捷指令 ` 安装配色，作者：[iab](https://t.me/iab000)
 >> * 新增 ` 各类链接 ` 经 HTTP 进行[重定向跳转服务](#url-redirector-非标准链接重定向跳转)，含 ` URL-Schemes 跳转 `
 >> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
->> * 新增 ` CMCCiTV 咪咕直播源模块 ` ` Beta ` 使[非移动用户可以使用咪咕直播源](#shadowrocket-自制配置)
->> * 新增 ` 模块合集 ` 热心群友提供的模块改写[网页](https://shadowrocket.module.sagg.us.kg "模块大合集")
 >> * 新增 ` 小火箭 URL-Schemes ` [复制粘贴更方便](#url-redirector-非标准链接重定向跳转)
 >
 > ` 更新时间 `
