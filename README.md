@@ -24,7 +24,7 @@
 [forks-image]: https://img.shields.io/github/forks/LOWERTOP/Shadowrocket-First?style=static&logo=github&label=Fork
 
 > [!NOTE]
-> 本仓库主要为 ` Shadowrocket/小火箭 ` 相关内容，提供一些自制/收集而来的 ` 配置文件 ` ` 模块 ` ` 规则集 ` ` 脚本 ` 等配置，同时提供多种自主设计的 ` 小火箭配色/主题/皮肤 `
+> 本仓库主要提供 ` Shadowrocket/小火箭 ` 相关内容，包含一些自制/收集而来的 ` 配置文件 ` ` 模块 ` ` 规则集 ` ` 脚本 ` 等配置，同时提供多种自主设计的 ` 小火箭配色/主题/皮肤 `
 
 > ` 项目目录 `
 >> * ` 01 ` · [Shadowrocket 自制配置](#shadowrocket-自制配置)
