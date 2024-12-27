@@ -88,7 +88,7 @@
 > [!NOTE]
 > 本单元内容为收集自官方或第三方相对靠谱的 ` 手册 ` ` 配置 ` ` 模块 ` ` 规则 ` ` 脚本 ` 等，可放心食用
 > 
-> _注意：请自行甄别相关文件的时效性，使用绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)_
+> _注意：使用绝大部分模块文件需要 [正确开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)_ ，部分 APP 需要启用模块后重装以生效
 
 >__` 官方文件 `__
 >
