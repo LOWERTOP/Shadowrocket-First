@@ -33,7 +33,7 @@
 >> * ` 04 ` · [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
 >
 > ` 更新概述 `
->> * 新增 多款模块或规则文件，请自行查阅
+>> * 新增 多款模块或规则集，请自行查阅
 >> * 修复使用其他代理软件加载本仓部分规则集时可能存在的兼容性问题 感谢：[Huidong Chen](https://github.com/UncleDeron)
 >> * 新增 ` 配色文件 ` 至 30 个，其中 ` 亮底色 / 暗底色 ` 各 15 个
 >> * 新增 ` 各类链接 ` 经 HTTP 进行[重定向跳转服务](#url-redirector-非标准链接重定向跳转)，含 ` URL-Schemes 跳转 `
@@ -88,7 +88,7 @@
 > [!NOTE]
 > 本单元内容为收集自官方或第三方相对靠谱的 ` 手册 ` ` 配置 ` ` 模块 ` ` 规则 ` ` 脚本 ` 等，可放心食用
 > 
-> _注意：使用绝大部分模块需要 [开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86) ，部分 APP 需要启用模块后重装以生效_
+> _注意：使用大部分模块需要 [开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86) ，部分 APP 需要启用模块后重装方可生效_
 
 >__` 官方文件 `__
 >
