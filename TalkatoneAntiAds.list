@@ -7,13 +7,24 @@
 # 类型选择：RULE-SET
 # 策略建议：REJECT-DROP
 
+DOMAIN-KEYWORD,googleads
 DOMAIN-SUFFIX,ads.inmobi.com
 DOMAIN-SUFFIX,adsappier.com
 DOMAIN-SUFFIX,amazon-adsystem.com
 DOMAIN-SUFFIX,appier.net
 DOMAIN-SUFFIX,appiersig.com
+DOMAIN-SUFFIX,bidder.criteo.com
+DOMAIN-SUFFIX,c.amazon-adsystem.com
+DOMAIN-SUFFIX,cdn2.inner-active.mobi
+DOMAIN-SUFFIX,cr.adsappier.com
 DOMAIN-SUFFIX,criteo.com
 DOMAIN-SUFFIX,googleads.g.doubleclick.net
+DOMAIN-SUFFIX,googleads.g.doubleclick-cn.net
+DOMAIN-SUFFIX,gum.criteo.com
+DOMAIN-SUFFIX,ow.pubmatic.com
 DOMAIN-SUFFIX,pubmatic.com
+DOMAIN-SUFFIX,sdk-dnt.ad.smaato.net
+DOMAIN-SUFFIX,sdk-events.inner-active.mobi
 DOMAIN-SUFFIX,smaato.net
 DOMAIN-SUFFIX,tappx.com
+DOMAIN-SUFFIX,wv.inner-active.mobi
