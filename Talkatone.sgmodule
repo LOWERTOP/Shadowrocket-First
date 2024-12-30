@@ -8,18 +8,31 @@
 
 [Rule]
 # 以下为该软件部分去广告规则
+DOMAIN-KEYWORD,googleads,REJECT-DROP
 DOMAIN-SUFFIX,ads.inmobi.com,REJECT-DROP
 DOMAIN-SUFFIX,adsappier.com,REJECT-DROP
 DOMAIN-SUFFIX,amazon-adsystem.com,REJECT-DROP
 DOMAIN-SUFFIX,appier.net,REJECT-DROP
 DOMAIN-SUFFIX,appiersig.com,REJECT-DROP
+DOMAIN-SUFFIX,bidder.criteo.com,REJECT-DROP
+DOMAIN-SUFFIX,c.amazon-adsystem.com,REJECT-DROP
+DOMAIN-SUFFIX,cdn2.inner-active.mobi,REJECT-DROP
+DOMAIN-SUFFIX,cr.adsappier.com,REJECT-DROP
 DOMAIN-SUFFIX,criteo.com,REJECT-DROP
 DOMAIN-SUFFIX,googleads.g.doubleclick.net,REJECT-DROP
+DOMAIN-SUFFIX,googleads.g.doubleclick-cn.net,REJECT-DROP
+DOMAIN-SUFFIX,gum.criteo.com,REJECT-DROP
+DOMAIN-SUFFIX,ow.pubmatic.com,REJECT-DROP
 DOMAIN-SUFFIX,pubmatic.com,REJECT-DROP
+DOMAIN-SUFFIX,sdk-dnt.ad.smaato.net,REJECT-DROP
+DOMAIN-SUFFIX,sdk-events.inner-active.mobi,REJECT-DROP
 DOMAIN-SUFFIX,smaato.net,REJECT-DROP
 DOMAIN-SUFFIX,tappx.com,REJECT-DROP
+DOMAIN-SUFFIX,wv.inner-active.mobi,REJECT-DROP
+
 
 # 以下为该软件需要走代理的规则
+DOMAIN-SUFFIX,tktn.at,PROXY
 DOMAIN-SUFFIX,tktn.be,PROXY
 
 # 以下为该软件需要走直连的规则
@@ -32,7 +45,6 @@ DOMAIN-SUFFIX,ip-api.com,DIRECT
 DOMAIN-SUFFIX,kochava.com,DIRECT
 DOMAIN-SUFFIX,mobilefuse.com,DIRECT
 DOMAIN-SUFFIX,talkatone.com,DIRECT
-DOMAIN-SUFFIX,tktn.at,DIRECT
 IP-CIDR,205.164.56.0/24,DIRECT,no-resolve
 IP-CIDR,50.117.27.0/24,DIRECT,no-resolve
 IP-CIDR,63.251.124.0/24,DIRECT,no-resolve
