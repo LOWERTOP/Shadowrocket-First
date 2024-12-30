@@ -1,13 +1,15 @@
 #!name=Talkatone
 #!desc=Talkatone 直连规则集
-# 本规则集的目的是直连 Talkatone 大部分链接，并需要单独添加 tktn.be 为代理，二者结合才可使用
+# 本规则集的目的是直连 Talkatone 大部分链接，并需要单独添加部分代理，二者结合才可使用
 # 整理作者：https://t.me/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 # 反馈渠道：https://t.me/ShadowrocketApp
 # 类型选择：RULE-SET
 # 策略建议：DIRECT
 
-# 切记，需要在规则中单独添加:DOMAIN-SUFFIX,tktn.be,PROXY
+# 切记，需要在规则中另外添加:
+# DOMAIN-SUFFIX,tktn.at,PROXY
+# DOMAIN-SUFFIX,tktn.be,PROXY
 
 DOMAIN-SUFFIX,agkn.com
 DOMAIN-SUFFIX,cohere.com
@@ -18,7 +20,6 @@ DOMAIN-SUFFIX,ip-api.com
 DOMAIN-SUFFIX,kochava.com
 DOMAIN-SUFFIX,mobilefuse.com
 DOMAIN-SUFFIX,talkatone.com
-DOMAIN-SUFFIX,tktn.at
 IP-CIDR,205.164.56.0/24,no-resolve
 IP-CIDR,50.117.27.0/24,no-resolve
 IP-CIDR,63.251.124.0/24,no-resolve
