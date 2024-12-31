@@ -8,8 +8,8 @@
 # 策略建议：PROXY
 
 # 以下规则必须走代理
-DOMAIN-SUFFIX,tktn.at,PROXY
-DOMAIN-SUFFIX,tktn.be,PROXY
+DOMAIN-SUFFIX,tktn.at
+DOMAIN-SUFFIX,tktn.be
 
 # 以下规则其实可以走直连
 DOMAIN-SUFFIX,agkn.com
