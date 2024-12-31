@@ -1,0 +1,12 @@
+#!name=Talkatone
+#!desc=Talkatone 仅代理规则集
+# 本规则集的目的是代理 Talkatone 必须代理的地址，使其避免使用中国大陆的网络访问
+# 整理作者：https://t.me/LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+# 反馈渠道：https://t.me/ShadowrocketApp
+# 类型选择：RULE-SET
+# 策略建议：PROXY
+
+# 以下规则必须走代理
+DOMAIN-SUFFIX,tktn.at,PROXY
+DOMAIN-SUFFIX,tktn.be,PROXY
