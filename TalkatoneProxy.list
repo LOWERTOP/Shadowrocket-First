@@ -1,6 +1,6 @@
 #!name=Talkatone
 #!desc=Talkatone 代理规则集
-# 本规则集的目的是代理 Talkatone 的全部已知地址，使其避免使用中国大陆的网络访问。本规则集不推荐和该服务的 “直连规则集” 同时使用（除非你知道如何排序使其生效），且仅推荐使用相对干净的节点
+# 本规则集的目的是代理 Talkatone 的全部已知地址，使其避免使用中国大陆的网络访问。使用本集不保证所有节点都可访问相关服务，仅推荐使用相对干净的节点使用
 # 整理作者：https://t.me/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 # 反馈渠道：https://t.me/ShadowrocketApp
