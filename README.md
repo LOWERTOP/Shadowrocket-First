@@ -33,7 +33,7 @@
 >> * ` 04 ` · [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
 >
 > ` 更新概述 `
->> * 修复 Talkatone 模块/规则集可能影响表情包发送的问题
+>> * 更新 Talkatone 模块/规则集
 >> * 修复 使用其他代理软件加载本仓部分规则集时可能存在的兼容性问题 感谢：[Huidong Chen](https://github.com/UncleDeron)
 >> * 新增 ` 配色文件 ` 至 30 个，其中 ` 亮底色 / 暗底色 ` 各 15 个
 >> * 新增 ` 各类链接 ` 经 HTTP 进行[重定向跳转服务](#url-redirector-非标准链接重定向跳转)，含 ` URL-Schemes 跳转 `
