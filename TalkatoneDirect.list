@@ -11,6 +11,9 @@
 # DOMAIN-SUFFIX,tktn.at,PROXY
 # DOMAIN-SUFFIX,tktn.be,PROXY
 
+# 或者搭配该规则集
+# https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list
+
 DOMAIN-SUFFIX,agkn.com
 DOMAIN-SUFFIX,cohere.com
 DOMAIN-SUFFIX,crashlytics.com
