@@ -1,17 +1,13 @@
 #!name=Talkatone
 #!desc=Talkatone 直连规则集
-# 本规则集的目的是直连 Talkatone 大部分链接，并需要单独添加部分代理，二者结合才可使用
+# 本规则集的目的是直连 Talkatone 可以直连的地址。本集需要搭配代理规则集才可使用
 # 整理作者：https://t.me/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 # 反馈渠道：https://t.me/ShadowrocketApp
 # 类型选择：RULE-SET
 # 策略建议：DIRECT
 
-# 切记，需要在规则中另外添加:
-# DOMAIN-SUFFIX,tktn.at,PROXY
-# DOMAIN-SUFFIX,tktn.be,PROXY
-
-# 或者搭配该规则集
+# 使用本集需要搭配以下代理规则集
 # https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list
 
 DOMAIN-SUFFIX,agkn.com
