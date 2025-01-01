@@ -120,17 +120,15 @@
 >
 > __` 模块合集 `__
 >
->> 某不愿透漏姓名的 __` 热心网友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要一键安装
+>> 某不愿透漏姓名的 __` 热心网友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要一键安装，安装前请认真阅读页面内的说明
 >> 
->> _注意：安装前请认真阅读页面内的说明_
->> 
->> [![模块检索 模块大合集](https://img.shields.io/static/v1?label=模块检索&message=模块大合集&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "模块转换合集")
->> 
->> [blackmatrix7](https://github.com/blackmatrix7) 、[QingRex](https://github.com/QingRex) 、[app2smile](https://github.com/app2smile) 等作者也有模块仓库，可以进他们的仓库自行挑选。不过除 ` blackmatrix7 ` 外的其他仓库中的模块不一定是原生模块，使用他们的模块有可能需要使用 [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) ，请自行甄选
+>> 同时，[yfamily/whatshub](https://github.com/deezertidal) 、[blackmatrix7](https://github.com/blackmatrix7) 、[QingRex](https://github.com/QingRex) 、[app2smile](https://github.com/app2smile) 等作者也有模块仓库，可以进他们的仓库自行挑选。不过部分仓库中的模块不一定是原生模块，使用他们的模块有可能需要使用 [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) ，请自行甄选
 >>   
->> [![模块检索 blackmatrix7](https://img.shields.io/static/v1?label=模块检索&message=blackmatrix7&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看分类")
->> [![模块检索 QingRex](https://img.shields.io/static/v1?label=模块检索&message=QingRex&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看仓库模块")
->> [![模块检索 app2smile](https://img.shields.io/static/v1?label=模块检索&message=app2smile&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/app2smile/rules "点击查看仓库内容")
+>> [![模块检索 模块大合集](https://img.shields.io/static/v1?label=模块检索&message=模块大合集&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "点击查看模块")
+>> [![模块检索 whatshub](https://img.shields.io/static/v1?label=模块检索&message=whatshub&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://whatshub.top/shadowrocket "点击查看模块")
+>> [![模块检索 blackmatrix7](https://img.shields.io/static/v1?label=模块检索&message=blackmatrix7&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看模块")
+>> [![模块检索 QingRex](https://img.shields.io/static/v1?label=模块检索&message=QingRex&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
+>> [![模块检索 app2smile](https://img.shields.io/static/v1?label=模块检索&message=app2smile&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/app2smile/rules "点击查看模块")
 >
 > __` 墨鱼原生模块 `__
 >
@@ -188,8 +186,8 @@
 >
 >> [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://t.me/huskydb) 各制作有 ` 服务解锁检测快捷指令 ` ，可用来检测各流媒体服务的解锁地区或可用性，也可以检测 ChatGPT、TikTok、YouTube 等服务的解锁地区或状态以及 IP 归属地等。该检测会根据你的分流规则进行测试，安装后运行即可，若出现错误请多试几次
 >>   
->> [![快捷指令 流媒体检测 K](https://img.shields.io/static/v1?label=快捷指令&message=流媒体检测%20K&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/c2ccf142aeb649cd955dad8a4c02d3cf "点击查看脚本内容")
->> [![快捷指令 流媒体检测 S](https://img.shields.io/static/v1?label=快捷指令&message=流媒体检测%20S&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/21dcdb56e3154910a1d56b709c6c3ee2 "点击查看脚本内容")
+>> [![快捷指令 流媒体检测 K](https://img.shields.io/static/v1?label=快捷指令&message=流媒体检测%20K&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/c2ccf142aeb649cd955dad8a4c02d3cf "点击安装快捷指令")
+>> [![快捷指令 流媒体检测 S](https://img.shields.io/static/v1?label=快捷指令&message=流媒体检测%20S&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/0bd31373228d4c94be224d2477c38148 "点击安装快捷指令")
 
 ------
 
