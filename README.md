@@ -182,6 +182,15 @@
 >> _使用方法：打开下方脚件链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要修改后保存即可_
 >>   
 >> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript "点击查看脚本内容")
+>
+> __` 流媒体检测快捷指令 `__
+>
+>> [Kristen](https://t.me/huskydb) 和 [Sage](https://t.me/huskydb) 各制作有 ` 流媒体检测快捷指令 ` ，可用来检测 IP、GPT、YouTube、Netflix 及其他流媒体服务的可用性
+>> 
+>> _使用方法：快捷指令的检测会根据你的分流规则进行测试，安装后运行即可，若出现错误请多试几次_
+>>   
+>> [![快捷指令 流媒体检测 K](https://img.shields.io/static/v1?label=快捷指令&message=流媒体检测%20K&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/c2ccf142aeb649cd955dad8a4c02d3cf "点击查看脚本内容")
+>> [![快捷指令 流媒体检测 S](https://img.shields.io/static/v1?label=快捷指令&message=流媒体检测%20S&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/21dcdb56e3154910a1d56b709c6c3ee2 "点击查看脚本内容")
 
 ------
 
