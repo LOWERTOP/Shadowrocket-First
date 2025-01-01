@@ -186,7 +186,7 @@
 >
 > __` 解锁检测快捷指令 `__
 >
->> [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://t.me/huskydb) 各制作有 ` 服务解锁检测快捷指令 ` ，可用来检测各流媒体服务的可用性，也可以检测 IP 归属地、GPT、YouTube 等服务的解锁状态。快捷指令的检测会根据你的分流规则进行测试，安装后运行即可，若出现错误请多试几次
+>> [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://t.me/huskydb) 各制作有 ` 服务解锁检测快捷指令 ` ，可用来检测各流媒体服务的解锁地区或可用性，也可以检测 ChatGPT、TikTok、YouTube 等服务的解锁地区或状态以及 IP 归属地等。该检测会根据你的分流规则进行测试，安装后运行即可，若出现错误请多试几次
 >>   
 >> [![快捷指令 流媒体检测 K](https://img.shields.io/static/v1?label=快捷指令&message=流媒体检测%20K&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/c2ccf142aeb649cd955dad8a4c02d3cf "点击查看脚本内容")
 >> [![快捷指令 流媒体检测 S](https://img.shields.io/static/v1?label=快捷指令&message=流媒体检测%20S&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/21dcdb56e3154910a1d56b709c6c3ee2 "点击查看脚本内容")
