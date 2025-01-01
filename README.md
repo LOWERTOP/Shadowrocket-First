@@ -33,6 +33,7 @@
 >> * ` 04 ` · [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
 >
 > ` 更新概述 `
+>> * 新增 流媒体检测快捷指令
 >> * 更新 Talkatone 模块/规则集
 >> * 修复 使用其他代理软件加载本仓部分规则集时可能存在的兼容性问题 感谢：[Huidong Chen](https://github.com/UncleDeron)
 >> * 新增 ` 配色文件 ` 至 30 个，其中 ` 亮底色 / 暗底色 ` 各 15 个
@@ -183,11 +184,9 @@
 >>   
 >> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript "点击查看脚本内容")
 >
-> __` 流媒体检测快捷指令 `__
+> __` 流媒体可用性检测 `__
 >
->> [Kristen](https://t.me/huskydb) 和 [Sage](https://t.me/huskydb) 各制作有 ` 流媒体检测快捷指令 ` ，可用来检测 IP、GPT、YouTube、Netflix 及其他流媒体服务的可用性
->> 
->> _使用方法：快捷指令的检测会根据你的分流规则进行测试，安装后运行即可，若出现错误请多试几次_
+>> [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://t.me/huskydb) 各制作有 ` 流媒体检测快捷指令 ` ，可用来检测各流媒体服务的可用性，也可以检测 IP 归属地、GPT、YouTube 等服务的可用性。快捷指令的检测会根据你的分流规则进行测试，安装后运行即可，若出现错误请多试几次
 >>   
 >> [![快捷指令 流媒体检测 K](https://img.shields.io/static/v1?label=快捷指令&message=流媒体检测%20K&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/c2ccf142aeb649cd955dad8a4c02d3cf "点击查看脚本内容")
 >> [![快捷指令 流媒体检测 S](https://img.shields.io/static/v1?label=快捷指令&message=流媒体检测%20S&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/21dcdb56e3154910a1d56b709c6c3ee2 "点击查看脚本内容")
