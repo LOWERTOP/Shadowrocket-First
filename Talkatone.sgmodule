@@ -30,7 +30,6 @@ DOMAIN-SUFFIX,smaato.net,REJECT-DROP
 DOMAIN-SUFFIX,tappx.com,REJECT-DROP
 DOMAIN-SUFFIX,wv.inner-active.mobi,REJECT-DROP
 
-
 # 以下为该软件可能需要走代理的规则
 DOMAIN-SUFFIX,tktn.at,PROXY
 DOMAIN-SUFFIX,tktn.be,PROXY
