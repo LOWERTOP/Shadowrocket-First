@@ -81,6 +81,8 @@ DOMAIN-SUFFIX,gifshow.com,PROXY
 DOMAIN-SUFFIX,ksapisrv.com,PROXY
 DOMAIN-SUFFIX,xiaohongshu.com,PROXY
 DOMAIN-KEYWORD,xiaohongshu,PROXY
+DOMAIN-SUFFIX,nstool.netease.com
+DOMAIN,api.crush.163.com
 IP-CIDR,114.55.236.88/32,PROXY,no-resolve
 IP-CIDR,47.97.64.97/32,PROXY,no-resolve
 IP-CIDR,47.97.66.48/32,PROXY,no-resolve
