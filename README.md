@@ -31,11 +31,11 @@
 > ` 更新概述 `
 >> * 新增 流媒体检测快捷指令
 >> * 更新 Talkatone 模块/规则集
->> * 修复 使用其他代理软件加载本仓部分规则集时可能存在的兼容性问题 感谢：[Huidong Chen](https://github.com/UncleDeron)
+>> * 修复 部分规则集兼容性问题 感谢：[Huidong Chen](https://github.com/UncleDeron)
 >> * 新增 ` 配色文件 ` 至 30 个，其中 ` 亮底色 / 暗底色 ` 各 15 个
 >> * 新增 ` 各类链接 ` 经 HTTP 进行[重定向跳转服务](#url-redirector-非标准链接重定向跳转)，含 ` URL-Schemes 跳转 `
->> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 >> * 新增 ` 小火箭 URL-Schemes ` [复制粘贴更方便](#url-redirector-非标准链接重定向跳转)
+>> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 >
 > ` 更新时间 `
 2025-01-08 20:48
