@@ -32,9 +32,9 @@
 >> * 新增 流媒体检测快捷指令
 >> * 更新 Talkatone 模块/规则集
 >> * 修复 部分规则集兼容性问题 感谢：[Huidong Chen](https://github.com/UncleDeron)
->> * 新增 ` 配色文件 ` 至 30 个，其中 ` 亮底色 / 暗底色 ` 各 15 个
->> * 新增 ` 各类链接 ` 经 HTTP 进行[重定向跳转服务](#url-redirector-非标准链接重定向跳转)，含 ` URL-Schemes 跳转 `
->> * 新增 ` 小火箭 URL-Schemes ` [复制粘贴更方便](#url-redirector-非标准链接重定向跳转)
+>> * 新增 `配色文件` 至 30 个，其中 `亮底色 / 暗底色` 各 15 个
+>> * 新增 `各类链接` 经 HTTP 进行[重定向跳转服务](#url-redirector-非标准链接重定向跳转)，含 `URL-Schemes 跳转`
+>> * 新增 `小火箭 URL-Schemes` [复制粘贴更方便](#url-redirector-非标准链接重定向跳转)
 >> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 >
 > `更新时间`
@@ -45,35 +45,35 @@
 ## [Shadowrocket 自制配置](https://github.com/LOWERTOP/Shadowrocket-First#shadowrocket-%E8%87%AA%E5%88%B6%E9%85%8D%E7%BD%AE)
 
 > [!NOTE]
-> 本单元为自制内容，是为 ` 特定软件或服务 ` 所用，如有需要请自行取用
+> 本单元为自制内容，是为 `特定软件或服务` 所用，如有需要请自行取用
 
->__` Talkatone `__
+>__`Talkatone`__
 >
->> 在中国大陆境内使用 Talkatone 服务，推荐使用小火箭加载本仓库中的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 使用。由于 Talkatone 的特殊性，使用时需要对特殊地址进行代理，而对其他地址进行直连，这样可以降低该 APP 对不同代理节点的敏感度。该模块还附带去广告规则，能够去除 APP 中的部分第三方广告。同时，除模块外本页还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list) 、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list) 、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 等，其中 ` 全局代理规则集 ` 为该服务的全局代理规则，对代理节点要求较高，其他规则集的相关用法请查阅相应规则集内的说明
+>> 在中国大陆境内使用 Talkatone 服务，推荐使用小火箭加载本仓库中的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 使用。由于 Talkatone 的特殊性，使用时需要对特殊地址进行代理，而对其他地址进行直连，这样可以降低该 APP 对不同代理节点的敏感度。该模块还附带去广告规则，能够去除 APP 中的部分第三方广告。同时，除模块外本页还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list) 、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list) 、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 等，其中 `全局代理规则集` 为该服务的全局代理规则，对代理节点要求较高，其他规则集的相关用法请查阅相应规则集内的说明
 >> 
 >>_注意：本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册_
 >> 
 >> [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule "一键安装本模块")
 >
->__` Ultra Mobile PayGo WiFiCalling `__
+>__`Ultra Mobile PayGo WiFiCalling`__
 >
 >> Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile Pay As You Go SIM 卡。本文推荐使用本仓库中的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) 进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用小火箭的配置模式。本文同时提供相关服务的 [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list) ，如有需要请自行取用
 >>
 >> [![安装模块 UltraMobile](https://img.shields.io/static/v1?label=安装模块&message=UltraMobile&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule "一键安装本模块")
 >
->__` CMCCiTV 咪咕直播源模块 ` ` Beta `__
+>__`CMCCiTV 咪咕直播源模块` `Beta`__
 >
->> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。但测试中发现原贴中需要解析的域名并未出现在我所在的地区，而是出现了其他域名，导致方案无效，在将该域名进行映射后可以在非移动网络下正常观看。所以原方案似乎并不适用于所有非移动用户或不同地区的用户，并且我网络环境下该服务似乎对公共DNS也很敏感。所以制作了一个 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule) ，包含了必要的规则、DNS覆写、以及地址映射，理论上应该支持所有运营商使用咪咕直播源。现在提供 ` Beta 版本 ` 欢迎试用，如果发现在当地网络环境下还存在类似问题，可以进入模块文本根据说明进行调整
+>> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。但测试中发现原贴中需要解析的域名并未出现在我所在的地区，而是出现了其他域名，导致方案无效，在将该域名进行映射后可以在非移动网络下正常观看。所以原方案似乎并不适用于所有非移动用户或不同地区的用户，并且我网络环境下该服务似乎对公共DNS也很敏感。所以制作了一个 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule) ，包含了必要的规则、DNS覆写、以及地址映射，理论上应该支持所有运营商使用咪咕直播源。现在提供 `Beta 版本` 欢迎试用，如果发现在当地网络环境下还存在类似问题，可以进入模块文本根据说明进行调整
 >>
 >> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
 >
->__` 反 IP 追踪模块 ` ` Beta `__
+>__`反 IP 追踪模块` `Beta`__
 >
 >> 来源于 [SunsetMkt](https://github.com/SunsetMkt) 的 [anti-ip-attribution](https://github.com/SunsetMkt/anti-ip-attribution) 仓库，针对部分网站显示 IP 归属地的反跟踪规则。需要注意本模块为测试版，作者无法保证本模块一定能起到作用，甚至可能存在触发账号风控的风险。同时，其中规则存在多种策略，可能造成相应网站走代理或分流失效。详细说明请参见 [这里的备注](https://github.com/LOWERTOP/anti-ip-attribution/blob/main/rules.yaml)
 >>
 >> [![安装模块 AntiIPtracking](https://img.shields.io/static/v1?label=安装模块&message=AntiIPtracking&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule "一键安装本模块")
 >
->__` 自用去广告规则集 `__
+>__`自用去广告规则集`__
 >
 >> 本规则集是作者自用规则，仅适用于作者的自用需求。规则集所含内容不多，仅包含 小蚁摄像机 等自用服务的一部分去广告规则，建议略过本内容
 >>
@@ -83,39 +83,39 @@
 ## [Shadowrocket 收集配置](https://github.com/LOWERTOP/Shadowrocket-First?tab=readme-ov-file#shadowrocket-%E6%94%B6%E9%9B%86%E9%85%8D%E7%BD%AE)
 
 > [!NOTE]
-> 本单元内容为收集自官方或第三方相对靠谱的 ` 手册 ` ` 配置 ` ` 模块 ` ` 规则 ` ` 脚本 ` 等，可放心食用
+> 本单元内容为收集自官方或第三方相对靠谱的 `手册` `配置` `模块` `规则` `脚本` 等，可放心食用
 > 
 > _注意：使用大多数模块必须 [开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，部分 APP 需要启用模块后重装方可生效_
 
->__` 官方文件 `__
+>__`官方文件`__
 >
->> 本页提供 [Shadowrocket 官方群组](https://t.me/ShadowrocketApp) 使用的 ` 关键词列表 ` ，也可称为教程/手册/文档，同时，本页还提供局部优化和修正的版本以供使用。官方群组推荐的 [懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人含分流/策略组/代理分组配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 也一并提供一键安装按钮。该配置文件的备注非常详细，基本上把官方的操作手册都备注到了配置文件内，非常适合新人上手和进阶调整
+>> 本页提供 [Shadowrocket 官方群组](https://t.me/ShadowrocketApp) 使用的 `关键词列表` ，也可称为教程/手册/文档，同时，本页还提供局部优化和修正的版本以供使用。官方群组推荐的 [懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人含分流/策略组/代理分组配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 也一并提供一键安装按钮。该配置文件的备注非常详细，基本上把官方的操作手册都备注到了配置文件内，非常适合新人上手和进阶调整
 >>
 >> [![查看文档 优化版本](https://img.shields.io/static/v1?label=查看文档&message=优化版本&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://lowertop.github.io/Shadowrocket "点击查阅")
 >> [![查看文档 官方版本](https://img.shields.io/static/v1?label=查看文档&message=官方版本&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/wlxuf/Shadowrocket/blob/main/README.md "点击查阅")
 >> [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf "一键安装本配置文件")
 >> [![安装配置 懒人分流](https://img.shields.io/static/v1?label=安装配置&message=懒人分流&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 >
->__` 分流规则 `__
+>__`分流规则`__
 >
->> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各平台的分流规则的官方入口，它是代理软件首推的代理规则集。该规则不仅适用于 ` Shadowrocket ` 同样有适配其他代理软件的版本
+>> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各平台的分流规则的官方入口，它是代理软件首推的代理规则集。该规则不仅适用于 `Shadowrocket` 同样有适配其他代理软件的版本
 >> 
->> _注意：使用时请务必阅读相应的 ` 配置建议 `_
+>> _注意：使用时请务必阅读相应的 `配置建议`_
 >> 
 >> [![规则检索 分流规则集](https://img.shields.io/static/v1?label=规则检索&message=分流规则集&color=grey&logo=quicklook&logoColor=white&labelColor=%2325A162&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
 >
-> __` 去广告规则 `__
+> __`去广告规则`__
 >
->> [Cats-Team](https://github.com/Cats-Team) 维护的 [去广告规则](https://github.com/Cats-Team/AdRules) ，应该能去除大部分开屏广告，将其 [添加为规则集](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99) ，并将策略设置为 ` Reject ` 即可使用
+>> [Cats-Team](https://github.com/Cats-Team) 维护的 [去广告规则](https://github.com/Cats-Team/AdRules) ，应该能去除大部分开屏广告，将其 [添加为规则集](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99) ，并将策略设置为 `Reject` 即可使用
 >>
->> [Johnshall](https://github.com/Johnshall) 维护了多款 [配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) ，可将其 ` 仅去广告配置 ` 作为去广告规则集使用
+>> [Johnshall](https://github.com/Johnshall) 维护了多款 [配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever) ，可将其 `仅去广告配置` 作为去广告规则集使用
 >> 
 >> [![规则文件 Cats-Team](https://img.shields.io/static/v1?label=规则文件&message=Cats-Team&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules.list "点击访问规则集")
 >> [![规则文件 Johnshall](https://img.shields.io/static/v1?label=规则文件&message=Johnshall&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf "点击访问规则集")
 >
-> __` 模块合集 `__
+> __`模块合集`__
 >
->> 某不愿透漏姓名的 __` 热心网友 `__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要一键安装，安装前请认真阅读页面内的说明
+>> 某不愿透漏姓名的 __`热心网友`__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要一键安装，安装前请认真阅读页面内的说明
 >> 
 >> [yfamily](https://github.com/deezertidal) 、[blackmatrix7](https://github.com/blackmatrix7) 、[QingRex](https://github.com/QingRex) 、[app2smile](https://github.com/app2smile) 等作者也有模块仓库，可以进他们的仓库进行挑选。不过部分仓库中的模块不一定是原生模块，使用他们的模块有可能需要使用 [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) ，请自行甄选
 >>   
@@ -125,7 +125,7 @@
 >> [![模块检索 QingRex](https://img.shields.io/static/v1?label=模块检索&message=QingRex&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
 >> [![模块检索 app2smile](https://img.shields.io/static/v1?label=模块检索&message=app2smile&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/app2smile/rules "点击查看模块")
 >
-> __` 墨鱼原生模块 `__
+> __`墨鱼原生模块`__
 >
 >> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的去广告整合模块，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
 >>   
@@ -139,7 +139,7 @@
 >>   
 >> [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule "一键安装本模块")
 >
-> __` iab 原生模块 `__
+> __`iab 原生模块`__
 >
 >> _以下为管理员 [iab](https://github.com/iab0x00) 维护的原生模块，根据需要一键安装即可_
 >> 
@@ -159,23 +159,23 @@
 >>   
 >> [![安装模块 微博轻享版](https://img.shields.io/static/v1?label=安装模块&message=微博轻享版&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/WeiBoIntl.sgmodule "一键安装本模块")
 >
-> __` app2smile 模块 `__
+> __`app2smile 模块`__
 >
 >> [app2smile](https://github.com/app2smile) 维护的 贴吧去广告 模块，详细内容参见模块 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule) ，该模块的有效性请自行测试
 >>   
 >> [![安装模块 贴吧去广告](https://img.shields.io/static/v1?label=安装模块&message=贴吧去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule "一键安装本模块")
 >
-> __` 筛选订阅脚本 `__
+> __`筛选订阅脚本`__
 >
->> [kiwi707](https://github.com/kiwi707) 制作的 ` 筛选/规范订阅节点 ` 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
+>> [kiwi707](https://github.com/kiwi707) 制作的 `筛选/规范订阅节点` 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
 >> 
->> _使用方法：打开下方脚件链接后复制所有内容，粘贴至 ` 订阅页面 ` 的 ` 过滤 ` 区域，根据需要修改后保存即可_
+>> _使用方法：打开下方脚件链接后复制所有内容，粘贴至 `订阅页面` 的 `过滤` 区域，根据需要修改后保存即可_
 >>   
 >> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript "点击查看脚本内容")
 >
-> __` 解锁检测快捷指令 `__
+> __`解锁检测快捷指令`__
 >
->> [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://t.me/huskydb) 各制作有 ` 服务解锁检测快捷指令 ` ，可用来检测各流媒体服务的解锁地区或可用性，也可以检测 ChatGPT、TikTok、YouTube 等服务的解锁地区或状态以及 IP 归属地等。该检测会根据你的分流规则进行测试，安装后运行即可，若出现错误请多试几次
+>> [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://t.me/huskydb) 各制作有 `服务解锁检测快捷指令` ，可用来检测各流媒体服务的解锁地区或可用性，也可以检测 ChatGPT、TikTok、YouTube 等服务的解锁地区或状态以及 IP 归属地等。该检测会根据你的分流规则进行测试，安装后运行即可，若出现错误请多试几次
 >>   
 >> [![快捷指令 解锁检测 K](https://img.shields.io/static/v1?label=快捷指令&message=解锁检测%20K&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/c2ccf142aeb649cd955dad8a4c02d3cf "点击安装快捷指令")
 >> [![快捷指令 解锁检测 S](https://img.shields.io/static/v1?label=快捷指令&message=解锁检测%20S&color=grey&logo=openlayers&logoColor=white&labelColor=%23D0006F&messageColor=grey)](https://www.icloud.com/shortcuts/0bd31373228d4c94be224d2477c38148 "点击安装快捷指令")
@@ -187,35 +187,35 @@
 > [!NOTE]
 > 本单元为小火箭配色文件相关内容。项目出发点是作者在使用小火箭的过程中对小火箭的配色逐渐感到单调，借助本身是设计出身，遂制作了几个配色文件，没想到反响挺好，后就借助 GitHub 平台逐步发布多种自己设计的配色文件，以供大家挑选使用
 >
->> ` 极其鸣谢 ` 快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
+>> `极其鸣谢` 快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
 >> 
->> ` 特别鸣谢 ` 提供建议好友：[Sage](https://t.me/huskydb)
+>> `特别鸣谢` 提供建议好友：[Sage](https://t.me/huskydb)
 
 > [!TIP]
-> * __配色一键安装：__ 选择所需配色，点击 ` 一键安装 `，允许跳转后点击 ` 使用 ` 即可
-> * __复制代码安装：__ 复制所需 ` shadowrocket://color?* ` 配色代码，在 ` 配置 ` 页点击 “ ✚ ” 号，粘贴并应用
-> * __快捷指令安装：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/9189e0bfe6fa49eaa1653f7f90459f30) ，在 ` 快捷指令 ` 中选择配色并安装
-> * __恢复默认配色：__ ` APP-设置-颜色-重设颜色 `
+> * __配色一键安装：__ 选择所需配色，点击 `一键安装` ，允许跳转后点击 `使用` 即可
+> * __复制代码安装：__ 复制所需 `shadowrocket://color?*` 配色代码，在 `配置` 页点击 “ ✚ ” 号，粘贴并应用
+> * __快捷指令安装：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/9189e0bfe6fa49eaa1653f7f90459f30) ，在 `快捷指令` 中选择配色并安装
+> * __恢复默认配色：__ `APP-设置-颜色-重设颜色`
 
 > [!IMPORTANT]
 > 因苹果系统限制，小火箭部分细节图标不可自定义配色，且会跟随系统深色/浅色模式改变。使用自定义配色时可能会因此特性导致局部细节图标可视度存在问题。建议在使用 `亮底色` 时搭配系统浅色模式，使用 `暗底色` 时搭配系统深色模式
 
-> ` 效果示例：TermiusDark `
+> `效果示例：TermiusDark`
 > 
 > <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="100%" height="100%"> 
 > 
 > <details>
 > <summary>点击查看其他配色示例</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110301.png)
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110302.png)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110301.png" width="100%" height="100%"> 
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110302.png" width="100%" height="100%"> 
 > 
 > </details>
 
 ------
 
 > [!CAUTION]
-> __以下为已完成的小火箭配色文件，如需转载请务必 ` 标明作者 ` 或 ` 注明来源 `__
+> __以下为已完成的小火箭配色文件，如需转载请务必 `标明作者` 或 `注明来源`__
 
 ------
 
@@ -762,7 +762,7 @@ _To Be Continued..._
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingBrightGold.png" width="100%" height="100%">
 
-> ` 配色文件以实际效果为准，实际更新可能存在调整 `
+> `配色文件以实际效果为准，实际更新可能存在调整`
 
 ------
 
@@ -777,7 +777,7 @@ _To Be Continued..._
 > <details>
 > <summary>点击查看配色描述翻译</summary>
 >
-> ` 以下内容若移动设备显示不全，左右拖动即可 `
+> `以下内容若移动设备显示不全，左右拖动即可`
 >
 > ```ruby
 > NavigationBarColor: 导航栏背景色
@@ -854,9 +854,9 @@ _To Be Continued..._
 ## [URL Redirector 非标准链接重定向跳转](https://github.com/LOWERTOP/Shadowrocket-First?tab=readme-ov-file#url-redirector-%E9%9D%9E%E6%A0%87%E5%87%86%E9%93%BE%E6%8E%A5%E9%87%8D%E5%AE%9A%E5%90%91%E8%B7%B3%E8%BD%AC)
 
 > [!NOTE]
-> 本单元为 URL Redirector 非标准链接重定向跳转相关内容，主要服务于向 GitHub 等网站发布内容的作者朋友们。本服务的出发点是作者在使用 ` GitHub ` 进行小火箭配置设置期间，发现本页不能使用 ` URL-Schemes ` 的链接作为超链一键安装，也就是本页不支持非标准链接的超链，遂萌生了使用 ` HTML ` 进行跳转的想法，后经 ` GPT ` 帮助实现本单元初步设想和现有功能。GitHub 中也有其他类似功能的仓库，可以自行翻阅
+> 本单元为 URL Redirector 非标准链接重定向跳转相关内容，主要服务于向 GitHub 等网站发布内容的作者朋友们。本服务的出发点是作者在使用 `GitHub` 进行小火箭配置设置期间，发现本页不能使用 `URL-Schemes` 的链接作为超链一键安装，也就是本页不支持非标准链接的超链，遂萌生了使用 `HTML` 进行跳转的想法，后经 `GPT` 帮助实现本单元初步设想和现有功能。GitHub 中也有其他类似功能的仓库，可以自行翻阅
 >
-> 本服务虽然主要指向 ` 非标准链接 ` 的跳转，但是例如 ` HTTP ` ` HTTPS ` 等类型的 ` 标准链接 ` 自然也是支持跳转。另外小火箭配色文件的设置链接和普通链接编码不同，使用本项目跳转小火箭配色链接可能存在解码问题，除此之外暂未发现其他链接跳转不正常的案例
+> 本服务虽然主要指向 `非标准链接` 的跳转，但是例如 `HTTP` `HTTPS` 等类型的 `标准链接` 自然也是支持跳转。另外小火箭配色文件的设置链接和普通链接编码不同，使用本项目跳转小火箭配色链接可能存在解码问题，除此之外暂未发现其他链接跳转不正常的案例
 
 > [!TIP]
 > 复制以下链接，粘贴在需要跳转的链接前进行访问即可
@@ -865,27 +865,27 @@ _To Be Continued..._
 > ```
 
 > 示例
->> * 你想使用小火箭的 URL-Scheme ` shadowrocket://install?module= ` 一键安装小火箭的这个模块 ` https://12345.com/67890.module ` ，也就是 ` shadowrocket://install?module=https://12345.com/67890.module ` 
+>> * 你想使用小火箭的 URL-Scheme `shadowrocket://install?module=` 一键安装小火箭的这个模块 `https://12345.com/67890.module` ，也就是 `shadowrocket://install?module=https://12345.com/67890.module` 
 >> * 但是不是所有站点都支持类似地址的超链，无法完成点击跳转安装，例如本页或者 TG 就不支持……
->> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，也就是【跳转链接】+【URL-Scheme】+【模块地址】。完成组合后类似这样： ` https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module `
+>> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，也就是【跳转链接】+【URL-Scheme】+【模块地址】。完成组合后类似这样： `https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module`
 >> * 完成后即可点击跳转并成功安装
 >
 > <details>
 > <summary>点击查看小火箭各配置的 一键安装 跳转链接</summary>
 >
-> ` 以下跳转链接后接相应文件地址 `
+> `以下跳转链接后接相应文件地址`
 >
-> ` 配置文件 ` 的一键安装跳转链接
+> `配置文件` 的一键安装跳转链接
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/
 > ```
 >
-> ` 模块文件 ` 的一键安装跳转链接
+> `模块文件` 的一键安装跳转链接
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=
 > ```
 >
-> ` 订阅/节点 ` 的一键安装跳转链接
+> `订阅/节点` 的一键安装跳转链接
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
 > ```
@@ -894,9 +894,9 @@ _To Be Continued..._
 > <details>
 > <summary>点击查看小火箭可用的 URL-Schemes</summary>
 > 
-> ` 请使用相应内容直接替换代码中的大括号及其内容 `
+> `请使用相应内容直接替换代码中的大括号及其内容`
 > 
-> ` 启动 VPN 隧道 ` 
+> `启动 VPN 隧道` 
 > ```ruby
 > shadowrocket://connect
 > ```
@@ -904,7 +904,7 @@ _To Be Continued..._
 > shadowrocket://open
 > ```
 > 
->  ` 停止 VPN 隧道 ` 
+>  `停止 VPN 隧道` 
 > ```ruby
 > shadowrocket://disconnect
 > ```
@@ -912,32 +912,32 @@ _To Be Continued..._
 > shadowrocket://close
 > ```
 > 
->  ` 切换 VPN 开关状态 ` 
+>  `切换 VPN 开关状态` 
 > ```ruby
 > shadowrocket://toggle
 > ```
 >
->  ` 使用特定节点 ` 
+>  `使用特定节点` 
 > ```ruby
 > shadowrocket://select?s={节点名称}
 > ```
 > 
->  ` 添加 订阅/节点 ` 
+>  `添加 订阅/节点` 
 > ```ruby
 > shadowrocket://add/{url}
 > ```
 > 
->  ` 安装/使用 配置 ` 
+>  `安装/使用 配置` 
 > ```ruby
 > shadowrocket://config/add/{url}
 > ```
 >
->  ` 安装/使用 模块 ` 
+>  `安装/使用 模块` 
 > ```ruby
 > shadowrocket://install?module={url}
 > ```
 > 
->  ` 切换全局路由（代理/配置/直连/场景） ` 
+>  `切换全局路由（代理/配置/直连/场景）` 
 > ```ruby
 > shadowrocket://route/proxy
 > ```
@@ -951,7 +951,7 @@ _To Be Continued..._
 > shadowrocket://route/scene
 > ```
 >
->  ` 安装/使用 配色 ` 
+>  `安装/使用 配色` 
 > ```ruby
 > shadowrocket://color?{配色设置}
 > ```
@@ -959,6 +959,6 @@ _To Be Continued..._
 
 ------
 
-© ` Copyright By LOWERTOP `
+© `Copyright By LOWERTOP`
 
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.BTM.png" width="100%" height="100%">
