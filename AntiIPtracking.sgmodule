@@ -1,7 +1,8 @@
 #!name=AntiIPtracking
 #!desc=针对部分网站显示 IP 归属地的反跟踪规则。需要注意本模块为测试版，作者无法保证配置文件一定能起到作用，有可能会触发账号风控
 # 来源仓库：https://github.com/SunsetMkt/anti-ip-attribution
-# 整理作者：https://t.me/LOWERTOP
+# 原始作者：https://github.com/SunsetMkt
+# 重新整理：https://github.com/LOWERTOP
 # 反馈渠道：https://t.me/ShadowrocketApp
 
 [Rule]
