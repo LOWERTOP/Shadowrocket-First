@@ -39,9 +39,9 @@ def update_readme(timestamp):
             print("时间戳已是最新，无需更新。")
             return
 
-        # 延时 20 秒
-        print("检测到文件更新，等待 20 秒后更新时间戳...")
-        time.sleep(20)
+        # 延时 30 秒
+        print("检测到文件更新，等待 30 秒后更新时间戳...")
+        time.sleep(60)
 
         # 替换时间戳为最新的时间
         new_content = content[:time_start] + timestamp + content[newline_position:]
