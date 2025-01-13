@@ -72,7 +72,7 @@ DOMAIN-SUFFIX,acg.tv,proxy
 DOMAIN-SUFFIX,biligame.com,proxy
 # ======= 微博 ======= #
 # 微博
-# issue#5 报告发表和评论操作会暴露IP，建议不要使用手机客户端，无法确定是否存在其他IP或域名，已扩充到DOMAIN-SUFFIX
+# 发表和评论操作会暴露IP，建议不要使用手机客户端，无法确定是否存在其他IP或域名，已扩充到DOMAIN-SUFFIX
 # 微博API域名
 # DOMAIN-SUFFIX,api.weibo.cn
 # 微博API域名，com站以防万一
@@ -106,7 +106,6 @@ DOMAIN,www.baidu.com,proxy
 DOMAIN,tiebac.baidu.com,proxy
 # 极端方案，可能会代理图片CDN
 # DOMAIN-KEYWORD,tieba
-# issue#35#issuecomment-1438885974
 # Public DNS
 IP-CIDR,180.76.76.0/24,proxy,no-resolve
 DOMAIN,httpsdns.baidu.com,proxy
@@ -378,7 +377,7 @@ DOMAIN-SUFFIX,lofter.com,proxy
 DOMAIN,yaolu.yuedu.163.com,proxy
 DOMAIN-SUFFIX,lf127.net,DIRECT
 # ======= 斗鱼 ======= #
-# direct斗鱼直播流 https://github.com/wbt5/real-url/issues/340
+# direct斗鱼直播流
 DOMAIN-SUFFIX,hls3-akm.douyucdn.cn,DIRECT
 DOMAIN-SUFFIX,hlsa-akm.douyucdn.cn,DIRECT
 DOMAIN-SUFFIX,hls1a-akm.douyucdn.cn,DIRECT
