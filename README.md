@@ -231,7 +231,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/EpicLight.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/EpicLight.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -249,7 +249,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01BrightGold.png)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01BrightGold.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -267,7 +267,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/GitHubLight.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/GitHubLight.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -285,7 +285,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/V2EXDAY.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/V2EXDAY.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -303,7 +303,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/EcoGreen.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/EcoGreen.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -321,7 +321,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/02IceCream.png)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/02IceCream.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -339,7 +339,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/08Elegant.png)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/08Elegant.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -357,7 +357,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Cloudy.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Cloudy.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -375,7 +375,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/AyuLight.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/AyuLight.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -393,7 +393,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Solarized.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Solarized.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -411,7 +411,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/LightOwl.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/LightOwl.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -429,7 +429,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/SnowTop.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/SnowTop.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -447,7 +447,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RomeDay.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RomeDay.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -465,7 +465,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Peach.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Peach.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -483,7 +483,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/LightBlue.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/LightBlue.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -501,7 +501,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/EpicDark.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/EpicDark.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -519,7 +519,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/03Chrome.png)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/03Chrome.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -537,7 +537,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/04BlueSky.png)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/04BlueSky.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -555,7 +555,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/05GodenDark.png)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/05GodenDark.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -573,7 +573,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/06Fluoresce.png)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/06Fluoresce.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -591,7 +591,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/07TermiusDark.png)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/07TermiusDark.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -609,7 +609,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/09Sunset.png)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/09Sunset.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -627,7 +627,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/10Rose.png)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/10Rose.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -645,7 +645,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Violet.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Violet.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -663,7 +663,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/KanagawaWave.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/KanagawaWave.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -681,7 +681,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/KanagawaGray.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/KanagawaGray.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -698,7 +698,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/CyberPurple.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/CyberPurple.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -716,7 +716,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/GitHubDark.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/GitHubDark.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -734,7 +734,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/V2EXNIGHT.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/V2EXNIGHT.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -752,7 +752,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> ![shadowrocket](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/AtomDark.PNG)
+> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/AtomDark.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -951,10 +951,11 @@ _To Be Continued..._
 > shadowrocket://route/scene
 > ```
 >
->  `安装/使用 配色` 
+> `安装/使用 配色` 
 > ```ruby
 > shadowrocket://color?{配色设置}
 > ```
+>
 > </details>
 
 ------
