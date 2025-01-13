@@ -23,8 +23,8 @@ def update_readme(timestamp):
     with open(readme_path, "r", encoding="utf-8") as file:
         content = file.read()
 
-    # 定位 `> ` 更新时间 ``
-    marker = "> ` 更新时间 `"
+    # 定位 `> `更新时间``
+    marker = "> `更新时间`"
     position = content.find(marker)
     if position != -1:
         # 找到标记后面的时间戳部分
