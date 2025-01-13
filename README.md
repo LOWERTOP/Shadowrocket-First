@@ -100,7 +100,7 @@
 >
 >__`分流规则`__
 >
->> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各平台的分流规则的官方入口，它是代理软件首推的代理规则集。该规则不仅适用于 `Shadowrocket` 同样有适配其他代理软件的版本
+>> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各代理软件分流规则的官方入口，是现阶段首推的代理规则集
 >> 
 >> _注意：使用时请务必阅读相应的 `配置建议`_
 >> 
