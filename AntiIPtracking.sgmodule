@@ -176,7 +176,7 @@ DOMAIN-KEYWORD,-core-c-lf,proxy
 # CDN
 # DOMAIN-KEYWORD,cdn-tos
 # 确定的域名
-# #33 针对 amemv.com 域名下的 -normal- 关键词代理就能实现IP归属地修改。如果对全局域名进行代理的话，请求的视频内容大部分来自海外cdn。
+# 针对 amemv.com 域名下的 -normal- 关键词代理就能实现IP归属地修改。如果对全局域名进行代理的话，请求的视频内容大部分来自海外cdn。
 # CDN
 # DOMAIN-SUFFIX,bytetos.com
 # DOMAIN-SUFFIX,amemv.com
@@ -304,7 +304,7 @@ DOMAIN,www.wenshushu.cn,proxy
 # ======= 豆瓣 ======= #
 # iOS客户端
 # 目前无法可靠地处理iOS端的请求，建议全局代理
-IP-CIDR,119.29.29.98/32,REJECT,no-resolve,proxy
+IP-CIDR,119.29.29.98/32,REJECT,no-resolve
 IP-CIDR,120.53.130.158/32,proxy,no-resolve
 DOMAIN,frodo.douban.com,proxy
 # 网页端
