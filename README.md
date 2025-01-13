@@ -3,7 +3,7 @@
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
 > [!WARNING]
-> __警告：禁止使用本仓库内的任何内容牟利！如需转载请 ` 标明作者 ` 或 ` 注明来源 `__
+> __警告：禁止使用本仓库内的任何内容牟利！如需转载请 `标明作者` 或 `注明来源`__
 
 ------
 
@@ -20,15 +20,15 @@
 [forks-image]: https://img.shields.io/github/forks/LOWERTOP/Shadowrocket-First?style=static&logo=github&label=Fork
 
 > [!NOTE]
-> 本仓库主要提供 ` Shadowrocket/小火箭 ` 相关内容，包含一些自制/收集而来的 ` 配置文件 ` ` 模块 ` ` 规则集 ` ` 脚本 ` 等配置，同时提供多种自主设计的 ` 小火箭配色/主题/皮肤 `
+> 本仓库主要提供 `Shadowrocket/小火箭` 相关内容，包含一些自制/收集而来的 `配置文件` `模块` `规则集` `脚本` 等配置，同时提供多种自主设计的 `小火箭配色/主题/皮肤`
 
-> ` 项目目录 `
->> * ` 01 ` · [Shadowrocket 自制配置](#shadowrocket-自制配置)
->> * ` 02 ` · [Shadowrocket 收集配置](#shadowrocket-收集配置)
->> * ` 03 ` · [Shadowrocket 配色文件](#shadowrocket-配色文件)
->> * ` 04 ` · [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
+> `项目目录`
+>> * `01` · [Shadowrocket 自制配置](#shadowrocket-自制配置)
+>> * `02` · [Shadowrocket 收集配置](#shadowrocket-收集配置)
+>> * `03` · [Shadowrocket 配色文件](#shadowrocket-配色文件)
+>> * `04` · [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
 >
-> ` 更新概述 `
+> `更新概述`
 >> * 新增 流媒体检测快捷指令
 >> * 更新 Talkatone 模块/规则集
 >> * 修复 部分规则集兼容性问题 感谢：[Huidong Chen](https://github.com/UncleDeron)
