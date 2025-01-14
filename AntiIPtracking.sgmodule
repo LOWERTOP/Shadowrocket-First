@@ -1,13 +1,11 @@
 #!name=AntiIPtracking
 #!desc=针对部分网站显示 IP 归属地的反跟踪规则
-# 需要注意本模块为测试版，作者无法保证配置文件一定能起到作用，有可能会触发账号风控
+# 需要注意本模块为测试版，作者无法保证配置文件一定能起到作用，且所含规则存在多种策略，可能造成相应服务走代理节点或分流失效，甚至有可能会触发账号风控
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 # 原始作者：https://github.com/SunsetMkt
 
 [Rule]
-# 注意：以下规则存在多种策略，可能造成相应网站走代理或分流失效
-
 # ======= 哔哩哔哩 ======= #
 # 哔哩哔哩
 # 阻止私有DNS
@@ -33,15 +31,15 @@ IP-CIDR,116.63.10.31/32,REJECT,no-resolve
 IP-CIDR,112.64.218.119/32,REJECT,no-resolve
 IP-CIDR,112.65.200.117/32,REJECT,no-resolve
 # 哔哩哔哩API域名
-DOMAIN-SUFFIX,biliapi.net,proxy
+DOMAIN-SUFFIX,biliapi.net,PROXY
 # 哔哩哔哩海外版？（使用性存疑）
 # DOMAIN,api.bilibili.tv
 # 哔哩哔哩App的API域名
-DOMAIN-SUFFIX,biliapi.com,proxy
+DOMAIN-SUFFIX,biliapi.com,PROXY
 # 哔哩哔哩全站域名，不包括内容CDN
-DOMAIN-SUFFIX,bilibili.com,proxy
+DOMAIN-SUFFIX,bilibili.com,PROXY
 # 不需要REJECT，会影响其他HTTPDNS，仅代理即可
-IP-CIDR,203.107.1.0/24,proxy,no-resolve
+IP-CIDR,203.107.1.0/24,PROXY,no-resolve
 # CDN内容直连
 # 直播
 DOMAIN-SUFFIX,bilivideo.com,DIRECT
@@ -68,9 +66,9 @@ DOMAIN-SUFFIX,szbdyd.com,DIRECT
 # DOMAIN,message.bilibili.com
 # 哔哩哔哩统计API域名
 # DOMAIN,cm.bilibili.com
-DOMAIN-SUFFIX,im9.com,proxy
-DOMAIN-SUFFIX,acg.tv,proxy
-DOMAIN-SUFFIX,biligame.com,proxy
+DOMAIN-SUFFIX,im9.com,PROXY
+DOMAIN-SUFFIX,acg.tv,PROXY
+DOMAIN-SUFFIX,biligame.com,PROXY
 # ======= 微博 ======= #
 # 微博
 # 发表和评论操作会暴露IP，建议不要使用手机客户端，无法确定是否存在其他IP或域名，已扩充到DOMAIN-SUFFIX
@@ -79,49 +77,49 @@ DOMAIN-SUFFIX,biligame.com,proxy
 # 微博API域名，com站以防万一
 # DOMAIN-SUFFIX,api.weibo.com
 # 微博全站域名，不包括内容CDN
-DOMAIN-SUFFIX,weibo.cn,proxy
-DOMAIN-SUFFIX,weibo.com,proxy
-DOMAIN-SUFFIX,weibocdn.com,proxy
-DOMAIN-SUFFIX,wbimg.cn,proxy
-DOMAIN-SUFFIX,wbimg.com,proxy
-DOMAIN-SUFFIX,sinaimg.cn,proxy
-DOMAIN-KEYWORD,weibo,proxy
+DOMAIN-SUFFIX,weibo.cn,PROXY
+DOMAIN-SUFFIX,weibo.com,PROXY
+DOMAIN-SUFFIX,weibocdn.com,PROXY
+DOMAIN-SUFFIX,wbimg.cn,PROXY
+DOMAIN-SUFFIX,wbimg.com,PROXY
+DOMAIN-SUFFIX,sinaimg.cn,PROXY
+DOMAIN-KEYWORD,weibo,PROXY
 # ======= 百度贴吧 ======= #
 # 百度贴吧
 # 百度贴吧域名，不存在单独的API域名
-DOMAIN,tieba.baidu.com,proxy
+DOMAIN,tieba.baidu.com,PROXY
 # 贴吧私信域名？
-DOMAIN,tbmsg.baidu.com,proxy
+DOMAIN,tbmsg.baidu.com,PROXY
 # 贴吧不确定用途
-DOMAIN,tb5.bdstatic.com,proxy
+DOMAIN,tb5.bdstatic.com,PROXY
 # 百度日志？
-DOMAIN,fclog.baidu.com,proxy
+DOMAIN,fclog.baidu.com,PROXY
 # 百度追踪？
-DOMAIN,gsp0.baidu.com,proxy
+DOMAIN,gsp0.baidu.com,PROXY
 # 百度统计
-DOMAIN,hm.baidu.com,proxy
+DOMAIN,hm.baidu.com,PROXY
 # 网友提供贴吧IP定位接口
-DOMAIN,www.baidu.com,proxy
+DOMAIN,www.baidu.com,PROXY
 # Update #32
 # 贴吧App API域名
-DOMAIN,tiebac.baidu.com,proxy
+DOMAIN,tiebac.baidu.com,PROXY
 # 极端方案，可能会代理图片CDN
 # DOMAIN-KEYWORD,tieba
 # Public DNS
-IP-CIDR,180.76.76.0/24,proxy,no-resolve
-DOMAIN,httpsdns.baidu.com,proxy
-DOMAIN,c.tieba.baidu.com,proxy
-DOMAIN,httpdns.baidu.com,proxy
-DOMAIN,httpdns.baidubce.com,proxy
+IP-CIDR,180.76.76.0/24,PROXY,no-resolve
+DOMAIN,httpsdns.baidu.com,PROXY
+DOMAIN,c.tieba.baidu.com,PROXY
+DOMAIN,httpdns.baidu.com,PROXY
+DOMAIN,httpdns.baidubce.com,PROXY
 # ======= 微信 ======= #
 # 微信通用
 # 用途未知
-# DOMAIN,szshort.weixin.qq.com,proxy
-# DOMAIN,szextshort.weixin.qq.com,proxy
-# DOMAIN,szminorshort.weixin.qq.com,proxy
+# DOMAIN,szshort.weixin.qq.com,PROXY
+# DOMAIN,szextshort.weixin.qq.com,PROXY
+# DOMAIN,szminorshort.weixin.qq.com,PROXY
 # 微信公众号评论
 # 微信公众号，不存在单独的API域名
-# DOMAIN,mp.weixin.qq.com,proxy
+# DOMAIN,mp.weixin.qq.com,PROXY
 # 微信视频号评论
 # 疑似微信视频号，用途未知
 # DOMAIN,szshort.weixin.qq.com
@@ -135,9 +133,9 @@ DOMAIN,httpdns.baidubce.com,proxy
 # 知乎API域名
 # DOMAIN,api.zhihu.com
 # 知乎全站域名，不包括图片CDN
-DOMAIN-SUFFIX,zhihu.com,proxy
+DOMAIN-SUFFIX,zhihu.com,PROXY
 # 网友提供知乎IP定位接口
-IP-CIDR,103.41.167.0/24,proxy,no-resolve
+IP-CIDR,103.41.167.0/24,PROXY,no-resolve
 # 有报告iOS端使用规则后仍然泄露真实IP属地
 IP-CIDR,118.89.204.198/23,REJECT,no-resolve
 # 知乎 HTTPDNS (IPv4)
@@ -154,21 +152,21 @@ IP-CIDR,219.143.187.136/32,REJECT
 # 抖音
 # 请求域名过多，建议全局代理
 # 网友提供抖音IP定位接口
-DOMAIN-KEYWORD,core-c-lq,proxy
-DOMAIN-KEYWORD,core-lq,proxy
-DOMAIN-KEYWORD,normal-c-lq,proxy
-DOMAIN-KEYWORD,normal-lq,proxy
-DOMAIN-KEYWORD,search-quic-lq,proxy
-DOMAIN-KEYWORD,search-lq,proxy
+DOMAIN-KEYWORD,core-c-lq,PROXY
+DOMAIN-KEYWORD,core-lq,PROXY
+DOMAIN-KEYWORD,normal-c-lq,PROXY
+DOMAIN-KEYWORD,normal-lq,PROXY
+DOMAIN-KEYWORD,search-quic-lq,PROXY
+DOMAIN-KEYWORD,search-lq,PROXY
 # CDN
 DOMAIN-SUFFIX,zijieapi.com,DIRECT
 DOMAIN-SUFFIX,ecombdapi.com,DIRECT
-DOMAIN-KEYWORD,-normal-hl,proxy
-DOMAIN-KEYWORD,-normal-c-hl,proxy
-DOMAIN-KEYWORD,-core-c-hl,proxy
-DOMAIN-KEYWORD,-normal-lf,proxy
-DOMAIN-KEYWORD,-normal-c-lf,proxy
-DOMAIN-KEYWORD,-core-c-lf,proxy
+DOMAIN-KEYWORD,-normal-hl,PROXY
+DOMAIN-KEYWORD,-normal-c-hl,PROXY
+DOMAIN-KEYWORD,-core-c-hl,PROXY
+DOMAIN-KEYWORD,-normal-lf,PROXY
+DOMAIN-KEYWORD,-normal-c-lf,PROXY
+DOMAIN-KEYWORD,-core-c-lf,PROXY
 # DOMAIN-KEYWORD,-core-
 # DOMAIN-KEYWORD,-misc-
 # DOMAIN-KEYWORD,-search-
@@ -202,180 +200,180 @@ DOMAIN-KEYWORD,-core-c-lf,proxy
 # DOMAIN-SUFFIX,yhgfb-cn-static.com
 # 抖音适用于PC的Web版API非常明确
 # 登录
-DOMAIN,sso.douyin.com,proxy
+DOMAIN,sso.douyin.com,PROXY
 # Web版PC端
-DOMAIN,www.douyin.com,proxy
+DOMAIN,www.douyin.com,PROXY
 # API域名
-DOMAIN-SUFFIX,snssdk.com,proxy
+DOMAIN-SUFFIX,snssdk.com,PROXY
 # ======= 头条 ======= #
 # 网友提供头条IP定位接口
-DOMAIN-SUFFIX,toutiaoapi.com,proxy
+DOMAIN-SUFFIX,toutiaoapi.com,PROXY
 # ======= 快手 ======= #
 # 个人主页似乎有延迟，未测试
 # 一个域名连不上会请求另一个，两个同时使用就会生效了
-DOMAIN-SUFFIX,gifshow.com,proxy
-DOMAIN-SUFFIX,ksapisrv.com,proxy
+DOMAIN-SUFFIX,gifshow.com,PROXY
+DOMAIN-SUFFIX,ksapisrv.com,PROXY
 # ======= 小红书 ======= #
-DOMAIN-SUFFIX,xiaohongshu.com,proxy
-DOMAIN-KEYWORD,xiaohongshu,proxy
+DOMAIN-SUFFIX,xiaohongshu.com,PROXY
+DOMAIN-KEYWORD,xiaohongshu,PROXY
 # edith.xiaohongshu.com的全球解析结果
-IP-CIDR,114.55.236.88/32,proxy,no-resolve
-IP-CIDR,47.97.64.97/32,proxy,no-resolve
-IP-CIDR,47.97.66.48/32,proxy,no-resolve
-IP-CIDR,81.69.116.86/32,proxy,no-resolve
-IP-CIDR,119.45.249.52/32,proxy,no-resolve
-IP-CIDR,81.69.116.87/32,proxy,no-resolve
-IP-CIDR,119.45.2.92/32,proxy,no-resolve
-IP-CIDR,1.13.12.27/32,proxy,no-resolve
-IP-CIDR,81.69.116.102/32,proxy,no-resolve
-IP-CIDR,43.159.25.122/32,proxy,no-resolve
-IP-CIDR,43.159.25.28/32,proxy,no-resolve
-IP-CIDR,47.246.29.223/32,proxy,no-resolve
-IP-CIDR,47.246.29.226/32,proxy,no-resolve
-IP-CIDR,47.246.29.227/32,proxy,no-resolve
-IP-CIDR,47.246.29.225/32,proxy,no-resolve
-IP-CIDR,47.246.29.224/32,proxy,no-resolve
-IP-CIDR,47.246.29.222/32,proxy,no-resolve
-IP-CIDR,47.246.29.229/32,proxy,no-resolve
-IP-CIDR,47.246.29.228/32,proxy,no-resolve
-IP-CIDR,211.152.149.12/32,proxy,no-resolve
-IP-CIDR,49.51.224.95/32,proxy,no-resolve
-IP-CIDR,43.175.44.15/32,proxy,no-resolve
-IP-CIDR,23.236.104.30/32,proxy,no-resolve
-IP-CIDR,43.132.81.61/32,proxy,no-resolve
-IP-CIDR,101.33.27.26/32,proxy,no-resolve
-IP-CIDR,43.152.29.38/32,proxy,no-resolve
-IP-CIDR,43.152.26.110/32,proxy,no-resolve
-IP-CIDR,101.33.11.32/32,proxy,no-resolve
-IP-CIDR,163.181.1.228/32,proxy,no-resolve
-IP-CIDR,163.181.1.226/32,proxy,no-resolve
-IP-CIDR,163.181.1.230/32,proxy,no-resolve
-IP-CIDR,163.181.1.227/32,proxy,no-resolve
-IP-CIDR,163.181.1.231/32,proxy,no-resolve
-IP-CIDR,163.181.1.229/32,proxy,no-resolve
-IP-CIDR,163.181.1.224/32,proxy,no-resolve
-IP-CIDR,163.181.1.225/32,proxy,no-resolve
-IP-CIDR,47.246.23.230/32,proxy,no-resolve
-IP-CIDR,47.246.23.234/32,proxy,no-resolve
-IP-CIDR,47.246.23.228/32,proxy,no-resolve
-IP-CIDR,47.246.23.233/32,proxy,no-resolve
-IP-CIDR,47.246.23.231/32,proxy,no-resolve
-IP-CIDR,47.246.23.232/32,proxy,no-resolve
-IP-CIDR,47.246.23.227/32,proxy,no-resolve
-IP-CIDR,47.246.23.229/32,proxy,no-resolve
-IP-CIDR,43.152.42.109/32,proxy,no-resolve
-IP-CIDR,43.175.22.27/32,proxy,no-resolve
-IP-CIDR,43.175.22.42/32,proxy,no-resolve
-IP-CIDR,43.175.22.26/32,proxy,no-resolve
-IP-CIDR,43.132.84.11/32,proxy,no-resolve
-IP-CIDR,101.33.20.34/32,proxy,no-resolve
-IP-CIDR,49.51.224.105/32,proxy,no-resolve
-IP-CIDR,49.51.224.103/32,proxy,no-resolve
-IP-CIDR,163.181.92.232/32,proxy,no-resolve
-IP-CIDR,163.181.92.233/32,proxy,no-resolve
-IP-CIDR,163.181.92.237/32,proxy,no-resolve
-IP-CIDR,163.181.92.238/32,proxy,no-resolve
-IP-CIDR,163.181.92.231/32,proxy,no-resolve
-IP-CIDR,163.181.92.234/32,proxy,no-resolve
-IP-CIDR,163.181.92.236/32,proxy,no-resolve
-IP-CIDR,163.181.92.235/32,proxy,no-resolve
-IP-CIDR,43.132.83.175/32,proxy,no-resolve
-IP-CIDR,43.132.83.54/32,proxy,no-resolve
-IP-CIDR,43.132.83.9/32,proxy,no-resolve
-IP-CIDR,43.132.91.37/32,proxy,no-resolve
-IP-CIDR,43.132.91.110/32,proxy,no-resolve
-IP-CIDR,43.132.91.45/32,proxy,no-resolve
-IP-CIDR,150.109.222.109/32,proxy,no-resolve
-IP-CIDR,150.109.222.102/32,proxy,no-resolve
-IP-CIDR,150.109.222.97/32,proxy,no-resolve
-IP-CIDR,150.109.223.49/32,proxy,no-resolve
-IP-CIDR,150.109.222.103/32,proxy,no-resolve
-IP-CIDR,150.109.222.99/32,proxy,no-resolve
-IP-CIDR,150.109.222.110/32,proxy,no-resolve
-IP-CIDR,203.205.220.62/32,proxy,no-resolve
+IP-CIDR,114.55.236.88/32,PROXY,no-resolve
+IP-CIDR,47.97.64.97/32,PROXY,no-resolve
+IP-CIDR,47.97.66.48/32,PROXY,no-resolve
+IP-CIDR,81.69.116.86/32,PROXY,no-resolve
+IP-CIDR,119.45.249.52/32,PROXY,no-resolve
+IP-CIDR,81.69.116.87/32,PROXY,no-resolve
+IP-CIDR,119.45.2.92/32,PROXY,no-resolve
+IP-CIDR,1.13.12.27/32,PROXY,no-resolve
+IP-CIDR,81.69.116.102/32,PROXY,no-resolve
+IP-CIDR,43.159.25.122/32,PROXY,no-resolve
+IP-CIDR,43.159.25.28/32,PROXY,no-resolve
+IP-CIDR,47.246.29.223/32,PROXY,no-resolve
+IP-CIDR,47.246.29.226/32,PROXY,no-resolve
+IP-CIDR,47.246.29.227/32,PROXY,no-resolve
+IP-CIDR,47.246.29.225/32,PROXY,no-resolve
+IP-CIDR,47.246.29.224/32,PROXY,no-resolve
+IP-CIDR,47.246.29.222/32,PROXY,no-resolve
+IP-CIDR,47.246.29.229/32,PROXY,no-resolve
+IP-CIDR,47.246.29.228/32,PROXY,no-resolve
+IP-CIDR,211.152.149.12/32,PROXY,no-resolve
+IP-CIDR,49.51.224.95/32,PROXY,no-resolve
+IP-CIDR,43.175.44.15/32,PROXY,no-resolve
+IP-CIDR,23.236.104.30/32,PROXY,no-resolve
+IP-CIDR,43.132.81.61/32,PROXY,no-resolve
+IP-CIDR,101.33.27.26/32,PROXY,no-resolve
+IP-CIDR,43.152.29.38/32,PROXY,no-resolve
+IP-CIDR,43.152.26.110/32,PROXY,no-resolve
+IP-CIDR,101.33.11.32/32,PROXY,no-resolve
+IP-CIDR,163.181.1.228/32,PROXY,no-resolve
+IP-CIDR,163.181.1.226/32,PROXY,no-resolve
+IP-CIDR,163.181.1.230/32,PROXY,no-resolve
+IP-CIDR,163.181.1.227/32,PROXY,no-resolve
+IP-CIDR,163.181.1.231/32,PROXY,no-resolve
+IP-CIDR,163.181.1.229/32,PROXY,no-resolve
+IP-CIDR,163.181.1.224/32,PROXY,no-resolve
+IP-CIDR,163.181.1.225/32,PROXY,no-resolve
+IP-CIDR,47.246.23.230/32,PROXY,no-resolve
+IP-CIDR,47.246.23.234/32,PROXY,no-resolve
+IP-CIDR,47.246.23.228/32,PROXY,no-resolve
+IP-CIDR,47.246.23.233/32,PROXY,no-resolve
+IP-CIDR,47.246.23.231/32,PROXY,no-resolve
+IP-CIDR,47.246.23.232/32,PROXY,no-resolve
+IP-CIDR,47.246.23.227/32,PROXY,no-resolve
+IP-CIDR,47.246.23.229/32,PROXY,no-resolve
+IP-CIDR,43.152.42.109/32,PROXY,no-resolve
+IP-CIDR,43.175.22.27/32,PROXY,no-resolve
+IP-CIDR,43.175.22.42/32,PROXY,no-resolve
+IP-CIDR,43.175.22.26/32,PROXY,no-resolve
+IP-CIDR,43.132.84.11/32,PROXY,no-resolve
+IP-CIDR,101.33.20.34/32,PROXY,no-resolve
+IP-CIDR,49.51.224.105/32,PROXY,no-resolve
+IP-CIDR,49.51.224.103/32,PROXY,no-resolve
+IP-CIDR,163.181.92.232/32,PROXY,no-resolve
+IP-CIDR,163.181.92.233/32,PROXY,no-resolve
+IP-CIDR,163.181.92.237/32,PROXY,no-resolve
+IP-CIDR,163.181.92.238/32,PROXY,no-resolve
+IP-CIDR,163.181.92.231/32,PROXY,no-resolve
+IP-CIDR,163.181.92.234/32,PROXY,no-resolve
+IP-CIDR,163.181.92.236/32,PROXY,no-resolve
+IP-CIDR,163.181.92.235/32,PROXY,no-resolve
+IP-CIDR,43.132.83.175/32,PROXY,no-resolve
+IP-CIDR,43.132.83.54/32,PROXY,no-resolve
+IP-CIDR,43.132.83.9/32,PROXY,no-resolve
+IP-CIDR,43.132.91.37/32,PROXY,no-resolve
+IP-CIDR,43.132.91.110/32,PROXY,no-resolve
+IP-CIDR,43.132.91.45/32,PROXY,no-resolve
+IP-CIDR,150.109.222.109/32,PROXY,no-resolve
+IP-CIDR,150.109.222.102/32,PROXY,no-resolve
+IP-CIDR,150.109.222.97/32,PROXY,no-resolve
+IP-CIDR,150.109.223.49/32,PROXY,no-resolve
+IP-CIDR,150.109.222.103/32,PROXY,no-resolve
+IP-CIDR,150.109.222.99/32,PROXY,no-resolve
+IP-CIDR,150.109.222.110/32,PROXY,no-resolve
+IP-CIDR,203.205.220.62/32,PROXY,no-resolve
 # ======= 其乐论坛 ======= #
-DOMAIN,keylol.com,proxy
+DOMAIN,keylol.com,PROXY
 # ======= 西瓜视频 ======= #
 # 可以阻止真实ip显示，但无法显示代理ip
-DOMAIN-SUFFIX,ixigua.com,proxy
+DOMAIN-SUFFIX,ixigua.com,PROXY
 # ======= 文叔叔 ======= #
 # DoingDog/anti-ip-attribution
-DOMAIN,www.wenshushu.cn,proxy
+DOMAIN,www.wenshushu.cn,PROXY
 # ======= 豆瓣 ======= #
 # iOS客户端
 # 目前无法可靠地处理iOS端的请求，建议全局代理
 IP-CIDR,119.29.29.98/32,REJECT,no-resolve
-IP-CIDR,120.53.130.158/32,proxy,no-resolve
-DOMAIN,frodo.douban.com,proxy
+IP-CIDR,120.53.130.158/32,PROXY,no-resolve
+DOMAIN,frodo.douban.com,PROXY
 # 网页端
-DOMAIN,www.douban.com,proxy
+DOMAIN,www.douban.com,PROXY
 # ======= 酷安 ======= #
-DOMAIN,api.coolapk.com,proxy
-DOMAIN,api2.coolapk.com,proxy
+DOMAIN,api.coolapk.com,PROXY
+DOMAIN,api2.coolapk.com,PROXY
 # ======= TapTap ======= #
-DOMAIN,api.taptapdada.com,proxy
+DOMAIN,api.taptapdada.com,PROXY
 # ======= 网易大神 ======= #
-DOMAIN,god.gameyw.netease.com,proxy
+DOMAIN,god.gameyw.netease.com,PROXY
 # ======= 虎牙 ======= #
-DOMAIN-SUFFIX,huya.com,proxy
+DOMAIN-SUFFIX,huya.com,PROXY
 # ======= 懂球帝 ======= #
-DOMAIN-SUFFIX,dongqiudi.com,proxy
+DOMAIN-SUFFIX,dongqiudi.com,PROXY
 # ======= NGA ======= #
-DOMAIN,ngabbs.com,proxy
-DOMAIN,bbs.nga.cn,proxy
-DOMAIN,nga.178.com,proxy
+DOMAIN,ngabbs.com,PROXY
+DOMAIN,bbs.nga.cn,PROXY
+DOMAIN,nga.178.com,PROXY
 # ======= 小米社区 ======= #
-DOMAIN,api.vip.miui.com,proxy
+DOMAIN,api.vip.miui.com,PROXY
 # ======= 网易云音乐 ======= #
-# DOMAIN,music.163.com,proxy
+# DOMAIN,music.163.com,PROXY
 # https://lbs.netease.im/lbs/conf.jsp # httpdns
-# DOMAIN,httpdns.n.netease.com,REJECT,no-resolve,proxy
-# IP-CIDR,59.111.239.61/32,REJECT,no-resolve,proxy
-# IP-CIDR,59.111.239.62/32,REJECT,no-resolve,proxy
-DOMAIN-SUFFIX,nstool.netease.com,proxy
-DOMAIN,api.crush.163.com,proxy
-DOMAIN-SUFFIX,music.163.com,proxy
-DOMAIN,nstool.netease.com,proxy
-DOMAIN,wanproxy.127.net,proxy
-DOMAIN,mam.netease.com,proxy
-DOMAIN,dt.netease.im,proxy
-DOMAIN,api.iplay.163.com,proxy
-DOMAIN,api.k.163.com,proxy
-DOMAIN,lbs.netease.im,proxy
-DOMAIN,wannos.127.net,proxy
-DOMAIN,ac.dun.163.com,proxy
-DOMAIN-SUFFIX,music.126.net,proxy
-DOMAIN-SUFFIX,laiqukankan.com,proxy
-DOMAIN-SUFFIX,music.ntes53.netease.com,proxy
-# telv4.music.ntes53.netease.com,proxy
-# telv6.music.ntes53.netease.com,proxy
-# cmccv4.music.ntes53.netease.com,proxy
-# cmccv6.music.ntes53.netease.com,proxy
-# univ4.music.ntes53.netease.com,proxy
-# univ6.music.ntes53.netease.com,proxy
-# overseasv4.music.ntes53.netease.com,proxy
-# overseasv6.music.ntes53.netease.com,proxy
-# bgpv4.music.ntes53.netease.com,proxy
-# bgpv6.music.ntes53.netease.com,proxy
-IP-CIDR,101.71.154.241/32,proxy,no-resolve
-IP-CIDR,103.126.92.132/32,proxy,no-resolve
-IP-CIDR,103.126.92.133/32,proxy,no-resolve
-IP-CIDR,112.13.119.18/32,proxy,no-resolve
-IP-CIDR,112.13.122.4/32,proxy,no-resolve
-IP-CIDR,115.236.118.34/32,proxy,no-resolve
-IP-CIDR,115.236.121.4/32,proxy,no-resolve
-IP-CIDR,45.254.48.1/32,proxy,no-resolve
-IP-CIDR,59.111.160.195/32,proxy,no-resolve
-IP-CIDR,59.111.19.33/32,proxy,no-resolve
-IP-CIDR,59.111.19.53/32,proxy,no-resolve
-DOMAIN-SUFFIX,music.163.com.163jiasu.com,proxy
-IP-CIDR,119.36.90.80/32,proxy,no-resolve
-IP-CIDR,111.48.137.146/32,proxy,no-resolve
-IP-CIDR,1.95.21.35/32,proxy,no-resolve
-IP-CIDR,47.100.127.239/32,proxy,no-resolve
+# DOMAIN,httpdns.n.netease.com,REJECT,no-resolve,PROXY
+# IP-CIDR,59.111.239.61/32,REJECT,no-resolve,PROXY
+# IP-CIDR,59.111.239.62/32,REJECT,no-resolve,PROXY
+DOMAIN-SUFFIX,nstool.netease.com,PROXY
+DOMAIN,api.crush.163.com,PROXY
+DOMAIN-SUFFIX,music.163.com,PROXY
+DOMAIN,nstool.netease.com,PROXY
+DOMAIN,wanPROXY.127.net,PROXY
+DOMAIN,mam.netease.com,PROXY
+DOMAIN,dt.netease.im,PROXY
+DOMAIN,api.iplay.163.com,PROXY
+DOMAIN,api.k.163.com,PROXY
+DOMAIN,lbs.netease.im,PROXY
+DOMAIN,wannos.127.net,PROXY
+DOMAIN,ac.dun.163.com,PROXY
+DOMAIN-SUFFIX,music.126.net,PROXY
+DOMAIN-SUFFIX,laiqukankan.com,PROXY
+DOMAIN-SUFFIX,music.ntes53.netease.com,PROXY
+# telv4.music.ntes53.netease.com,PROXY
+# telv6.music.ntes53.netease.com,PROXY
+# cmccv4.music.ntes53.netease.com,PROXY
+# cmccv6.music.ntes53.netease.com,PROXY
+# univ4.music.ntes53.netease.com,PROXY
+# univ6.music.ntes53.netease.com,PROXY
+# overseasv4.music.ntes53.netease.com,PROXY
+# overseasv6.music.ntes53.netease.com,PROXY
+# bgpv4.music.ntes53.netease.com,PROXY
+# bgpv6.music.ntes53.netease.com,PROXY
+IP-CIDR,101.71.154.241/32,PROXY,no-resolve
+IP-CIDR,103.126.92.132/32,PROXY,no-resolve
+IP-CIDR,103.126.92.133/32,PROXY,no-resolve
+IP-CIDR,112.13.119.18/32,PROXY,no-resolve
+IP-CIDR,112.13.122.4/32,PROXY,no-resolve
+IP-CIDR,115.236.118.34/32,PROXY,no-resolve
+IP-CIDR,115.236.121.4/32,PROXY,no-resolve
+IP-CIDR,45.254.48.1/32,PROXY,no-resolve
+IP-CIDR,59.111.160.195/32,PROXY,no-resolve
+IP-CIDR,59.111.19.33/32,PROXY,no-resolve
+IP-CIDR,59.111.19.53/32,PROXY,no-resolve
+DOMAIN-SUFFIX,music.163.com.163jiasu.com,PROXY
+IP-CIDR,119.36.90.80/32,PROXY,no-resolve
+IP-CIDR,111.48.137.146/32,PROXY,no-resolve
+IP-CIDR,1.95.21.35/32,PROXY,no-resolve
+IP-CIDR,47.100.127.239/32,PROXY,no-resolve
 # ======= Lofter ======= #
-DOMAIN-SUFFIX,lofter.com,proxy
-DOMAIN,yaolu.yuedu.163.com,proxy
+DOMAIN-SUFFIX,lofter.com,PROXY
+DOMAIN,yaolu.yuedu.163.com,PROXY
 DOMAIN-SUFFIX,lf127.net,DIRECT
 # ======= 斗鱼 ======= #
 # direct斗鱼直播流
@@ -390,46 +388,46 @@ DOMAIN-SUFFIX,akm-tct.douyucdn.cn,DIRECT
 DOMAIN-SUFFIX,tx2play1.douyucdn.cn,DIRECT
 DOMAIN-SUFFIX,tc-tct1.douyucdn.cn,DIRECT
 # direct弹幕
-DOMAIN-SUFFIX,wsproxy.douyu.com,DIRECT
-DOMAIN-SUFFIX,danmuproxy.douyu.com,DIRECT
+DOMAIN-SUFFIX,wsPROXY.douyu.com,DIRECT
+DOMAIN-SUFFIX,danmuPROXY.douyu.com,DIRECT
 # direct图片
 DOMAIN-SUFFIX,img.douyucdn.cn,DIRECT
-DOMAIN-SUFFIX,douyucdn.cn,proxy
-DOMAIN-SUFFIX,douyu.com,proxy
+DOMAIN-SUFFIX,douyucdn.cn,PROXY
+DOMAIN-SUFFIX,douyu.com,PROXY
 # ======= 米游社 ======= #
-DOMAIN,bbs-api.mihoyo.com,proxy
-DOMAIN,bbs-api.miyoushe.com,proxy
-# DOMAIN,api-takumi.mihoyo.com,proxy
-# DOMAIN,log-upload.mihoyo.com,proxy
+DOMAIN,bbs-api.mihoyo.com,PROXY
+DOMAIN,bbs-api.miyoushe.com,PROXY
+# DOMAIN,api-takumi.mihoyo.com,PROXY
+# DOMAIN,log-upload.mihoyo.com,PROXY
 # ======= MIUI ======= #
 # 应用包管理组件API
-# DOMAIN,api.installer.xiaomi.com,REJECT,proxy
+# DOMAIN,api.installer.xiaomi.com,REJECT,PROXY
 # miui-tracking
-# DOMAIN,tracking.miui.com,REJECT,proxy
-# DOMAIN,tracking.intl.miui.com,REJECT,proxy
-# DOMAIN,tracking.rus.miui.com,REJECT,proxy
-# DOMAIN,tracking.india.miui.com,REJECT,proxy
+# DOMAIN,tracking.miui.com,REJECT,PROXY
+# DOMAIN,tracking.intl.miui.com,REJECT,PROXY
+# DOMAIN,tracking.rus.miui.com,REJECT,PROXY
+# DOMAIN,tracking.india.miui.com,REJECT,PROXY
 # 病毒扫描
-# DOMAIN-SUFFIX,sec.miui.com,REJECT,proxy
-# DOMAIN-SUFFIX,sec.intl.miui.com,REJECT,proxy
-# DOMAIN,api.sec.miui.com,REJECT,proxy
-# DOMAIN,staging.sec.miui.com,REJECT,proxy
-# DOMAIN,a0.app.xiaomi.com,REJECT,proxy
+# DOMAIN-SUFFIX,sec.miui.com,REJECT,PROXY
+# DOMAIN-SUFFIX,sec.intl.miui.com,REJECT,PROXY
+# DOMAIN,api.sec.miui.com,REJECT,PROXY
+# DOMAIN,staging.sec.miui.com,REJECT,PROXY
+# DOMAIN,a0.app.xiaomi.com,REJECT,PROXY
 # ======= 豆瓣 ======= #
 # IOS APP实测有效，其余设备不保证，doubanio.com的域名是加载图片的，实测直连不影响地区
-DOMAIN-SUFFIX,douban.com,proxy
-IP-CIDR,49.233.242.15/32,proxy,no-resolve
-IP-CIDR,81.70.124.99/32,proxy,no-resolve
-IP-CIDR,81.70.125.19/32,proxy,no-resolve
-IP-CIDR,140.143.177.206/32,proxy,no-resolve
+DOMAIN-SUFFIX,douban.com,PROXY
+IP-CIDR,49.233.242.15/32,PROXY,no-resolve
+IP-CIDR,81.70.124.99/32,PROXY,no-resolve
+IP-CIDR,81.70.125.19/32,PROXY,no-resolve
+IP-CIDR,140.143.177.206/32,PROXY,no-resolve
 # ======= 小黑盒 ======= #
-DOMAIN,api.xiaoheihe.cn,proxy
+DOMAIN,api.xiaoheihe.cn,PROXY
 # ======= QQ音乐 ======= #
 # 测试
 DOMAIN,y.qq.com,DIRECT # 图片资源，直连
-DOMAIN-SUFFIX,y.qq.com,proxy
+DOMAIN-SUFFIX,y.qq.com,PROXY
 # ======= 森空岛 ====== #
-DOMAIN,zonai.skland.com,proxy
+DOMAIN,zonai.skland.com,PROXY
 # ======= Soul ======= #
 # https://www.soulapp.cn/
 # 目前采取了比较激进的策略
@@ -437,11 +435,11 @@ DOMAIN,zonai.skland.com,proxy
 DOMAIN,china-img.soulapp.cn,DIRECT
 DOMAIN,img.soulapp.cn,DIRECT
 # 其余可疑API域名
-# DOMAIN-SUFFIX,getui.com,proxy 
-DOMAIN-SUFFIX,soulapp.cn,proxy
-# DOMAIN-SUFFIX,qchannel03.cn,proxy
+# DOMAIN-SUFFIX,getui.com,PROXY 
+DOMAIN-SUFFIX,soulapp.cn,PROXY
+# DOMAIN-SUFFIX,qchannel03.cn,PROXY
 # ======= 起点App ======= #
-DOMAIN,druidv6.if.qidian.com,proxy
-DOMAIN,ptlogin6.qidian.com,proxy
+DOMAIN,druidv6.if.qidian.com,PROXY
+DOMAIN,ptlogin6.qidian.com,PROXY
 # ======= 完美世界电竞App ======= #
-DOMAIN,api.wmpvp.com,proxy
+DOMAIN,api.wmpvp.com,PROXY
