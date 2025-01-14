@@ -21,16 +21,16 @@
 
 > [!NOTE]
 > 本仓库主要提供 `Shadowrocket/小火箭` 相关内容，包含一些自制/收集而来的 `配置文件` `模块` `规则集` `脚本` 等配置，同时提供多种自主设计的 `小火箭配色/主题/皮肤`
-
+>
 > 若您是本仓索引内容的原作者或权利人，且不希望本仓引用您的内容，可点击 [此处](https://t.me/LowerTopBot) 要求剔除
 
-#### `项目目录`
+`项目目录`
 > * `01` · [Shadowrocket 自制配置](#shadowrocket-自制配置)
 > * `02` · [Shadowrocket 收集配置](#shadowrocket-收集配置)
 > * `03` · [Shadowrocket 配色文件](#shadowrocket-配色文件)
 > * `04` · [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
 
-#### `更新概述`
+`更新概述`
 > * 更新 反追踪模块内的规则
 > * 新增 流媒体检测快捷指令
 > * 修复 部分规则集兼容性问题 感谢：[Huidong Chen](https://github.com/UncleDeron)
@@ -39,7 +39,7 @@
 > * 新增 `小火箭 URL-Schemes` [复制粘贴更方便](#url-redirector-非标准链接重定向跳转)
 > * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
-#### `更新时间`
+`更新时间`
 2025-01-14
 
 ------
@@ -69,7 +69,7 @@
 >
 > [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
 
-#### `反 IP 追踪模块` `Beta`
+#### `反追踪模块` `Beta`
 
 > 来源于 [SunsetMkt](https://github.com/SunsetMkt) 的 [anti-ip-attribution](https://github.com/SunsetMkt/anti-ip-attribution) 仓库，针对部分网站显示 IP 归属地的反跟踪规则。需要注意本模块为测试版，作者无法保证本模块一定能起到作用，甚至可能存在触发账号风控的风险。同时，其中规则存在多种策略，可能造成相应网站走代理或分流失效。详细说明请参见 [这里的备注](https://github.com/LOWERTOP/anti-ip-attribution/blob/main/rules.yaml)
 >
@@ -202,8 +202,8 @@
 > [!IMPORTANT]
 > 因苹果系统限制，小火箭部分细节图标不可自定义配色，且会跟随系统深色/浅色模式改变。使用自定义配色时可能会因此特性导致局部细节图标可视度存在问题。建议在使用 `亮底色` 时搭配系统浅色模式，使用 `暗底色` 时搭配系统深色模式
 
-> `效果示例：TermiusDark`
-> 
+`效果示例：TermiusDark`
+
 > <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="100%" height="100%"> 
 > 
 > <details>
