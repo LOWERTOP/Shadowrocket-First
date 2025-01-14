@@ -33,7 +33,7 @@ IP-CIDR,112.65.200.117/32,REJECT,no-resolve
 # 哔哩哔哩API域名
 DOMAIN-SUFFIX,biliapi.net,PROXY
 # 哔哩哔哩海外版？（使用性存疑）
-# DOMAIN,api.bilibili.tv
+# DOMAIN,api.bilibili.tv,PROXY
 # 哔哩哔哩App的API域名
 DOMAIN-SUFFIX,biliapi.com,PROXY
 # 哔哩哔哩全站域名，不包括内容CDN
@@ -51,21 +51,21 @@ DOMAIN-SUFFIX,hdslb.com,DIRECT
 DOMAIN-SUFFIX,szbdyd.com,DIRECT
 # 哔哩哔哩国内网页版API域名
 # 网友提供哔哩哔哩IP定位接口
-# DOMAIN,api.bilibili.com
+# DOMAIN,api.bilibili.com,PROXY
 # 哔哩哔哩App的API域名
-# DOMAIN,app.bilibili.com
+# DOMAIN,app.bilibili.com,PROXY
 # 哔哩哔哩直播API域名
-# DOMAIN,api.live.bilibili.com
+# DOMAIN,api.live.bilibili.com,PROXY
 # 哔哩哔哩视频API域名，Copilot提供
-# DOMAIN,api.vc.bilibili.com
+# DOMAIN,api.vc.bilibili.com,PROXY
 # 哔哩哔哩账号登录API域名
-# DOMAIN,passport.bilibili.com
+# DOMAIN,passport.bilibili.com,PROXY
 # 哔哩哔哩跟踪？API域名
-# DOMAIN,live-trace.bilibili.com
+# DOMAIN,live-trace.bilibili.com,PROXY
 # 哔哩哔哩消息API域名
-# DOMAIN,message.bilibili.com
+# DOMAIN,message.bilibili.com,PROXY
 # 哔哩哔哩统计API域名
-# DOMAIN,cm.bilibili.com
+# DOMAIN,cm.bilibili.com,PROXY
 DOMAIN-SUFFIX,im9.com,PROXY
 DOMAIN-SUFFIX,acg.tv,PROXY
 DOMAIN-SUFFIX,biligame.com,PROXY
@@ -73,9 +73,9 @@ DOMAIN-SUFFIX,biligame.com,PROXY
 # 微博
 # 发表和评论操作会暴露IP，建议不要使用手机客户端，无法确定是否存在其他IP或域名，已扩充到DOMAIN-SUFFIX
 # 微博API域名
-# DOMAIN-SUFFIX,api.weibo.cn
+# DOMAIN-SUFFIX,api.weibo.cn,PROXY
 # 微博API域名，com站以防万一
-# DOMAIN-SUFFIX,api.weibo.com
+# DOMAIN-SUFFIX,api.weibo.com,PROXY
 # 微博全站域名，不包括内容CDN
 DOMAIN-SUFFIX,weibo.cn,PROXY
 DOMAIN-SUFFIX,weibo.com,PROXY
@@ -104,7 +104,7 @@ DOMAIN,www.baidu.com,PROXY
 # 贴吧App API域名
 DOMAIN,tiebac.baidu.com,PROXY
 # 极端方案，可能会代理图片CDN
-# DOMAIN-KEYWORD,tieba
+# DOMAIN-KEYWORD,tieba,PROXY
 # Public DNS
 IP-CIDR,180.76.76.0/24,PROXY,no-resolve
 DOMAIN,httpsdns.baidu.com,PROXY
@@ -122,16 +122,16 @@ DOMAIN,httpdns.baidubce.com,PROXY
 # DOMAIN,mp.weixin.qq.com,PROXY
 # 微信视频号评论
 # 疑似微信视频号，用途未知
-# DOMAIN,szshort.weixin.qq.com
+# DOMAIN,szshort.weixin.qq.com,PROXY
 # 无法确定准确的请求方式，建议全局代理
 # ======= 知乎 ======= #
 # 知乎
 # 知乎统计API域名
-# DOMAIN,zhihu-web-analytics.zhihu.com
+# DOMAIN,zhihu-web-analytics.zhihu.com,PROXY
 # 知乎主站域名，不存在单独有效的API域名
-# DOMAIN,www.zhihu.com
+# DOMAIN,www.zhihu.com,PROXY
 # 知乎API域名
-# DOMAIN,api.zhihu.com
+# DOMAIN,api.zhihu.com,PROXY
 # 知乎全站域名，不包括图片CDN
 DOMAIN-SUFFIX,zhihu.com,PROXY
 # 网友提供知乎IP定位接口
@@ -167,37 +167,37 @@ DOMAIN-KEYWORD,-core-c-hl,PROXY
 DOMAIN-KEYWORD,-normal-lf,PROXY
 DOMAIN-KEYWORD,-normal-c-lf,PROXY
 DOMAIN-KEYWORD,-core-c-lf,PROXY
-# DOMAIN-KEYWORD,-core-
-# DOMAIN-KEYWORD,-misc-
-# DOMAIN-KEYWORD,-search-
-# DOMAIN-KEYWORD,-aweme-
+# DOMAIN-KEYWORD,-core-,PROXY
+# DOMAIN-KEYWORD,-misc-,PROXY
+# DOMAIN-KEYWORD,-search-,PROXY
+# DOMAIN-KEYWORD,-aweme-,PROXY
 # CDN
-# DOMAIN-KEYWORD,cdn-tos
+# DOMAIN-KEYWORD,cdn-tos,PROXY
 # 确定的域名
 # 针对 amemv.com 域名下的 -normal- 关键词代理就能实现IP归属地修改。如果对全局域名进行代理的话，请求的视频内容大部分来自海外cdn。
 # CDN
-# DOMAIN-SUFFIX,bytetos.com
-# DOMAIN-SUFFIX,amemv.com
-# DOMAIN-SUFFIX,zijieapi.com
-# DOMAIN-SUFFIX,awemeughun.com
-# DOMAIN-SUFFIX,ecombdapi.com
-# DOMAIN-SUFFIX,bytegecko.com
-# DOMAIN-SUFFIX,ttwebview.com
-# DOMAIN-SUFFIX,bytetcc.com
+# DOMAIN-SUFFIX,bytetos.com,PROXY
+# DOMAIN-SUFFIX,amemv.com,PROXY
+# DOMAIN-SUFFIX,zijieapi.com,PROXY
+# DOMAIN-SUFFIX,awemeughun.com,PROXY
+# DOMAIN-SUFFIX,ecombdapi.com,PROXY
+# DOMAIN-SUFFIX,bytegecko.com,PROXY
+# DOMAIN-SUFFIX,ttwebview.com,PROXY
+# DOMAIN-SUFFIX,bytetcc.com,PROXY
 # 视频CDN
-# DOMAIN-SUFFIX,douyinvod.com
+# DOMAIN-SUFFIX,douyinvod.com,PROXY
 # 图片CDN
-# DOMAIN-SUFFIX,bytednsdoc.com
+# DOMAIN-SUFFIX,bytednsdoc.com,PROXY
 # 图片CDN
-# DOMAIN-SUFFIX,douyinpic.com
+# DOMAIN-SUFFIX,douyinpic.com,PROXY
 # 图片CDN
-# DOMAIN-SUFFIX,byteimg.com
+# DOMAIN-SUFFIX,byteimg.com,PROXY
 # 图片CDN？
-# DOMAIN-SUFFIX,bytegoofy.com
+# DOMAIN-SUFFIX,bytegoofy.com,PROXY
 # CDN
-# DOMAIN-SUFFIX,ibytedapm.com
+# DOMAIN-SUFFIX,ibytedapm.com,PROXY
 # CDN
-# DOMAIN-SUFFIX,yhgfb-cn-static.com
+# DOMAIN-SUFFIX,yhgfb-cn-static.com,PROXY
 # 抖音适用于PC的Web版API非常明确
 # 登录
 DOMAIN,sso.douyin.com,PROXY
@@ -297,7 +297,7 @@ DOMAIN,keylol.com,PROXY
 # 可以阻止真实ip显示，但无法显示代理ip
 DOMAIN-SUFFIX,ixigua.com,PROXY
 # ======= 文叔叔 ======= #
-# DoingDog/anti-ip-attribution
+# DoingDog/anti-ip-attribution,PROXY
 DOMAIN,www.wenshushu.cn,PROXY
 # ======= 豆瓣 ======= #
 # iOS客户端
@@ -327,9 +327,9 @@ DOMAIN,api.vip.miui.com,PROXY
 # ======= 网易云音乐 ======= #
 # DOMAIN,music.163.com,PROXY
 # https://lbs.netease.im/lbs/conf.jsp # httpdns
-# DOMAIN,httpdns.n.netease.com,REJECT,no-resolve,PROXY
-# IP-CIDR,59.111.239.61/32,REJECT,no-resolve,PROXY
-# IP-CIDR,59.111.239.62/32,REJECT,no-resolve,PROXY
+# DOMAIN,httpdns.n.netease.com,REJECT,PROXY,no-resolve
+# IP-CIDR,59.111.239.61/32,REJECT,PROXY,no-resolve
+# IP-CIDR,59.111.239.62/32,REJECT,PROXY,no-resolve
 DOMAIN-SUFFIX,nstool.netease.com,PROXY
 DOMAIN,api.crush.163.com,PROXY
 DOMAIN-SUFFIX,music.163.com,PROXY
@@ -401,18 +401,18 @@ DOMAIN,bbs-api.miyoushe.com,PROXY
 # DOMAIN,log-upload.mihoyo.com,PROXY
 # ======= MIUI ======= #
 # 应用包管理组件API
-# DOMAIN,api.installer.xiaomi.com,REJECT,PROXY
+# DOMAIN,api.installer.xiaomi.com,REJECT
 # miui-tracking
-# DOMAIN,tracking.miui.com,REJECT,PROXY
-# DOMAIN,tracking.intl.miui.com,REJECT,PROXY
-# DOMAIN,tracking.rus.miui.com,REJECT,PROXY
-# DOMAIN,tracking.india.miui.com,REJECT,PROXY
+# DOMAIN,tracking.miui.com,REJECT
+# DOMAIN,tracking.intl.miui.com,REJECT
+# DOMAIN,tracking.rus.miui.com,REJECT
+# DOMAIN,tracking.india.miui.com,REJECT
 # 病毒扫描
-# DOMAIN-SUFFIX,sec.miui.com,REJECT,PROXY
-# DOMAIN-SUFFIX,sec.intl.miui.com,REJECT,PROXY
-# DOMAIN,api.sec.miui.com,REJECT,PROXY
-# DOMAIN,staging.sec.miui.com,REJECT,PROXY
-# DOMAIN,a0.app.xiaomi.com,REJECT,PROXY
+# DOMAIN-SUFFIX,sec.miui.com,REJECT
+# DOMAIN-SUFFIX,sec.intl.miui.com,REJECT
+# DOMAIN,api.sec.miui.com,REJECT
+# DOMAIN,staging.sec.miui.com,REJECT
+# DOMAIN,a0.app.xiaomi.com,REJECT
 # ======= 豆瓣 ======= #
 # IOS APP实测有效，其余设备不保证，doubanio.com的域名是加载图片的，实测直连不影响地区
 DOMAIN-SUFFIX,douban.com,PROXY
