@@ -3,7 +3,7 @@ import time
 from datetime import datetime, timezone, timedelta
 
 def get_latest_timestamp():
-    """获取最新的时间戳（东八区时间，精确到分钟）"""
+    """获取最新的时间戳（东八区时间）"""
     latest_time = 0
     for root, _, files in os.walk("."):
         for file in files:
@@ -15,7 +15,7 @@ def get_latest_timestamp():
     # 将时间从 UTC 转换为东八区时间
     utc_time = datetime.fromtimestamp(latest_time, tz=timezone.utc)
     local_time = utc_time.astimezone(timezone(timedelta(hours=8)))
-    return local_time.strftime("%Y-%m-%d %H:%M")  # 去除秒，精确到分钟
+    return local_time.strftime("%Y-%m-%d")  # 仅保留日期，不显示精确时间
 
 def update_readme(timestamp):
     """更新 README.md 文件中的时间戳"""
