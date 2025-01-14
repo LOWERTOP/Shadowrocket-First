@@ -1,12 +1,13 @@
 #!name=AntiIPtracking
 #!desc=针对部分网站显示 IP 归属地的反跟踪规则
-# 需要注意本模块为测试版，作者无法保证配置文件一定能起到作用，且所含规则存在多种策略，可能造成相应服务走代理节点或分流失效，甚至有可能会触发账号风控
+# 注意：本模块为测试版，无法保证一定有效，且所含规则存在多种策略，可能造成相应服务走代理节点或分流失效，甚至有可能会触发账号风控
 # 配置来源：https://github.com/SunsetMkt/anti-ip-attribution
 # 重新整理：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 # 反馈渠道：https://t.me/ShadowrocketApp
 
 [Rule]
+
 # ======= 哔哩哔哩 ======= #
 # 哔哩哔哩
 # 阻止私有DNS
@@ -70,6 +71,7 @@ DOMAIN-SUFFIX,szbdyd.com,DIRECT
 DOMAIN-SUFFIX,im9.com,PROXY
 DOMAIN-SUFFIX,acg.tv,PROXY
 DOMAIN-SUFFIX,biligame.com,PROXY
+
 # ======= 微博 ======= #
 # 微博
 # 发表和评论操作会暴露IP，建议不要使用手机客户端，无法确定是否存在其他IP或域名，已扩充到DOMAIN-SUFFIX
@@ -85,6 +87,7 @@ DOMAIN-SUFFIX,wbimg.cn,PROXY
 DOMAIN-SUFFIX,wbimg.com,PROXY
 DOMAIN-SUFFIX,sinaimg.cn,PROXY
 DOMAIN-KEYWORD,weibo,PROXY
+
 # ======= 百度贴吧 ======= #
 # 百度贴吧
 # 百度贴吧域名，不存在单独的API域名
@@ -101,7 +104,6 @@ DOMAIN,gsp0.baidu.com,PROXY
 DOMAIN,hm.baidu.com,PROXY
 # 网友提供贴吧IP定位接口
 DOMAIN,www.baidu.com,PROXY
-# Update #32
 # 贴吧App API域名
 DOMAIN,tiebac.baidu.com,PROXY
 # 极端方案，可能会代理图片CDN
@@ -112,6 +114,7 @@ DOMAIN,httpsdns.baidu.com,PROXY
 DOMAIN,c.tieba.baidu.com,PROXY
 DOMAIN,httpdns.baidu.com,PROXY
 DOMAIN,httpdns.baidubce.com,PROXY
+
 # ======= 微信 ======= #
 # 微信通用
 # 用途未知
@@ -125,6 +128,7 @@ DOMAIN,httpdns.baidubce.com,PROXY
 # 疑似微信视频号，用途未知
 # DOMAIN,szshort.weixin.qq.com,PROXY
 # 无法确定准确的请求方式，建议全局代理
+
 # ======= 知乎 ======= #
 # 知乎
 # 知乎统计API域名
@@ -143,12 +147,14 @@ IP-CIDR,118.89.204.198/23,REJECT,no-resolve
 IP-CIDR,118.89.204.198/23,REJECT,no-resolve
 # 知乎 HTTPDNS (IPv6)
 IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/40,REJECT,no-resolve
+
 # ======= 国家反诈中心 ======= #
 # 国家反诈中心App
 # 国家反诈中心域名，全部阻断
 DOMAIN-SUFFIX,gjfzpt.cn,REJECT
 # 用途未知
 IP-CIDR,219.143.187.136/32,REJECT
+
 # ======= 抖音 ======= #
 # 抖音
 # 请求域名过多，建议全局代理
@@ -206,14 +212,17 @@ DOMAIN,sso.douyin.com,PROXY
 DOMAIN,www.douyin.com,PROXY
 # API域名
 DOMAIN-SUFFIX,snssdk.com,PROXY
+
 # ======= 头条 ======= #
 # 网友提供头条IP定位接口
 DOMAIN-SUFFIX,toutiaoapi.com,PROXY
+
 # ======= 快手 ======= #
 # 个人主页似乎有延迟，未测试
 # 一个域名连不上会请求另一个，两个同时使用就会生效了
 DOMAIN-SUFFIX,gifshow.com,PROXY
 DOMAIN-SUFFIX,ksapisrv.com,PROXY
+
 # ======= 小红书 ======= #
 DOMAIN-SUFFIX,xiaohongshu.com,PROXY
 DOMAIN-KEYWORD,xiaohongshu,PROXY
@@ -292,42 +301,46 @@ IP-CIDR,150.109.222.103/32,PROXY,no-resolve
 IP-CIDR,150.109.222.99/32,PROXY,no-resolve
 IP-CIDR,150.109.222.110/32,PROXY,no-resolve
 IP-CIDR,203.205.220.62/32,PROXY,no-resolve
+
 # ======= 其乐论坛 ======= #
 DOMAIN,keylol.com,PROXY
+
 # ======= 西瓜视频 ======= #
 # 可以阻止真实ip显示，但无法显示代理ip
 DOMAIN-SUFFIX,ixigua.com,PROXY
+
 # ======= 文叔叔 ======= #
 # DoingDog/anti-ip-attribution,PROXY
 DOMAIN,www.wenshushu.cn,PROXY
-# ======= 豆瓣 ======= #
-# iOS客户端
-# 目前无法可靠地处理iOS端的请求，建议全局代理
-IP-CIDR,119.29.29.98/32,REJECT,no-resolve
-IP-CIDR,120.53.130.158/32,PROXY,no-resolve
-DOMAIN,frodo.douban.com,PROXY
-# 网页端
-DOMAIN,www.douban.com,PROXY
+
 # ======= 酷安 ======= #
 DOMAIN,api.coolapk.com,PROXY
 DOMAIN,api2.coolapk.com,PROXY
+
 # ======= TapTap ======= #
 DOMAIN,api.taptapdada.com,PROXY
+
 # ======= 网易大神 ======= #
 DOMAIN,god.gameyw.netease.com,PROXY
+
 # ======= 虎牙 ======= #
 DOMAIN-SUFFIX,huya.com,PROXY
+
 # ======= 懂球帝 ======= #
 DOMAIN-SUFFIX,dongqiudi.com,PROXY
+
 # ======= NGA ======= #
 DOMAIN,ngabbs.com,PROXY
 DOMAIN,bbs.nga.cn,PROXY
 DOMAIN,nga.178.com,PROXY
+
 # ======= 小米社区 ======= #
 DOMAIN,api.vip.miui.com,PROXY
+
 # ======= 网易云音乐 ======= #
 # DOMAIN,music.163.com,PROXY
-# https://lbs.netease.im/lbs/conf.jsp # httpdns
+# https://lbs.netease.im/lbs/conf.jsp
+# httpdns
 # DOMAIN,httpdns.n.netease.com,REJECT,PROXY,no-resolve
 # IP-CIDR,59.111.239.61/32,REJECT,PROXY,no-resolve
 # IP-CIDR,59.111.239.62/32,REJECT,PROXY,no-resolve
@@ -372,10 +385,12 @@ IP-CIDR,119.36.90.80/32,PROXY,no-resolve
 IP-CIDR,111.48.137.146/32,PROXY,no-resolve
 IP-CIDR,1.95.21.35/32,PROXY,no-resolve
 IP-CIDR,47.100.127.239/32,PROXY,no-resolve
+
 # ======= Lofter ======= #
 DOMAIN-SUFFIX,lofter.com,PROXY
 DOMAIN,yaolu.yuedu.163.com,PROXY
 DOMAIN-SUFFIX,lf127.net,DIRECT
+
 # ======= 斗鱼 ======= #
 # direct斗鱼直播流
 DOMAIN-SUFFIX,hls3-akm.douyucdn.cn,DIRECT
@@ -395,11 +410,13 @@ DOMAIN-SUFFIX,danmuPROXY.douyu.com,DIRECT
 DOMAIN-SUFFIX,img.douyucdn.cn,DIRECT
 DOMAIN-SUFFIX,douyucdn.cn,PROXY
 DOMAIN-SUFFIX,douyu.com,PROXY
+
 # ======= 米游社 ======= #
 DOMAIN,bbs-api.mihoyo.com,PROXY
 DOMAIN,bbs-api.miyoushe.com,PROXY
 # DOMAIN,api-takumi.mihoyo.com,PROXY
 # DOMAIN,log-upload.mihoyo.com,PROXY
+
 # ======= MIUI ======= #
 # 应用包管理组件API
 # DOMAIN,api.installer.xiaomi.com,REJECT
@@ -414,21 +431,32 @@ DOMAIN,bbs-api.miyoushe.com,PROXY
 # DOMAIN,api.sec.miui.com,REJECT
 # DOMAIN,staging.sec.miui.com,REJECT
 # DOMAIN,a0.app.xiaomi.com,REJECT
+
 # ======= 豆瓣 ======= #
-# IOS APP实测有效，其余设备不保证，doubanio.com的域名是加载图片的，实测直连不影响地区
+# doubanio.com 的域名是加载图片的，实测直连不影响地区
 DOMAIN-SUFFIX,douban.com,PROXY
 IP-CIDR,49.233.242.15/32,PROXY,no-resolve
 IP-CIDR,81.70.124.99/32,PROXY,no-resolve
 IP-CIDR,81.70.125.19/32,PROXY,no-resolve
 IP-CIDR,140.143.177.206/32,PROXY,no-resolve
+# 目前不确定是否能可靠地处理iOS端的请求，建议全局代理
+IP-CIDR,119.29.29.98/32,REJECT,no-resolve
+IP-CIDR,120.53.130.158/32,PROXY,no-resolve
+DOMAIN,frodo.douban.com,PROXY
+# 网页端
+DOMAIN,www.douban.com,PROXY
+
 # ======= 小黑盒 ======= #
 DOMAIN,api.xiaoheihe.cn,PROXY
+
 # ======= QQ音乐 ======= #
-# 测试
-DOMAIN,y.qq.com,DIRECT # 图片资源，直连
+# 图片资源，直连
+DOMAIN,y.qq.com,DIRECT
 DOMAIN-SUFFIX,y.qq.com,PROXY
+
 # ======= 森空岛 ====== #
 DOMAIN,zonai.skland.com,PROXY
+
 # ======= Soul ======= #
 # https://www.soulapp.cn/
 # 目前采取了比较激进的策略
@@ -439,8 +467,10 @@ DOMAIN,img.soulapp.cn,DIRECT
 # DOMAIN-SUFFIX,getui.com,PROXY 
 DOMAIN-SUFFIX,soulapp.cn,PROXY
 # DOMAIN-SUFFIX,qchannel03.cn,PROXY
+
 # ======= 起点App ======= #
 DOMAIN,druidv6.if.qidian.com,PROXY
 DOMAIN,ptlogin6.qidian.com,PROXY
+
 # ======= 完美世界电竞App ======= #
 DOMAIN,api.wmpvp.com,PROXY
