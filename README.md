@@ -33,7 +33,7 @@
 `更新概述`
 > * 更新 反追踪模块内的规则
 > * 新增 流媒体检测快捷指令
-> * 提升 部分规则集兼容性 感谢：[Huidong Chen](https://github.com/UncleDeron)
+> * 提升 部分规则集兼容性 感谢：[UncleDeron](https://github.com/UncleDeron)
 > * 新增 `配色文件` 至 30 个，其中 `亮底色 / 暗底色` 各 15 个
 > * 新增 `各类链接` 经 HTTP 进行[重定向跳转服务](#url-redirector-非标准链接重定向跳转)，含 `URL-Schemes 跳转`
 > * 新增 `小火箭 URL-Schemes` [方便复制粘贴](#url-redirector-非标准链接重定向跳转)
