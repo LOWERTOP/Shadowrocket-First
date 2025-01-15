@@ -91,7 +91,7 @@
 
 #### [官方文件](https://github.com/LOWERTOP/Shadowrocket-First#%E5%AE%98%E6%96%B9%E6%96%87%E4%BB%B6)
 
-> 本页提供 [Shadowrocket 官方群组](https://t.me/ShadowrocketApp) 使用的 `关键词列表` ，也可称为教程/手册/文档，同时，本页还提供局部优化和修正的版本以供使用。官方群组推荐的 [懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人含分流/策略组/代理分组配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 也一并提供一键安装按钮。该配置文件的备注非常详细，基本上把官方的操作手册都备注到了配置文件内，非常适合新人上手和进阶调整
+> 本页提供 [Shadowrocket 官方群组](https://t.me/ShadowrocketApp) 使用的 `关键词列表` ，也可称为教程/手册/文档，同时本页还提供局部优化和修正的版本以供参阅。官方群组推荐的 [懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人含分流/策略组/代理分组配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 也一并提供一键安装按钮。该配置文件的备注非常详细，基本上把官方的操作手册都备注到了配置文件内，非常适合新人上手和进阶调整
 >
 > [![查看文档 优化版本](https://img.shields.io/static/v1?label=查看文档&message=优化版本&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
 > [![查看文档 官方版本](https://img.shields.io/static/v1?label=查看文档&message=官方版本&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/wlxuf/Shadowrocket/blob/main/README.md "点击查阅")
