@@ -137,7 +137,7 @@
 >   
 > [![安装模块 京东历史比价](https://img.shields.io/static/v1?label=安装模块&message=京东历史比价&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/JD_Price.sgmodule "一键安装本模块")
 >
-> [XiangwanGuan 向晚](https://github.com/XiangwanGuan) 维护的基于墨鱼去广告模块定制的融合模块，包含且不限于墨鱼去开屏、京东历史比价、YouTube、哔哩哔哩、微博、小红书、菜鸟裹裹、知乎、皮皮虾、彩云天气、高德地图去广告等，有自动更新/重建策略，可能会根据需要增减内容，详情可参阅 [README](https://github.com/XiangwanGuan/Shadowrocket/blob/main/README.md#%E8%9E%8D%E5%90%88%E6%A8%A1%E5%9D%97)
+> [XiangwanGuan 向晚](https://github.com/XiangwanGuan) 维护的融合模块，基于墨鱼去广告模块定制，每周一 8 时自动构建。该模块包含且不限于：墨鱼去开屏、京东历史比价，以及 YouTube、哔哩哔哩、微博、小红书、菜鸟裹裹、知乎、皮皮虾、彩云天气、高德地图、 彩云天气等服务的去广告功能。该模块也可能会根据需要变更服务内容，具体详情可参阅 [发布仓库](https://github.com/XiangwanGuan/Shadowrocket)
 >   
 > [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=mediapipe&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule "一键安装本模块")
 
