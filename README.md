@@ -3,6 +3,7 @@
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
 > [!WARNING]
+> 
 > __警告：禁止使用本仓库内的任何内容牟利！如需转载请 `标明作者` 或 `注明来源`__
 
 ------
@@ -20,6 +21,7 @@
 [forks-image]: https://img.shields.io/github/forks/LOWERTOP/Shadowrocket-First?style=static&logo=github&label=Fork
 
 > [!NOTE]
+> 
 > 本仓库主要提供 `Shadowrocket/小火箭` 相关内容，包含一些自制/收集而来的 `配置文件` `模块` `规则集` `脚本` 等配置，同时提供多种自主设计的 `小火箭配色/主题/皮肤`
 >
 > 若您是本仓索引内容的原作者或权利人，且不希望本仓引用您的内容，可点击 [此处](https://t.me/LowerTopBot) 要求剔除
@@ -47,6 +49,7 @@
 ## [Shadowrocket 自制配置](https://github.com/LOWERTOP/Shadowrocket-First#shadowrocket-%E8%87%AA%E5%88%B6%E9%85%8D%E7%BD%AE)
 
 > [!NOTE]
+> 
 > 本单元为自制内容，是为 `特定软件或服务` 所用，如有需要请自行取用
 
 #### [Talkatone](https://github.com/LOWERTOP/Shadowrocket-First#talkatone)
@@ -85,6 +88,7 @@
 ## [Shadowrocket 收集配置](https://github.com/LOWERTOP/Shadowrocket-First?tab=readme-ov-file#shadowrocket-%E6%94%B6%E9%9B%86%E9%85%8D%E7%BD%AE)
 
 > [!NOTE]
+> 
 > 本单元内容为收集自官方或第三方相对靠谱的 `手册` `配置` `模块` `规则` `脚本` 等，可放心食用
 > 
 > _注意：使用大多数模块必须 [开启 HTTPS 解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，部分 APP 需要启用模块后重装方可生效_
@@ -187,6 +191,7 @@
 ## [Shadowrocket 配色文件](https://github.com/LOWERTOP/Shadowrocket-First?tab=readme-ov-file#shadowrocket-%E9%85%8D%E8%89%B2%E6%96%87%E4%BB%B6)
 
 > [!NOTE]
+> 
 > 本单元为小火箭配色文件相关内容。项目出发点是作者在使用小火箭的过程中对小火箭的配色逐渐感到单调，借助本身是设计出身，遂制作了几个配色文件，没想到反响挺好，后就借助 GitHub 平台逐步发布多种自己设计的配色文件，以供大家挑选使用
 >
 > `极其鸣谢` 快捷指令作者：[iab](https://t.me/iab000) + [GitHub](https://github.com/iab0x00)
@@ -194,12 +199,14 @@
 > `特别鸣谢` 提供建议好友：[Sage](https://t.me/huskydb)
 
 > [!TIP]
+> 
 > * __配色一键安装：__ 选择所需配色，点击 `一键安装` ，允许跳转后点击 `使用` 即可
 > * __复制代码安装：__ 复制所需 `shadowrocket://color?*` 配色代码，在 `配置` 页点击 “ ✚ ” 号，粘贴并应用
 > * __快捷指令安装：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/9189e0bfe6fa49eaa1653f7f90459f30) ，在 `快捷指令` 中选择配色并安装
 > * __恢复默认配色：__ `APP-设置-颜色-重设颜色`
 
 > [!IMPORTANT]
+> 
 > 因苹果系统限制，小火箭部分细节图标不可自定义配色，且会跟随系统深色/浅色模式改变。使用自定义配色时可能会因此特性导致局部细节图标可视度存在问题。建议在使用 `亮底色` 时搭配系统浅色模式，使用 `暗底色` 时搭配系统深色模式
 
 `效果示例：TermiusDark`
@@ -217,6 +224,7 @@
 ------
 
 > [!CAUTION]
+> 
 > __以下为已完成的小火箭配色文件，如需转载请务必 `标明作者` 或 `注明来源`__
 
 ------
@@ -771,12 +779,15 @@ _To Be Continued..._
 ### Shadowrocket 颜色配置描述翻译
 
 > [!NOTE]
+> 
 > 小火箭配色使用十六进制色值进行定义，用户可根据需要进行调整，以下为小火箭配色描述的参考翻译，如有需要请自行查阅
 
 > [!TIP]
+> 
 > 可将配色链接交给 AI 进行随机/按要求搭配，或许有意外 ~~惊吓~~ 惊喜
 
 > <details>
+>
 > <summary>点击查看配色描述翻译</summary>
 >
 > `以下内容若移动设备显示不全，左右拖动即可`
@@ -823,11 +834,13 @@ _To Be Continued..._
 ## [URL Redirector 非标准链接重定向跳转](https://github.com/LOWERTOP/Shadowrocket-First?tab=readme-ov-file#url-redirector-%E9%9D%9E%E6%A0%87%E5%87%86%E9%93%BE%E6%8E%A5%E9%87%8D%E5%AE%9A%E5%90%91%E8%B7%B3%E8%BD%AC)
 
 > [!NOTE]
+> 
 > 本单元为 URL Redirector 非标准链接重定向跳转相关内容，主要服务于向 GitHub 等网站发布内容的作者朋友们。本服务的出发点是作者在使用 `GitHub` 进行小火箭配置设置期间，发现本页不能使用 `URL-Schemes` 的链接作为超链一键安装，也就是本页不支持非标准链接的超链，遂萌生了使用 `HTML` 进行跳转的想法，后经 `GPT` 帮助实现本单元初步设想和现有功能。GitHub 中也有其他类似功能的仓库，可以自行翻阅
 >
 > 本服务虽然主要指向 `非标准链接` 的跳转，但是例如 `HTTP` `HTTPS` 等类型的 `标准链接` 自然也是支持跳转。另外小火箭配色文件的设置链接和普通链接编码不同，使用本项目跳转小火箭配色链接可能存在解码问题，除此之外暂未发现其他链接跳转不正常的案例
 
 > [!TIP]
+> 
 > 复制以下链接，粘贴在需要跳转的链接前进行访问即可
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=
@@ -840,6 +853,7 @@ _To Be Continued..._
 >> * 完成后即可点击跳转并成功安装
 >
 > <details>
+>
 > <summary>点击查看小火箭各配置的 一键安装 跳转链接</summary>
 >
 > `以下跳转链接后接相应文件地址`
