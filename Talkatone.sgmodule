@@ -49,7 +49,6 @@ DOMAIN-SUFFIX,ic.de.inmobi.com,REJECT-DROP
 DOMAIN-SUFFIX,impression.link,REJECT-DROP
 DOMAIN-SUFFIX,impression-asia.liftoff.io,REJECT-DROP
 DOMAIN-SUFFIX,ins.track.tappx.com,REJECT-DROP
-DOMAIN-SUFFIX,itunes.apple.com,REJECT-DROP
 DOMAIN-SUFFIX,lh3.googleadsserving.cn,REJECT-DROP
 DOMAIN-SUFFIX,mads.amazon-adsystem.com,REJECT-DROP
 DOMAIN-SUFFIX,mfx.mobilefuse.com,REJECT-DROP
