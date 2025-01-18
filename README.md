@@ -99,7 +99,7 @@
 > 
 > _注意：使用时请务必阅读相应的 `配置建议`_
 > 
-> [![规则检索 分流规则集](https://img.shields.io/static/v1?label=规则检索&message=分流规则集&color=grey&logo=quicklook&logoColor=white&labelColor=%2325A162&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
+> [![规则检索 分流规则集](https://img.shields.io/static/v1?label=规则检索&message=分流规则集&color=grey&logo=dask&logoColor=white&labelColor=%2325A162&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
 
 #### [去广告规则](#%E5%8E%BB%E5%B9%BF%E5%91%8A%E8%A7%84%E5%88%99)
 
@@ -116,11 +116,11 @@
 > 
 > [yfamily](https://github.com/deezertidal) 、[blackmatrix7](https://github.com/blackmatrix7) 、[QingRex](https://github.com/QingRex) 、[app2smile](https://github.com/app2smile) 等作者也有模块仓库，可以进他们的仓库进行挑选。不过部分仓库中的模块不一定是原生模块，使用他们的模块有可能需要使用 [Script-Hub 格式转换模块](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) ，请自行甄选
 >   
-> [![模块检索 模块大合集](https://img.shields.io/static/v1?label=模块检索&message=模块大合集&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "点击查看模块")
-> [![模块检索 whatshub](https://img.shields.io/static/v1?label=模块检索&message=whatshub&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://whatshub.top/shadowrocket "点击查看模块")
-> [![模块检索 blackmatrix7](https://img.shields.io/static/v1?label=模块检索&message=blackmatrix7&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看模块")
-> [![模块检索 QingRex](https://img.shields.io/static/v1?label=模块检索&message=QingRex&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
-> [![模块检索 app2smile](https://img.shields.io/static/v1?label=模块检索&message=app2smile&color=grey&logo=quicklook&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/app2smile/rules "点击查看模块")
+> [![模块检索 模块大合集](https://img.shields.io/static/v1?label=模块检索&message=模块大合集&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "点击查看模块")
+> [![模块检索 whatshub](https://img.shields.io/static/v1?label=模块检索&message=whatshub&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://whatshub.top/shadowrocket "点击查看模块")
+> [![模块检索 blackmatrix7](https://img.shields.io/static/v1?label=模块检索&message=blackmatrix7&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看模块")
+> [![模块检索 QingRex](https://img.shields.io/static/v1?label=模块检索&message=QingRex&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
+> [![模块检索 app2smile](https://img.shields.io/static/v1?label=模块检索&message=app2smile&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/app2smile/rules "点击查看模块")
 
 #### [墨鱼原生模块](#%E5%A2%A8%E9%B1%BC%E5%8E%9F%E7%94%9F%E6%A8%A1%E5%9D%97)
 
