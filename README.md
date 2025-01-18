@@ -133,7 +133,7 @@
 >   
 > [![安装模块 京东历史比价](https://img.shields.io/static/v1?label=安装模块&message=京东历史比价&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/JD_Price.sgmodule "一键安装本模块")
 >
-> [XiangwanGuan 向晚](https://github.com/XiangwanGuan) 维护的融合模块，基于墨鱼去广告模块定制，增加了京东历史比价、YouTube去广告等功能，每周一 8 时自动构建，具体详情可参阅 [发布仓库](https://github.com/XiangwanGuan/Shadowrocket)
+> [XiangwanGuan 向晚](https://github.com/XiangwanGuan) 维护的融合模块，是基于墨鱼去广告模块定制的模块，增加了京东历史比价、YouTube 去广告等功能，每周一 8 时自动构建，具体详情可参阅 [发布仓库](https://github.com/XiangwanGuan/Shadowrocket)
 >   
 > [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule "一键安装本模块")
 
