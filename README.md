@@ -10,16 +10,10 @@
 
 ## [Shadowrocket-First 仓库自述](https://github.com/LOWERTOP/Shadowrocket-First)
 
-[![GitHub stars][stars-image]][stars-url]
-[![GitHub forks][forks-image]][forks-url]
-![GitHub last commit](https://img.shields.io/github/last-commit/LOWERTOP/Shadowrocket-First?style=flat&logo=github&label=%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4&color=blue)
+![GitHub Repo stars](https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=flat&logo=github&logoColor=white&label=%E6%98%9F%E6%A0%87&labelColor=grey&color=blue "已被星标次数")
+![GitHub forks](https://img.shields.io/github/forks/LOWERTOP/Shadowrocket-First?style=flat&logo=github&logoColor=white&label=%E5%A4%8D%E5%88%BB&labelColor=grey&color=blue "已被复刻次数")
+![GitHub last commit](https://img.shields.io/github/last-commit/LOWERTOP/Shadowrocket-First?style=flat&logo=github&label=%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4&color=blue "更新时间")
 [![交流群组 Shadowrocket](https://img.shields.io/static/v1?label=交流群组&message=Shadowrocket&color=blue&logo=telegram&logoColor=white&labelColor=grey&messageColor=white)](https://t.me/ShadowrocketApp "Shadowrocket 官方群组")
-
-[stars-url]: https://github.com/LOWERTOP/Shadowrocket-First/stargazers "已被星标次数"
-[stars-image]: https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=static&logo=github&label=Star
-
-[forks-url]: https://github.com/LOWERTOP/Shadowrocket-First/network/members "已被复刻次数"
-[forks-image]: https://img.shields.io/github/forks/LOWERTOP/Shadowrocket-First?style=static&logo=github&label=Fork
 
 > [!NOTE]
 > 
