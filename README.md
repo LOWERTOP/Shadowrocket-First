@@ -51,7 +51,7 @@
 > 
 > [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule "一键安装本模块")
 
-#### [Ultra Mobile](#ultra-mobile-paygo-wificalling)
+#### [UltraMobile](#ultramobile)
 
 > Ultra Mobile Paygo WiFi Calling 相关配置，适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能，或可适用于 T-Mobile Pay As You Go SIM 卡。本文推荐使用本仓库中的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) 进行处理。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用小火箭的配置模式。本文同时提供相关服务的 [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list) ，如有需要请自行取用
 >
@@ -131,7 +131,7 @@
 >   
 > [![安装模块 墨鱼去广告](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
 >
-> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的京东历史比价模块，商品页内嵌入历史比价显示，点击商品标题即可查看。京东版本要求请查阅模块详情
+> 京东历史比价模块，商品页内嵌入历史比价显示，点击商品标题即可查看。京东版本要求请查阅模块详情
 >   
 > [![安装模块 京东历史比价](https://img.shields.io/static/v1?label=安装模块&message=京东历史比价&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/JD_Price.sgmodule "一键安装本模块")
 >
@@ -141,9 +141,7 @@
 
 #### [iab 原生模块](#iab-%E5%8E%9F%E7%94%9F%E6%A8%A1%E5%9D%97)
 
-> _以下为管理员 [iab](https://github.com/iab0x00) 维护的原生模块，根据需要一键安装即可_
-> 
-> YouTube 去广告模块，支持去除该软件的各类广告并提供画中画功能。原始代码由 [Maasea](https://github.com/Maasea) 维护
+> YouTube 去广告模块，为管理员 [iab](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能。同时该作者还维护有其他模块，可根据需要安装
 >   
 > [![安装模块 油管去广告](https://img.shields.io/static/v1?label=安装模块&message=油管去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > 
