@@ -83,8 +83,8 @@
 > 本单元内容为收集自官方或第三方相对靠谱的 `手册` `配置` `模块` `规则` `脚本` 等，可放心食用
 >
 >> * 使用大多数模块必须 [开启 HTTPS 解密](https://lowertop.github.io/Shadowrocket/#https%E8%A7%A3%E5%AF%86)，启用模块后部分 APP 需要重装<br>
->> * 更新配置文件可能会造成自定义规则丢失，一般不建议更新<br>
->> * 使用 [证书模块](https://lowertop.github.io/Shadowrocket/#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97) 或可避免更换配置文件后需要重装证书
+>> * 更新配置文件可能会造成自定义规则及证书丢失，一般不建议更新<br>
+>> * 使用 [证书模块](https://lowertop.github.io/Shadowrocket/#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97) 或可避免解密失效
 
 #### [官方文件](#%E5%AE%98%E6%96%B9%E6%96%87%E4%BB%B6)
 
