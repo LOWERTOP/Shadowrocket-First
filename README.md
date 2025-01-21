@@ -84,7 +84,7 @@
 >
 >> * 使用大多数模块须 [开启 HTTPS 解密](https://lowertop.github.io/Shadowrocket/#https%E8%A7%A3%E5%AF%86)，启用模块后部分 APP 需要重装<br>
 >> * 更新配置文件可能会造成自定义规则丢失，一般不建议更新<br>
->> * 切换配置文件要重装证书，或使用 [证书模块](https://lowertop.github.io/Shadowrocket/#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)
+>> * 切换配置文件需要重新安装并信任证书，或使用 [证书模块](https://lowertop.github.io/Shadowrocket/#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)
 
 #### [官方文件](#%E5%AE%98%E6%96%B9%E6%96%87%E4%BB%B6)
 
