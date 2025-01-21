@@ -131,7 +131,7 @@
 >   
 > [![安装模块 墨鱼去广告](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
 >
-> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的京东历史比价模块，于京东应用商品页内嵌历史比价显示，点击商品标题即可查看。京东版本要求请查阅模块详情
+> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的京东历史比价模块，商品页内嵌入历史比价显示，点击商品标题即可查看。京东版本要求请查阅模块详情
 >   
 > [![安装模块 京东历史比价](https://img.shields.io/static/v1?label=安装模块&message=京东历史比价&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/JD_Price.sgmodule "一键安装本模块")
 >
