@@ -778,46 +778,45 @@ _To Be Continued..._
 > 可将配色链接交给 AI 进行随机/按要求搭配，或许有意外 ~~惊吓~~ 惊喜
 
 > <details>
->
-> <summary>点击查看配色描述翻译</summary>
->
-> `以下内容若移动设备显示不全，左右拖动即可`
->
-> ```ruby
-> NavigationBarColor: 导航栏背景色
-> NavigationBar2Color: 备用导航栏背景色
-> NavigationBarTextColor: 导航栏文字颜色
-> NavigationBar2TextColor: 备用导航栏文字颜色
-> TabBarColor: 标签栏背景色
-> TabBarBorderColor: 标签栏边框颜色
-> TabBarSelectedColor: 标签栏选中项颜色
-> TabBarUnselectedColor: 标签栏未选中项颜色
-> TableBackgroundColor: 表格背景颜色
-> TableCellBackgroundColor: 表格单元格背景颜色
-> TableCellSelectedBackgroundColor: 表格单元格选中背景颜色
-> TableSeparatorColor: 表格分隔线颜色
-> TextFieldTextColor: 文本框文字颜色
-> PlaceholderColor: 占位符颜色
-> TextLabelTextColor: 文本标签文字颜色
-> DetailLabelTextColor: 详细标签文字颜色
-> TextLabelDeleteColor: 文本标签删除文字颜色
-> HeaderFooterTextColor: 页眉页脚文字颜色
-> SearchFieldBackgroundColor: 搜索框背景颜色
-> IndicatorColor: 指示器颜色
-> ButtonIconColor: 按钮图标颜色
-> ButtonNormalColor: 按钮正常状态颜色
-> ButtonNormal2Color: 备用按钮正常状态颜色
-> ButtonNormal3Color: 备用按钮正常状态颜色3
-> ButtonHighlightedColor: 按钮高亮状态颜色
-> ButtonHighlighted2Color: 备用按钮高亮状态颜色
-> ButtonHighlighted3Color: 备用按钮高亮状态颜色3
-> ButtonDisabledColor: 按钮禁用状态颜色
-> ButtonDisabled2Color: 备用按钮禁用状态颜色
-> PingSuccessTextColor: Ping 成功文字颜色
-> PingTimeoutTextColor: Ping 超时文字颜色
-> DefaultDotColor: 默认 “ 点 ” 颜色
-> HUDBackgroundColor: HUD 弹窗背景颜色
-> ```
+>   <summary>点击查看配色描述翻译</summary>
+>   
+>   `以下内容若移动设备显示不全，左右拖动即可`
+>   
+>   ```ruby
+>   NavigationBarColor: 导航栏背景色
+>   NavigationBar2Color: 备用导航栏背景色
+>   NavigationBarTextColor: 导航栏文字颜色
+>   NavigationBar2TextColor: 备用导航栏文字颜色
+>   TabBarColor: 标签栏背景色
+>   TabBarBorderColor: 标签栏边框颜色
+>   TabBarSelectedColor: 标签栏选中项颜色
+>   TabBarUnselectedColor: 标签栏未选中项颜色
+>   TableBackgroundColor: 表格背景颜色
+>   TableCellBackgroundColor: 表格单元格背景颜色
+>   TableCellSelectedBackgroundColor: 表格单元格选中背景颜色
+>   TableSeparatorColor: 表格分隔线颜色
+>   TextFieldTextColor: 文本框文字颜色
+>   PlaceholderColor: 占位符颜色
+>   TextLabelTextColor: 文本标签文字颜色
+>   DetailLabelTextColor: 详细标签文字颜色
+>   TextLabelDeleteColor: 文本标签删除文字颜色
+>   HeaderFooterTextColor: 页眉页脚文字颜色
+>   SearchFieldBackgroundColor: 搜索框背景颜色
+>   IndicatorColor: 指示器颜色
+>   ButtonIconColor: 按钮图标颜色
+>   ButtonNormalColor: 按钮正常状态颜色
+>   ButtonNormal2Color: 备用按钮正常状态颜色
+>   ButtonNormal3Color: 备用按钮正常状态颜色3
+>   ButtonHighlightedColor: 按钮高亮状态颜色
+>   ButtonHighlighted2Color: 备用按钮高亮状态颜色
+>   ButtonHighlighted3Color: 备用按钮高亮状态颜色3
+>   ButtonDisabledColor: 按钮禁用状态颜色
+>   ButtonDisabled2Color: 备用按钮禁用状态颜色
+>   PingSuccessTextColor: Ping 成功文字颜色
+>   PingTimeoutTextColor: Ping 超时文字颜色
+>   DefaultDotColor: 默认 “ 点 ” 颜色
+>   HUDBackgroundColor: HUD 弹窗背景颜色
+>   ```
 > </details>
 
 ------
@@ -844,81 +843,80 @@ _To Be Continued..._
 >> * 完成后即可点击跳转并成功安装
 >
 > <details>
->
-> <summary>点击查看小火箭各配置的 一键安装 跳转链接</summary>
->
-> `以下跳转链接后接相应文件地址`
->
-> `配置文件` 的一键安装跳转链接
-> ```ruby
-> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/
-> ```
-> `模块文件` 的一键安装跳转链接
-> ```ruby
-> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=
-> ```
-> `订阅/节点` 的一键安装跳转链接
-> ```ruby
-> https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
-> ```
-> </details>
->
+>   <summary>点击查看小火箭各配置的 一键安装 跳转链接</summary>
+>   
+>   `以下跳转链接后接相应文件地址`
+>   
+>   `配置文件` 的一键安装跳转链接
+>   ```ruby
+>   https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/
+>   ```
+>   `模块文件` 的一键安装跳转链接
+>   ```ruby
+>   https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=
+>   ```
+>   `订阅/节点` 的一键安装跳转链接
+>   ```ruby
+>   https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
+>   ```
+>   </details>
+>   
 > <details>
-> <summary>点击查看小火箭可用的 URL-Schemes</summary>
-> 
-> `请使用相应内容直接替换代码中的大括号及其内容`
-> 
-> `启动 VPN 隧道` 
-> ```ruby
-> shadowrocket://connect
-> ```
-> ```ruby
-> shadowrocket://open
-> ```
->  `停止 VPN 隧道` 
-> ```ruby
-> shadowrocket://disconnect
-> ```
-> ```ruby
-> shadowrocket://close
-> ```
->  `切换 VPN 开关状态` 
-> ```ruby
-> shadowrocket://toggle
-> ```
->  `使用特定节点` 
-> ```ruby
-> shadowrocket://select?s={节点名称}
-> ```
->  `添加 订阅/节点` 
-> ```ruby
-> shadowrocket://add/{url}
-> ```
->  `安装/使用 配置` 
-> ```ruby
-> shadowrocket://config/add/{url}
-> ```
->  `安装/使用 模块` 
-> ```ruby
-> shadowrocket://install?module={url}
-> ```
->  `切换全局路由（代理/配置/直连/场景）` 
-> ```ruby
-> shadowrocket://route/proxy
-> ```
-> ```ruby
-> shadowrocket://route/config
-> ```
-> ```ruby
-> shadowrocket://route/direct
-> ```
-> ```ruby
-> shadowrocket://route/scene
-> ```
-> `安装/使用 配色` 
-> ```ruby
-> shadowrocket://color?{配色设置}
-> ```
+>   <summary>点击查看小火箭可用的 URL-Schemes</summary>
+>   
+>   `请使用相应内容直接替换代码中的大括号及其内容`
+>   
+>   `启动 VPN 隧道` 
+>   ```ruby
+>   shadowrocket://connect
+>   ```
+>   ```ruby
+>   shadowrocket://open
+>   ```
+>   `停止 VPN 隧道` 
+>   ```ruby
+>   shadowrocket://disconnect
+>   ```
+>   ```ruby
+>   shadowrocket://close
+>   ```
+>   `切换 VPN 开关状态` 
+>   ```ruby
+>   shadowrocket://toggle
+>   ```
+>   `使用特定节点` 
+>   ```ruby
+>   shadowrocket://select?s={节点名称}
+>   ```
+>   `添加 订阅/节点` 
+>   ```ruby
+>   shadowrocket://add/{url}
+>   ```
+>   `安装/使用 配置` 
+>   ```ruby
+>   shadowrocket://config/add/{url}
+>   ```
+>   `安装/使用 模块` 
+>   ```ruby
+>   shadowrocket://install?module={url}
+>   ```
+>   `切换全局路由（代理/配置/直连/场景）` 
+>   ```ruby
+>   shadowrocket://route/proxy
+>   ```
+>   ```ruby
+>   shadowrocket://route/config
+>   ```
+>   ```ruby
+>   shadowrocket://route/direct
+>   ```
+>   ```ruby
+>   shadowrocket://route/scene
+>   ```
+>   `安装/使用 配色` 
+>   ```ruby
+>   shadowrocket://color?{配色设置}
+>   ```
 > </details>
 
 ------
