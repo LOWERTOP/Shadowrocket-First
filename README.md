@@ -1,10 +1,5 @@
 <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">
 
-<meta property="og:image" content="https://repository-images.githubusercontent.com/862104721/5dd0b682-4c79-4c7e-b3d3-fd1e638fbd79">
-<meta property="og:title" content="LOWERTOP">
-<meta property="og:description" content="提供小火箭常用配置和配色的 GitHub 仓库">
-<meta property="og:url" content="https://github.com/LOWERTOP/Shadowrocket-First">
-
 [![README in English](https://img.shields.io/static/v1?label=README&message=in%20English&color=grey&logo=googletranslate&logoColor=white&labelColor=%239A6700&messageColor=white)](https://translate.google.com/translate?hl=en&sl=zh-CN&tl=en&u=https://lowertop.github.io/Shadowrocket-First/ "README in English via Google Translate")
 
 
