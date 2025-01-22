@@ -866,17 +866,22 @@ _To Be Continued..._
   
   `请使用相应内容直接替换代码中的大括号及其内容`
   
-  `启动 VPN 隧道` 
+  `启动 VPN 隧道`
+  
   ```
   shadowrocket://connect
   ```
+
   ```
   shadowrocket://open
   ```
+
   `停止 VPN 隧道` 
+  
   ```
   shadowrocket://disconnect
   ```
+
   ```
   shadowrocket://close
   ```
