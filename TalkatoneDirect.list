@@ -7,7 +7,7 @@
 # 类型选择：RULE-SET
 # 策略建议：DIRECT
 
-# 使用本集需要搭配以下代理规则集
+# 使用本集需要搭配以下代理规则集，代理规则集优先级需要高于直连规则集
 # https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list
 
 DOMAIN-SUFFIX,agkn.com
