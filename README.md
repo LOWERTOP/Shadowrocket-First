@@ -843,8 +843,8 @@ _To Be Continued..._
 >> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，也就是【跳转链接】+【URL-Scheme】+【模块地址】。完成组合后类似这样： `https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module`
 >> * 完成后即可点击跳转并成功安装
 >
-> <details>
->   <summary>点击查看小火箭各配置的 一键安装 跳转链接</summary>
+>
+>   小火箭各配置的 一键安装 跳转链接
 >   
 >   `以下跳转链接后接相应文件地址`
 >   
@@ -860,90 +860,84 @@ _To Be Continued..._
 >   ```ruby
 >   https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
 >   ```
->   </details>
 
-#### [Shadowrocket URL-Schemes](#Shadowrocket-URL-Schemes)
-
-<details>
-  <summary>点击查看</summary>
+#### [Shadowrocket URL-Schemes](#shadowrocket-url-schemes)
   
-  `请使用相应内容直接替换代码中的大括号及其内容`
-  
-  `启动 VPN 隧道`
-  
-  ```ruby
-  shadowrocket://connect
-  ```
-
-  ```ruby
-  shadowrocket://open
-  ```
-
-  `停止 VPN 隧道`
-  
-  ```ruby
-  shadowrocket://disconnect
-  ```
-
-  ```ruby
-  shadowrocket://close
-  ```
-
-  `切换 VPN 开关状态`
-  
-  ```ruby
-  shadowrocket://toggle
-  ```
-
-  `使用特定节点`
-  
-  ```ruby
-  shadowrocket://select?s={节点名称}
-  ```
-
-  `添加 订阅/节点`
-  
-  ```ruby
-  shadowrocket://add/{url}
-  ```
-
-  `安装/使用 配置`
-  
-  ```ruby
-  shadowrocket://config/add/{url}
-  ```
-
-  `安装/使用 模块`
-  
-  ```ruby
-  shadowrocket://install?module={url}
-  ```
-
-  `切换全局路由（代理/配置/直连/场景）`
-  
-  ```ruby
-  shadowrocket://route/proxy
-  ```
-
-  ```ruby
-  shadowrocket://route/config
-  ```
-
-  ```ruby
-  shadowrocket://route/direct
-  ```
-
-  ```ruby
-  shadowrocket://route/scene
-  ```
-
-  `安装/使用 配色`
-  
-  ```ruby
-  shadowrocket://color?{配色设置}
-  ```
-
-</details>
+>  `请使用相应内容直接替换代码中的大括号及其内容`
+>  
+>  `启动 VPN 隧道`
+>  
+>  ```ruby
+>  shadowrocket://connect
+>  ```
+>
+>  ```ruby
+>  shadowrocket://open
+>  ```
+>
+>  `停止 VPN 隧道`
+>  
+>  ```ruby
+>  shadowrocket://disconnect
+>  ```
+>
+>  ```ruby
+>  shadowrocket://close
+>  ```
+>
+>  `切换 VPN 开关状态`
+>  
+>  ```ruby
+>  shadowrocket://toggle
+>  ```
+>
+>  `使用特定节点`
+>  
+>  ```ruby
+>  shadowrocket://select?s={节点名称}
+>  ```
+>
+>  `添加 订阅/节点`
+>  
+>  ```ruby
+>  shadowrocket://add/{url}
+>  ```
+>
+>  `安装/使用 配置`
+>  
+>  ```ruby
+>  shadowrocket://config/add/{url}
+>  ```
+>
+>  `安装/使用 模块`
+>  
+>  ```ruby
+>  shadowrocket://install?module={url}
+>  ```
+>
+>  `切换全局路由（代理/配置/直连/场景）`
+>  
+>  ```ruby
+>  shadowrocket://route/proxy
+>  ```
+>
+>  ```ruby
+>  shadowrocket://route/config
+>  ```
+>
+>  ```ruby
+>  shadowrocket://route/direct
+>  ```
+>
+>  ```ruby
+>  shadowrocket://route/scene
+>  ```
+>
+>  `安装/使用 配色`
+>  
+>  ```ruby
+>  shadowrocket://color?{配色设置}
+>  ```
 
 ------
 
