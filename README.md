@@ -842,11 +842,10 @@ _To Be Continued..._
 >> * 但是不是所有站点都支持类似地址的超链，无法完成点击跳转安装，例如本页或者 TG 就不支持……
 >> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，也就是【跳转链接】+【URL-Scheme】+【模块地址】。完成组合后类似这样： `https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module`
 >> * 完成后即可点击跳转并成功安装
->
->
->   小火箭各配置的 一键安装 跳转链接
->   
->   `以下跳转链接后接相应文件地址`
+
+#### [Shadowrocket 一键安装跳转](#shadowrocket-一键安装跳转)
+
+>   以下跳转链接后接相应文件地址
 >   
 >   `配置文件` 的一键安装跳转链接
 >   ```ruby
@@ -863,7 +862,7 @@ _To Be Continued..._
 
 #### [Shadowrocket URL-Schemes](#shadowrocket-url-schemes)
   
->  `请使用相应内容直接替换代码中的大括号及其内容`
+>  请使用相应内容直接替换代码中的大括号及其内容
 >  
 >  `启动 VPN 隧道`
 >  
