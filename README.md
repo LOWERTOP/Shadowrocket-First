@@ -767,7 +767,7 @@ _To Be Continued..._
 
 ------
 
-### [Shadowrocket 颜色配置描述翻译](#shadowrocket-%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE%E6%8F%8F%E8%BF%B0%E7%BF%BB%E8%AF%91)
+#### [Shadowrocket 颜色配置描述翻译](#shadowrocket-%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE%E6%8F%8F%E8%BF%B0%E7%BF%BB%E8%AF%91)
 
 > [!NOTE]
 > 
@@ -861,7 +861,7 @@ _To Be Continued..._
 >   ```
 >   </details>
 
-### Shadowrocket URL-Schemes
+#### [Shadowrocket URL-Schemes](Shadowrocket-URL-Schemes)
 
 <details>
   <summary>点击查看</summary>
