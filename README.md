@@ -864,9 +864,9 @@ _To Be Continued..._
 <details>
   <summary>点击查看小火箭可用的 URL-Schemes</summary>
   
-  请使用相应内容直接替换代码中的大括号及其内容
+  `请使用相应内容直接替换代码中的大括号及其内容`
   
-  启动 VPN 隧道
+  `启动 VPN 隧道`
   
   ```
   shadowrocket://connect
@@ -876,7 +876,7 @@ _To Be Continued..._
   shadowrocket://open
   ```
 
-  停止 VPN 隧道
+  `停止 VPN 隧道`
   
   ```
   shadowrocket://disconnect
@@ -886,37 +886,37 @@ _To Be Continued..._
   shadowrocket://close
   ```
 
-  切换 VPN 开关状态
+  `切换 VPN 开关状态`
   
   ```
   shadowrocket://toggle
   ```
 
-  使用特定节点
+  `使用特定节点`
   
   ```
   shadowrocket://select?s={节点名称}
   ```
 
-  添加 订阅/节点
+  `添加 订阅/节点`
   
   ```
   shadowrocket://add/{url}
   ```
 
-  安装/使用 配置
+  `安装/使用 配置`
   
   ```
   shadowrocket://config/add/{url}
   ```
 
-  安装/使用 模块
+  `安装/使用 模块`
   
   ```
   shadowrocket://install?module={url}
   ```
 
-  切换全局路由（代理/配置/直连/场景）
+  `切换全局路由（代理/配置/直连/场景）`
   
   ```
   shadowrocket://route/proxy
@@ -934,7 +934,7 @@ _To Be Continued..._
   shadowrocket://route/scene
   ```
 
-  安装/使用 配色
+  `安装/使用 配色`
   
   ```
   shadowrocket://color?{配色设置}
