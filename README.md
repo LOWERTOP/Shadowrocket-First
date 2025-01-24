@@ -780,7 +780,7 @@ _To Be Continued..._
 >   
 >   以下内容若移动设备显示不全，左右拖动即可
 >   
->   ```ruby
+>   ```
 >   NavigationBarColor: 导航栏背景色
 >   NavigationBar2Color: 备用导航栏背景色
 >   NavigationBarTextColor: 导航栏文字颜色
@@ -810,10 +810,10 @@ _To Be Continued..._
 >   ButtonHighlighted3Color: 备用按钮高亮状态颜色3
 >   ButtonDisabledColor: 按钮禁用状态颜色
 >   ButtonDisabled2Color: 备用按钮禁用状态颜色
->   PingSuccessTextColor: Ping 成功文字颜色
->   PingTimeoutTextColor: Ping 超时文字颜色
->   DefaultDotColor: 默认 “ 点 ” 颜色
->   HUDBackgroundColor: HUD 弹窗背景颜色
+>   PingSuccessTextColor: Ping成功文字颜色
+>   PingTimeoutTextColor: Ping超时文字颜色
+>   DefaultDotColor: 默认指示点颜色
+>   HUDBackgroundColor: HUD弹窗背景颜色
 >   ```
 
 ------
