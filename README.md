@@ -860,9 +860,11 @@ _To Be Continued..._
 >   https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
 >   ```
 >   </details>
-  
+
+### Shadowrocket URL-Schemes
+
 <details>
-  <summary>点击查看小火箭可用的 URL-Schemes</summary>
+  <summary>点击查看</summary>
   
   `请使用相应内容直接替换代码中的大括号及其内容`
   
