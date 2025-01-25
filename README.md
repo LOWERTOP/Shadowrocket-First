@@ -835,12 +835,12 @@ _To Be Continued..._
 
 `示例`
 
->> * 你想使用小火箭的 URL-Scheme `shadowrocket://install?module=` 一键安装小火箭的这个模块 `https://12345.com/67890.module` ，也就是 `shadowrocket://install?module=https://12345.com/67890.module` 
->> * 但是不是所有站点都支持类似地址的超链，无法完成点击跳转安装，例如本页或者 TG 就不支持……
->> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，也就是【跳转链接】+【URL-Scheme】+【模块地址】。完成组合后类似这样： `https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module`
->> * 完成后即可点击跳转并成功安装
+> * 你想使用小火箭的 URL-Scheme `shadowrocket://install?module=` 一键安装小火箭的这个模块 `https://12345.com/67890.module` ，也就是 `shadowrocket://install?module=https://12345.com/67890.module` 
+> * 但是不是所有站点都支持类似地址的超链，无法完成点击跳转安装，例如本页或者 TG 就不支持……
+> * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，也就是【跳转链接】+【URL-Scheme】+【模块地址】。完成组合后类似这样： `https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module`
+> * 完成后即可点击跳转并成功安装
 
-#### [Shadowrocket 一键安装跳转](#shadowrocket-一键安装跳转)
+#### [Shadowrocket 一键安装跳转链接](#shadowrocket-一键安装跳转链接)
 
 >   以下跳转链接后接相应文件地址
 >   
