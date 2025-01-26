@@ -30,7 +30,7 @@
 
 `更新概述`
 > * 更新 部分自有模块或规则集
-> * 新增 流媒体检测快捷指令
+> * 新增 流媒体检测服务
 > * 提升 部分规则集兼容性 感谢：[UncleDeron](https://github.com/UncleDeron)
 > * 新增 `配色文件` 至 30 个，其中 `亮底色 / 暗底色` 各 15 个
 > * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
@@ -171,12 +171,17 @@
 >   
 > [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript "点击查看脚本内容")
 
-#### [解锁检测快捷指令](#%E8%A7%A3%E9%94%81%E6%A3%80%E6%B5%8B%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4)
+#### [常用服务解锁检测](#常用服务解锁检测)
 
 > [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://t.me/huskydb) 各制作有 `解锁检测快捷指令` ，可用来检测各流媒体服务的解锁地区或可用性，也可以检测 ChatGPT、TikTok、YouTube 等服务的解锁地区或状态以及 IP 归属地等。脚本检测会根据你的分流规则进行测试，安装后运行即可，若出现错误请多试几次。其中 K 版是各服务统一通知结果，S 版是不同服务分别通知结果
 >   
 > [![快捷指令 解锁检测 K](https://img.shields.io/static/v1?label=快捷指令&message=解锁检测%20K&color=grey&logo=openlayers&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/c2ccf142aeb649cd955dad8a4c02d3cf "点击安装快捷指令")
 > [![快捷指令 解锁检测 S](https://img.shields.io/static/v1?label=快捷指令&message=解锁检测%20S&color=grey&logo=openlayers&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/0bd31373228d4c94be224d2477c38148 "点击安装快捷指令")
+>
+> [Sage](https://t.me/huskydb) 另有提供常用服务解锁检测服务。安装 [模块](https://raw.githubusercontent.com/huskydsb/Shadowrocket/refs/heads/main/Sgmodule/流媒体解锁测试.module) 后访问 [链接](https://streaming.test/)，根据页面服务内容进行可视化操作即可
+>
+> [![首先安装 检测模块](https://img.shields.io/static/v1?label=首先安装&message=检测模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/huskydsb/Shadowrocket/refs/heads/main/Sgmodule/流媒体解锁测试.module "一键安装本模块")
+> [![其次访问 检测页面](https://img.shields.io/static/v1?label=其次访问&message=检测页面&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://streaming.test/ "点击访问检测页面")
 
 ------
 
