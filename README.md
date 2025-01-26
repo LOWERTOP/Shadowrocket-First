@@ -37,7 +37,7 @@
 
 ------
 
-## [Shadowrocket 自制配置](#shadowrocket-%E8%87%AA%E5%88%B6%E9%85%8D%E7%BD%AE)
+## [Shadowrocket 自制配置](#shadowrocket-自制配置)
 
 > [!NOTE]
 > 
@@ -57,26 +57,26 @@
 >
 > [![安装模块 UltraMobile](https://img.shields.io/static/v1?label=安装模块&message=UltraMobile&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule "一键安装本模块")
 
-#### [CMCCiTV 咪咕直播源模块](#cmccitv-%E5%92%AA%E5%92%95%E7%9B%B4%E6%92%AD%E6%BA%90%E6%A8%A1%E5%9D%97)
+#### [CMCCiTV 咪咕直播源模块](#cmccitv-咪咕直播源模块)
 
 > 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。但测试中发现原贴中需要解析的域名并未出现在我所在的地区，而是出现了其他域名，导致方案无效，在将该域名进行映射后可以在非移动网络下正常观看。所以原方案似乎并不适用于所有非移动用户或不同地区的用户，并且我网络环境下该服务似乎对公共DNS也很敏感。所以制作了一个 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule) ，包含了必要的规则、DNS覆写、以及地址映射，理论上应该支持所有运营商使用咪咕直播源。现在提供 `Beta 版本` 欢迎试用，如果发现在当地网络环境下还存在类似问题，可以进入模块文本根据说明进行调整
 >
 > [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
 
-#### [反追踪模块](#%E5%8F%8D%E8%BF%BD%E8%B8%AA%E6%A8%A1%E5%9D%97)
+#### [反追踪模块](#反追踪模块)
 
 > 来源于 [SunsetMkt](https://github.com/SunsetMkt) 的 [anti-ip-attribution](https://github.com/SunsetMkt/anti-ip-attribution) 仓库，针对部分网站显示 IP 归属地的反跟踪规则。需要注意本模块为测试版，作者无法保证本模块一定能起到作用，甚至可能存在触发账号风控的风险。同时，其中规则存在多种策略，可能造成相应网站走代理或分流失效。详细说明请参见 [这里的备注](https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/rules.yaml)
 >
 > [![安装模块 AntiIPtracking](https://img.shields.io/static/v1?label=安装模块&message=AntiIPtracking&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule "一键安装本模块")
 
-#### [自用规则集](#%E8%87%AA%E7%94%A8%E8%A7%84%E5%88%99%E9%9B%86)
+#### [自用规则集](#自用规则集)
 
 > 本规则集仅适用于作者的自用需求。仅包含 小蚁摄像机 等自用服务的部分规则，建议略过本内容
 >
 > [![规则文件 AntiAD](https://img.shields.io/static/v1?label=规则文件&message=AntiAD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list "点击访问规则集")
 ------
 
-## [Shadowrocket 收集配置](#shadowrocket-%E6%94%B6%E9%9B%86%E9%85%8D%E7%BD%AE)
+## [Shadowrocket 收集配置](#shadowrocket-收集配置)
 
 > [!NOTE]
 > 
@@ -86,7 +86,7 @@
 >> * 更新配置文件可能会造成自定义规则丢失，一般不建议更新<br>
 >> * 切换配置文件需要重新安装并信任证书，或使用 [证书模块](https://lowertop.github.io/Shadowrocket/#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)
 
-#### [官方文件](#%E5%AE%98%E6%96%B9%E6%96%87%E4%BB%B6)
+#### [官方文件](#官方文件)
 
 > 本页提供 [Shadowrocket 官方群组](https://t.me/ShadowrocketApp) 使用的 `关键词列表` ，也可称为教程/手册/文档，同时本页还提供局部优化和修正的版本以供参阅。官方群组推荐的 [懒人配置文件](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf) 和 [懒人分流配置](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf) 也提供一键安装，该配置文件的备注非常详细，基本上把官方的操作手册都备注到了配置文件内，非常适合新人上手和进阶调整
 >
@@ -95,7 +95,7 @@
 > [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf "一键安装本配置文件")
 > [![安装配置 懒人分流](https://img.shields.io/static/v1?label=安装配置&message=懒人分流&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 
-#### [分流规则](#%E5%88%86%E6%B5%81%E8%A7%84%E5%88%99)
+#### [分流规则](#分流配置)
 
 > 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各代理软件分流规则的官方入口，是现阶段首推的代理规则集
 > 
@@ -103,7 +103,7 @@
 > 
 > [![规则检索 分流规则集](https://img.shields.io/static/v1?label=规则检索&message=分流规则集&color=grey&logo=dask&logoColor=white&labelColor=%2325A162&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
 
-#### [去广告规则](#%E5%8E%BB%E5%B9%BF%E5%91%8A%E8%A7%84%E5%88%99)
+#### [去广告规则](#去广告规则)
 
 > [Cats-Team](https://github.com/Cats-Team) 维护的 [去广告规则](https://github.com/Cats-Team/AdRules) ，应该能去除大部分开屏广告，将其 [添加为规则集](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99) ，并将策略设置为 `Reject` 即可使用
 >
@@ -112,7 +112,7 @@
 > [![规则文件 Cats-Team](https://img.shields.io/static/v1?label=规则文件&message=Cats-Team&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules.list "点击访问规则集")
 > [![规则文件 Johnshall](https://img.shields.io/static/v1?label=规则文件&message=Johnshall&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf "点击访问规则集")
 
-#### [模块合集](#%E6%A8%A1%E5%9D%97%E5%90%88%E9%9B%86)
+#### [模块合集](#模块合集)
 
 > 某不愿透漏姓名的 __`热心网友`__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要挑选，安装前请认真阅读页面内的说明
 > 
@@ -125,7 +125,7 @@
 > [![模块检索 QingRex](https://img.shields.io/static/v1?label=模块检索&message=QingRex&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
 > [![模块检索 app2smile](https://img.shields.io/static/v1?label=模块检索&message=app2smile&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/app2smile/rules "点击查看模块")
 
-#### [墨鱼原生模块](#%E5%A2%A8%E9%B1%BC%E5%8E%9F%E7%94%9F%E6%A8%A1%E5%9D%97)
+#### [墨鱼原生模块](#墨鱼原生模块)
 
 > [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的去广告整合模块，模块内含墨鱼去开屏2.0、喜马拉雅、哔哩哔哩、微博、KEEP、知乎、百度网盘、高德地图、小红书、网易云、什么值得买、菜鸟、彩云天气、豆瓣网页等多款软件或服务的去广告规则
 >   
@@ -139,7 +139,7 @@
 >   
 > [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule "一键安装本模块")
 
-#### [iab 原生模块](#iab-%E5%8E%9F%E7%94%9F%E6%A8%A1%E5%9D%97)
+#### [iab 原生模块](#iab-原生模块)
 
 > YouTube 去广告模块，为管理员 [iab](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能。同时该作者还维护有其他模块，可根据需要安装
 >   
@@ -157,13 +157,13 @@
 >   
 > [![安装模块 微博轻享版](https://img.shields.io/static/v1?label=安装模块&message=微博轻享版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/WeiBoIntl.sgmodule "一键安装本模块")
 
-#### [app2smile 模块](#app2smile-%E6%A8%A1%E5%9D%97)
+#### [app2smile 模块](#app2smile-模块)
 
 > [app2smile](https://github.com/app2smile) 维护的 贴吧去广告 模块，详细内容参见模块 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule) ，该模块的有效性请自行测试
 >   
 > [![安装模块 贴吧去广告](https://img.shields.io/static/v1?label=安装模块&message=贴吧去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule "一键安装本模块")
 
-#### [筛选订阅脚本](#%E7%AD%9B%E9%80%89%E8%AE%A2%E9%98%85%E8%84%9A%E6%9C%AC)
+#### [筛选订阅脚本](#%筛选订阅脚本)
 
 > [kiwi707](https://github.com/kiwi707) 制作的 `筛选/规范订阅节点` 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
 > 
@@ -185,7 +185,7 @@
 
 ------
 
-## [Shadowrocket 配色文件](#shadowrocket-%E9%85%8D%E8%89%B2%E6%96%87%E4%BB%B6)
+## [Shadowrocket 配色文件](#shadowrocket-配色文件)
 
 > [!NOTE]
 > 
@@ -772,7 +772,7 @@ _To Be Continued..._
 
 ------
 
-#### [Shadowrocket 颜色配置描述翻译](#shadowrocket-%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE%E6%8F%8F%E8%BF%B0%E7%BF%BB%E8%AF%91)
+#### [Shadowrocket 颜色配置描述翻译](#shadowrocket-颜色配置描述翻译)
 
 > [!NOTE]
 > 
@@ -823,7 +823,7 @@ _To Be Continued..._
 
 ------
 
-## [URL Redirector 非标准链接重定向跳转](#url-redirector-%E9%9D%9E%E6%A0%87%E5%87%86%E9%93%BE%E6%8E%A5%E9%87%8D%E5%AE%9A%E5%90%91%E8%B7%B3%E8%BD%AC)
+## [URL Redirector 非标准链接重定向跳转](#url-redirector-非标准链接重定向跳转)
 
 > [!NOTE]
 > 
