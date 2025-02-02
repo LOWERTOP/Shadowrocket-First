@@ -1,7 +1,10 @@
-DOMAIN-KEYWORD,deepseek
+# NAME:DeepSeek
+# TOTAL:8
+
 DOMAIN-SUFFIX,deepseek.com
-DOMAIN-SUFFIX,fengkongcloud.com
-DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,api-docs.deepseek.com
+DOMAIN-SUFFIX,api.deepseek.com
+DOMAIN-SUFFIX,portal101.com
 DOMAIN-SUFFIX,volces.com
 DOMAIN-SUFFIX,intercom.io
 DOMAIN-SUFFIX,intercom.com
