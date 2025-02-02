@@ -29,7 +29,7 @@
 > * `04` · [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
 
 `更新概述`
-> * 新增 [DeepSeek 规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list)
+> * 新增 [DeepSeek 相关内容](#deepseek)
 > * 新增 [常用服务解锁检测](#常用服务解锁检测)
 > * 提升 部分规则集兼容性 感谢：[UncleDeron](https://github.com/UncleDeron)
 > * 新增 `配色文件` 至 30 个，其中 `亮底色 / 暗底色` 各 15 个
@@ -71,7 +71,7 @@
 
 #### [DeepSeek](#deepseek)
 
-> DeepSeek 在中国大陆地区仅可以使用手机号注册和登陆使用，本仓提供分流模块和规则，可解锁使用邮箱、谷歌账号等注册与登录
+> DeepSeek 在中国大陆地区仅可以使用手机号注册和登陆使用，本仓提供[分流模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule)和[代理规则](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list)，可解锁使用邮箱、谷歌账号等注册与登录
 > 
 > [![安装模块 DeepSeek](https://img.shields.io/static/v1?label=安装模块&message=DeepSeek&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule "一键安装本模块")
 > [![规则文件 DeepSeek](https://img.shields.io/static/v1?label=规则文件&message=DeepSeek&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list "点击访问规则集")
