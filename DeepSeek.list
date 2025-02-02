@@ -1,5 +1,5 @@
-# Name=DeepSeek
-# Desc=DeepSeek 代理规则集
+# NAME:DeepSeek
+# TOTAL
 
 DOMAIN-SUFFIX,deepseek.com
 DOMAIN-SUFFIX,fengkongcloud.com
