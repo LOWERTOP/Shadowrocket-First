@@ -1,5 +1,5 @@
-#!name=DeepSeek
-#!desc=DeepSeek 代理规则集
+# Name=DeepSeek
+# Desc=DeepSeek 代理规则集
 # 本规则集的目的是代理该服务的地址以使用邮箱等方式登陆和使用该服务
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
