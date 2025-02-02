@@ -29,7 +29,7 @@
 > * `04` · [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
 
 `更新概述`
-> * 新增 [deepseek 规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list)
+> * 新增 [DeepSeek 规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list)
 > * 更新 部分自有模块或规则集
 > * 新增 流媒体检测服务
 > * 提升 部分规则集兼容性 感谢：[UncleDeron](https://github.com/UncleDeron)
