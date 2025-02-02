@@ -6,4 +6,4 @@ DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,volces.com
 DOMAIN-SUFFIX,intercom.io
 DOMAIN-SUFFIX,intercom.com
-USER-AGENT,DeepSeek%20Chat*
+USER-AGENT,DeepSeek*
