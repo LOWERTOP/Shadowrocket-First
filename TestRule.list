@@ -1,0 +1,17 @@
+#!name=DeepSeek
+#!desc=DeepSeek 代理规则集
+# 本规则集的目的是代理该服务的地址以使用邮箱等方式登陆和使用该服务
+# 整理作者：https://github.com/LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+# 反馈渠道：https://t.me/ShadowrocketApp
+# 类型选择：RULE-SET
+# 策略建议：PROXY
+
+DOMAIN-KEYWORD,deepseek
+DOMAIN-SUFFIX,deepseek.com
+DOMAIN-SUFFIX,fengkongcloud.com
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,volces.com
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercom.com
+USER-AGENT,DeepSeek*
