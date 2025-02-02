@@ -30,8 +30,7 @@
 
 `更新概述`
 > * 新增 [DeepSeek 规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list)
-> * 更新 部分自有模块或规则集
-> * 新增 [常用服务解锁检测服务](#常用服务解锁检测)
+> * 新增 [常用服务解锁检测](#常用服务解锁检测)
 > * 提升 部分规则集兼容性 感谢：[UncleDeron](https://github.com/UncleDeron)
 > * 新增 `配色文件` 至 30 个，其中 `亮底色 / 暗底色` 各 15 个
 > * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
