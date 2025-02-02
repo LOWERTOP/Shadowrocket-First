@@ -20,3 +20,4 @@ DOMAIN-SUFFIX,sentry.io,PROXY
 DOMAIN-SUFFIX,volces.com,PROXY
 DOMAIN-SUFFIX,intercom.io,PROXY
 DOMAIN-SUFFIX,intercom.com,PROXY
+DOMAIN-SUFFIX,intercomcdn.com,PROXY
