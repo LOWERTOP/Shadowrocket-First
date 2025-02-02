@@ -14,8 +14,10 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 # 以下为该软件可能需代理地址
 DOMAIN-KEYWORD,deepseek,PROXY
 DOMAIN-SUFFIX,deepseek.com,PROXY
+DOMAIN-SUFFIX,fengkongcloud.cn,PROXY
 DOMAIN-SUFFIX,fengkongcloud.com,PROXY
 DOMAIN-SUFFIX,portal101.cn,PROXY
+DOMAIN-SUFFIX,portal101.com,PROXY
 DOMAIN-SUFFIX,sentry.io,PROXY
 DOMAIN-SUFFIX,volces.com,PROXY
 DOMAIN-SUFFIX,intercom.io,PROXY
