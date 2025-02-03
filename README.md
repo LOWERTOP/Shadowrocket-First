@@ -45,7 +45,7 @@
 
 #### [Talkatone](#talkatone)
 
-> 在中国大陆境内使用 Talkatone 服务，推荐使用小火箭加载本仓库的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 使用。由于 Talkatone 的特殊性，使用时需要对特殊地址进行代理，而对其他地址进行直连，这样可以降低该 APP 对不同代理节点的敏感度。该模块还附带去广告规则，能够去除 APP 中的部分第三方广告。同时，除模块外本页还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list) 、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list) 、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 等。其中 `全局代理规则集` 为该服务的全局代理规则，对代理节点要求较高，不推荐使用，其他规则集相关用法请查阅其内部说明
+> 如需在特定地区使用 Talkatone 服务，推荐使用小火箭加载本仓库的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 使用。由于 Talkatone 的特殊性，使用时需要对特殊地址进行代理，而对其他地址进行直连，这样可以降低该 APP 对不同代理节点的敏感度。该模块还附带去广告规则，能够去除 APP 中的部分第三方广告。同时，除模块外本页还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list) 、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list) 、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 等。其中 `全局代理规则集` 为该服务的全局代理规则，对代理节点要求较高，不推荐使用，其他规则集相关用法请查阅其内部说明
 > 
 >_注意：本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册_
 > 
@@ -53,7 +53,7 @@
 
 #### [DeepSeek](#deepseek)
 
-> DeepSeek 在中国大陆地区仅提供手机号注册和登陆使用，本仓提供 [分流模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule) 和 [代理规则](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list)，可解锁使用邮箱、谷歌账号等注册与登录。模块中屏蔽了部分可能涉及传输个人信息的地址
+> DeepSeek 在特定地区必须使用手机号注册和登陆使用，本仓提供 [分流模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule) 和 [代理规则](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list)，可解锁使用邮箱、谷歌账号等注册与登录。模块中屏蔽了部分可能涉及传输个人信息的地址
 > 
 > [![安装模块 DeepSeek](https://img.shields.io/static/v1?label=安装模块&message=DeepSeek&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule "一键安装本模块")
 
