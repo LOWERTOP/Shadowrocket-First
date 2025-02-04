@@ -26,7 +26,7 @@
 > * `01` · [Shadowrocket 自制配置](#shadowrocket-自制配置)
 > * `02` · [Shadowrocket 收集配置](#shadowrocket-收集配置)
 > * `03` · [Shadowrocket 配色文件](#shadowrocket-配色文件)
-> * `04` · [非标准链接的重定向跳转](#url-redirector-非标准链接重定向跳转)
+> * `04` · [非标准链接的重定向跳转](#非标准链接重定向跳转)
 
 `更新概述`
 > * 新增 [DeepSeek 相关内容](#deepseek)
@@ -825,7 +825,7 @@ _To Be Continued..._
 
 ------
 
-## [URL Redirector 非标准链接重定向跳转](#url-redirector-非标准链接重定向跳转)
+## [非标准链接重定向跳转](#非标准链接重定向跳转)
 
 > [!NOTE]
 > 
