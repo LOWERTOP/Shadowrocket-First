@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,4 +9,30 @@
   <meta property="og:image:height" content="630">
   <link rel="icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/icon.png" type="image/png">
   <title>Shadowrocket-First</title>
+  <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
 </head>
+<body>
+  <header>
+    <h1>Welcome to Shadowrocket-First</h1>
+  </header>
+
+  <main id="content">
+    <!-- README 内容将通过 JavaScript 渲染到这里 -->
+  </main>
+
+  <script>
+    // 从 GitHub 加载 README.md 内容
+    fetch('https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/README.md')
+      .then(response => response.text())
+      .then(text => {
+        var converter = new showdown.Converter();
+        var html = converter.makeHtml(text);
+        document.getElementById('content').innerHTML = html;
+      })
+      .catch(error => {
+        console.error('Error loading README:', error);
+        document.getElementById('content').innerHTML = '<p>无法加载 README 内容</p>';
+      });
+  </script>
+</body>
+</html>
