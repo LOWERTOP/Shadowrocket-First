@@ -28,12 +28,12 @@
 > * `03` · [Shadowrocket 配色文件](#shadowrocket-配色文件)
 > * `04` · [非标准链接的重定向跳转](#非标准链接重定向跳转)
 
-`更新概述`
-> * 新增 [DeepSeek 相关内容](#deepseek)
+`项目更新`
+> * 新增 [DeepSeek 规则与模块](#deepseek)
 > * 新增 [常用服务解锁检测](#常用服务解锁检测)
-> * 提升 部分规则集兼容性 感谢：[UncleDeron](https://github.com/UncleDeron)
-> * 新增 `配色文件` 至 30 个，其中 `亮底色 / 暗底色` 各 15 个
-> * 新增 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
+> * 更新 部分规则集兼容性 感谢：[UncleDeron](https://github.com/UncleDeron)
+> * 更新 [配色文件](#shadowrocket-配色文件) 至 30 个
+> * 增设 [TCP 缓冲区在线计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) 用来调优 VPS TCP 缓冲区 [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
 ------
 
