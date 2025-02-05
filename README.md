@@ -780,9 +780,9 @@ _To Be Continued..._
 #### [Shadowrocket 颜色配置描述翻译](#shadowrocket-颜色配置描述翻译)
 
 > 以下为小火箭配色描述的参考翻译，小火箭配色使用十六进制色值进行定义，可根据需要自行参考调整
-> 
-> 以下内容若移动设备显示不全，左右拖动即可
-> 
+
+`描述翻译`
+
 > ```
 > NavigationBarColor: 导航栏背景色
 > NavigationBar2Color: 备用导航栏背景色
@@ -845,7 +845,7 @@ _To Be Continued..._
 
 #### [Shadowrocket 一键安装跳转链接](#shadowrocket-一键安装跳转链接)
 
-> 以下跳转链接后接相应文件地址
+> 以下跳转链接后面直接跟相应文件地址
 > 
 > `配置文件` 的一键安装跳转链接
 > ```ruby
