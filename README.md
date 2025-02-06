@@ -152,15 +152,18 @@
 > [app2smile](https://github.com/app2smile) 维护的 贴吧去广告 模块，详细内容参见模块 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule) ，该模块的有效性请自行测试
 >   
 > [![安装模块 贴吧去广告](https://img.shields.io/static/v1?label=安装模块&message=贴吧去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule "一键安装本模块")
-
+>
 > 某不愿透漏姓名的 __`热心网友`__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要挑选，安装前请认真阅读页面内的说明
 > 
 > [![模块检索 模块大合集](https://img.shields.io/static/v1?label=模块检索&message=模块大合集&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "点击查看模块")
 > 
-> [yfamily](https://github.com/deezertidal)、[blackmatrix7](https://github.com/blackmatrix7)、[QingRex](https://github.com/QingRex)、[app2smile](https://github.com/app2smile) 等作者提供模块仓库，不过本文对相关模块的时效性不做保证。后两者的模块不一定全部原生兼容，部分模块有可能需要使用 [Script-Hub](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 进行格式转换，请自行甄选
+> [blackmatrix7](https://github.com/blackmatrix7)、[yfamily](https://github.com/deezertidal) 维护的原生模块仓库，如有需要请自行验证有效性
 >   
-> [![模块检索 whatshub](https://img.shields.io/static/v1?label=模块检索&message=whatshub&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://whatshub.top/shadowrocket "点击查看模块")
 > [![模块检索 blackmatrix7](https://img.shields.io/static/v1?label=模块检索&message=blackmatrix7&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看模块")
+> [![模块检索 whatshub](https://img.shields.io/static/v1?label=模块检索&message=whatshub&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://whatshub.top/shadowrocket "点击查看模块")
+> 
+> [QingRex](https://github.com/QingRex)、[app2smile](https://github.com/app2smile) 维护的非原生模块仓库，部分模块可能需要使用 [Script-Hub](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 进行格式转换，请自行甄选
+> 
 > [![模块检索 QingRex](https://img.shields.io/static/v1?label=模块检索&message=QingRex&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
 > [![模块检索 app2smile](https://img.shields.io/static/v1?label=模块检索&message=app2smile&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/app2smile/rules "点击查看模块")
 
