@@ -9,7 +9,7 @@
 
 ------
 
-# [Shadowrocket-First 仓库自述](https://github.com/LOWERTOP/Shadowrocket-First)
+# [Shadowrocket-First 自述](https://github.com/LOWERTOP/Shadowrocket-First)
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=flat&logo=github&logoColor=white&label=星标&labelColor=grey&color=blue)](https://github.com/LOWERTOP/Shadowrocket-First/stargazers "已被星标")
 [![GitHub forks](https://img.shields.io/github/forks/LOWERTOP/Shadowrocket-First?style=flat&logo=github&logoColor=white&label=复刻&labelColor=grey&color=blue)](https://github.com/LOWERTOP/Shadowrocket-First/forks "已被复刻")
