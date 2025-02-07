@@ -156,15 +156,9 @@
 > 
 > [![模块检索 模块大合集](https://img.shields.io/static/v1?label=模块检索&message=模块大合集&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.sagg.us.kg "点击查看模块")
 > 
-> [blackmatrix7](https://github.com/blackmatrix7)、[yfamily](https://github.com/deezertidal) 维护的原生模块仓库，如有需要请自行验证有效性
+> [blackmatrix7](https://github.com/blackmatrix7) 维护的原生模块仓库，如有需要请自行验证有效性
 >   
 > [![模块检索 blackmatrix7](https://img.shields.io/static/v1?label=模块检索&message=blackmatrix7&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看模块")
-> [![模块检索 whatshub](https://img.shields.io/static/v1?label=模块检索&message=whatshub&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://whatshub.top/shadowrocket "点击查看模块")
-> 
-> [QingRex](https://github.com/QingRex)、[app2smile](https://github.com/app2smile) 维护的非原生模块仓库，部分模块可能需要使用 [Script-Hub](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 进行格式转换，请自行甄选
-> 
-> [![模块检索 QingRex](https://img.shields.io/static/v1?label=模块检索&message=QingRex&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
-> [![模块检索 app2smile](https://img.shields.io/static/v1?label=模块检索&message=app2smile&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/app2smile/rules "点击查看模块")
 
 ### [筛选订阅脚本](#筛选订阅脚本)
 
