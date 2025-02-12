@@ -11,11 +11,11 @@
 
 # [Shadowrocket-First 简介](https://github.com/LOWERTOP/Shadowrocket-First)
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/LOWERTOP/Shadowrocket-First?style=flat&logo=github&label=更新时间&color=blue "更新时间")](https://lowertop.github.io/Shadowrocket-First "查看发布页面")
 [![GitHub Repo stars](https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=flat&logo=github&logoColor=white&label=星标次数&labelColor=grey&color=blue)](https://github.com/LOWERTOP/Shadowrocket-First/stargazers "已被星标")
 [![GitHub forks](https://img.shields.io/github/forks/LOWERTOP/Shadowrocket-First?style=flat&logo=github&logoColor=white&label=复刻次数&labelColor=grey&color=blue)](https://github.com/LOWERTOP/Shadowrocket-First/forks "已被复刻")
-[![交流 官方群组](https://img.shields.io/static/v1?label=交流&message=官方群组&color=blue&logo=telegram&logoColor=white&labelColor=grey&messageColor=white)](https://t.me/ShadowrocketApp "Shadowrocket 官方TG群")
-[![文档 官方手册](https://img.shields.io/static/v1?label=文档&message=官方手册&color=blue&logo=gitbook&logoColor=white&labelColor=grey&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket/tree/main "Shadowrocket 准官方文档")
+[![GitHub last commit](https://img.shields.io/github/last-commit/LOWERTOP/Shadowrocket-First?style=flat&logo=github&label=更新时间&color=blue "更新时间")](https://lowertop.github.io/Shadowrocket-First "查看发布页面")
+[![官方 交流群组](https://img.shields.io/static/v1?label=官方&message=交流群组&color=blue&logo=telegram&logoColor=white&labelColor=grey&messageColor=white)](https://t.me/ShadowrocketApp "Shadowrocket 官方TG群")
+[![官方 文档手册](https://img.shields.io/static/v1?label=官方&message=文档手册&color=blue&logo=gitbook&logoColor=white&labelColor=grey&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket/tree/main "Shadowrocket 准官方文档")
 
 > [!NOTE]
 > 
