@@ -9,7 +9,7 @@
 
 ------
 
-# [Shadowrocket-First 自述](https://github.com/LOWERTOP/Shadowrocket-First)
+# [Shadowrocket-First 简介](https://github.com/LOWERTOP/Shadowrocket-First)
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/LOWERTOP/Shadowrocket-First?style=flat&logo=github&logoColor=white&label=星标&labelColor=grey&color=blue)](https://github.com/LOWERTOP/Shadowrocket-First/stargazers "已被星标")
 [![GitHub forks](https://img.shields.io/github/forks/LOWERTOP/Shadowrocket-First?style=flat&logo=github&logoColor=white&label=复刻&labelColor=grey&color=blue)](https://github.com/LOWERTOP/Shadowrocket-First/forks "已被复刻")
@@ -938,4 +938,4 @@ _To Be Continued..._
 
 © `Copyright By LOWERTOP`
 
-<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.BTM.png" width="100%" height="100%">
+[<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.BTM.png" width="100%" height="100%">](https://lowertop.github.io/Shadowrocket-First)
