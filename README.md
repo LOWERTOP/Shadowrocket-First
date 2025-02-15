@@ -126,10 +126,6 @@
 >   
 > [![安装模块 墨鱼去广告](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
 >
-> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的 [京东历史比价模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/JD_Price.sgmodule)，商品页内嵌入历史比价显示，点击商品标题即可查看。京东 App 比较奇怪，它底层代码可能不统一，不保证每个商品都有效，版本要求请查阅模块详情
->   
-> [![安装模块 京东历史比价](https://img.shields.io/static/v1?label=安装模块&message=京东历史比价&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/JD_Price.sgmodule "一键安装本模块")
->
 > [XiangwanGuan 向晚](https://github.com/XiangwanGuan) 维护的 [融合模块](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule)，是基于墨鱼去广告模块定制的模块，增加了京东历史比价、YouTube 去广告等功能，每周一 8 时自动构建，具体详情可参阅 [发布详情](https://github.com/XiangwanGuan/Shadowrocket)
 >   
 > [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule "一键安装本模块")
@@ -149,6 +145,12 @@
 > [微博轻享版去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/WeiBoIntl.sgmodule)，由管理员 [iab](https://github.com/iab0x00) 维护，可以去除开屏、时间线及我的页面广告
 >   
 > [![安装模块 微博轻享版](https://img.shields.io/static/v1?label=安装模块&message=微博轻享版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/WeiBoIntl.sgmodule "一键安装本模块")
+> 
+> [京东历史比价模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.sgmodule)，由管理员 [iab](https://github.com/iab0x00) 维护，商品页内嵌入历史比价显示，点击商品标题即可查看。京东 App 比较奇怪，它底层代码可能不统一，不保证每个商品都有效，版本要求请查阅模块详情
+>   
+> [![安装模块 京东历史比价](https://img.shields.io/static/v1?label=安装模块&message=京东历史比价&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.sgmodule "一键安装本模块")
+>
+
 
 ### [其他模块与合集](#其他模块与合集)
 
