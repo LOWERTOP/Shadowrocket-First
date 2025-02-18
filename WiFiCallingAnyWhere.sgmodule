@@ -1,0 +1,24 @@
+#!name=WiFi Calling AnyWhere
+#!desc=【测试版】无论何地，任意启用 WiFi Calling 模块
+# 适用于 美国、英国、香港、澳大利亚和新西兰 SIM 卡的 WiFi Calling 功能
+# 整理作者：https://github.com/LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+# 反馈渠道：https://t.me/ShadowrocketApp
+
+# [General]
+# include-all-networks = true
+# include-cellular-services = true
+
+[Proxy Group]
+US Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=US|USA|America|america|United States|us|美国|凤凰城|洛杉矶|西雅图|芝加哥|纽约|沪美|美
+HK Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=HK|Hong|hong|香港|深港|沪港|京港|港
+UK Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=UK|GB|Kingdom|England|uk|Britain|London|英国|伦敦|沪英|英
+AU Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=AU|au|AUS|Australia|Britain|London|澳大利亚|澳洲|墨尔本|悉尼|阿德莱德|布里斯班|
+NZ Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=NZL|NZ|nzl|nz|New Zealand|Zealand|Aotearoa|新西兰|惠灵顿|奥克兰
+
+[Rule]
+AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), US Call
+AND,((GEOIP,HK),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), HK Call
+AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), UK Call
+AND,((GEOIP,AU),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), AU Call
+AND,((GEOIP,NZ),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), NZ Call
