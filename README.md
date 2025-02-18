@@ -789,16 +789,16 @@ _To Be Continued..._
 
 > ```
 > NavigationBarColor: 导航栏背景色
-> NavigationBar2Color: 备用导航栏背景色
+> NavigationBar2Color: 导航栏背景色2
 > NavigationBarTextColor: 导航栏文字颜色
-> NavigationBar2TextColor: 备用导航栏文字颜色
+> NavigationBar2TextColor: 导航栏文字颜色2
 > TabBarColor: 标签栏背景色
 > TabBarBorderColor: 标签栏边框颜色
 > TabBarSelectedColor: 标签栏选中项颜色
 > TabBarUnselectedColor: 标签栏未选中项颜色
 > TableBackgroundColor: 表格背景颜色
 > TableCellBackgroundColor: 表格单元格背景颜色
-> TableCellSelectedBackgroundColor: 表格单元格选中背景颜色
+> TableCellSelectedBackgroundColor: 表格单元格选中项背景颜色
 > TableSeparatorColor: 表格分隔线颜色
 > TextFieldTextColor: 文本框文字颜色
 > PlaceholderColor: 占位符颜色
@@ -810,13 +810,13 @@ _To Be Continued..._
 > IndicatorColor: 指示器颜色
 > ButtonIconColor: 按钮图标颜色
 > ButtonNormalColor: 按钮正常状态颜色
-> ButtonNormal2Color: 备用按钮正常状态颜色
-> ButtonNormal3Color: 备用按钮正常状态颜色3
+> ButtonNormal2Color: 按钮正常状态颜色2
+> ButtonNormal3Color: 按钮正常状态颜色3
 > ButtonHighlightedColor: 按钮高亮状态颜色
-> ButtonHighlighted2Color: 备用按钮高亮状态颜色
-> ButtonHighlighted3Color: 备用按钮高亮状态颜色3
+> ButtonHighlighted2Color: 按钮高亮状态颜色2
+> ButtonHighlighted3Color: 按钮高亮状态颜色3
 > ButtonDisabledColor: 按钮禁用状态颜色
-> ButtonDisabled2Color: 备用按钮禁用状态颜色
+> ButtonDisabled2Color: 按钮禁用状态颜色2
 > PingSuccessTextColor: Ping成功文字颜色
 > PingTimeoutTextColor: Ping超时文字颜色
 > DefaultDotColor: 默认指示点颜色
