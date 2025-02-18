@@ -78,7 +78,7 @@
 
 ### [自用规则集](#自用规则集)
 
-> 本规则集仅适用于作者的自用需求。仅包含 小蚁摄像机 等自用服务的部分规则，建议略过本内容
+> 本规则集仅适用于作者的自用需求。仅包含 `小蚁摄像机` 等自用服务的部分规则，建议略过本内容
 >
 > [![规则文件 AntiAD](https://img.shields.io/static/v1?label=规则文件&message=AntiAD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list "点击访问规则集")
 ------
@@ -89,8 +89,8 @@
 > 
 > 本单元内容为收集自官方或第三方相对靠谱的 `手册` `配置` `模块` `规则` `脚本` 等，可放心食用
 >
->> * 模块和规则仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 `配置` 模式时生效
->> * 使用大多数模块须正确 [开启解密](https://lowertop.github.io/Shadowrocket/#https%E8%A7%A3%E5%AF%86)，启用模块后部分 APP 需要重装
+>> * 使用大多数模块和规则仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 `配置` 模式时生效
+>> * 使用大多数模块须正确 [开启解密](https://lowertop.github.io/Shadowrocket/#https%E8%A7%A3%E5%AF%86)，启用模块后部分 APP 须重装
 >> * [更新配置文件](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE) 会造成自定义规则丢失，一般不建议更新
 >> * 切换配置文件需要重新 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，未免解密失效可使用 [证书模块](https://lowertop.github.io/Shadowrocket/#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)
 
