@@ -179,7 +179,7 @@
 
 ### [常用服务解锁检测](#常用服务解锁检测)
 
-> 管理员 [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://t.me/huskydb) 各制作有 `解锁检测快捷指令` ，可用来检测各流媒体服务的解锁地区或可用性，也可以检测 ChatGPT、TikTok、YouTube 等服务的解锁地区或状态以及 IP 归属地等。脚本检测会根据你的分流规则进行测试，安装后运行即可，若出现错误请多试几次。其中 K 版是各服务统一通知结果，S 版是不同服务分别通知结果
+> 管理员 [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://t.me/huskydb) 各制作有 `解锁检测快捷指令`，可用来检测各流媒体服务的解锁地区或可用性，也可以检测 ChatGPT、TikTok、YouTube 等服务的解锁地区或状态以及 IP 归属地等。脚本检测会根据你的分流规则进行测试，安装后运行即可，若出现错误请多试几次。其中 K 版是各服务统一通知结果，S 版是不同服务分别通知结果
 >   
 > [![快捷指令 解锁检测 K](https://img.shields.io/static/v1?label=快捷指令&message=解锁检测%20K&color=grey&logo=openlayers&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/c2ccf142aeb649cd955dad8a4c02d3cf "点击安装快捷指令")
 > [![快捷指令 解锁检测 S](https://img.shields.io/static/v1?label=快捷指令&message=解锁检测%20S&color=grey&logo=openlayers&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/0bd31373228d4c94be224d2477c38148 "点击安装快捷指令")
@@ -202,7 +202,7 @@
 
 > [!TIP]
 > 
-> * __配色一键安装：__ 选择所需配色，点击 `一键安装` ，允许跳转后点击 `使用` 即可
+> * __配色一键安装：__ 选择所需配色，点击 `一键安装`，允许跳转后点击 `使用` 即可
 > * __复制代码安装：__ 复制所需 `shadowrocket://color?*` 配色代码，在 `配置` 页点击 `✚` 号，粘贴并应用
 > * __快捷指令安装：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/9189e0bfe6fa49eaa1653f7f90459f30)，在 `快捷指令` 中选择配色并安装
 > * __恢复默认配色：__ `APP-设置-颜色-重设颜色`
@@ -842,7 +842,7 @@ _To Be Continued..._
 
 `示例`
 
-> * 你想使用小火箭的 URL-Scheme `shadowrocket://install?module=` 一键安装小火箭的这个模块 `https://12345.com/67890.module` ，也就是 `shadowrocket://install?module=https://12345.com/67890.module` 
+> * 你想使用小火箭的 URL-Scheme `shadowrocket://install?module=` 一键安装小火箭的这个模块 `https://12345.com/67890.module`，也就是 `shadowrocket://install?module=https://12345.com/67890.module` 
 > * 但是不是所有站点都支持类似地址的超链，无法完成点击跳转安装，例如本页或者 TG 就不支持……
 > * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，也就是【跳转链接】+【URL-Scheme】+【模块地址】。完成组合后类似这样： `https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module`
 > * 完成后即可点击跳转并成功安装
