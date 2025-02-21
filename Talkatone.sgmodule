@@ -63,6 +63,7 @@ DOMAIN-SUFFIX,skadnetworks.fyber.com,REJECT-DROP
 DOMAIN-SUFFIX,smaato.net,REJECT-DROP
 DOMAIN-SUFFIX,ssp.api.tappx.com,REJECT-DROP
 DOMAIN-SUFFIX,supply.inmobicdn.net,REJECT-DROP
+DOMAIN-SUFFIX,taboola.com,REJECT-DROP
 DOMAIN-SUFFIX,tappx.com,REJECT-DROP
 DOMAIN-SUFFIX,tpc.googlesyndication-cn.com,REJECT-DROP
 DOMAIN-SUFFIX,tr-asia.adsmoloco.com,REJECT-DROP
@@ -76,6 +77,8 @@ DOMAIN-SUFFIX,tktn.at,PROXY
 DOMAIN-SUFFIX,tktn.be,PROXY
 # 语音留言地址，一般需要代理
 DOMAIN-SUFFIX,vm.talkatone.com,PROXY
+# 贴图服务
+DOMAIN-SUFFIX,tenor.com,PROXY
 
 # 以下为该软件可能需要走直连的规则
 DOMAIN-SUFFIX,agkn.com,DIRECT
