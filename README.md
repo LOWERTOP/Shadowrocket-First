@@ -169,6 +169,22 @@
 > [![模块检索 Cuttlefish](https://img.shields.io/static/v1?label=模块检索&message=Cuttlefish&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
 
 
+### [进阶用法](#进阶用法)
+
+> 在当前的 iOS 平台上，想要实现较为高级的功能和操作，往往需要借助 **[BoxJs](https://docs.boxjs.app/)**、**[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)** 和 **[Sub-Store](https://github.com/sub-store-org/Sub-Store/tree/master/config)** 这三个工具来实现。为了能够顺利使用这些工具，用户需要满足以下三个基本前置条件：
+> 
+> > * **配置 MITM 功能**：通过启用中间人攻击功能，用户可以拦截和分析网络流量，从而实现更复杂的代理操作
+> > * **编写或使用相应的脚本**：脚本是实现自动化或定制化功能的关键，用户需要根据需求编写脚本或使用现成的脚本
+> > * **安装并信任相关的安全证书**：为了确保数据传输的安全性，用户必须安装并信任应用程序所需的安全证书
+>   
+> 只有在满足这三个条件后，用户才能充分发挥上述工具在代理应用中的高级玩法和功能<br>
+> 点击下方徽章可一键安装相应模块，详细用法请点击上文中的蓝色超链跳转查看
+>
+> [![安装模块 BoxJs](https://img.shields.io/static/v1?label=安装模块&message=BoxJs&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.surge.sgmodule "一键安装本模块")
+> [![安装模块 Script-Hub](https://img.shields.io/static/v1?label=安装模块&message=Script-Hub&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module "一键安装本模块")
+> [![安装模块 Sub-Store](https://img.shields.io/static/v1?label=安装模块&message=Sub-Store&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/sub-store-org/Sub-Store/master/config/Surge-Noability.sgmodule "一键安装本模块")
+
+
 ### [筛选订阅脚本](#筛选订阅脚本)
 
 > [kiwi707](https://github.com/kiwi707) 制作的 `筛选/规范订阅节点` 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
