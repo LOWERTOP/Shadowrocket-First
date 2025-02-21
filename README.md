@@ -113,6 +113,8 @@
 
 > [Cats-Team](https://github.com/Cats-Team) 维护的 [去广告规则](https://github.com/Cats-Team/AdRules)，或许能去除一部分开屏广告，将其 [添加为规则集](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99)，并将策略设置为 `Reject` 即可使用
 >
+> > _注意：去广告规则请关注可能存在的 `误杀`_
+> 
 > [Johnshall](https://github.com/Johnshall) 维护了多款 [配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)，可将其 `仅去广告配置` 作为去广告规则集使用
 > 
 > [![规则文件 Cats-Team](https://img.shields.io/static/v1?label=规则文件&message=Cats-Team&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules.list "点击访问规则集")
