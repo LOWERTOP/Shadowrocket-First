@@ -93,7 +93,7 @@
 >> * 使用大多数模块须正确 [开启解密](https://lowertop.github.io/Shadowrocket/#https%E8%A7%A3%E5%AF%86)，启用模块后部分 APP 须重装
 >> * [更新配置文件](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE) 会造成自定义规则丢失，一般不建议更新
 >> * 切换配置文件需要重新 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，未免解密失效可使用 [证书模块](https://lowertop.github.io/Shadowrocket/#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)
->> * 去广告规则请关注可能存在的 `误杀`
+>> * 需要关注去广告规则或模块可能存在的 `误杀`
 > 
 
 ### [官方文件](#官方文件)
