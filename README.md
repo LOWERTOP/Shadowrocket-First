@@ -22,10 +22,10 @@
 >> 若您是相关索引的原作者或权利人，且不希望内容被引用，可点击 [此处](https://t.me/LowerTopBot) 要求剔除
 
 `项目目录`
-> * `01` · [Shadowrocket 自制配置](#shadowrocket-自制配置)
-> * `02` · [Shadowrocket 收集配置](#shadowrocket-收集配置)
-> * `03` · [Shadowrocket 配色文件](#shadowrocket-配色文件)
-> * `04` · [非标准链接的重定向跳转](#非标准链接重定向跳转)
+> * `01` · **[Shadowrocket 自制配置](#shadowrocket-自制配置)**
+> * `02` · **[Shadowrocket 收集配置](#shadowrocket-收集配置)**
+> * `03` · **[Shadowrocket 配色文件](#shadowrocket-配色文件)**
+> * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 `项目更新`
 > * 新增 [DeepSeek 规则与模块](#deepseek)
