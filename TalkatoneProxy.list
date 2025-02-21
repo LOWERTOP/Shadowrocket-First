@@ -12,6 +12,8 @@ DOMAIN-SUFFIX,tktn.at
 DOMAIN-SUFFIX,tktn.be
 # 语音留言地址，需要代理
 DOMAIN-SUFFIX,vm.talkatone.com
+# 贴图服务
+DOMAIN-SUFFIX,tenor.com
 
 # 以下规则其实可以走直连
 DOMAIN-SUFFIX,agkn.com
