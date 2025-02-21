@@ -42,6 +42,7 @@ DOMAIN-SUFFIX,firebaseremoteconfig.googleapis.com,REJECT-DROP
 DOMAIN-SUFFIX,firebase-settings.crashlytics.com,REJECT-DROP
 DOMAIN-SUFFIX,googleads.g.doubleclick.net,REJECT-DROP
 DOMAIN-SUFFIX,googleads.g.doubleclick-cn.net,REJECT-DROP
+DOMAIN-SUFFIX,googlesyndication.com
 DOMAIN-SUFFIX,gum.criteo.com,REJECT-DROP
 DOMAIN-SUFFIX,i.l.inmobicdn.net,REJECT-DROP
 DOMAIN-SUFFIX,i.l-dsp.inmobicdn.net,REJECT-DROP
