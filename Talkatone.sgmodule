@@ -8,7 +8,7 @@
 
 [Rule]
 # 以下为该软件部分去广告规则
-DOMAIN-KEYWORD,googleads,REJECT-DROP
+# DOMAIN-KEYWORD,googleads,REJECT-DROP
 DOMAIN-SUFFIX,aax.amazon-adsystem.com,REJECT-DROP
 DOMAIN-SUFFIX,aax-fe.amazon-adsystem.com,REJECT-DROP
 DOMAIN-SUFFIX,aax-fe-sin.amazon-adsystem.com,REJECT-DROP
