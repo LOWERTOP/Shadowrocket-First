@@ -7,7 +7,7 @@
 # 类型选择：RULE-SET
 # 策略建议：REJECT-DROP 或者 REJECT
 
-DOMAIN-KEYWORD,googleads
+# DOMAIN-KEYWORD,googleads
 DOMAIN-SUFFIX,aax.amazon-adsystem.com
 DOMAIN-SUFFIX,aax-fe.amazon-adsystem.com
 DOMAIN-SUFFIX,aax-fe-sin.amazon-adsystem.com
