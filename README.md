@@ -883,7 +883,7 @@ _To Be Continued..._
 
 ### [Shadowrocket URL-Schemes](#shadowrocket-url-schemes)
   
-> 请使用相应内容替换代码中的`大括号及其内容`
+> 请使用相应内容替换代码中的 `大括号及其内容`
 >  
 > `启动 VPN 隧道`
 > 
