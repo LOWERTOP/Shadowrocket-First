@@ -130,7 +130,7 @@
 >   
 > [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule "一键安装本模块")
 > 
-> [Spotify 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)，模块源码来自 [app2smile](https://github.com/app2smile)，原版模块因 `Header Rewrite` 相关代码导致不再兼容，本模块注释掉相关不兼容代码，并增加部分去广告规则以使其可用。APP 音质不能设置为超高（建议登录后再打开脚本，重启app等待脚本生效），模块功能上可部分解锁 `Premium`，或可去除播放广告、歌手/专辑列表正常展示、去除随机播放
+> [Spotify 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)，模块源码来自 [app2smile](https://github.com/app2smile)，原版模块因 `Header Rewrite` 相关代码导致不再兼容，本模块注释掉相关不兼容代码以使其可用，并增加部分去广告规则。模块功能上可部分解锁 `Premium`，或可去除播放广告、歌手/专辑列表正常展示、去除随机播放，但音质不能设为超高（建议登录后再启用模块，重启 APP 生效）
 >   
 > [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule "一键安装本模块")
 > 
