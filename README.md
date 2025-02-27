@@ -17,7 +17,7 @@
 
 > [!NOTE]
 > 
-> 本仓库主要提供 `Shadowrocket/小火箭` 相关内容，包含多种 `配置文件` `模块` `规则集` `脚本` 等配置，同时提供多种自主设计的 `小火箭配色/主题/皮肤`。若有其他需求可以访问 Shadowrocket **[官方群组](https://t.me/ShadowrocketApp)** 和 **[准官方仓库](https://github.com/LOWERTOP/Shadowrocket)**
+> 本仓库主要提供 `Shadowrocket/小火箭` 相关内容，包含多种 `配置文件` `模块` `规则集` `脚本` 等配置，同时提供多种自主设计的 `小火箭配色/主题/皮肤`。若有其他需求可以访问 Shadowrocket **[官方群组](https://t.me/ShadowrocketApp)** 或查阅 **[使用手册](https://github.com/LOWERTOP/Shadowrocket)**
 >
 >> 若您是相关索引的原作者或权利人，且不希望内容被引用，可点击 [此处](https://t.me/LowerTopBot) 要求剔除
 
@@ -87,7 +87,7 @@
 
 > [!NOTE]
 > 
-> 本单元内容为收集自官方或第三方相对靠谱的 `手册` `配置` `模块` `规则` `脚本` 等，可放心食用
+> 本单元内容为收集自可信来源的 `手册` `配置` `模块` `规则` `脚本` 等，可放心食用
 >
 >> * 使用大多数模块和规则仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 `配置` 模式时生效
 >> * 使用大多数模块须正确 [开启解密](https://lowertop.github.io/Shadowrocket/#https%E8%A7%A3%E5%AF%86)，启用模块后部分 APP 须重装
@@ -96,9 +96,9 @@
 >> * 需要关注去广告规则或模块可能存在的 `误杀`
 > 
 
-### [官方文件](#官方文件)
+### [教程文件](#教程文件)
 
-> 本页提供 [Shadowrocket 官方群组](https://t.me/ShadowrocketApp) 使用的补全和修正版本的 [关键词列表](https://github.com/LOWERTOP/Shadowrocket)，也可视为教程/手册/文档。官方群组使用的 **[懒人配置文件](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy.conf)** 和 **[懒人分流配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf)** 也提供安装入口，其中首推分流配置，本页提供一键安装按钮，该系列配置文件的备注非常详细，基本上把官方的操作手册都备注到了配置文件内，非常适合新人上手和进阶调整
+> 本页提供 [Shadowrocket 使用手册](https://github.com/LOWERTOP/Shadowrocket) 入口，也可视为教程/文档。**[懒人配置文件](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy.conf)** 和 **[懒人分流配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf)** 也提供安装入口，其中首推分流配置，本页提供一键安装按钮，该系列配置文件的备注非常详细，基本上把软件的操作手册都备注到了配置文件内，非常适合新人上手和进阶调整
 >
 > [![查看文档 教程手册](https://img.shields.io/static/v1?label=查看文档&message=教程手册&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
 > [![安装配置 懒人分流](https://img.shields.io/static/v1?label=安装配置&message=懒人分流&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
@@ -113,8 +113,7 @@
 
 ### [去广告规则](#去广告规则)
 
-> [Cats-Team](https://github.com/Cats-Team) 维护的 [去广告规则](https://github.com/Cats-Team/AdRules)，或许能去除一部分开屏广告，将其 [添加为规则集](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99)，并将策略设置为 `Reject` 即可使用
-> 
+> [Cats-Team](https://github.com/Cats-Team) 维护的 [去广告规则](https://github.com/Cats-Team/AdRules)，或许能去除一部分开屏广告，将其 [添加为规则集](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99)，并将策略设置为 `Reject` 即可使用<br>
 > [Johnshall](https://github.com/Johnshall) 维护了多款 [配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)，可将其 `仅去广告配置` 作为去广告规则集使用
 > 
 > [![规则文件 Cats-Team](https://img.shields.io/static/v1?label=规则文件&message=Cats-Team&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules.list "点击访问规则集")
@@ -130,7 +129,7 @@
 >   
 > [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule "一键安装本模块")
 > 
-> **[Spotify 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)**：模块源码来自 [app2smile](https://github.com/app2smile)，原版模块因 `Header Rewrite` 相关代码导致不再兼容，本模块注释掉相关不兼容代码以使其可用，并增加部分去广告规则。模块功能上可部分解锁 `Premium`，或可去除播放广告、歌手/专辑列表正常展示、去除随机播放，但音质不能设为超高（建议登录后再启用模块，重启 APP 生效）
+> **[Spotify 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)**：模块源码来自 [app2smile](https://github.com/app2smile)，原模块因 `Header Rewrite` 相关代码导致不再兼容，本模块已注释掉不兼容内容并增加部分去广告规则。详细功能参见 [详情](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)
 >   
 > [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule "一键安装本模块")
 > 
