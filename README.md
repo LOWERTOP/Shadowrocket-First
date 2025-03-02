@@ -104,7 +104,7 @@
 
 ### [分流规则](#分流规则)
 
-> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各代理软件分流规则的官方入口，是现阶段首推的代理规则集
+> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各代理软件分流规则的原仓入口，是现阶段首推的代理规则集
 > 
 > _注意：使用时请务必阅读相应的 `配置建议`_
 > 
