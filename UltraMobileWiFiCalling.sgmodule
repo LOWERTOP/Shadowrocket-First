@@ -3,7 +3,6 @@
 # 本模块仅适用于 Ultra Mobile SIM 卡的 WiFi Calling 功能。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling，并可正常使用配置模式
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
-# 反馈渠道：https://t.me/ShadowrocketApp
 
 [Rule]
 DOMAIN-SUFFIX,crl.t-mobile.com,PROXY
