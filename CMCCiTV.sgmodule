@@ -4,7 +4,6 @@
 # 配置来源：https://pixman.io/topics/37
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
-# 反馈渠道：https://t.me/ShadowrocketApp
 
 [General]
 # 推荐使用以下DNS对默认DNS进行覆写，可最大程度缓和加载缓慢的问题
