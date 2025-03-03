@@ -103,10 +103,9 @@
 
 ### [懒人配置](#懒人配置)
 
-> 本配置文件以官方群组使用的懒人配置为基础进行维护。**懒人配置**，顾名思义是专为 **`懒人`** 打造的开箱即用 [配置文件](#配置文件)，该系列配置包含两个文件：一个是 **[基础配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy.conf)**，另一个是在此基础上增加了代理分组的 **[分流配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf)**。懒人配置不仅内置了详尽的注释文本，且经过精心调整内置设置以适应绝大多数用户的需求，也是除默认配置外首推的配置文件，适合各阶段用户使用
+> 本配置文件以官方群组使用的懒人配置为基础进行维护。**懒人配置**，顾名思义是专为 **`懒人`** 打造的开箱即用 [配置文件](https://github.com/LOWERTOP/Shadowrocket#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)。懒人配置不仅内置了详尽的注释文本，且经过精心调整内置设置以适应绝大多数用户的需求，也是除默认配置外首推的配置文件，适合各阶段用户使用
 >  
-> [![安装配置 基础配置](https://img.shields.io/static/v1?label=安装配置&message=基础配置&color=grey&logo=googledocs&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy.conf "一键安装本配置文件")
-> [![安装配置 分流配置](https://img.shields.io/static/v1?label=安装配置&message=分流配置&color=grey&logo=googledocs&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
+> [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 
 
 ### [分流规则](#分流规则)
