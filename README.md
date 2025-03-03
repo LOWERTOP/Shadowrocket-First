@@ -167,15 +167,15 @@
 
 > 某不愿透漏姓名的 __`热心网友`__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要挑选，安装前请认真阅读说明
 > 
-> [![模块检索 模块大合集](https://img.shields.io/static/v1?label=模块检索&message=模块大合集&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.huksy88.sbs "点击查看模块")
+> [![模块仓库 模块大合集](https://img.shields.io/static/v1?label=模块仓库&message=模块大合集&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.huksy88.sbs "点击查看模块")
 > 
 > [blackmatrix7](https://github.com/blackmatrix7) 维护的原生模块仓库，如有需要请自行验证有效性
 >   
-> [![模块检索 blackmatrix7](https://img.shields.io/static/v1?label=模块检索&message=blackmatrix7&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看模块")
+> [![模块仓库 blackmatrix7](https://img.shields.io/static/v1?label=模块仓库&message=blackmatrix7&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看模块")
 >
 > [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的或可适用小火箭的模块合集，包含高德、B站、彩云、菜鸟、微博等，自行进入选择安装
 >
-> [![模块检索 Cuttlefish](https://img.shields.io/static/v1?label=模块检索&message=Cuttlefish&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
+> [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
 
 
 ### [进阶用法](#进阶用法)
