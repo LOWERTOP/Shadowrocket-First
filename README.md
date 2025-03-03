@@ -97,10 +97,17 @@
 
 ### [教程文件](#教程文件)
 
-> 本页提供 [Shadowrocket 使用手册](https://github.com/LOWERTOP/Shadowrocket) 入口，也可视为教程/文档。**[懒人配置文件](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy.conf)** 和 **[懒人分流配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf)** 也提供安装入口，其中首推分流配置，本页提供一键安装按钮，该系列配置文件的备注非常详细，基本上把软件的操作手册都备注到了配置文件内，非常适合新人上手和进阶调整
+> 本页提供 [Shadowrocket 使用手册](https://github.com/LOWERTOP/Shadowrocket) 入口，也可视为教程/文档。本使用手册脱胎于官方群组使用的关键词列表，在其最终版本的基础上升级而来，逐步完善为使用手册以供参阅
 >
 > [![查看文档 教程手册](https://img.shields.io/static/v1?label=查看文档&message=教程手册&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
-> [![安装配置 懒人分流](https://img.shields.io/static/v1?label=安装配置&message=懒人分流&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
+
+### [懒人配置](#懒人配置)
+
+> 本配置文件以官方群组使用的懒人配置为基础进行维护。**懒人配置**，顾名思义是专为 **`懒人`** 打造的开箱即用 [配置文件](#配置文件)，该系列配置包含两个文件：一个是 **[基础配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy.conf)**，另一个是在此基础上增加了代理分组的 **[分流配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf)**。懒人配置不仅内置了详尽的注释文本，且经过精心调整内置设置以适应绝大多数用户的需求，也是除默认配置外首推的配置文件，适合各阶段用户使用
+>  
+> [![安装配置 基础配置](https://img.shields.io/static/v1?label=安装配置&message=基础配置&color=grey&logo=googledocs&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy.conf "一键安装本配置文件")
+> [![安装配置 分流配置](https://img.shields.io/static/v1?label=安装配置&message=分流配置&color=grey&logo=googledocs&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
+
 
 ### [分流规则](#分流规则)
 
