@@ -98,7 +98,7 @@
 
 ### [使用手册](#使用手册)
 
-> [Shadowrocket 使用手册](https://github.com/LOWERTOP/Shadowrocket) 也可视为小火箭的教程或文档。本使用手册是基于官方群组使用的关键词列表升级而来，使其逐步完善为使用手册以供参阅
+> [Shadowrocket 使用手册](https://github.com/LOWERTOP/Shadowrocket) 也可视为小火箭的教程或文档。本手册基于官方群组使用的关键词列表进行优化，使其逐步完善为使用手册以供参阅
 >
 > [![教程文档 使用手册](https://img.shields.io/static/v1?label=教程文档&message=使用手册&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
 
