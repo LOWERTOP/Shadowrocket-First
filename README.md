@@ -18,7 +18,7 @@
 
 > [!NOTE]
 > 
-> 本仓库主要提供 `Shadowrocket/小火箭` 相关内容，包含多种 `配置文件` `模块` `规则集` `脚本` 等配置，同时提供多种自主设计的 `小火箭配色/主题/皮肤`。若有软件使用疑问可查看 **[使用手册](https://github.com/LOWERTOP/Shadowrocket)**
+> 本仓库主要提供 `Shadowrocket/小火箭` 相关内容，包含多种 `配置文件` `模块` `规则集` `脚本` 等配置，同时提供多种原创 `小火箭配色/主题/皮肤`。若有软件使用疑问可查看 **[使用手册](https://github.com/LOWERTOP/Shadowrocket)**
 >
 >> 若您是相关索引的原作者或权利人，且不希望内容被引用，可点击 [此处](https://t.me/LowerTopBot) 要求剔除
 
