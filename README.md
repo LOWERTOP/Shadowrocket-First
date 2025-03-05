@@ -68,25 +68,23 @@
 
 **CMCCiTV 咪咕直播源模块**
 
-> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。但测试中发现原贴中需要解析的域名并未出现在我所在的地区，而是出现了其他域名，导致方案无效，在将该域名进行映射后可以在非移动网络下正常观看。所以原方案似乎并不适用于所有非移动用户或不同地区的用户，并且我网络环境下该服务似乎对公共DNS也很敏感。所以制作了一个 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule)，包含了必要的规则、DNS覆写、以及地址映射，理论上应该支持所有运营商使用咪咕直播源。现在提供 `Beta` 版本欢迎试用，如果发现在当地网络环境下还存在类似问题，可以进入模块文本根据说明进行调整
->
-> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
+群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。但测试中发现原贴中需要解析的域名并未出现在我所在的地区，而是出现了其他域名，导致方案无效，在将该域名进行映射后可以在非移动网络下正常观看。所以原方案似乎并不适用于所有非移动用户或不同地区的用户，并且我网络环境下该服务似乎对公共DNS也很敏感。所以制作了一个 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule)，包含了必要的规则、DNS覆写、以及地址映射，理论上应该支持所有运营商使用咪咕直播源。现在提供 `Beta` 版本欢迎试用，如果发现在当地网络环境下还存在类似问题，可以进入模块文本根据说明进行调整
+
+[![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
 
 **反追踪模块**
 
-> 来源于 [SunsetMkt](https://github.com/SunsetMkt) 的 [anti-ip-attribution](https://github.com/SunsetMkt/anti-ip-attribution) 仓库，是针对部分网站显示 IP 归属地的反跟踪规则模块。需要注意 [本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule) 为测试版，作者无法保证本模块一定能起到作用，甚至可能存在触发账号风控的风险。同时，其中规则存在多种策略，可能造成相应网站走代理或分流失效。详细说明参见 [相关备注](https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/rules.yaml)
-> 
-> _注意：请谨慎使用本模块_
->
-> [![安装模块 AntiIPtracking](https://img.shields.io/static/v1?label=安装模块&message=AntiIPtracking&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule "一键安装本模块")
+来源于 [SunsetMkt](https://github.com/SunsetMkt) 的 [anti-ip-attribution](https://github.com/SunsetMkt/anti-ip-attribution) 仓库，是针对部分网站显示 IP 归属地的反跟踪规则模块。需要注意 [本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule) 为测试版，作者无法保证本模块一定能起到作用，甚至可能存在触发账号风控的风险。同时，其中规则存在多种策略，可能造成相应网站走代理或分流失效。详细说明参见 [相关备注](https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/rules.yaml)
+
+_注意：请谨慎使用本模块_
+
+[![安装模块 AntiIPtracking](https://img.shields.io/static/v1?label=安装模块&message=AntiIPtracking&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule "一键安装本模块")
 
 **自用规则集**
 
-> 本规则集仅适用于作者的自用需求。仅包含 `小蚁摄像机` 等自用服务的部分规则，建议略过本内容
->
-> _注意：请谨慎使用本模块_
->
-> [![规则文件 AntiAD](https://img.shields.io/static/v1?label=规则文件&message=AntiAD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list "点击访问规则集")
+本规则集仅适用于作者的自用需求。仅包含 `小蚁摄像机` 等自用服务的部分规则，建议略过本内容
+
+[![规则文件 AntiAD](https://img.shields.io/static/v1?label=规则文件&message=AntiAD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list "点击访问规则集")
 
 </details>
 
