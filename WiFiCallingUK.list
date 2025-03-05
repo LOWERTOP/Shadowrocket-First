@@ -1,6 +1,6 @@
 #!name=UK SIM Card Wi-Fi Calling Rules
 #!desc=英国 SIM 卡 Wi-Fi Calling 配置规则（测试版）
-# 本规则仅适用于 英国 SIM 卡的 WiFi Calling 功能。使用本规则后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling 功能。
+# 本规则仅适用于部分英国 SIM 卡的 WiFi Calling 功能。使用本规则分流至英国节点后打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling 功能。
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
@@ -19,4 +19,5 @@ IP-CIDR,88.82.0.0/19,no-resolve
 IP-CIDR,46.68.0.0/17,no-resolve
 
 # Giffgaff
+DOMAIN-SUFFIX,giffgaff.com
 IP-CIDR,87.194.0.0/16,no-resolve
