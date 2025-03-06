@@ -9,15 +9,15 @@ include-all-networks = true
 include-cellular-services = true
 
 [Proxy Group]
-US Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=US|USA|America|america|United States|us|美国|凤凰城|洛杉矶|西雅图|芝加哥|纽约|沪美|美
-HK Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=HK|Hong|hong|香港|深港|沪港|京港|港
-UK Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=UK|GB|Kingdom|England|uk|Britain|London|英国|伦敦|沪英|英
-AU Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=AU|au|AUS|Australia|Britain|London|澳大利亚|澳洲|墨尔本|悉尼|阿德莱德|布里斯班|
-NZ Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=NZL|NZ|nzl|nz|New Zealand|Zealand|Aotearoa|新西兰|惠灵顿|奥克兰
+USCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇺🇸|US|USA|America|america|United States|us|美国|凤凰城|洛杉矶|西雅图|芝加哥|纽约|沪美|美
+HKCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇭🇰|HK|Hong|hong|香港|深港|沪港|京港|港
+UKCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇬🇧|UK|GB|Kingdom|England|uk|Britain|London|英国|伦敦|沪英|英
+AUCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇦🇺|AU|au|AUS|Australia|Britain|London|澳大利亚|澳洲|墨尔本|悉尼|阿德莱德|布里斯班|
+NZCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇳🇿|NZL|NZ|nzl|nz|New Zealand|Zealand|Aotearoa|新西兰|惠灵顿|奥克兰
 
 [Rule]
-AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), US Call
-AND,((GEOIP,HK),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), HK Call
-AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), UK Call
-AND,((GEOIP,AU),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), AU Call
-AND,((GEOIP,NZ),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), NZ Call
+AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), USCall
+AND,((GEOIP,HK),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), HKCall
+AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), UKCall
+AND,((GEOIP,AU),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), AUCall
+AND,((GEOIP,NZ),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), NZCall
