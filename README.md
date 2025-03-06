@@ -59,7 +59,7 @@
 
 ### [Wi-Fi Calling](#wi-fi-calling)
 
-> Wi-Fi Calling 相关配置，包含适用于美国、英国等地区的相关模块和规则集，原则上使用后打开飞行模式后再关闭飞行模式进行联网应该即可正常开启 Wi-Fi calling，并可正常使用小火箭的配置模式
+> Wi-Fi Calling 相关配置，包含适用于美国、英国等地区的相关模块和规则集，原则上使用后打开飞行模式后再关闭飞行模式进行联网应该就能正常开启 Wi-Fi calling
 > 
 > `美国地区` 部分 SIM 卡适用的相关配置，原则上适用于 Ultra Mobile 和 T-Mobile 的 SIM 卡。请自行选择 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) 或者 [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
 >
