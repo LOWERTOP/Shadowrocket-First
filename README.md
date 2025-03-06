@@ -61,7 +61,7 @@
 
 > WiFi Calling 相关配置，包含适用于美国、英国等地区的相关模块和规则集，使用后打开飞行模式后再关闭飞行模式进行联网应该即可正常开启 WiFi calling，并可正常使用小火箭的配置模式
 > 
-> 适用于美国地区的部分 SIM 卡的相关配置，原则上适用于 Ultra Mobile 和 T-Mobile 的 SIM 卡。可以使用本仓库中的 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) 进行处理，同时提供相应的 [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)，可自行选择
+> 适用于美国地区的部分 SIM 卡的相关配置，原则上适用于 Ultra Mobile 和 T-Mobile 的 SIM 卡。请自行选择 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule) 或者 [代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list)
 >
 > [![安装模块 WiFiCall-US](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-US&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.sgmodule "一键安装本模块")
 > [![规则文件 WiFiCall-US](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-US&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/UltraMobileWiFiCalling.list "点击访问规则集")
