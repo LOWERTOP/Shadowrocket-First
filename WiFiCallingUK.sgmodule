@@ -12,6 +12,9 @@ UKCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance
 # 地区检测
 # DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,UKCall
 
+# 端口分流
+AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), UKCall
+
 # 沃达丰
 DOMAIN-SUFFIX,entsrv-uk.vodafone.com,UKCall
 DOMAIN-SUFFIX,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UKCall
