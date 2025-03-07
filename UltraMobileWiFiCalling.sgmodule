@@ -1,5 +1,5 @@
-#!name=Wi-Fi Calling US
-#!desc=美国 SIM 卡 Wi-Fi Calling 配置模块
+#!name=Ultra Mobile
+#!desc=UltraMobile SIM 卡 Wi-Fi Calling 配置模块
 # 本模块适用于 Ultra Mobile 、 T-Mobile SIM 卡的 Wi-Fi Calling 功能，默认节点须是美国节点。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 Wi-Fi calling
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
