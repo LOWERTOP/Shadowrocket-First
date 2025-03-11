@@ -11,9 +11,9 @@ let modifiedBody = body;
 // 需要删除的广告类名列表
 const adClasses = ["mobadsq", "div_sub_adhost", "div_adhost", "div_close_ads", "l-box"];
 
-// 遍历删除所有匹配的广告元素
+// 更强的正则匹配方式，兼容多行、嵌套子元素等情况
 adClasses.forEach(className => {
-    const regex = new RegExp(`<div[^>]*class=["']?${className}["']?[^>]*>.*?<\\/div>`, "g");
+    const regex = new RegExp(`<div[^>]*\\b${className}\\b[^>]*>[\\s\\S]*?<\\/div>`, "g");
     modifiedBody = modifiedBody.replace(regex, '');
 });
 
