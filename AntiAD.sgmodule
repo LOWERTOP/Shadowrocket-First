@@ -10,4 +10,4 @@ RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/head
 block-twmanga-ads =type=http-response, pattern=^https?:\/\/(www\.)?twmanga\.com, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/AntiAD.js, requires-body=true, max-size=-1, timeout=60
 
 [MITM]
-hostname = %APPEND% *.xiaoyi.com,*.twmanga.com
+hostname = %APPEND% *.xiaoyi.com,*.twmanga.com,*.baozimh.com
