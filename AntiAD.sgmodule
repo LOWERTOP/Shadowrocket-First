@@ -4,7 +4,7 @@
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
-RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list,REJECT-DROP
+RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list,REJECT
 
 [Script]
 block-twmanga-ads =type=http-response, pattern=^https?:\/\/(www\.)?twmanga\.com, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/AntiAD.js, requires-body=true, max-size=-1, timeout=60
