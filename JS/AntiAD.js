@@ -1,8 +1,9 @@
 /**
  * Shadowrocket 移除 twmanga.com & baozimh.com 相关广告元素
  * 目标：
- * - 删除 twmanga 的 class="mobadsq", "div_sub_adhost", "div_adhost", "div_close_ads", "l-box"
+ * - 删除 twmanga 的 class="mobadsq", "div_sub_adhost", "div_adhost", "div_close_ads", "l-box", 
  * - 删除 baozimh 的 class="recommend" 和 h3[style="margin: 0 0 12px; padding: 0;"]
+ * - 删除 twmanga.com 的 div[style="overflow:hidden; flex: 1;"]
  * 作者: LOWERTOP
  */
 
@@ -33,6 +34,9 @@ if (/https?:\/\/([^\/]+\.)?(twmanga|baozimh)\.com/.test(url)) {
 
     // 额外删除 baozimh.com 特定的 h3 标签广告
     modifiedBody = modifiedBody.replace(/<h3[^>]*style=["']?margin:\s?0\s?0\s?12px;\s?padding:\s?0;["']?[^>]*>.*?<\/h3>/gi, '');
+
+    // 删除 twmanga.com 特定的 div[style="overflow:hidden; flex: 1;"]
+    modifiedBody = modifiedBody.replace(/<div[^>]*style=["']?overflow:\s?hidden;\s?flex:\s?1;["']?[^>]*>.*?<\/div>/gi, '');
 
     // 返回修改后的 HTML
     $done({ body: modifiedBody });
