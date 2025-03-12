@@ -1,49 +1,67 @@
 /**
  * Shadowrocket 移除 twmanga.com & baozimh.com 相关广告元素
- * 目标：
- * - 删除 twmanga 的广告：class="mobadsq", "div_sub_adhost", "div_adhost", "div_close_ads", "l-box", "m-page-bottom"
- * - 删除 baozimh 的广告：class="recommend", "addthis-box"
- * - 删除 baozimh.com 的 h3[style="margin: 0 0 12px; padding: 0;"]
- * - 删除 twmanga.com 的 div[style="overflow:hidden; flex: 1;"]
- * - 删除 twmanga.com 中 id="download-swiper" 的元素
+ * 增强版：
+ * - 新增对 baozimh.com 多个广告元素的清理
+ * - 支持类选择器、ID选择器及复合选择器
  * 作者: LOWERTOP
+ * 更新: 根据用户需求新增广告规则
  */
 
-// 获取当前请求的 URL
 const url = $request.url;
 
-// 仅在 twmanga.com 和 baozimh.com 及其所有子域名下执行
 if (/https?:\/\/([^\/]+\.)?(twmanga|baozimh)\.com/.test(url)) {
-    // 确保 $response.body 存在，避免 undefined 错误
-    if (!$response || !$response.body) {
-        $done({});
-        return;
-    }
+    const body = $response.body;
+    let modifiedBody = body;
 
-    let modifiedBody = $response.body;
-
-    // 定义所有要删除的广告 class 名称
+    // 基础广告类名清理
     const adClasses = [
-        "mobadsq", "div_sub_adhost", "div_adhost", "div_close_ads", "l-box", "m-page-bottom",  // twmanga 广告
-        "recommend", "addthis-box"  // baozimh 广告
+        "mobadsq", "div_sub_adhost", "div_adhost", 
+        "div_close_ads", "l-box", "recommend",
+        "m-page-bottom", "download-swiper",      // 新增类选择器
+        "action-buttons", "position-relative",  // 复合选择器拆解处理
+        "chapter-goto"                          // 同时保留独立类清理能力
     ];
 
-    // 统一匹配 class 并删除
-    const regex = new RegExp(`<div[^>]*class=["']?(${adClasses.join('|')})["']?[^>]*>.*?<\\/div>`, "gi");
-    modifiedBody = modifiedBody.replace(regex, '');
+    // 基础广告类清理（支持多标签类型）
+    adClasses.forEach(adClass => {
+        const regex = new RegExp(
+            `<\/?([a-zA-Z]+)[^>]*\\bclass=["'][^"']*\\b${adClass}\\b[^"']*["'][^>]*>`, 
+            "gi"
+        );
+        modifiedBody = modifiedBody.replace(regex, '');
+    });
 
-    // 额外删除 baozimh.com 特定的 h3 标签广告
-    modifiedBody = modifiedBody.replace(/<h3[^>]*style=["']?margin:\s?0\s?0\s?12px;\s?padding:\s?0;["']?[^>]*>.*?<\/h3>/gi, '');
+    // 复合类选择器专项清理（需同时包含三个类）
+    const compoundClassRegex = /<([a-zA-Z]+)(?=[^>]*class="[^"]*?\baction-buttons\b)(?=[^>]*class="[^"]*?\bposition-relative\b)(?=[^>]*class="[^"]*?\bchapter-goto\b)[^>]*>.*?<\/\1>/gi;
+    modifiedBody = modifiedBody.replace(compoundClassRegex, '');
 
-    // 删除 twmanga.com 特定的 div[style="overflow:hidden; flex: 1;"]
-    modifiedBody = modifiedBody.replace(/<div[^>]*style=["']?overflow:\s?hidden;\s?flex:\s?1;["']?[^>]*>.*?<\/div>/gi, '');
+    // ID选择器专项清理
+    const idSelectors = [
+        "download-swiper"  // ID选择器
+    ];
+    idSelectors.forEach(id => {
+        modifiedBody = modifiedBody.replace(
+            new RegExp(`<[a-zA-Z]+[^>]*\\bid=["']${id}["'][^>]*>.*?<\/[a-zA-Z]+>`, "gi"), 
+            ''
+        );
+    });
 
-    // 删除 id="download-swiper" 的元素
-    modifiedBody = modifiedBody.replace(/<div[^>]*id=["']?download-swiper["']?[^>]*>[\s\S]*?<\/div>/gi, '');
+    // 样式特征清理
+    const styleCleanRules = [
+        {
+            // baozimh 的 h3 标题广告
+            regex: /<h3[^>]*style=["']?margin:\s?0\s?0\s?12px;\s?padding:\s?0;["']?[^>]*>.*?<\/h3>/gi
+        },
+        {
+            // twmanga 的弹性布局广告容器
+            regex: /<div[^>]*style=["']?overflow:\s?hidden;\s?flex:\s?1;["']?[^>]*>.*?<\/div>/gi
+        }
+    ];
+    styleCleanRules.forEach(rule => {
+        modifiedBody = modifiedBody.replace(rule.regex, '');
+    });
 
-    // 返回修改后的 HTML
     $done({ body: modifiedBody });
 } else {
-    // 非目标域名，直接返回原始内容
     $done({});
 }
