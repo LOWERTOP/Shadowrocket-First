@@ -7,7 +7,7 @@
 RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list,REJECT
 
 [Script]
-block-twmanga-ads =type=http-response, pattern=^https?:\/\/(www\.)?twmanga\.com, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/AntiAD.js, requires-body=true, max-size=-1, timeout=60
+block-twmanga-ads = type=http-response, pattern=^https?:\/\/(www\.)?twmanga\.com\/.*, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/AntiAD.js, requires-body=true, timeout=30
 
 [URL Rewrite]
 # 移动
