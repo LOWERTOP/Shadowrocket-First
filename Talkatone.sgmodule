@@ -8,70 +8,7 @@
 [Rule]
 # 以下为该软件部分去广告规则
 # DOMAIN-KEYWORD,googleads,REJECT-DROP
-DOMAIN-SUFFIX,aax.amazon-adsystem.com,REJECT-DROP
-DOMAIN-SUFFIX,aax-fe.amazon-adsystem.com,REJECT-DROP
-DOMAIN-SUFFIX,aax-fe-sin.amazon-adsystem.com,REJECT-DROP
-DOMAIN-SUFFIX,ads.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,ads.pubmatic.com,REJECT-DROP
-DOMAIN-SUFFIX,adsappier.com,REJECT-DROP
-DOMAIN-SUFFIX,amazon-adsystem.com,REJECT-DROP
-DOMAIN-SUFFIX,app-analytics-services.com,REJECT-DROP
-DOMAIN-SUFFIX,appier.net,REJECT-DROP
-DOMAIN-SUFFIX,appiersig.com,REJECT-DROP
-DOMAIN-SUFFIX,au.w.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,b.de.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,bidder.criteo.com,REJECT-DROP
-DOMAIN-SUFFIX,c.amazon-adsystem.com,REJECT-DROP
-DOMAIN-SUFFIX,cdn.liftoff-creatives.io,REJECT-DROP
-DOMAIN-SUFFIX,cdn.mobilefuse.com,REJECT-DROP
-DOMAIN-SUFFIX,cdn2.inner-active.mobi,REJECT-DROP
-DOMAIN-SUFFIX,cdn-f.adsmoloco.com,REJECT-DROP
-DOMAIN-SUFFIX,config.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,cr.adsappier.com,REJECT-DROP
-DOMAIN-SUFFIX,criteo.com,REJECT-DROP
-DOMAIN-SUFFIX,dspbeacons.ihasdsp.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,dspbeacons.old.ihasdsp.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,ep7.facebook.com,REJECT-DROP
-DOMAIN-SUFFIX,et-eus.w.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,ets-ap-southeast-1.track.smaato.net,REJECT-DROP
-DOMAIN-SUFFIX,exchange-b-events.inner-active.mobi,REJECT-DROP
-DOMAIN-SUFFIX,firebaseinstallations.googleapis.com,REJECT-DROP
-DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com,REJECT-DROP
-DOMAIN-SUFFIX,firebaseremoteconfig.googleapis.com,REJECT-DROP
-DOMAIN-SUFFIX,firebase-settings.crashlytics.com,REJECT-DROP
-DOMAIN-SUFFIX,fundingchoicesmessages.google.com,REJECT-DROP
-DOMAIN-SUFFIX,googleads.g.doubleclick.net,REJECT-DROP
-DOMAIN-SUFFIX,googleads.g.doubleclick-cn.net,REJECT-DROP
-DOMAIN-SUFFIX,googlesyndication.com,REJECT-DROP
-DOMAIN-SUFFIX,gum.criteo.com,REJECT-DROP
-DOMAIN-SUFFIX,i.l.inmobicdn.net,REJECT-DROP
-DOMAIN-SUFFIX,i.l-dsp.inmobicdn.net,REJECT-DROP
-DOMAIN-SUFFIX,ic.de.inmobi.com,REJECT-DROP
-DOMAIN-SUFFIX,impression.link,REJECT-DROP
-DOMAIN-SUFFIX,impression-asia.liftoff.io,REJECT-DROP
-DOMAIN-SUFFIX,ins.track.tappx.com,REJECT-DROP
-DOMAIN-SUFFIX,lh3.googleadsserving.cn,REJECT-DROP
-DOMAIN-SUFFIX,mads.amazon-adsystem.com,REJECT-DROP
-DOMAIN-SUFFIX,mfx.mobilefuse.com,REJECT-DROP
-DOMAIN-SUFFIX,mt-usw.appiersig.com,REJECT-DROP
-DOMAIN-SUFFIX,pagead2.googlesyndication-cn.com,REJECT-DROP
-DOMAIN-SUFFIX,pubmatic.com,REJECT-DROP
-DOMAIN-SUFFIX,sdk-dnt.ad.smaato.net,REJECT-DROP
-DOMAIN-SUFFIX,sdk-events.inner-active.mobi,REJECT-DROP
-DOMAIN-SUFFIX,sdk-files.smaato.net,REJECT-DROP
-DOMAIN-SUFFIX,sdk-hb-cfg.smaato.net,REJECT-DROP
-DOMAIN-SUFFIX,skadnetworks.fyber.com,REJECT-DROP
-DOMAIN-SUFFIX,smaato.net,REJECT-DROP
-DOMAIN-SUFFIX,ssp.api.tappx.com,REJECT-DROP
-DOMAIN-SUFFIX,supply.inmobicdn.net,REJECT-DROP
-DOMAIN-SUFFIX,taboola.com,REJECT-DROP
-DOMAIN-SUFFIX,tappx.com,REJECT-DROP
-DOMAIN-SUFFIX,tpc.googlesyndication-cn.com,REJECT-DROP
-DOMAIN-SUFFIX,tr-asia.adsmoloco.com,REJECT-DROP
-DOMAIN-SUFFIX,view.adjust.com,REJECT-DROP
-DOMAIN-SUFFIX,vst.c.appier.net,REJECT-DROP
-DOMAIN-SUFFIX,wv.inner-active.mobi,REJECT-DROP
-DOMAIN-SUFFIX,www.googletagservices-cn.com,REJECT-DROP
+RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list,REJECT-DROP
 
 # 以下为该软件可能需要走代理的规则
 DOMAIN-SUFFIX,tktn.at,PROXY
@@ -96,3 +33,10 @@ IP-CIDR,216.172.154.0/24,DIRECT,no-resolve
 IP-CIDR,50.117.27.0/24,DIRECT,no-resolve
 IP-CIDR,63.251.124.0/24,DIRECT,no-resolve
 IP-CIDR,69.46.75.0/24,DIRECT,no-resolve
+
+[URL Rewrite]
+^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
+^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
+
+[MITM]
+hostname = %APPEND% alt-r.my.com, imgx.jampp.com
