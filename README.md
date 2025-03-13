@@ -73,9 +73,9 @@
 > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule "一键安装本模块")
 > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list "点击访问规则集")
 
-### [广告屏蔽模块](#广告屏蔽模块)
+### [综合服务模块](#综合服务模块)
 
-> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule) 和 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list) 为作者的自用需求，以去广告为主，不接受追加或定制。模块包含以下内容：Spotify适用规则、Talkatone分流及去广告，包子漫画网页、阿里云盘、Blued、百度网盘、e充电、中国移动、中国联通、郑好办、招商银行、掌上生活、一淘、闲鱼、小蚁、小米有品、瑞幸咖啡、夸克等去广告内容。规则集仅包含部分补充规则
+> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule) 和 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list) 以去广告为主，仅保证作者的自用需求。模块包含以下内容：Spotify适用规则、Talkatone分流及去广告，包子漫画网页、阿里云盘、Blued、百度网盘、e充电、中国移动、中国联通、郑好办、招商银行、掌上生活、一淘、闲鱼、小蚁、小米有品、瑞幸咖啡、夸克等去广告内容。规则集仅包含部分补充规则
 >
 > [![安装模块 AntiAD](https://img.shields.io/static/v1?label=安装模块&message=AntiAD&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule "一键安装本模块")
 > [![规则文件 AntiAD](https://img.shields.io/static/v1?label=规则文件&message=AntiAD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list "点击访问规则集")
