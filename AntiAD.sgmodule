@@ -1,6 +1,6 @@
-#!name=AntiAD
+#!name=LOWERSERV
 #!desc=LOWERTOP 自用模块，仅适用于自用需求
-# 模块包含以下服务的去广告规则：包子漫画网页、Spotify去广告及解锁、Talkatone分流及去广告、阿里云盘、Blued、百度网盘、e充电、中国移动、中国联通、郑好办、招商银行、掌上生活、一淘、闲鱼、小蚁、小米有品、瑞幸咖啡、夸克等
+# 模块包含以下内容：Spotify解锁及去广告、Talkatone分流及去广告，包子漫画网页、阿里云盘、Blued、百度网盘、e充电、中国移动、中国联通、郑好办、招商银行、掌上生活、一淘、闲鱼、小蚁、小米有品、瑞幸咖啡、夸克等去广告内容
 # 代码转载：https://raw.githubusercontent.com/fmz200
 # 代码转载：https://raw.githubusercontent.com/app2smile
 # 整理作者：https://github.com/LOWERTOP
