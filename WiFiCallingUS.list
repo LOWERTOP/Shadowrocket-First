@@ -4,6 +4,7 @@
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
+AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500))))))
 DOMAIN-SUFFIX,crl.t-mobile.com
 DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org
 DOMAIN-SUFFIX,eas3.msg.t-mobile.com
