@@ -26,6 +26,8 @@ DOMAIN-SUFFIX,redirect.ultra.me,USCall
 DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org,USCall
 DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,USCall
 DOMAIN-SUFFIX,ultramobile.com,USCall
+DOMAIN-KEYWORD,t-mobile,USCall
+DOMAIN-KEYWORD,ultramobile,USCall
 IP-CIDR,206.29.177.36/32,USCall,no-resolve
 IP-CIDR,208.54.0.0/16,USCall,no-resolve
 IP-CIDR,66.94.0.0/19,USCall,no-resolve
