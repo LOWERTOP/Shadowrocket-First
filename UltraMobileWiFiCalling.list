@@ -6,6 +6,7 @@
 
 # dns-server = 199.85.126.10,199.85.127.10
 
+AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500))))))
 DOMAIN-SUFFIX,crl.t-mobile.com
 DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org
 DOMAIN-SUFFIX,eas3.msg.t-mobile.com
