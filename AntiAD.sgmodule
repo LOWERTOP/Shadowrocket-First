@@ -75,7 +75,7 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 ^https?:\/\/m1\.ad\.10010\.com\/noticeMag\/images\/imageUpload\/2\d{3} - reject-img
 ^https?:\/\/res\.mall\.10010\.cn\/mall\/common\/js\/fa\.js?referer= - reject-img
 
-# 郑好办
+# 其他
 ^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do url response-body "imgUrl19_5x9":".+?" response-body "imgUrl19_5x9":""
 
 # 招商银行
