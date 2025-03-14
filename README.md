@@ -50,7 +50,7 @@
 
 > 由于 Talkatone 的特殊性，[本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 对其部分地址进行代理，而对其他地址进行直连，这样可以降低该 APP 对不同代理节点的敏感度。本模块包含去广告规则，能够去除 APP 中的部分第三方广告。除模块外还提供该服务单独的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list) 、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list) 、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 等。其中 `全局代理规则集` 为该服务的全局代理规则，对代理节点要求较高，不推荐使用，其他规则集相关用法请查阅内部说明
 > 
->_注意：本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册_
+>_**注意：本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册**_
 > 
 > [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule "一键安装本模块")
 > [![规则文件 去广告规则](https://img.shields.io/static/v1?label=规则文件&message=去广告规则&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list "点击访问规则集")
@@ -93,7 +93,7 @@
 
 > 来源于 [SunsetMkt](https://github.com/SunsetMkt) 的 [anti-ip-attribution](https://github.com/SunsetMkt/anti-ip-attribution) 仓库，是针对部分网站显示 IP 归属地的反跟踪规则模块。需要注意 [本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule) 为测试版，作者无法保证本模块一定能起到作用，甚至可能存在触发账号风控的风险。同时，其中规则存在多种策略，可能造成相应网站走代理或分流失效。详细说明参见 [相关备注](https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/rules.yaml)
 > 
-> _注意：请谨慎使用本模块_
+> _**注意：请谨慎使用本模块**_
 >
 > [![安装模块 AntiIPtracking](https://img.shields.io/static/v1?label=安装模块&message=AntiIPtracking&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule "一键安装本模块")
 
