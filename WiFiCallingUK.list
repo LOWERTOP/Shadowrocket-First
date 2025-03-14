@@ -5,6 +5,9 @@
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
+# 端口代理
+AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500))))))
+
 # 地区检测
 # DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com
 
