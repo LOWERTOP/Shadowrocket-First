@@ -18,6 +18,8 @@ DOMAIN-SUFFIX,redirect.ultra.me,PROXY
 DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org,PROXY
 DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,PROXY
 DOMAIN-SUFFIX,ultramobile.com,PROXY
+DOMAIN-KEYWORD,t-mobile,PROXY
+DOMAIN-KEYWORD,ultramobile,PROXY
 IP-CIDR,206.29.177.36/32,PROXY,no-resolve
 IP-CIDR,208.54.0.0/16,PROXY,no-resolve
 IP-CIDR,66.94.0.0/19,PROXY,no-resolve
