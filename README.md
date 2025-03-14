@@ -178,7 +178,7 @@
 >   
 > [![安装模块 贴吧去广告](https://img.shields.io/static/v1?label=安装模块&message=贴吧去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule "一键安装本模块")
 
-### [其他模块与合集](#其他模块与合集)
+### [模块合集与其他仓库](#模块合集与其他仓库)
 
 > 某不愿透漏姓名的 __`热心网友`__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要挑选，安装前请认真阅读说明
 > 
