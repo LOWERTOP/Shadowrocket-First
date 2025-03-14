@@ -16,7 +16,7 @@ RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/head
 
 [Script]
 # 包子漫画网站
-block-twmanga-ads = type=http-response, pattern=^https?:\/\/(www\.)?twmanga\.com\/.*, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/AntiAD.js, requires-body=true, timeout=30
+block-twmanga-ads = type=http-response, pattern=^https?:\/\/([^\/]+\.)?twmanga\.com\/.*, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/AntiAD.js, requires-body=true, max-size=-1, timeout=30
 
 # Spotify 本仓 JS，用以替代 Header Rewrite，如有故障请注释掉下行内容
 spotify-header = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$,requires-body=false,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/spotify-header.js,timeout=10
