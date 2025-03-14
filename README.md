@@ -29,14 +29,14 @@
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 `项目更新`
-> * 新增 [综合去广告服务模块](#综合服务模块) 及 [其他模块集](#模块合集与其他仓库)
+> * 新增 [综合去广告服务模块](#综合服务模块)
 > * 新增 [英美地区 Wi-Fi Calling 模块](#wi-fi-calling)
-> * 新增 [多个原生支持模块](#原生模块)
 > * 新增 [DeepSeek 规则与模块](#deepseek)
+> * 新增 [多个原生模块](#原生模块) 及 [其他模块集](#模块合集与其他仓库)
 > * 新增 [常用服务解锁检测](#常用服务解锁检测)
 > * 更新 [部分规则集兼容性](https://github.com/LOWERTOP/Shadowrocket-First/pull/4) 感谢：[UncleDeron](https://github.com/UncleDeron)
-> * 更新 [配色文件](#shadowrocket-配色文件) 至 30 个
-> * 增设 [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
+> * 原创 [配色文件](#shadowrocket-配色文件) 增至 30 个
+> * 设置 [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
 ------
 
