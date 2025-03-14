@@ -29,6 +29,9 @@
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 `项目更新`
+> * 新增 [去广告综合服务模块](#综合服务模块)
+> * 新增 [英美地区 Wi-Fi Calling 模块](#wi-fi-calling)
+> * 新增 [多个原生支持模块](#原生模块)
 > * 新增 [DeepSeek 规则与模块](#deepseek)
 > * 新增 [常用服务解锁检测](#常用服务解锁检测)
 > * 更新 [部分规则集兼容性](https://github.com/LOWERTOP/Shadowrocket-First/pull/4) 感谢：[UncleDeron](https://github.com/UncleDeron)
