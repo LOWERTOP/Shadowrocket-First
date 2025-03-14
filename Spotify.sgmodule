@@ -1,7 +1,7 @@
 #!name=Spotify 模块
-#!desc=部分解锁 Premium，音质不能设置为超高（建议登录后再启用,重启app等待生效）
+#!desc=部分解锁 Premium，音质不能设置为超高，分流节点须同注册地保持一致（建议登录后再启用，重启app等待生效）
 # 功能: 1.去除播放广告 2.歌手/专辑列表正常展示 3.去除随机播放
-# 源码来自：https://github.com/app2smile/rules
+# 上游源码来自于：https://github.com/app2smile/rules
 # 本模块仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 # Shadowrocket 不兼容下方 Header Rewrite 内容
