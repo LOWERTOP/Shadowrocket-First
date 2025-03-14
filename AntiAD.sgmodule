@@ -29,6 +29,11 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 ^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
 ^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
 
+# 包子漫画网站
+^https?:\/\/(www\.)?twmanga\.com\/ads\/.*$ reject
+^https?:\/\/(www\.)?baozimh\.com\/ads\/.*$ reject
+
+
 # 阿里云盘
 ^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders - reject-dict
 ^https:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets) url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js,append
