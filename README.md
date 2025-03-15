@@ -156,7 +156,7 @@
 > 
 > **[YouTube 去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)**：由 [iab](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能
 >
-> _**需要注意，Apple TV 版 YouTube 不支持解密，不可使用类似模块**_
+> _**注意：Apple TV 版 YouTube 不支持解密，不可使用类似模块**_
 >   
 > [![安装模块 YouTube 去广告](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > 
