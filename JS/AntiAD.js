@@ -1,5 +1,5 @@
 // web-element-block.js
-// Claude编写的用于屏蔽包子漫画网站上的广告和不需要的元素，主要域名为baozimh.com和twmanga.com
+// 用于屏蔽baozimh.com和twmanga.com网站上的广告和不需要的元素
 
 const $ = {};
 
