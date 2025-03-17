@@ -30,22 +30,22 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 ^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
 ^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
 
-# 包子漫画网站
+# 包子漫画网页去广告
 ^https?:\/\/(www\.)?twmanga\.com\/ads\/.*$ reject
 ^https?:\/\/(www\.)?baozimh\.com\/ads\/.*$ reject
 
-# 阿里云盘
+# 阿里云盘去广告
 ^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders - reject-dict
 ^https:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets) url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js,append
 ^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js,append
 ^https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_luckyBottle - reject-dict
 
-# Blued
+# Blued去广告
 ^https?:\/\/social\.blued\.cn\/users\/recommend - reject-dict
 ^https?:\/\/social\.blued\.cn\/users\/no_auth\/benefit - reject-dict
 ^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=2 url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/blued.js,append
 
-# 百度网盘
+# 百度网盘去广告
 ^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adx - reject
 ^https?:\/\/pan\.baidu\.com\/rest\/2\.0\/pcs\/ad - reject
 ^https?:\/\/pan\.baidu\.com\/act\/v\d\/(bchannel|welfare)\/list - reject
@@ -64,15 +64,15 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 ^https?:\/\/fc-video\.cdn\.bcebos\.com - reject
 ^https?:\/\/rp\.hpplay\.cn\/logouts - reject
 
-# e充电
+# e充电去广告
 ^https?:\/\/cdn-evone-ceph\.echargenet\.com\/gw-emas-cdn\/63c4e3b558bb610008969f89 - reject-200
 
-# 中国移动
+# 中国移动去广告
 ^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit - reject
 ^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/explorePage\/getAdverList - reject
 ^https?:\/\/(client\.app\.coc|h\.app\.coc|app)\.10086\.cn\/biz-orange\/DN\/emotionMarket - reject
 
-# 中国联通
+# 中国联通去广告
 ^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) - reject-img
 ^https?:\/\/m\.client\.10010\.com\/mobileService\/customer\/getclientconfig\.htm - reject-dict
 ^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) - reject-img
@@ -80,23 +80,23 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 ^https?:\/\/m1\.ad\.10010\.com\/noticeMag\/images\/imageUpload\/2\d{3} - reject-img
 ^https?:\/\/res\.mall\.10010\.cn\/mall\/common\/js\/fa\.js?referer= - reject-img
 
-# 其他
+# 郑好办去广告
 ^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do url response-body "imgUrl19_5x9":".+?" response-body "imgUrl19_5x9":""
 
-# 招商银行
+# 招商银行去广告
 ^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig - reject-200
 ^https?:\/\/mbmodule-openapi\.paas\.cmbchina\.com\/graphic\/v2\/module\/graphic - reject-dict
 
-# 掌上生活
+# 掌上生活去广告
 ^https?:\/\/mbasecc\.(bas|bcs)\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec - reject-dict
 ^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec - reject
 ^https?:\/\/intellicc\.bcs\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.adrender\.api\.AdWork\/getAdsBySlotId - reject-dict
 
-# 一淘
+# 一淘去广告
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash - reject
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise - reject
 
-# 闲鱼
+# 闲鱼去广告
 ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch %E9%97%B2%E9%B1%BC* url-and-header reject
 ^https:\/\/dinamicx\.alibabausercontent\.com\/pub\/fish_home_top_kingkong_new\/ - reject
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\/ - reject-dict
@@ -107,21 +107,21 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js,append
 ^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js,append
 
-# 小蚁 
+# 小蚁去广告
 ^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - reject
 ^https?://api.xiaoyi.com\/v5\/app\/config\?userid=.* - reject
 
-# 小米有品
+# 小米有品去广告
 ^https?:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig - reject-200
 
-# 瑞幸咖啡
+# 瑞幸咖啡去广告
 ^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew url response-body \{.+\} response-body {"status":"SUCCESS"}
 ^https?:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList url response-body \{.+\} response-body {"status":"SUCCESS"}
 ^https?:\/\/m\.lkcoffee\.com\/ecapi\/resource\/m\/member\/exchange\/page url response-body \{.+\} response-body {"status":"SUCCESS"}
 ^https?:\/\/m\.lkcoffee\.com\/capi\/resource\/m\/growUp\/main url response-body "popTitle":".+?" response-body "popTitle":""
 ^https?:\/\/img0[1-9]{1}\.luckincoffeecdn\.com\/group\d/M00/[A-Z0-9]{2}/[A-Z0-9]{2}/[a-zA-Z0-9]{29}\.(jpg|jpeg)_\.webp - reject-200
 
-# 夸克
+# 夸克去广告
 ^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/quark.js,append
 
 [MITM]
