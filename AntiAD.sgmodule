@@ -1,6 +1,6 @@
 #!name=LOWERSERV
-#!desc=综合服务模块，包含 Spotify 模块、Talkatone 模块等
-# 包子漫画网页（待定）、阿里云盘、Blued、百度网盘、e充电、中国移动、中国联通、招商银行、掌上生活、一淘、闲鱼、小蚁、小米有品、瑞幸咖啡、夸克等去广告内容
+#!desc=包含 Spotify 模块、Talkatone 模块及其他多款软件或服务的去广告内容
+# 包子漫画网页、阿里云盘、Blued、百度网盘、e充电、中国移动、中国联通、招商银行、掌上生活、一淘、闲鱼、小蚁、小米有品、瑞幸咖啡、夸克等去广告内容
 # 代码转载：https://raw.githubusercontent.com/fmz200
 # 代码转载：https://raw.githubusercontent.com/app2smile
 # 整理作者：https://github.com/LOWERTOP
@@ -16,7 +16,7 @@ RULE-SET,https://github.com/LOWERTOP/Shadowrocket-First/raw/refs/heads/main/Talk
 RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list,DIRECT
 
 [Script]
-# 包子漫画网站去广告
+# 包子漫画网页去广告
 web-element-block = type=http-response,pattern=^https?:\/\/(www\.)?(baozimh|twmanga)\.com\/.*,requires-body=1,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/AntiAD.js
 
 # Spotify 本仓 JS，用以替代 Header Rewrite，如有故障请注释掉下行内容
