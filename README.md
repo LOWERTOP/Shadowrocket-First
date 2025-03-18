@@ -123,7 +123,7 @@
 
 > 本配置文件以官方群组使用的懒人配置为基础进行维护。[懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf) 是专为 **`懒人`** 打造的开箱即用的配置文件，不仅内置了详尽的注释文本，且经过精心调整内置设置以适应绝大多数用户的需求，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件
 >
-> _**注意：更新配置文件会覆盖对配置文件做过的修改，详细说明参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0)**_
+> _**注意：更新配置文件会覆盖对配置文件做过的修改，例如规则集或代理分组设置，详细说明参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0)**_
 > 
 > [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 
