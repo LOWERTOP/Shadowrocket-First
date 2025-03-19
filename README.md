@@ -2,7 +2,6 @@
 
 [![README in English](https://img.shields.io/static/v1?label=README&message=in%20English&color=grey&logo=googletranslate&logoColor=white&labelColor=red&messageColor=white)](https://translate.google.com/translate?hl=en&sl=zh-CN&tl=en&u=https://lowertop.github.io/Shadowrocket-First/ "README in English via Google Translate")
 
-
 > [!CAUTION]
 > 
 > **禁止使用本仓任何内容违法或牟利！<br>
