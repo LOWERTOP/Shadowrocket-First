@@ -12,7 +12,7 @@ RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/head
 # Talkatone 去广告规则集
 RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list,REJECT
 # Talkatone 分流规则集
-RULE-SET,https://github.com/LOWERTOP/Shadowrocket-First/raw/refs/heads/main/TalkatoneProxyOnly.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list,PROXY
 RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list,DIRECT
 
 [Script]
