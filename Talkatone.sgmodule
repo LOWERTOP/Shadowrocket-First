@@ -97,9 +97,9 @@ IP-CIDR,50.117.27.0/24,DIRECT,no-resolve
 IP-CIDR,63.251.124.0/24,DIRECT,no-resolve
 IP-CIDR,69.46.75.0/24,DIRECT,no-resolve
 
-[URL Rewrite]
-^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
-^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
-
-[MITM]
-hostname = %APPEND% alt-r.my.com, imgx.jampp.com
+# 本模块暂不启用以下内容
+# [URL Rewrite]
+# ^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
+# ^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
+# [MITM]
+# hostname = %APPEND% alt-r.my.com, imgx.jampp.com
