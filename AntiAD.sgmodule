@@ -21,8 +21,8 @@ RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/head
 ^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
 
 # 包子漫画网页去广告
-^https?:\/\/(www\.)?twmanga\.com\/ads\/.*$ - reject
-^https?:\/\/(www\.)?baozimh\.com\/ads\/.*$ - reject
+# ^https?:\/\/(www\.)?twmanga\.com\/ads\/.*$ - reject
+# ^https?:\/\/(www\.)?baozimh\.com\/ads\/.*$ - reject
 
 # 阿里云盘去广告
 ^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders - reject-dict
