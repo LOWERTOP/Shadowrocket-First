@@ -120,13 +120,13 @@ Blued去广告 =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users
 夸克去广告 =type=http-response, pattern=^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/quark.js, requires-body=true, max-size=0
 
 # 瑞幸咖啡去广告
-瑞幸_广告通知 =type=http-response, pattern=^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
-瑞幸_弹出商品 =type=http-response, pattern=^https?:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
-瑞幸_兑换页去广告 =type=http-response, pattern=^https?:\/\/m\.lkcoffee\.com\/ecapi\/resource\/m\/member\/exchange\/page, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
-瑞幸_会员成长 =type=http-response, pattern=^https?:\/\/m\.lkcoffee\.com\/capi\/resource\/m\/growUp\/main, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
+# 瑞幸_广告通知 =type=http-response, pattern=^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
+# 瑞幸_弹出商品 =type=http-response, pattern=^https?:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
+# 瑞幸_兑换页去广告 =type=http-response, pattern=^https?:\/\/m\.lkcoffee\.com\/ecapi\/resource\/m\/member\/exchange\/page, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
+# 瑞幸_会员成长 =type=http-response, pattern=^https?:\/\/m\.lkcoffee\.com\/capi\/resource\/m\/growUp\/main, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
 
 # 郑好办去广告
-郑好办去广告 =type=http-response, pattern=^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhenghaoba/zhenghaoba.js, requires-body=true, max-size=0
+郑好办去广告 =type=http-response, pattern=^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/Zhenghaoban.js, requires-body=true, max-size=0
 
 [MITM]
 hostname = %APPEND% *.baozimh.com, *.twmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, *.luckincoffeecdn.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, ecapi.lkcoffee.com, m.lkcoffee.com, amdc.m.taobao.com
