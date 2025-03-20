@@ -15,16 +15,6 @@ RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/head
 RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list,PROXY
 RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list,DIRECT
 
-[Script]
-# 包子漫画网页去广告
-web-element-block = type=http-response,pattern=^https?:\/\/(www\.)?(baozimh|twmanga)\.com\/.*,requires-body=1,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/AntiAD.js
-
-# Spotify 本仓 JS，用以替代 Header Rewrite，如有故障请注释掉下行内容
-spotify-header = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$,requires-body=false,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/spotify-header.js,timeout=10
-# Spotify app2smile 原始脚本
-spotify-json = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
-spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
-
 [URL Rewrite]
 # Talkatone 去广告重写
 ^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
@@ -36,14 +26,7 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 
 # 阿里云盘去广告
 ^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders - reject-dict
-^https:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets) - script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js
-^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list - script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js
 ^https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_luckyBottle - reject-dict
-
-# Blued去广告
-^https?:\/\/social\.blued\.cn\/users\/recommend - reject-dict
-^https?:\/\/social\.blued\.cn\/users\/no_auth\/benefit - reject-dict
-^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=2 - script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/blued.js
 
 # 百度网盘去广告
 ^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adx - reject
@@ -80,9 +63,6 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 ^https?:\/\/m1\.ad\.10010\.com\/noticeMag\/images\/imageUpload\/2\d{3} - reject-img
 ^https?:\/\/res\.mall\.10010\.cn\/mall\/common\/js\/fa\.js?referer= - reject-img
 
-# 郑好办去广告
-^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do - response-body "imgUrl19_5x9":".+?" "imgUrl19_5x9":""
-
 # 招商银行去广告
 ^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig - reject-200
 ^https?:\/\/mbmodule-openapi\.paas\.cmbchina\.com\/graphic\/v2\/module\/graphic - reject-dict
@@ -96,16 +76,11 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash - reject
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise - reject
 
-# 闲鱼去广告
+# 闲鱼去广告 (仅保留reject类型)
 ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch - reject
 ^https:\/\/dinamicx\.alibabausercontent\.com\/pub\/fish_home_top_kingkong_new\/ - reject
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\/ - reject-dict
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.discover\/ - reject-dict
-^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/ - script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js
-^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\/ - script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js
-^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.list\/ - script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js
-^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ - script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js
-^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ - script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js
 
 # 小蚁去广告
 ^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - reject
@@ -114,15 +89,44 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 # 小米有品去广告
 ^https?:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig - reject-200
 
-# 瑞幸咖啡去广告
-^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew - response-body \{.+\} {"status":"SUCCESS"}
-^https?:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList - response-body \{.+\} {"status":"SUCCESS"}
-^https?:\/\/m\.lkcoffee\.com\/ecapi\/resource\/m\/member\/exchange\/page - response-body \{.+\} {"status":"SUCCESS"}
-^https?:\/\/m\.lkcoffee\.com\/capi\/resource\/m\/growUp\/main - response-body "popTitle":".+?" "popTitle":""
+# 瑞幸咖啡去广告 (保留reject类型)
 ^https?:\/\/img0[1-9]{1}\.luckincoffeecdn\.com\/group\d/M00/[A-Z0-9]{2}/[A-Z0-9]{2}/[a-zA-Z0-9]{29}\.(jpg|jpeg)_\.webp - reject-200
 
+[Script]
+# 包子漫画网页去广告
+web-element-block = type=http-response,pattern=^https?:\/\/(www\.)?(baozimh|twmanga)\.com\/.*,requires-body=1,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/AntiAD.js
+
+# Spotify 本仓 JS，用以替代 Header Rewrite，如有故障请注释掉下行内容
+spotify-header = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$,requires-body=false,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/spotify-header.js,timeout=10
+# Spotify app2smile 原始脚本
+spotify-json = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
+spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
+
+# 阿里云盘去广告
+阿里云盘_首页模块 =type=http-response, pattern=^https:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js, requires-body=true, max-size=0
+阿里云盘_开屏广告 =type=http-response, pattern=^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js, requires-body=true, max-size=0
+
+# Blued去广告
+Blued去广告 =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=2, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/blued.js, requires-body=true, max-size=0
+
+# 闲鱼去广告
+闲鱼_模块去广告 =type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js, requires-body=true, max-size=0
+闲鱼_搜索页去广告 =type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\/, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js, requires-body=true, max-size=0
+闲鱼_用户策略去广告 =type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.list\/, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js, requires-body=true, max-size=0
+闲鱼_首页刷新去广告 =type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js, requires-body=true, max-size=0
+闲鱼_本地页面去广告 =type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js, requires-body=true, max-size=0
+
 # 夸克去广告
-^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms - script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/quark.js
+夸克去广告 =type=http-response, pattern=^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/quark.js, requires-body=true, max-size=0
+
+# 瑞幸咖啡去广告
+瑞幸_广告通知 =type=http-response, pattern=^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
+瑞幸_弹出商品 =type=http-response, pattern=^https?:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
+瑞幸_兑换页去广告 =type=http-response, pattern=^https?:\/\/m\.lkcoffee\.com\/ecapi\/resource\/m\/member\/exchange\/page, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
+瑞幸_会员成长 =type=http-response, pattern=^https?:\/\/m\.lkcoffee\.com\/capi\/resource\/m\/growUp\/main, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lkcoffee/lkcoffee.js, requires-body=true, max-size=0
+
+# 郑好办去广告
+郑好办去广告 =type=http-response, pattern=^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhenghaoba/zhenghaoba.js, requires-body=true, max-size=0
 
 [MITM]
 hostname = %APPEND% *.baozimh.com, *.twmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, *.luckincoffeecdn.com, open-cms-api.uc.cn, open-cms-api.quark.cn
