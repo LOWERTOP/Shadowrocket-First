@@ -28,7 +28,7 @@
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 `项目更新`
-> * 变更 [当前分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/README) 为默认分支，原文件在 [main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)
+> * 变更 [当前分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/README) 为默认分支，原文件在 [main](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)
 > * 更新 [综合服务及去广告模块](#综合服务及去广告模块) 相关代码
 > * 新增 [英美地区 Wi-Fi Calling 模块](#wi-fi-calling)
 > * 新增 [DeepSeek 规则与模块](#deepseek)
