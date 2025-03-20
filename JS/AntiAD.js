@@ -1,5 +1,5 @@
 // web-element-block.js
-// 用于屏蔽baozimhcn.com和dzmanga.com网站上的广告和不需要的元素
+// 用于屏蔽cn.baozimhcn.com和cn.dzmanga.com网站上的广告和不需要的元素
 
 const $ = {};
 
@@ -19,8 +19,8 @@ function generateCSS(domain) {
   // 默认的CSS
   let css = "";
   
-  // baozimhcn.com的CSS规则
-  if (domain.includes("baozimhcn.com")) {
+  // cn.baozimhcn.com的CSS规则
+  if (domain.includes("cn.baozimhcn.com")) {
     css = `
       /* 隐藏章节跳转按钮 */
       .action-buttons.position-relative.chapter-goto { display: none !important; }
@@ -38,8 +38,8 @@ function generateCSS(domain) {
       .m-page-bottom { display: none !important; }
     `;
   }
-  // dzmanga.com的CSS规则
-  else if (domain.includes("dzmanga.com")) {
+  // cn.dzmanga.com的CSS规则
+  else if (domain.includes("cn.dzmanga.com")) {
     css = `
       /* 隐藏广告元素 */
       .ucfad_async { display: none !important; }
@@ -61,10 +61,10 @@ function generateCSS(domain) {
 
 // 获取需要定期检查的选择器
 function getSelectors(domain) {
-  if (domain.includes("baozimhcn.com")) {
+  if (domain.includes("cn.baozimhcn.com")) {
     return '.action-buttons.position-relative.chapter-goto, .recommend, .footer, h3[style="margin: 0 0 12px; padding: 0;"], .m-page-bottom';
   }
-  else if (domain.includes("dzmanga.com")) {
+  else if (domain.includes("cn.dzmanga.com")) {
     return '.ucfad_async, .div_close_ads, .mobadsq, div[style="overflow:hidden; flex: 1;"], div[style=" width: 170px; margin: 0 auto; text-align: center;"], .recommend, #interstitial_fade';
   }
   return '';
