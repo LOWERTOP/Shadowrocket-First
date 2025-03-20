@@ -21,8 +21,8 @@ RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/head
 ^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
 
 # 包子漫画网页去广告
-# ^https?:\/\/(www\.)?twmanga\.com\/ads\/.*$ - reject
-# ^https?:\/\/(www\.)?baozimh\.com\/ads\/.*$ - reject
+^https?:\/\/(www\.)?twmanga\.com\/ads\/.*$ - reject
+^https?:\/\/(www\.)?baozimh\.com\/ads\/.*$ - reject
 
 # 阿里云盘去广告
 ^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders - reject-dict
@@ -108,7 +108,8 @@ RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/head
 
 [Script]
 # 包子漫画网页去广告
-web-element-block = type=http-response, pattern=^https?:\/\/(www\.)?(baozimh\.com|twmanga\.com)\/.*$, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/baozimh.js, requires-body=true, max-size=0
+# web-element-block = type=http-response,pattern=^https?:\/\/(www\.)?(baozimh|twmanga)\.com\/.*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/AntiAD.js
+web-element-block = type=http-response,pattern=^https?:\/\/(www\.)?(baozimh|twmanga)\.com\/.*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/baozimh.js
 
 # Spotify 本仓 JS，用以替代 Header Rewrite，如有故障请注释掉下行内容
 spotify-header = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$,requires-body=false,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/spotify-header.js,timeout=10
@@ -137,4 +138,4 @@ Blued去广告 =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users
 郑好办去广告 =type=http-response, pattern=^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/Zhenghaoban.js, requires-body=true, max-size=0
 
 [MITM]
-hostname = %APPEND% *.baozimh.com, *.twmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com
+hostname = %APPEND% *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com
