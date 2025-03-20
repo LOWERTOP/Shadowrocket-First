@@ -14,15 +14,16 @@ RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/head
 # Talkatone 分流规则集
 RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list,PROXY
 RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list,DIRECT
+# 包子漫画直连规则
+DOMAIN-SUFFIX,baozimhcn.com,DIRECT
+DOMAIN-SUFFIX,baozimh.com,DIRECT
+DOMAIN-SUFFIX,dzmanga.com,DIRECT
+DOMAIN-SUFFIX,twmanga.com,DIRECT
 
 [URL Rewrite]
 # Talkatone 去广告重写
 ^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
 ^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
-
-# 包子漫画网页去广告
-# ^https?:\/\/(www\.)?twmanga\.com\/ads\/.*$ - reject
-# ^https?:\/\/(www\.)?baozimh\.com\/ads\/.*$ - reject
 
 # 阿里云盘去广告
 ^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders - reject-dict
