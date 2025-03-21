@@ -1,28 +1,42 @@
 // web-element-block.js
-// 用于屏蔽 baozimh.com 和 twmanga.com 网站上的广告和不需要的元素
-
+// 用于屏蔽baozimhcn.com和dzmanga.com网站上的广告和不需要的元素
+const $ = {};
+// 获取当前域名
 function getCurrentDomain() {
+  // 从URL中提取域名
   const url = $request.url;
   const match = url.match(/https?:\/\/([^\/]+)/);
-  return match ? match[1] : "";
+  if (match && match[1]) {
+    return match[1];
+  }
+  return "";
 }
-
+// 根据域名生成对应的CSS
 function generateCSS(domain) {
+  // 默认的CSS
   let css = "";
-  if (domain.includes("baozimh.com")) {
+  
+  // baozimhcn.com的CSS规则
+  if (domain.endsWith("baozimhcn.com")) {
     css = `
       /* 隐藏章节跳转按钮 */
       .action-buttons.position-relative.chapter-goto { display: none !important; }
+      
       /* 隐藏推荐内容 */
       .recommend { display: none !important; }
+      
       /* 隐藏底部 */
       .footer { display: none !important; }
+      
       /* 隐藏特定标题 */
       h3[style="margin: 0 0 12px; padding: 0;"] { display: none !important; }
+      
       /* 隐藏页面底部元素 */
       .m-page-bottom { display: none !important; }
     `;
-  } else if (domain.includes("twmanga.com")) {
+  }
+  // dzmanga.com的CSS规则
+  else if (domain.endsWith("dzmanga.com") || domain.endsWith("cn.dzmanga.com")) {
     css = `
       /* 隐藏广告元素 */
       .ucfad_async { display: none !important; }
@@ -30,53 +44,63 @@ function generateCSS(domain) {
       .mobadsq { display: none !important; }
       div[style="overflow:hidden; flex: 1;"] { display: none !important; }
       div[style=" width: 170px; margin: 0 auto; text-align: center;"] { display: none !important; }
+      
       /* 隐藏推荐内容 */
       .recommend { display: none !important; }
+      
       /* 隐藏插页广告 */
       #interstitial_fade { display: none !important; }
+      
+      /* 隐藏宽度100%的div(cn.dzmanga.com) */
+      div[style="width: 100%;"] { display: none !important; }
     `;
   }
+  
   return css;
 }
-
+// 获取需要定期检查的选择器
 function getSelectors(domain) {
-  if (domain.includes("baozimh.com")) {
+  if (domain.endsWith("baozimhcn.com")) {
     return '.action-buttons.position-relative.chapter-goto, .recommend, .footer, h3[style="margin: 0 0 12px; padding: 0;"], .m-page-bottom';
-  } else if (domain.includes("twmanga.com")) {
-    return '.ucfad_async, .div_close_ads, .mobadsq, div[style="overflow:hidden; flex: 1;"], div[style=" width: 170px; margin: 0 auto; text-align: center;"], .recommend, #interstitial_fade';
   }
-  return "";
+  else if (domain.endsWith("dzmanga.com") || domain.endsWith("cn.dzmanga.com")) {
+    return '.ucfad_async, .div_close_ads, .mobadsq, div[style="overflow:hidden; flex: 1;"], div[style=" width: 170px; margin: 0 auto; text-align: center;"], .recommend, #interstitial_fade, div[style="width: 100%;"]';
+  }
+  return '';
 }
-
-function modifyHTML() {
+// 主函数 - 修改CSS
+function modifyCSS() {
   const domain = getCurrentDomain();
   const css = generateCSS(domain);
   const selectors = getSelectors(domain);
   
   if (!css || !selectors) {
-    // 没有匹配的规则时直接返回原响应体
-    return $response.body;
+    return '';
   }
-  
-  // 构造注入到页面中的脚本代码
-  const scriptToInject = `
+  // 创建和插入样式的脚本
+  return `
     (function() {
-      var style = document.createElement('style');
+      let style = document.createElement('style');
       style.type = 'text/css';
       style.innerHTML = \`${css}\`;
       document.head.appendChild(style);
-      // 定时检查可能动态加载的目标元素
-      setInterval(function() {
-        document.querySelectorAll('${selectors}').forEach(function(el) {
+      
+      // 定期检查并移除可能动态加载的元素
+      setInterval(() => {
+        document.querySelectorAll('${selectors}').forEach(el => {
           el.style.display = 'none';
         });
       }, 2000);
     })();
   `;
-  
-  // 将构造的脚本注入到 </head> 前面
-  let modifiedBody = $response.body.replace('</head>', `<script>${scriptToInject}</script></head>`);
-  return modifiedBody;
 }
-
-$done({ body: modifyHTML() });
+// 获取响应体
+let html = $response.body;
+// 将CSS注入到响应体
+const scriptToInject = modifyCSS();
+// 只有在有脚本需要注入时才修改响应
+if (scriptToInject) {
+  html = html.replace('</head>', `<script>${scriptToInject}</script></head>`);
+}
+// 返回修改后的响应体
+$done({body: html});
