@@ -163,7 +163,7 @@
 >
 > **[融合模块](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule)**
 > 
-> > 本模块由 [XiangwanGuan 向晚](https://github.com/XiangwanGuan) 维护，可以去除多种软件的广告，详情参阅 [模块介绍](https://github.com/XiangwanGuan/Shadowrocket?tab=readme-ov-file#%E8%9E%8D%E5%90%88%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D)
+> > 本模块由 [XiangwanGuan 向晚](https://github.com/XiangwanGuan) 基于 [奶思](https://github.com/fmz200/wool_scripts/blob/main/QuantumultX/rewrite/chongxie.txt) 的合集创建，包含哔哩哔哩、YouTube、高德地图、一汽大众、京东历史比价等众多软件的功能增强或去广告服务，详情参阅 [仓库介绍](https://github.com/XiangwanGuan/Shadowrocket)
 > >   
 > > [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule "一键安装本模块")
 > 
