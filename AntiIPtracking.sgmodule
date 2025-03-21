@@ -1,5 +1,5 @@
-#!name=AntiIPtracking
-#!desc=针对部分网站显示 IP 归属地的反跟踪规则
+#!name=Anti-IP-tracking
+#!desc=针对部分网站显示 IP 归属地的反跟踪规则（测试版，谨慎使用）
 # 注意：本模块为测试版，无法保证一定有效，且所含规则存在多种策略，可能造成相应服务走代理节点或分流失效，甚至有可能会触发账号风控
 # 配置来源：https://github.com/SunsetMkt/anti-ip-attribution
 # 重新整理：https://github.com/LOWERTOP
