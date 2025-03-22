@@ -29,12 +29,7 @@
 
 `项目更新`
 > * 变更 [当前分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/README) 为默认分支，原文件在 [main](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)
-> * 更新 [综合服务及去广告模块](#综合服务及去广告模块) 相关代码
-> * 新增 [英美地区 Wi-Fi Calling 模块](#wi-fi-calling)
-> * 新增 [DeepSeek 规则与模块](#deepseek)
 > * 新增 [多个原生模块](#原生模块) 及 [其他模块集](#模块合集与其他仓库)
-> * 新增 [常用服务解锁检测](#常用服务解锁检测)
-> * 更新 [部分规则集兼容性](https://github.com/LOWERTOP/Shadowrocket-First/pull/4) 感谢：[UncleDeron](https://github.com/UncleDeron)
 > * 原创 [配色文件](#shadowrocket-配色文件) 增至 30 个
 > * 设置 [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
@@ -181,7 +176,7 @@
 > >   
 > > [![安装模块 YouTube 去广告](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > 
-> **[京东历史比价模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.sgmodule)**
+> **[京东比价模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.sgmodule)**
 > 
 > > 本模块由 [iab](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价通知。须开启小火箭通知权限，且并非所有商品都有历史价格
 > >   
@@ -198,6 +193,12 @@
 > > 本模块由 [iab](https://github.com/iab0x00) 维护，可以去除滴滴的开屏广告及内部广告页面
 > >   
 > > [![安装模块 滴滴去广告](https://img.shields.io/static/v1?label=安装模块&message=滴滴去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/DidiNoAd.sgmodule "一键安装本模块")
+> 
+> **[小红书去广告及水印模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule)**
+> 
+> > 本模块由 [iab](https://github.com/iab0x00) 维护，可以去除小红书广告及图片、视频的水印
+> >   
+> > [![安装模块 小红书模块](https://img.shields.io/static/v1?label=安装模块&message=小红书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule "一键安装本模块")
 > 
 > **[酷安去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule)**
 > 
