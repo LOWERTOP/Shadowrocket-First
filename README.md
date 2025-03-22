@@ -170,7 +170,7 @@
 > 
 > **[YouTube 去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
-> > 本模块由 [iab](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能，同时支持 Youtube Music 去广告
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能，同时支持 Youtube Music 去广告
 > > 
 > > _**注意：Apple TV 版 YouTube 不支持解密，不可使用类似模块**_
 > >   
@@ -178,31 +178,31 @@
 > 
 > **[京东比价模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.sgmodule)**
 > 
-> > 本模块由 [iab](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价通知。须开启小火箭通知权限，且并非所有商品都有历史价格
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价通知。须开启小火箭通知权限，且并非所有商品都有历史价格
 > >   
 > > [![安装模块 京东历史比价](https://img.shields.io/static/v1?label=安装模块&message=京东历史比价&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.sgmodule "一键安装本模块")
 >
 > **[小红书去广告及水印模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule)**
 > 
-> > 本模块由 [iab](https://github.com/iab0x00) 维护，可以去除小红书广告及图片、视频的水印
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除小红书广告及图片、视频的水印
 > >   
 > > [![安装模块 小红书模块](https://img.shields.io/static/v1?label=安装模块&message=小红书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule "一键安装本模块")
 >  
 > **[滴滴去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/DidiNoAd.sgmodule)**
 > 
-> > 本模块由 [iab](https://github.com/iab0x00) 维护，可以去除滴滴的开屏广告及内部广告页面
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除滴滴的开屏广告及内部广告页面
 > >   
 > > [![安装模块 滴滴去广告](https://img.shields.io/static/v1?label=安装模块&message=滴滴去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/DidiNoAd.sgmodule "一键安装本模块")
 > 
 > **[微博轻享版去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/WeiBoIntl.sgmodule)**
 > 
-> > 本模块由 [iab](https://github.com/iab0x00) 维护，可以去除开屏、时间线及我的页面广告
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除开屏、时间线及我的页面广告
 > >   
 > > [![安装模块 微博轻享版](https://img.shields.io/static/v1?label=安装模块&message=微博轻享版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/WeiBoIntl.sgmodule "一键安装本模块")
 > 
 > **[酷安去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule)**
 > 
-> > 本模块由 [iab](https://github.com/iab0x00) 维护，可以去除酷安 APP 的开屏广告和时间线广告
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除酷安 APP 的开屏广告和时间线广告
 > >   
 > > [![安装模块 酷安去广告](https://img.shields.io/static/v1?label=安装模块&message=酷安去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule "一键安装本模块")
 > 
@@ -278,7 +278,7 @@
 > 
 > 本单元为小火箭配色文件相关内容。项目出发点是作者在使用小火箭的过程中对小火箭的配色逐渐感到单调，借助本身是设计出身，遂制作了几个配色文件，没想到反响挺好，后就借助本平台逐步发布以下原创设计的配色文件以满足需求
 >
-> `极其鸣谢` 快捷指令作者：[iab](https://github.com/iab0x00)<br>
+> `极其鸣谢` 快捷指令作者：[iab0x00](https://github.com/iab0x00)<br>
 > `特别鸣谢` 提供建议好友：[Sage](https://t.me/huskydb)
 
 `效果示例：TermiusDark`
