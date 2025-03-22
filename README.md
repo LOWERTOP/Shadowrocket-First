@@ -75,10 +75,9 @@
 
 ### [综合服务及去广告模块](#综合服务及去广告模块)
 
-> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule) 和 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list) 以去广告为主，使用了 [app2smile](https://github.com/app2smile) 和 [fmz200](https://github.com/fmz200) 的部分脚本。模块已包含本仓的 **[Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)** 模块和 **[Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)** 模块，同时包含：包子漫画网页、小蚁、夸克、阿里云盘、百度网盘、Blued、e充电、移动、联通、招商银行、掌上生活、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容。规则集仅包含部分补充规则。本内容暂为 **`Beta`** 版本，去广告部分尚需充分测试，不保证去广告部分的真实效果，且可能根据需要随时删改
+> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule) 以去广告为主，使用了 [app2smile](https://github.com/app2smile) 和 [fmz200](https://github.com/fmz200) 的部分脚本。模块已包含本仓的 **[Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)** 模块和 **[Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)** 模块，同时包含：包子漫画网页、小蚁、夸克、阿里云盘、百度网盘、Blued、e充电、移动、联通、招商银行、掌上生活、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list)。本内容暂为 **`Beta`** 版本，去广告部分尚需充分测试，不保证去广告部分的真实效果，且可能根据需要随时删改
 >
 > [![安装模块 AntiAD](https://img.shields.io/static/v1?label=安装模块&message=AntiAD&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule "一键安装本模块")
-> [![规则文件 AntiAD](https://img.shields.io/static/v1?label=规则文件&message=AntiAD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list "点击访问规则集")
 
 ### [咪咕直播源模块](#咪咕直播源模块)
 
