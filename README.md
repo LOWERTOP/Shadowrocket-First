@@ -263,7 +263,7 @@
 > > * **安装并信任相关的安全证书**：为了确保数据传输的安全性，用户必须安装并信任程序所需的安全证书
 >   
 > 只有在满足这三个条件后，用户才能充分发挥上述工具在代理应用中的高级玩法和功能<br>
-> 详细用法请点击上文中的 **蓝色超链跳** 转查看，点击下方徽章可一键安装相应模块
+> 详细用法请点击上文中的 **蓝色超链** 跳转查看，点击下方徽章可一键安装相应模块
 >
 > [![安装模块 Script-Hub](https://img.shields.io/static/v1?label=安装模块&message=Script-Hub&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module "一键安装本模块")
 > [![安装模块 Sub-Store](https://img.shields.io/static/v1?label=安装模块&message=Sub-Store&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/sub-store-org/Sub-Store/master/config/Surge-Noability.sgmodule "一键安装本模块")
