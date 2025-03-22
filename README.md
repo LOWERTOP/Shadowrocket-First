@@ -115,15 +115,15 @@
 
 ### [使用手册](#使用手册)
 
-> [Shadowrocket 使用手册](https://github.com/LOWERTOP/Shadowrocket) 可视为小火箭的教程或文档。本手册基于官方群组使用的关键词列表进行优化，使其逐步完善为使用手册以供参阅
+> 使用手册以 **[Shadowrocket 官方群组](https://t.me/ShadowrocketApp)** 使用的关键词列表为基础进行编写，以帮助用户能够更好的理解和使用 Shadowrocket 软件。仓库 [Original 分支](https://github.com/LOWERTOP/Shadowrocket/tree/Original) 同时保有原始文件，如有需要亦可进入查看
 >
 > [![教程文档 使用手册](https://img.shields.io/static/v1?label=教程文档&message=使用手册&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
 
 ### [懒人配置](#懒人配置)
 
-> 本配置文件以官方群组使用的懒人配置为基础进行维护。[懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf) 是专为 **`懒人`** 打造的开箱即用的配置文件，不仅内置了详尽的注释文本，且经过精心调整内置设置以适应绝大多数用户的需求，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件
+> 本配置文件以官方群组使用的懒人配置为基础进行维护。[懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf) 是专为 **`懒人`** 打造的开箱即用的配置文件，内置了详尽的注释文本，相当于内置了一部使用手册，而且其配置设置经过了精心调整，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件
 >
-> _**注意：更新配置文件会覆盖对配置文件做过的修改，例如规则集或代理分组设置，详细说明参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0)**_
+> _**注意：更新配置文件会覆盖对配置文件做过的修改，例如规则集或代理分组设置，详细说明参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE)**_
 > 
 > [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 
