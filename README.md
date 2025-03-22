@@ -121,7 +121,7 @@
 
 ### [懒人配置](#懒人配置)
 
-> 本配置文件同步自官方群组使用的配置文件，[懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf) 是专为 **`懒人`** 打造的开箱即用的配置文件，内置了详尽的注释文本，相当于内置了一部使用手册，而且其配置设置经过了精心调整，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件
+> [懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf)，顾名思义就是是专为 **`懒人`** 打造的开箱即用的配置文件，同步自官方群组使用的配置文件，内置了详尽的注释文本，相当于内置了一部使用手册，而且其配置设置经过了精心调整，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件
 >
 > _**注意：更新配置文件会覆盖对配置文件做过的修改，例如规则集或代理分组设置，详细说明参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE)**_
 > 
