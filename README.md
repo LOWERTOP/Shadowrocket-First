@@ -100,12 +100,14 @@
 > [!NOTE]
 > 
 > 本单元内容为收集自可信来源的 `手册` `配置` `模块` `规则` `脚本` 等，可放心食用
->
-> > * 使用大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 `配置` 模式时生效
-> > * 使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，启用模块后部分 APP 须重装
-> > * 切换配置文件需要重新 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免重复解密可使用 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)
-> > * [更新配置文件](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE) 会造成自定义规则丢失，一般不建议更新
-> > * 请留意去广告规则或模块可能存在的 `误杀`
+
+> [!IMPORTANT]
+> 
+> * 使用大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 `配置` 模式时生效
+> * 使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，启用模块后部分 APP 须重装
+> * 切换配置文件需要重新 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免重复解密可使用 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)
+> * [更新配置文件](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE) 会造成自定义规则丢失，一般不建议更新
+> * 请留意去广告规则或模块可能存在的 `误杀`
 
 ### [使用手册](#使用手册)
 
@@ -115,26 +117,20 @@
 
 ### [懒人配置](#懒人配置)
 
-> [懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf)，顾名思义就是是专为 **`懒人`** 打造的开箱即用的配置文件，同步自官方群组使用的配置文件。该配置不同于默认配置内置本地规则的代理形式，而是以规则集的形式设置代理规则，并设有示例分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件
->
-> _**注意：更新配置文件会覆盖对配置文件做过的修改，例如规则集或代理分组设置，详细说明参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE)**_
+> [懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf)，顾名思义就是是专为 **`懒人`** 打造的开箱即用的配置文件，同步自官方群组使用的配置文件。该配置不同于默认配置内置本地规则的代理形式，而是以规则集的形式设置代理规则，并设有示例分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件。配置文件的用法参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
 > 
 > [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 
 
 ### [分流规则](#分流规则)
 
-> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各代理软件分流规则的原仓入口，是现阶段首推的代理规则集
-> 
-> _**注意：使用时请务必阅读相应的配置建议**_
+> 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各代理软件分流规则的原仓入口，是现阶段首推的代理规则集，使用时请务必阅读相应的配置建议
 > 
 > [![规则检索 分流规则集](https://img.shields.io/static/v1?label=规则检索&message=分流规则集&color=grey&logo=dask&logoColor=white&labelColor=%2325A162&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
 
 ### [去广告规则](#去广告规则)
 
 > **去广告规则** 是用于通过添加特定屏蔽类的规则或者规则集的形式来屏蔽网页和应用中的广告的操作的。使用时要确保去广告规则的优先级高于其他分流规则，以避免广告流量仍然被其他规则放行。添加规则的方法参见 [手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99)
-> 
-> _**注意：请留意去广告规则可能存在的 `误杀`**_
 > 
 > [anti-AD](https://github.com/privacy-protection-tools/anti-AD) 维护有适用于小火箭的 [去广告规则](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt)。其将各大著名的 hosts、ad filter lists、adblock list 等列表进行合并去重，再进行一系列的抽象化，例如主动剔除失效域名、easylist 优化模糊匹配、增强的黑白名单机制等措施，最终生成较高命中率的列表
 > 
@@ -184,9 +180,7 @@
 > 
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能，同时支持 Youtube Music 去广告
-> > 
-> > _**注意：Apple TV 版 YouTube 不支持解密，不可使用类似模块**_
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能，同时支持 Youtube Music 去广告。需要注意，Apple TV 版 YouTube 不支持解密，不可使用类似模块
 > >   
 > > [![安装模块 YouTube 模块](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > 
@@ -232,7 +226,7 @@
 
 ### [模块合集与其他仓库](#模块合集与其他仓库)
 
-> 某不愿透漏姓名的 __`热心网友`__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要挑选，安装前请认真阅读说明
+> 某不愿透漏姓名的 __`热心网友`__ 依据 [可莉](https://github.com/luestr/ProxyResource) 的公开模块制作的小火箭专用的模块大合集，可进入页面根据需要挑选，使用前必须安装 [Script-Hub 模块](#进阶用法)
 > 
 > [![模块仓库 模块大合集](https://img.shields.io/static/v1?label=模块仓库&message=模块大合集&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.huksy88.sbs "点击查看模块")
 > 
