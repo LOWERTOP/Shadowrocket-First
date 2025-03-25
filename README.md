@@ -106,6 +106,7 @@
 > * **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 `配置` 模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外**
 > * **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，不含 MITM 的模块除外。部分软件生效需要重装**
 > * **切换配置文件需要重新 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而需要重新解密，可使用 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)**
+> * **如果使用时遇到 [模块失效](https://github.com/LOWERTOP/Shadowrocket#%E6%A8%A1%E5%9D%97%E5%A4%B1%E6%95%88) 等问题，可尝试点击：当前配置文件 - 使用配置
 > * **[更新配置文件](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE) 会造成自定义规则等丢失，除需要重置配置文件外不建议对其更新**
 > * **请留意去广告规则或模块可能存在的 `误杀`**
 
