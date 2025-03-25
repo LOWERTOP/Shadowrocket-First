@@ -273,14 +273,7 @@
 
 ### [进阶用法](#进阶用法)
 
-> 在当前的 iOS 平台上，想要实现较为高级的功能和操作，往往需要借助 **[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)**、 **[Sub-Store](https://github.com/sub-store-org/Sub-Store/tree/master/config)** 和 **[BoxJs](https://docs.boxjs.app/)** 这三个工具来实现。为了能够顺利使用这些工具，用户需要满足以下三个基本前置条件：
-> 
-> > * **配置 MITM 功能**：通过启用中间人攻击，用户可以拦截和分析网络流量，从而实现更复杂的代理操作
-> > * **编写或使用相应的脚本**：脚本是实现定制化功能的关键，用户需要根据需求编写脚本或使用现成的脚本
-> > * **安装并信任相关的安全证书**：为了确保数据传输的安全性，用户必须安装并信任程序所需的安全证书
->   
-> 只有在满足这三个条件后，用户才能充分发挥上述工具在代理应用中的高级玩法和功能<br>
-> 详细用法请点击上文中的 **蓝色超链** 跳转查看，点击下方徽章可一键安装相应模块
+> 在当前的 iOS 平台上，想要实现较为高级的功能和操作，往往需要借助 **[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)**、 **[Sub-Store](https://github.com/sub-store-org/Sub-Store/tree/master/config)** 和 **[BoxJs](https://docs.boxjs.app/)** 这三个工具来实现。详细用法请点击各自的 **蓝色超链** 跳转查看，点击下方徽章可一键安装相应模块
 >
 > [![安装模块 Script-Hub](https://img.shields.io/static/v1?label=安装模块&message=Script-Hub&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module "一键安装本模块")
 > [![安装模块 Sub-Store](https://img.shields.io/static/v1?label=安装模块&message=Sub-Store&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/sub-store-org/Sub-Store/master/config/Surge-Noability.sgmodule "一键安装本模块")
