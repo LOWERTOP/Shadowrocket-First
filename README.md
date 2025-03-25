@@ -187,7 +187,7 @@
 > >   
 > > [![安装模块 京东比价模块](https://img.shields.io/static/v1?label=安装模块&message=京东比价模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.sgmodule "一键安装本模块")
 > > 
-> > 另有 [githubdulong](https://github.com/githubdulong) 维护的融入页面版比价模块，同样是点击商品详情或下滑进入详情触发
+> > 另有 [githubdulong](https://github.com/githubdulong) 维护的融入页面版模块，同样是点击商品详情或下滑进入详情触发
 > > 
 > > [![安装模块 京东比价模块](https://img.shields.io/static/v1?label=安装模块&message=京东比价模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/githubdulong/Script/refs/heads/master/Surge/jd_price2.sgmodule "一键安装本模块")
 >
