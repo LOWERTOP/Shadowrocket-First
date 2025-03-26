@@ -35,7 +35,7 @@
 
 ------
 
-# [Shadowrocket 自制配置](#shadowrocket-简介)
+# [Shadowrocket 自制配置](#shadowrocket-first-简介)
 
 > [!NOTE]
 > 
@@ -95,7 +95,7 @@
 
 ------
 
-# [Shadowrocket 收集配置](#shadowrocket-简介)
+# [Shadowrocket 收集配置](#shadowrocket-first-简介)
 
 > [!NOTE]
 > 
@@ -281,7 +281,7 @@
 
 ------
 
-# [Shadowrocket 配色文件](#shadowrocket-简介)
+# [Shadowrocket 配色文件](#shadowrocket-first-简介)
 
 > [!NOTE]
 > 
