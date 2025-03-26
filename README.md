@@ -320,7 +320,7 @@
 
 ------
 
-#### [Shadowrocket EpicLight](#shadowrocket-配色文件)
+#### [Shadowrocket EpicLight](#shadowrocket-原创配色)
 > `Epic 清晨` <sup> `亮底色` <sup>
 > 
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23F2F2F2&logo=renovate&logoColor=grey&labelColor=%23F2F2F2&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=EpicLight "亮底色配色")
@@ -338,7 +338,7 @@
 
 ------
 
-#### [Shadowrocket BrightGold](#shadowrocket-配色文件)
+#### [Shadowrocket BrightGold](#shadowrocket-原创配色)
 > `亮金色` <sup> `亮底色` <sup>
 > 
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23D38301&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=BrightGold "亮底色配色")
@@ -356,7 +356,7 @@
 
 ------
 
-#### [Shadowrocket GitHubLight](#shadowrocket-配色文件)
+#### [Shadowrocket GitHubLight](#shadowrocket-原创配色)
 > `GitHub 白昼` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23F0F1F3&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23161B22)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=GitHubLight "亮底色配色")
@@ -374,7 +374,7 @@
 
 ------
 
-#### [Shadowrocket V2EXDay](#shadowrocket-配色文件)
+#### [Shadowrocket V2EXDay](#shadowrocket-原创配色)
 > `V2EX 白昼` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23F5F5F5&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23555555)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=V2EXDay "亮底色配色")
@@ -392,7 +392,7 @@
 
 ------
 
-#### [Shadowrocket EcoGreen](#shadowrocket-配色文件)
+#### [Shadowrocket EcoGreen](#shadowrocket-原创配色)
 > `生态绿` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23DDE1DD&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%2347634E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=EcoGreen "亮底色配色")
@@ -410,7 +410,7 @@
 
 ------
 
-#### [Shadowrocket IceCream](#shadowrocket-配色文件)
+#### [Shadowrocket IceCream](#shadowrocket-原创配色)
 > `淡粉色` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23FFEBF4&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23F5197B)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=IceCream "亮底色配色")
@@ -428,7 +428,7 @@
 
 ------
 
-#### [Shadowrocket Elegant](#shadowrocket-配色文件)
+#### [Shadowrocket Elegant](#shadowrocket-原创配色)
 > `典雅灰` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23EBEBEB&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23383838)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Elegant "亮底色配色")
@@ -446,7 +446,7 @@
 
 ------
 
-#### [Shadowrocket Cloudy](#shadowrocket-配色文件)
+#### [Shadowrocket Cloudy](#shadowrocket-原创配色)
 > `多云色` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23D5DDE0&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23303548)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Cloudy "亮底色配色")
@@ -464,7 +464,7 @@
 
 ------
 
-#### [Shadowrocket AyuLight](#shadowrocket-配色文件)
+#### [Shadowrocket AyuLight](#shadowrocket-原创配色)
 > `香鱼色` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23FAFAFA&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%235C6773)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=AyuLight "亮底色配色")
@@ -482,7 +482,7 @@
 
 ------
 
-#### [Shadowrocket Solarized](#shadowrocket-配色文件)
+#### [Shadowrocket Solarized](#shadowrocket-原创配色)
 > `烈日色` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23FDF6E4&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23657B83)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Solarized "亮底色配色")
@@ -500,7 +500,7 @@
 
 ------
 
-#### [Shadowrocket LightOwl](#shadowrocket-配色文件)
+#### [Shadowrocket LightOwl](#shadowrocket-原创配色)
 > `鸮腹色` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23FBFBFB&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23403F52)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=LightOwl "亮底色配色")
@@ -518,7 +518,7 @@
 
 ------
 
-#### [Shadowrocket SnowTop](#shadowrocket-配色文件)
+#### [Shadowrocket SnowTop](#shadowrocket-原创配色)
 > `雪顶色` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23E5E6EC&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%234C4F68)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=SnowTop "亮底色配色")
@@ -536,7 +536,7 @@
 
 ------
 
-#### [Shadowrocket RomeDay](#shadowrocket-配色文件)
+#### [Shadowrocket RomeDay](#shadowrocket-原创配色)
 > `假日色` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23F5E8E7&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23622229)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=RomeDay "亮底色配色")
@@ -554,7 +554,7 @@
 
 ------
 
-#### [Shadowrocket PeachFresh](#shadowrocket-配色文件)
+#### [Shadowrocket PeachFresh](#shadowrocket-原创配色)
 > `鲜桃色` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23F4C1A0&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23510603)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Peach "亮底色配色")
@@ -572,7 +572,7 @@
 
 ------
 
-#### [Shadowrocket LightBlue](#shadowrocket-配色文件)
+#### [Shadowrocket LightBlue](#shadowrocket-原创配色)
 > `远峰蓝` <sup> `亮底色` <sup>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23F0F3FA&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23395886)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=LightBlue "亮底色配色")
@@ -590,7 +590,7 @@
 
 ------
 
-#### [Shadowrocket EpicDark](#shadowrocket-配色文件)
+#### [Shadowrocket EpicDark](#shadowrocket-原创配色)
 > `Epic 暗黑` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23343338&logo=renovate&logoColor=white&labelColor=gray&messageColor=%2380BAFF)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=EpicDark "暗底色配色")
@@ -608,7 +608,7 @@
 
 ------
 
-#### [Shadowrocket Chrome](#shadowrocket-配色文件)
+#### [Shadowrocket Chrome](#shadowrocket-原创配色)
 > `金属灰` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%2380BAFF&logo=renovate&logoColor=white&labelColor=gray&messageColor=%2380BAFF)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Chrome "暗底色配色")
@@ -626,7 +626,7 @@
 
 ------
 
-#### [Shadowrocket BlueSky](#shadowrocket-配色文件)
+#### [Shadowrocket BlueSky](#shadowrocket-原创配色)
 > `深空蓝` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%232473BD&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23ADBBC8)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=BlueSky "暗底色配色")
@@ -644,7 +644,7 @@
 
 ------
 
-#### [Shadowrocket GodenDark](#shadowrocket-配色文件)
+#### [Shadowrocket GodenDark](#shadowrocket-原创配色)
 > `暗金色` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23D4A763&logo=renovate&logoColor=white&labelColor=gray&messageColor=grey)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=GodenDark "暗底色配色")
@@ -662,7 +662,7 @@
 
 ------
 
-#### [Shadowrocket Fluoresce](#shadowrocket-配色文件)
+#### [Shadowrocket Fluoresce](#shadowrocket-原创配色)
 > `荧光色` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23B4FE5F&logo=renovate&logoColor=white&labelColor=gray&messageColor=grey)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Fluoresce "暗底色配色")
@@ -680,7 +680,7 @@
 
 ------
 
-#### [Shadowrocket TermiusDark](#shadowrocket-配色文件)
+#### [Shadowrocket TermiusDark](#shadowrocket-原创配色)
 > `终端绿` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%2321B869&logo=renovate&logoColor=white&labelColor=gray&messageColor=%2321B869)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=TermiusDark "暗底色配色")
@@ -698,7 +698,7 @@
 
 ------
 
-#### [Shadowrocket Sunset](#shadowrocket-配色文件)
+#### [Shadowrocket Sunset](#shadowrocket-原创配色)
 > `余晖紫` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%239B50DC&logo=renovate&logoColor=white&labelColor=gray&messageColor=grey)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Sunset "暗底色配色")
@@ -716,7 +716,7 @@
 
 ------
 
-#### [Shadowrocket Rose](#shadowrocket-配色文件)
+#### [Shadowrocket Rose](#shadowrocket-原创配色)
 > `玫瑰红` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23BE1451&logo=renovate&logoColor=white&labelColor=gray&messageColor=grey)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Rose "暗底色配色")
@@ -734,7 +734,7 @@
 
 ------
 
-#### [Shadowrocket Violet](#shadowrocket-配色文件)
+#### [Shadowrocket Violet](#shadowrocket-原创配色)
 > `紫罗兰` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%2348426D&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Violet "暗底色配色")
@@ -752,7 +752,7 @@
 
 ------
 
-#### [Shadowrocket KanagawaWave](#shadowrocket-配色文件)
+#### [Shadowrocket KanagawaWave](#shadowrocket-原创配色)
 > `神奈川夜` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%2336363E&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=KanagawaWave "暗底色配色")
@@ -770,7 +770,7 @@
 
 ------
 
-#### [Shadowrocket KanagawaGray](#shadowrocket-配色文件)
+#### [Shadowrocket KanagawaGray](#shadowrocket-原创配色)
 > `神奈川灰` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%2336363E&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=KanagawaGray "暗底色配色")
@@ -787,7 +787,7 @@
 > </details>
 
 ------
-#### [Shadowrocket CyberPurple](#shadowrocket-配色文件)
+#### [Shadowrocket CyberPurple](#shadowrocket-原创配色)
 > `赛博紫` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%23483F68&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=CyberPurple "暗底色配色")
@@ -805,7 +805,7 @@
 
 ------
 
-#### [Shadowrocket GitHubDark](#shadowrocket-配色文件)
+#### [Shadowrocket GitHubDark](#shadowrocket-原创配色)
 > `GitHub 暗夜` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%2322282F&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=GitHubDark "暗底色配色")
@@ -823,7 +823,7 @@
 
 ------
 
-#### [Shadowrocket V2EXNight](#shadowrocket-配色文件)
+#### [Shadowrocket V2EXNight](#shadowrocket-原创配色)
 > `V2EX 暗夜` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%2318222D&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=V2EXNight "暗底色配色")
@@ -841,7 +841,7 @@
 
 ------
 
-#### [Shadowrocket AtomDark](#shadowrocket-配色文件)
+#### [Shadowrocket AtomDark](#shadowrocket-原创配色)
 > `原子灰` <sub> `暗底色` <sub>
 >
 > [![配色文件 一键安装](https://img.shields.io/static/v1?label=配色文件&message=一键安装&color=%231E2127&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=AtomDark "暗底色配色")
