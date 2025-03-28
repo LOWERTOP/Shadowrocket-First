@@ -12,6 +12,7 @@ WiFiCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,toleran
 
 [Script]
 地区定位控制 = type=http-request, enable={{{地区定位}}}, pattern=^https?:\/\/gspe1-ssl\.ls\.apple\.com, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/WiFiCall_switch.js, requires-body=0, max-size=0, timeout=10
+
 [Rule]
 # 地区检测
 # DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,WiFiCall
