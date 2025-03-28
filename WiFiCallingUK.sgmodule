@@ -1,7 +1,7 @@
 #!name=Wi-Fi Calling UK
 #!desc=英国 SIM 卡 Wi-Fi Calling 配置模块（测试版）
 #!arguments=地区定位:true
-#!arguments-desc=\n开启 地区定位 即可修改苹果的网络定位服务，该功能或须搭配飞行模式使用\n开启或关闭后访问：https://gspe1-ssl.ls.apple.com/pep/gcc \n页面显示的两个字母即为当前修改的地区代码
+#!arguments-desc=\n开启 地区定位 即可修改苹果的网络定位服务，该功能或须搭配飞行模式使用\n\n开启或关闭后访问：https://gspe1-ssl.ls.apple.com/pep/gcc\n\n页面显示的两个字母即为当前修改的地区代码
 # 本规则仅适用于部分英国 SIM 卡的 Wi-Fi Calling 功能。
 # 规则来源：https://github.com/iniwex5
 # 特别鸣谢：https://github.com/XiangwanGuan
