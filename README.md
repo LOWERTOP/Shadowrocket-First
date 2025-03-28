@@ -188,9 +188,9 @@
 > >   
 > > [![安装模块 YouTube 模块](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > 
-> **[京东比价模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.sgmodule)**
+> **[京东比价模块（双版本融合）](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.sgmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价通知。该模块包含 **通知版** 和 **嵌入版**，通知版为弹窗通知的形式进行比价，嵌入版为将比价信息表格嵌入详情的形式。启用后点击该模块，选择编辑参数，可以自由选择版本。须开启小火箭通知权限，并非所有商品都有历史价格
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价通知。该模块包含 **通知版** 和 **嵌入版**，通知版为弹窗通知的形式进行比价，嵌入版为将比价信息表格嵌入详情的形式。启用后点击该模块，选择 **编辑参数**，可以自由选择版本。须开启小火箭通知权限，并非所有商品都有历史价格
 > >   
 > > [![安装模块 京东比价模块](https://img.shields.io/static/v1?label=安装模块&message=京东比价模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.sgmodule "一键安装本模块")
 >
