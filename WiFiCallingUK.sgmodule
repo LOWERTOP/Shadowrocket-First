@@ -9,7 +9,7 @@
 UKCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇬🇧|UK|GB|Kingdom|England|uk|Britain|British|London|英国|伦敦|英
 
 [Script]
-英国定位控制 = type=http-request, enable={{{英国定位}}}, pattern=^https?:\/\/gspe1-ssl\.ls\.apple\.com, requires-body=0, max-size=0, script-path=https://your-server.com/ukcall_switch.js, timeout=10
+英国定位控制 = type=http-request, enable={{{英国定位}}}, pattern=^https?:\/\/gspe1-ssl\.ls\.apple\.com, requires-body=0, max-size=0, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/ukcall_switch.js, timeout=10
 
 [Rule]
 # 地区检测
