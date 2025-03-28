@@ -1,14 +1,10 @@
-// Shadowrocket 代理规则开关控制
-// 详细的调试版本
+// Shadowrocket WiFi Calling 开关控制脚本
 const enabled = $persistentStore.read("地区定位");
 
-// 添加更多日志记录
-console.log("地区定位开关状态:", enabled);
-
+// 仅在开关启用时执行代理逻辑
 if (enabled === "true") {
-  console.log("启用WiFiCall代理");
   $done({ policy: "WiFiCall" }); 
 } else {
-  console.log("使用直接连接");
-  $done({ policy: "DIRECT" }); 
+  // 开关未启用时，不执行任何操作
+  $done();
 }
