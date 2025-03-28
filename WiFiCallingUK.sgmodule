@@ -34,3 +34,6 @@ IP-CIDR,46.68.0.0/17,WiFiCall,no-resolve
 # Giffgaff
 DOMAIN-SUFFIX,giffgaff.com,WiFiCall
 IP-CIDR,87.194.0.0/16,WiFiCall,no-resolve
+
+[MITM]
+hostname = %APPEND% gspe1-ssl.ls.apple.com
