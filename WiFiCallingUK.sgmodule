@@ -1,6 +1,8 @@
 #!name=Wi-Fi Calling UK
 #!desc=英国 SIM 卡 Wi-Fi Calling 配置模块（测试版）
-# 本规则仅适用于部分英国 SIM 卡的 Wi-Fi Calling 功能。使用本模块打开飞行模式后再关闭飞行模式进行联网即可正常开启 WiFi calling 功能
+#!arguments=英国定位:true
+#!arguments-desc=\n开启 国家定位 即可修改苹果的网络定位服务，该功能或须搭配飞行模式使用
+# 本规则仅适用于部分英国 SIM 卡的 Wi-Fi Calling 功能。
 # 规则来源：https://github.com/iniwex5
 # 特别鸣谢：https://github.com/XiangwanGuan
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
