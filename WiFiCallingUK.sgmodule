@@ -8,9 +8,12 @@
 [Proxy Group]
 UKCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇬🇧|UK|GB|Kingdom|England|uk|Britain|British|London|英国|伦敦|英
 
+[Script]
+英国定位控制 = type=http-request, enable={{{英国定位}}}, pattern=^https?:\/\/gspe1-ssl\.ls\.apple\.com, requires-body=0, max-size=0, script-path=https://your-server.com/ukcall_switch.js, timeout=10
+
 [Rule]
 # 地区检测
-DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,UKCall
+# DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,UKCall
 
 # 端口分流
 AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), UKCall
