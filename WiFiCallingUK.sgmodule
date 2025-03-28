@@ -1,36 +1,36 @@
 #!name=Wi-Fi Calling UK
 #!desc=英国 SIM 卡 Wi-Fi Calling 配置模块（测试版）
-#!arguments=英国定位:true
-#!arguments-desc=\n开启 国家定位 即可修改苹果的网络定位服务，该功能或须搭配飞行模式使用
+#!arguments=地区定位:true
+#!arguments-desc=\n开启 地区定位 即可修改苹果的网络定位服务，该功能或须搭配飞行模式使用
 # 本规则仅适用于部分英国 SIM 卡的 Wi-Fi Calling 功能。
 # 规则来源：https://github.com/iniwex5
 # 特别鸣谢：https://github.com/XiangwanGuan
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Proxy Group]
-UKCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇬🇧|UK|GB|Kingdom|England|uk|Britain|British|London|英国|伦敦|英
+WiFiCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇬🇧|UK|GB|Kingdom|England|uk|Britain|British|London|英国|伦敦|英
 
 [Script]
-英国定位控制 = type=http-request, enable={{{英国定位}}}, pattern=^https?:\/\/gspe1-ssl\.ls\.apple\.com, requires-body=0, max-size=0, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/ukcall_switch.js, timeout=10
+地区定位控制 = type=http-request, enable={{{地区定位}}}, pattern=^https?:\/\/gspe1-ssl\.ls\.apple\.com, requires-body=0, max-size=0, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/WiFiCall_switch.js, timeout=10
 
 [Rule]
 # 地区检测
-# DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,UKCall
+# DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,WiFiCall
 
 # 端口分流
-AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), UKCall
+AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), WiFiCall
 
 # 沃达丰
-DOMAIN-SUFFIX,entsrv-uk.vodafone.com,UKCall
-DOMAIN-SUFFIX,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UKCall
-DOMAIN-SUFFIX,ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,UKCall
-DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc015.mcc234.pub.3gppnetwork.org,UKCall
-DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com,UKCall
-IP-CIDR,88.82.0.0/19,UKCall,no-resolve
+DOMAIN-SUFFIX,entsrv-uk.vodafone.com,WiFiCall
+DOMAIN-SUFFIX,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,WiFiCall
+DOMAIN-SUFFIX,ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,WiFiCall
+DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc015.mcc234.pub.3gppnetwork.org,WiFiCall
+DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com,WiFiCall
+IP-CIDR,88.82.0.0/19,WiFiCall,no-resolve
 
 # CMLink UK EE
-IP-CIDR,46.68.0.0/17,UKCall,no-resolve
+IP-CIDR,46.68.0.0/17,WiFiCall,no-resolve
 
 # Giffgaff
-DOMAIN-SUFFIX,giffgaff.com,UKCall
-IP-CIDR,87.194.0.0/16,UKCall,no-resolve
+DOMAIN-SUFFIX,giffgaff.com,WiFiCall
+IP-CIDR,87.194.0.0/16,WiFiCall,no-resolve
