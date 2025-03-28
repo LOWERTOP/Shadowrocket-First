@@ -6,7 +6,7 @@
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Proxy Group]
-UKCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇬🇧|UK|GB|Kingdom|England|uk|Britain|British|London|英国|伦敦|沪英|英
+UKCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇬🇧|UK|GB|Kingdom|England|uk|Britain|British|London|英国|伦敦|英
 
 [Rule]
 # 地区检测
