@@ -11,9 +11,12 @@
 WiFiCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇬🇧|UK|GB|Kingdom|England|uk|Britain|British|London|英国|伦敦|英
 
 [Script]
-地区定位控制 = type=http-request, enable={{{地区定位}}}, arguments="group=WiFiCall,enable={{地区定位}}", pattern=^https?:\/\/gspe1-ssl\.ls\.apple\.com\/pep\/gcc, script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/WiFiCall_switch.js, requires-body=0, max-size=0, timeout=10
+地区定位控制 = type=http-request,pattern=^https?:\/\/gspe1-ssl\.ls\.apple\.com\/pep\/gcc,enable={{{地区定位}}},script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/WiFiCall_switch.js,arguments=policy=WiFiCall
 
 [Rule]
+# 保持该规则在最后执行
+URL-REGEX ^https?:\/\/gspe1-ssl\.ls\.apple\.com\/pep\/gcc, script:地区定位控制
+
 # 地区检测
 # DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,WiFiCall
 
