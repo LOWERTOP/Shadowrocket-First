@@ -1,5 +1,5 @@
 (function() {
-    // 解析传入的参数，格式示例："group=WiFiCall,enable=true"
+    // 解析传入的参数，格式例如 "group=WiFiCall,enable=true"
     let args = {};
     if ($argument) {
         $argument.split(',').forEach(function(item) {
@@ -10,13 +10,13 @@
         });
     }
 
-    // 检查开关状态及代理组名称
-    if (args.enable && args.enable.toLowerCase() === 'true' && args.group) {
-        // 当地区定位开关开启时，返回指定的代理组
-        // 注意：Shadowrocket 的脚本环境允许通过返回 policy 来切换代理策略
-        $done({policy: args.group});
+    // 当开关开启时（enable为true）则返回对应策略
+    if (args.enable && args.enable.toLowerCase() === 'true') {
+        // 返回策略 WiFiCall，Shadowrocket 内部会根据该返回值选择代理节点，
+        // 效果上等同于规则 "DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,WiFiCall"
+        $done({policy: "WiFiCall"});
     } else {
-        // 否则，保持默认处理（可以直接返回空对象，表示不做修改）
+        // 否则不做修改，继续默认走原有规则
         $done({});
     }
 })();
