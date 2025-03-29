@@ -110,8 +110,6 @@ DOMAIN-SUFFIX,twmanga.com,DIRECT
 [Script]
 # 包子漫画网页去广告
 web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/baozimh.js
-# web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/AntiAD.js
-# web-element-block = type=http-response,pattern=^https?:\/\/(www\.)?(baozimh|twmanga)\.com\/.*,requires-body=1,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/baozimh.js
 
 # Spotify 本仓 JS，用以替代 Header Rewrite，如有故障请注释掉下行内容
 spotify-header = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$,requires-body=false,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/spotify-header.js,timeout=10
