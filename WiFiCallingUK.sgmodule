@@ -1,6 +1,6 @@
 #!name=Wi-Fi Calling UK
 #!desc=英国 SIM 卡 Wi-Fi Calling 配置模块（测试版）
-#!arguments=地区定位:true
+#!arguments=规则类型:DOMAIN-SUFFIXE
 #!arguments-desc=\n更改苹果基于网络的地区检测结果至指定地区。但当存在移动蜂窝网络时不触发此检测方式，此时须开启飞行模式才可生效\n\n确认步骤如下：\n\n · 访问：https://gspe1-ssl.ls.apple.com/pep/gcc\n\n · 页面上显示的两个字母即为当前生效的地区代码\n\n · 若启用上方开关，定位的地区不应该显示为 CN\n\n · 此开关暂未生效，请等待制作完成
 # 本规则仅适用于部分英国 SIM 卡的 Wi-Fi Calling 功能。
 # 规则来源：https://github.com/iniwex5
@@ -10,12 +10,9 @@
 [Proxy Group]
 WiFiCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇬🇧|UK|GB|Kingdom|England|uk|Britain|British|London|英国|伦敦|英
 
-[Script]
-地区定位控制 = type=http-request,pattern=^https?:\/\/gspe1-ssl\.ls\.apple\.com\/pep\/gcc,enable={{{地区定位}}},script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/WiFiCall_switch.js
-
 [Rule]
 # 地区检测
-# DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,WiFiCall
+{{{规则类型}}},gspe1-ssl.ls.apple.com,WiFiCall
 
 # 端口分流
 AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), WiFiCall
