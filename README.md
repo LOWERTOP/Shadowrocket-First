@@ -112,7 +112,7 @@
 
 ### [使用手册](#shadowrocket-收集配置)
 
-> 使用手册以 **[Shadowrocket 官方群组](https://t.me/ShadowrocketApp)** 使用的关键词列表为基础进行编写，以帮助用户能够更好的理解和使用 Shadowrocket 软件。仓库 [Original 分支](https://github.com/LOWERTOP/Shadowrocket/tree/Original) 同时保有原始文件，如有需要亦可进入查看
+> 使用手册以 **[Shadowrocket 官方群组](https://t.me/ShadowrocketApp)** 使用的关键词列表为基础进行编写，涵盖软件 90% 以上的功能说明和常见问题的解决方案，可以帮助用户更好的理解和使用 Shadowrocket 软件
 >
 > [![教程文档 使用手册](https://img.shields.io/static/v1?label=教程文档&message=使用手册&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
 
