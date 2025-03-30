@@ -29,7 +29,7 @@
 
 `项目更新`
 > * 变更 [当前分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/README) 为默认分支，原文件在 [main](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)
-> * 新增 [多个原生模块](#原生模块) 及 [其他模块集](#模块合集与其他仓库)
+> * 更新 [多个模块](#原生模块) 及 [其他模块集](#模块合集与其他仓库)
 > * 原创 [配色文件](#shadowrocket-配色文件) 增至 30 个
 > * 设置 [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
@@ -62,13 +62,13 @@
 > Wi-Fi Calling 相关 `测试` 配置，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集，原则上使用后打开飞行模式后再关闭飞行模式进行联网应该就能正常开启 Wi-Fi calling。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择，其前提是拥有的节点的名称内包含地区关键词，若节点名称不包含地区关键词，可以使用规则集不使用模块，以规则集的形式直接指定所需节点
 > 
 > **`美国地区`**
-> > 确认适用于 Ultra Mobile，原则上适用 T-Mobile 的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.list)
+> > 确认适用于 Ultra Mobile，原则上适用 T-Mobile 的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.list)。不过，Giffgaff 的开启条件相对苛刻，不仅需要网络环境支持，而且需要 iOS 17.4 以上才可开启，[点击此处](https://help.giffgaff.com/en/articles/258841-wifi-calling-and-volte) 查看官方要求，[点击此处](https://www.nodeseek.com/post-183470-1) 查看开启教程
 > > 
 > > [![安装模块 WiFiCall-US](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-US&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.sgmodule "一键安装本模块")
 > > [![规则文件 WiFiCall-US](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-US&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.list "点击访问规则集")
 >
 > **`英国地区`**
-> > 原则上适用于 [Giffgaff](http://www.giffgaff.com/orders/affiliate/onone040_1742873967723)、CMLink 以及沃达丰的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list)。不过，Giffgaff 的开启条件相对苛刻，不仅需要网络环境支持，而且需要 iOS 17.4 以上才可开启，[点击此处](https://help.giffgaff.com/en/articles/258841-wifi-calling-and-volte) 查看官方要求，[点击此处](https://www.nodeseek.com/post-183470-1) 查看相应教程步骤
+> > 原则上适用于 [Giffgaff](http://www.giffgaff.com/orders/affiliate/onone040_1742873967723)、CMLink 以及沃达丰的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list)
 > > 
 > > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule "一键安装本模块")
 > > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list "点击访问规则集")
@@ -112,7 +112,7 @@
 
 ### [使用手册](#shadowrocket-收集配置)
 
-> 使用手册以 **[Shadowrocket 官方群组](https://t.me/ShadowrocketApp)** 使用的关键词列表为基础进行编写，以帮助用户能够更好的理解和使用 Shadowrocket 软件。仓库 [Original 分支](https://github.com/LOWERTOP/Shadowrocket/tree/Original) 同时保有原始文件，如有需要亦可进入查看
+> 使用手册以 **[Shadowrocket 官方群组](https://t.me/ShadowrocketApp)** 使用的关键词列表为基础进行编写，涵盖软件 90% 以上的功能说明和常见问题的解决方案，可以帮助用户更好的理解和使用 Shadowrocket 软件
 >
 > [![教程文档 使用手册](https://img.shields.io/static/v1?label=教程文档&message=使用手册&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
 
@@ -131,7 +131,7 @@
 
 ### [去广告规则](#shadowrocket-收集配置)
 
-> **去广告规则** 是用于通过添加特定屏蔽类的规则或者规则集的形式来屏蔽网页和应用中的广告的操作的。使用时要确保去广告规则的优先级高于其他分流规则，以避免广告流量仍然被其他规则放行。添加规则的方法参见 [手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99)
+> **去广告规则** 用于通过添加特定屏蔽类的规则或者规则集的形式来屏蔽网页和应用中的广告或其他不希望展示或访问的内容。使用时要确保去广告规则的优先级高于其他分流规则，以避免广告流量仍然被其他规则放行。添加规则的方法参见 [手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99)
 > 
 > [anti-AD](https://github.com/privacy-protection-tools/anti-AD) 维护有适用于小火箭的 [去广告规则](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt)。其将各大著名的 hosts、ad filter lists、adblock list 等列表进行合并去重，再进行一系列的抽象化，例如主动剔除失效域名、easylist 优化模糊匹配、增强的黑白名单机制等措施，最终生成较高命中率的列表
 > 
@@ -220,7 +220,7 @@
 > 
 > **[贴吧去广告模块](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)**
 > 
-> > 本模块来自 [app2smile](https://github.com/app2smile)，详细内容参见模块 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)，该模块的有效性请自行测试
+> > 本模块来自 [app2smile](https://github.com/app2smile)，支持 **编辑参数** 功能，安装后点击模块进入参数编辑页面设置，其他内容参见 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)
 > >   
 > > [![安装模块 贴吧去广告](https://img.shields.io/static/v1?label=安装模块&message=贴吧去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule "一键安装本模块")
 
