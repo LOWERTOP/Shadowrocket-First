@@ -220,7 +220,7 @@
 > 
 > **[贴吧去广告模块](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)**
 > 
-> > 本模块来自 [app2smile](https://github.com/app2smile)，详细内容参见模块 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)，该模块的有效性请自行测试
+> > 本模块来自 [app2smile](https://github.com/app2smile)，支持 **编辑参数** 功能，安装后可点击模块进入参数编辑页面设置，其他内容参见 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)
 > >   
 > > [![安装模块 贴吧去广告](https://img.shields.io/static/v1?label=安装模块&message=贴吧去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule "一键安装本模块")
 
