@@ -1,0 +1,26 @@
+#!name=OKX
+#!desc=OKX 直连规则集
+# 本规则集的目的是收集该服务的地址以使OKX进行直连连接
+# 整理作者：https://github.com/LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+# 类型选择：RULE-SET
+# 策略建议：DIRECT
+
+DOMAIN-KEYWORD,liuyimin4
+DOMAIN-SUFFIX,cloudfront.net
+DOMAIN-SUFFIX,okx.com.cdn.cloudflare.net
+DOMAIN-SUFFIX,in.appcenter.ms
+DOMAIN-SUFFIX,kjmte.com
+DOMAIN-SUFFIX,api.onesignal.com
+DOMAIN-SUFFIX,geetest.com
+DOMAIN-SUFFIX,appsflyersdk.com
+DOMAIN-SUFFIX,firebase-settings.crashlytics.com
+DOMAIN-SUFFIX,api.amplitudeexperiment.com
+DOMAIN-SUFFIX,coinall.ltd
+DOMAIN-SUFFIX,cnouyi.pizza
+DOMAIN-SUFFIX,oklink.com
+DOMAIN-SUFFIX,okex.com
+DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,okx-dns1.com
+DOMAIN-SUFFIX,okx-dns.com
+DOMAIN-KEYWORD,okx
