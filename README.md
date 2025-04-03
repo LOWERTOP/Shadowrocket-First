@@ -93,6 +93,12 @@
 >
 > [![安装模块 AntiIPtracking](https://img.shields.io/static/v1?label=安装模块&message=AntiIPtracking&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule "一键安装本模块")
 
+### [OKX 规则集](#shadowrocket-自制配置)
+
+> 自收集的 OKX 规则集，现为 **`Beta`** 版，OKX 本身在中国大陆地区可以直连，且会使用 `cloudfront` 和 `cloudflare` 进行提速，本规则集收集了其可能使用的所有地址，设为直连后可能更适合在中国大陆地区使用。因本集包含了 `cloudfront.net` 的地址，其他使用 `cloudfront` 服务的软件是否存在 CDN 减速的问题尚需观察，如有问题欢迎反馈
+>
+> [![规则文件 OKX 规则集](https://img.shields.io/static/v1?label=规则文件&message=OKX%20规则集&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/okx.list "点击访问规则集")
+
 ------
 
 # [Shadowrocket 收集配置](#shadowrocket-first-简介)
