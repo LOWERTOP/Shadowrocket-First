@@ -6,9 +6,11 @@
 
 [Rule]
 # 地区检测
-DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,WiFiCall
+DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,PROXY
+
 # 端口检测
 AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))),PROXY
+
 # 地址代理
 DOMAIN-SUFFIX,crl.t-mobile.com,PROXY
 DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org,PROXY
