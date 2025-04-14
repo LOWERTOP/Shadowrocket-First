@@ -134,7 +134,7 @@
 
 > 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各代理软件分流规则的入口，是现阶段首推的代理规则集，使用时务必阅读相应的配置建议
 > 
-> [![规则检索 分流规则集](https://img.shields.io/static/v1?label=规则检索&message=分流规则集&color=grey&logo=dask&logoColor=white&labelColor=%2325A162&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
+> [![规则检索 分流规则集](https://img.shields.io/static/v1?label=规则检索&message=分流规则集&color=grey&logo=searxng&logoColor=white&labelColor=%2325A162&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
 
 ### [去广告规则](#shadowrocket-收集配置)
 
@@ -233,23 +233,23 @@
 
 > 某不愿透漏姓名的 __`热心网友`__ 依据 [可莉](https://github.com/luestr) 的资源制作的小火箭专用的模块大合集，可根据需要进入挑选，使用前须安装 [Script-Hub 模块](#进阶用法)
 > 
-> [![模块仓库 模块大合集](https://img.shields.io/static/v1?label=模块仓库&message=模块大合集&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.huksy88.sbs "点击查看模块")
+> [![模块仓库 模块大合集](https://img.shields.io/static/v1?label=模块仓库&message=模块大合集&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.huksy88.sbs "点击查看模块")
 > 
 > [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，包含高德、B站、彩云、菜鸟、微博等，自行进入选择安装
 >
-> [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
+> [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
 >
 > [blackmatrix7](https://github.com/blackmatrix7) 维护的原生模块仓库，如有需要请自行进入选择安装
 >   
-> [![模块仓库 blackmatrix7](https://img.shields.io/static/v1?label=模块仓库&message=blackmatrix7&color=grey&logo=dask&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看模块")
+> [![模块仓库 blackmatrix7](https://img.shields.io/static/v1?label=模块仓库&message=blackmatrix7&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看模块")
 >
 > [QingRex](https://github.com/QingRex) 维护的仓库，其内容不一定与小火箭完全兼容，请自行测试是否需要借助 [Script-Hub](#进阶用法) 进行转换
 >
-> [![其他仓库 QingRex](https://img.shields.io/static/v1?label=其他仓库&message=QingRex&color=grey&logo=dask&logoColor=white&labelColor=%23506365&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
+> [![其他仓库 QingRex](https://img.shields.io/static/v1?label=其他仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=%23506365&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
 > 
 > [fmz200](https://github.com/fmz200) 维护的仓库，其内容非原生支持小火箭，需要借助 [Script-Hub](#进阶用法) 方可添加到小火箭中
 >
-> [![其他仓库 fmz200](https://img.shields.io/static/v1?label=其他仓库&message=fmz200&color=grey&logo=dask&logoColor=white&labelColor=%23506365&messageColor=white)](https://github.com/fmz200/wool_scripts "点击查看模块")
+> [![其他仓库 fmz200](https://img.shields.io/static/v1?label=其他仓库&message=fmz200&color=grey&logo=searxng&logoColor=white&labelColor=%23506365&messageColor=white)](https://github.com/fmz200/wool_scripts "点击查看模块")
 >
 
 ### [筛选订阅脚本](#shadowrocket-收集配置)
