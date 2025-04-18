@@ -190,7 +190,7 @@
 > 
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能，同时支持 Youtube Music 去广告。本模块支持 **编辑参数**，安装后可点击模块进入参数编辑页面，可选屏蔽上传按钮、Shorts、选段按钮，以及设置语言等。需要注意，Apple TV 版 YouTube 不支持解密，不可使用类似模块。其中第二个版本是为降低内存消耗而做的备用版本，同样包含编辑参数功能
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能，同时支持 Youtube Music 去广告。模块 A 支持 **编辑参数**，安装后可点击模块进入参数编辑页面，可选屏蔽上传按钮、Shorts、选段按钮，以及设置语言等。模块 B 是为降低内存消耗而做的另一个版本，同样包含 **编辑参数** 功能。需要注意，Apple TV 版 YouTube 不支持解密，不可使用类似模块
 > >   
 > > [![安装模块 YouTube 模块A](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块A&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > > [![安装模块 YouTube 模块B](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块B&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeLite.srmodule "一键安装本模块")
