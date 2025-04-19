@@ -28,7 +28,7 @@
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 `项目更新`
-> * 新增 [OKX 规则集](#okx-规则集)
+> * 更新 [OKX 规则集](#okx-规则集)
 > * 变更 [当前分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/README) 为默认分支，原文件在 [main](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)
 > * 更新 [多个模块](#原生模块) 及 [其他模块集](#模块合集与其他仓库)
 > * 原创 [配色文件](#shadowrocket-配色文件) 增至 30 个
@@ -53,7 +53,7 @@
 
 ### [DeepSeek](#shadowrocket-自制配置)
 
-> DeepSeek 的服务在某些特定地区必须使用手机号注册和登陆使用，本仓提供 [分流模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule) 和 [代理规则](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list)，可以解锁使用邮箱、谷歌账号等方式注册与登录该服务。同时，模块中屏蔽了部分 **可能** 涉嫌传输个人信息的地址
+> DeepSeek 的服务在某些特定地区必须使用手机号注册和登陆使用，本仓提供 [分流模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule) 和 [代理规则](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list)，可以解锁使用邮箱、谷歌账号等方式注册与登录该服务。同时，模块中屏蔽了部分 **存疑** 地址
 > 
 > [![安装模块 DeepSeek](https://img.shields.io/static/v1?label=安装模块&message=DeepSeek&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule "一键安装本模块")
 > [![规则文件 DeepSeek](https://img.shields.io/static/v1?label=规则文件&message=DeepSeek&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list "点击访问规则集")
@@ -69,7 +69,8 @@
 > > [![规则文件 WiFiCall-US](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-US&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.list "点击访问规则集")
 >
 > **`英国地区`**
-> > 原则上适用于 [Giffgaff](http://www.giffgaff.com/orders/affiliate/onone040_1742873967723)、CMLink 以及沃达丰的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list)。不过，Giffgaff 的开启条件相对苛刻，不仅需要网络环境支持，而且需要 iOS 17.4 以上才可开启，[点击此处](https://help.giffgaff.com/en/articles/258841-wifi-calling-and-volte) 查看官方要求，[点击此处](https://www.nodeseek.com/post-183470-1) 查看开启教程
+> > 原则上适用于 **[Giffgaff](http://www.giffgaff.com/orders/affiliate/onone040_1742873967723)**、CMLink 以及沃达丰的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list)<br>
+> > 不过，Giffgaff 的开启条件相对苛刻，需要 iOS 17.4 以上以及网络环境支持才可开启。查看 [官方要求](https://help.giffgaff.com/en/articles/258841-wifi-calling-and-volte)，查看 [开启教程](https://www.nodeseek.com/post-183470-1)
 > > 
 > > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule "一键安装本模块")
 > > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list "点击访问规则集")
@@ -125,7 +126,7 @@
 
 ### [懒人配置](#shadowrocket-收集配置)
 
-> [懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf)，顾名思义是专为 **`懒人`** 打造的开箱即用的配置文件，其发布来源是 [官方群组](https://t.me/ShadowrocketApp)。该配置不同于默认配置内置本地规则的代理形式，而是以规则集的形式设置代理规则，并设有示例分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件。配置文件的用法参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+> 顾名思义，[懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf) 就是专为 **`懒人`** 打造的开箱即用的配置文件，发布于 [官方群组](https://t.me/ShadowrocketApp)。该配置与默认配置内置本地规则的处理形式不同，是以规则集的形式设置代理规则，并设有示例分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件。配置文件的用法参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
 > 
 > [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 
@@ -138,7 +139,7 @@
 
 ### [去广告规则](#shadowrocket-收集配置)
 
-> **去广告规则** 用于通过添加特定屏蔽类的规则或者规则集的形式来屏蔽网页和应用中的广告或其他不希望展示或访问的内容。使用时要确保去广告规则的优先级高于其他分流规则，以避免广告流量仍然被其他规则放行。添加规则的方法参见 [手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99)
+> **去广告规则** 用于通过添加屏蔽类的规则或者规则集的形式来屏蔽网页和应用中的广告或其他不希望展示或访问的内容。使用时要确保去广告规则的优先级高于其他分流规则，以避免广告流量仍然被其他规则放行。添加规则的方法参见 [手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99)
 > 
 > [anti-AD](https://github.com/privacy-protection-tools/anti-AD) 维护有适用于小火箭的 [去广告规则](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt)。其将各大著名的 hosts、ad filter lists、adblock list 等列表进行合并去重，再进行一系列的抽象化，例如主动剔除失效域名、easylist 优化模糊匹配、增强的黑白名单机制等措施，最终生成较高命中率的列表
 > 
@@ -189,9 +190,10 @@
 > 
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能，同时支持 Youtube Music 去广告。本模块支持 **编辑参数**，安装后可点击模块进入参数编辑页面，可选屏蔽上传按钮、Shorts、选段按钮，以及设置语言等。需要注意，Apple TV 版 YouTube 不支持解密，不可使用类似模块
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能，同时支持 Youtube Music 去广告。模块 A 支持 **编辑参数**，安装后可点击模块进入参数编辑页面，可选屏蔽上传按钮、Shorts、选段按钮，以及设置语言等。模块 B 是为降低内存消耗而做的另一个版本，同样包含 **编辑参数** 功能。需要注意，Apple TV 版 YouTube 不支持解密，不可使用类似模块
 > >   
-> > [![安装模块 YouTube 模块](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
+> > [![安装模块 YouTube 模块A](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块A&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
+> > [![安装模块 YouTube 模块B](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块B&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeLite.srmodule "一键安装本模块")
 > 
 > **[京东比价模块（双版本融合）](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.sgmodule)**
 > 
@@ -201,15 +203,15 @@
 >
 > **[小红书去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除小红书广告及图片、视频的水印
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除小红书广告及图片、视频的水印。仅保证在 http 代理模式下生效，Tun 模式下可能无效
 > >   
 > > [![安装模块 小红书模块](https://img.shields.io/static/v1?label=安装模块&message=小红书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule "一键安装本模块")
 >  
-> **[滴滴去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/DidiNoAd.sgmodule)**
+> **[滴滴去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/DidiNoAd.srmodule)**
 > 
 > > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除滴滴的开屏广告及内部广告页面
 > >   
-> > [![安装模块 滴滴去广告](https://img.shields.io/static/v1?label=安装模块&message=滴滴去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/DidiNoAd.sgmodule "一键安装本模块")
+> > [![安装模块 滴滴去广告](https://img.shields.io/static/v1?label=安装模块&message=滴滴去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/DidiNoAd.srmodule "一键安装本模块")
 > 
 > **[微博轻享版模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/WeiBoIntl.sgmodule)**
 > 
@@ -238,6 +240,10 @@
 > [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，包含高德、B站、彩云、菜鸟、微博等，自行进入选择安装
 >
 > [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
+>
+> [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、京东比价、滴滴出行、酷安、小红书等软件的相关模块，自行进入选择安装
+>
+> [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看模块")
 >
 > [blackmatrix7](https://github.com/blackmatrix7) 维护的原生模块仓库，如有需要请自行进入选择安装
 >   
