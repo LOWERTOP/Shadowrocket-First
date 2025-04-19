@@ -28,10 +28,7 @@
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 `项目更新`
-> * 更新 [欧易规则集](#欧易规则集)
 > * 变更 [当前分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/README) 为默认分支，原文件在 [main](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)
-> * 更新 [多个模块](#原生模块) 及 [其他模块集](#模块合集与其他仓库)
-> * 原创 [配色文件](#shadowrocket-配色文件) 增至 30 个
 > * 设置 [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
 ------
