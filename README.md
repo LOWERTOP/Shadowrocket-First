@@ -5,7 +5,7 @@
 > [!CAUTION]
 > 
 > **禁止使用本仓任何内容违法或牟利！<br>
-> 如需转载请 `标明作者` 或 `注明来源`**
+> 如需转载烦请标明作者或注明来源！**
 
 ------
 
@@ -17,17 +17,17 @@
 
 > [!NOTE]
 > 
-> 本仓库主要提供 `Shadowrocket/小火箭` 适用的 `配置文件`、`模块`、`规则集`、`脚本` 等内容，同时还有多种原创的 `小火箭配色/主题/皮肤`。软件使用方面若有疑问可查看 **[小火箭使用手册](https://github.com/LOWERTOP/Shadowrocket)**
+> 本仓库主要提供小火箭适用的 **配置文件、模块、规则集、脚本** 等内容，同时还有多种原创的 **小火箭配色/主题/皮肤**。软件使用方面若有疑问可查看 **[小火箭使用手册](https://github.com/LOWERTOP/Shadowrocket)**
 >
 > > 若您是相关索引的原作者或权利人，且不希望内容被引用，可点击 [此处](https://t.me/LowerTopBot) 要求剔除
 
-`项目目录`
+**`项目目录`**
 > * `01` · **[Shadowrocket 自制配置](#shadowrocket-自制配置)**
 > * `02` · **[Shadowrocket 收集配置](#shadowrocket-收集配置)**
 > * `03` · **[Shadowrocket 配色文件](#shadowrocket-配色文件)**
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
-`项目更新`
+**`项目更新`**
 > * 变更 [当前分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/README) 为默认分支，原文件在 [main](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)
 > * 设置 [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
@@ -37,11 +37,11 @@
 
 > [!NOTE]
 > 
-> 本单元为自制内容，是为 `特定软件或服务` 所制作的模块、规则集等内容，原文件在 **[main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)**，可自行查看
+> 本单元为自制内容，是为 **特定软件或服务** 所制作的模块、规则集等内容，原文件在 **[main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)**，可自行查看
 
 ### [Talkatone](#shadowrocket-自制配置)
 
-> 由于 Talkatone 的特殊性，[本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 对其使用的不同地址进行分流，以降低该 APP 对不同代理节点的敏感度，使其可以在绝大多数节点下正常使用。本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list)、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 等。其中 `全局代理规则集` 为包含该服务全部地址的规则集，该集对代理节点要求较高，不推荐普通用户使用。其他规则集需互相搭配使用，相关用法请查阅内部说明
+> 由于 Talkatone 的特殊性，[本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 对其使用的不同地址进行分流，以降低该 APP 对不同代理节点的敏感度，使其可以在绝大多数节点下正常使用。本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list)、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 等。其中 **全局代理规则集** 为包含该服务全部地址的规则集，该集对代理节点要求较高，不推荐普通用户使用。其他规则集需互相搭配使用，相关用法请查阅内部说明
 > 
 >**注意：本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册**
 > 
@@ -57,7 +57,7 @@
 
 ### [Wi-Fi Calling](#shadowrocket-自制配置)
 
-> Wi-Fi Calling 相关 `测试` 配置，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择，其前提是拥有的节点的名称内包含地区关键词，若节点名称不包含地区关键词，可以使用规则集不使用模块，以规则集的形式直接指定所需节点
+> Wi-Fi Calling 相关 **测试配置**，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择，其前提是拥有的节点的名称内包含地区关键词，若节点名称不包含地区关键词，可以使用规则集不使用模块，以规则集的形式直接指定所需节点
 > 
 > **`美国地区`**
 > > 确认适用于 Ultra Mobile，原则上适用 T-Mobile 的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.list)
@@ -104,16 +104,16 @@
 
 > [!NOTE]
 > 
-> 本单元内容为收集自可信来源的 `手册` `配置` `模块` `规则` `脚本` 等，可放心食用
+> 本单元内容为收集自可信来源的 **手册、配置、模块、规则、脚本** 等，可放心食用
 
 > [!IMPORTANT]
 > 
-> * **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 `配置` 模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外**
+> * **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 配置 模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外**
 > * **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，不含 MITM 的模块除外。部分软件生效需要重装**
 > * **切换配置文件需要重新 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而需要重新解密，可使用 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)**
 > * **如果使用时遇到 [模块失效](https://github.com/LOWERTOP/Shadowrocket#%E6%A8%A1%E5%9D%97%E5%A4%B1%E6%95%88) 等问题，可尝试更新模块或点击 [使用配置](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE)**
 > * **[更新配置文件](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE) 会造成自定义规则等丢失，除需要重置配置文件外不建议对其更新**
-> * **请留意去广告规则或模块可能存在的 `误杀`**
+> * **请留意去广告规则或模块可能存在的误杀**
 
 ### [使用手册](#shadowrocket-收集配置)
 
@@ -123,7 +123,7 @@
 
 ### [懒人配置](#shadowrocket-收集配置)
 
-> 顾名思义，[懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf) 就是专为 **`懒人`** 打造的开箱即用的配置文件，发布于 [官方群组](https://t.me/ShadowrocketApp)。该配置与默认配置内置本地规则的处理形式不同，是以规则集的形式设置代理规则，并设有示例分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件。配置文件的用法参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+> 顾名思义，[懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf) 就是专为 **懒人** 打造的开箱即用的配置文件，发布于 [官方群组](https://t.me/ShadowrocketApp)。该配置与默认配置内置本地规则的处理形式不同，是以规则集的形式设置代理规则，并设有示例分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件。配置文件的用法参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
 > 
 > [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
 
@@ -249,20 +249,20 @@
 
 ### [筛选订阅脚本](#shadowrocket-收集配置)
 
-> [kiwi707](https://github.com/kiwi707) 制作的 `筛选/规范订阅节点` 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
+> [kiwi707](https://github.com/kiwi707) 制作的 **筛选/规范订阅节点** 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
 > 
-> _使用方法：打开下方脚件链接后复制所有内容，粘贴至 `订阅页面` 的 `过滤` 区域，参考 [说明](https://github.com/kiwi707/Shadow-Rocket) 修改后保存即可_
+> _使用方法：打开下方脚件链接后复制所有内容，粘贴至 **订阅页面** 的 **过滤** 区域，参考 [说明](https://github.com/kiwi707/Shadow-Rocket) 修改后保存即可_
 >   
 > [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript "点击查看脚本内容")
 
 ### [常用服务解锁检测](#shadowrocket-收集配置)
 
-> 由 [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://t.me/huskydb) 各制作有 `解锁检测快捷指令`，可用来检测各流媒体服务的解锁地区或可用性，也可以检测 ChatGPT、TikTok、YouTube 等服务的解锁地区或状态以及 IP 归属地等。脚本检测会根据你的分流规则进行测试，若出现错误请多试几次。其中 K 版是各服务统一通知结果，S 版是不同服务分别通知结果
+> 由 [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://t.me/huskydb) 各制作有 **解锁检测快捷指令**，可用来检测各流媒体服务的解锁地区或可用性，也可以检测 ChatGPT、TikTok、YouTube 等服务的解锁地区或状态以及 IP 归属地等。脚本检测会根据你的分流规则进行测试，若出现错误请多试几次。其中 K 版是各服务统一通知结果，S 版是不同服务分别通知结果
 >   
 > [![快捷指令 解锁检测 K](https://img.shields.io/static/v1?label=快捷指令&message=解锁检测%20K&color=grey&logo=removedotbg&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/c2ccf142aeb649cd955dad8a4c02d3cf "点击安装快捷指令")
 > [![快捷指令 解锁检测 S](https://img.shields.io/static/v1?label=快捷指令&message=解锁检测%20S&color=grey&logo=removedotbg&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/0bd31373228d4c94be224d2477c38148 "点击安装快捷指令")
 >
-> [Sage](https://t.me/huskydb) 另有提供 `常用服务解锁检测` 服务。安装 [模块](https://raw.githubusercontent.com/huskydsb/Shadowrocket/refs/heads/main/Sgmodule/流媒体解锁测试.module) 后访问 [链接](https://streaming.test/)，根据页面服务内容进行可视化操作即可。现阶段支持检测的服务内容包括：YouTube、NETFLIX、OpenAI、TikTok、Disney+、Spotify、Scamalytics、Bing、bilibili、Steam、动画疯、Niconico动画、Google Play、维基百科编辑、Starz、iQIYI、DAZN、派拉蒙+、ViuTV、Now E、KKTV、LINE TV、IPv6 检测、DNS 检测等，以上解锁检测以实际访问为准
+> [Sage](https://t.me/huskydb) 另有提供 **常用服务解锁检测** 服务。安装 [模块](https://raw.githubusercontent.com/huskydsb/Shadowrocket/refs/heads/main/Sgmodule/流媒体解锁测试.module) 后访问 [链接](https://streaming.test/)，根据页面服务内容进行可视化操作即可。现阶段支持检测的服务内容包括：YouTube、NETFLIX、OpenAI、TikTok、Disney+、Spotify、Scamalytics、Bing、bilibili、Steam、动画疯、Niconico动画、Google Play、维基百科编辑、Starz、iQIYI、DAZN、派拉蒙+、ViuTV、Now E、KKTV、LINE TV、IPv6 检测、DNS 检测等，以上解锁检测以实际访问为准
 >
 > [![首先安装 检测模块](https://img.shields.io/static/v1?label=首先安装&message=检测模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/huskydsb/Shadowrocket/refs/heads/main/Sgmodule/流媒体解锁测试.module "一键安装本模块")
 > [![其次访问 检测页面](https://img.shields.io/static/v1?label=其次访问&message=检测页面&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://streaming.test/ "点击访问检测页面")
@@ -283,10 +283,10 @@
 > 
 > 本单元为小火箭配色文件相关内容。项目出发点是作者在使用小火箭的过程中对小火箭的配色逐渐感到单调，借助本身是设计出身，遂制作了几个配色文件，没想到反响挺好，后就借助本平台逐步发布以下原创设计的配色文件以满足需求
 >
-> `极其鸣谢` 快捷指令作者：[iab0x00](https://github.com/iab0x00)<br>
-> `特别鸣谢` 提供建议好友：[Sage](https://t.me/huskydb)
+> **极其鸣谢** 快捷指令作者：[iab0x00](https://github.com/iab0x00)<br>
+> **特别鸣谢** 提供建议好友：[Sage](https://t.me/huskydb)
 
-`效果示例：TermiusDark`
+**效果示例：TermiusDark**
 
 > <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="100%" height="100%"> 
 > 
