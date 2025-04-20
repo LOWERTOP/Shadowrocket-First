@@ -108,12 +108,9 @@
 
 > [!IMPORTANT]
 > 
-> * **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 配置 模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外**
-> * **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，不含 MITM 的模块除外。部分软件生效需要重装**
-> * **切换配置文件需要重新 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而需要重新解密，可使用 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)**
-> * **如果使用时遇到 [模块失效](https://github.com/LOWERTOP/Shadowrocket#%E6%A8%A1%E5%9D%97%E5%A4%B1%E6%95%88) 等问题，可尝试更新模块或点击 [使用配置](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E4%BD%BF%E7%94%A8%E9%85%8D%E7%BD%AE)**
-> * **[更新配置文件](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE) 会造成自定义规则等丢失，除需要重置配置文件外不建议对其更新**
-> * **请留意去广告规则或模块可能存在的误杀**
+> * 使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 **配置** 模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外
+> * 使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而需要重新解密，可设置 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)
+> * [更新配置文件](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE) 会造成自定义规则等丢失，除需要重置配置文件外不建议对其更新
 
 ### [使用手册](#shadowrocket-收集配置)
 
@@ -251,7 +248,7 @@
 
 > [kiwi707](https://github.com/kiwi707) 制作的 **筛选/规范订阅节点** 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
 > 
-> _使用方法：打开下方脚件链接后复制所有内容，粘贴至 **订阅页面** 的 **过滤** 区域，参考 [说明](https://github.com/kiwi707/Shadow-Rocket) 修改后保存即可_
+> _使用方法：打开下方脚件链接后复制所有内容，粘贴至 **订阅页面** 的 **[过滤](https://github.com/LOWERTOP/Shadowrocket#%E8%AE%A2%E9%98%85%E8%8A%82%E7%82%B9%E7%AD%9B%E9%80%89)** 区域，参考 [说明](https://github.com/kiwi707/Shadow-Rocket) 修改后保存即可_
 >   
 > [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript "点击查看脚本内容")
 
@@ -281,7 +278,7 @@
 
 > [!NOTE]
 > 
-> 本单元为小火箭配色文件相关内容。项目出发点是作者在使用小火箭的过程中对小火箭的配色逐渐感到单调，借助本身是设计出身，遂制作了几个配色文件，没想到反响挺好，后就借助本平台逐步发布以下原创设计的配色文件以满足需求
+> 本单元为小火箭配色文件相关内容。项目出发点是作者在使用小火箭的过程中对小火箭的配色逐渐感到单调，借助本身是设计出身，遂制作了几个配色文件，没想到反响不错，后就借助本页面逐步发布以下原创设计的配色文件以满足需求
 >
 > **极其鸣谢** 快捷指令作者：[iab0x00](https://github.com/iab0x00)<br>
 > **特别鸣谢** 提供建议好友：[Sage](https://t.me/huskydb)
@@ -309,10 +306,10 @@
 
 > [!TIP]
 > 
-> * __配色一键安装：__ 选择所需配色，点击 `一键安装`，允许跳转后点击 `使用` 即可
-> * __复制代码安装：__ 复制所需 `shadowrocket://color?*` 配色代码，在 `配置` 页点击 `✚` 号，粘贴并应用
-> * __快捷指令安装：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/e83b19c736f545c9bb6cced5a5beca48)，运行该 `快捷指令` 并选择配色安装
-> * __恢复默认配色：__ `APP-设置-颜色-重设颜色`
+> * __一键安装：__ 选择所需配色，点击 **一键安装**，允许跳转后点击 **使用** 即可
+> * __复制安装：__ 复制所需 `shadowrocket://color?*` 配色代码，在 **配置** 页点击 `✚` 号，粘贴并应用
+> * __快捷指令：__ [点击安装快捷指令](https://www.icloud.com/shortcuts/e83b19c736f545c9bb6cced5a5beca48)，运行该 **快捷指令** 并选择配色安装
+> * __恢复默认：__ APP - 设置 - 颜色 - 重设颜色
 
 ------
 
