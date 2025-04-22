@@ -187,6 +187,12 @@
 > > [![安装模块 YouTube 模块A](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块A&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > > [![安装模块 YouTube 模块B](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块B&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeLite.srmodule "一键安装本模块")
 > 
+> **[京东比价模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD-PRICE.srmodule)**
+> 
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价，比价结果将嵌入详情页面展示。使用本模块最好开启小火箭通知权限，首次使用请打开 "慢慢买"APP，点击"我的" 页面，以获取 cookie。获取成功后，小火箭将弹出获取成功的通知，之后点击该模块，选择 **编辑参数**，"获取CK" 开关可选择关闭。须知并非所有商品都有历史价格，上游脚本中的慢慢买接口存在频繁变动的可能，若变动过于频繁，本模块可能停止维护
+> >   
+> > [![安装模块 京东比价模块](https://img.shields.io/static/v1?label=安装模块&message=京东比价模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD-PRICE.srmodule "一键安装本模块")
+>  
 > **[小红书去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule)**
 > 
 > > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除小红书广告及图片、视频的水印。仅保证在 http 代理模式下生效，Tun 模式下可能无效
@@ -211,12 +217,6 @@
 > >   
 > > [![安装模块 酷安去广告](https://img.shields.io/static/v1?label=安装模块&message=酷安去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule "一键安装本模块")
 > 
-> **[京东比价模块（双版本融合）](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.srmodule)**
-> 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价。该模块包含 通知版 和 **嵌入版**，通知版为弹窗通知的形式进行比价，嵌入版是将比价信息表格嵌入详情的形式进行展示。启用后点击该模块，选择 **编辑参数**，可以自由选择版本。须开启小火箭通知权限，并非所有商品都有历史价格。上游脚本中的慢慢买接口存在频繁变动的可能，若变动过于频繁，本模块可能停止维护
-> >   
-> > [![安装模块 京东比价模块](https://img.shields.io/static/v1?label=安装模块&message=京东比价模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD_Price.srmodule "一键安装本模块")
->  
 > **[贴吧去广告模块](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)**
 > 
 > > 本模块来自 [app2smile](https://github.com/app2smile)，支持 **编辑参数** 功能，安装后点击模块进入参数编辑页面设置，其他内容参见 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)
@@ -225,17 +225,17 @@
 
 ### [模块合集与其他仓库](#shadowrocket-收集配置)
 
-> 某不愿透漏姓名的 **热心网友** 依据 [可莉](https://github.com/luestr) 的资源制作的小火箭专用的模块大合集，可根据需要进入挑选，使用前须安装 [Script-Hub 模块](#进阶用法)
+> [Sage](https://t.me/huskydb) 依据 [可莉](https://github.com/luestr) 的资源制作的小火箭专用的模块大合集，可根据需要进入挑选，使用前须安装 [Script-Hub 模块](#进阶用法)
 > 
 > [![模块仓库 模块大合集](https://img.shields.io/static/v1?label=模块仓库&message=模块大合集&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.huksy88.sbs "点击查看模块")
 > 
+> [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块，可自行进入自由选择，或在本仓上文中的 [原生模块](#原生模块) 章节直接安装
+>
+> [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看模块")
+>
 > [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，包含高德、B站、彩云、菜鸟、微博等，自行进入选择安装
 >
 > [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
->
-> [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块，自行进入选择安装
->
-> [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看模块")
 >
 > [blackmatrix7](https://github.com/blackmatrix7) 维护的原生模块仓库，如有需要请自行进入选择安装
 >   
