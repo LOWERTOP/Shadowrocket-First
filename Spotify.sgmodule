@@ -1,5 +1,8 @@
 #!name=Spotify 模块
-#!desc=部分解锁 Premium，音质不能设置为超高，分流节点须同注册地保持一致（建议登录后再启用，重启app等待生效）
+#!desc=部分解锁 Premium，音质不能设置为超高，分流节点须同注册地保持一致（建议登录后再启用，重启app等待生效），具有歌词翻译功能，点击参数编辑进行设置
+#!arguments=歌词翻译:false, AppID:填入你的 App ID, 密钥:填入你的密钥
+#!arguments-desc=\n歌词翻译功能说明:\n\n - 采用百度翻译接口进行翻译,需免费申请百度翻译API的ID和密钥并填入\n\n - 标准版(不一定够用):单次最长请求1000字符,免费调用量5万字符/月,QPS（每秒访问量）=1\n\n - 高级版:单次最长请求6000字符,免费调用量100万字符/月,QPS（每秒访问量）=10\n\n - 注册百度翻译个人开发者: http://api.fanyi.baidu.com/register\n\n - 注册后如果需要认证可自行选择是否实人认证(高级版需要验证)\n\n - 开通(通用文本翻译)API服务: https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露给任何人): http://api.fanyi.baidu.com/manage/developer\n\n - 成功启用翻译功能后，在Spotify歌词界面左下角即可看到翻译按钮，点击即可翻译
+
 # 功能: 1.去除播放广告 2.歌手/专辑列表正常展示 3.去除随机播放
 # 上游源码来自于：https://github.com/app2smile/rules
 # 本模块仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
@@ -13,12 +16,15 @@
 DOMAIN-SUFFIX,ad.doubleclick.net,REJECT-DROP
 
 [Script]
-# 本仓创建的 JS，用以替代 Header Rewrite，如有故障请注释掉下行内容
+# 本仓创建的 JS，用以尝试替代 Header Rewrite，不保证有效性，如有故障可注释掉下行内容
 spotify-header = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$,requires-body=false,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/spotify-header.js,timeout=10
 
 # app2smile 原始脚本
 spotify-json = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
 spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
+
+# 歌词翻译脚本，填入自己的appid和密钥
+spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,argument=appid={{{AppID}}}&securityKey={{{密钥}}}
 
 [MITM]
 hostname = %APPEND% spclient.wg.spotify.com
