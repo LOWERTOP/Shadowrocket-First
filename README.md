@@ -176,7 +176,7 @@
 > 
 > **[Spotify 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)**
 > 
-> > 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，已尝试修复原代码中的不兼容部分并增加个别去广告规则，软件音质不能设置为超高，分流节点须同注册地保持一致，同时添加歌词翻译功能，可进入 **编辑参数** 进行设置，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)
+> > 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，已尝试修复原代码中的不兼容部分并增加个别去广告规则，同时添加歌词翻译功能，可进入 **编辑参数** 进行设置。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)
 > >   
 > > [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule "一键安装本模块")
 > 
