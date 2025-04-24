@@ -67,14 +67,14 @@
 >
 > **英国地区**
 > > 原则上适用于 **[Giffgaff](http://www.giffgaff.com/orders/affiliate/onone040_1742873967723)**、CMLink 以及沃达丰的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list)<br>
-> > 不过，Giffgaff 的开启条件相对苛刻，需要 iOS 17.4 以上以及网络环境支持才可开启。查看 [官方要求](https://help.giffgaff.com/en/articles/258841-wifi-calling-and-volte)，查看 [开启教程](https://www.nodeseek.com/post-183470-1)
+> > Giffgaff 的开启条件相对苛刻，查看 [官方要求](https://help.giffgaff.com/en/articles/258841-wifi-calling-and-volte)，查看 [开启教程](https://www.nodeseek.com/post-183470-1)
 > > 
 > > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule "一键安装本模块")
 > > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list "点击访问规则集")
 
 ### [综合服务及去广告模块](#shadowrocket-自制配置)
 
-> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule) 以去广告为主，使用了 [app2smile](https://github.com/app2smile) 和 [fmz200](https://github.com/fmz200) 的部分脚本。模块已包含本仓的 **[Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)** 模块和 **[Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)** 模块，同时包含：包子漫画网页、小蚁、夸克、阿里云盘、百度网盘、Blued、e充电、移动、联通、招商银行、掌上生活、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list)。本内容暂为 **`Beta`** 版本，去广告部分尚需充分测试，不保证去广告部分的真实效果，且可能根据需要随时删改
+> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule) 以去广告为主，使用了 [app2smile](https://github.com/app2smile) 和 [fmz200](https://github.com/fmz200) 的部分脚本。模块已包含本仓的 **[Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)** 模块（包含歌词翻译功能）和 **[Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)** 模块，同时包含：包子漫画网页、小蚁、夸克、阿里云盘、百度网盘、Blued、e充电、移动、联通、招商银行、掌上生活、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list)。本内容暂为 **`Beta`** 版本，去广告部分尚需充分测试，不保证去广告部分的真实效果，且可能根据需要随时删改
 >
 > [![安装模块 AntiAD](https://img.shields.io/static/v1?label=安装模块&message=AntiAD&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule "一键安装本模块")
 
@@ -137,10 +137,6 @@
 > 
 > [![规则文件 anti-AD](https://img.shields.io/static/v1?label=规则文件&message=anti-AD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt "点击访问规则集")
 > 
-> [Cats-Team](https://github.com/Cats-Team) 维护的 [去广告规则](https://github.com/Cats-Team/AdRules)，维护相对及时，将其添加为规则集，并将策略设置为 `Reject` 即可使用
-> 
-> [![规则文件 Cats-Team](https://img.shields.io/static/v1?label=规则文件&message=Cats-Team&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules.list "点击访问规则集")
-> 
 > [iab0x00](https://github.com/iab0x00) 维护的轻量级 [去广告规则](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rule/Block.txt)，包含一些常用广告域名、360、百度、字节、腾讯等多个广告商或服务的屏蔽列表
 > 
 > [![规则文件 iab0x00](https://img.shields.io/static/v1?label=规则文件&message=iab0x00&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rule/Block.txt "点击访问规则集")
@@ -150,7 +146,11 @@
 > [![规则文件 BanAD](https://img.shields.io/static/v1?label=规则文件&message=BanAD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanAD.list "点击访问规则集")
 > [![规则文件 EasyListChina](https://img.shields.io/static/v1?label=规则文件&message=EasyListChina&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanEasyListChina.list "点击访问规则集")
 >
-> [Johnshall](https://github.com/Johnshall) 维护了多款 [配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)，可将其 [仅去广告配置](https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/refs/heads/release/sr_ad_only.conf) 作为去广告规则集或 [包含配置](https://github.com/LOWERTOP/Shadowrocket#%E6%89%A9%E5%B1%95%E9%85%8D%E7%BD%AE) 使用
+> [Cats-Team](https://github.com/Cats-Team) 维护的 [去广告规则](https://github.com/Cats-Team/AdRules)，维护相对及时，将其添加为规则集，并将策略设置为 `Reject` 即可使用
+> 
+> [![规则文件 Cats-Team](https://img.shields.io/static/v1?label=规则文件&message=Cats-Team&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules.list "点击访问规则集")
+> 
+> [Johnshall](https://github.com/Johnshall) 维护了多款 [配置文件](https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever)，可将其 [仅去广告配置](https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/refs/heads/release/sr_ad_only.conf) 作为去广告规则集或 [包含配置](https://github.com/LOWERTOP/Shadowrocket#%E6%89%A9%E5%B1%95%E9%85%8D%E7%BD%AE) 使用。须知，本方法不是添加规则集的标准方法，仅提供一种思路
 > 
 > [![规则文件 Johnshall](https://img.shields.io/static/v1?label=规则文件&message=Johnshall&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/refs/heads/release/sr_ad_only.conf "点击访问规则集")
 > 
@@ -176,7 +176,7 @@
 > 
 > **[Spotify 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)**
 > 
-> > 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，已尝试修复原代码中的不兼容部分并增加个别去广告规则，软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)
+> > 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，已尝试修复原代码中的不兼容部分并增加个别去广告规则，同时添加歌词翻译功能，可进入 **编辑参数** 进行设置。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)
 > >   
 > > [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule "一键安装本模块")
 > 
@@ -189,7 +189,7 @@
 > 
 > **[京东比价模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD-PRICE.srmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价，比价结果将嵌入详情页面展示。使用本模块最好开启小火箭通知权限，首次使用请打开 "慢慢买"APP，点击"我的" 页面，以获取 cookie。获取成功后，小火箭将弹出获取成功的通知，之后点击该模块，选择 **编辑参数**，"获取CK" 开关可选择关闭。须知并非所有商品都有历史价格，上游脚本中的慢慢买接口存在频繁变动的可能，若变动过于频繁，本模块可能停止维护
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价，比价结果将嵌入详情页面展示。使用本模块最好开启小火箭通知权限，首次使用请安装并打开 "慢慢买 APP "，点击 "我的" 页面，以获取 cookie。获取成功后，小火箭将弹出获取成功的通知，之后点击该模块，选择 **编辑参数**，"获取CK" 开关可选择关闭。须知并非所有商品都有历史价格，上游脚本中的慢慢买接口存在频繁变动的可能，若变动过于频繁，本模块可能停止维护
 > >   
 > > [![安装模块 京东比价模块](https://img.shields.io/static/v1?label=安装模块&message=京东比价模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD-PRICE.srmodule "一键安装本模块")
 >  
