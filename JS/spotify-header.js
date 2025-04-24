@@ -1,11 +1,21 @@
-// Shadowrocket 脚本：删除 "If-None-Match" 请求头
-const targetPattern = /^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$/;
+// Spotify header rewrite script for Shadowrocket
 
-if (targetPattern.test($request.url)) {
-    let modifiedHeaders = { ...$request.headers }; // 使用展开运算符，避免修改原对象
-    delete modifiedHeaders["If-None-Match"]; // 删除目标请求头（区分大小写）
+const url = $request.url;
+const targetUrl = "https://spclient.wg.spotify.com/user-customization-service/v1/customize";
 
-    $done({ headers: modifiedHeaders });
+if (url.indexOf(targetUrl) !== -1) {
+  // 如果URL匹配目标URL
+  let headers = $request.headers;
+  
+  // 删除if-none-match头
+  if (headers["if-none-match"]) {
+    delete headers["if-none-match"];
+    console.log("已删除if-none-match头");
+  }
+  
+  // 应用修改后的headers
+  $done({headers});
 } else {
-    $done({});
+  // 如果URL不匹配，不做任何更改
+  $done({});
 }
