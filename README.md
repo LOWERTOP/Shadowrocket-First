@@ -41,7 +41,7 @@
 
 ### [Talkatone](#shadowrocket-自制配置)
 
-> 由于 Talkatone 的特殊性，[本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 对其使用的不同地址进行分流，以降低该 APP 对不同代理节点的敏感度，使其可以在绝大多数节点下正常使用。本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list)、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 等。其中 **全局代理规则集** 为包含该服务全部地址的规则集，该集对代理节点要求较高，不推荐普通用户使用。其他规则集需互相搭配使用，相关用法请查阅内部说明
+> 由于 Talkatone 的特殊性，[本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 对其使用的不同地址进行分流，以降低该 APP 对不同代理节点的敏感度，使其可以在绝大多数节点下正常使用。本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list)、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 等，规则集用法请查阅各自内部说明
 > 
 >**注意：本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册**
 > 
@@ -57,7 +57,7 @@
 
 ### [Wi-Fi Calling](#shadowrocket-自制配置)
 
-> Wi-Fi Calling 相关 **测试配置**，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择，其前提是拥有的节点的名称内包含地区关键词，若节点名称不包含地区关键词，可以使用规则集不使用模块，以规则集的形式直接指定所需节点
+> Wi-Fi Calling 相关 **测试配置**，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择，其前提是拥有的节点的名称内包含地区关键词，若节点名称不包含地区关键词，可以单独使用规则集的形式直接指定所需节点
 > 
 > **美国地区**
 > > 确认适用于 Ultra Mobile，原则上适用 T-Mobile 的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.list)
@@ -74,23 +74,15 @@
 
 ### [综合服务及去广告模块](#shadowrocket-自制配置)
 
-> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule) 以去广告为主，使用了 [app2smile](https://github.com/app2smile) 和 [fmz200](https://github.com/fmz200) 的部分脚本。模块已包含本仓的 **[Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)** 模块（包含歌词翻译功能）和 **[Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)** 模块，同时包含：包子漫画网页、小蚁、夸克、阿里云盘、百度网盘、Blued、e充电、移动、联通、招商银行、掌上生活、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list)。本内容暂为 **`Beta`** 版本，去广告部分尚需充分测试，不保证去广告部分的真实效果，且可能根据需要随时删改
+> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule) 以去广告为主，使用了 [app2smile](https://github.com/app2smile) 和 [fmz200](https://github.com/fmz200) 的部分脚本。模块已包含本仓的 **[Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)** 模块（包含歌词翻译功能）和 **[Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)** 模块，同时包含：包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list)。去广告部分尚需充分测试，可能根据需要随时调整
 >
 > [![安装模块 AntiAD](https://img.shields.io/static/v1?label=安装模块&message=AntiAD&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule "一键安装本模块")
 
 ### [咪咕直播源模块](#shadowrocket-自制配置)
 
-> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。但测试中发现原贴中需要解析的域名并未出现在我所在的地区，而是出现了其他域名，导致方案无效，在将该域名进行映射后可以在非移动网络下正常观看。所以原方案似乎并不适用于所有非移动用户或不同地区的用户，并且我网络环境下该服务似乎对公共DNS也很敏感。所以制作了一个 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule)，包含了必要的规则、DNS覆写、以及地址映射，理论上应该支持所有运营商使用咪咕直播源。现在提供 **`Beta`** 版本欢迎试用，如果发现在当地网络环境下还存在类似问题，可以进入模块文本根据说明进行调整
+> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule)，论上应该支持任意网络环境使用咪咕直播源观看 IPTV。如果发现在当地网络环境下存在问题，可进入模块文本根据说明调整
 >
 > [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
-
-### [反追踪模块](#shadowrocket-自制配置)
-
-> 来源于 [SunsetMkt](https://github.com/SunsetMkt) 的 [anti-ip-attribution](https://github.com/SunsetMkt/anti-ip-attribution) 仓库，是针对部分网站显示 IP 归属地的反跟踪规则模块。需要注意 [本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule) 为 **`Beta`** 版，作者无法保证本模块一定能起到作用，甚至可能存在触发账号风控的风险。同时，其中规则存在多种策略，可能造成相应网站走代理或分流失效。详细说明参见 [相关备注](https://raw.githubusercontent.com/SunsetMkt/anti-ip-attribution/refs/heads/main/rules.yaml)
-> 
-> **注意：请谨慎使用本模块**
->
-> [![安装模块 AntiIPtracking](https://img.shields.io/static/v1?label=安装模块&message=AntiIPtracking&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiIPtracking.sgmodule "一键安装本模块")
 
 ### [欧易规则集](#shadowrocket-自制配置)
 
@@ -284,7 +276,7 @@
 
 > [!NOTE]
 > 
-> 本单元为小火箭配色文件相关内容。项目出发点是作者在使用小火箭的过程中对小火箭的配色逐渐感到单调，借助本身是设计出身，遂制作了几个配色文件，没想到反响不错，后就借助本页面逐步发布以下原创设计的配色文件以满足需求
+> 本单元为小火箭配色文件相关内容。项目出发点是作者在使用小火箭的过程中，凭借设计出身制作了几个配色文件以满足需求
 >
 > **极其鸣谢** 快捷指令作者：[iab0x00](https://github.com/iab0x00)<br>
 > **特别鸣谢** 提供建议好友：[Sage](https://t.me/huskydb)
@@ -308,7 +300,7 @@
 > [!IMPORTANT]
 > 
 > 小火箭原创配色文件已更新至 30 个<br>
-> 需要注意：因苹果系统限制，小火箭部分细节图标不可自定义，且会跟随系统颜色模式改变。建议在使用 `亮底色` 时搭配浅色模式，使用 `暗底色` 时搭配深色模式
+> 因苹果系统限制，部分细部图标不可自定义，且会跟随系统颜色模式改变。建议在使用 `亮底色` 时搭配浅色模式，使用 `暗底色` 时搭配深色模式
 
 > [!TIP]
 > 
