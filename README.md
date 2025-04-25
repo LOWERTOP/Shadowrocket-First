@@ -158,7 +158,7 @@
 
 > 以下模块为原生支持小火箭的第三方高可用性模块，并验证过可用性，模块蓝色标题为模块直链地址，也可点击其一键安装按钮安装使用
 > 
-> > **使用前请详细阅读本章紫色重要提醒**
+> > **使用前请详细阅读上方 [紫色重要提醒](#shadowrocket-收集配置)**
 > 
 > **[墨鱼去广告模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule)**
 > 
