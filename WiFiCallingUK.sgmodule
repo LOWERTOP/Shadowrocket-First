@@ -12,7 +12,7 @@ WiFiCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,toleran
 DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,WiFiCall
 
 # 端口分流
-AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), WiFiCall
+# AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), WiFiCall
 
 # 沃达丰
 DOMAIN-SUFFIX,entsrv-uk.vodafone.com,WiFiCall
