@@ -39,7 +39,7 @@
 > 
 > 本单元为自制内容，是为 **特定软件或服务** 所制作的模块、规则集等内容，原文件在 **[main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)**，可自行查看
 
-### [Talkatone](#shadowrocket-自制配置)
+### [Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)
 
 > 由于 Talkatone 的特殊性，[本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 对其使用的不同地址进行分流，以降低该 APP 对不同代理节点的敏感度，使其可以在绝大多数节点下正常使用。本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list)、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 等，规则集用法请查阅各自内部说明
 > 
@@ -48,14 +48,20 @@
 > [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule "一键安装本模块")
 > [![规则文件 去广告规则](https://img.shields.io/static/v1?label=规则文件&message=去广告规则&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list "点击访问规则集")
 
-### [DeepSeek](#shadowrocket-自制配置)
+### [DeepSeek](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule)
 
 > DeepSeek 在某些特定地区必须使用手机号注册和登陆使用，本仓提供 [分流模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule) 和 [代理规则](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list)，可以解锁使用邮箱、谷歌账号等方式注册与登录该服务。同时模块中屏蔽了部分 **存疑** 地址
 > 
 > [![安装模块 DeepSeek](https://img.shields.io/static/v1?label=安装模块&message=DeepSeek&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule "一键安装本模块")
 > [![规则文件 DeepSeek](https://img.shields.io/static/v1?label=规则文件&message=DeepSeek&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list "点击访问规则集")
 
-### [Wi-Fi Calling](#shadowrocket-自制配置)
+### [Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)
+
+> 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，已尝试修复原代码中的不兼容部分并增加个别去广告规则，同时添加歌词翻译功能，可进入 **编辑参数** 进行设置。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)
+>   
+> [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule "一键安装本模块")
+
+### [Wi-Fi Calling](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.sgmodule)
 
 > Wi-Fi Calling 相关 **测试配置**，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择，其前提是拥有的节点的名称内包含地区关键词，若节点名称不包含地区关键词，可以单独使用规则集的形式直接指定所需节点
 > 
@@ -72,19 +78,19 @@
 > > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule "一键安装本模块")
 > > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list "点击访问规则集")
 
-### [综合服务及去广告模块](#shadowrocket-自制配置)
+### [综合服务及去广告模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule)
 
 > 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule) 以去广告为主，使用了 [app2smile](https://github.com/app2smile) 和 [fmz200](https://github.com/fmz200) 的部分脚本。模块已包含本仓的 **[Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)** 模块（包含歌词翻译功能）和 **[Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)** 模块，同时包含：包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list)。去广告部分尚需充分测试，可能根据需要随时调整
 >
 > [![安装模块 AntiAD](https://img.shields.io/static/v1?label=安装模块&message=AntiAD&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule "一键安装本模块")
 
-### [咪咕直播源模块](#shadowrocket-自制配置)
+### [咪咕直播源模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule)
 
 > 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule)，论上应该支持任意网络环境使用咪咕直播源观看 IPTV。如果发现在当地网络环境下存在问题，可进入模块文本根据说明调整
 >
 > [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
 
-### [欧易规则集](#shadowrocket-自制配置)
+### [欧易规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/okx.list)
 
 > 自收集的 欧易/OKX 规则集，OKX 本身在中国大陆地区可以直连，且会使用 `cloudfront` 和 `cloudflare` 进行提速，本规则集尽可能收集了其使用的所有地址，将其设为直连后可能更适合在中国大陆地区使用。本集暂不确定所包含的 `cloudfront.net` 的地址是否在不同地区存在变化，如有问题欢迎反馈
 >
@@ -165,12 +171,6 @@
 > > 本模块由 [XiangwanGuan 向晚](https://github.com/XiangwanGuan) 基于 [奶思](https://github.com/fmz200/wool_scripts/blob/main/QuantumultX/rewrite/chongxie.txt) 的合集创建，包含哔哩哔哩、YouTube、高德地图、一汽大众等 500 余款软件的功能增强或去广告服务，详情参阅 [仓库介绍](https://github.com/XiangwanGuan/Shadowrocket) 或直接查看所包含服务的 [详情](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Rewrite/RewriteBuild.conf)
 > >   
 > > [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule "一键安装本模块")
-> 
-> **[Spotify 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)**
-> 
-> > 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，已尝试修复原代码中的不兼容部分并增加个别去广告规则，同时添加歌词翻译功能，可进入 **编辑参数** 进行设置。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)
-> >   
-> > [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule "一键安装本模块")
 > 
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
