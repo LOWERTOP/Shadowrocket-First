@@ -63,7 +63,7 @@
 
 ### [Wi-Fi Calling](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.sgmodule)
 
-> Wi-Fi Calling 相关 **测试配置**，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择，其前提是拥有的节点的名称内包含地区关键词，若节点名称不包含地区关键词，可以单独使用规则集的形式直接指定所需节点
+> Wi-Fi Calling 相关 **测试配置**，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择，其前提是拥有的节点的名称内包含地区关键词，若节点名称不包含地区关键词，可使用规则集的形式直接指定所需节点
 > 
 > **美国地区**
 > > 确认适用于 Ultra Mobile，原则上适用 T-Mobile 的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.list)
@@ -174,7 +174,7 @@
 > 
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除该软件的各类广告并提供画中画功能，同时支持 Youtube Music 去广告。模块支持 **编辑参数**，安装后可点击模块进入参数编辑页面，可选是否屏蔽上传按钮、Shorts、选段按钮等，模块包含两个版本，其中 **模块 B** 是低功耗版本。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除软件内各类广告并提供画中画功能，同时支持 YouTube Music 去广告。模块支持 **编辑参数**，安装后可点击模块进入参数编辑页面，可选是否屏蔽上传、Shorts、选段等按钮，模块包含两个版本，其中 **模块 B** 是低功耗版本。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块
 > >   
 > > [![安装模块 YouTube 模块A](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块A&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > > [![安装模块 YouTube 模块B](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块B&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeLite.srmodule "一键安装本模块")
