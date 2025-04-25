@@ -12,7 +12,7 @@ USCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance
 DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,USCall
 
 # 端口分流
-AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), USCall
+# AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))), USCall
 
 DOMAIN-SUFFIX,crl.t-mobile.com,USCall
 DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org,USCall
