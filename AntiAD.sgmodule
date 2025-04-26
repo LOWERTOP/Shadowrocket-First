@@ -1,6 +1,6 @@
 #!name=综合服务及去广告模块
 #!desc=包含 Spotify（参数编辑可设置翻译功能）、Talkatone 模块及其他多款软件或服务的去广告内容
-#!arguments=歌词翻译:false, AppID:填入你的 App ID, 密钥:填入你的密钥
+#!arguments=Spotify歌词翻译:false, AppID:填入百度翻译 App ID, 密钥:填入百度翻译密钥
 #!arguments-desc=\nSpotify 歌词翻译 功能说明:\n\n - 采用百度翻译接口进行翻译,需免费申请百度翻译API的ID和密钥并填入\n\n - 标准版(不一定够用):单次最长请求1000字符,免费调用量5万字符/月,QPS（每秒访问量）=1\n\n - 高级版:单次最长请求6000字符,免费调用量100万字符/月,QPS（每秒访问量）=10\n\n - 注册百度翻译个人开发者: http://api.fanyi.baidu.com/register\n\n - 注册后如果需要认证可自行选择是否实人认证(高级版需要验证)\n\n - 开通(通用文本翻译)API服务: https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露给任何人): http://api.fanyi.baidu.com/manage/developer\n\n - 成功启用翻译功能后，在Spotify歌词界面左下角即可看到翻译按钮，点击即可翻译
 
 # 包子漫画网页、阿里云盘、Blued、百度网盘、e充电、中国移动、中国联通、招商银行、掌上生活、一淘、闲鱼、小蚁、小米有品、瑞幸咖啡、夸克等去广告内容
@@ -120,7 +120,7 @@ spotify-header = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com
 spotify-json = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
 spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
 # 歌词翻译脚本，填入自己的appid和密钥
-spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,argument=appid={{{AppID}}}&securityKey={{{密钥}}}
+spotify歌词翻译 = type=http-response,enable={{{Spotify歌词翻译}}},pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,argument=appid={{{AppID}}}&securityKey={{{密钥}}}
 
 # 阿里云盘去广告
 阿里云盘_首页模块 =type=http-response, pattern=^https:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js, requires-body=true, max-size=0
