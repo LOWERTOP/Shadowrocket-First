@@ -9,7 +9,7 @@
 DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,PROXY
 
 # 端口检测
-# AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))),PROXY
+AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))),PROXY
 
 # 地址代理
 DOMAIN-SUFFIX,crl.t-mobile.com,PROXY
