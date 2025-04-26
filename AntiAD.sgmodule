@@ -110,7 +110,15 @@ DOMAIN-SUFFIX,twmanga.com,DIRECT
 # 开屏广告
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew - reject
 
+# Blued 主页推荐直播
+^https?:\/\/social\.blued\.cn\/users\/recommend - reject-dict
+# Blued 未登录时个人界面广告
+^https?:\/\/social\.blued\.cn\/users\/no_auth\/benefit - reject-dict
+
 [Script]
+# Blued 登录后个人界面广告
+blued.js =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=2, script-path=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/JavaScript/blued.js, requires-body=true, max-size=0
+
 # 包子漫画网页去广告
 web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/baozimh.js
 
@@ -125,9 +133,6 @@ spotify歌词翻译 = type=http-response,enable={{{Spotify 歌词翻译}}},patte
 # 阿里云盘去广告
 阿里云盘_首页模块 =type=http-response, pattern=^https:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js, requires-body=true, max-size=0
 阿里云盘_开屏广告 =type=http-response, pattern=^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js, requires-body=true, max-size=0
-
-# Blued去广告
-Blued去广告 =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=2, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/blued.js, requires-body=true, max-size=0
 
 # 闲鱼去广告
 闲鱼_模块去广告 =type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js, requires-body=true, max-size=0
