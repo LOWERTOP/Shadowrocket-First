@@ -28,6 +28,7 @@
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 **`项目更新`**
+> * 提供 **[GitHub 访问限制解决方案](#fuck-github)**
 > * 变更 [当前分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/README) 为默认分支，原文件在 [main](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)
 > * 设置 [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
@@ -38,6 +39,18 @@
 > [!NOTE]
 > 
 > 本单元为自制内容，是为 **特定软件或服务** 所制作的模块、规则集等内容，原文件在 **[main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)**，可自行查看
+
+### [Fuck-GitHub](https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule)
+
+> **GitHub** 近期针对针对请求头 **`Accept-Language`** 是 **`zh-cn`** 的简体中文用户实行严格的并发连接限制，导致用户在使用规则集、模块等依靠它的远程资源时出现 **`Access has been restricted`** 的 429 错误。暂不确定 GitHub 此举是临时举措还是长期施行，现阶段解决方案如下：
+>
+> **方法 1**：设备设置 - App - Shadowrocket - 语言 - 修改为非简体中文语言（不影响软件内设置为简体中文）
+> * *须在 设置 - 通用 - 语言和地区 添加第二种语言才可修改，其他软件同理*
+>
+> **方法 2**：安装下方模块，本模块安装地址及相关代码均避开了受限地址，应该可以正常安装
+> * *模块作者：**[iab0x00](https://github.com/iab0x00)***
+> 
+> [![安装模块 Fuck-Githube](https://img.shields.io/static/v1?label=安装模块&message=Fuck-Github&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule "一键安装本模块")
 
 ### [Talkatone](https://lowertop.github.io/Shadowrocket-First/Talkatone.sgmodule)
 
