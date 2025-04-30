@@ -1,5 +1,5 @@
 #!name=Spotify 模块
-#!desc=部分解锁 Premium，音质不能设置为超高，分流节点须同注册地保持一致（建议登录后再启用，重启app等待生效），具有歌词翻译功能，点击参数编辑进行设置
+#!desc=部分解锁 Premium，音质不能设置为超高，具有歌词翻译功能，点击参数编辑进行设置
 #!arguments=歌词翻译:false, AppID:填入 百度翻译 App ID, 密钥:填入 百度翻译 密钥
 #!arguments-desc=\nSpotify 歌词翻译 功能说明:\n\n · 需免费申请百度翻译API的ID和密钥并填入\n\n · 标准版(可能不够):单次最长请求1000字符,免费调用量5万字符/月,QPS（每秒访问量）=1\n\n · 高级版(推荐使用):单次最长请求6000字符,免费调用量100万字符/月,QPS（每秒访问量）=10\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露给任何人): \n\n    http://api.fanyi.baidu.com/manage/developer\n\n - 成功启用翻译功能后，在Spotify歌词界面左下角即可看到翻译按钮，点击即可翻译
 
