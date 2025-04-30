@@ -1,4 +1,4 @@
-[<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.png" width="100%" height="100%">](https://github.com/LOWERTOP/Shadowrocket-First)
+[<img src="https://lowertop.github.io/Shadowrocket-First/img/01.png" width="100%" height="100%">](https://github.com/LOWERTOP/Shadowrocket-First)
 
 [![README in English](https://img.shields.io/static/v1?label=README&message=in%20English&color=grey&logo=googletranslate&logoColor=white&labelColor=red&messageColor=white)](https://translate.google.com/translate?hl=en&sl=zh-CN&tl=en&u=https://lowertop.github.io/Shadowrocket-First/ "README in English via Google Translate")
 
@@ -28,6 +28,7 @@
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 **`项目更新`**
+> * 提供 **[GitHub 访问限制解决方案](#fuck-github)**
 > * 变更 [当前分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/README) 为默认分支，原文件在 [main](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)
 > * 设置 [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
@@ -39,62 +40,74 @@
 > 
 > 本单元为自制内容，是为 **特定软件或服务** 所制作的模块、规则集等内容，原文件在 **[main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)**，可自行查看
 
-### [Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)
+### [Fuck-GitHub](https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule)
 
-> 由于 Talkatone 的特殊性，[本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule) 对其使用的不同地址进行分流，以降低该 APP 对不同代理节点的敏感度，使其可以在绝大多数节点下正常使用。本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list)、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxyOnly.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneProxy.list) 等，规则集用法请查阅各自内部说明
+> **GitHub** 近期针对针对请求头 **`Accept-Language`** 是 **`zh-cn`** 的简体中文用户实行严格的并发连接限制，导致用户在使用规则集、模块等依靠它的远程资源时出现 **`Access has been restricted`** 的 429 错误。暂不确定 GitHub 此举是临时举措还是长期施行，现阶段解决方案如下：
+>
+> **方法 1**：设备设置 - App - Shadowrocket - 语言 - 修改为非简体中文语言（不影响软件内设置为简体中文）
+> * *须在 设置 - 通用 - 语言和地区 添加第二种语言才可修改，其他软件同理。也可直接将设备语言修改为非简体中文*
+>
+> **方法 2**：安装下方模块，[本模块](https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule) 安装地址及相关代码均避开了受限地址，应该可以正常安装
+> * *模块作者：**[iab0x00](https://github.com/iab0x00)***
+> 
+> [![安装模块 Fuck-Githube](https://img.shields.io/static/v1?label=安装模块&message=Fuck-Github&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule "一键安装本模块")
+
+### [Talkatone](https://lowertop.github.io/Shadowrocket-First/Talkatone.sgmodule)
+
+> 由于 Talkatone 的特殊性，[本模块](https://lowertop.github.io/Shadowrocket-First/Talkatone.sgmodule) 对其使用的不同地址进行分流，以降低该 APP 对不同代理节点的敏感度，使其可以在绝大多数节点下正常使用。本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供该服务的 [直连规则集](https://lowertop.github.io/Shadowrocket-First/TalkatoneDirect.list)、[仅代理规则集](https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list)、[去广告规则集](https://lowertop.github.io/Shadowrocket-First/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://lowertop.github.io/Shadowrocket-First/TalkatoneProxy.list) 等，规则集用法请查阅各自内部说明
 > 
 >**注意：本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册**
 > 
-> [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule "一键安装本模块")
-> [![规则文件 去广告规则](https://img.shields.io/static/v1?label=规则文件&message=去广告规则&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneAntiAds.list "点击访问规则集")
+> [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/Talkatone.sgmodule "一键安装本模块")
+> [![规则文件 去广告规则](https://img.shields.io/static/v1?label=规则文件&message=去广告规则&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/TalkatoneAntiAds.list "点击访问规则集")
 
-### [DeepSeek](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule)
+### [DeepSeek](https://lowertop.github.io/Shadowrocket-First/DeepSeek.sgmodule)
 
-> DeepSeek 在某些特定地区必须使用手机号注册和登陆使用，本仓提供 [分流模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule) 和 [代理规则](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list)，可以解锁使用邮箱、谷歌账号等方式注册与登录该服务。同时模块中屏蔽了部分 **存疑** 地址
+> DeepSeek 在某些特定地区必须使用手机号注册和登陆使用，本仓提供 [分流模块](https://lowertop.github.io/Shadowrocket-First/DeepSeek.sgmodule) 和 [代理规则](https://lowertop.github.io/Shadowrocket-First/DeepSeek.list)，可以解锁使用邮箱、谷歌账号等方式注册与登录该服务。同时模块中屏蔽了部分 **存疑** 地址
 > 
-> [![安装模块 DeepSeek](https://img.shields.io/static/v1?label=安装模块&message=DeepSeek&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.sgmodule "一键安装本模块")
-> [![规则文件 DeepSeek](https://img.shields.io/static/v1?label=规则文件&message=DeepSeek&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/DeepSeek.list "点击访问规则集")
+> [![安装模块 DeepSeek](https://img.shields.io/static/v1?label=安装模块&message=DeepSeek&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/DeepSeek.sgmodule "一键安装本模块")
+> [![规则文件 DeepSeek](https://img.shields.io/static/v1?label=规则文件&message=DeepSeek&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/DeepSeek.list "点击访问规则集")
 
-### [Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)
+### [Spotify](https://lowertop.github.io/Shadowrocket-First/Spotify.sgmodule)
 
-> 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，已尝试修复原代码中的不兼容部分并增加个别去广告规则，同时添加 **歌词翻译** 功能，可进入 **编辑参数** 进行设置。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)
+> 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，已尝试修复原代码中的不兼容部分并增加个别去广告规则，同时添加 **歌词翻译** 功能，可进入 **编辑参数** 进行设置。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://lowertop.github.io/Shadowrocket-First/Spotify.sgmodule)
 >   
-> [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule "一键安装本模块")
+> [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/Spotify.sgmodule "一键安装本模块")
 
-### [Wi-Fi Calling](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.sgmodule)
+### [Wi-Fi Calling](https://lowertop.github.io/Shadowrocket-First/WiFiCallingUS.sgmodule)
 
 > Wi-Fi Calling 相关 **测试配置**，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择，其前提是拥有的节点的名称内包含地区关键词，若节点名称不包含地区关键词，推荐使用规则集而非模块
 > 
 > **美国地区**
-> > 确认适用于 Ultra Mobile，原则上适用 T-Mobile 的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.list)
+> > 确认适用于 Ultra Mobile，原则上适用 T-Mobile 的 SIM 卡，可选 [模块](https://lowertop.github.io/Shadowrocket-First/WiFiCallingUS.sgmodule) 或 [规则集](https://lowertop.github.io/Shadowrocket-First/WiFiCallingUS.list)
 > > 
-> > [![安装模块 WiFiCall-US](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-US&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.sgmodule "一键安装本模块")
-> > [![规则文件 WiFiCall-US](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-US&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUS.list "点击访问规则集")
+> > [![安装模块 WiFiCall-US](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-US&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/WiFiCallingUS.sgmodule "一键安装本模块")
+> > [![规则文件 WiFiCall-US](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-US&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/WiFiCallingUS.list "点击访问规则集")
 >
 > **英国地区**
-> > 原则上适用于 **[Giffgaff](http://www.giffgaff.com/orders/affiliate/onone040_1742873967723)**、CMLink 以及沃达丰的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list)<br>
+> > 原则上适用于 **[Giffgaff](http://www.giffgaff.com/orders/affiliate/onone040_1742873967723)**、CMLink 以及沃达丰的 SIM 卡，可选 [模块](https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.sgmodule) 或 [规则集](https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.list)<br>
 > > Giffgaff 的开启条件相对苛刻，查看 [官方要求](https://help.giffgaff.com/en/articles/258841-wifi-calling-and-volte)，查看 [开启教程](https://www.nodeseek.com/post-183470-1)
 > > 
-> > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.sgmodule "一键安装本模块")
-> > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/WiFiCallingUK.list "点击访问规则集")
+> > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.sgmodule "一键安装本模块")
+> > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.list "点击访问规则集")
 
-### [综合服务及去广告模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule)
+### [综合服务及去广告模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule)
 
-> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule) 以去广告为主，使用了 [app2smile](https://github.com/app2smile) 和 [fmz200](https://github.com/fmz200) 的部分脚本。模块已包含本仓的 **[Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Spotify.sgmodule)** 模块（包含歌词翻译功能）和 **[Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule)** 模块，同时包含：包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.list)。去广告部分尚需充分测试，可能根据需要随时调整
+> 本 [模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule) 以去广告为主，使用了 [app2smile](https://github.com/app2smile) 和 [fmz200](https://github.com/fmz200) 的部分脚本。模块已包含本仓的 **[Spotify](https://lowertop.github.io/Shadowrocket-First/Spotify.sgmodule)** 模块（包含歌词翻译功能）和 **[Talkatone](https://lowertop.github.io/Shadowrocket-First/Talkatone.sgmodule)** 模块，同时包含：包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://lowertop.github.io/Shadowrocket-First/AntiAD.list)。去广告部分尚需充分测试，可能根据需要随时调整
 >
-> [![安装模块 AntiAD](https://img.shields.io/static/v1?label=安装模块&message=AntiAD&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/AntiAD.sgmodule "一键安装本模块")
+> [![安装模块 AntiAD](https://img.shields.io/static/v1?label=安装模块&message=AntiAD&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule "一键安装本模块")
 
-### [咪咕直播源模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule)
+### [咪咕直播源模块](https://lowertop.github.io/Shadowrocket-First/CMCCiTV.sgmodule)
 
-> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule)，论上应该支持任意网络环境使用咪咕直播源观看 IPTV。若在当地网络环境下存在问题，可进入模块文本根据说明调整
+> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本 [代理模块](https://lowertop.github.io/Shadowrocket-First/CMCCiTV.sgmodule)，论上应该支持任意网络环境使用咪咕直播源观看 IPTV。若在当地网络环境下存在问题，可进入模块文本根据说明调整
 >
-> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/CMCCiTV.sgmodule "一键安装本模块")
+> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/CMCCiTV.sgmodule "一键安装本模块")
 
-### [欧易规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/okx.list)
+### [欧易规则集](https://lowertop.github.io/Shadowrocket-First/okx.list)
 
 > 自收集的 欧易/OKX 规则集，OKX 本身在中国大陆地区可以直连，且会使用 `cloudfront` 和 `cloudflare` 进行提速，本规则集尽可能收集了其使用的所有地址，将其设为直连后可能更适合在中国大陆地区使用。本集暂不确定所包含的 `cloudfront.net` 的地址是否在不同地区存在变化，如有问题欢迎反馈
 >
-> [![规则文件 OKX 规则集](https://img.shields.io/static/v1?label=规则文件&message=OKX%20规则集&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/okx.list "点击访问规则集")
+> [![规则文件 OKX 规则集](https://img.shields.io/static/v1?label=规则文件&message=OKX%20规则集&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/okx.list "点击访问规则集")
 
 ------
 
@@ -118,9 +131,9 @@
 
 ### [懒人配置](#shadowrocket-收集配置)
 
-> 顾名思义，[懒人配置](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf) 就是专为 **懒人** 打造的开箱即用的配置文件，发布于 [官方群组](https://t.me/ShadowrocketApp)。该配置与默认配置内置本地规则的处理形式不同，是以规则集的形式设置代理规则，并设有示例分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件。配置文件的用法参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+> 顾名思义，[懒人配置](https://lowertop.github.io/Shadowrocket/lazy_group.conf) 就是专为 **懒人** 打造的开箱即用的配置文件，发布于 [官方群组](https://t.me/ShadowrocketApp)。该配置与默认配置内置本地规则的处理形式不同，是以规则集的形式设置代理规则，并设有示例分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件。配置文件的用法参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
 > 
-> [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://raw.githubusercontent.com/LOWERTOP/Shadowrocket/main/lazy_group.conf "一键安装本配置文件")
+> [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://lowertop.github.io/Shadowrocket/lazy_group.conf "一键安装本配置文件")
 
 ### [原生模块](#shadowrocket-收集配置)
 
@@ -142,10 +155,9 @@
 > 
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除软件内各类广告并提供画中画功能，同时支持 YouTube Music 去广告。模块支持 **编辑参数**，安装后可点击模块进入参数编辑页面，可选是否屏蔽上传、Shorts、选段等按钮，模块包含两个版本，其中 **模块 B** 是低功耗版本。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除软件内各类广告并提供画中画功能，同时支持 YouTube Music 去广告。模块支持 **编辑参数**，安装后可点击模块进入参数编辑页面，可选是否屏蔽上传、Shorts、选段等按钮。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块
 > >   
-> > [![安装模块 YouTube 模块A](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块A&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
-> > [![安装模块 YouTube 模块B](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块B&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeLite.srmodule "一键安装本模块")
+> > [![安装模块 YouTube 模块](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > 
 > **[京东比价模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD-PRICE.srmodule)**
 > 
@@ -164,18 +176,6 @@
 > > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除滴滴的开屏广告及内部广告页面
 > >   
 > > [![安装模块 滴滴去广告](https://img.shields.io/static/v1?label=安装模块&message=滴滴去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/DidiNoAd.srmodule "一键安装本模块")
-> 
-> **[微博国际版（轻享版）模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/WeiBoIntl.sgmodule)**
-> 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除开屏、时间线及我的页面广告
-> >   
-> > [![安装模块 微博轻享版](https://img.shields.io/static/v1?label=安装模块&message=微博轻享版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/WeiBoIntl.sgmodule "一键安装本模块")
-> 
-> **[酷安去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule)**
-> 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除酷安 APP 的开屏广告和时间线广告，开启后需要重装 App
-> >   
-> > [![安装模块 酷安去广告](https://img.shields.io/static/v1?label=安装模块&message=酷安去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/Coolapk.sgmodule "一键安装本模块")
 > 
 > **[贴吧去广告模块](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)**
 > 
@@ -277,13 +277,13 @@
 
 **效果示例：TermiusDark**
 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingTermiusDark.png" width="100%" height="100%"> 
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/RenderingTermiusDark.png" width="100%" height="100%"> 
 > 
 > <details>
 > <summary>点击查看其他配色示例</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110301.png" width="100%" height="100%"> 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/110302.png" width="100%" height="100%"> 
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/110301.png" width="100%" height="100%"> 
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/110302.png" width="100%" height="100%"> 
 > 
 > </details>
 
@@ -317,7 +317,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/EpicLight.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/EpicLight.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -335,7 +335,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01BrightGold.png" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/01BrightGold.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -353,7 +353,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/GitHubLight.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/GitHubLight.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -371,7 +371,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/V2EXDAY.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/V2EXDAY.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -389,7 +389,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/EcoGreen.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/EcoGreen.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -407,7 +407,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/02IceCream.png" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/02IceCream.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -425,7 +425,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/08Elegant.png" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/08Elegant.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -443,7 +443,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Cloudy.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/Cloudy.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -461,7 +461,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/AyuLight.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/AyuLight.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -479,7 +479,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Solarized.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/Solarized.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -497,7 +497,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/LightOwl.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/LightOwl.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -515,7 +515,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/SnowTop.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/SnowTop.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -533,7 +533,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RomeDay.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/RomeDay.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -551,7 +551,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Peach.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/Peach.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -569,7 +569,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/LightBlue.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/LightBlue.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -587,7 +587,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/EpicDark.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/EpicDark.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -605,7 +605,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/03Chrome.png" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/03Chrome.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -623,7 +623,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/04BlueSky.png" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/04BlueSky.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -641,7 +641,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/05GodenDark.png" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/05GodenDark.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -659,7 +659,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/06Fluoresce.png" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/06Fluoresce.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -677,7 +677,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/07TermiusDark.png" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/07TermiusDark.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -695,7 +695,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/09Sunset.png" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/09Sunset.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -713,7 +713,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/10Rose.png" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/10Rose.png" width="100%" height="100%">
 > 
 > </details>
 
@@ -731,7 +731,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Violet.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/Violet.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -749,7 +749,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/KanagawaWave.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/KanagawaWave.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -767,7 +767,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/KanagawaGray.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/KanagawaGray.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -784,7 +784,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/CyberPurple.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/CyberPurple.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -802,7 +802,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/GitHubDark.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/GitHubDark.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -820,7 +820,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/V2EXNIGHT.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/V2EXNIGHT.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -838,7 +838,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/AtomDark.PNG" width="100%" height="100%">
+> <img src="https://lowertop.github.io/Shadowrocket-First/img/AtomDark.PNG" width="100%" height="100%">
 > 
 > </details>
 
@@ -848,7 +848,7 @@ _To Be Continued..._
 
 > `配色文件以实际效果为准，实际更新可能存在调整`
 
-<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingBrightGold.png" width="100%" height="100%">
+<img src="https://lowertop.github.io/Shadowrocket-First/img/RenderingBrightGold.png" width="100%" height="100%">
 
 ------
 
@@ -1015,4 +1015,4 @@ _To Be Continued..._
 
 **Copyright © LOWERTOP**
 
-[<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/01.BTM.png" width="100%" height="100%">](https://lowertop.github.io/Shadowrocket-First)
+[<img src="https://lowertop.github.io/Shadowrocket-First/img/01.BTM.png" width="100%" height="100%">](https://lowertop.github.io/Shadowrocket-First)
