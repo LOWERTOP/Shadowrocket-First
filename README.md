@@ -47,7 +47,7 @@
 > **方法 1**：设备设置 - App - Shadowrocket - 语言 - 修改为非简体中文语言（不影响软件内设置为简体中文）
 > * *须在 设置 - 通用 - 语言和地区 添加第二种语言才可修改，其他软件同理。也可直接修改设备语言*
 >
-> **方法 2**：安装下方模块，[本模块](https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule) 安装地址及相关代码均避开了受限地址，应该可以正常安装
+> **方法 2**：安装下方模块，[本模块](https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule) 安装地址及脚本地址均避开了受限地址，应该可以正常安装
 > * *脚本/模块作者：**[iab0x00](https://github.com/iab0x00)***
 > 
 > [![安装模块 Fuck-Githube](https://img.shields.io/static/v1?label=安装模块&message=Fuck-Github&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule "一键安装本模块")
