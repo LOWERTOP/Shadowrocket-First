@@ -1,7 +1,7 @@
 #!name=综合服务及去广告模块
 #!desc=包含 Spotify、Talkatone、DeepSeek、GitHub 解锁、贴吧去广告及其他多款软件或服务的去广告内容
-#!arguments=贴吧去广告:true,贴吧视频贴:1,Spotify 歌词翻译:false, AppID:填入 百度翻译 App ID, 密钥:填入 百度翻译 密钥
-#!arguments-desc=\n贴吧视频贴填写为0可在推荐页重新展示视频帖\n\nSpotify 歌词翻译 功能说明:\n\n · 需免费申请百度翻译API的ID和密钥并填入\n\n · 标准版(可能不够):单次最长请求1000字符,免费调用量5万字符/月,QPS（每秒访问量）=1\n\n · 高级版(推荐使用):单次最长请求6000字符,免费调用量100万字符/月,QPS（每秒访问量）=10\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露给任何人): \n\n    http://api.fanyi.baidu.com/manage/developer\n\n - 成功启用翻译功能后，在Spotify歌词界面左下角即可看到翻译按钮，点击即可翻译
+#!arguments=贴吧去广告:true,贴吧视频贴:去除视频贴填1，展示视频贴填0,Spotify 歌词翻译:false, AppID:填入 百度翻译 App ID, 密钥:填入 百度翻译 密钥
+#!arguments-desc=\nSpotify 歌词翻译 功能说明:\n\n · 需免费申请百度翻译API的ID和密钥并填入\n\n · 标准版(可能不够):单次最长请求1000字符,免费调用量5万字符/月,QPS（每秒访问量）=1\n\n · 高级版(推荐使用):单次最长请求6000字符,免费调用量100万字符/月,QPS（每秒访问量）=10\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露给任何人): \n\n    http://api.fanyi.baidu.com/manage/developer\n\n - 成功启用翻译功能后，在Spotify歌词界面左下角即可看到翻译按钮，点击即可翻译
 
 # 包子漫画去广告（网页）、Blued去广告、阿里云盘、百度网盘、e充电、中国移动、中国联通、招商银行、掌上生活、一淘、闲鱼、小蚁、小米有品、瑞幸咖啡、夸克等去广告内容
 # 代码来源：https://raw.githubusercontent.com/fmz200
@@ -45,6 +45,11 @@ DOMAIN-SUFFIX,intercom.com,PROXY
 DOMAIN-SUFFIX,intercomcdn.com,PROXY
 
 [URL Rewrite]
+# 微博轻享版净化
+^https?:\/\/api\.weibo\.cn\/\d\/(cardlist\?v_f=\d|ad\/weibointl\?) - reject-dict
+
+^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=hot_search_users - reject-dict
+
 # Talkatone 去广告重写
 ^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
 ^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
@@ -138,6 +143,13 @@ DOMAIN-SUFFIX,intercomcdn.com,PROXY
 
 [Script]
 
+# 微博轻享版净化
+微博国际版 = type=http-response,pattern=^https?:\/\/api\.weibo\.cn\/\d\/statuses\/.*timeline,script-path=https://raw.githubusercontent.com/Keywos/rule/master/script/weibo_us/js/index.js,requires-body=true,timeout=60
+
+微博国际版 = type=http-response,pattern=^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php,script-path=https://raw.githubusercontent.com/Keywos/rule/master/script/weibo_us/js/index.js,requires-body=true,timeout=60
+
+微博国际版 = type=http-response,pattern=^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?(ct=(feed&a=trends|user&a=get_searching_info)|a=(get_coopen_ads|user_center|search_topic|open_app&auth|icon_center)),script-path=https://raw.githubusercontent.com/Keywos/rule/master/script/weibo_us/js/index.js,requires-body=true,timeout=60
+
 # 贴吧去广告
 贴吧json = type=http-response,enable={{{贴吧去广告}}},pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js,script-update-interval=0
 贴吧proto = type=http-response,enable={{{贴吧去广告}}},pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd,requires-body=1,binary-body-mode=1,max-size=-1,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js,argument=per_filter_video_thread={{{贴吧视频贴}}}
@@ -175,4 +187,5 @@ spotify歌词翻译 = type=http-response,enable={{{Spotify 歌词翻译}}},patte
 郑好办去广告 =type=http-response, pattern=^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do, script-path=https://lowertop.github.io/Shadowrocket-First/JS/Zhenghaoban.js, requires-body=true, max-size=0
 
 [MITM]
-hostname = %APPEND% tiebac.baidu.com,  *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com
+hostname = %APPEND% api.weibo.cn, weibointl.api.weibo.cn, sdkapp.uve.weibo.com, tiebac.baidu.com,  *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com
+
