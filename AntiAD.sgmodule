@@ -12,6 +12,8 @@
 [Rule]
 # 补充规则集
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/AntiAD.list,REJECT
+# 贴吧去广告规则
+RULE-SET,https://raw.githubusercontent.com/app2smile/rules/master/rule/tieba-ad.list,REJECT-DROP
 # Talkatone 去广告规则集
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneAntiAds.list,REJECT
 # Talkatone 分流规则集
