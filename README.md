@@ -42,7 +42,7 @@
 
 ### [Fuck-GitHub](https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule)
 
-> **GitHub** 近期针对针对请求头 **`Accept-Language`** 是 **`zh-CN`** 的简体中文用户实行严格的并发连接限制，导致用户在使用规则集、模块等依靠它的远程资源时出现 **`Access has been restricted`** 的 429 错误。暂不确定 GitHub 此举是临时举措还是长期施行，现阶段解决方案如下：
+> **GitHub** 近期针对针对请求头 **`Accept-Language`** 是 **`zh-CN`** 的简体中文用户实行严格的并发连接限制，这是 **GitHub** 对简体中文用户赤裸裸的歧视！此举导致用户在使用规则集、模块等依靠它的远程资源时出现 **`Access has been restricted`** 的 429 错误。暂不确定相关限制是临时举措还是长期施行，现阶段解决方案如下：
 >
 > **方法 1**：设备设置 - App - Shadowrocket - 语言 - 修改为非简体中文语言（不影响软件内设置为简体中文）
 > * *须在 设置 - 通用 - 语言和地区 添加第二种语言才可修改，其他软件同理。也可直接修改设备语言*
