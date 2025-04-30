@@ -123,7 +123,7 @@ blued.js =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users\/.+\/
 web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://lowertop.github.io/Shadowrocket-First/JS/baozimh.js
 
 # 本仓创建的 JS，用以尝试替代 Header Rewrite，不保证有效性，如有故障可注释掉下行内容
-spotify-header = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$,requires-body=false,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/spotify-header.js,timeout=10
+spotify-header = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$,requires-body=false,script-path=https://lowertop.github.io/Shadowrocket-First/JS/spotify-header.js,timeout=10
 # Spotify app2smile 原始脚本
 spotify-json = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
 spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
