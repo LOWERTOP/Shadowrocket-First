@@ -852,7 +852,7 @@ _To Be Continued..._
 
 > `配色文件以实际效果为准，实际更新可能存在调整`
 
-<img src="https://lowertop.github.io/Shadowrocket-First/img/RenderingBrightGold.png" width="100%" height="100%">
+<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingBrightGold.png" width="100%" height="100%">
 
 ------
 
