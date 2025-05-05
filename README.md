@@ -44,7 +44,9 @@
 
 ### [Fuck-GitHub](https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule)
 
-> **GitHub** 近期针对针对请求头 **`Accept-Language`** 是 **`zh-CN`** 的简体中文用户实行严格的并发连接限制，这是 **GitHub** 对简体中文用户赤裸裸的歧视！此举导致用户在使用规则集、模块等依靠它的远程资源时出现 **`Access has been restricted`** 的 429 错误。暂不确定相关限制是临时举措还是长期施行，现阶段解决方案如下：
+> **GitHub** 针对请求头 **`Accept-Language`** 是 **`zh-CN`** 的简体中文用户实行严格的并发连接限制，这是 **GitHub** 对简体中文用户赤裸裸的歧视！此举导致用户在使用规则集、模块等依靠它的远程资源时出现 **`Access has been restricted`** 的 429 错误
+>
+> 该限制暂时取消，如再发生，解决方案如下：
 >
 > **方法 1**：设备设置 - App - Shadowrocket - 语言 - 修改为非简体中文语言（不影响软件内设置为简体中文）
 > * *须在 设置 - 通用 - 语言和地区 添加第二种语言才可修改，其他软件同理。也可直接修改设备语言*
@@ -93,9 +95,9 @@
 > > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.sgmodule "一键安装本模块")
 > > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.list "点击访问规则集")
 
-### [综合服务及去广告模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule)
+### [综合服务模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule)
 
-> 本 [模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule) 以去广告为主，使用了 [app2smile](https://github.com/app2smile) 和 [fmz200](https://github.com/fmz200) 的部分脚本。模块已包含本仓的 **Fuck-GitHub**、**Talkatone**、**DeepSeek** 以及 **Spotify** 模块，同时包含：包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://lowertop.github.io/Shadowrocket-First/AntiAD.list)。去广告部分尚需充分测试，可能根据需要随时调整
+> 本 [模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule) 以功能增强和去广告为主，使用了 [app2smile](https://github.com/app2smile)、[fmz200](https://github.com/fmz200) 等作者的脚本。已包含本仓的 **Talkatone**、**DeepSeek** **Spotify** 等模块，同时包含：包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://lowertop.github.io/Shadowrocket-First/AntiAD.list)。去广告部分尚需充分测试，可能根据需要随时调整
 >
 > [![安装模块 AntiAD](https://img.shields.io/static/v1?label=安装模块&message=AntiAD&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule "一键安装本模块")
 
@@ -850,7 +852,7 @@ _To Be Continued..._
 
 > `配色文件以实际效果为准，实际更新可能存在调整`
 
-<img src="https://lowertop.github.io/Shadowrocket-First/img/RenderingBrightGold.png" width="100%" height="100%">
+<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingBrightGold.png" width="100%" height="100%">
 
 ------
 
