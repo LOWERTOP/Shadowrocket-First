@@ -23,6 +23,7 @@ RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneDirect.list,DIRE
 # 包子漫画直连规则
 DOMAIN-SUFFIX,baozimhcn.com,DIRECT
 DOMAIN-SUFFIX,baozimh.com,DIRECT
+DOMAIN-SUFFIX,baozicdn.com,DIRECT
 DOMAIN-SUFFIX,dzmanga.com,DIRECT
 DOMAIN-SUFFIX,twmanga.com,DIRECT
 
