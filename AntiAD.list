@@ -13,7 +13,10 @@ DOMAIN-KEYWORD,pangolin
 DOMAIN-KEYWORD,pglstatp
 DOMAIN-KEYWORD,umeng
 DOMAIN-KEYWORD,adservice
+DOMAIN-KEYWORD,mediago
 
+DOMAIN-SUFFIX,fivecdm.com
+DOMAIN-SUFFIX,baozimhapp.com
 DOMAIN-SUFFIX,ad.doubleclick.net
 DOMAIN-SUFFIX,render-server.cdn.bcebos.com
 DOMAIN-SUFFIX,cm.adxvip.com
