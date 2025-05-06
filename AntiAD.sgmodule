@@ -46,6 +46,9 @@ DOMAIN-SUFFIX,intercom.com,PROXY
 DOMAIN-SUFFIX,intercomcdn.com,PROXY
 
 [URL Rewrite]
+# 包子漫画横幅APP广告
+^https:\/\/static-tw\.baozimh\.com\/bzmhapp-data\/pics\/install_app_bar_baozimhappx\.jpg$ - reject-img
+
 # 微博轻享版净化
 ^https?:\/\/api\.weibo\.cn\/\d\/(cardlist\?v_f=\d|ad\/weibointl\?) - reject-dict
 
