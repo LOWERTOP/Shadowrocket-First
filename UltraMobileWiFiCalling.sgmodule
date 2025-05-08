@@ -1,38 +1,39 @@
 #!name=Ultra Mobile
-#!desc=UltraMobile SIM 卡 Wi-Fi Calling 配置模块，首页节点须选择美国节点
-# 本模块适用于 Ultra Mobile 、 T-Mobile SIM 卡的 Wi-Fi Calling 功能，默认节点须是美国节点。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 Wi-Fi calling
+#!desc=参数编辑可以细化设置。适用于Ultra Mobile、T-Mobile SIM卡的Wi-Fi Calling功能。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启Wi-Fi calling
+#!arguments=默认首页代理:PROXY, 通话端口代理:AND, 苹果地区检测:DOMAIN-SUFFIX
+#!arguments-desc=·默认首页代理：模块默认使用首页的默认节点进行代理，可填入所需要的节点名称、代理分组名称等策略进行更改\n\n·通话端口代理：模块默认代理了Wi-Fi通话常用的500和4500的UDP端口，填入#号可以禁用相关端口的代理\n\n·苹果地区检测：模块默认代理了苹果的地区检测URL地址，填入#号可以恢复为默认规则\n\n·地区检测查询：https://gspe1-ssl.ls.apple.com/pep/gcc
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
-# 地区检测
-DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,PROXY
+# 苹果地区检测
+{{{苹果地区检测}}},gspe1-ssl.ls.apple.com,{{{默认首页代理}}}
 
-# 端口检测
-AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))),PROXY
+# 通话端口代理
+{{{通话端口代理}}},((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))),{{{默认首页代理}}}
 
 # 地址代理
-DOMAIN-SUFFIX,crl.t-mobile.com,PROXY
-DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org,PROXY
-DOMAIN-SUFFIX,eas3.msg.t-mobile.com,PROXY
-DOMAIN-SUFFIX,epdg.epc.mnc240.mcc310.pub.3gppnetwork.org,PROXY
-DOMAIN-SUFFIX,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,PROXY
-DOMAIN-SUFFIX,mascns.t-mobile.com,PROXY
-DOMAIN-SUFFIX,ns.sipgeo.t-mobile.com,PROXY
-DOMAIN-SUFFIX,optimizely.com,PROXY
-DOMAIN-SUFFIX,redirect.ultra.me,PROXY
-DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org,PROXY
-DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,PROXY
-DOMAIN-SUFFIX,ultramobile.com,PROXY
-DOMAIN-KEYWORD,t-mobile,PROXY
-DOMAIN-KEYWORD,ultramobile,PROXY
-IP-CIDR,206.29.177.36/32,PROXY,no-resolve
-IP-CIDR,208.54.0.0/16,PROXY,no-resolve
-IP-CIDR,66.94.0.0/19,PROXY,no-resolve
+DOMAIN-SUFFIX,crl.t-mobile.com,{{{默认首页代理}}}
+DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org,{{{默认首页代理}}}
+DOMAIN-SUFFIX,eas3.msg.t-mobile.com,{{{默认首页代理}}}
+DOMAIN-SUFFIX,epdg.epc.mnc240.mcc310.pub.3gppnetwork.org,{{{默认首页代理}}}
+DOMAIN-SUFFIX,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,{{{默认首页代理}}}
+DOMAIN-SUFFIX,mascns.t-mobile.com,{{{默认首页代理}}}
+DOMAIN-SUFFIX,ns.sipgeo.t-mobile.com,{{{默认首页代理}}}
+DOMAIN-SUFFIX,optimizely.com,{{{默认首页代理}}}
+DOMAIN-SUFFIX,redirect.ultra.me,{{{默认首页代理}}}
+DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org,{{{默认首页代理}}}
+DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,{{{默认首页代理}}}
+DOMAIN-SUFFIX,ultramobile.com,{{{默认首页代理}}}
+DOMAIN-KEYWORD,t-mobile,{{{默认首页代理}}}
+DOMAIN-KEYWORD,ultramobile,{{{默认首页代理}}}
+IP-CIDR,206.29.177.36/32,{{{默认首页代理}}},no-resolve
+IP-CIDR,208.54.0.0/16,{{{默认首页代理}}},no-resolve
+IP-CIDR,66.94.0.0/19,{{{默认首页代理}}},no-resolve
 
-[Host]
-*.ultra.me = server:199.85.126.10
-*.3gppnetwork.org = server:199.85.126.10
-*.optimizely.com = server:199.85.126.10
-*.t-mobile.com = server:199.85.126.10
-*.ultramobile.com = server:199.85.126.10
+# [Host]
+# *.ultra.me = server:199.85.126.10
+# *.3gppnetwork.org = server:199.85.126.10
+# *.optimizely.com = server:199.85.126.10
+# *.t-mobile.com = server:199.85.126.10
+# *.ultramobile.com = server:199.85.126.10
