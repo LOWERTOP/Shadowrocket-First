@@ -1,33 +1,34 @@
 #!name=Wi-Fi Calling US
-#!desc=美国 SIM 卡 Wi-Fi Calling 配置模块（测试版）
-# 本模块适用于 Ultra Mobile 、 T-Mobile SIM 卡的 Wi-Fi Calling 功能。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启 Wi-Fi calling
-# 规则整理：https://github.com/LOWERTOP
+#!desc=参数编辑可以细化设置。适用于Ultra Mobile、T-Mobile SIM卡的Wi-Fi Calling功能。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启Wi-Fi calling
+#!arguments=默认代理分组:US-Call, 通话端口代理:AND, 苹果地区检测:DOMAIN-SUFFIX
+#!arguments-desc=·默认代理分组：默认使用模块内置的名为“US-Call”的代理分组进行代理，可填入自定义的代理分组或节点名称\n\n·通话端口代理：模块默认代理了Wi-Fi通话常用的500和4500的UDP端口，填入#号可以禁用相关端口的代理\n\n·苹果地区检测：模块默认代理了苹果的地区检测URL地址，填入#号可以恢复为默认规则\n\n·地区检测查询：https://gspe1-ssl.ls.apple.com/pep/gcc
+# 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Proxy Group]
-USCall = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇺🇸|US|USA|America|america|United States|us|美国|凤凰城|洛杉矶|西雅图|芝加哥|纽约|沪美|美
+US-Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇺🇸|US|USA|America|america|United States|us|美国|凤凰城|洛杉矶|西雅图|芝加哥|纽约|沪美|美
 
 [Rule]
-# 地区检测
-DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,USCall
+# 苹果地区检测
+{{{苹果地区检测}}},gspe1-ssl.ls.apple.com,{{{默认代理分组}}}
 
-# 端口分流
-AND,((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))),USCall
+# 通话端口代理
+{{{通话端口代理}}},((GEOIP,US),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500)))))),{{{默认代理分组}}}
 
-DOMAIN-SUFFIX,crl.t-mobile.com,USCall
-DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org,USCall
-DOMAIN-SUFFIX,eas3.msg.t-mobile.com,USCall
-DOMAIN-SUFFIX,epdg.epc.mnc240.mcc310.pub.3gppnetwork.org,USCall
-DOMAIN-SUFFIX,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,USCall
-DOMAIN-SUFFIX,mascns.t-mobile.com,USCall
-DOMAIN-SUFFIX,ns.sipgeo.t-mobile.com,USCall
-DOMAIN-SUFFIX,optimizely.com,USCall
-DOMAIN-SUFFIX,redirect.ultra.me,USCall
-DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org,USCall
-DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,USCall
-DOMAIN-SUFFIX,ultramobile.com,USCall
-DOMAIN-KEYWORD,t-mobile,USCall
-DOMAIN-KEYWORD,ultramobile,USCall
-IP-CIDR,206.29.177.36/32,USCall,no-resolve
-IP-CIDR,208.54.0.0/16,USCall,no-resolve
-IP-CIDR,66.94.0.0/19,USCall,no-resolve
+DOMAIN-SUFFIX,crl.t-mobile.com,{{{默认代理分组}}}
+DOMAIN-SUFFIX,depdg.epc.mnc260.mcc310.pub.3gppnetwork.org,{{{默认代理分组}}}
+DOMAIN-SUFFIX,eas3.msg.t-mobile.com,{{{默认代理分组}}}
+DOMAIN-SUFFIX,epdg.epc.mnc240.mcc310.pub.3gppnetwork.org,{{{默认代理分组}}}
+DOMAIN-SUFFIX,epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,{{{默认代理分组}}}
+DOMAIN-SUFFIX,mascns.t-mobile.com,{{{默认代理分组}}}
+DOMAIN-SUFFIX,ns.sipgeo.t-mobile.com,{{{默认代理分组}}}
+DOMAIN-SUFFIX,optimizely.com,{{{默认代理分组}}}
+DOMAIN-SUFFIX,redirect.ultra.me,{{{默认代理分组}}}
+DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc260.mcc310.pub.3gppnetwork.org,{{{默认代理分组}}}
+DOMAIN-SUFFIX,ss.epdg.epc.mnc260.mcc310.pub.3gppnetwork.org,{{{默认代理分组}}}
+DOMAIN-SUFFIX,ultramobile.com,{{{默认代理分组}}}
+DOMAIN-KEYWORD,t-mobile,{{{默认代理分组}}}
+DOMAIN-KEYWORD,ultramobile,{{{默认代理分组}}}
+IP-CIDR,206.29.177.36/32,{{{默认代理分组}}},no-resolve
+IP-CIDR,208.54.0.0/16,{{{默认代理分组}}},no-resolve
+IP-CIDR,66.94.0.0/19,{{{默认代理分组}}},no-resolve
