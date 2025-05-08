@@ -1,5 +1,5 @@
 #!name=Wi-Fi Calling US
-#!desc=参数编辑可以细化设置。适用于Ultra Mobile、T-Mobile SIM卡的Wi-Fi Calling功能。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启Wi-Fi calling
+#!desc=参数编辑可以细化设置。适用于部分美国SIM卡的Wi-Fi Calling功能。使用本模块后打开飞行模式后再关闭飞行模式进行联网即可正常开启Wi-Fi calling
 #!arguments=默认代理分组:US-Call, 通话端口代理:AND, 苹果地区检测:DOMAIN-SUFFIX
 #!arguments-desc=·默认代理分组：默认使用模块内置的名为“US-Call”的代理分组进行代理，可填入自定义的代理分组或节点名称\n\n·通话端口代理：模块默认代理了Wi-Fi通话常用的500和4500的UDP端口，填入#号可以禁用相关端口的代理\n\n·苹果地区检测：模块默认代理了苹果的地区检测URL地址，填入#号可以恢复为默认规则\n\n·地区检测查询：https://gspe1-ssl.ls.apple.com/pep/gcc
 # 整理作者：https://github.com/LOWERTOP
