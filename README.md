@@ -30,7 +30,7 @@
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 **`项目更新`**
-> * 增设 [证书模块](#证书模块) 和 [调试模块](#调试模块)
+> * 增设 [证书模块](#证书模块)、[调试模块](#调试模块) 和 [主机名反误杀](#主机名反误杀)
 > * 变更 [当前分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/README) 为默认分支，原文件在 [main](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)
 > * 设置 [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
@@ -119,7 +119,13 @@
 > 
 > 本 [模块](https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule) 是以 **参数编辑** 功能构建的配置文件内不含UI界面的部分隐藏参数调整选项的功能模块。相关参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 >
-> [![安装模块 调试](https://img.shields.io/static/v1?label=安装模块&message=调试&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule "一键安装本模块")
+> [![安装模块 调试模块](https://img.shields.io/static/v1?label=安装模块&message=调试模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule "一键安装本模块")
+
+### [主机名反误杀](https://lowertop.github.io/Shadowrocket-First/Anti-MITM.sgmodule)
+
+> 本 [模块](https://lowertop.github.io/Shadowrocket-First/Anti-MITM.sgmodule) 是以 **参数编辑** 功能构建的主机名反误杀功能模块，填写所需的反误杀主机名后将本模块放置于模块列表最下方以使其抵消主机名 MITM，插入方式支持选填 `%APPEND%` 或 `%INSERT%`
+>
+> [![安装模块 反误杀模块](https://img.shields.io/static/v1?label=安装模块&message=反误杀模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/Anti-MITM.sgmodule "一键安装本模块")
 
 ### [欧易规则集](https://lowertop.github.io/Shadowrocket-First/okx.list)
 
