@@ -1,5 +1,5 @@
 #!name=综合服务模块
-#!desc=有参数编辑功能，包含Spotify歌词翻译、Talkatone、DeepSeek、贴吧等软件的去广告及其他服务的功能增强
+#!desc=有参数编辑功能，包含Spotify歌词翻译、贴吧去广告、Talkatone、DeepSeek等软件的去广告及其他服务的功能增强
 #!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, 贴吧去广告:true, 贴吧视频贴:去除视频贴填1，展示视频贴填0
 #!arguments-desc=Spotify 歌词翻译 功能说明:\n\n需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露给任何人): \n\n    http://api.fanyi.baidu.com/manage/developer\n\n成功启用翻译后，在歌词界面左下角即可看到翻译按钮
 # 代码来源：https://github.com/fmz200
