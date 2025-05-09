@@ -1,7 +1,7 @@
 #!name=证书及隐藏参数模块
 #!desc=证书模块需要以编辑参数的方式启用并填写完整
-#!arguments=证书模块:false, 证书内容:此处粘贴有效的证书内容, 证书密码:Shadowrocket, 失败回退代理:true, 重写全局生效:false, 直连系统查询:false, 强制本地解析:false, 节点域名解析:system
-#!arguments-desc=证书模块：启用并填写证书内容方可生效\n\n证书内容：粘贴自有效证书\n\n证书密码：若默认密码是Shadowrocket则可不动\n\n失败回退代理：默认启用。直连域名解析失败后使用代理\n\n重写全局生效：推荐禁用。开启后可使「重写的REJECT策略」在所有全局路由模式下都生效\n\n直连系统查询：推荐禁用。直连的域名类规则使用系统 DNS 进行查询\n\n强制本地解析：推荐禁用。启用后将强制所有域名使用本地DNS解析\n\n节点域名解析：节点域名默认使用系统DNS查询
+#!arguments=证书模块:false, 证书内容:此处粘贴有效的证书内容, 证书密码:Shadowrocket, 失败回退代理:true, 重写全局生效:false, 直连系统查询:false, 强制本地解析:false, 节点域名解析:#, 域名解析DNS:PROXY
+#!arguments-desc=证书模块：启用并填写证书内容方可生效\n\n证书内容：粘贴自有效证书\n\n证书密码：若默认密码是Shadowrocket则可不动\n\n失败回退代理：默认启用。直连域名解析失败后使用代理\n\n重写全局生效：推荐禁用。开启后可使「重写的REJECT策略」在所有全局路由模式下都生效\n\n直连系统查询：推荐禁用。直连的域名类规则使用系统 DNS 进行查询\n\n强制本地解析：推荐禁用。启用后将强制所有域名使用本地DNS解析\n\n节点域名解析：删除#号可启用\n\n域名解析DNS：节点域名默认使用首页默认节点查询
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 [General]
@@ -9,7 +9,7 @@ dns-direct-fallback-proxy={{{失败回退代理}}}
 always-reject-url-rewrite={{{重写全局生效}}}
 dns-direct-system={{{直连系统查询}}}
 always-ip-address={{{强制本地解析}}}
-proxy-dns-server={{{节点域名解析}}}
+{{{节点域名解析}}}proxy-dns-server={{{域名解析DNS}}}
 
 [MITM]
 enable={{{证书模块}}}
