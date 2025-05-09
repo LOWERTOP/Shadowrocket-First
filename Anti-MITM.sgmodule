@@ -1,0 +1,9 @@
+#!name=主机名反误杀模块
+#!desc=以编辑参数的方式添加反误杀的主机名
+#!arguments=插入方式:%APPEND%, 填写主机名:英文逗号分隔主机名
+#!arguments-desc=本模块放置于模块列表最下方\n\n插入方式：支持%APPEND%和%INSERT%\n\n填写主机名：例如 -*.apple.com
+# 整理作者：https://github.com/LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+
+[MITM]
+hostname = {{{插入方式}}} {{{填写主机名}}}
