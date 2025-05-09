@@ -95,6 +95,14 @@
 > > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.sgmodule "一键安装本模块")
 > > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.list "点击访问规则集")
 
+### [证书模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule)
+
+> [证书及隐藏参数模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule) 是以 **参数编辑** 功能构建的简化了创建 **[证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)** 流程的证书模块模板，并提供配置文件内部分不含UI界面的 **[隐藏参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%80%9A%E7%94%A8%E5%8F%82%E6%95%B0)** 的调整选项<br>
+> > **证书模块部分**：仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块<br>
+> > **隐藏参数部分**：建议新手在了解每个功能之前不要更改相应选项，并在 **慎重隐藏参数** 内填入 `#` 号禁用此部分
+>
+> [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/CA.sgmodule "一键安装本模块")
+
 ### [综合服务模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule)
 
 > 本 [模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule) 以功能增强和去广告为主，使用了 [app2smile](https://github.com/app2smile)、[fmz200](https://github.com/fmz200) 等作者的脚本。已包含本仓的 **Talkatone**、**DeepSeek** **Spotify** 等模块，同时包含：包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://lowertop.github.io/Shadowrocket-First/AntiAD.list)。去广告部分尚需充分测试，可能根据需要随时调整
