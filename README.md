@@ -109,13 +109,13 @@
 
 ### [证书模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule)
 
-> 本 [模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule) 是以 **参数编辑** 功能构建的简化了创建 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97) 流程的母版模块。使用时仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块。证书模块功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
+> 本 [模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule) 是以 **参数编辑** 功能构建的简化了创建证书模块流程的母版模块。使用时仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块。证书模块功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 >
 > [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/CA.sgmodule "一键安装本模块")
 
 ### [隐藏参数模块](https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule)
 
-> [隐藏参数模块](https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule) 是以 **参数编辑** 功能构建的配置文件内不含UI界面的部分 [隐藏参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%80%9A%E7%94%A8%E5%8F%82%E6%95%B0) 调整选项的功能模块。不建议新手使用本模块，隐藏参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
+> 本 [模块](https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule) 是以 **参数编辑** 功能构建的配置文件内不含UI界面的部分隐藏参数调整选项的功能模块。不建议新手使用本模块，隐藏参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 >
 > [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule "一键安装本模块")
 
