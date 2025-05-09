@@ -105,7 +105,7 @@
 
 ### [综合服务模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule)
 
-> 本 [模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule) 以功能增强和去广告为主，使用了 [app2smile](https://github.com/app2smile)、[fmz200](https://github.com/fmz200) 等作者的脚本。已包含本仓的 **Talkatone**、**DeepSeek** **Spotify** 等模块，同时包含：包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://lowertop.github.io/Shadowrocket-First/AntiAD.list)。去广告部分尚需充分测试，可能根据需要随时调整
+> 本 [模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule) 以功能增强和去广告为主，使用了 [app2smile](https://github.com/app2smile)、[fmz200](https://github.com/fmz200) 等作者的脚本。已包含本仓的 **Talkatone**、**DeepSeek** **Spotify** 等模块，同时包含：包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://lowertop.github.io/Shadowrocket-First/AntiAD.list)。同时，模块提供参数编辑功能，包含部分可选参数调整选项
 >
 > [![安装模块 AntiAD](https://img.shields.io/static/v1?label=安装模块&message=AntiAD&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule "一键安装本模块")
 
