@@ -95,6 +95,14 @@
 > > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.sgmodule "一键安装本模块")
 > > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.list "点击访问规则集")
 
+### [证书模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule)
+
+> [证书及隐藏参数模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule) 是以 **参数编辑** 功能构建的简化了创建 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97) 流程的证书模块模板，并提供配置文件内部分不含UI界面的 [隐藏参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%80%9A%E7%94%A8%E5%8F%82%E6%95%B0) 的调整选项。详情参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)<br>
+> > **证书模块部分**：仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块<br>
+> > **隐藏参数部分**：建议新手在了解每个功能之前不要更改相应选项，并在 **慎重隐藏参数** 内填入 `#` 号禁用此部分
+>
+> [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/CA.sgmodule "一键安装本模块")
+
 ### [综合服务模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule)
 
 > 本 [模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule) 以功能增强和去广告为主，使用了 [app2smile](https://github.com/app2smile)、[fmz200](https://github.com/fmz200) 等作者的脚本。已包含本仓的 **Talkatone**、**DeepSeek** **Spotify** 等模块，同时包含：包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://lowertop.github.io/Shadowrocket-First/AntiAD.list)。去广告部分尚需充分测试，可能根据需要随时调整
@@ -124,7 +132,7 @@
 > [!IMPORTANT]
 > 
 > * 使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 **配置** 模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外
-> * 使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而需要重新解密，可设置 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)
+> * 使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而需要重新解密，可设置 [证书模块](#证书模块)
 > * [更新配置文件](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE) 会造成自定义规则等丢失，除需要重置配置文件外不建议对其更新
 
 ### [使用手册](#shadowrocket-收集配置)
