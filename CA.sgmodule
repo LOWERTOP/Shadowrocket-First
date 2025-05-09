@@ -1,16 +1,16 @@
 #!name=证书及隐藏参数模块
 #!desc=证书模块需要以编辑参数的方式启用并填写完整。其余隐藏参数谨慎调整
-#!arguments=证书模块:false, 证书内容:此处粘贴有效的证书内容, 证书密码:Shadowrocket, 隐藏参数:[General], 失败回退代理:true, 重写全局生效:false, 直连系统查询:false, 强制本地解析:false, 节点域名解析:proxy-dns-server, 节点域名DNS:system
-#!arguments-desc=证书模块：启用并填写证书内容方可生效\n\n证书内容：粘贴自有效证书\n\n证书密码：若默认密码是Shadowrocket则可不动\n\n⚠隐藏参数谨慎设置⚠\n\n- 隐藏参数：填 # 禁用下方所有通用隐藏参数\n\n- 失败回退代理：默认启用。直连域名解析失败后使用代理\n\n- 重写全局生效：默认禁用。使重写的REJECT策略全局生效\n\n- 直连系统查询：默认禁用。域名类直连规则使用系统DNS\n\n- 强制本地解析：默认禁用。强制所有域名使用本地DNS\n\n- 节点域名解析：默认启用。填入#号可以禁用\n\n- 节点域名DNS：默认使用系统DNS查询节点域名
+#!arguments=证书模块:false, 证书内容:此处粘贴有效的证书内容, 证书密码:Shadowrocket, 隐藏参数:[General], 节点域名解析:proxy-dns-server, 节点域名DNS:system, 失败回退代理:true, 重写全局生效:false, 直连系统查询:false, 强制本地解析:false
+#!arguments-desc=证书模块：启用并填写证书内容方可生效\n\n证书内容：粘贴自有效证书\n\n证书密码：若默认密码是Shadowrocket则可不动\n\n⚠隐藏参数谨慎设置⚠\n\n- 隐藏参数：填 # 禁用下方所有通用隐藏参数\n\n- 节点域名解析：默认启用。填入#号可以禁用\n\n- 节点域名DNS：默认使用系统DNS查询节点域名\n\n- 失败回退代理：默认启用。直连域名解析失败后使用代理\n\n- 重写全局生效：默认禁用。使重写的REJECT策略全局生效\n\n- 直连系统查询：默认禁用。域名类直连规则使用系统DNS\n\n- 强制本地解析：默认禁用。强制所有域名使用本地DNS
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 {{{隐藏参数}}}
+{{{节点域名解析}}}={{{节点域名DNS}}}
 dns-direct-fallback-proxy={{{失败回退代理}}}
 always-reject-url-rewrite={{{重写全局生效}}}
 dns-direct-system={{{直连系统查询}}}
 always-ip-address={{{强制本地解析}}}
-{{{节点域名解析}}}={{{节点域名DNS}}}
 
 [MITM]
 enable={{{证书模块}}}
