@@ -95,18 +95,6 @@
 > > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.sgmodule "一键安装本模块")
 > > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/WiFiCallingUK.list "点击访问规则集")
 
-### [证书模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule)
-
-> [证书模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule) 是以 **参数编辑** 功能构建的简化了创建 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97) 流程的母版模块。使用时仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块。证书模块详情参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)。
->
-> [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/CA.sgmodule "一键安装本模块")
-
-### [隐藏参数模块](https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule)
-
-> [隐藏参数模块](https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule) 是以 **参数编辑** 功能构建的配置文件内不含UI界面的部分 [隐藏参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%80%9A%E7%94%A8%E5%8F%82%E6%95%B0) 调整选项的功能模块。详情参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)。不建议新手使用本模块
->
-> [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule "一键安装本模块")
-
 ### [综合服务模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule)
 
 > 本 [模块](https://lowertop.github.io/Shadowrocket-First/AntiAD.sgmodule) 以功能增强和去广告为主，使用了 [app2smile](https://github.com/app2smile)、[fmz200](https://github.com/fmz200) 等作者的脚本。已包含本仓的 **Talkatone**、**DeepSeek** **Spotify** 等模块，同时包含：包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://lowertop.github.io/Shadowrocket-First/AntiAD.list)。同时，模块提供参数编辑功能，包含部分可选参数调整选项
@@ -118,6 +106,18 @@
 > 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本 [代理模块](https://lowertop.github.io/Shadowrocket-First/CMCCiTV.sgmodule)，论上应该支持任意网络环境使用咪咕直播源观看 IPTV。若在当地网络环境下存在问题，可进入模块文本根据说明调整
 >
 > [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/CMCCiTV.sgmodule "一键安装本模块")
+
+### [证书模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule)
+
+> [证书模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule) 是以 **参数编辑** 功能构建的简化了创建 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97) 流程的母版模块。使用时仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块。证书模块详情参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)。
+>
+> [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/CA.sgmodule "一键安装本模块")
+
+### [隐藏参数模块](https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule)
+
+> [隐藏参数模块](https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule) 是以 **参数编辑** 功能构建的配置文件内不含UI界面的部分 [隐藏参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%80%9A%E7%94%A8%E5%8F%82%E6%95%B0) 调整选项的功能模块。详情参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)。不建议新手使用本模块
+>
+> [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule "一键安装本模块")
 
 ### [欧易规则集](https://lowertop.github.io/Shadowrocket-First/okx.list)
 
