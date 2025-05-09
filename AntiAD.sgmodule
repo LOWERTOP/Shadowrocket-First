@@ -1,14 +1,19 @@
 #!name=综合服务模块
 #!desc=有参数编辑功能，包含Spotify歌词翻译、贴吧去广告、Talkatone、DeepSeek等软件的去广告及其他服务的功能增强
-#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, 贴吧去广告:true, 贴吧视频贴:去除视频贴填1，展示视频贴填0
-#!arguments-desc=Spotify 歌词翻译 功能说明:\n\n需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露给任何人): \n\n    http://api.fanyi.baidu.com/manage/developer\n\n成功启用翻译后，在歌词界面左下角即可看到翻译按钮
+#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, 贴吧去广告:true, 贴吧视频贴:去除视频贴填1，展示视频贴填0, 商店下载加速:[Host]
+#!arguments-desc=🔘 Spotify歌词翻译 功能说明:\n\n· 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露给任何人): \n\n    http://api.fanyi.baidu.com/manage/developer\n\n· 成功启用翻译后，在歌词界面左下角即可看到翻译按钮\n\n🔘 贴吧去广告 功能说明：\n\n· 默认开启贴吧去广告功能\n\n· 输入框内填1可去除推荐页的视频贴，展示视频贴填0\n\n🔘 商店下载加速 功能说明：\n\n· 默认使用金山CDN进行苹果商店加速，填#可取消
 # 代码来源：https://github.com/fmz200
 # 代码来源：https://github.com/app2smile
 # 代码来源：https://github.com/iab0x00
 # 代码来源：https://github.com/Keywos
 # 代码来源：https://github.com/kokoryh
+# 代码来源：https://github.com/luestr
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+
+{{{商店下载加速}}}
+# AppStore 下载加速 @可莉
+iosapps.itunes.apple.com = iosapps.itunes.apple.com.download.ks-cdn.com
 
 [Rule]
 # 补充规则集
