@@ -1,7 +1,7 @@
 #!name=综合服务模块
-#!desc=包含证书模块、Spotify、Talkatone、DeepSeek、贴吧等软件的去广告及其他服务的功能增强
-#!arguments=证书模块:false, 证书密码:Shadowrocket, 证书内容:此处粘贴证书内容, 歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, 贴吧去广告:true, 贴吧视频贴:去除视频贴填1，展示视频贴填0
-#!arguments-desc=证书模块：若启用则需要填写证书内容\n\n证书密码:默认Shadowrocket\n\n证书内容:粘贴自有效证书\n\nSpotify 歌词翻译 功能说明:\n\n · 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露给任何人): \n\n    http://api.fanyi.baidu.com/manage/developer\n\n - 成功启用翻译功能后，在Spotify歌词界面左下角即可看到翻译按钮，点击即可翻译
+#!desc=包含Spotify、Talkatone、DeepSeek、贴吧等软件的去广告及其他服务的功能增强
+#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, 贴吧去广告:true, 贴吧视频贴:去除视频贴填1，展示视频贴填0
+#!arguments-desc=Spotify 歌词翻译 功能说明:\n\n · 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露给任何人): \n\n    http://api.fanyi.baidu.com/manage/developer\n\n - 成功启用翻译功能后，在Spotify歌词界面左下角即可看到翻译按钮，点击即可翻译
 # 代码来源：https://github.com/fmz200
 # 代码来源：https://github.com/app2smile
 # 代码来源：https://github.com/iab0x00
@@ -192,7 +192,3 @@ spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^http
 
 [MITM]
 hostname = %APPEND% api.weibo.cn, weibointl.api.weibo.cn, sdkapp.uve.weibo.com, tiebac.baidu.com,  *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com
-
-enable={{{证书模块}}}
-ca-passphrase={{{证书密码}}}
-ca-p12={{{证书内容}}}
