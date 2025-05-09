@@ -115,7 +115,9 @@
 
 ### [隐藏参数模块](https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule)
 
-> 本 [模块](https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule) 是以 **参数编辑** 功能构建的配置文件内不含UI界面的部分隐藏参数调整选项的功能模块。不建议新手使用本模块，隐藏参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
+> **强烈建议新手用户不要使用本模块！**
+> 
+> 本 [模块](https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule) 是以 **参数编辑** 功能构建的配置文件内不含UI界面的部分隐藏参数调整选项的功能模块。隐藏参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 >
 > [![安装模块 隐藏参数](https://img.shields.io/static/v1?label=安装模块&message=隐藏参数&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/Commands.sgmodule "一键安装本模块")
 
