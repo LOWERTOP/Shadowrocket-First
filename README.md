@@ -42,20 +42,6 @@
 > 
 > 本单元为自制内容，是为 **特定软件或服务** 所制作的模块、规则集等内容，原文件在 **[main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)**，可自行查看
 
-### [Fuck-GitHub](https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule)
-
-> **GitHub** 针对请求头 **`Accept-Language`** 是 **`zh-CN`** 的简体中文用户实行严格的并发连接限制，这是 **GitHub** 对简体中文用户赤裸裸的歧视！此举导致用户在使用规则集、模块等依靠它的远程资源时出现 **`Access has been restricted`** 的 429 错误
->
-> **该限制暂时取消，如再发生，解决方案如下：**
->
-> **方法 1**：设备设置 - App - Shadowrocket - 语言 - 修改为非简体中文语言（不影响软件内设置为简体中文）
-> * *须在 设置 - 通用 - 语言和地区 添加第二种语言才可修改，其他软件同理。也可直接修改设备语言*
->
-> **方法 2**：安装下方模块，[本模块](https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule) 安装地址及脚本地址均避开了受限地址，应该可以正常安装
-> * *脚本/模块作者：**[iab0x00](https://github.com/iab0x00)***
-> 
-> [![安装模块 Fuck-Githube](https://img.shields.io/static/v1?label=安装模块&message=Fuck-Github&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule "一键安装本模块")
-
 ### [Talkatone](https://lowertop.github.io/Shadowrocket-First/Talkatone.sgmodule)
 
 > 由于 Talkatone 的特殊性，[本模块](https://lowertop.github.io/Shadowrocket-First/Talkatone.sgmodule) 对其使用的不同地址进行分流，以降低该 APP 对不同代理节点的敏感度，使其可以在绝大多数节点下正常使用。本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供该服务的 [直连规则集](https://lowertop.github.io/Shadowrocket-First/TalkatoneDirect.list)、[仅代理规则集](https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list)、[去广告规则集](https://lowertop.github.io/Shadowrocket-First/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://lowertop.github.io/Shadowrocket-First/TalkatoneProxy.list) 等，规则集用法请查阅各自内部说明
@@ -206,6 +192,20 @@
 > > 本模块来自 [app2smile](https://github.com/app2smile)，支持 **编辑参数** 功能，安装后点击模块进入参数编辑页面设置，其他内容参见 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)
 > >   
 > > [![安装模块 贴吧去广告](https://img.shields.io/static/v1?label=安装模块&message=贴吧去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule "一键安装本模块")
+> 
+> **[Fuck-GitHub](https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule)**
+>
+> > **GitHub** 针对请求头 **`Accept-Language`** 是 **`zh-CN`** 的简体中文用户实行严格的并发连接限制，这是 **GitHub** 对简体中文用户赤裸裸的歧视！此举导致用户在使用规则集、模块等依靠它的远程资源时出现 **`Access has been restricted`** 的 429 错误
+> >
+> > **该限制暂时取消，如再发生，解决方案如下：**
+> > 
+> > **方法 1**：设备设置 - App - Shadowrocket - 语言 - 修改为非简体中文语言（不影响软件内设置为简体中文）
+> > * *须在 设置 - 通用 - 语言和地区 添加第二种语言才可修改，其他软件同理。也可直接修改设备语言*
+> >
+> > **方法 2**：安装下方模块，[本模块](https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule) 安装地址及脚本地址均避开了受限地址，应该可以正常安装
+> > * *脚本/模块作者：**[iab0x00](https://github.com/iab0x00)***
+> >
+> > [![安装模块 Fuck-Githube](https://img.shields.io/static/v1?label=安装模块&message=Fuck-Github&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://lowertop.github.io/Shadowrocket-First/FuckGitHub.sgmodule "一键安装本模块")
 
 ### [模块合集与其他仓库](#shadowrocket-收集配置)
 
