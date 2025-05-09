@@ -97,7 +97,7 @@
 
 ### [证书模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule)
 
-> [证书及隐藏参数模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule) 是以 **参数编辑** 功能构建的简化了创建 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97) 流程的证书模块模板，并提供配置文件内部分不含UI界面的 [隐藏参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%80%9A%E7%94%A8%E5%8F%82%E6%95%B0) 的调整选项。详情参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)<br>
+> [证书及隐藏参数模块](https://lowertop.github.io/Shadowrocket-First/CA.sgmodule) 是以 **参数编辑** 功能构建的简化了创建 [证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97) 流程的母版模块，并提供配置文件内部分不含UI界面的 [隐藏参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%80%9A%E7%94%A8%E5%8F%82%E6%95%B0) 的调整选项。详情参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)<br>
 > > **证书模块部分**：仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块<br>
 > > **隐藏参数部分**：建议新手在了解每个功能之前不要更改相应选项，并在 **慎重隐藏参数** 内填入 `#` 号禁用此部分
 >
