@@ -25,8 +25,8 @@
     </style>
 </head>
 <body>
-    <h1>跳转中，请稍候...</h1>
-    <p>如果未自动跳转，请手动点击下面的链接：</p>
+    <h1>自动跳转页面</h1>
+    <p>如果未自动跳转，请手动点击下方按钮：</p>
     <a id="redirect-link" href="#">手动跳转</a>
 
     <script>
@@ -64,7 +64,7 @@
 
             // 更新手动跳转链接
             document.getElementById('redirect-link').href = targetUrl;
-            document.getElementById('redirect-link').textContent = `跳转到：${encodeUrl(targetUrl)}`;
+            document.getElementById('redirect-link').textContent = `点击此处手动跳转`;
         } else {
             // 如果 URL 无效，提示用户
             document.body.innerHTML = `<h1>无效的链接！</h1><p>请检查 URL 是否正确。</p>`;
