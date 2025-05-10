@@ -16,11 +16,6 @@ RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/r
 DOMAIN-SUFFIX,dnsany.com,DIRECT
 
 [Host]
-# 如不可用且代理日志中有以下地址解析为1.1.1.1的，则请手动取消映射前的#号（*号别删）
-#*.miguvideo.com = pixman.io.fifalive.dnsany.com
-#*.migucloud.com = pixman.io.fifalive.dnsany.com
-#*.itv.cmvideo.cn = pixman.io.fifalive.dnsany.com
-
 # 地区 来源
 hlszymgsplive.miguvideo.com = pixman.io.fifalive.dnsany.com
 
