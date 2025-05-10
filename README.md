@@ -99,6 +99,12 @@
 >
 > [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/CA.sgmodule "一键安装本模块")
 
+### [主机名反误杀](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule)
+
+> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule) 是以 **参数编辑** 功能构建的主机名反误杀功能模块，填写所需的反误杀主机名后将本模块放置于模块列表最下方以使其抵消主机名 MITM，插入方式支持选填 `%APPEND%` 或 `%INSERT%`
+>
+> [![安装模块 反误杀模块](https://img.shields.io/static/v1?label=安装模块&message=反误杀模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/Anti-MITM.sgmodule "一键安装本模块")
+
 ### [调试模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Commands.sgmodule)
 
 > **强烈建议新手用户不要使用本模块！**
@@ -106,12 +112,6 @@
 > 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Commands.sgmodule) 是以 **参数编辑** 功能构建的配置文件内不含UI界面的部分隐藏参数调整选项的功能模块。相关参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 >
 > [![安装模块 调试模块](https://img.shields.io/static/v1?label=安装模块&message=调试模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/Commands.sgmodule "一键安装本模块")
-
-### [主机名反误杀](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule)
-
-> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule) 是以 **参数编辑** 功能构建的主机名反误杀功能模块，填写所需的反误杀主机名后将本模块放置于模块列表最下方以使其抵消主机名 MITM，插入方式支持选填 `%APPEND%` 或 `%INSERT%`
->
-> [![安装模块 反误杀模块](https://img.shields.io/static/v1?label=安装模块&message=反误杀模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/Anti-MITM.sgmodule "一键安装本模块")
 
 ### [欧易规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/okx.list)
 
