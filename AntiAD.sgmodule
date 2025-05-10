@@ -1,23 +1,26 @@
 #!name=综合服务模块
-#!desc=有参数编辑功能，包含Spotify歌词翻译、贴吧广告屏蔽、Talkatone、DeepSeek等软件的去广告及其他服务的功能增强
-#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, 贴吧广告屏蔽:true, 贴吧视频屏蔽:去除视频贴填1，展示视频贴填0, 商店下载加速:[Host]
-#!arguments-desc=🔘 Spotify歌词翻译\n\n· 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n· 成功启用后，歌词界面左下角即可看到翻译按钮\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露): \n\n    http://api.fanyi.baidu.com/manage/developer\n\n🔘 贴吧广告屏蔽\n\n· 输入框内填1可去除推荐页的视频贴，展示视频贴填0\n\n🔘 商店下载加速\n\n· 默认使用金山CDN进行苹果商店下载加速，填#可取消
+#!desc=有参数编辑功能，包含Spotify歌词翻译、贴吧广告屏蔽、Talkatone、DeepSeek、微信公众号等软件的去广告及其他服务的功能增强
+#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, 贴吧广告屏蔽:true, 贴吧视频屏蔽:去除视频贴填1，展示视频贴填0, 商店下载加速:iosapps.itunes.apple.com, 商店加速地址:iosapps.itunes.apple.com.download.ks-cdn.com
+#!arguments-desc=🔘 Spotify歌词翻译\n\n· 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n· 成功启用后，歌词界面左下角即可看到翻译按钮\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露): \n\n    http://api.fanyi.baidu.com/manage/developer\n\n🔘 贴吧广告屏蔽\n\n· 输入框内填1可去除推荐页的视频贴，展示视频贴填0\n\n🔘 商店下载加速\n\n· 填#可取消加速\n\n· 加速地址默认使用金山CDN，可自行变更其他CDN
 # 代码来源：https://github.com/fmz200
 # 代码来源：https://github.com/app2smile
 # 代码来源：https://github.com/iab0x00
 # 代码来源：https://github.com/Keywos
 # 代码来源：https://github.com/kokoryh
 # 代码来源：https://github.com/luestr
+# 代码来源：https://github.com/RuCu6
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
-{{{商店下载加速}}}
+[Host]
 # AppStore 下载加速 @可莉
-iosapps.itunes.apple.com = iosapps.itunes.apple.com.download.ks-cdn.com
+{{{商店下载加速}}} = {{{商店加速地址}}}
 
 [Rule]
 # 补充规则集
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/AntiAD.list,REJECT
+# 微信公众号
+DOMAIN-SUFFIX,wxs.qq.com,REJECT
 # 贴吧广告屏蔽规则
 RULE-SET,https://raw.githubusercontent.com/app2smile/rules/master/rule/tieba-ad.list,REJECT-DROP
 # Talkatone 去广告规则集
@@ -56,8 +59,11 @@ DOMAIN-SUFFIX,intercomcdn.com,PROXY
 
 # 微博轻享版净化
 ^https?:\/\/api\.weibo\.cn\/\d\/(cardlist\?v_f=\d|ad\/weibointl\?) - reject-dict
-
 ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=hot_search_users - reject-dict
+
+# 微信公众号净化
+^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? - reject-dict
+^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword - reject-dict
 
 # Talkatone 去广告重写
 ^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
@@ -196,4 +202,4 @@ spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^http
 郑好办去广告 =type=http-response, pattern=^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do, script-path=https://lowertop.github.io/Shadowrocket-First/JS/Zhenghaoban.js, requires-body=true, max-size=0
 
 [MITM]
-hostname = %APPEND% api.weibo.cn, weibointl.api.weibo.cn, sdkapp.uve.weibo.com, tiebac.baidu.com,  *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com
+hostname = %APPEND% mp.weixin.qq.com, api.weibo.cn, weibointl.api.weibo.cn, sdkapp.uve.weibo.com, tiebac.baidu.com,  *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com
