@@ -1,5 +1,5 @@
 #!name=证书模块
-#!desc=证书模块需要以编辑参数的方式启用并填写完整
+#!desc=需要以编辑参数的方式启用并填写完整
 #!arguments=证书模块:false, 证书内容:此处粘贴有效的证书内容, 证书密码:Shadowrocket
 #!arguments-desc=证书模块：启用并填写证书内容方可生效\n\n证书内容：粘贴自有效证书\n\n证书密码：若默认密码是Shadowrocket则可不动
 # 整理作者：https://github.com/LOWERTOP
