@@ -19,21 +19,29 @@
 [Rule]
 # 补充规则集
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/AntiAD.list,REJECT
-# 微信公众号
-DOMAIN-SUFFIX,wxs.qq.com,REJECT
-# 贴吧广告屏蔽规则
-RULE-SET,https://raw.githubusercontent.com/app2smile/rules/master/rule/tieba-ad.list,REJECT-DROP
-# Talkatone 去广告规则集
-RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneAntiAds.list,REJECT
-# Talkatone 分流规则集
-RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list,PROXY
-RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneDirect.list,DIRECT
-# 包子漫画直连规则
+
+# 包子漫画规则
 DOMAIN-SUFFIX,baozimhcn.com,DIRECT
 DOMAIN-SUFFIX,baozimh.com,DIRECT
 DOMAIN-SUFFIX,baozicdn.com,DIRECT
 DOMAIN-SUFFIX,dzmanga.com,DIRECT
 DOMAIN-SUFFIX,twmanga.com,DIRECT
+DOMAIN-SUFFIX,baozimhapp.com,REJECT
+
+# 微信公众号
+DOMAIN-SUFFIX,wxs.qq.com,REJECT
+
+# 贴吧广告屏蔽规则
+DOMAIN,afd.baidu.com,REJECT
+DOMAIN,mobads.baidu.com,REJECT
+DOMAIN,180.76.76.200,REJECT
+IP-CIDR,180.76.76.200/32,REJECT,no-resolve
+
+# Talkatone 去广告规则集
+RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneAntiAds.list,REJECT
+# Talkatone 分流规则集
+RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list,PROXY
+RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneDirect.list,DIRECT
 
 # DeepSeek 规则
 # 以下为该软件的疑似上传地址
@@ -91,6 +99,11 @@ DOMAIN-SUFFIX,intercomcdn.com,PROXY
 ^https?:\/\/update\.pan\.baidu\.com\/statistics - reject
 ^https?:\/\/fc-video\.cdn\.bcebos\.com - reject
 ^https?:\/\/rp\.hpplay\.cn\/logouts - reject
+
+# 贴吧广告屏蔽 重写
+^https:\/\/tiebac\.baidu\.com\/c\/f\/search\/discover - reject-dict
+^https:\/\/tiebac\.baidu\.com\/c\/f\/forum\/forumGuide - reject-dict
+^https:\/\/tiebac\.baidu\.com\/c\/u\/chat\/getChatSubscriptionList - reject-dict
 
 # e充电去广告
 ^https?:\/\/cdn-evone-ceph\.echargenet\.com\/gw-emas-cdn\/63c4e3b558bb610008969f89 - reject-200
@@ -158,22 +171,25 @@ DOMAIN-SUFFIX,intercomcdn.com,PROXY
 
 [Script]
 
+# 包子漫画网页去广告
+web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://lowertop.github.io/Shadowrocket-First/JS/baozimh.js
+
 # 微博轻享版净化
 微博国际版 = type=http-response,pattern=^https?:\/\/api\.weibo\.cn\/\d\/statuses\/.*timeline,script-path=https://raw.githubusercontent.com/Keywos/rule/master/script/weibo_us/js/index.js,requires-body=true,timeout=60
-
 微博国际版 = type=http-response,pattern=^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php,script-path=https://raw.githubusercontent.com/Keywos/rule/master/script/weibo_us/js/index.js,requires-body=true,timeout=60
-
 微博国际版 = type=http-response,pattern=^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?(ct=(feed&a=trends|user&a=get_searching_info)|a=(get_coopen_ads|user_center|search_topic|open_app&auth|icon_center)),script-path=https://raw.githubusercontent.com/Keywos/rule/master/script/weibo_us/js/index.js,requires-body=true,timeout=60
 
-# 贴吧广告屏蔽
+# 贴吧广告屏蔽：@app2smile
 贴吧json = type=http-response,enable={{{贴吧广告屏蔽}}},pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js,script-update-interval=0
 贴吧proto = type=http-response,enable={{{贴吧广告屏蔽}}},pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd,requires-body=1,binary-body-mode=1,max-size=-1,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js,argument=per_filter_video_thread={{{贴吧视频屏蔽}}}
+# 贴吧广告屏蔽：@可莉
+清理首页 = type=http-response, enable={{{贴吧广告屏蔽}}}, pattern=^https:\/\/tiebac\.baidu\.com\/livefeed\/feed, script-path=https://kelee.one/Resource/Script/Tieba/Tieba_remove_ads.js, requires-body=true
+清理侧拉抽屉 = type=http-response, enable={{{贴吧广告屏蔽}}}, pattern=^https:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home, script-path=https://kelee.one/Resource/Script/Tieba/Tieba_remove_ads.js, requires-body=true
+清理我的页面 = type=http-response, enable={{{贴吧广告屏蔽}}}, pattern=^https:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile, script-path=https://kelee.one/Resource/Script/Tieba/Tieba_remove_ads.js, requires-body=true
+清理首页 = type=http-response, enable={{{贴吧广告屏蔽}}}, pattern=^https:\/\/tieba\.baidu\.com\/c\/f\/frs\/frsBottom, script-path=https://kelee.one/Resource/Script/Tieba/Tieba_remove_ads.js, requires-body=true
 
 # Blued去广告：登录后个人界面广告
 blued.js =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=2, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/blued.js, requires-body=true, max-size=0
-
-# 包子漫画网页去广告
-web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://lowertop.github.io/Shadowrocket-First/JS/baozimh.js
 
 # Spotify 脚本
 # 本仓创建的 JS，用以尝试替代 Header Rewrite，不保证有效性，如有故障可注释掉下行内容
@@ -202,4 +218,4 @@ spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^http
 郑好办去广告 =type=http-response, pattern=^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do, script-path=https://lowertop.github.io/Shadowrocket-First/JS/Zhenghaoban.js, requires-body=true, max-size=0
 
 [MITM]
-hostname = %APPEND% mp.weixin.qq.com, api.weibo.cn, weibointl.api.weibo.cn, sdkapp.uve.weibo.com, tiebac.baidu.com,  *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com
+hostname = %APPEND% mp.weixin.qq.com, api.weibo.cn, weibointl.api.weibo.cn, sdkapp.uve.weibo.com, tiebac.baidu.com, tieba.baidu.com,  *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com
