@@ -6,16 +6,16 @@
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 {{{通用隐藏参数}}}
-icmp-auto-reply={{{响应自动应答}}}
-dns-direct-fallback-proxy={{{回退代理解析}}}
-always-reject-url-rewrite={{{重写全局生效}}}
-dns-direct-system={{{直连系统解析}}}
-always-ip-address={{{强制本地解析}}}
-compatibility-mode={{{网络兼容模式}}}
-{{{节点域名解析}}}={{{节点域名DNS}}}
-udp-policy-not-supported-behaviour={{{UDP回退行为}}}
-{{{虚假STUN IP}}}-ip={{{虚假STUN IPv4}}}
-{{{虚假STUN IP}}}-ipv6={{{虚假STUN IPv6}}}
+icmp-auto-reply = {{{响应自动应答}}}
+dns-direct-fallback-proxy = {{{回退代理解析}}}
+always-reject-url-rewrite = {{{重写全局生效}}}
+dns-direct-system = {{{直连系统解析}}}
+always-ip-address = {{{强制本地解析}}}
+compatibility-mode = {{{网络兼容模式}}}
+{{{节点域名解析}}} = {{{节点域名DNS}}}
+udp-policy-not-supported-behaviour = {{{UDP回退行为}}}
+{{{虚假STUN IP}}}-ip = {{{虚假STUN IPv4}}}
+{{{虚假STUN IP}}}-ipv6 = {{{虚假STUN IPv6}}}
 
 [Rule]
 
