@@ -27,6 +27,6 @@ udp-policy-not-supported-behaviour = {{{UDP回退行为}}}
 hostname = {{{主机名插入方式}}} {{{插入解密主机名}}}
 
 # 证书模块
-enable={{{证书模块}}}
-ca-passphrase={{{证书密码}}}
-ca-p12={{{证书内容}}}
+enable = {{{证书模块}}}
+ca-passphrase = {{{证书密码}}}
+ca-p12 = {{{证书内容}}}
