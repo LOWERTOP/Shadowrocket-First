@@ -17,6 +17,10 @@
 {{{商店下载加速}}} = {{{商店加速地址}}}
 
 [Rule]
+# AppStore 下载加速需要直连
+DOMAIN,apps.apple.com,DIRECT
+DOMAIN,itunes.apple.com,DIRECT
+
 # 包子漫画所需特定规则
 DOMAIN-SUFFIX,baozimhcn.com,DIRECT
 DOMAIN-SUFFIX,baozimh.com,DIRECT
