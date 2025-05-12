@@ -124,7 +124,7 @@ DOMAIN-SUFFIX,intercomcdn.com,PROXY
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise - reject
 
 # 闲鱼去广告 (仅保留reject类型)
-^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch - reject
+# ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch - reject
 ^https:\/\/dinamicx\.alibabausercontent\.com\/pub\/fish_home_top_kingkong_new\/ - reject
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\/ - reject-dict
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.discover\/ - reject-dict
