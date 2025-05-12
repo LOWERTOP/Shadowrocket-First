@@ -7,13 +7,13 @@
 # MITM 建议：*.xiaoyi.com
 
 # 微信公众号
-DOMAIN-SUFFIX,wxs.qq.com,REJECT
+DOMAIN-SUFFIX,wxs.qq.com
 
 # 贴吧广告屏蔽规则 @可莉
-DOMAIN,afd.baidu.com,REJECT
-DOMAIN,mobads.baidu.com,REJECT
-DOMAIN,180.76.76.200,REJECT
-IP-CIDR,180.76.76.200/32,REJECT,no-resolve
+DOMAIN,afd.baidu.com
+DOMAIN,mobads.baidu.com
+DOMAIN,180.76.76.200
+IP-CIDR,180.76.76.200/32,no-resolve
 
 # Talkatone 去广告规则
 # DOMAIN-KEYWORD,googleads
