@@ -7,13 +7,12 @@
 # 上游源码来自于：https://github.com/app2smile/rules
 # 本模块仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
-# Shadowrocket 不兼容下方 Header Rewrite 内容
+[Rule]
+DOMAIN-SUFFIX,ad.doubleclick.net,REJECT-DROP
+
 # [Header Rewrite]
 # if-none-match返回304状态码
 # http-request ^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
-
-[Rule]
-DOMAIN-SUFFIX,ad.doubleclick.net,REJECT-DROP
 
 [Script]
 # 本仓创建的 JS，用以尝试替代 Header Rewrite，不保证有效性，如有故障可注释掉下行内容
