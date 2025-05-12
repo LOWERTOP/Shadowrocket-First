@@ -30,8 +30,8 @@
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 **`项目更新`**
+> * 多数 [自制模块](#shadowrocket-自制配置) 添加 [编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 功能
 > * 增设 [证书模块](#证书模块)、[调试模块](#调试模块) 和 [主机名反误杀](#主机名反误杀)
-> * 变更 [当前分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/README) 为默认分支，原文件在 [main](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)
 > * 设置 [TCP 缓冲区计算器](https://lowertop.dpdns.org/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
 ------
@@ -60,13 +60,13 @@
 
 ### [Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)
 
-> 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，已尝试修复原代码中的不兼容部分并增加个别去广告规则，同时添加 **歌词翻译** 功能，可进入 **编辑参数** 进行设置。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)
+> 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，已尝试修复原代码中的不兼容部分并增加个别去广告规则，同时添加 **歌词翻译** 功能，可进入 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 进行设置。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)
 >   
 > [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/Spotify.sgmodule "一键安装本模块")
 
 ### [Wi-Fi Calling](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUS.sgmodule)
 
-> Wi-Fi Calling 相关 **测试配置**，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择。以下模块均提供 **编辑参数** 功能，包含部分可选参数调整选项
+> Wi-Fi Calling 相关 **测试配置**，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择。以下模块均提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分可选参数调整选项
 > 
 > **美国地区**
 > > 确认适用于 Ultra Mobile，原则上适用 T-Mobile 的 SIM 卡，可选 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUS.sgmodule) 或 [规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUS.list)
@@ -83,25 +83,25 @@
 
 ### [咪咕直播源模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CMCCiTV.sgmodule)
 
-> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CMCCiTV.sgmodule)，论上应该支持任意网络环境使用咪咕直播源观看 IPTV。模块提供 **编辑参数** 功能，包含部分可选参数调整选项
+> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本 [代理模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CMCCiTV.sgmodule)，论上应该支持任意网络环境使用咪咕直播源观看 IPTV。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分可选参数调整选项
 >
 > [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/CMCCiTV.sgmodule "一键安装本模块")
 
 ### [综合服务模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/AntiAD.sgmodule)
 
-> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/AntiAD.sgmodule) 以功能增强和去广告为主，使用了 [app2smile](https://github.com/app2smile)、[fmz200](https://github.com/fmz200) 等作者的脚本。已包含本仓的 **Talkatone**、**DeepSeek**、**Spotify** 等模块，同时包含 [可莉](https://github.com/luestr) 公布的 [苹果商店下载加速](https://t.me/ibilibili/994) 功能，以及包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/AntiAD.list)。模块提供 **编辑参数** 功能，包含部分可选参数调整选项
+> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/AntiAD.sgmodule) 以功能增强和去广告为主，使用了 [app2smile](https://github.com/app2smile)、[fmz200](https://github.com/fmz200) 等作者的脚本。已包含本仓的 **Talkatone**、**DeepSeek**、**Spotify** 等模块，同时包含 [可莉](https://github.com/luestr) 公布的 [苹果商店下载加速](https://t.me/ibilibili/994) 功能，以及包子漫画网页、小蚁、e充电、移动、联通、一淘、闲鱼、小米有品、瑞幸咖啡等去广告内容及 [补充规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/AntiAD.list)。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分可选参数调整选项
 >
 > [![安装模块 AntiAD](https://img.shields.io/static/v1?label=安装模块&message=AntiAD&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/AntiAD.sgmodule "一键安装本模块")
 
 ### [证书模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CA.sgmodule)
 
-> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CA.sgmodule) 是以 **编辑参数** 功能构建的简化了创建证书模块流程的母版模块。使用时仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块。证书模块功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
+> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CA.sgmodule) 是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的简化了创建证书模块流程的母版模块。使用时仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块。证书模块功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 >
 > [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/CA.sgmodule "一键安装本模块")
 
 ### [主机名反误杀](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule)
 
-> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule) 是以 **编辑参数** 功能构建的主机名反误杀功能模块，填写所需的反误杀主机名后将本模块放置于模块列表最下方以使其抵消主机名 MITM，插入方式支持选填 `%APPEND%` 或 `%INSERT%`
+> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule) 是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的主机名反误杀功能模块，填写所需的反误杀主机名后将本模块放置于模块列表最下方以使其抵消主机名 MITM，插入方式支持选填 `%APPEND%` 或 `%INSERT%`
 >
 > [![安装模块 反误杀模块](https://img.shields.io/static/v1?label=安装模块&message=反误杀模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/Anti-MITM.sgmodule "一键安装本模块")
 
@@ -109,7 +109,7 @@
 
 > **强烈建议新手用户不要使用本模块！**
 > 
-> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Commands.sgmodule) 是以 **编辑参数** 功能构建的调整配置文件内部分隐藏参数选项的功能模块。相关参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
+> 本 [模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Commands.sgmodule) 是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的调整配置文件内部分隐藏参数选项的功能模块。相关参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 >
 > [![安装模块 调试模块](https://img.shields.io/static/v1?label=安装模块&message=调试模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/Commands.sgmodule "一键安装本模块")
 
@@ -165,13 +165,13 @@
 > 
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除软件内各类广告并提供画中画功能，同时支持 YouTube Music 去广告。模块支持 **编辑参数**，安装后可点击模块进入编辑参数页面，可选是否屏蔽上传、Shorts、选段等按钮。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除软件内各类广告并提供画中画功能，同时支持 YouTube Music 去广告。模块支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，安装后可点击模块进入编辑参数页面，可选是否屏蔽上传、Shorts、选段等按钮。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块
 > >   
 > > [![安装模块 YouTube 模块](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > 
 > **[京东比价模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD-PRICE.srmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价，比价结果将嵌入详情页面展示。使用本模块最好开启小火箭通知权限，首次使用请安装并打开 "慢慢买 APP "，点击 "我的" 页面，以获取 cookie。获取成功后，小火箭将弹出获取成功的通知，之后点击该模块，选择 **编辑参数**，"获取CK" 开关可选择关闭。须知并非所有商品都有历史价格，上游脚本中的慢慢买接口存在频繁变动的可能，若变动过于频繁，本模块可能停止维护
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价，比价结果将嵌入详情页面展示。使用本模块最好开启小火箭通知权限，首次使用请安装并打开 "慢慢买 APP "，点击 "我的" 页面，以获取 cookie。获取成功后，小火箭将弹出获取成功的通知，之后点击该模块，选择 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，"获取CK" 开关可选择关闭。须知并非所有商品都有历史价格，上游脚本中的慢慢买接口存在频繁变动的可能，若变动过于频繁，本模块可能停止维护
 > >   
 > > [![安装模块 京东比价模块](https://img.shields.io/static/v1?label=安装模块&message=京东比价模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD-PRICE.srmodule "一键安装本模块")
 >  
@@ -189,7 +189,7 @@
 > 
 > **[贴吧去广告模块](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)**
 > 
-> > 本模块来自 [app2smile](https://github.com/app2smile)，支持 **编辑参数** 功能，安装后点击模块进入编辑参数页面设置，其他内容参见 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)
+> > 本模块来自 [app2smile](https://github.com/app2smile)，支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，安装后点击模块进入编辑参数页面设置，其他内容参见 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)
 > >   
 > > [![安装模块 贴吧去广告](https://img.shields.io/static/v1?label=安装模块&message=贴吧去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule "一键安装本模块")
 > 
