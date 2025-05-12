@@ -1,17 +1,13 @@
 #!name=CMCCiTV
 #!desc= IPTV 无需 IPV6，三网通看移动 iTV 直播源 （测试版）
-#!arguments=自行补充映射:# 此处填入异常的地址, 映射目标地址:pixman.io.fifalive.dnsany.com, 覆写DNS:# 114.114.114.114, 备用DNS:# system
-#!arguments-desc=自行补充映射：若发现咪咕视频地址的DNS解析为1.1.1.1则为异常\n\n映射目标地址：默认映射的目标地址，一般不用动\n\n覆写DNS：默认不启用，可自行修改\n\n备用DNS：默认不启用，可自行修改
+#!arguments=自行补充映射:# 此处填入异常的地址, 映射目标地址:pixman.io.fifalive.dnsany.com
+#!arguments-desc=自行补充映射：若发现咪咕的DNS解析为1.1.1.1则为异常\n\n映射目标地址：默认映射的目标地址，一般不用动\n\n覆写DNS：若有异常可尝试补充 114 DNS
 # 中国移动 iTV 平台中的部分域名在非移动网络下会被解析到CF的DNS服务IP上，导致无法访问，本模块根据PIXMAN大佬Coding自制DNS并提供映射方式的解决方案所制作，可以解决这个问题
 # 配置来源：https://pixman.io/topics/37
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [General]
-# 推荐使用以下DNS对默认DNS进行覆写，可最大程度缓和加载缓慢的问题
-dns-server = {{{覆写DNS}}}
-# 默认的系统DNS作为备用DNS
-fallback-dns-server = {{{备用DNS}}}
 
 [Rule]
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaMobile/ChinaMobile.list,DIRECT
