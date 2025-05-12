@@ -17,10 +17,7 @@
 {{{商店下载加速}}} = {{{商店加速地址}}}
 
 [Rule]
-# 补充规则集
-RULE-SET,https://lowertop.github.io/Shadowrocket-First/AntiAD.list,REJECT
-
-# 包子漫画规则
+# 包子漫画所需特定规则
 DOMAIN-SUFFIX,baozimhcn.com,DIRECT
 DOMAIN-SUFFIX,baozimh.com,DIRECT
 DOMAIN-SUFFIX,baozicdn.com,DIRECT
@@ -28,17 +25,9 @@ DOMAIN-SUFFIX,dzmanga.com,DIRECT
 DOMAIN-SUFFIX,twmanga.com,DIRECT
 DOMAIN-SUFFIX,baozimhapp.com,REJECT
 
-# 微信公众号
-DOMAIN-SUFFIX,wxs.qq.com,REJECT
+# 补充规则集
+RULE-SET,https://lowertop.github.io/Shadowrocket-First/AntiAD.list,REJECT
 
-# 贴吧广告屏蔽规则 @可莉
-DOMAIN,afd.baidu.com,REJECT
-DOMAIN,mobads.baidu.com,REJECT
-DOMAIN,180.76.76.200,REJECT
-IP-CIDR,180.76.76.200/32,REJECT,no-resolve
-
-# Talkatone 去广告规则集
-RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneAntiAds.list,REJECT
 # Talkatone 分流规则集
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list,PROXY
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneDirect.list,DIRECT
