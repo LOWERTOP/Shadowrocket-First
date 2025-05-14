@@ -50,6 +50,16 @@ DOMAIN-SUFFIX,intercom.io,PROXY
 DOMAIN-SUFFIX,intercom.com,PROXY
 DOMAIN-SUFFIX,intercomcdn.com,PROXY
 
+# 拼多多 @可莉
+AND,((URL-REGEX,"^http:\/\/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/d"),(USER-AGENT,"*com.xunmeng.pinduoduo*")),REJECT
+AND,((URL-REGEX,"^http:\/\/\[((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))\]\/d4\?"),(USER-AGENT,"*com.xunmeng.pinduoduo*")),REJECT
+DOMAIN,titan.pinduoduo.com,REJECT
+DOMAIN,ta-a.pinduoduo.com,REJECT
+DOMAIN,ta.pinduoduo.com,REJECT
+DOMAIN,th-a.pinduoduo.com,REJECT
+DOMAIN,th-b.pinduoduo.com,REJECT
+DOMAIN,th.pinduoduo.com,REJECT
+
 [URL Rewrite]
 # 包子漫画横幅APP广告
 ^https?:\/\/static-tw\.baozimh\.com\/bzmhapp-data\/pics\/install_app_bar_baozimhappx\.jpg$ - reject-img
@@ -162,10 +172,20 @@ DOMAIN-SUFFIX,intercomcdn.com,PROXY
 # Blued去广告：未登录时个人界面广告
 ^https?:\/\/social\.blued\.cn\/users\/no_auth\/benefit - reject-dict
 
-# [Header Rewrite]
-# Spotify 重写请求头
-# if-none-match返回304状态码
-# http-request ^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
+# 拼多多 @可莉
+^https:\/\/api\.(?:pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/(?:likes|my_order_group|new_chat_group|order_express_group|personal) - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/flow\/hungary\/window\/global\/v2\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data - reject-dict
+^https:\/\/api\.pinduoduo\.com\/search_hotquery\? - reject-dict
+
+[Header Rewrite]
+# Spotify 重写请求头，if-none-match返回304状态码
+http-request ^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
 
 [Script]
 # Spotify 脚本
@@ -214,6 +234,15 @@ blued.js =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users\/.+\/
 # 郑好办去广告
 郑好办去广告 =type=http-response, pattern=^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do, script-path=https://lowertop.github.io/Shadowrocket-First/JS/Zhenghaoban.js, requires-body=true, max-size=0
 
+# 拼多多 @可莉
+body_rewrite_28 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22bottom_section_list%22%2C%22ui.bottom_section%22%2C%22ui.live_section.float_info%22%5D%5D%5D
+
+body_rewrite_29 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub\?, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22monthly_card_entrance%22%2C%22personal_center_style_v2_vo%22%2C%22icon_set.icons%22%2C%22icon_set.top_personal_icons%22%2C%22title_bar_items%22%5D%5D%5D
+
+body_rewrite_31 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/search, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22expansion%22%5D%5D%5D
+
+精简首页 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\?, script-path=https://kelee.one/Resource/Script/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body=true
+
 [Host]
 # 商店下载加速 @可莉
 {{{商店下载加速}}}.itunes.apple.com = {{{商店加速地址}}}
@@ -224,4 +253,4 @@ blued.js =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users\/.+\/
 {{{系统升级加速}}}.g.aaplimg.com = {{{升级加速地址}}}
 
 [MITM]
-hostname = %APPEND% api.douban.com, mp.weixin.qq.com, api.weibo.cn, weibointl.api.weibo.cn, sdkapp.uve.weibo.com, tiebac.baidu.com, tieba.baidu.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com
+hostname = %APPEND% api.pinduoduo.com, api.yangkeduo.com, api.douban.com, mp.weixin.qq.com, api.weibo.cn, weibointl.api.weibo.cn, sdkapp.uve.weibo.com, tiebac.baidu.com, tieba.baidu.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com
