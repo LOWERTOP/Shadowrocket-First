@@ -185,7 +185,7 @@ DOMAIN,th.pinduoduo.com,REJECT
 
 [Header Rewrite]
 # Spotify 重写请求头，if-none-match返回304状态码
-http-request ^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
+# http-request ^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
 
 [Script]
 # Spotify 脚本
