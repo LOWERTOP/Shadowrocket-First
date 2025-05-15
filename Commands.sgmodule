@@ -25,7 +25,7 @@ udp-policy-not-supported-behaviour = {{{UDP回退行为}}}
 [Header Rewrite]
 {{{测试标头}}}
 
-[Header Rewrite]
+[Body Rewrite]
 {{{测试正文}}}
 
 [MITM]
