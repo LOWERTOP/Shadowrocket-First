@@ -17,6 +17,9 @@ IP-CIDR,180.76.76.200/32,no-resolve
 
 # Talkatone 去广告规则
 # DOMAIN-KEYWORD,googleads
+# DOMAIN-SUFFIX,d.tktn.be
+DOMAIN-SUFFIX,admob.com
+DOMAIN-SUFFIX,mobilefuse.com
 DOMAIN-SUFFIX,aax.amazon-adsystem.com
 DOMAIN-SUFFIX,aax-fe.amazon-adsystem.com
 DOMAIN-SUFFIX,aax-fe-sin.amazon-adsystem.com
