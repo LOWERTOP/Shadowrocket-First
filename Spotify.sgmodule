@@ -1,5 +1,5 @@
-#!name=Spotify 模块
-#!desc=部分解锁 Premium，音质不能设置为超高，具有歌词翻译功能，点击参数编辑进行设置
+#!name=Spotify
+#!desc=具有歌词翻译功能，点击参数编辑进行设置，部分解锁 Premium，音质不能设置为超高
 #!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译AppID, 翻译密钥:申请并填入百度翻译密钥
 #!arguments-desc=歌词翻译功能说明\n\n· 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n· 成功启用后，歌词界面左下角即可看到翻译按钮\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露): \n\n    http://api.fanyi.baidu.com/manage/developer
 
