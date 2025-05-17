@@ -46,7 +46,7 @@
 
 > 由于 Talkatone 的特殊性，本模块对其使用的不同地址进行分流，以降低该 APP 对不同代理节点的敏感度，使其可以在绝大多数节点下正常使用。本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneDirect.list)、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneProxyOnly.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneProxy.list) 等，规则集用法请查阅各自内部说明
 > 
->**注意：本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册**
+> > **本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册**
 > 
 > [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/Talkatone.sgmodule "一键安装本模块")
 > [![规则文件 去广告规则](https://img.shields.io/static/v1?label=规则文件&message=去广告规则&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://lowertop.dpdns.org/TalkatoneAntiAds.list "点击访问规则集")
@@ -107,10 +107,10 @@
 
 ### [调试模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Commands.sgmodule)
 
-> **强烈建议新手用户不要使用本模块！**
-> 
 > 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的调整配置文件内部分隐藏参数选项的功能模块。相关参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 >
+> > **强烈建议新手用户不要使用本模块！**
+> 
 > [![安装模块 调试模块](https://img.shields.io/static/v1?label=安装模块&message=调试模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/Commands.sgmodule "一键安装本模块")
 
 ### [欧易规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/okx.list)
@@ -127,12 +127,6 @@
 > 
 > 本单元内容为收集自可信来源的 **手册、配置、模块、规则、脚本** 等，可放心食用
 
-> [!IMPORTANT]
-> 
-> * 使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为 **配置** 模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外
-> * 使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而需要重新解密，可设置 [证书模块](#证书模块)
-> * [更新配置文件](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE) 会造成自定义规则等丢失，除需要重置配置文件外不建议对其更新
-
 ### [使用手册](#shadowrocket-收集配置)
 
 > 使用手册以 **[Shadowrocket 官方群组](https://t.me/ShadowrocketApp)** 使用的关键词列表为基础进行编写，涵盖软件 90% 以上的功能说明和常见问题的解决方案，可以帮助用户更好的理解和使用 Shadowrocket 软件
@@ -143,13 +137,17 @@
 
 > 顾名思义，[懒人配置](https://lowertop.github.io/Shadowrocket/lazy_group.conf) 就是专为 **懒人** 打造的开箱即用的配置文件，发布于 [官方群组](https://t.me/ShadowrocketApp)。该配置与默认配置内置本地规则的处理形式不同，是以规则集的形式设置代理规则，并设有示例分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件。配置文件的用法参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
 > 
+> > **[更新配置文件](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE) 会造成自定义规则等丢失，除需要重置配置文件外不建议对其更新**
+> 
 > [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://config/add/https://lowertop.github.io/Shadowrocket/lazy_group.conf "一键安装本配置文件")
 
 ### [原生模块](#shadowrocket-收集配置)
 
 > 以下模块为原生支持小火箭的第三方高可用性模块，并验证过可用性，模块蓝色标题为模块直链地址，也可点击其一键安装按钮安装使用
 > 
-> > **使用前请详细阅读上方 [紫色重要提醒](#shadowrocket-收集配置)**
+> > **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为配置模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外**
+> > 
+> > **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而需要重新解密可设置 [证书模块](#证书模块)**
 > 
 > **[向晚融合模块](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule)**
 > 
