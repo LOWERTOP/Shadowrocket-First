@@ -1,6 +1,6 @@
 #!name=🄳🄴🅅🅃🄾🄾🄻
 #!desc=需要以编辑参数的方式使用，仅适用于深刻了解软件命令的用户
-#!arguments=测试规则:# 仅支持单行规则, 测试重写:# 仅支持单行规则, 测试标头:# 仅支持单行规则, 测试正文:# 仅支持单行规则, 测试脚本:# 仅支持单行规则, 插入解密主机名:*.google.cn, 主机名插入方式:%APPEND%, 通用隐藏参数:[General], 响应自动应答:true, 回退代理解析:true, 重写全局生效:false, 直连系统解析:false, 强制本地解析:false, 网络兼容模式:3, 节点域名解析:proxy-dns-server, 节点域名DNS:system, UDP回退行为:REJECT, STUN响应IP:stun-response-ip, STUN响应IPv4:1.1.1.1, STUN响应IPv6:::1, 证书模块:false, 证书内容:此处粘贴证书内容, 证书密码:Shadowrocket
+#!arguments=测试规则:# 仅支持单行规则, 测试重写:# 仅支持单行规则, 测试标头:# 仅支持单行规则, 测试正文:# 仅支持单行规则, 测试脚本:# 仅支持单行规则, 插入解密主机名:*.google.cn, 主机名插入方式:%APPEND%, 通用隐藏参数:[General], 网络兼容模式:3, 节点域名解析:proxy-dns-server, 节点域名DNS:system, UDP回退行为:REJECT, STUN响应IP:stun-response-ip, STUN响应IPv4:1.1.1.1, STUN响应IPv6:::1, 响应自动应答:true, 回退代理解析:true, 重写全局生效:false, 直连系统解析:false, 强制本地解析:false, 证书模块:false, 证书内容:此处粘贴证书内容, 证书密码:Shadowrocket
 #!arguments-desc=⚠️谨慎设置隐藏参数，详细作用参见手册⚠️\n\n- 响应自动应答：默认启用。icmp-auto-reply\n\n- 回退代理解析：默认启用。dns-direct-fallback-proxy\n\n- 重写全局生效：默认禁用。always-reject-url-rewrite\n\n- 直连系统解析：默认禁用。dns-direct-system\n\n- 强制本地解析：默认禁用。always-ip-address\n\n- 网络兼容模式：默认启用TUN模式。compatibility-mode\n\n- 节点域名解析：输入#可禁用。proxy-dns-server\n\n- 节点域名DNS：默认使用系统DNS查询节点域名\n\n- UDP回退行为：udp-policy-not-supported-behaviour\n\n- STUN响应IP：输入#可禁用。stun-response-ip/ipv6
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
