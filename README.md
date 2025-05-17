@@ -163,12 +163,6 @@
 > >   
 > > [![安装模块 YouTube 模块](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > 
-> **[墨鱼去广告模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule)**
-> 
-> > 来自 [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013)，模块为多服务整合模块，同时也提供以下可自由搭配的单独模块：[墨鱼去开屏](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/StartUpAds.sgmodule)、[高德地图](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/AmapAds.sgmodule)、[哔哩哔哩](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/BilibiliAds.sgmodule)、[微博](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/WeiboAds.sgmodule)、[知乎](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/ZhihuAds.sgmodule)、[小红书](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/XiaoHongShuAds.sgmodule)、[网易云](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/NeteaseAds.sgmodule)、[喜马拉雅](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/XimalayaAds.sgmodule)、[什么值得买](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/SmzdmAds.sgmodule)、[菜鸟](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/CainiaoAds.sgmodule)、[彩云天气](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/CaiYunAds.sgmodule) 等
-> > 
-> > [![安装模块 墨鱼去广告](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
->
 > **[京东比价模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD-PRICE.srmodule)**
 > 
 > > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，点击商品详情或下滑进入详情触发比价，比价结果将嵌入详情页面展示。使用本模块最好开启小火箭通知权限，首次使用请安装并打开 "慢慢买 APP "，点击 "我的" 页面，以获取 cookie。获取成功后，小火箭将弹出获取成功的通知，之后点击该模块，选择 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，"获取CK" 开关可选择关闭。须知并非所有商品都有历史价格，上游脚本中的慢慢买接口存在频繁变动的可能，若变动过于频繁，本模块可能停止维护
@@ -206,6 +200,14 @@
 > > * *脚本/模块作者：**[iab0x00](https://github.com/iab0x00)***
 > >
 > > [![安装模块 Fuck-Githube](https://img.shields.io/static/v1?label=安装模块&message=Fuck-Github&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/FuckGitHub.sgmodule "一键安装本模块")
+>
+> **[墨鱼去广告模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule)**
+> 
+> > 来自 [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013)，模块为多服务整合模块，同时也提供以下可自由搭配的单独模块：[墨鱼去开屏](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/StartUpAds.sgmodule)、[高德地图](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/AmapAds.sgmodule)、[哔哩哔哩](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/BilibiliAds.sgmodule)、[微博](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/WeiboAds.sgmodule)、[知乎](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/ZhihuAds.sgmodule)、[小红书](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/XiaoHongShuAds.sgmodule)、[网易云](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/NeteaseAds.sgmodule)、[喜马拉雅](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/XimalayaAds.sgmodule)、[什么值得买](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/SmzdmAds.sgmodule)、[菜鸟](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/CainiaoAds.sgmodule)、[彩云天气](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/CaiYunAds.sgmodule) 等
+> > 
+> > [![安装模块 墨鱼去广告](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule "一键安装本模块")
+>
+
 
 ### [模块合集与其他仓库](#shadowrocket-收集配置)
 
