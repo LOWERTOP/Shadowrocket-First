@@ -40,7 +40,7 @@
 
 > [!NOTE]
 > 
-> 本单元为自制内容，是为 **特定软件或服务** 所制作的模块、规则集等内容，原文件在 **[main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)**，可自行查看
+> 本单元为自制内容，是为 **特定软件或服务** 所制作的模块、规则集等内容，原文件存于 **[main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)**
 
 ### [Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Talkatone.sgmodule)
 
