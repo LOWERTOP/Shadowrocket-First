@@ -207,7 +207,7 @@
 
 ### [模块合集与其他仓库](#shadowrocket-收集配置)
 
-> [Sage](https://t.me/huskydb) 依据 [可莉](https://github.com/luestr) 的资源制作的小火箭专用的模块大合集，可根据需要进入挑选，使用前须安装 [Script-Hub 模块](#进阶用法)
+> [Sage](https://t.me/huskydb) 依据 [可莉](https://github.com/luestr) 的资源制作的小火箭转换模块大合集，可根据需要进行试用，使用前须安装 [Script-Hub 模块](#进阶用法)
 > 
 > [![模块仓库 模块大合集](https://img.shields.io/static/v1?label=模块仓库&message=模块大合集&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.huksy88.sbs "点击查看模块")
 > 
