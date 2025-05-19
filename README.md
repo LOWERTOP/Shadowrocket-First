@@ -40,7 +40,7 @@
 
 > [!NOTE]
 > 
-> 本单元为自制内容，是为 **特定软件或服务** 所制作的模块、规则集等内容，原文件存于 **[main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)**
+> 本章为自制内容，是为 **特定软件或服务** 所制作的模块、规则集等内容，原文件存于 **[main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)**
 
 ### [Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Talkatone.sgmodule)
 
@@ -125,7 +125,7 @@
 
 > [!NOTE]
 > 
-> 本单元内容为收集自可信来源的 **手册、配置、模块、规则、脚本** 等，可放心食用
+> 本章主要为收集自可信来源的 **手册、配置、模块、规则、脚本** 等，可放心食用
 
 ### [使用手册](#shadowrocket-收集配置)
 
