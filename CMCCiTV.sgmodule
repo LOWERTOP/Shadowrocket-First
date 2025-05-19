@@ -1,7 +1,7 @@
 #!name=CMCCiTV
 #!desc=有参数编辑功能。中国移动iTV平台中的部分域名在非移动网络下会被解析到CF的DNS服务IP上，导致无法访问，本模块根据PIXMAN大佬Coding自制DNS的解决方案所制作，应该可以解决这个问题
-#!arguments=自行补充映射:# 此处填入待补充地址, 映射目标地址:pixman.io.fifalive.dnsany.com
-#!arguments-desc=🔘 覆写DNS：若有异常可尝试补充 114 DNS\n\n自行补充映射：若发现咪咕的DNS解析为1.1.1.1则为异常\n\n映射目标地址：可更换其他地址\n\n    pixman.io.ystenlive.dnsany.com\n\n    pixman.io.bestlive.dnsany.com\n\n    pixman.io.wasulive.dnsany.com\n\n    pixman.io.fifalive.dnsany.com\n\n    pixman.io.hnbblive.dnsany.com
+#!arguments=自行补充映射:# 若有需要补充地址可在此填入, 映射目标地址:pixman.io.fifalive.dnsany.com
+#!arguments-desc=覆写DNS：若有异常可尝试补充 114 DNS\n\n自行补充映射：若发现咪咕的DNS解析为1.1.1.1则为异常\n\n映射目标地址：可更换其他地址\n\n   pixman.io.ystenlive.dnsany.com\n\n   pixman.io.bestlive.dnsany.com\n\n   pixman.io.wasulive.dnsany.com\n\n   pixman.io.fifalive.dnsany.com\n\n   pixman.io.hnbblive.dnsany.com
 # 配置来源：https://pixman.io/topics/37
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
