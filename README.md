@@ -215,6 +215,8 @@
 
 > [Sage](https://t.me/huskydb) 依据 [可莉](https://github.com/luestr) 的资源制作的小火箭转换模块大合集，可根据需要进行试用，使用前须安装 [Script-Hub 模块](#进阶用法)
 > 
+> > 本合集因存在故障暂不可用
+> 
 > [![模块仓库 模块大合集](https://img.shields.io/static/v1?label=模块仓库&message=模块大合集&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.huksy88.sbs "点击查看模块")
 > 
 > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块，可自行进入自由选择，或在本仓上文中的 [原生模块](#原生模块) 章节直接安装
