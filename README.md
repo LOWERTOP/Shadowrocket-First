@@ -30,8 +30,7 @@
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 **`项目更新`**
-> * 多数 [自制模块](#shadowrocket-自制配置) 添加 [编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 功能
-> * 增设 [证书模块](#证书模块)、[调试模块](#调试模块) 和 [主机名反误杀](#主机名反误杀)
+> * 部分模块更新 [编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 及 JQ 语法改写
 > * 设置 [TCP 缓冲区计算器](https://lowertop.dpdns.org/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
 ------
