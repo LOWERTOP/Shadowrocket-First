@@ -173,18 +173,24 @@
 > >   
 > > [![安装模块 京东比价模块](https://img.shields.io/static/v1?label=安装模块&message=京东比价模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/JD-PRICE.srmodule "一键安装本模块")
 >  
-> **[小红书去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule)**
-> 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除小红书广告及图片、视频的水印。仅保证在 http 代理模式下生效，Tun 模式下可能无效
-> >   
-> > [![安装模块 小红书模块](https://img.shields.io/static/v1?label=安装模块&message=小红书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule "一键安装本模块")
->  
 > **[滴滴出行净化模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/DidiNoAd.srmodule)**
 > 
 > > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除滴滴的开屏广告及内部广告页面
 > >   
 > > [![安装模块 滴滴去广告](https://img.shields.io/static/v1?label=安装模块&message=滴滴去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/DidiNoAd.srmodule "一键安装本模块")
 > 
+> **[小红书去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule)**
+> 
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除小红书广告及图片、视频的水印。仅保证在 http 代理模式下生效，Tun 模式下可能无效
+> >   
+> > [![安装模块 小红书模块](https://img.shields.io/static/v1?label=安装模块&message=小红书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule "一键安装本模块")
+>  
+> **[微博轻享版模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/WeiboIntl.sgmodule)**
+> 
+> > 本模块是 [iab0x00](https://github.com/iab0x00) 维护的 微博轻享版/国际版 适用的去广告模块，可移除开屏、瀑布流、趋势页、用户中心广告等。模块使用 JQ 语言编写，适用于特定版本以上的小火箭
+> >   
+> > [![安装模块 微博轻享版](https://img.shields.io/static/v1?label=安装模块&message=微博轻享版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/WeiboIntl.sgmodule "一键安装本模块")
+>  
 > **[贴吧去广告模块](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)**
 > 
 > > 本模块来自 [app2smile](https://github.com/app2smile)，支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，安装后点击模块进入编辑参数页面设置，其他内容参见 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/tieba.sgmodule)
