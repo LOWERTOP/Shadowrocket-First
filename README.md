@@ -145,8 +145,7 @@
 
 > 以下模块为原生支持小火箭的第三方高可用性模块，并验证过可用性，模块蓝色标题为模块直链地址，也可点击其一键安装按钮安装使用
 > 
-> > **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为配置模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外**
-> > 
+> > **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为配置模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外**<br>
 > > **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而须重新解密可设置 [证书模块](#证书模块)**
 > 
 > **[向晚融合模块](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Module.sgmodule)**
@@ -163,7 +162,7 @@
 > 
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，支持去除软件内各类广告并提供画中画功能，同时支持 YouTube Music 去广告。模块支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，安装后可点击模块进入编辑参数页面，可选是否屏蔽上传、Shorts、选段等按钮。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可去除软件内各类广告并提供画中画功能，同时支持 YouTube Music 去广告。模块支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，安装后可点击模块进入编辑参数页面，可选是否屏蔽上传、Shorts、选段等按钮。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块
 > >   
 > > [![安装模块 YouTube 模块](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > 
