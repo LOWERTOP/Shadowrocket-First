@@ -74,23 +74,19 @@ REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
 ^https?:\/\/api\.douban\.com\/v\d\/app_ads\/splash - reject-dict
 ^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* - reject
 
-# 微博轻享版净化
-^https?:\/\/api\.weibo\.cn\/\d\/(cardlist\?v_f=\d|ad\/weibointl\?) - reject-dict
+# 微博轻享版
+^https?:\/\/api\.weibo\.cn\/2\/ad\/weibointl\? - reject-dict
 ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=hot_search_users - reject-dict
 
-# 微信公众号净化
+# 微信公众号
 ^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? - reject-dict
 ^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword - reject-dict
 
-# Talkatone 去广告重写
-^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
-^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
-
-# 阿里云盘去广告
+# 阿里云盘
 ^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders - reject-dict
 ^https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_luckyBottle - reject-dict
 
-# 百度网盘去广告
+# 百度网盘
 ^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adx - reject
 ^https?:\/\/pan\.baidu\.com\/rest\/2\.0\/pcs\/ad - reject
 ^https?:\/\/pan\.baidu\.com\/act\/v\d\/(bchannel|welfare)\/list - reject
@@ -109,20 +105,20 @@ REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
 ^https?:\/\/fc-video\.cdn\.bcebos\.com - reject
 ^https?:\/\/rp\.hpplay\.cn\/logouts - reject
 
-# 贴吧广告屏蔽 重写 @可莉
+# 贴吧 @可莉
 ^https:\/\/tiebac\.baidu\.com\/c\/f\/search\/discover - reject-dict
 ^https:\/\/tiebac\.baidu\.com\/c\/f\/forum\/forumGuide - reject-dict
 ^https:\/\/tiebac\.baidu\.com\/c\/u\/chat\/getChatSubscriptionList - reject-dict
 
-# e充电去广告
+# e充电
 ^https?:\/\/cdn-evone-ceph\.echargenet\.com\/gw-emas-cdn\/63c4e3b558bb610008969f89 - reject-200
 
-# 中国移动去广告
+# 中国移动
 ^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit - reject
 ^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/explorePage\/getAdverList - reject
 ^https?:\/\/(client\.app\.coc|h\.app\.coc|app)\.10086\.cn\/biz-orange\/DN\/emotionMarket - reject
 
-# 中国联通去广告
+# 中国联通
 ^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) - reject-img
 ^https?:\/\/m\.client\.10010\.com\/mobileService\/customer\/getclientconfig\.htm - reject-dict
 ^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) - reject-img
@@ -130,11 +126,11 @@ REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
 ^https?:\/\/m1\.ad\.10010\.com\/noticeMag\/images\/imageUpload\/2\d{3} - reject-img
 ^https?:\/\/res\.mall\.10010\.cn\/mall\/common\/js\/fa\.js?referer= - reject-img
 
-# 招商银行去广告
+# 招商银行
 ^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig - reject-200
 ^https?:\/\/mbmodule-openapi\.paas\.cmbchina\.com\/graphic\/v2\/module\/graphic - reject-dict
 
-# 掌上生活去广告
+# 掌上生活
 ^https?:\/\/mbasecc\.(bas|bcs)\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec - reject-dict
 ^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec - reject
 ^https?:\/\/intellicc\.bcs\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.adrender\.api\.AdWork\/getAdsBySlotId - reject-dict
@@ -152,41 +148,25 @@ REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
 ^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(octopus|tps-1125-1602|tps-1080-1920)\.(jp|pn)g_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q[59]0 - reject-dict
 ^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) - reject-dict
 
-# 一淘去广告
+# 一淘
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash - reject
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise - reject
 
-# 闲鱼去广告 (仅保留reject类型)
-# ^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch - reject
-^https:\/\/dinamicx\.alibabausercontent\.com\/pub\/fish_home_top_kingkong_new\/ - reject
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\/ - reject-dict
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.discover\/ - reject-dict
-# @可莉
+# 闲鱼
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlecommerce\.splash\.ads\/ - reject-dict
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ response-body-json-jq '.data.homeTopList |= map(select(.sectionType == "kingkongDo")) | .data.sections |= map(select(.data.clickParam.args.cardType as $ct | $ct != "homeMultiBanner" and $ct != "mamaAD")) | .data.sections |= map(select(.template.name == "fish_home_content_card" or (.template.name | contains("fish_home_tags_item_card"))))'
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.widget\.refresh\.get\/ response-body-json-jq '.data.homeTopList |= map(select(.sectionType == "kingkongDo"))'
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/ response-body-json-jq '.data.container.sections |= map(select(.template.name == "fish_home_miniapp"))'
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.list\/ response-body-json-jq '.data.strategies |= map(select(.type | . != "BIZ_IDLE_COIN_ENTRANCE_2" and . != "FLOAT_LAYER"))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.recommend\.list\/ - reject-dict
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.newitem\.page\/ response-body-json-jq '.data.sections |= map(select(.data.clickParam.args.cardType as $ct | $ct != "banner" and $ct != "mamaAD"))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.near\.by\.corner\.info\/ - reject-dict
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.flow\.plat\.section\/ response-body-json-jq 'walk(if type == "object" and has("components") then .components |= map(if .data.template.name == "fish_city_banner" then del(.data.item) else . end) else . end)'
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ response-body-json-jq '.data.sections |= map(select((.template.cardEnum != "ads") and (.cardType == "common")))'
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ response-body-json-jq '.data.container.sections |= map(if .item.tips? then empty else . end) | .data.container.sections |= map(select(.item?.bottom? | not)) | .data.container.sections |= map(if (.template.name | type == "string") and (.template.name | contains("xianyu_home_fish_my_banner_card")) then del(.template) else . end)'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.buy\.feeds\/ - reject-dict
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\/ - reject-dict
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.circle\.list\/ response-body-json-jq '.data.circleList[].showInfo.titleImage |= (.lightUrl="" | .url="" | del(.width, .height))'
-^https:\/\/g-acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\/ response-body-json-jq '.data.resultList |= map(if .data.item.main.exContent.dislikeFeedback.clickParam.args.bizType == "ad" then empty else . end)'
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\/ response-body-json-jq '.data.cardList |= map(if has("cardData") and (.cardData | has("hotwords")) then .cardData |= del(.hotwords) else . end)'
 
-# 小蚁去广告
+# 小蚁
 ^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - reject
 ^https?://api.xiaoyi.com\/v5\/app\/config\?userid=.* - reject
 
-# 小米有品去广告
+# 小米有品
 ^https?:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig - reject-200
 
-# 瑞幸咖啡去广告
+# 瑞幸
 # 日历
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/growUp\/calendarList - reject
 # 礼品卡
@@ -203,12 +183,12 @@ REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
 # 开屏广告
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew - reject
 
-# Blued去广告：主页推荐直播
+# Blued：主页推荐直播
 ^https?:\/\/social\.blued\.cn\/users\/recommend - reject-dict
-# Blued去广告：未登录时个人界面广告
+# Blued：未登录时个人界面广告
 ^https?:\/\/social\.blued\.cn\/users\/no_auth\/benefit - reject-dict
 
-# 拼多多 @可莉
+# 拼多多
 ^https:\/\/api\.(?:pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash\? - reject-dict
 ^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\? - reject-dict
 ^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject-dict
@@ -223,6 +203,26 @@ REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
 # Spotify 重写请求头，if-none-match返回304状态码
 # http-request ^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
 
+[Body Rewrite]
+# 闲鱼
+http-response-jq ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/ '.data.homeTopList |= map(select(.sectionType == "kingkongDo")) | .data.sections |= map(select(.data.clickParam.args.cardType as $ct | $ct != "homeMultiBanner" and $ct != "mamaAD")) | .data.sections |= map(select(.template.name == "fish_home_content_card" or (.template.name | contains("fish_home_tags_item_card"))))'
+http-response-jq ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.widget\.refresh\.get\/ '.data.homeTopList |= map(select(.sectionType == "kingkongDo"))'
+http-response-jq ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/ '.data.container.sections |= map(select(.template.name == "fish_home_miniapp"))'
+http-response-jq ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.list\/ '.data.strategies |= map(select(.type | . != "BIZ_IDLE_COIN_ENTRANCE_2" and . != "FLOAT_LAYER"))'
+http-response-jq ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.newitem\.page\/ '.data.sections |= map(select(.data.clickParam.args.cardType as $ct | $ct != "banner" and $ct != "mamaAD"))'
+http-response-jq ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.flow\.plat\.section\/ 'walk(if type == "object" and has("components") then .components |= map(if .data.template.name == "fish_city_banner" then del(.data.item) else . end) else . end)'
+http-response-jq ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ '.data.sections |= map(select((.template.cardEnum != "ads") and (.cardType == "common")))'
+http-response-jq ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ '.data.container.sections |= map(if .item.tips? then empty else . end) | .data.container.sections |= map(select(.item?.bottom? | not)) | .data.container.sections |= map(if (.template.name | type == "string") and (.template.name | contains("xianyu_home_fish_my_banner_card")) then del(.template) else . end)'
+http-response-jq ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.circle\.list\/ '.data.circleList[].showInfo.titleImage |= (.lightUrl="" | .url="" | del(.width, .height))'
+http-response-jq ^https:\/\/g-acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\/ '.data.resultList |= map(if .data.item.main.exContent.dislikeFeedback.clickParam.args.bizType == "ad" then empty else . end)'
+http-response-jq ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.item\.search\.activate\/ '.data.cardList |= map(if has("cardData") and (.cardData | has("hotwords")) then .cardData |= del(.hotwords) else . end)'
+# 微博轻享版
+http-response-jq ^https?:\/\/api\.weibo\.cn\/2\/statuses\/unread_hot_timeline$ 'del(.ad, .advertises, .trends) | if .statuses then .statuses |= map(select(((.promotion.type == "ad") or (.mblogtypename | IN("广告", "廣告", "热推", "熱推"))) | not)) end'
+http-response-jq ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=get_coopen_ads& '.data |= . + {"ad_list":[],"pic_ad":[],"gdt_video_ad_ios":[],"display_ad":0,"ad_ios_id":null,"app_ad_ios_id":null,"reserve_ad_ios_id":"","reserve_app_ad_ios_id":"","ad_duration":604800,"ad_cd_interval":604800}'
+http-response-jq ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=trends& 'if .data.order then .data.order = ["search_topic"] end'
+http-response-jq ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_topic& 'if .data.search_topic.cards[0].type == "searchtop" then del(.data.search_topic.cards[0]) end'
+http-response-jq ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center& 'if .data.cards then .data.cards[].items |= map(select(.type != "personal_vip")) | .data.cards |= map(select((.items | length) > 0)) end'
+
 [Script]
 # Spotify 脚本
 # 本仓创建的 JS，用以尝试替代 Header Rewrite，不保证有效性，如有故障可注释掉下行内容
@@ -233,27 +233,22 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 # 歌词翻译脚本，填入自己的AppID和密钥
 spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,argument=appid={{{翻译账户}}}&securityKey={{{翻译密钥}}}
 
-# 包子漫画网页去广告
+# 包子漫画网页
 web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://lowertop.github.io/Shadowrocket-First/JS/baozimh.js
 
-# 微博轻享版净化
-微博国际版 = type=http-response,pattern=^https?:\/\/api\.weibo\.cn\/\d\/statuses\/.*timeline,script-path=https://raw.githubusercontent.com/Keywos/rule/master/script/weibo_us/js/index.js,requires-body=true,timeout=60
-微博国际版 = type=http-response,pattern=^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php,script-path=https://raw.githubusercontent.com/Keywos/rule/master/script/weibo_us/js/index.js,requires-body=true,timeout=60
-微博国际版 = type=http-response,pattern=^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?(ct=(feed&a=trends|user&a=get_searching_info)|a=(get_coopen_ads|user_center|search_topic|open_app&auth|icon_center)),script-path=https://raw.githubusercontent.com/Keywos/rule/master/script/weibo_us/js/index.js,requires-body=true,timeout=60
-
-# 贴吧广告屏蔽：@app2smile
+# 贴吧：@app2smile
 贴吧json = type=http-response,enable=true,pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js,script-update-interval=0
 贴吧proto = type=http-response,enable=true,pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd,requires-body=1,binary-body-mode=1,max-size=-1,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js,argument=per_filter_video_thread=1
-# 贴吧广告屏蔽：@可莉
+# 贴吧：@可莉
 清理首页 = type=http-response, enable=true, pattern=^https:\/\/tiebac\.baidu\.com\/livefeed\/feed, script-path=https://kelee.one/Resource/Script/Tieba/Tieba_remove_ads.js, requires-body=true
 清理侧拉抽屉 = type=http-response, enable=true, pattern=^https:\/\/tiebac\.baidu\.com\/c\/f\/sidebar\/home, script-path=https://kelee.one/Resource/Script/Tieba/Tieba_remove_ads.js, requires-body=true
 清理我的页面 = type=http-response, enable=true, pattern=^https:\/\/tiebac\.baidu\.com\/c\/u\/user\/profile, script-path=https://kelee.one/Resource/Script/Tieba/Tieba_remove_ads.js, requires-body=true
 清理首页 = type=http-response, enable=true, pattern=^https:\/\/tieba\.baidu\.com\/c\/f\/frs\/frsBottom, script-path=https://kelee.one/Resource/Script/Tieba/Tieba_remove_ads.js, requires-body=true
 
-# Blued去广告：登录后个人界面广告
+# Blued：登录后个人界面广告
 blued.js =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=2, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/blued.js, requires-body=true, max-size=0
 
-# 阿里云盘去广告
+# 阿里云盘
 阿里云盘_首页模块 =type=http-response, pattern=^https:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js, requires-body=true, max-size=0
 阿里云盘_开屏广告 =type=http-response, pattern=^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js, requires-body=true, max-size=0
 
@@ -261,17 +256,10 @@ blued.js =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users\/.+\/
 移除淘宝开屏广告 = type=http-response, pattern=^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get), script-path=https://kelee.one/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body=true
 移除淘宝开屏广告 = type=http-response, pattern=^https:\/\/poplayer\.template\.alibaba\.com\/\w+\.json, script-path=https://kelee.one/Resource/Script/Taobao/Taobao_remove_ads.js, requires-body=true
 
-# 闲鱼去广告
-闲鱼_模块去广告 =type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.home\.whale\.modulet\/, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js, requires-body=true, max-size=0
-闲鱼_搜索页去广告 =type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\/, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js, requires-body=true, max-size=0
-闲鱼_用户策略去广告 =type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.list\/, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js, requires-body=true, max-size=0
-闲鱼_首页刷新去广告 =type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.nextfresh\/, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js, requires-body=true, max-size=0
-闲鱼_本地页面去广告 =type=http-response, pattern=^https:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/, script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js, requires-body=true, max-size=0
-
-# 夸克去广告
+# 夸克
 夸克去广告 =type=http-response, pattern=^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/quark.js, requires-body=true, max-size=0
 
-# 郑好办去广告
+# 郑好办
 郑好办去广告 =type=http-response, pattern=^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do, script-path=https://lowertop.github.io/Shadowrocket-First/JS/Zhenghaoban.js, requires-body=true, max-size=0
 
 # 拼多多 @可莉
@@ -293,4 +281,4 @@ body_rewrite_31 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/se
 {{{系统升级加速}}}.g.aaplimg.com = {{{升级加速地址}}}
 
 [MITM]
-hostname = %APPEND% api.m.jd.com, api.pinduoduo.com, api.yangkeduo.com, api.douban.com, mp.weixin.qq.com, api.weibo.cn, weibointl.api.weibo.cn, sdkapp.uve.weibo.com, tiebac.baidu.com, tieba.baidu.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+hostname = %APPEND% api.m.jd.com, api.pinduoduo.com, api.yangkeduo.com, api.douban.com, mp.weixin.qq.com, api.weibo.cn, weibointl.api.weibo.cn, tiebac.baidu.com, tieba.baidu.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, api.alipan.com, member.alipan.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, *.bas.cmbchina.com, *.bcs.cmbchina.com, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
