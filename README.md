@@ -88,7 +88,7 @@
 
 ### [多效服务模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/AntiAD.sgmodule)
 
-> 本模块以常用软件功能增强和去广告为主，使用了 [app2smile](https://github.com/app2smile)、[fmz200](https://github.com/fmz200) 等作者的脚本。已包含本仓的 **Talkatone**、**DeepSeek**、**Spotify** 等模块，同时包含 [可莉](https://github.com/luestr) 公布的 [苹果商店下载加速](https://t.me/ibilibili/994) 与 [系统升级加速](https://t.me/ibilibili/1014) 功能，以及包子漫画网页、贴吧、淘宝、一淘、闲鱼、拼多多、小米有品、瑞幸咖啡、小蚁、豆瓣、移动、联通等去广告内容，详细支持情况请查看 [模块详情](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/AntiAD.sgmodule)。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分可选参数调整选项
+> 本模块以常用软件功能增强和去广告为主，使用了 [app2smile](https://github.com/app2smile)、[fmz200](https://github.com/fmz200) 等作者的脚本。已包含本仓的 **Talkatone**、**DeepSeek**、**Spotify** 等模块，同时包含 [苹果商店下载加速](https://t.me/ibilibili/994) 与 [系统升级加速](https://t.me/ibilibili/1014) 功能，以及包子漫画网页、贴吧、淘宝、一淘、闲鱼、拼多多、小米有品、瑞幸咖啡、小蚁、豆瓣、移动、联通等去广告内容，详细支持情况请查看 [模块详情](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/AntiAD.sgmodule)。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分可选参数调整选项
 >
 > [![安装模块 多效服务](https://img.shields.io/static/v1?label=安装模块&message=多效服务&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/AntiAD.sgmodule "一键安装本模块")
 
@@ -217,12 +217,6 @@
 
 ### [模块合集与其他仓库](#shadowrocket-收集配置)
 
-> [Sage](https://github.com/huskydsb) 依据 [可莉](https://github.com/luestr) 的资源制作的小火箭转换模块大合集，可根据需要进行试用，使用前须安装 [Script-Hub 模块](#进阶用法)
-> 
-> > 本合集因存在故障暂不可用
-> 
-> [![模块仓库 模块大合集](https://img.shields.io/static/v1?label=模块仓库&message=模块大合集&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://shadowrocket.module.huksy88.sbs "点击查看模块")
-> 
 > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块，可自行进入自由选择，或在本仓上文中的 [原生模块](#原生模块) 章节直接安装
 >
 > [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看模块")
