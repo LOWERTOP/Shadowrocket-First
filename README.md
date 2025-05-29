@@ -298,7 +298,7 @@
 
 > [!NOTE]
 > 
-> 本单元为小火箭配色文件相关内容，是作者凭借自己的设计出身原创的一些配色文件
+> 本单元主要提供作者原创的一些供 Shadowrocket 使用的配色文件
 >
 > **极其鸣谢** 快捷指令作者：[iab0x00](https://github.com/iab0x00)<br>
 > **特别鸣谢** 提供建议好友：[Sage](https://github.com/huskydsb)
