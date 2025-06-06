@@ -47,6 +47,12 @@
 >
 > [![安装模块 多效服务](https://img.shields.io/static/v1?label=安装模块&message=多效服务&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/AntiAD.sgmodule "一键安装本模块")
 
+### [Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)
+
+> 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，原则上可以关闭随机播放及去除播放广告，可以使歌手/专辑列表正常展示，同时添加 **歌词翻译** 功能，可进入 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 进行设置。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)
+>   
+> [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/Spotify.sgmodule "一键安装本模块")
+
 ### [Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Talkatone.sgmodule)
 
 > 由于 Talkatone 的特殊性，本模块对其使用的不同地址进行分流，以降低该 APP 对不同代理节点的敏感度，使其可以在绝大多数节点下正常使用。本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供该服务的 [直连规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneDirect.list)、[仅代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneProxyOnly.list)、[去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneProxy.list) 等，规则集用法请查阅各自内部说明
@@ -62,12 +68,6 @@
 > 
 > [![安装模块 DeepSeek](https://img.shields.io/static/v1?label=安装模块&message=DeepSeek&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/DeepSeek.sgmodule "一键安装本模块")
 > [![规则文件 DeepSeek](https://img.shields.io/static/v1?label=规则文件&message=DeepSeek&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://lowertop.dpdns.org/DeepSeek.list "点击访问规则集")
-
-### [Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)
-
-> 本模块主要上游脚本来自 [app2smile](https://github.com/app2smile)，原则上可以关闭随机播放及去除播放广告，可以使歌手/专辑列表正常展示，同时添加 **歌词翻译** 功能，可进入 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 进行设置。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)
->   
-> [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/Spotify.sgmodule "一键安装本模块")
 
 ### [Wi-Fi Calling](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUS.sgmodule)
 
