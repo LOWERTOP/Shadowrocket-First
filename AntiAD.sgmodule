@@ -25,8 +25,9 @@ DOMAIN-SUFFIX,dzmanga.com,DIRECT
 DOMAIN-SUFFIX,twmanga.com,DIRECT
 DOMAIN-SUFFIX,baozimhapp.com,REJECT
 
-# 补充规则集
+# 补充规则
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/AntiAD.list,REJECT
+AND,((DOMAIN,spclient.wg.spotify.com),(PROTOCOL,QUIC)),REJECT
 
 # Talkatone 分流规则集
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list,PROXY
@@ -209,8 +210,9 @@ http-response-jq ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_cent
 
 [Script]
 # Spotify 脚本
-# 本仓创建的 JS，用以尝试替代 Header Rewrite
-# spotify-header = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$,requires-body=false,script-path=https://lowertop.github.io/Shadowrocket-First/JS/spotify-header.js,timeout=10
+# 新版脚本
+Spotify.Crack = type=http-response, pattern=^https:\/\/spclient\.wg\.spotify\.com\/(?:bootstrap|user-customization-service), script-path=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.js, requires-body=true, binary-body-mode=true
+
 # Spotify app2smile 原始脚本
 spotify-json = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
 spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
