@@ -7,14 +7,15 @@
 
 [Rule]
 DOMAIN-SUFFIX,ad.doubleclick.net,REJECT-DROP
+AND,((DOMAIN,spclient.wg.spotify.com),(PROTOCOL,QUIC)),REJECT
 
 [Header Rewrite]
 # if-none-match返回304状态码
 http-request ^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
 
 [Script]
-# 本仓创建的 JS，用以尝试替代 Header Rewrite
-# spotify-header = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/user-customization-service\/v1\/customize$,requires-body=false,script-path=https://lowertop.github.io/Shadowrocket-First/JS/spotify-header.js,timeout=10
+# 新版脚本
+Spotify.Crack = type=http-response, pattern=^https:\/\/spclient\.wg\.spotify\.com\/(?:bootstrap|user-customization-service), script-path=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.js, requires-body=true, binary-body-mode=true
 
 # app2smile 原始脚本
 spotify-json = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
