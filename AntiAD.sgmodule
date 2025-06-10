@@ -26,7 +26,7 @@ DOMAIN-SUFFIX,twmanga.com,DIRECT
 DOMAIN-SUFFIX,baozimhapp.com,REJECT
 
 # 补充规则
-RULE-SET,https://lowertop.github.io/Shadowrocket-First/AntiAD.list,REJECT
+RULE-SET,https://lowertop.github.io/Shadowrocket-First/AntiAD.list,REJECT-DROP
 AND,((DOMAIN,spclient.wg.spotify.com),(PROTOCOL,QUIC)),REJECT
 
 # Talkatone 分流规则集
