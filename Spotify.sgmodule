@@ -30,4 +30,4 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,argument=appid={{{翻译账户}}}&securityKey={{{翻译密钥}}}
 
 [MITM]
-hostname = %APPEND% spclient.wg.spotify.com
+hostname = %APPEND% gae2-spclient.spotify.com, guc3-spclient.spotify.com, spclient.wg.spotify.com
