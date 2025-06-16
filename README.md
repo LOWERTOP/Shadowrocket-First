@@ -222,15 +222,15 @@
 >
 > [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
 >
-> [blackmatrix7](https://github.com/blackmatrix7) 维护的原生模块仓库，如有需要请自行进入选择安装
+> [QingRex](https://github.com/QingRex) 维护的模块仓库，绝大部分可以兼容使用，自行进入选择安装
+>
+> [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
+> 
+> [blackmatrix7](https://github.com/blackmatrix7) 维护的原生模块仓库，自行进入选择安装
 >   
 > [![模块仓库 blackmatrix7](https://img.shields.io/static/v1?label=模块仓库&message=blackmatrix7&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rewrite/Shadowrocket "点击查看模块")
 >
-> [QingRex](https://github.com/QingRex) 维护的仓库，其内容不一定与小火箭完全兼容，请自行测试是否需要借助 [Script-Hub](#进阶用法) 进行转换
->
-> [![其他仓库 QingRex](https://img.shields.io/static/v1?label=其他仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=%236CADDF&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
-> 
-> [fmz200](https://github.com/fmz200) 维护的仓库，其内容非原生支持小火箭，需要借助 [Script-Hub](#进阶用法) 方可添加到小火箭中
+> [fmz200](https://github.com/fmz200) 维护的仓库，其内容非原生支持，需要借助 [Script-Hub](#进阶用法) 方可使用
 >
 > [![其他仓库 fmz200](https://img.shields.io/static/v1?label=其他仓库&message=fmz200&color=grey&logo=searxng&logoColor=white&labelColor=%236CADDF&messageColor=white)](https://github.com/fmz200/wool_scripts "点击查看模块")
 
