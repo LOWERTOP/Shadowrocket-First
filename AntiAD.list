@@ -120,7 +120,7 @@ DOMAIN-SUFFIX,bridgeoos.com
 DOMAIN-SUFFIX,citadelpathstatue.com
 DOMAIN-SUFFIX,citatumpity.com
 DOMAIN-SUFFIX,endowmentoverhangutmost.com
-# DOMAIN-SUFFIX,lf-cdn-tos.bytescm.com
+DOMAIN-SUFFIX,lf-cdn-tos.bytescm.com
 DOMAIN-SUFFIX,limbecculvers.com
 DOMAIN-SUFFIX,magsrv.com
 DOMAIN-SUFFIX,mssdk.volces.com
@@ -129,7 +129,7 @@ DOMAIN-SUFFIX,p2-ad.adukwai.com
 DOMAIN-SUFFIX,p3-ad.adukwai.com
 DOMAIN-SUFFIX,p4-ad.adukwai.com
 DOMAIN-SUFFIX,p5-ad.adukwai.com
-# DOMAIN-SUFFIX,p3-ad-sign.byteimg.com
+DOMAIN-SUFFIX,p3-ad-sign.byteimg.com
 DOMAIN-SUFFIX,publicfiles.xiaoyi.com
 DOMAIN-SUFFIX,salessupport.tryemanagecrm.com
 DOMAIN-SUFFIX,sdk.tj-haorui.cn
@@ -145,7 +145,7 @@ DOMAIN,bds.snssdk.com
 DOMAIN,c2.gdt.qq.com
 DOMAIN,cnlogs.umeng.com
 DOMAIN,deeplink.umeng.com
-# DOMAIN,dm.bytedance.com
+DOMAIN,dm.bytedance.com
 DOMAIN,dm.pstatp.com
 DOMAIN,dm.toutiao.com
 DOMAIN,errlog.umeng.com
@@ -161,12 +161,12 @@ DOMAIN,info6.video.qq.com
 DOMAIN,ios.bugly.qq.com
 DOMAIN,ios.video.mpush.qq.com
 DOMAIN,is.snssdk.com
-# DOMAIN,lf-ad-ies.bytecdn.cn
+DOMAIN,lf-ad-ies.bytecdn.cn
 DOMAIN,log.snssdk.com
 DOMAIN,log.umtrack.com
 DOMAIN,mi.gdt.qq.com
 DOMAIN,mon.zijieapi.com
-# DOMAIN,mssdk-bu.bytedance.com
+DOMAIN,mssdk-bu.bytedance.com
 DOMAIN,mssdk.volces.com
 DOMAIN,open.e.kuaishou.com
 DOMAIN,otheve.beacon.qq.com
@@ -186,8 +186,8 @@ DOMAIN,tmead.y.qq.com
 DOMAIN,tmeadbak.y.qq.com
 DOMAIN,tmeadcomm.y.qq.com
 DOMAIN,toblog.ctobsnssdk.com
-# DOMAIN,tosv.boe.byted.org
-# DOMAIN,tosv.byted.org
+DOMAIN,tosv.boe.byted.org
+DOMAIN,tosv.byted.org
 DOMAIN,tpns.qq.com
 DOMAIN,tpstelemetry.tencent.com
 DOMAIN,ucc.umeng.com
@@ -213,10 +213,10 @@ AND,((URL-REGEX,"^http:\/\/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]
 AND,((URL-REGEX,"^http:\/\/\[((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))\]\/d4\?"),(USER-AGENT,"*com.xunmeng.pinduoduo*"))
 AND,((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"%E9%97%B2%E9%B1%BC*"))
 
-# DOMAIN-KEYWORD,-ad-sign.byteimg.com
-# DOMAIN-KEYWORD,-ad.byteoversea.com
+DOMAIN-KEYWORD,-ad-sign.byteimg.com
+DOMAIN-KEYWORD,-ad.byteoversea.com
 DOMAIN-KEYWORD,api-access.pangolin-sdk-toutiao
-# DOMAIN-KEYWORD,asiad.byteactivity
+DOMAIN-KEYWORD,asiad.byteactivity
 DOMAIN-KEYWORD,log-api.pangolin-sdk-toutiao
 DOMAIN-KEYWORD,trace.qq.com
 DOMAIN-KEYWORD,trace.video.qq.com
