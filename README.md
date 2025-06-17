@@ -225,9 +225,9 @@
 >
 > [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
 >
-> [QingRex](https://github.com/QingRex) 维护的模块仓库，绝大部分可以兼容使用，自行进入选择安装
+> [QingRex](https://github.com/QingRex) 维护的模块仓库，大部分可兼容使用，进入后挑选所需模块长按文件名复制地址并进入小火箭安装即可
 >
-> [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/QingRex/LoonKissSurge/tree/main/Surge "点击查看模块")
+> [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看模块")
 > 
 > [blackmatrix7](https://github.com/blackmatrix7) 维护的原生模块仓库，自行进入选择安装
 >   
