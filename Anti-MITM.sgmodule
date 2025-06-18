@@ -1,4 +1,4 @@
-#!name=主机名反解密模块
+#!name=主机名反解密
 #!desc=放置于模块列表最下方并以编辑参数的方式添加所需主机名
 #!arguments=主机名插入方式:%APPEND%, 填写所需主机名:英文逗号分隔主机名
 #!arguments-desc=本模块放置于模块列表最下方\n\n主机名插入方式：支持%APPEND%和%INSERT%\n\n填写所需主机名：多个主机名使用英文逗号分隔\n\n反解密主机格式：-www.apple.com,-www.baidu.com
