@@ -1,5 +1,5 @@
 #!name=Talkatone
-#!desc=Talkatone 日常使用模块
+#!desc=Talkatone 日常使用模块，可进入参数编辑设置分流
 #!arguments=Talkatone:PROXY
 #!arguments-desc=默认使用首页节点代理，可填入节点名称或代理分组名称指定分流
 # 本模块主要为 Talkatone 进行策略分流，解决使用某些节点时无法直接使用 Talkatone 的问题，并附带 Talkatone 去广告规则，可去除 APP 内的部分第三方广告
