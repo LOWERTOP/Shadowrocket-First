@@ -1,5 +1,7 @@
 #!name=Talkatone
 #!desc=Talkatone 日常使用模块
+#!arguments=Talkatone:PROXY
+#!arguments-desc=默认使用首页节点代理，可填入节点名称或代理分组名称指定分流
 # 本模块主要为 Talkatone 进行策略分流，解决使用某些节点时无法直接使用 Talkatone 的问题，并附带 Talkatone 去广告规则，可去除 APP 内的部分第三方广告
 # 本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册，若尝试登录时失败可以将 tktn.at 的策略改为 DIRECT 后再试，成功后改回本来策略或重新更新本模块
 # 整理作者：https://github.com/LOWERTOP
@@ -74,12 +76,12 @@ DOMAIN-SUFFIX,wv.inner-active.mobi,REJECT
 DOMAIN-SUFFIX,www.googletagservices-cn.com,REJECT
 
 # 以下为该软件可能需要走代理的规则
-DOMAIN-SUFFIX,tktn.at,PROXY
-DOMAIN-SUFFIX,tktn.be,PROXY
+DOMAIN-SUFFIX,tktn.at,{{{Talkatone}}}
+DOMAIN-SUFFIX,tktn.be,{{{Talkatone}}}
 # 语音留言地址，一般需要代理
-DOMAIN-SUFFIX,vm.talkatone.com,PROXY
+DOMAIN-SUFFIX,vm.talkatone.com,{{{Talkatone}}}
 # 贴图服务
-DOMAIN-SUFFIX,tenor.com,PROXY
+DOMAIN-SUFFIX,tenor.com,{{{Talkatone}}}
 
 # 以下为该软件可能需要走直连的规则
 DOMAIN-SUFFIX,agkn.com,DIRECT
