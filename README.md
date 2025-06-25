@@ -108,7 +108,7 @@
 
 > 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的调整配置文件内部分隐藏参数选项的功能模块。相关参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 >
-> > **强烈建议新手用户不要使用本模块！**
+> > **请谨慎使用**
 > 
 > [![安装模块 调试模块](https://img.shields.io/static/v1?label=安装模块&message=调试模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/Commands.sgmodule "一键安装本模块")
 
