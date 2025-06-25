@@ -1,9 +1,7 @@
 #!name=Talkatone
 #!desc=Talkatone 日常使用模块，可进入参数编辑设置分流
 #!arguments=Talkatone:PROXY
-#!arguments-desc=分流代理策略\n\n· 支持填入节点名称或代理分组名称指定分流\n\n· 默认值是首页节点
-# 本模块主要为 Talkatone 进行策略分流，解决使用某些节点时无法直接使用 Talkatone 的问题，并附带 Talkatone 去广告规则，可去除 APP 内的部分第三方广告
-# 本模块仅适用于 Talkatone 登陆后使用，不适用于软件注册，若尝试登录时失败可以将 tktn.at 的策略改为 DIRECT 后再试，成功后改回本来策略或重新更新本模块
+#!arguments-desc=分流代理策略\n\n· 支持填入节点名称或代理分组名称指定分流\n\n· 默认值是首页节点\n\n· 本模块包含去广告规则，可去除部分第三方广告，仅适用于登陆后使用，不适用于软件注册。Talkatone 针对使用者 IP 的审查趋于严格，单纯的分流降低敏感度的做法可能不再有效，建议分别测试有效节点
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
