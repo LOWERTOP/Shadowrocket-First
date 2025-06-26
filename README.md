@@ -30,7 +30,7 @@
 > * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
 **`项目更新`**
-> * 部分模块更新 [编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 及 JQ 语法改写
+> * 部分模块更新 [编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 、JQ 及 Mock
 > * 设置 [TCP 缓冲区计算器](https://lowertop.dpdns.org/TCP-Cal.html) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool) [调优原帖](https://www.nodeseek.com/post-197087-1)
 
 ------
