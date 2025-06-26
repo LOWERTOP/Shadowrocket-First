@@ -209,20 +209,7 @@
 > > 本模块由 [Sage](https://github.com/huskydsb) 制作并维护，是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 为基础使用手段的定期检测订阅信息的模块，主要可以定期查询并提醒服务器订阅的当前信息，如上传流量、下载流量、流量总量、到期时间等提醒。安装后点击模块进入编辑参数页面设置，其时间间隔使用 Cron 表达式填写，其他内容参见编辑参数内的说明
 > >   
 > > [![安装模块 流量查询](https://img.shields.io/static/v1?label=安装模块&message=流量查询&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Sgmodule/%E6%9C%BA%E5%9C%BA%E6%B5%81%E9%87%8F%E6%9F%A5%E8%AF%A2.module "一键安装本模块")
-> 
-> **[Fuck-GitHub](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/FuckGitHub.sgmodule)**
->
-> > **GitHub** 针对请求头 **`Accept-Language`** 是 **`zh-CN`** 的简体中文用户实行严格的并发连接限制，这是 **GitHub** 对简体中文用户赤裸裸的歧视！此举导致用户在使用规则集、模块等依靠它的远程资源时出现 **`Access has been restricted`** 的 429 错误
-> >
-> > **该限制暂时取消，如再发生，解决方案如下：**
-> > 
-> > **方法 1**：设备设置 - App - Shadowrocket - 语言 - 修改为非简体中文语言（不影响软件内设置为简体中文）
-> > * *须在 设置 - 通用 - 语言和地区 添加第二种语言才可修改，其他软件同理。也可直接修改设备语言*
-> >
-> > **方法 2**：安装下方模块，[本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/FuckGitHub.sgmodule) 安装地址及脚本地址均避开了受限地址，应该可以正常安装
-> > * *脚本/模块作者：**[iab0x00](https://github.com/iab0x00)***
-> >
-> > [![安装模块 Fuck-Githube](https://img.shields.io/static/v1?label=安装模块&message=Fuck-Github&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://lowertop.dpdns.org/FuckGitHub.sgmodule "一键安装本模块")
+
 
 ### [模块合集与其他仓库](#shadowrocket-收集配置)
 
