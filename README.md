@@ -122,7 +122,7 @@
 
 > [!NOTE]
 > 
-> 本章主要为收集自可信来源的 **手册、配置、模块、规则、脚本** 等，可放心食用
+> 本章主要为收集自相对可信的来源的 **手册、配置、模块、规则、脚本** 等
 
 ### [使用手册](#shadowrocket-收集配置)
 
@@ -140,8 +140,6 @@
 
 ### [原生模块](#shadowrocket-收集配置)
 
-> 以下模块为原生支持小火箭的第三方高可用性模块，并验证过可用性，模块蓝色标题为模块直链地址，也可点击其一键安装按钮安装使用
-> 
 > > **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为配置模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外**<br>
 > > **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而须重新解密可设置 [证书模块](#证书模块)**
 > 
