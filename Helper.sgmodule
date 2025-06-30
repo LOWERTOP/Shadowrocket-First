@@ -2,6 +2,8 @@
 #!desc=包含商店下载加速、系统升级加速功能，可进入参数编辑进行设置
 #!arguments=商店下载加速:iosapps, 商店加速地址:iosapps.itunes.apple.com.download.ks-cdn.com, 系统升级加速:updates, 升级加速地址:updates.cdn-apple.com.download.ks-cdn.com
 #!arguments-desc=🔘 商店下载加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   iosapps.itunes.apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   hls.itunes.apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   iosapps.itunes.apple.com.m.alikunlun.net\n\n🔘 系统升级加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   updates.cdn-apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   updates.cdn-apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   updates.cdn-apple.com.w.kunlunca.com
+# 整理作者：https://github.com/LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
 # 加速需要直连
