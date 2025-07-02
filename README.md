@@ -144,7 +144,7 @@
 > 
 > **[融合模块](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Release/Module.sgmodule)**
 > 
-> > 本模块由 [XiangwanGuan 向晚](https://github.com/XiangwanGuan) 基于 [奶思](https://github.com/fmz200) 的 [去广告合集](https://github.com/fmz200/wool_scripts/blob/main/QuantumultX/rewrite/chongxie.txt) 以及 [Zirawell](https://github.com/Zirawell) 等作者的相关代码创建，包含哔哩哔哩、YouTube、高德地图、一汽大众等 500 余款软件的功能增强或去广告服务，详情参阅 [仓库介绍](https://github.com/XiangwanGuan/Shadowrocket) 或查看 [详情](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Rewrite/XiangwanConfig/Collection.conf)
+> > 本模块由 [XiangwanGuan 向晚](https://github.com/XiangwanGuan) 基于 [奶思](https://github.com/fmz200) 的 [去广告合集](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/QuantumultX/rewrite/chongxie.txt) 以及 [Zirawell](https://github.com/Zirawell) 等作者的相关代码创建，包含哔哩哔哩、YouTube、高德地图、一汽大众等 500 余款软件的功能增强或去广告服务，详情参阅 [仓库介绍](https://github.com/XiangwanGuan/Shadowrocket) 或查看 [详情](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Rewrite/XiangwanConfig/Collection.conf)
 > >   
 > > [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Release/Module.sgmodule "一键安装本模块")
 > 
