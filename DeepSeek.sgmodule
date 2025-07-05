@@ -1,5 +1,7 @@
 #!name=DeepSeek
 #!desc=DeepSeek 代理模块
+#!arguments=分流策略:PROXY
+#!arguments-desc=分流策略\n\n· 默认使用首页节点进行分流\n\n· 可以输入节点名称或者代理分组名称进行修改
 # 本模块主要为 DeepSeek 进行分流，可使用其他登录方式注册和登录，并尝试屏蔽上传信息的地址
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
@@ -11,14 +13,13 @@ DOMAIN-SUFFIX,gator.volces.com,REJECT-DROP
 DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 
 # 以下为该软件可能需代理地址
-DOMAIN-KEYWORD,deepseek,PROXY
-DOMAIN-SUFFIX,deepseek.com,PROXY
-DOMAIN-SUFFIX,fengkongcloud.cn,PROXY
-DOMAIN-SUFFIX,fengkongcloud.com,PROXY
-DOMAIN-SUFFIX,portal101.cn,PROXY
-DOMAIN-SUFFIX,portal101.com,PROXY
-DOMAIN-SUFFIX,sentry.io,PROXY
-DOMAIN-SUFFIX,volces.com,PROXY
-DOMAIN-SUFFIX,intercom.io,PROXY
-DOMAIN-SUFFIX,intercom.com,PROXY
-DOMAIN-SUFFIX,intercomcdn.com,PROXY
+DOMAIN-SUFFIX,deepseek.com,{{{分流策略}}}
+DOMAIN-SUFFIX,fengkongcloud.cn,{{{分流策略}}}
+DOMAIN-SUFFIX,fengkongcloud.com,{{{分流策略}}}
+DOMAIN-SUFFIX,portal101.cn,{{{分流策略}}}
+DOMAIN-SUFFIX,portal101.com,{{{分流策略}}}
+DOMAIN-SUFFIX,sentry.io,{{{分流策略}}}
+DOMAIN-SUFFIX,volces.com,{{{分流策略}}}
+DOMAIN-SUFFIX,intercom.io,{{{分流策略}}}
+DOMAIN-SUFFIX,intercom.com,{{{分流策略}}}
+DOMAIN-SUFFIX,intercomcdn.com,{{{分流策略}}}
