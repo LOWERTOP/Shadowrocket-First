@@ -225,7 +225,7 @@
 >
 > [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看模块")
 >
-> [QingRex](https://github.com/QingRex) 维护的模块仓库，大部分可兼容使用，进入后挑选所需模块长按文件名复制地址并进入小火箭安装即可
+> [QingRex](https://github.com/QingRex) 维护的 [模块仓库](https://github.com/QingRex/LoonKissSurge)，大部分可兼容使用，进入后挑选所需模块长按文件名复制地址并进入小火箭安装即可
 >
 > [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看模块")
 > 
