@@ -39,7 +39,8 @@
 
 > [!NOTE]
 > 
-> 本章主要是为 **特定软件或服务** 所制作的模块、规则集等自制内容，原文件存于 **[main 分支](https://github.com/LOWERTOP/Shadowrocket-First/tree/main)**
+> 本章主要是为 **特定软件或服务** 所制作的模块、规则集等自制内容<br>
+> 各模块基本都包含有 **编辑参数** 选项，可 [进入参数编辑](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 进行调整
 
 ### [Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)
 
