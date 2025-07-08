@@ -306,8 +306,8 @@
 > <details>
 > <summary>点击查看其他配色示例</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/110301.png" width="100%" height="100%"> 
-> <img src="https://lowertop.dpdns.org/img/110302.png" width="100%" height="100%"> 
+> <img src="https://lowertop.dpdns.org/img/110301.png" width="100%"> 
+> <img src="https://lowertop.dpdns.org/img/110302.png" width="100%"> 
 > 
 > </details>
 
@@ -341,7 +341,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/EpicLight.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/EpicLight.PNG" width="100%">
 > 
 > </details>
 
@@ -359,7 +359,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/01BrightGold.png" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/01BrightGold.png" width="100%">
 > 
 > </details>
 
@@ -377,7 +377,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/GitHubLight.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/GitHubLight.PNG" width="100%">
 > 
 > </details>
 
@@ -395,7 +395,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/V2EXDAY.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/V2EXDAY.PNG" width="100%">
 > 
 > </details>
 
@@ -413,7 +413,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/EcoGreen.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/EcoGreen.PNG" width="100%">
 > 
 > </details>
 
@@ -431,7 +431,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/02IceCream.png" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/02IceCream.png" width="100%">
 > 
 > </details>
 
@@ -449,7 +449,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/08Elegant.png" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/08Elegant.png" width="100%">
 > 
 > </details>
 
@@ -467,7 +467,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/Cloudy.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/Cloudy.PNG" width="100%">
 > 
 > </details>
 
@@ -485,7 +485,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/AyuLight.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/AyuLight.PNG" width="100%">
 > 
 > </details>
 
@@ -503,7 +503,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/Solarized.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/Solarized.PNG" width="100%">
 > 
 > </details>
 
@@ -521,7 +521,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/LightOwl.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/LightOwl.PNG" width="100%">
 > 
 > </details>
 
@@ -539,7 +539,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/SnowTop.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/SnowTop.PNG" width="100%">
 > 
 > </details>
 
@@ -557,7 +557,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/RomeDay.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/RomeDay.PNG" width="100%">
 > 
 > </details>
 
@@ -575,7 +575,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/Peach.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/Peach.PNG" width="100%">
 > 
 > </details>
 
@@ -593,7 +593,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/LightBlue.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/LightBlue.PNG" width="100%">
 > 
 > </details>
 
@@ -611,7 +611,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/EpicDark.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/EpicDark.PNG" width="100%">
 > 
 > </details>
 
@@ -629,7 +629,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/03Chrome.png" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/03Chrome.png" width="100%">
 > 
 > </details>
 
@@ -647,7 +647,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/04BlueSky.png" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/04BlueSky.png" width="100%">
 > 
 > </details>
 
@@ -665,7 +665,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/05GodenDark.png" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/05GodenDark.png" width="100%">
 > 
 > </details>
 
@@ -683,7 +683,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/06Fluoresce.png" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/06Fluoresce.png" width="100%">
 > 
 > </details>
 
@@ -701,7 +701,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/07TermiusDark.png" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/07TermiusDark.png" width="100%">
 > 
 > </details>
 
@@ -719,7 +719,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/09Sunset.png" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/09Sunset.png" width="100%">
 > 
 > </details>
 
@@ -737,7 +737,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/10Rose.png" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/10Rose.png" width="100%">
 > 
 > </details>
 
@@ -755,7 +755,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/Violet.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/Violet.PNG" width="100%">
 > 
 > </details>
 
@@ -773,7 +773,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/KanagawaWave.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/KanagawaWave.PNG" width="100%">
 > 
 > </details>
 
@@ -791,7 +791,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/KanagawaGray.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/KanagawaGray.PNG" width="100%">
 > 
 > </details>
 
@@ -808,7 +808,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/CyberPurple.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/CyberPurple.PNG" width="100%">
 > 
 > </details>
 
@@ -826,7 +826,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/GitHubDark.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/GitHubDark.PNG" width="100%">
 > 
 > </details>
 
@@ -844,7 +844,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/V2EXNIGHT.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/V2EXNIGHT.PNG" width="100%">
 > 
 > </details>
 
@@ -862,7 +862,7 @@
 > <details>
 > <summary>效果截图</summary>
 > 
-> <img src="https://lowertop.dpdns.org/img/AtomDark.PNG" width="100%" height="100%">
+> <img src="https://lowertop.dpdns.org/img/AtomDark.PNG" width="100%">
 > 
 > </details>
 
@@ -872,7 +872,7 @@ _To Be Continued..._
 
 > `配色文件以实际效果为准，实际更新可能存在调整`
 
-<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingBrightGold.png" width="100%" height="100%">
+<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/RenderingBrightGold.png" width="100%">
 
 ------
 
