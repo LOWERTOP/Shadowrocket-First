@@ -1,4 +1,4 @@
-[<img src="https://lowertop.dpdns.org/img/01.png" width="100%" height="100%">](https://github.com/LOWERTOP/Shadowrocket-First)
+[<img src="https://lowertop.dpdns.org/img/01.png" width="100%">](https://github.com/LOWERTOP/Shadowrocket-First)
 
 [![README in English](https://img.shields.io/static/v1?label=README&message=in%20English&color=grey&logo=googletranslate&logoColor=white&labelColor=red&messageColor=white)](https://translate.google.com/translate?hl=en&sl=zh-CN&tl=en&u=https://lowertop.dpdns.org "README in English via Google Translate")
 
@@ -301,7 +301,7 @@
 
 **效果示例：TermiusDark**
 
-> <img src="https://lowertop.dpdns.org/img/RenderingTermiusDark.png" width="100%" height="100%"> 
+> <img src="https://lowertop.dpdns.org/img/RenderingTermiusDark.png" width="100%"> 
 > 
 > <details>
 > <summary>点击查看其他配色示例</summary>
@@ -1039,4 +1039,4 @@ _To Be Continued..._
 
 **Copyright © LOWERTOP**
 
-[<img src="https://lowertop.dpdns.org/img/01.BTM.png" width="100%" height="100%">](https://lowertop.dpdns.org)
+[<img src="https://lowertop.dpdns.org/img/01.BTM.png" width="100%">](https://lowertop.dpdns.org)
