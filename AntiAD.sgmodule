@@ -29,7 +29,6 @@ DOMAIN-SUFFIX,baozimhapp.com,REJECT
 # 补充规则
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/AntiAD.list,REJECT-DROP
 # Spotify
-AND,((DOMAIN,spclient.wg.spotify.com),(PROTOCOL,QUIC)),REJECT
 
 # Talkatone 分流规则集
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list,{{{Talkatone}}}
@@ -44,8 +43,6 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 # RULE-SET,https://lowertop.github.io/Shadowrocket-First/DeepSeek.list,PROXY
 
 [URL Rewrite]
-# Spotify
-^https?:\/\/(gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com\/artistview\/v1\/artist\/(.*)&platform=iphone https://$1.spotify.com/artistview/v1/artist/$2&platform=ipad header
 
 # 包子漫画横幅APP广告
 ^https?:\/\/static-tw\.baozimh\.com\/bzmhapp-data\/pics\/install_app_bar_baozimhappx\.jpg$ - reject-img
@@ -150,8 +147,8 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 ^https:\/\/api\.pinduoduo\.com\/search_hotquery\? - reject-dict
 
 [Header Rewrite]
-# Spotify
-http-request ^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com\/user-customization-service\/v1\/customize$ header-del if-none-match
+# if-none-match返回304状态码
+http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
 
 [Map Local]
 # Spotify
@@ -220,8 +217,8 @@ http-response-jq ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_cent
 
 [Script]
 # Spotify
-spotify-json = type=http-request,pattern=^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
-spotify-proto = type=http-response,pattern=^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
+spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
+spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
 spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,argument=appid={{{翻译账户}}}&securityKey={{{翻译密钥}}}
 
 # 包子漫画网页
