@@ -151,11 +151,11 @@
 > 
 > **[奶思净化合集](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)**
 > 
-> > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，针对约 564 款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)。部分应用需要清除缓存或者重新安装才能使拦截生效。当前该模块为初期发布阶段，若存在部分问题属于正常现象
+> > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，针对约 564 款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)。部分应用需要清除缓存或者重新安装才能使拦截生效
 > >   
 > > [![安装模块 净化合集](https://img.shields.io/static/v1?label=安装模块&message=净化合集&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.dpdns.org/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module "一键安装本模块")
 > 
-> **[去开屏模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock/StartUpAds.sgmodule)**
+> **[墨鱼去开屏](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock/StartUpAds.sgmodule)**
 > 
 > > 来自 [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013)，是以去除开屏广告为主要功能的模块，同时作者也提供以下可自由搭配的其他模块：[高德地图](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/AmapAds.sgmodule)、[微博](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/WeiboAds.sgmodule)、[知乎](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/ZhihuAds.sgmodule)、[小红书](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/XiaoHongShuAds.sgmodule)、[网易云](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/NeteaseAds.sgmodule)、[喜马拉雅](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/XimalayaAds.sgmodule)、[什么值得买](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/SmzdmAds.sgmodule)、[菜鸟](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/CainiaoAds.sgmodule)、[彩云天气](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/CaiYunAds.sgmodule) 等
 > > 
