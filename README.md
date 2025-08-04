@@ -94,9 +94,11 @@
 
 ### [证书模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CA.sgmodule)
 
-> 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的简化了创建证书模块流程的母版模块。使用时仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块。参数编辑界面同时提供添加主机名及主机名插入方式的修改入口，可作为主机名解密补充或者反解密主机名使用，其他证书模块功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
+> 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的简化了创建证书模块流程的母版模块。使用时仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块。参数编辑界面同时提供添加主机名及主机名插入方式的修改入口，可作为主机名解密补充或者反解密主机名使用，其他证书模块功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)<br>
+> 同时提供以 [快捷指令](https://www.icloud.com/shortcuts/f13ca3b24ab947beb9f7c39daefc24d5) 的方式一键安装证书模块，运行快捷指令前需要先复制证书内容到剪贴板
 >
 > [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CA.sgmodule "一键安装本模块")
+> [![快捷指令 证书模块](https://img.shields.io/static/v1?label=快捷指令&message=证书模块&color=grey&logo=removedotbg&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/f13ca3b24ab947beb9f7c39daefc24d5 "点击安装快捷指令")
 
 ### [主机名反解密](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule)
 
