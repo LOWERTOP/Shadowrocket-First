@@ -214,12 +214,12 @@
 > >   
 > > [![安装模块 流量查询](https://img.shields.io/static/v1?label=安装模块&message=流量查询&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Sgmodule/%E6%9C%BA%E5%9C%BA%E6%B5%81%E9%87%8F%E6%9F%A5%E8%AF%A2.module "一键安装本模块")
 >
-> **[京东比价模块](https://github.com/githubdulong/Script/blob/master/Surge/jd_price.sgmodule)**
+> **[京东比价模块](https://raw.githubusercontent.com/githubdulong/Script/refs/heads/master/Surge/jd_price.sgmodule)**
 > 
 > > 本模块来自 [MuTu](https://github.com/githubdulong)，点击商品详情或下滑进入详情触发比价，比价结果将嵌入详情页面展示。模块包含两个版本，折线展示版和表格展示版。使用本模块最好开启小火箭通知权限，首次使用请安装并打开 "慢慢买 APP "，点击 "我的" 页面，以获取 cookie。获取成功后，小火箭将弹出获取成功的通知，之后点击该模块，选择 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，进入禁用 CK 获取。须知并非所有商品都有历史价格
 > >   
-> > [![安装模块 比价折线版](https://img.shields.io/static/v1?label=安装模块&message=比价折线版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://github.com/githubdulong/Script/blob/master/Surge/jd_price.sgmodule "一键安装本模块")
-> > [![安装模块 比价表格版](https://img.shields.io/static/v1?label=安装模块&message=比价表格版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://github.com/githubdulong/Script/blob/master/Surge/jd_price2.sgmodule "一键安装本模块")
+> > [![安装模块 比价折线版](https://img.shields.io/static/v1?label=安装模块&message=比价折线版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/githubdulong/Script/refs/heads/master/Surge/jd_price.sgmodule "一键安装本模块")
+> > [![安装模块 比价表格版](https://img.shields.io/static/v1?label=安装模块&message=比价表格版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/githubdulong/Script/refs/heads/master/Surge/jd_price2.sgmodule "一键安装本模块")
 >  
 
 ### [仓库收集](#shadowrocket-收集配置)
