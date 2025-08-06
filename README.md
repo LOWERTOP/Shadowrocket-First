@@ -224,7 +224,7 @@
 
 ### [仓库收集](#shadowrocket-收集配置)
 
-> [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块，可自行进入自由选择，或在本仓上文中的 [原生模块](#原生模块) 章节直接安装
+> [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块，可自行进入自由选择，或在本仓上文中的 [模块收集](#模块收集) 章节直接安装
 >
 > [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看模块")
 >
