@@ -33,8 +33,10 @@ DOMAIN-SUFFIX,dzmanga.com,DIRECT
 DOMAIN-SUFFIX,twmanga.com,DIRECT
 DOMAIN-SUFFIX,baozimhapp.com,REJECT
 
-# 补充规则
-RULE-SET,https://lowertop.github.io/Shadowrocket-First/AntiAD.list,REJECT-DROP
+# 微博
+# 收集用户信息、上传用户日志的请求
+URL-REGEX,^https?:\/\/api\.weibo\.cn\/2\/(push\/active|client\/addlog_batch|ad\/preload),REJECT-DROP
+URL-REGEX,^https?:\/\/api-cloudim\.api\.weibo\.com\/v1\/log\/,REJECT-DROP
 # Spotify
 
 # Talkatone 分流规则集
