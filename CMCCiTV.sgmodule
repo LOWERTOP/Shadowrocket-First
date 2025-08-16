@@ -15,9 +15,6 @@ DOMAIN-SUFFIX,dnsany.com,DIRECT
 
 [Host]
 # 指定解析DNS
-*.miguvideo.com = server:{{{指定解析DNS}}}
-*.migucloud.com = server:{{{指定解析DNS}}}
-*.cmvideo.cn = server:{{{指定解析DNS}}}
 *.dnsany.com = server:{{{指定解析DNS}}}
 
 # 自行补充映射
