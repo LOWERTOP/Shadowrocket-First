@@ -965,76 +965,62 @@ _To Be Continued..._
   
 > 请使用相应内容替换代码中的 `大括号及其内容`
 >  
-> `启动 VPN 隧道`
-> 
+> `启动 VPN 隧道` 
 > ```ruby
 > shadowrocket://connect
 > ```
->
 > ```ruby
 > shadowrocket://open
 > ```
->
-> `停止 VPN 隧道`
->  
+>  `停止 VPN 隧道` 
 > ```ruby
 > shadowrocket://disconnect
 > ```
->
 > ```ruby
 > shadowrocket://close
 > ```
->
-> `切换 VPN 开关状态`
-> 
+>  `切换 VPN 开关状态` 
 > ```ruby
 > shadowrocket://toggle
 > ```
->
-> `使用特定节点`
-> 
+>  `连通性测试` 
+> ```ruby
+> shadowrocket://connectivity-test
+> ```
+>  `使用特定节点` 
 > ```ruby
 > shadowrocket://select?s={节点名称}
 > ```
->
-> `添加 订阅/节点`
-> 
+>  `添加 订阅/节点` 
 > ```ruby
 > shadowrocket://add/{url}
 > ```
->
-> `安装/使用 配置`
-> 
+>  `更新 订阅` 
+> ```ruby
+> shadowrocket://update-subs
+> ```
+>  `安装/使用 配置` 
 > ```ruby
 > shadowrocket://config/add/{url}
 > ```
->
-> `安装/使用 模块`
->  
+>  `安装/使用 模块` 
 > ```ruby
 > shadowrocket://install?module={url}
 > ```
->
-> `切换全局路由（代理/配置/直连/场景）`
-> 
+>  `切换全局路由（代理/配置/直连/场景）` 
 > ```ruby
 > shadowrocket://route/proxy
 > ```
->
 > ```ruby
 > shadowrocket://route/config
 > ```
->
 > ```ruby
 > shadowrocket://route/direct
 > ```
->
 > ```ruby
 > shadowrocket://route/scene
 > ```
->
-> `安装/使用 配色`
-> 
+> `安装/使用 配色` 
 > ```ruby
 > shadowrocket://color?{配色设置}
 > ```
