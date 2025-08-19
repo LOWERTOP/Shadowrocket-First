@@ -142,9 +142,11 @@
 
 ### [模块收集](#shadowrocket-收集配置)
 
-> > **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为配置模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外**<br>
-> > **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而须重新解密可设置 [证书模块](#证书模块)**
-> 
+> [!TIP]
+> **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为配置模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外**<br>
+> **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而须重新解密可设置 [证书模块](#证书模块)**<br>
+> **部分模块的生效需要清除相应的程序的缓存或者重新安装**
+
 > **[向晚融合模块](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Release/Module.sgmodule)**
 > 
 > > 本模块由 [向晚](https://github.com/XiangwanGuan) 基于 [奶思](https://github.com/fmz200) 的 [去广告合集](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/QuantumultX/rewrite/chongxie.txt) 以及 [Zirawell](https://github.com/Zirawell) 等作者的相关代码创建，包含 YouTube、高德地图、一汽大众等超过 600 款软件的功能增强或去广告服务，详情参阅 [仓库介绍](https://github.com/XiangwanGuan/Shadowrocket) 或查看 [详情](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Rewrite/XiangwanConfig/Collection.conf)
@@ -153,7 +155,7 @@
 > 
 > **[奶思净化合集](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)**
 > 
-> > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，针对约 564 款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)。部分应用需要清除缓存或者重新安装才能使拦截生效
+> > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，针对约 564 款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)
 > >   
 > > [![安装模块 净化合集](https://img.shields.io/static/v1?label=安装模块&message=净化合集&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module "一键安装本模块")
 > 
@@ -963,76 +965,62 @@ _To Be Continued..._
   
 > 请使用相应内容替换代码中的 `大括号及其内容`
 >  
-> `启动 VPN 隧道`
-> 
+> `启动 VPN 隧道` 
 > ```ruby
 > shadowrocket://connect
 > ```
->
 > ```ruby
 > shadowrocket://open
 > ```
->
-> `停止 VPN 隧道`
->  
+>  `停止 VPN 隧道` 
 > ```ruby
 > shadowrocket://disconnect
 > ```
->
 > ```ruby
 > shadowrocket://close
 > ```
->
-> `切换 VPN 开关状态`
-> 
+>  `切换 VPN 开关状态` 
 > ```ruby
 > shadowrocket://toggle
 > ```
->
-> `使用特定节点`
-> 
+>  `连通性测试` 
+> ```ruby
+> shadowrocket://connectivity-test
+> ```
+>  `使用特定节点` 
 > ```ruby
 > shadowrocket://select?s={节点名称}
 > ```
->
-> `添加 订阅/节点`
-> 
+>  `添加 订阅/节点` 
 > ```ruby
 > shadowrocket://add/{url}
 > ```
->
-> `安装/使用 配置`
-> 
+>  `更新 订阅` 
+> ```ruby
+> shadowrocket://update-subs
+> ```
+>  `安装/使用 配置` 
 > ```ruby
 > shadowrocket://config/add/{url}
 > ```
->
-> `安装/使用 模块`
->  
+>  `安装/使用 模块` 
 > ```ruby
 > shadowrocket://install?module={url}
 > ```
->
-> `切换全局路由（代理/配置/直连/场景）`
-> 
+>  `切换全局路由（代理/配置/直连/场景）` 
 > ```ruby
 > shadowrocket://route/proxy
 > ```
->
 > ```ruby
 > shadowrocket://route/config
 > ```
->
 > ```ruby
 > shadowrocket://route/direct
 > ```
->
 > ```ruby
 > shadowrocket://route/scene
 > ```
->
-> `安装/使用 配色`
-> 
+> `安装/使用 配色` 
 > ```ruby
 > shadowrocket://color?{配色设置}
 > ```
