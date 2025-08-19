@@ -6,21 +6,20 @@
 # 类型选择：RULE-SET
 # 策略建议：DIRECT
 
-DOMAIN-KEYWORD,liuyimin4
+DOMAIN-SUFFIX,api.amplitudeexperiment.com
+DOMAIN-SUFFIX,api.onesignal.com
+DOMAIN-SUFFIX,appsflyersdk.com
+DOMAIN-SUFFIX,cnouyi.pizza
+DOMAIN-SUFFIX,coinall.ltd
 DOMAIN-SUFFIX,d1w1p0smpsoh5j.cloudfront.net
-DOMAIN-SUFFIX,okx.com.cdn.cloudflare.net
+DOMAIN-SUFFIX,firebase-settings.crashlytics.com
+DOMAIN-SUFFIX,geetest.com
 DOMAIN-SUFFIX,in.appcenter.ms
 DOMAIN-SUFFIX,kjmte.com
-DOMAIN-SUFFIX,api.onesignal.com
-DOMAIN-SUFFIX,geetest.com
-DOMAIN-SUFFIX,appsflyersdk.com
-DOMAIN-SUFFIX,firebase-settings.crashlytics.com
-DOMAIN-SUFFIX,api.amplitudeexperiment.com
-DOMAIN-SUFFIX,coinall.ltd
-DOMAIN-SUFFIX,cnouyi.pizza
-DOMAIN-SUFFIX,oklink.com
 DOMAIN-SUFFIX,okex.com
-DOMAIN-SUFFIX,okx.com
-DOMAIN-SUFFIX,okx-dns1.com
+DOMAIN-SUFFIX,oklink.com
 DOMAIN-SUFFIX,okx-dns.com
-DOMAIN-KEYWORD,okx
+DOMAIN-SUFFIX,okx-dns1.com
+DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,okx.com.cdn.cloudflare.net
+DOMAIN-KEYWORD,liuyimin4
