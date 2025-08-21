@@ -132,7 +132,7 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 # 新人推荐
 ^https:\/\/capi\.lkcoffee\.com\/resource\/core\/v2\/menu\/ordinaryUserLayeredArea - reject
 # 轮播图
-^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/common\/modules - reject
+# ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/common\/modules - reject
 # 首页商品列表
 ^https:\/\/capi\.lkcoffee\.com\/resource\/core\/v2\/homepage\/homePageCoffeeList - reject
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList - reject
