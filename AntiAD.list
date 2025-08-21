@@ -6,6 +6,9 @@
 # 策略建议：REJECT
 # MITM 建议：*.xiaoyi.com
 
+# 农行VPN检测导致强制退出
+DOMAIN,msmp.abchina.com.cn
+
 # 淘宝
 DOMAIN,adashx.m.taobao.com
 DOMAIN,ossgw.alicdn.com
