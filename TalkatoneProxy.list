@@ -7,7 +7,6 @@
 # 策略建议：PROXY
 
 # 以下规则必须走代理
-DST-PORT,5222
 DOMAIN-SUFFIX,tktn.at
 DOMAIN-SUFFIX,tktn.be
 # 语音留言地址，需要代理
