@@ -9,6 +9,8 @@
 # 使用本集需要搭配以下直连规则集，代理规则集优先级需要高于直连规则集
 # https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/TalkatoneDirect.list
 
+# 节点质量判断地址，需要特定节点代理
+DOMAIN-WILDCARD,relay-*.tktn.be
 # 以下规则必须走代理
 DOMAIN-SUFFIX,tktn.at
 DOMAIN-SUFFIX,tktn.be
