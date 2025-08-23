@@ -73,6 +73,8 @@ DOMAIN-SUFFIX,vst.c.appier.net,REJECT
 DOMAIN-SUFFIX,wv.inner-active.mobi,REJECT
 DOMAIN-SUFFIX,www.googletagservices-cn.com,REJECT
 
+# 节点质量判断地址，需要特定节点代理
+DOMAIN-WILDCARD,relay-*.tktn.be,{{{Talkatone}}}
 # 以下为该软件可能需要走代理的规则
 DOMAIN-SUFFIX,tktn.at,{{{Talkatone}}}
 DOMAIN-SUFFIX,tktn.be,{{{Talkatone}}}
