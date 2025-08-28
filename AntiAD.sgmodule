@@ -26,7 +26,7 @@ AND,((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,Cainiao4iPhone*)
 DOMAIN,apps.apple.com,DIRECT
 DOMAIN,itunes.apple.com,DIRECT
 
-# 红果短剧
+# 红果短剧部分去广告规则
 DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,REJECT-DROP
 DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,REJECT-DROP
 DOMAIN-WILDCARD,*-ad-sign.byteimg.com,REJECT-DROP
