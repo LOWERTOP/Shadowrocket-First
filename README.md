@@ -228,6 +228,10 @@
 >
 > [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看模块")
 >
+> [向晚](https://github.com/XiangwanGuan) 维护的小火箭原生 [模块仓库](https://github.com/XiangwanGuan/Shadowrocket/tree/main/Release/Modules)，基于其 [融合模块](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Release/Module.sgmodule) 分离而来，包含 600 余款独立模块，可进入其模块助手查询安装
+>
+> [![模块助手 向晚](https://img.shields.io/static/v1?label=模块助手&message=向晚&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://xiangwanguan.github.io/Shadowrocket/Static/ModuleHelper.html "点击查看模块")
+>
 > [QingRex](https://github.com/QingRex) 维护的 [模块仓库](https://github.com/QingRex/LoonKissSurge)，大部分可兼容使用，进入后挑选所需模块长按文件名复制地址并进入小火箭安装即可
 >
 > [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看模块")
