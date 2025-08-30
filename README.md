@@ -52,7 +52,7 @@
 
 ### [Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Talkatone.sgmodule)
 
-> 本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供该服务的 [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneProxy.list) <br>
+> 本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供 [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneProxy.list) <br>
 > 近期 Talkatone 针对使用者 IP 的审查趋于严格，它使用了 `relay-sjc-**.tktn.be` 这个地址对节点进行判断，但现阶段暂时尚未找到绕过相关检测的方法，也就是即使使用本模块，相关服务在部分节点上的表现可能仍然受限，用户可在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 内尝试不同的代理节点或分组，或使用规则集进行处理
 > 
 > [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Talkatone.sgmodule "一键安装本模块")
