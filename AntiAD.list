@@ -244,12 +244,12 @@ DOMAIN-SUFFIX,gdt.qq.com
 DOMAIN-SUFFIX,l.qq.com
 DOMAIN-SUFFIX,ugdtimg.com
 
-DOMAIN,titan.pinduoduo.com
-DOMAIN,ta-a.pinduoduo.com
-DOMAIN,ta.pinduoduo.com
-DOMAIN,th-a.pinduoduo.com
-DOMAIN,th-b.pinduoduo.com
-DOMAIN,th.pinduoduo.com
+#DOMAIN,titan.pinduoduo.com
+#DOMAIN,ta-a.pinduoduo.com
+#DOMAIN,ta.pinduoduo.com
+#DOMAIN,th-a.pinduoduo.com
+#DOMAIN,th-b.pinduoduo.com
+#DOMAIN,th.pinduoduo.com
 
 DOMAIN-KEYWORD,-ad-sign.byteimg.com
 DOMAIN-KEYWORD,-ad.byteoversea.com
@@ -261,12 +261,12 @@ DOMAIN-KEYWORD,trace.video.qq.com
 DOMAIN-KEYWORD,video-cn.snssdk.com
 
 DOMAIN-KEYWORD,beizi
-DOMAIN-KEYWORD,pangle
-DOMAIN-KEYWORD,pangolin
-DOMAIN-KEYWORD,pglstatp
-DOMAIN-KEYWORD,umeng
+#DOMAIN-KEYWORD,pangle
+#DOMAIN-KEYWORD,pangolin
+#DOMAIN-KEYWORD,pglstatp
+#DOMAIN-KEYWORD,umeng
 # DOMAIN-KEYWORD,adservice
-DOMAIN-KEYWORD,mediago
+#DOMAIN-KEYWORD,mediago
 
 IP-CIDR,47.110.187.87/32,no-resolve
 IP-CIDR,119.29.29.98/32,no-resolve
