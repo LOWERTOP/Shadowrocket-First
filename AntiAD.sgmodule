@@ -22,6 +22,9 @@ AND,((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,AMapiPhone*)),RE
 AND,((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,%E6%B7%98%E5%AE%9D*)),REJECT-DROP
 AND,((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,Cainiao4iPhone*)),REJECT-DROP
 
+# 贴吧
+RULE-SET,https://raw.githubusercontent.com/app2smile/rules/master/rule/tieba-ad.list,REJECT-DROP
+
 # AppStore 下载加速需要直连
 DOMAIN,apps.apple.com,DIRECT
 DOMAIN,itunes.apple.com,DIRECT
@@ -281,7 +284,7 @@ amap = type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/search
 reddit = type=http-response, pattern=^https?:\/\/gql-fed\.reddit\.com\/$, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/reddit.js, requires-body=true, max-size=-1, timeout=60
 
 # 贴吧：@app2smile
-贴吧json = type=http-response,enable=true,pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js,script-update-interval=0
+贴吧json = type=http-response,enable=true,pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/(s\/sync|f\/(ad\/getSplashAd|frs\/(page|threadlist|generalTabList)|pb\/(pic)?page|excellent\/personalized))$|tiebaads\/commonbatch\?),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js,script-update-interval=0
 贴吧proto = type=http-response,enable=true,pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd,requires-body=1,binary-body-mode=1,max-size=-1,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js,argument=per_filter_video_thread=1
 
 # Blued：登录后个人界面广告
