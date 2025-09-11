@@ -1,7 +1,9 @@
 #!name=多效服务模块
 #!desc=自用模块，接受反馈，但不接受定制，随时可能增减功能
-#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, 商店下载加速:iosapps, 商店加速地址:iosapps.itunes.apple.com.download.ks-cdn.com, 系统升级加速:updates, 升级加速地址:updates.cdn-apple.com.download.ks-cdn.com, Talkatone:PROXY
-#!arguments-desc=🔘 Spotify歌词翻译\n\n· 需申请百度翻译API，推荐申请高级版并开通通用文本翻译服务，成功拿到ID密钥后填入，在软件歌词界面左下角即可看到翻译按钮。申请时建议使用桌面设备，移动设备可能访问失败\n\n· 注册地址：http://api.fanyi.baidu.com\n\n🔘 商店下载加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   iosapps.itunes.apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   hls.itunes.apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   iosapps.itunes.apple.com.m.alikunlun.net\n\n🔘 系统升级加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   updates.cdn-apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   updates.cdn-apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   updates.cdn-apple.com.w.kunlunca.com \n\n🔘 Talkatone 分流策略\n\n· 默认首页节点，可填入节点名称或者代理分组名称指定策略
+#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥
+# 商店下载加速:iosapps, 商店加速地址:iosapps.itunes.apple.com.download.ks-cdn.com, 系统升级加速:updates, 升级加速地址:updates.cdn-apple.com.download.ks-cdn.com, Talkatone:PROXY
+#!arguments-desc=🔘 Spotify歌词翻译\n\n· 需申请百度翻译API，推荐申请高级版并开通通用文本翻译服务，成功拿到ID密钥后填入，在软件歌词界面左下角即可看到翻译按钮。申请时建议使用桌面设备，移动设备可能访问失败\n\n· 注册地址：http://api.fanyi.baidu.com\n
+# \n🔘 商店下载加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   iosapps.itunes.apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   hls.itunes.apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   iosapps.itunes.apple.com.m.alikunlun.net\n\n🔘 系统升级加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   updates.cdn-apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   updates.cdn-apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   updates.cdn-apple.com.w.kunlunca.com \n\n🔘 Talkatone 分流策略\n\n· 默认首页节点，可填入节点名称或者代理分组名称指定策略
 # 代码来源：https://github.com/fmz200
 # 代码来源：https://github.com/app2smile
 # 代码来源：https://github.com/001ProMax
@@ -313,12 +315,12 @@ body_rewrite_31 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/se
 
 [Host]
 # 商店下载加速 @可莉
-{{{商店下载加速}}}.itunes.apple.com = {{{商店加速地址}}}
+# {{{商店下载加速}}}.itunes.apple.com = {{{商店加速地址}}}
 
 # 系统升级加速 @可莉
-{{{系统升级加速}}}.cdn-apple.com = {{{升级加速地址}}}
-{{{系统升级加速}}}.cdn-apple.com.akadns.net = {{{升级加速地址}}}
-{{{系统升级加速}}}.g.aaplimg.com = {{{升级加速地址}}}
+# {{{系统升级加速}}}.cdn-apple.com = {{{升级加速地址}}}
+# {{{系统升级加速}}}.cdn-apple.com.akadns.net = {{{升级加速地址}}}
+# {{{系统升级加速}}}.g.aaplimg.com = {{{升级加速地址}}}
 
 [MITM]
 hostname = %APPEND% *.amap.com, gql-fed.reddit.com, mag1.sdgun.net, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, webappcfg.paas.cmbchina.com, api.alipan.com, intellicc.bcs.cmbchina.com, member.alipan.com, mp.weixin.qq.com, api.pinduoduo.com, api.yangkeduo.com, api.douban.com, api.weibo.cn, api.weibo.com, weibointl.api.weibo.cn, tiebac.baidu.com, tieba.baidu.com, static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
