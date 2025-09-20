@@ -335,7 +335,7 @@
 > 
 > * __一键安装：__ 选择所需配色，根据系统版本点击对应的 **安装配色** 按钮，允许跳转后点击 **使用** 即可
 > * __复制安装：__ 复制对应系统版本的 `shadowrocket://color?*` 配色代码，在 **配置** 页点击 `✚` 号，粘贴并应用
-> * __快捷指令：__ 安装快捷指令 [iOS 18 及以下](https://www.icloud.com/shortcuts/fbf1e98252a24f82b350f9624a966261)、[iOS 26 及以上](https://www.icloud.com/shortcuts/8f21b7efd55b4fde9fe207816d193bc6)，运行 **快捷指令** 并选择配色安装
+> * __快捷指令：__ 安装快捷指令 [iOS 18 及以下](https://www.icloud.com/shortcuts/d8b9d1175e0343d2ac72815e5e4c3ace)、[iOS 26 及以上](https://www.icloud.com/shortcuts/5fc36fd1fa614ba6b100192ff0504492)，运行 **快捷指令** 并选择配色安装
 > * __恢复默认：__ APP - 设置 - 颜色 - 重设颜色
 
 ------
