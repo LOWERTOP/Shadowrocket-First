@@ -45,6 +45,7 @@ URL-REGEX,^https?:\/\/api-cloudim\.api\.weibo\.com\/v1\/log\/,REJECT-DROP
 # Spotify
 
 # Talkatone 分流规则集
+RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list,REJECT-DROP
 DOMAIN-WILDCARD,*-sjc-*.tktn.be, {{{Talkatone节点检测}}}
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list,{{{Talkatone代理分流}}}
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneDirect.list,DIRECT
