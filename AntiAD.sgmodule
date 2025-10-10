@@ -1,6 +1,6 @@
 #!name=多效服务模块
 #!desc=自用模块，接受反馈，但不接受定制，随时可能增减功能
-#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, Talkatone:PROXY
+#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, Talkatone检测:PROXY, Talkatone分流:PROXY
 #!arguments-desc=🔘 Spotify歌词翻译\n\n· 需申请百度翻译API，推荐申请高级版并开通通用文本翻译服务，成功拿到ID密钥后填入，在软件歌词界面左下角即可看到翻译按钮。申请时建议使用桌面设备，移动设备可能访问失败\n\n· 注册地址：http://api.fanyi.baidu.com\n\n🔘 Talkatone 分流策略\n\n· 默认首页节点，可填入节点名称或者代理分组名称指定策略
 # 代码来源：GitHub 之 fmz200、app2smile、001ProMax、iab0x00、Keywos、kokoryh、luestr、RuCu6、ddgksf2013 等，未尽之处还望海涵
 # 整理作者：LOWERTOP
@@ -45,7 +45,8 @@ URL-REGEX,^https?:\/\/api-cloudim\.api\.weibo\.com\/v1\/log\/,REJECT-DROP
 # Spotify
 
 # Talkatone 分流规则集
-RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list,{{{Talkatone}}}
+DOMAIN-WILDCARD,*-sjc-*.tktn.be, {{{Talkatone节点检测}}}
+RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list,{{{Talkatone代理分流}}}
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneDirect.list,DIRECT
 
 # DeepSeek 规则
