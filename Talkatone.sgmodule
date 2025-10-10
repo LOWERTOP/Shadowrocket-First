@@ -1,6 +1,6 @@
 #!name=Talkatone
 #!desc=Talkatone 日常使用模块，可进入参数编辑设置分流
-#!arguments=Talkatone:PROXY
+#!arguments=代理分流:PROXY, 节点检测:PROXY
 #!arguments-desc=分流代理策略\n\n· 支持填入节点名称或代理分组名称指定分流\n\n· 默认值是首页节点\n\n· 本模块包含去广告规则，可去除部分第三方广告，仅适用于登陆后使用，不适用于软件注册。Talkatone 针对使用者 IP 的审查趋于严格，单纯的分流的做法可能在部分节点或网络环境下不再有效，建议分别测试有效节点
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
@@ -74,14 +74,14 @@ DOMAIN-SUFFIX,wv.inner-active.mobi,REJECT
 DOMAIN-SUFFIX,www.googletagservices-cn.com,REJECT
 
 # 节点质量判断地址，需要特定节点代理
-DOMAIN-WILDCARD,relay-*.tktn.be,{{{Talkatone}}}
+DOMAIN-WILDCARD,relay-*.tktn.be,{{{节点检测}}}
 # 以下为该软件可能需要走代理的规则
-DOMAIN-SUFFIX,tktn.at,{{{Talkatone}}}
-DOMAIN-SUFFIX,tktn.be,{{{Talkatone}}}
+DOMAIN-SUFFIX,tktn.at,{{{代理分流}}}
+DOMAIN-SUFFIX,tktn.be,{{{代理分流}}}
 # 语音留言地址，一般需要代理
-DOMAIN-SUFFIX,vm.talkatone.com,{{{Talkatone}}}
+DOMAIN-SUFFIX,vm.talkatone.com,{{{代理分流}}}
 # 贴图服务地址，一般需要代理
-DOMAIN-SUFFIX,tenor.com,{{{Talkatone}}}
+DOMAIN-SUFFIX,tenor.com,{{{代理分流}}}
 
 # 以下为该软件可能需要走直连的规则
 DOMAIN-SUFFIX,agkn.com,DIRECT
