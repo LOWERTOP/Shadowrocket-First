@@ -99,9 +99,15 @@
 > [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CA.sgmodule "一键安装本模块")
 > [![快捷指令 证书模块](https://img.shields.io/static/v1?label=快捷指令&message=证书模块&color=grey&logo=removedotbg&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/f13ca3b24ab947beb9f7c39daefc24d5 "点击安装快捷指令")
 
-### [主机名反解密](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule)
+### [反解密模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule)
 
-> 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的主机名误杀反解密模块，在编辑参数页面填写所需的反误杀主机名后将本模块放置于模块列表最下方，反解密域名填写示例 **`-www.apple.com`**，插入方式支持选填 `%APPEND%` 或 `%INSERT%`。关于本模块的疑问可以查看 [此处议题](https://github.com/LOWERTOP/Shadowrocket-First/issues/13)
+> 本模块基于 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能实现，旨在对因批量解密而被误拦或需要单独剔除的域名进行快速反解密处理。适用场景为：当系统中已启用包含大量需解密主机名的模块，且需要从中剔除单个或少量域名时，可通过本模块快速填写，避免逐条查找和手工修改的繁琐流程
+> 
+> > * 在编辑参数页面填写所需的反误杀主机名，示例 **`-www.apple.com`**，支持使用英文逗号分割填写多个反解密主机名
+> > * 将本模块放置于模块列表最下方以确保生效顺序
+> > * 插入方式支持选填 `%APPEND%` 或 `%INSERT%`，默认插入方式不建议修改
+> 
+> 关于主机名反解密的疑问可以查看 [此处议题](https://github.com/LOWERTOP/Shadowrocket-First/issues/13)
 >
 > [![安装模块 反解密模块](https://img.shields.io/static/v1?label=安装模块&message=反解密模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule "一键安装本模块")
 
