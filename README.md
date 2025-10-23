@@ -160,7 +160,7 @@
 > 
 > **[奶思净化合集](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)**
 > 
-> > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，针对约 564 款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)
+> > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，对数百款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)
 > >   
 > > [![安装模块 净化合集](https://img.shields.io/static/v1?label=安装模块&message=净化合集&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module "一键安装本模块")
 > 
