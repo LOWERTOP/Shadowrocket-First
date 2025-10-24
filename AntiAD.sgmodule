@@ -77,9 +77,12 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/weather - reject
 
 # 豆瓣
-^https?:\/\/img\d\.doubanio\.com\/view\/dale-online\/dale_ad\/ - reject
-^https?:\/\/frodo\.douban\.com\/api\/v2\/movie\/banner - reject
-^https?:\/\/erebor\.douban\.com\/count\/\?ad= - reject
+^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash - reject-dict
+^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad - reject-dict
+^https:\/\/m\.douban\.com\/rexxar\/api\/v\d\/market\/products\/ - reject-dict
+^https:\/\/frodo\.douban\.com\/api\/v\d\/movie\/ad - reject-dict
+^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner - reject-dict
+^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words - reject-dict
 
 # 微博轻享版
 ^https?:\/\/api\.weibo\.cn\/2\/ad\/weibointl\? - reject-dict
@@ -304,4 +307,4 @@ body_rewrite_31 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/se
 精简首页 = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\?, script-path=https://kelee.one/Resource/Script/PinDuoDuo/PinDuoDuo_remove_ads.js, requires-body=true
 
 [MITM]
-hostname = %APPEND% *.amap.com, gql-fed.reddit.com, mag1.sdgun.net, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, webappcfg.paas.cmbchina.com, api.alipan.com, intellicc.bcs.cmbchina.com, member.alipan.com, mp.weixin.qq.com, api.pinduoduo.com, api.yangkeduo.com, api.douban.com, api.weibo.cn, api.weibo.com, weibointl.api.weibo.cn, tiebac.baidu.com, tieba.baidu.com, static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
+hostname = %APPEND% *.amap.com, gql-fed.reddit.com, mag1.sdgun.net, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, webappcfg.paas.cmbchina.com, api.alipan.com, intellicc.bcs.cmbchina.com, member.alipan.com, mp.weixin.qq.com, api.pinduoduo.com, api.yangkeduo.com, api.douban.com, frodo.douban.com, m.douban.com, api.weibo.cn, api.weibo.com, weibointl.api.weibo.cn, tiebac.baidu.com, tieba.baidu.com, static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com
