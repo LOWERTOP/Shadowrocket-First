@@ -18,7 +18,7 @@ DOMAIN,h-adashx.ut.taobao.com
 DOMAIN,ut.taobao.com
 
 # 微信公众号
-DOMAIN-SUFFIX,wxs.qq.com
+# DOMAIN-SUFFIX,wxs.qq.com
 
 # 贴吧
 DOMAIN,afd.baidu.com
