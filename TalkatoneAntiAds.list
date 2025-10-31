@@ -40,11 +40,11 @@ DOMAIN-SUFFIX,exchange-b-events.inner-active.mobi
 # DOMAIN-SUFFIX,firebaseinstallations.googleapis.com
 # DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com
 # DOMAIN-SUFFIX,firebaseremoteconfig.googleapis.com
-DOMAIN-SUFFIX,firebase-settings.crashlytics.com
-DOMAIN-SUFFIX,fundingchoicesmessages.google.com
-DOMAIN-SUFFIX,googleads.g.doubleclick.net
-DOMAIN-SUFFIX,googleads.g.doubleclick-cn.net
-DOMAIN-SUFFIX,googlesyndication.com
+# DOMAIN-SUFFIX,firebase-settings.crashlytics.com
+# DOMAIN-SUFFIX,fundingchoicesmessages.google.com
+# DOMAIN-SUFFIX,googleads.g.doubleclick.net
+# DOMAIN-SUFFIX,googleads.g.doubleclick-cn.net
+# DOMAIN-SUFFIX,googlesyndication.com
 DOMAIN-SUFFIX,gum.criteo.com
 DOMAIN-SUFFIX,i.l.inmobicdn.net
 DOMAIN-SUFFIX,i.l-dsp.inmobicdn.net
