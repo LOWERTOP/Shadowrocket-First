@@ -11,9 +11,9 @@ DOMAIN,msmp.abchina.com.cn
 
 # 淘宝
 DOMAIN,adashx.m.taobao.com
-DOMAIN,ossgw.alicdn.com
-DOMAIN,ems.youku.com
-DOMAIN,hudong.alicdn.com
+# DOMAIN,ossgw.alicdn.com
+# DOMAIN,ems.youku.com
+# DOMAIN,hudong.alicdn.com
 DOMAIN,h-adashx.ut.taobao.com
 DOMAIN,ut.taobao.com
 
