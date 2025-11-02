@@ -184,7 +184,7 @@ http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:4
 
 [Map Local]
 # Spotify
-^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com\/(?:ad-|pendragon) data-type=text data="" status-code=200
+# ^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com\/(?:ad-|pendragon) data-type=text data="" status-code=200
 
 # SDGun @xream
 ^https?:\/\/mag1\.sdgun\.net\/mag\/operative\/v1\/ad\/listNotEndByPlace data-type=text data='{"success":true,"code":100,"msg":null,"list":[]}' header='Content-Type:application/json'
