@@ -188,42 +188,24 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 ^https?:\/\/social\.blued\.cn\/users\/no_auth\/benefit - reject-dict
 
 # 拼多多
-^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/order_express_group\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/search_hotquery\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/new_chat_group\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/personal\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/my_order_group\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/likes\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/engels\/wait\/receive\/review\? reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/buffon\/nasus\/recommend\? reject-dict
-
-^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? response-body-json-del result.dy_module.irregular_banner_dy result.icon_set result.search_bar_hot_query result.dy_module.irregular_banner_dy
-
-^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? response-body-json-jq '.result.bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.buffer_bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.all_top_opts |= map(del(.selected_image, .image, .height, .width))'
-
-^https:\/\/api\.pinduoduo\.com\/search\? response-body-json-del expansion
-
-^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub\? response-body-json-del monthly_card_entrance personal_center_style_v2_vo icon_set.icons icon_set.top_personal_icons
-
-^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render\? response-body-json-del bottom_section_list ui.bottom_section ui.live_section.float_info
-
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/order_detail_group\? response-body-json-del data.goods_list
-
-^https:\/\/api\.pinduoduo\.com\/order\/ response-body-json-del marketing_banner_vo shipping.banner_above_recommend
-
-^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/order_list_v4\? response-body-json-jq '.orders |= map(.order_buttons |= map(del(.order_growth_tip)))'
-
+^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/order_express_group - reject-dict
+^https:\/\/api\.pinduoduo\.com\/search_hotquery - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/new_chat_group - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/personal - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/my_order_group - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/likes - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/engels\/wait\/receive\/review - reject-dict
 
 [Header Rewrite]
 # Spotify if-none-match 返回304状态码
@@ -295,8 +277,8 @@ http-response-jq ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_to
 http-response-jq ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center& 'if .data.cards then .data.cards[].items |= map(select(.type != "personal_vip")) | .data.cards |= map(select((.items | length) 0)) end'
 
 # 拼多多
-# http-response-jq ^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? '.result.bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.buffer_bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.all_top_opts |= map(del(.selected_image)) | .result.icon_set |= map(select(.id | IN(473, 472, 256, 267, 257, 471, 468))) | .result.icon_set |= map(.group = 1)'
-# http-response-jq ^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? 'delpaths([["result","dy_module","irregular_banner_dy"]])'
+http-response-jq ^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? '.result.bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.buffer_bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.all_top_opts |= map(del(.selected_image)) | .result.icon_set |= map(select(.id | IN(473, 472, 256, 267, 257, 471, 468))) | .result.icon_set |= map(.group = 1)'
+http-response-jq ^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? 'delpaths([["result","dy_module","irregular_banner_dy"]])'
 
 [Script]
 # Spotify
