@@ -182,7 +182,7 @@ DOMAIN,aaid.umeng.com
 DOMAIN,adsmind.gdtimg.com
 DOMAIN,adsmind.ugdtimg.com
 DOMAIN,aspect-upush.umeng.com
-DOMAIN,bds.snssdk.com
+# DOMAIN,bds.snssdk.com
 DOMAIN,c2.gdt.qq.com
 DOMAIN,cnlogs.umeng.com
 DOMAIN,deeplink.umeng.com
@@ -192,18 +192,18 @@ DOMAIN,dm.toutiao.com
 DOMAIN,errlog.umeng.com
 DOMAIN,errnewlog.umeng.com
 DOMAIN,ether-pack.pangolin-sdk-toutiao.com
-DOMAIN,extlog.snssdk.com
+# DOMAIN,extlog.snssdk.com
 DOMAIN,gdfp.gifshow.com
 DOMAIN,gromore.pangolin-sdk-toutiao.com
 DOMAIN,huatuocode.huatuo.qq.com
-DOMAIN,i.snssdk.com
+# DOMAIN,i.snssdk.com
 DOMAIN,info4.video.qq.com
 DOMAIN,info6.video.qq.com
 DOMAIN,ios.bugly.qq.com
 DOMAIN,ios.video.mpush.qq.com
-DOMAIN,is.snssdk.com
+# DOMAIN,is.snssdk.com
 DOMAIN,lf-ad-ies.bytecdn.cn
-DOMAIN,log.snssdk.com
+# DOMAIN,log.snssdk.com
 DOMAIN,log.umtrack.com
 DOMAIN,mi.gdt.qq.com
 DOMAIN,mon.zijieapi.com
@@ -211,7 +211,7 @@ DOMAIN,mssdk-bu.bytedance.com
 DOMAIN,mssdk.volces.com
 DOMAIN,open.e.kuaishou.com
 DOMAIN,otheve.beacon.qq.com
-DOMAIN,pangolin.snssdk.com
+# DOMAIN,pangolin.snssdk.com
 DOMAIN,pgdt.gtimg.cn
 DOMAIN,pgdt.ugdtimg.com
 DOMAIN,plbslog.umeng.com
@@ -221,12 +221,12 @@ DOMAIN,rmonitor.qq.com
 DOMAIN,s3a.pstatp.com
 DOMAIN,sdk.e.qq.com
 DOMAIN,sdkconfig.video.qq.com
-DOMAIN,sdfp.snssdk.com
+# DOMAIN,sdfp.snssdk.com
 DOMAIN,t.gdt.qq.com
 DOMAIN,tmead.y.qq.com
 DOMAIN,tmeadbak.y.qq.com
 DOMAIN,tmeadcomm.y.qq.com
-DOMAIN,toblog.ctobsnssdk.com
+# DOMAIN,toblog.ctobsnssdk.com
 DOMAIN,tosv.boe.byted.org
 DOMAIN,tosv.byted.org
 DOMAIN,tpns.qq.com
@@ -258,7 +258,7 @@ DOMAIN-KEYWORD,asiad.byteactivity
 DOMAIN-KEYWORD,log-api.pangolin-sdk-toutiao
 DOMAIN-KEYWORD,trace.qq.com
 DOMAIN-KEYWORD,trace.video.qq.com
-DOMAIN-KEYWORD,video-cn.snssdk.com
+# DOMAIN-KEYWORD,video-cn.snssdk.com
 
 DOMAIN-KEYWORD,beizi
 #DOMAIN-KEYWORD,pangle
