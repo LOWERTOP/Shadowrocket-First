@@ -8,6 +8,11 @@
 [Rule]
 # 以下为该软件部分去广告规则
 # DOMAIN-KEYWORD,googleads,REJECT
+DOMAIN-SUFFIX,creatives.smadex.com,REJECT
+DOMAIN-SUFFIX,static-content-1.smadex.com,REJECT
+DOMAIN-SUFFIX,imp-lb-us2.jampp.com,REJECT
+DOMAIN-SUFFIX,br-trk.smadex.com,REJECT
+
 DOMAIN-SUFFIX,aax.amazon-adsystem.com,REJECT
 DOMAIN-SUFFIX,aax-fe.amazon-adsystem.com,REJECT
 DOMAIN-SUFFIX,aax-fe-sin.amazon-adsystem.com,REJECT
