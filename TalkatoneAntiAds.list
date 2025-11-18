@@ -8,6 +8,11 @@
 
 # DOMAIN-KEYWORD,googleads
 # DOMAIN-SUFFIX,d.tktn.be
+DOMAIN-SUFFIX,creatives.smadex.com
+DOMAIN-SUFFIX,static-content-1.smadex.com
+DOMAIN-SUFFIX,imp-lb-us2.jampp.com
+DOMAIN-SUFFIX,br-trk.smadex.com
+
 DOMAIN-SUFFIX,admob.com
 DOMAIN-SUFFIX,mobilefuse.com
 DOMAIN-SUFFIX,aax.amazon-adsystem.com
@@ -37,14 +42,14 @@ DOMAIN-SUFFIX,ep7.facebook.com
 DOMAIN-SUFFIX,et-eus.w.inmobi.com
 DOMAIN-SUFFIX,ets-ap-southeast-1.track.smaato.net
 DOMAIN-SUFFIX,exchange-b-events.inner-active.mobi
-# DOMAIN-SUFFIX,firebaseinstallations.googleapis.com
-# DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com
-# DOMAIN-SUFFIX,firebaseremoteconfig.googleapis.com
-# DOMAIN-SUFFIX,firebase-settings.crashlytics.com
-# DOMAIN-SUFFIX,fundingchoicesmessages.google.com
-# DOMAIN-SUFFIX,googleads.g.doubleclick.net
-# DOMAIN-SUFFIX,googleads.g.doubleclick-cn.net
-# DOMAIN-SUFFIX,googlesyndication.com
+DOMAIN-SUFFIX,firebaseinstallations.googleapis.com
+DOMAIN-SUFFIX,firebaselogging-pa.googleapis.com
+DOMAIN-SUFFIX,firebaseremoteconfig.googleapis.com
+DOMAIN-SUFFIX,firebase-settings.crashlytics.com
+DOMAIN-SUFFIX,fundingchoicesmessages.google.com
+DOMAIN-SUFFIX,googleads.g.doubleclick.net
+DOMAIN-SUFFIX,googleads.g.doubleclick-cn.net
+DOMAIN-SUFFIX,googlesyndication.com
 DOMAIN-SUFFIX,gum.criteo.com
 DOMAIN-SUFFIX,i.l.inmobicdn.net
 DOMAIN-SUFFIX,i.l-dsp.inmobicdn.net
