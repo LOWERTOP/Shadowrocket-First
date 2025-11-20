@@ -41,15 +41,6 @@
 > 本章主要是为 **特定软件或服务** 所制作的模块、规则集等自制内容<br>
 > 各模块基本都包含有 **编辑参数** 选项，可 [进入参数编辑](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 进行调整
 
-### [Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)
-
-> 本模块原则上可以关闭随机播放及去除播放广告，可以使歌手/专辑列表正常展示，同时添加 **歌词翻译** 功能，可进入 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 进行设置，**首次登录或软件更新后可能需要重启软件方可生效，极端情况下可能需要重新登录或重装**。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)。下文一并提供 [app2smile](https://github.com/app2smile) 和 [001ProMax](https://github.com/001ProMax) 两位原作者的上游模块以供安装试用
->   
-> [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule "一键安装本模块")
-> [![安装模块 app2smile 版本](https://img.shields.io/static/v1?label=安装模块&message=app2smile%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module "一键安装本模块")
-> [![安装模块 001ProMax 版本](https://img.shields.io/static/v1?label=安装模块&message=001ProMax%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Module/AD/Spotify.sgmodule "一键安装本模块")
-> 
-
 ### [Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Talkatone.sgmodule)
 
 > 近期 Talkatone 针对使用者 IP 的审查趋于严格，它使用了 `*-sjc-*.tktn.be` 这个地址对节点进行质量判断，用户可在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 内对 **节点质量检测** 和 **代理分流策略** 分别尝试不同的代理节点或分组，分流策略默认已设置为代理，原则上可以不做调整，但节点质量检测需要自行测试并设定为特定节点方可正常使用<br>
@@ -158,17 +149,25 @@
 > >   
 > > [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Release/Module.sgmodule "一键安装本模块")
 > 
-> **[奶思净化合集](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)**
+> **[奶思净化合集模块](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)**
 > 
 > > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，对数百款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)
 > >   
 > > [![安装模块 净化合集](https://img.shields.io/static/v1?label=安装模块&message=净化合集&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module "一键安装本模块")
 > 
-> **[墨鱼去开屏](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock/StartUpAds.sgmodule)**
+> **[墨鱼去开屏模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock/StartUpAds.sgmodule)**
 > 
 > > 来自 [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013)，是以去除开屏广告为主要功能的模块，同时作者也提供以下可自由搭配的其他模块：[高德地图](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/AmapAds.sgmodule)、[微博](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/WeiboAds.sgmodule)、[知乎](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/ZhihuAds.sgmodule)、[小红书](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/XiaoHongShuAds.sgmodule)、[网易云](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/NeteaseAds.sgmodule)、[喜马拉雅](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/XimalayaAds.sgmodule)、[什么值得买](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/SmzdmAds.sgmodule)、[菜鸟](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/CainiaoAds.sgmodule)、[彩云天气](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/CaiYunAds.sgmodule) 等
 > > 
 > > [![安装模块 墨鱼去开屏](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去开屏&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock/StartUpAds.sgmodule "一键安装本模块")
+> 
+> **[Spotify 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)**
+> 
+> > 本模块原始代码来源于 [app2smile](https://github.com/app2smile)，原则上可以关闭随机播放及去除播放广告，可以使歌手/专辑列表正常展示，同时添加 **歌词翻译** 功能，可进入 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 进行设置，**首次登录或软件更新后可能需要重启软件方可生效，极端情况下可能需要重新登录或重装**。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)。同时可选 [app2smile](https://github.com/app2smile) 和 [001ProMax](https://github.com/001ProMax) 两位的上游作者的版本
+> >   
+> > [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule "一键安装本模块")
+> > [![安装模块 app2smile 版本](https://img.shields.io/static/v1?label=安装模块&message=app2smile%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module "一键安装本模块")
+> > [![安装模块 001ProMax 版本](https://img.shields.io/static/v1?label=安装模块&message=001ProMax%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Module/AD/Spotify.sgmodule "一键安装本模块")
 > 
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
