@@ -92,7 +92,7 @@
 
 ### [反解密模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule)
 
-> 本模块基于 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 机制设计，用于快速将特定域名排除在 MITM 解密范围之外。适用场景一般是当系统已启用包含大量解密主机名的模块或配置，但你仅需排除某一个或少数域名时，无需逐项查找或修改原有配置，只需通过本模块填写相关域名，即可快速禁用其 MITM 解密，显著减少操作成本并避免繁琐的手动调整流程。
+> 本模块基于 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 机制设计，用于快速将特定域名排除在 MITM 解密范围之外。适用场景一般是当系统已启用包含大量解密主机名的模块或配置，但你仅需排除某一个或少数域名时，无需逐项查找或修改原有配置，只需通过本模块填写相关域名，即可快速禁用其 MITM 解密，显著减少操作成本并避免繁琐的手动调整流程
 > 
 > > * 在 [编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 页面填写所需排除解密的主机名，可使用英文逗号分割填写多个所需主机名。示例 **`-www.apple.com,-www.facebook.com`**，其中 **`-`** 符号表示从解密名单中剔除该主机，不可或缺
 > > * 将本模块放置于模块列表最下方以确保生效顺序
