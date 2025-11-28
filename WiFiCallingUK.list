@@ -13,11 +13,13 @@ AND,((GEOIP,GB),(AND,((PROTOCOL,UDP),(OR,((DEST-PORT,500),(DEST-PORT,4500))))))
 
 # 沃达丰
 DOMAIN-SUFFIX,entsrv-uk.vodafone.com
+DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com
 DOMAIN-SUFFIX,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX,ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org
 DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc015.mcc234.pub.3gppnetwork.org
-DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com
+DOMAIN-KEYWORD,mcc234
 IP-CIDR,88.82.0.0/19,no-resolve
+IP-CIDR,148.252.160.0/19,no-resolve
 
 # CMLink UK EE
 IP-CIDR,46.68.0.0/17,no-resolve
@@ -25,3 +27,11 @@ IP-CIDR,46.68.0.0/17,no-resolve
 # Giffgaff
 DOMAIN-SUFFIX,giffgaff.com
 IP-CIDR,87.194.0.0/16,no-resolve
+
+# VOXI
+DOMAIN,vfgb.idemia.io
+IP-CIDR,148.252.160.0/19,no-resolve
+
+# CTE
+DOMAIN-SUFFIX,ee.co.uk
+IP-CIDR,31.94.0.0/16,no-resolve
