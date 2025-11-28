@@ -25,26 +25,26 @@ DOMAIN,ta-a.pinduoduo.com,REJECT
 DOMAIN,meta.pinduoduo.com,REJECT
 DOMAIN,apm-a.pinduoduo.com,REJECT
 
-# AND,((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"%E6%B7%98%E5%AE%9D*")),REJECT-DROP
-# AND,((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"%E9%97%B2%E9%B1%BC*")),REJECT-DROP
-# AND,((URL-REGEX,"^https?:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"AMapiPhone*")),REJECT-DROP
-# AND,((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"Cainiao4iPhone*")),REJECT-DROP
+# AND,((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"%E6%B7%98%E5%AE%9D*")),reject
+# AND,((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"%E9%97%B2%E9%B1%BC*")),reject
+# AND,((URL-REGEX,"^https?:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"AMapiPhone*")),reject
+# AND,((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"Cainiao4iPhone*")),reject
 
 # 美图秀秀
 DOMAIN,adui.tg.meitu.com,REJECT
 # 贴吧屏蔽域名dns查询
-DOMAIN,180.76.76.200,REJECT-DROP
-IP-CIDR,180.76.76.200/32,REJECT-DROP,no-resolve
+DOMAIN,180.76.76.200,reject
+IP-CIDR,180.76.76.200/32,reject,no-resolve
 
 # AppStore 下载加速需要直连
 DOMAIN,apps.apple.com,DIRECT
 DOMAIN,itunes.apple.com,DIRECT
 
 # 红果短剧部分去广告规则
-DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,REJECT-DROP
-DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-WILDCARD,*-ad-sign.byteimg.com,REJECT-DROP
-DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,REJECT-DROP
+DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,reject
+DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,reject
+DOMAIN-WILDCARD,*-ad-sign.byteimg.com,reject
+DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,reject
 
 
 # 包子漫画所需特定规则
@@ -57,26 +57,26 @@ DOMAIN-SUFFIX,baozimhapp.com,REJECT
 
 # 微博
 # 可能涉嫌收集用户信息、上传用户日志的请求
-URL-REGEX,^https?:\/\/api\.weibo\.cn\/2\/(push\/active|client\/addlog_batch|ad\/preload),REJECT-DROP
-URL-REGEX,^https?:\/\/api-cloudim\.api\.weibo\.com\/v1\/log\/,REJECT-DROP
+URL-REGEX,^https?:\/\/api\.weibo\.cn\/2\/(push\/active|client\/addlog_batch|ad\/preload),reject
+URL-REGEX,^https?:\/\/api-cloudim\.api\.weibo\.com\/v1\/log\/,reject
 
 # Talkatone 分流规则集
-RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list,REJECT-DROP
+RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list,reject
 DOMAIN-WILDCARD,*-sjc-*.tktn.be, {{{Talkatone检测}}}
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list,{{{Talkatone分流}}}
 RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneDirect.list,DIRECT
 
 # DeepSeek 规则
 # 以下为该软件的疑似上传地址
-DOMAIN-SUFFIX,apmplus.volces.com,REJECT-DROP
-DOMAIN-SUFFIX,gator.volces.com,REJECT-DROP
-DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
+DOMAIN-SUFFIX,apmplus.volces.com,reject
+DOMAIN-SUFFIX,gator.volces.com,reject
+DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,reject
 # 以下为该软件代理规则集
 # RULE-SET,https://lowertop.github.io/Shadowrocket-First/DeepSeek.list,PROXY
 
 [URL Rewrite]
 # 包子漫画横幅APP广告
-^https?:\/\/static-tw\.baozimh\.com\/bzmhapp-data\/pics\/install_app_bar_baozimhappx\.jpg$ - reject-img
+^https?:\/\/static-tw\.baozimh\.com\/bzmhapp-data\/pics\/install_app_bar_baozimhappx\.jpg$ - reject
 
 # 高德地图_开屏请求@ddgksf2013
 ^https?:\/\/.*\.amap\.com\/ws\/aos\/alimama\/splash_screen - reject
@@ -94,24 +94,25 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/weather - reject
 
 #小爱音箱/小米音箱
-^https:\/\/marketing-aibox\.v\.mitvos\.com\/advertise\/ - reject-dict
-^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/halfScreenMulti\/(home|cache)\? - reject-dict
-^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/tabPage\? - reject-dict
+^https:\/\/marketing-aibox\.v\.mitvos\.com\/advertise\/ - reject
+^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/halfScreenMulti\/(home|cache)\? - reject
+^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/tabPage\? - reject
 
 # 大师兄影视
-^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/.*?\/v\d\/(version|notice\?|top_notice\?|advert\?position=[^2]+) - reject-200
+^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/.*?\/v\d\/(version|notice\?|top_notice\?|advert\?position=[^2]+) - reject
 
 # 豆瓣
-^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash - reject-dict
-^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad - reject-dict
-^https:\/\/m\.douban\.com\/rexxar\/api\/v\d\/market\/products\/ - reject-dict
-^https:\/\/frodo\.douban\.com\/api\/v\d\/movie\/ad - reject-dict
-^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner - reject-dict
-^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words - reject-dict
+^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash - reject
+^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* - reject
+^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad - reject
+^https:\/\/m\.douban\.com\/rexxar\/api\/v\d\/market\/products\/ - reject
+^https:\/\/frodo\.douban\.com\/api\/v\d\/movie\/ad - reject
+^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner - reject
+^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words - reject
 
 # 微博轻享版
-^https?:\/\/api\.weibo\.cn\/2\/ad\/weibointl\? - reject-dict
-^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=hot_search_users - reject-dict
+^https?:\/\/api\.weibo\.cn\/2\/ad\/weibointl\? - reject
+^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=hot_search_users - reject
 
 # 百度网盘
 ^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adx - reject
@@ -133,12 +134,12 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 ^https?:\/\/rp\.hpplay\.cn\/logouts - reject
 
 # 贴吧 @可莉
-^https:\/\/tiebac\.baidu\.com\/c\/f\/search\/discover - reject-dict
-^https:\/\/tiebac\.baidu\.com\/c\/f\/forum\/forumGuide - reject-dict
-^https:\/\/tiebac\.baidu\.com\/c\/u\/chat\/getChatSubscriptionList - reject-dict
+^https:\/\/tiebac\.baidu\.com\/c\/f\/search\/discover - reject
+^https:\/\/tiebac\.baidu\.com\/c\/f\/forum\/forumGuide - reject
+^https:\/\/tiebac\.baidu\.com\/c\/u\/chat\/getChatSubscriptionList - reject
 
 # e充电
-^https?:\/\/cdn-evone-ceph\.echargenet\.com\/gw-emas-cdn\/63c4e3b558bb610008969f89 - reject-200
+^https?:\/\/cdn-evone-ceph\.echargenet\.com\/gw-emas-cdn\/63c4e3b558bb610008969f89 - reject
 
 # 中国移动
 ^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit - reject
@@ -146,29 +147,29 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 ^https?:\/\/(client\.app\.coc|h\.app\.coc|app)\.10086\.cn\/biz-orange\/DN\/emotionMarket - reject
 
 # 中国联通
-^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) - reject-img
-^https?:\/\/m\.client\.10010\.com\/mobileService\/customer\/getclientconfig\.htm - reject-dict
-^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) - reject-img
-# ^https?:\/\/[^(apple|10010)]+\.(com|cn)\/(a|A)d(s|v)?(\/|\.js) - reject-img
-^https?:\/\/m1\.ad\.10010\.com\/noticeMag\/images\/imageUpload\/2\d{3} - reject-img
-^https?:\/\/res\.mall\.10010\.cn\/mall\/common\/js\/fa\.js?referer= - reject-img
+^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) - reject
+^https?:\/\/m\.client\.10010\.com\/mobileService\/customer\/getclientconfig\.htm - reject
+^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) - reject
+# ^https?:\/\/[^(apple|10010)]+\.(com|cn)\/(a|A)d(s|v)?(\/|\.js) - reject
+^https?:\/\/m1\.ad\.10010\.com\/noticeMag\/images\/imageUpload\/2\d{3} - reject
+^https?:\/\/res\.mall\.10010\.cn\/mall\/common\/js\/fa\.js?referer= - reject
 
 # 掌上生活
 ^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec - reject
 
 # 闲鱼
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlecommerce\.splash\.ads\/ - reject-dict
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.recommend\.list\/ - reject-dict
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.near\.by\.corner\.info\/ - reject-dict
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.buy\.feeds\/ - reject-dict
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\/ - reject-dict
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlecommerce\.splash\.ads\/ - reject
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.recommend\.list\/ - reject
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.near\.by\.corner\.info\/ - reject
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.buy\.feeds\/ - reject
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.shade\/ - reject
 
 # 小蚁
 ^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - reject
 ^https?://api.xiaoyi.com\/v5\/app\/config\?userid=.* - reject
 
 # 小米有品
-^https?:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig - reject-200
+^https?:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig - reject
 
 # 瑞幸
 # 日历
@@ -188,30 +189,30 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
 ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew - reject
 
 # Blued：主页推荐直播
-^https?:\/\/social\.blued\.cn\/users\/recommend - reject-dict
+^https?:\/\/social\.blued\.cn\/users\/recommend - reject
 # Blued：未登录时个人界面广告
-^https?:\/\/social\.blued\.cn\/users\/no_auth\/benefit - reject-dict
+^https?:\/\/social\.blued\.cn\/users\/no_auth\/benefit - reject
 
 # 拼多多
-^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/order_express_group\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/search_hotquery\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/new_chat_group\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/personal\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/my_order_group\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/likes\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/engels\/wait\/receive\/review\? - reject-dict
-^https:\/\/api\.pinduoduo\.com\/api\/buffon\/nasus\/recommend\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/order_express_group\? - reject
+^https:\/\/api\.pinduoduo\.com\/search_hotquery\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/new_chat_group\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/personal\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/my_order_group\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/likes\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/engels\/wait\/receive\/review\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/buffon\/nasus\/recommend\? - reject
 
 [Header Rewrite]
 # Spotify if-none-match 返回304状态码
