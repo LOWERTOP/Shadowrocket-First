@@ -6,7 +6,7 @@
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Proxy Group]
-UK-Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇬🇧|Kingdom|England|Britain|British|London|英国|伦敦|英
+UK-Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=🇬🇧|Kingdom|England|Britain|British|London|英国|伦敦|英|UK
 
 [Rule]
 # 苹果地区检测
@@ -17,11 +17,13 @@ UK-Call = url-test,url=http://www.gstatic.com/generate_204,interval=600,toleranc
 
 # 沃达丰
 DOMAIN-SUFFIX,entsrv-uk.vodafone.com,{{{默认代理分组}}}
+DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com,{{{默认代理分组}}}
 DOMAIN-SUFFIX,epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,{{{默认代理分组}}}
 DOMAIN-SUFFIX,ss.epdg.epc.mnc015.mcc234.pub.3gppnetwork.org,{{{默认代理分组}}}
 DOMAIN-SUFFIX,ss.epdg.epc.geo.mnc015.mcc234.pub.3gppnetwork.org,{{{默认代理分组}}}
-DOMAIN-SUFFIX,vuk-gto.prod.ondemandconnectivity.com,{{{默认代理分组}}}
+DOMAIN-KEYWORD,mcc234,{{{默认代理分组}}}
 IP-CIDR,88.82.0.0/19,{{{默认代理分组}}},no-resolve
+IP-CIDR,148.252.160.0/19,{{{默认代理分组}}},no-resolve
 
 # CMLink UK EE
 IP-CIDR,46.68.0.0/17,{{{默认代理分组}}},no-resolve
@@ -29,3 +31,11 @@ IP-CIDR,46.68.0.0/17,{{{默认代理分组}}},no-resolve
 # Giffgaff
 DOMAIN-SUFFIX,giffgaff.com,{{{默认代理分组}}}
 IP-CIDR,87.194.0.0/16,{{{默认代理分组}}},no-resolve
+
+# VOXI
+DOMAIN,vfgb.idemia.io,{{{默认代理分组}}}
+IP-CIDR,148.252.160.0/19,{{{默认代理分组}}},no-resolve
+
+# CTE
+DOMAIN-SUFFIX,ee.co.uk,{{{默认代理分组}}}
+IP-CIDR,31.94.0.0/16,{{{默认代理分组}}},no-resolve
