@@ -1,15 +1,6 @@
-[<img src="https://lowertop.github.io/Shadowrocket-First/img/01.png" width="100%">](https://github.com/LOWERTOP/Shadowrocket-First)
-
 [![README in English](https://img.shields.io/static/v1?label=README&message=in%20English&color=grey&logo=googletranslate&logoColor=white&labelColor=red&messageColor=white)](https://translate.google.com/translate?hl=en&sl=zh-CN&tl=en&u=https://lowertop.github.io/Shadowrocket-First "README in English via Google Translate")
 
-> [!CAUTION]
-> 
-> **[强烈谴责 GitHub 对不同语言用户的歧视行为](https://github.com/orgs/community/discussions/157992)**
-> 
-> **禁止使用本仓任何内容违法或牟利！<br>**
-> **如需转载烦请标明作者或注明来源！<br>**
-
-------
+[<img src="https://lowertop.github.io/Shadowrocket-First/img/01.png" width="100%">](https://github.com/LOWERTOP/Shadowrocket-First)
 
 # [Shadowrocket-First 简介](https://lowertop.github.io/Shadowrocket-First)
 
