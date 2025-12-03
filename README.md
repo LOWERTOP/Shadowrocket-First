@@ -1,15 +1,6 @@
-[<img src="https://lowertop.github.io/Shadowrocket-First/img/01.png" width="100%">](https://github.com/LOWERTOP/Shadowrocket-First)
-
 [![README in English](https://img.shields.io/static/v1?label=README&message=in%20English&color=grey&logo=googletranslate&logoColor=white&labelColor=red&messageColor=white)](https://translate.google.com/translate?hl=en&sl=zh-CN&tl=en&u=https://lowertop.github.io/Shadowrocket-First "README in English via Google Translate")
 
-> [!CAUTION]
-> 
-> **[强烈谴责 GitHub 对不同语言用户的歧视行为](https://github.com/orgs/community/discussions/157992)**
-> 
-> **禁止使用本仓任何内容违法或牟利！<br>**
-> **如需转载烦请标明作者或注明来源！<br>**
-
-------
+[<img src="https://lowertop.github.io/Shadowrocket-First/img/01.png" width="100%">](https://github.com/LOWERTOP/Shadowrocket-First)
 
 # [Shadowrocket-First 简介](https://lowertop.github.io/Shadowrocket-First)
 
@@ -143,12 +134,6 @@
 > **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而须重新解密可设置 [证书模块](#证书模块)**<br>
 > **部分模块的生效需要清除相应的程序的缓存或者重新安装**
 
-> **[向晚融合模块](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Release/Module.sgmodule)**
-> 
-> > 本模块由 [向晚](https://github.com/XiangwanGuan) 基于 [奶思](https://github.com/fmz200) 及 [Zirawell](https://github.com/Zirawell) 等作者的相关代码创建，包含 YouTube、高德地图、一汽大众等超过 600 款软件的功能增强或去广告服务，详情参阅 [仓库介绍](https://github.com/XiangwanGuan/Shadowrocket) 或查看 [详情](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Rewrite/XiangwanConfig/Collection.conf)
-> >   
-> > [![安装模块 融合去广告](https://img.shields.io/static/v1?label=安装模块&message=融合去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Release/Module.sgmodule "一键安装本模块")
-> 
 > **[奶思净化合集模块](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)**
 > 
 > > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，对数百款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)
@@ -287,10 +272,6 @@
 > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块，可自行进入自由选择，或在本仓上文中的 [模块收集](#模块收集) 章节直接安装
 >
 > [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看模块")
->
-> [向晚](https://github.com/XiangwanGuan) 维护的原生 [模块仓库](https://github.com/XiangwanGuan/Shadowrocket/tree/main/Release/Modules)，基于其 [融合模块](https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/refs/heads/main/Release/Module.sgmodule) 分离而来，包含 600 余款独立模块，可进入其模块助手查询安装
->
-> [![模块助手 向晚](https://img.shields.io/static/v1?label=模块助手&message=向晚&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://xiangwanguan.github.io/Shadowrocket/Static/ModuleHelper.html "点击查看模块")
 >
 > [QingRex](https://github.com/QingRex) 维护的 [模块仓库](https://github.com/QingRex/LoonKissSurge)，大部分可兼容使用，进入后挑选所需模块长按文件名复制地址并进入小火箭安装即可
 >
