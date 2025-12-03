@@ -11,18 +11,18 @@
 >
 > > 若您是相关索引的原作者或权利人，且不希望内容被引用，可点击 [此处](https://t.me/LowerTopBot) 要求剔除
 
-**`项目目录`**
-> * `01` · **[Shadowrocket 自建文件](#shadowrocket-自建文件)**
-> * `02` · **[Shadowrocket 收集文件](#shadowrocket-收集文件)**
-> * `03` · **[Shadowrocket 配色文件](#shadowrocket-配色文件)**
-> * `04` · **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
-
-**`其他内容`**
+> **`项目目录`**
+> * **[Shadowrocket 自建文件](#shadowrocket-自建文件)**
+> * **[Shadowrocket 收集文件](#shadowrocket-收集文件)**
+> * **[Shadowrocket 配色文件](#shadowrocket-配色文件)**
+> * **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
+> 
+> **`其他内容`**
 > * [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [调优原帖](https://www.nodeseek.com/post-197087-1) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool)
 
 ------
 
-# [Shadowrocket 自建文件](#shadowrocket-first-简介)
+# [Shadowrocket 自建文件](#shadowrocket-自建文件)
 
 > [!NOTE]
 > 
@@ -104,7 +104,7 @@
 
 ------
 
-# [Shadowrocket 收集文件](#shadowrocket-first-简介)
+# [Shadowrocket 收集文件](#shadowrocket-收集文件)
 
 > [!NOTE]
 > 
@@ -229,6 +229,32 @@
 > [![安装模块 Sub-Store](https://img.shields.io/static/v1?label=安装模块&message=Sub-Store&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/sub-store-org/Sub-Store/master/config/Surge-Noability.sgmodule "一键安装本模块")
 > [![安装模块 BoxJs](https://img.shields.io/static/v1?label=安装模块&message=BoxJs&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.surge.sgmodule "一键安装本模块")
 
+### [其他仓库](#shadowrocket-收集文件)
+
+> [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块
+>
+> [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看模块")
+>
+> [QingRex](https://github.com/QingRex) 维护的 [模块仓库](https://github.com/QingRex/LoonKissSurge)，绝大部分可兼容使用
+>
+> [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看模块")
+> 
+> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，包含高德、B站、彩云、菜鸟、微博等
+>
+> [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
+>
+> [奶思](https://github.com/fmz200) 维护的仓库，包含数百款独立模块，可安装使用 Surge 版本
+>
+> [![模块仓库 奶思](https://img.shields.io/static/v1?label=其他仓库&message=奶思&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/blob/main/README-RULE.md "点击查看模块")
+
+### [筛选订阅脚本](#shadowrocket-收集文件)
+
+> [kiwi707](https://github.com/kiwi707) 制作的 **筛选/规范订阅节点** 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
+> 
+> _使用方法：打开下方脚件链接后复制所有内容，粘贴至 **订阅页面** 的 **[过滤](https://github.com/LOWERTOP/Shadowrocket#%E8%AE%A2%E9%98%85%E8%8A%82%E7%82%B9%E7%AD%9B%E9%80%89)** 区域，参考 [说明](https://github.com/kiwi707/Shadow-Rocket) 修改后保存即可_
+>   
+> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript "点击查看脚本内容")
+
 ### [规则收集](#shadowrocket-收集文件)
 
 > 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各代理软件分流规则的入口，是现阶段首推的代理规则集，使用时务必阅读相应的配置建议
@@ -256,35 +282,9 @@
 > 
 > [![规则文件 交易所规则集](https://img.shields.io/static/v1?label=规则文件&message=交易所规则集&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/iab0x00/ProxyRules/refs/heads/main/Rule/Crypto.txt "点击访问规则集")
 
-### [筛选订阅脚本](#shadowrocket-收集文件)
-
-> [kiwi707](https://github.com/kiwi707) 制作的 **筛选/规范订阅节点** 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
-> 
-> _使用方法：打开下方脚件链接后复制所有内容，粘贴至 **订阅页面** 的 **[过滤](https://github.com/LOWERTOP/Shadowrocket#%E8%AE%A2%E9%98%85%E8%8A%82%E7%82%B9%E7%AD%9B%E9%80%89)** 区域，参考 [说明](https://github.com/kiwi707/Shadow-Rocket) 修改后保存即可_
->   
-> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/refs/heads/main/FilterScript "点击查看脚本内容")
-
-### [其他仓库](#shadowrocket-收集文件)
-
-> [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块，可自行进入自由选择，或在本仓上文中的 [模块收集](#模块收集) 章节直接安装
->
-> [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看模块")
->
-> [QingRex](https://github.com/QingRex) 维护的 [模块仓库](https://github.com/QingRex/LoonKissSurge)，大部分可兼容使用，进入后挑选所需模块长按文件名复制地址并进入小火箭安装即可
->
-> [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看模块")
-> 
-> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，包含高德、B站、彩云、菜鸟、微博等，自行进入选择安装
->
-> [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
->
-> [奶思](https://github.com/fmz200) 维护的仓库，其内容非全部原生支持，可能需要借助 [Script-Hub](#进阶用法) 使用
->
-> [![其他仓库 奶思](https://img.shields.io/static/v1?label=其他仓库&message=奶思&color=grey&logo=searxng&logoColor=white&labelColor=%236CADDF&messageColor=white)](https://github.com/fmz200/wool_scripts "点击查看模块")
-
 ------
 
-# [Shadowrocket 配色文件](#shadowrocket-first-简介)
+# [Shadowrocket 配色文件](#shadowrocket-配色文件)
 
 > [!NOTE]
 > 
@@ -1038,7 +1038,7 @@ _To Be Continued..._
 
 ------
 
-# [非标准链接重定向跳转](#shadowrocket-First-简介)
+# [非标准链接重定向跳转](#非标准链接重定向跳转)
 
 > [!NOTE]
 > 
