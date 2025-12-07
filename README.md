@@ -238,14 +238,14 @@
 > [QingRex](https://github.com/QingRex) 维护的 [模块仓库](https://github.com/QingRex/LoonKissSurge)，绝大部分可兼容使用
 >
 > [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看模块")
+>
+> [奶思](https://github.com/fmz200) 维护的仓库，包含数百款独立模块，可安装使用 Surge 版本
+>
+> [![模块仓库 奶思](https://img.shields.io/static/v1?label=模块仓库&message=奶思&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/blob/main/README-RULE.md "点击查看模块")
 > 
 > [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，包含高德、B站、彩云、菜鸟、微博等
 >
 > [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
->
-> [奶思](https://github.com/fmz200) 维护的仓库，包含数百款独立模块，可安装使用 Surge 版本
->
-> [![模块仓库 奶思](https://img.shields.io/static/v1?label=其他仓库&message=奶思&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/blob/main/README-RULE.md "点击查看模块")
 
 ### [筛选订阅脚本](#shadowrocket-收集文件)
 
