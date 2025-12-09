@@ -194,25 +194,25 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,reject
 ^https?:\/\/social\.blued\.cn\/users\/no_auth\/benefit - reject
 
 # 拼多多
-^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/order_express_group\? - reject
-^https:\/\/api\.pinduoduo\.com\/search_hotquery\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/new_chat_group\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/personal\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/my_order_group\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/likes\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/engels\/wait\/receive\/review\? - reject
-^https:\/\/api\.pinduoduo\.com\/api\/buffon\/nasus\/recommend\? - reject
+^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/order_express_group\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/search_hotquery\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/new_chat_group\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/personal\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/my_order_group\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/likes\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/engels\/wait\/receive\/review\? - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/buffon\/nasus\/recommend\? - reject-dict
 
 [Header Rewrite]
 # Spotify if-none-match 返回304状态码
