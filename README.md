@@ -37,6 +37,22 @@
 > [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Talkatone.sgmodule "一键安装本模块")
 > [![规则文件 去广告规则](https://img.shields.io/static/v1?label=规则文件&message=去广告规则&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list "点击访问规则集")
 
+### [Emby 分流控制策略](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/EmbyProxy.module)
+
+> 本模块为 Emby 使用场景设计，基于 Shadowrocket **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能实现。模块对 **服务器访问** 与 **元数据/字幕** 请求进行分流控制，旨在同时提升 **播放稳定性** 与 **刮削成功率**。同时支持补充最多 3 个非常见的 Emby 服务器域名
+> 
+> 模块需要通过 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**  的方式分别指定：
+> 
+> * Emby 实际播放、Web、API 请求所使用的策略
+> * 海报、评分、演职员信息、字幕等元数据服务所使用的策略
+> 
+> 适用场景包括但不限于：
+> * Emby 服务器直连、元数据走代理的常见组合
+> * 多 Emby 私服并存的分流管理
+> * 国内外混合字幕 / 元数据源的稳定访问
+> 
+> [![安装模块 Emby分流](https://img.shields.io/static/v1?label=安装模块&message=Emby分流&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/EmbyProxy.module "一键安装本模块")
+
 ### [DeepSeek](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/DeepSeek.sgmodule)
 
 > DeepSeek 在某些特定地区必须使用手机号注册和登陆使用，本仓提供分流模块和代理规则，可以解锁使用邮箱、谷歌账号等方式注册与登录该服务。同时，模块中屏蔽了部分 **存疑** 地址，也支持在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 内设置分流的代理节点或分组
