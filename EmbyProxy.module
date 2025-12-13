@@ -1,0 +1,77 @@
+#!name=Emby分流策略
+#!desc=编辑参数以设置分流策略
+#!arguments=元数据策略:Proxy, 服务器策略:Proxy, 服务器域名1:okemby.org, 服务器域名2:emby.example.com, 服务器域名3:media.example.net
+#!arguments-desc=分流策略可自定义直连、代理、节点名称、代理分组名称\n元数据策略：海报、评分、字幕等元数据服务使用的策略\n服务器策略：Emby 实际播放、Web、API 使用的策略\n服务器域名：填写所需的Emby域名，每项仅支持单个域名
+# 整理作者：https://github.com/LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+
+[Rule]
+####################################
+# Emby 服务器访问
+####################################
+DOMAIN-SUFFIX,{{{服务器域名1}}},{{{服务器策略}}}
+DOMAIN-SUFFIX,{{{服务器域名2}}},{{{服务器策略}}}
+DOMAIN-SUFFIX,{{{服务器域名3}}},{{{服务器策略}}}
+# 常见 Emby 服务域名
+DOMAIN-SUFFIX,emby.com,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.media,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.wtf,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.plus,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.best,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.moe,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.pro,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.club,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.world,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.vip,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.life,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.cool,{{{服务器策略}}}
+# 服务器关键词兜底
+DOMAIN-KEYWORD,emby,{{{服务器策略}}}
+
+####################################
+# 影视元数据 / 信息服务
+####################################
+DOMAIN-SUFFIX,allocine.fr,{{{元数据策略}}}
+DOMAIN-SUFFIX,themoviedb.org,{{{元数据策略}}}
+DOMAIN-SUFFIX,thetvdb.com,{{{元数据策略}}}
+DOMAIN-SUFFIX,imdb.com,{{{元数据策略}}}
+DOMAIN-SUFFIX,trakt.tv,{{{元数据策略}}}
+DOMAIN-SUFFIX,omdbapi.com,{{{元数据策略}}}
+DOMAIN-SUFFIX,fanart.tv,{{{元数据策略}}}
+
+####################################
+# 动漫 / 音乐元数据
+####################################
+DOMAIN-SUFFIX,anilist.co,{{{元数据策略}}}
+DOMAIN-SUFFIX,musicbrainz.org,{{{元数据策略}}}
+DOMAIN-SUFFIX,audiodb.com,{{{元数据策略}}}
+
+####################################
+# 字幕服务
+####################################
+DOMAIN-SUFFIX,opensubtitles.org,{{{元数据策略}}}
+DOMAIN-SUFFIX,opensubtitles.com,{{{元数据策略}}}
+DOMAIN-SUFFIX,subscene.com,{{{元数据策略}}}
+DOMAIN-SUFFIX,addic7ed.com,{{{元数据策略}}}
+DOMAIN-SUFFIX,yifysubtitles.org,{{{元数据策略}}}
+DOMAIN-SUFFIX,subdl.com,{{{元数据策略}}}
+DOMAIN-SUFFIX,podnapisi.net,{{{元数据策略}}}
+# 中文字幕
+DOMAIN-SUFFIX,assrt.net,{{{元数据策略}}}
+DOMAIN-SUFFIX,zimuku.cn,{{{元数据策略}}}
+# 动漫 / 剧集字幕
+DOMAIN-SUFFIX,kitsunekko.net,{{{元数据策略}}}
+DOMAIN-SUFFIX,subsplease.org,{{{元数据策略}}}
+DOMAIN-SUFFIX,subf2m.co,{{{元数据策略}}}
+DOMAIN-SUFFIX,subtitles.hr,{{{元数据策略}}}
+DOMAIN-SUFFIX,titlovi.com,{{{元数据策略}}}
+DOMAIN-SUFFIX,planetdp.org,{{{元数据策略}}}
+DOMAIN-SUFFIX,nyaa.si,{{{元数据策略}}}
+DOMAIN-SUFFIX,erai-raws.info,{{{元数据策略}}}
+DOMAIN-SUFFIX,anidb.net,{{{元数据策略}}}
+
+####################################
+# Jellyfin 兼容
+####################################
+DOMAIN-SUFFIX,jellyfin.org,{{{元数据策略}}}
+DOMAIN-KEYWORD,jellyfin,{{{元数据策略}}}
