@@ -153,7 +153,7 @@
 > **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而须重新解密可设置 [证书模块](#证书模块)**<br>
 > **部分模块的生效需要清除相应的程序的缓存或者重新安装**
 
-> **[可莉插件直接安装模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/PluginHub2Rocket.srmodule)**
+> **[可莉插件直装模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/PluginHub2Rocket.srmodule)**
 > 
 > > 本模块由 [iab0x00](https://github.com/iab0x00) 制作，可使小火箭直接安装并使用 [可莉插件中心](https://hub.kelee.one) 的插件/模块。本模块需要使用 Script-Hub 的转换功能实现，必须安装 Script-Hub 模块方可正常使用。本方案遵循 [可莉](https://github.com/luestr) 的 [授权说明](https://t.me/ibilibili/1498)
 > > 
