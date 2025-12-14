@@ -1,7 +1,7 @@
 #!name=多效服务模块
 #!desc=自用模块，接受反馈，但不接受定制，随时可能增减功能
-#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, Talkatone检测:PROXY, Talkatone分流:PROXY, 商店下载加速:iosapps, 商店加速地址:iosapps.itunes.apple.com.download.ks-cdn.com, 系统升级加速:updates, 升级加速地址:updates.cdn-apple.com.download.ks-cdn.com, 元数据策略:Proxy, 服务器策略:Proxy, 服务器域名1:okemby.org, 服务器域名2:emby.example.com, 服务器域名3:media.example.net
-#!arguments-desc=🔘 Spotify歌词翻译\n\n· 需申请百度翻译API，推荐申请高级版并开通通用文本翻译服务，成功拿到ID密钥后填入，在软件歌词界面左下角即可看到翻译按钮。申请时建议使用桌面设备，移动设备可能访问失败\n\n· 注册地址：http://api.fanyi.baidu.com\n\n🔘 Talkatone 分流策略\n\n· 默认首页节点，可填入节点名称或者代理分组名称指定策略\n\n🔘 商店下载加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   iosapps.itunes.apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   hls.itunes.apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   iosapps.itunes.apple.com.m.alikunlun.net\n\n🔘 系统升级加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   updates.cdn-apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   updates.cdn-apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   updates.cdn-apple.com.w.kunlunca.com\n\n🔘 分流策略可自定义直连、代理、节点名称、代理分组名称\n\n🔘 元数据策略：海报、评分、字幕等元数据服务使用的策略\n\n🔘 服务器策略：Emby 实际播放、Web、API 使用的策略\n\n🔘 服务器域名：填写所需的Emby域名，每项仅支持单个域名
+#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, Talkatone检测:PROXY, Talkatone分流:PROXY, 商店下载加速:iosapps, 商店加速地址:iosapps.itunes.apple.com.download.ks-cdn.com, 系统升级加速:updates, 升级加速地址:updates.cdn-apple.com.download.ks-cdn.com, Emby元数据策略:Proxy, Emby服务器策略:Proxy, Emby服务器域名1:okemby.org, Emby服务器域名2:emby.example.com, Emby服务器域名3:media.example.net
+#!arguments-desc=🔘 Spotify歌词翻译\n\n· 需申请百度翻译API，推荐申请高级版并开通通用文本翻译服务，成功拿到ID密钥后填入，在软件歌词界面左下角即可看到翻译按钮。申请时建议使用桌面设备，移动设备可能访问失败\n\n· 注册地址：http://api.fanyi.baidu.com\n\n🔘 Talkatone 分流策略\n\n· 默认首页节点，可填入节点名称或者代理分组名称指定策略\n\n🔘 商店下载加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   iosapps.itunes.apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   hls.itunes.apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   iosapps.itunes.apple.com.m.alikunlun.net\n\n🔘 系统升级加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   updates.cdn-apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   updates.cdn-apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   updates.cdn-apple.com.w.kunlunca.com\n\n🔘 分流策略可自定义直连、代理、节点名称、代理分组名称\n\n🔘 Emby元数据策略：海报、评分、字幕等元数据服务使用的策略\n\n🔘 Emby服务器策略：Emby 实际播放、Web、API 使用的策略\n\n🔘 Emby服务器域名：填写所需的Emby域名，每项仅支持单个域名
 # 代码来源：GitHub 之 fmz200、app2smile、001ProMax、iab0x00、Keywos、kokoryh、luestr、RuCu6、ddgksf2013 等，未尽之处还望海涵
 # 整理作者：LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
@@ -14,72 +14,72 @@ DOMAIN-SUFFIX,itunes.apple.com,DIRECT
 ####################################
 # Emby 服务器访问
 ####################################
-DOMAIN-SUFFIX,{{{服务器域名1}}},{{{服务器策略}}}
-DOMAIN-SUFFIX,{{{服务器域名2}}},{{{服务器策略}}}
-DOMAIN-SUFFIX,{{{服务器域名3}}},{{{服务器策略}}}
+DOMAIN-SUFFIX,{{{Emby服务器域名1}}},{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,{{{Emby服务器域名2}}},{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,{{{Emby服务器域名3}}},{{{Emby服务器策略}}}
 # 常见 Emby 服务域名
-DOMAIN-SUFFIX,emby.com,{{{服务器策略}}}
-DOMAIN-SUFFIX,emby.media,{{{服务器策略}}}
-DOMAIN-SUFFIX,emby.wtf,{{{服务器策略}}}
-DOMAIN-SUFFIX,emby.plus,{{{服务器策略}}}
-DOMAIN-SUFFIX,emby.best,{{{服务器策略}}}
-DOMAIN-SUFFIX,emby.moe,{{{服务器策略}}}
-DOMAIN-SUFFIX,emby.pro,{{{服务器策略}}}
-DOMAIN-SUFFIX,emby.club,{{{服务器策略}}}
-DOMAIN-SUFFIX,emby.world,{{{服务器策略}}}
-DOMAIN-SUFFIX,emby.vip,{{{服务器策略}}}
-DOMAIN-SUFFIX,emby.life,{{{服务器策略}}}
-DOMAIN-SUFFIX,emby.cool,{{{服务器策略}}}
+DOMAIN-SUFFIX,emby.com,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.media,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.wtf,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.plus,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.best,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.moe,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.pro,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.club,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.world,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.vip,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.life,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.cool,{{{Emby服务器策略}}}
 # 服务器关键词兜底
-DOMAIN-KEYWORD,emby,{{{服务器策略}}}
+DOMAIN-KEYWORD,emby,{{{Emby服务器策略}}}
 
 ####################################
 # 影视元数据 / 信息服务
 ####################################
-DOMAIN-SUFFIX,allocine.fr,{{{元数据策略}}}
-DOMAIN-SUFFIX,themoviedb.org,{{{元数据策略}}}
-DOMAIN-SUFFIX,thetvdb.com,{{{元数据策略}}}
-DOMAIN-SUFFIX,imdb.com,{{{元数据策略}}}
-DOMAIN-SUFFIX,trakt.tv,{{{元数据策略}}}
-DOMAIN-SUFFIX,omdbapi.com,{{{元数据策略}}}
-DOMAIN-SUFFIX,fanart.tv,{{{元数据策略}}}
+DOMAIN-SUFFIX,allocine.fr,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,themoviedb.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,thetvdb.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,imdb.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,trakt.tv,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,omdbapi.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,fanart.tv,{{{Emby元数据策略}}}
 
 ####################################
 # 动漫 / 音乐元数据
 ####################################
-DOMAIN-SUFFIX,anilist.co,{{{元数据策略}}}
-DOMAIN-SUFFIX,musicbrainz.org,{{{元数据策略}}}
-DOMAIN-SUFFIX,audiodb.com,{{{元数据策略}}}
+DOMAIN-SUFFIX,anilist.co,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,musicbrainz.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,audiodb.com,{{{Emby元数据策略}}}
 
 ####################################
 # 字幕服务
 ####################################
-DOMAIN-SUFFIX,opensubtitles.org,{{{元数据策略}}}
-DOMAIN-SUFFIX,opensubtitles.com,{{{元数据策略}}}
-DOMAIN-SUFFIX,subscene.com,{{{元数据策略}}}
-DOMAIN-SUFFIX,addic7ed.com,{{{元数据策略}}}
-DOMAIN-SUFFIX,yifysubtitles.org,{{{元数据策略}}}
-DOMAIN-SUFFIX,subdl.com,{{{元数据策略}}}
-DOMAIN-SUFFIX,podnapisi.net,{{{元数据策略}}}
+DOMAIN-SUFFIX,opensubtitles.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,opensubtitles.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,subscene.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,addic7ed.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,yifysubtitles.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,subdl.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,podnapisi.net,{{{Emby元数据策略}}}
 # 中文字幕
-DOMAIN-SUFFIX,assrt.net,{{{元数据策略}}}
-DOMAIN-SUFFIX,zimuku.cn,{{{元数据策略}}}
+DOMAIN-SUFFIX,assrt.net,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,zimuku.cn,{{{Emby元数据策略}}}
 # 动漫 / 剧集字幕
-DOMAIN-SUFFIX,kitsunekko.net,{{{元数据策略}}}
-DOMAIN-SUFFIX,subsplease.org,{{{元数据策略}}}
-DOMAIN-SUFFIX,subf2m.co,{{{元数据策略}}}
-DOMAIN-SUFFIX,subtitles.hr,{{{元数据策略}}}
-DOMAIN-SUFFIX,titlovi.com,{{{元数据策略}}}
-DOMAIN-SUFFIX,planetdp.org,{{{元数据策略}}}
-DOMAIN-SUFFIX,nyaa.si,{{{元数据策略}}}
-DOMAIN-SUFFIX,erai-raws.info,{{{元数据策略}}}
-DOMAIN-SUFFIX,anidb.net,{{{元数据策略}}}
+DOMAIN-SUFFIX,kitsunekko.net,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,subsplease.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,subf2m.co,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,subtitles.hr,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,titlovi.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,planetdp.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,nyaa.si,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,erai-raws.info,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,anidb.net,{{{Emby元数据策略}}}
 
 ####################################
 # Jellyfin 兼容
 ####################################
-DOMAIN-SUFFIX,jellyfin.org,{{{元数据策略}}}
-DOMAIN-KEYWORD,jellyfin,{{{元数据策略}}}
+DOMAIN-SUFFIX,jellyfin.org,{{{Emby元数据策略}}}
+DOMAIN-KEYWORD,jellyfin,{{{Emby元数据策略}}}
 
 # 去广告
 AND,((URL-REGEX,"^http:\/\/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/d(\d)?"),(USER-AGENT,"*com.xunmeng.pinduoduo*")),REJECT
