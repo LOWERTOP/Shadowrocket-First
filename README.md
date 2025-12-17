@@ -153,9 +153,9 @@
 > **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而须重新解密可设置 [证书模块](#证书模块)**<br>
 > **部分模块的生效需要清除相应的程序的缓存或者重新安装**
 
-> **[资源解析转换组件](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule)**
+> **[资源解析转换方案](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 制作，现阶段可使小火箭直接安装并使用 [可莉插件中心](https://hub.kelee.one) 的插件/模块。本模块借助 Script-Hub 的转换功能实现，为方便新手使用已内置 Script-Hub 相关代码。本方案遵循 [可莉](https://github.com/luestr) 的 [授权说明](https://t.me/ibilibili/1498)
+> > 本方案模块由 [iab0x00](https://github.com/iab0x00) 制作，现阶段可使小火箭直接安装并使用 [可莉插件中心](https://hub.kelee.one) 的插件/模块。本模块借助 **[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)** 的转换功能实现，为方便新手使用已内置 [Script-Hub](https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 相关代码。感谢 [iab0x00](https://github.com/iab0x00)、[可莉](https://github.com/luestr) 及 [Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki) 的辛苦付出，本案遵循 [可莉的授权说明](https://t.me/ibilibili/1498)
 > > 
 > > * 安装并启用 [本模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule)
 > > * 访问  [插件中心](https://hub.kelee.one/) 选择需要的插件/模块，点击安装即可
