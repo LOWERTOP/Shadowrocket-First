@@ -169,12 +169,6 @@
 > >   
 > > [![安装模块 净化合集](https://img.shields.io/static/v1?label=安装模块&message=净化合集&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module "一键安装本模块")
 > 
-> **[墨鱼去开屏模块](https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock/StartUpAds.sgmodule)**
-> 
-> > 来自 [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013)，是以去除开屏广告为主要功能的模块，同时作者也提供 [去广告融合版模块](https://github.com/ddgksf2013/Modules/raw/main/Adblock.sgmodule) 以及可自由搭配的其他模块：[高德地图](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/AmapAds.sgmodule)、[微博](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/WeiboAds.sgmodule)、[知乎](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/ZhihuAds.sgmodule)、[小红书](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/XiaoHongShuAds.sgmodule)、[网易云](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/NeteaseAds.sgmodule)、[喜马拉雅](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/XimalayaAds.sgmodule)、[什么值得买](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/SmzdmAds.sgmodule)、[菜鸟](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/CainiaoAds.sgmodule)、[彩云天气](https://raw.githubusercontent.com/ddgksf2013/Modules/refs/heads/main/Adblock/CaiYunAds.sgmodule) 等
-> > 
-> > [![安装模块 墨鱼去开屏](https://img.shields.io/static/v1?label=安装模块&message=墨鱼去开屏&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock/StartUpAds.sgmodule "一键安装本模块")
-> 
 > **[Spotify 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)**
 > 
 > > 本模块原始代码来源于 [app2smile](https://github.com/app2smile)，原则上可以关闭随机播放及去除播放广告，可以使歌手/专辑列表正常展示，同时添加 **歌词翻译** 功能，可进入 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 进行设置，**首次登录或软件更新后可能需要重启软件方可生效，极端情况下可能需要重新登录或重装**。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)。同时可选 [app2smile](https://github.com/app2smile) 和 [001ProMax](https://github.com/001ProMax) 两位的上游作者的版本
@@ -265,19 +259,19 @@
 
 > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块
 >
-> [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看模块")
+> [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看")
 >
 > [QingRex](https://github.com/QingRex) 维护的 [模块仓库](https://github.com/QingRex/LoonKissSurge)，绝大部分可兼容使用
 >
-> [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看模块")
+> [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看")
 >
 > [奶思](https://github.com/fmz200) 维护的仓库，包含数百款独立模块，可安装使用 Surge 版本
 >
-> [![模块仓库 奶思](https://img.shields.io/static/v1?label=模块仓库&message=奶思&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/blob/main/README-RULE.md "点击查看模块")
+> [![模块仓库 奶思](https://img.shields.io/static/v1?label=模块仓库&message=奶思&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/blob/main/README-RULE.md "点击查看")
 > 
-> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，包含高德、B站、彩云、菜鸟、微博等
+> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，包含高德、B站、彩云、菜鸟、微博等，需提前安装 [前置模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
 >
-> [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/ddgksf2013/Modules/tree/main/Adblock "点击查看模块")
+> [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://ddgksf2013.top/ "点击查看")
 
 ### [筛选订阅脚本](#shadowrocket-收集文件)
 
