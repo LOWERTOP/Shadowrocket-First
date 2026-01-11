@@ -8,7 +8,7 @@
 
 [Rule]
 # Spotify QUIC
-AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,UDP),(DST-PORT,443)),REJECT-NO-DROP
+AND, ((DOMAIN-SUFFIX, spotify.com), (PROTOCOL, QUIC)), REJECT-NO-DROP
 
 # 苹果商店加速需要以下地址直连
 DOMAIN-SUFFIX,apps.apple.com,DIRECT
