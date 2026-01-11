@@ -7,7 +7,7 @@
 
 [Rule]
 # Spotify QUIC
-AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,UDP),(DST-PORT,443)),REJECT-NO-DROP
+AND, ((DOMAIN-SUFFIX, spotify.com), (PROTOCOL, QUIC)), REJECT-NO-DROP
 
 [Header Rewrite]
 # if-none-match返回304状态码
