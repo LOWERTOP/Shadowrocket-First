@@ -5,6 +5,10 @@
 # 代码来源：https://github.com/app2smile
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
+[Rule]
+# Spotify QUIC
+AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,UDP),(DST-PORT,443)),REJECT-NO-DROP
+
 [Header Rewrite]
 # if-none-match返回304状态码
 http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
