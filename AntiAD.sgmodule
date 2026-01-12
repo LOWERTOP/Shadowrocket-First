@@ -7,8 +7,8 @@
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
-# Spotify QUIC
-AND, ((DOMAIN-SUFFIX, spotify.com), (PROTOCOL, QUIC)), REJECT-NO-DROP
+# Spotify QUIC BLOCK
+AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,QUIC)),REJECT-NO-DROP
 
 # 苹果商店加速需要以下地址直连
 DOMAIN-SUFFIX,apps.apple.com,DIRECT
