@@ -1,0 +1,30 @@
+#!name=资源解析转换方案
+#!desc=可莉插件中心及墨鱼手记模块直装，本模块集成 Script-Hub，若有侵权可联系删除
+#!author=iab0x00，LOWERTOP，感谢资源作者@iKeLee(https://github.com/luestr) 、@墨鱼(ddgksf2013.top) 和 Script-Hub(https://github.com/Script-Hub-Org)作者(@小白脸 @xream @keywos @ckyb)
+
+[General]
+force-http-engine-hosts = %APPEND% script.hub, *.script.hub
+
+[Rule]
+# 墨鱼手记 QUIC
+AND, ((DOMAIN-SUFFIX, ddgksf2013.top), (PROTOCOL, QUIC)), REJECT-NO-DROP
+
+[Body Rewrite]
+http-response ^https://(hub|pluginhub)\.kelee\.one/list\.json "loon://import\?plugin=(https://kelee.one/Tool/Loon/Lpx/(.+).lpx)" "shadowrocket://install?module=http://script.hub/file/_start_/$1/_end_/$2.sgmodule%3Ftype%3Dloon-plugin%26target%3Dshadowrocket-module%26del%3Dtrue%26jqEnabled%3Dtrue"
+
+[Header Rewrite]
+http-request ^https://(hub|pluginhub)\.kelee\.one/list\.json header-del if-none-match
+
+[Script]
+Script Hub: 前端 = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.js, timeout=300
+
+Script Hub: 重写转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/Rewrite-Parser.js, timeout=300
+
+Script Hub: 规则集转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/rule-parser.js, timeout=300
+
+Script Hub: 脚本转换 = type=http-request, pattern=^https?:\/\/script\.hub\/convert\/, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-converter.js, timeout=300
+
+墨鱼网页变身 = type=http-response, pattern=^https?:\/\/ddgksf2013.top\/$,requires-body=1,max-size=-1,script-path=https://ddgksf2013.top/scripts/web.rocket.js, timeout=3500
+
+[MITM]
+hostname = %APPEND% script.hub, *.script.hub, hub.kelee.one, pluginhub.kelee.one, ddgksf2013.top
