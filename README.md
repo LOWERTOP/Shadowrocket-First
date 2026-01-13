@@ -173,17 +173,6 @@
 > > [![首先安装 索引模块](https://img.shields.io/static/v1?label=首先安装&message=索引模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule "一键安装本模块")
 > > [![其次访问 墨鱼手记](https://img.shields.io/static/v1?label=其次访问&message=墨鱼手记&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://ddgksf2013.top "访问相应地址")
 > 
-> **[资源综合解析方案](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Script2Rocket.module)**
-> 
-> > 本方案已融合 [插件中心转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 和 [墨鱼资源索引](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule) 两个解析模块，仅需安装本模块即可同时支持解析 [可莉插件中心](https://hub.kelee.one) 和 [墨鱼手记](https://ddgksf2013.top)。本方案已集成 **[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)**，无需再次安装，感谢代码作者 [iab0x00](https://github.com/iab0x00) 及 [可莉](https://github.com/luestr)、[墨鱼](https://github.com/ddgksf2013) 等资源作者们的辛苦付出，同时感谢 **Script-Hub** 的技术支撑。本方案原则上遵循相关资源作者的声明，仅对相关页面和资源做解析转换和集成，若违反相关声明请及时告知
-> > 
-> > * 安装并启用 [本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Script2Rocket.module)
-> > * 访问 [插件中心](https://hub.kelee.one/) 或 [墨鱼手记](https://ddgksf2013.top) 选择需要的插件/模块，点击安装即可
-> >   
-> > [![首先安装 解析模块](https://img.shields.io/static/v1?label=首先安装&message=解析模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Script2Rocket.module "一键安装本模块")
-> > [![支持解析 插件中心](https://img.shields.io/static/v1?label=支持解析&message=插件中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://hub.kelee.one "访问相应地址")
-> > [![支持解析 墨鱼手记](https://img.shields.io/static/v1?label=支持解析&message=墨鱼手记&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://ddgksf2013.top "访问相应地址")
-> 
 > **[奶思净化合集模块](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)**
 > 
 > > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，对数百款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)
