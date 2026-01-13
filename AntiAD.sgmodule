@@ -1,14 +1,19 @@
 #!name=多效服务模块
 #!desc=自用模块，接受反馈，但不接受定制，随时可能增减功能
-#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, Talkatone检测:PROXY, Talkatone分流:PROXY, 商店下载加速:iosapps, 商店加速地址:iosapps.itunes.apple.com.download.ks-cdn.com, 系统升级加速:updates, 升级加速地址:updates.cdn-apple.com.download.ks-cdn.com, Emby元数据策略:Proxy, Emby服务器策略:Proxy, Emby服务器域名1:okemby.org, Emby服务器域名2:emby.example.com, Emby服务器域名3:media.example.net
+#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, Script-Hub:true, CuttleFish:false, Talkatone检测:PROXY, Talkatone分流:PROXY, 商店下载加速:iosapps, 商店加速地址:iosapps.itunes.apple.com.download.ks-cdn.com, 系统升级加速:updates, 升级加速地址:updates.cdn-apple.com.download.ks-cdn.com, Emby元数据策略:Proxy, Emby服务器策略:Proxy, Emby服务器域名1:okemby.org, Emby服务器域名2:emby.example.com, Emby服务器域名3:media.example.net
 #!arguments-desc=🔘 Spotify歌词翻译\n\n· 需申请百度翻译API，推荐申请高级版并开通通用文本翻译服务，成功拿到ID密钥后填入，在软件歌词界面左下角即可看到翻译按钮。申请时建议使用桌面设备，移动设备可能访问失败\n\n· 注册地址：http://api.fanyi.baidu.com\n\n🔘 Talkatone 分流策略\n\n· 默认首页节点，可填入节点名称或者代理分组名称指定策略\n\n🔘 商店下载加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   iosapps.itunes.apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   hls.itunes.apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   iosapps.itunes.apple.com.m.alikunlun.net\n\n🔘 系统升级加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   updates.cdn-apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   updates.cdn-apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   updates.cdn-apple.com.w.kunlunca.com\n\n🔘 分流策略可自定义直连、代理、节点名称、代理分组名称\n\n🔘 Emby元数据策略：海报、评分、字幕等元数据服务使用的策略\n\n🔘 Emby服务器策略：Emby 实际播放、Web、API 使用的策略\n\n🔘 Emby服务器域名：填写所需的Emby域名，每项仅支持单个域名
 # 代码来源：GitHub 之 fmz200、app2smile、001ProMax、iab0x00、Keywos、kokoryh、luestr、RuCu6、ddgksf2013 等，未尽之处还望海涵
 # 整理作者：LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
+[General]
+force-http-engine-hosts = %APPEND% script.hub, *.script.hub
+
 [Rule]
 # Spotify QUIC BLOCK
 AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,QUIC)),REJECT-NO-DROP
+# BLOCK QUIC
+AND,((DOMAIN-SUFFIX,ddgksf2013.top), (PROTOCOL,QUIC)),REJECT-NO-DROP
 
 # 苹果商店加速需要以下地址直连
 DOMAIN-SUFFIX,apps.apple.com,DIRECT
@@ -296,44 +301,13 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,reject
 # Spotify if-none-match 返回304状态码
 http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
 
-[Map Local]
-# Spotify
-# ^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com\/(?:ad-|pendragon) data-type=text data="" status-code=200
-
-# SDGun @xream
-^https?:\/\/mag1\.sdgun\.net\/mag\/operative\/v1\/ad\/listNotEndByPlace data-type=text data='{"success":true,"code":100,"msg":null,"list":[]}' header='Content-Type:application/json'
-^https?:\/\/mag1\.sdgun\.net\/mag\/operative\/v1\/Ad\/listNotEndByPlaceWap data-type=text data='{"success":true,"code":100,"data":{"themeTop":[],"wap_topic_content_ad":[],"themeBottom":[],"appThemeTopStyle":"1","userBehindAdStyle":"1","appThemeBottom":[],"cloud_ad_type":"","commentTop":[],"userBehindAd":[],"themeTopStyle":"1","appThemeTop":[],"appThemeBottomStyle":"1"},"msg":null}' header='Content-Type:application/json'
-
-# 微信公众号去除商品推广
-^https?:\/\/mp\.weixin\.qq\.com\/mp\/cps_product_info\?action data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-# 阿里云盘
-^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_luckyBottle data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-# 招商银行 开屏广告
-^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig data-type=text data=" " status-code=200
-# 首页横幅广告
-^https?:\/\/mbmodule-openapi\.paas\.cmbchina\.com\/graphic\/v2\/module\/graphic data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-# 掌上生活 开屏广告
-^https?:\/\/mbasecc\.(bas|bcs)\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-# 淘宝
-^https?:\/\/intellicc\.bcs\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.adrender\.api\.AdWork\/getAdsBySlotId data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(octopus|tps-1125-1602|tps-1080-1920)\.(jp|pn)g_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q[59]0 data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+# Pluginhub
+http-request ^https://(hub|pluginhub)\.kelee\.one/list\.json header-del if-none-match
 
 [Body Rewrite]
+# Pluginhub
+http-response ^https://(hub|pluginhub)\.kelee\.one/list\.json "loon://import\?plugin=(https://kelee.one/Tool/Loon/Lpx/(.+).lpx)" "shadowrocket://install?module=http://script.hub/file/_start_/$1/_end_/$2.sgmodule%3Ftype%3Dloon-plugin%26target%3Dshadowrocket-module%26del%3Dtrue%26jqEnabled%3Dtrue"
+
 #SDGun @xream
 http-response-jq ^https?:\/\/mag1.sdgun.net\/mag\/info\/v2\/channel\/infoListByCatId '.list |= map(select(._type != "pic_ad"))'
 http-response-jq ^https?:\/\/mag1.sdgun.net\/mag\/circle\/v2\/forum\/forumViewV2 '.list |= map(select(.info_list_ad_style_type != 1))'
@@ -382,6 +356,43 @@ http-response-jq ^https:\/\/api\.pinduoduo\.com\/order\/ 'delpaths([["marketing_
 http-response-jq ^https:\/\/api\.pinduoduo\.com\/order\/ 'delpaths([["shipping","banner_above_recommend"]])'
 http-response-jq ^https:\/\/api\.pinduoduo\.com\/api\/aristotle\/order_list_v4\? '.orders |= map(.order_buttons |= map(del(.order_growth_tip)))'
 
+[Map Local]
+# Spotify
+# ^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com\/(?:ad-|pendragon) data-type=text data="" status-code=200
+
+# SDGun @xream
+^https?:\/\/mag1\.sdgun\.net\/mag\/operative\/v1\/ad\/listNotEndByPlace data-type=text data='{"success":true,"code":100,"msg":null,"list":[]}' header='Content-Type:application/json'
+^https?:\/\/mag1\.sdgun\.net\/mag\/operative\/v1\/Ad\/listNotEndByPlaceWap data-type=text data='{"success":true,"code":100,"data":{"themeTop":[],"wap_topic_content_ad":[],"themeBottom":[],"appThemeTopStyle":"1","userBehindAdStyle":"1","appThemeBottom":[],"cloud_ad_type":"","commentTop":[],"userBehindAd":[],"themeTopStyle":"1","appThemeTop":[],"appThemeBottomStyle":"1"},"msg":null}' header='Content-Type:application/json'
+
+# 微信公众号去除商品推广
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/cps_product_info\?action data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+# 阿里云盘
+^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_luckyBottle data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+# 招商银行 开屏广告
+^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig data-type=text data=" " status-code=200
+# 首页横幅广告
+^https?:\/\/mbmodule-openapi\.paas\.cmbchina\.com\/graphic\/v2\/module\/graphic data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+# 掌上生活 开屏广告
+^https?:\/\/mbasecc\.(bas|bcs)\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+# 淘宝
+^https?:\/\/intellicc\.bcs\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.adrender\.api\.AdWork\/getAdsBySlotId data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/heic\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(octopus|tps-1125-1602|tps-1080-1920)\.(jp|pn)g_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q[59]0 data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
 [Script]
 # Spotify
 spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
@@ -390,6 +401,15 @@ spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^http
 
 # 包子漫画网页
 web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://lowertop.github.io/Shadowrocket-First/JS/baozimh.js
+
+# Script Hub
+Script Hub: 前端 = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.js,enable={{{Script-Hub}}}, timeout=300
+Script Hub: 重写转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/Rewrite-Parser.js,enable={{{Script-Hub}}}, timeout=300
+Script Hub: 规则集转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/rule-parser.js,enable={{{Script-Hub}}}, timeout=300
+Script Hub: 脚本转换 = type=http-request, pattern=^https?:\/\/script\.hub\/convert\/, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-converter.js,enable={{{Script-Hub}}}, timeout=300
+
+网页变身 = type=http-response, pattern=^https?:\/\/ddgksf2013.top\/$,requires-body=1,max-size=-1,script-path=https://ddgksf2013.top/scripts/web.rocket.js,enable={{{CuttleFish}}}, timeout=3500
+
 
 # 豆瓣@ddgksf2013
 douban.js=type=http-response, pattern=^https?:\/\/m\.douban\.com\/(home_guide|movie|tv|book|group|music), script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/douban.js, requires-body=true, max-size=-1, timeout=60
@@ -446,4 +466,4 @@ blued.js =type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users\/.+\/
 {{{系统升级加速}}}.g.aaplimg.com = {{{升级加速地址}}}
 
 [MITM]
-hostname = %APPEND% api.posters.meitu.com, app.dsx.ac, *.amap.com, gql-fed.reddit.com, mag1.sdgun.net, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, webappcfg.paas.cmbchina.com, api.alipan.com, intellicc.bcs.cmbchina.com, member.alipan.com, mp.weixin.qq.com, api.pinduoduo.com, api.yangkeduo.com, api.douban.com, frodo.douban.com, m.douban.com, api.weibo.cn, api.weibo.com, weibointl.api.weibo.cn, tiebac.baidu.com, tieba.baidu.com, static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, marketing-aibox.v.mitvos.com
+hostname = %APPEND% api.posters.meitu.com, app.dsx.ac, *.amap.com, gql-fed.reddit.com, mag1.sdgun.net, mbasecc.bas.cmbchina.com, mbasecc.bcs.cmbchina.com, intellicc.bas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com, webappcfg.paas.cmbchina.com, api.alipan.com, intellicc.bcs.cmbchina.com, member.alipan.com, mp.weixin.qq.com, api.pinduoduo.com, api.yangkeduo.com, api.douban.com, frodo.douban.com, m.douban.com, api.weibo.cn, api.weibo.com, weibointl.api.weibo.cn, tiebac.baidu.com, tieba.baidu.com, static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, social.blued.cn, pan.baidu.com, ndstatic.cdn.bcebos.com, staticsns.cdn.bcebos.com, issuecdn.baidupcs.com, update.pan.baidu.com, fc-video.cdn.bcebos.com, rp.hpplay.cn, cdn-evone-ceph.echargenet.com, client.app.coc.10086.cn, h.app.coc.10086.cn, app.10086.cn, m.client.10010.com, m1.ad.10010.com, res.mall.10010.cn, app-izz.zhengzhou.gov.cn:10019, acs.m.taobao.com, acs.m.goofish.com, g-acs.m.goofish.com, dinamicx.alibabausercontent.com, shopapi.io.mi.com, alt-r.my.com, imgx.jampp.com, open-cms-api.uc.cn, open-cms-api.quark.cn, capi.lkcoffee.com, amdc.m.taobao.com, heic.alicdn.com, guide-acs.m.taobao.com, poplayer.template.alibaba.com, marketing-aibox.v.mitvos.com, script.hub, *.script.hub, hub.kelee.one, pluginhub.kelee.one, ddgksf2013.top
