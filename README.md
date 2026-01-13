@@ -163,16 +163,6 @@
 > > [![首先安装 解析模块](https://img.shields.io/static/v1?label=首先安装&message=解析模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule "一键安装本模块")
 > > [![其次访问 插件中心](https://img.shields.io/static/v1?label=其次访问&message=插件中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://hub.kelee.one "访问相应地址")
 > 
-> **[墨鱼资源索引模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)**
-> 
-> > 本模块来自 [墨鱼](https://github.com/ddgksf2013)，安装后使 [墨鱼手记](https://ddgksf2013.top) 变身为模块中心，可直接安装其中的模块
-> > 
-> > * 安装并启用 [本模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
-> > * 访问 [墨鱼手记](https://ddgksf2013.top)，Tab 栏将显示 Shadowrocket，选择其中需要的模块点击安装即可
-> >   
-> > [![首先安装 索引模块](https://img.shields.io/static/v1?label=首先安装&message=索引模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule "一键安装本模块")
-> > [![其次访问 墨鱼手记](https://img.shields.io/static/v1?label=其次访问&message=墨鱼手记&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://ddgksf2013.top "访问相应地址")
-> 
 > **[奶思净化合集模块](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)**
 > 
 > > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，对数百款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)
