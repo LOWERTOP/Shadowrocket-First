@@ -1,0 +1,166 @@
+#!name=综合服务模块
+#!desc=自用模块
+#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译 AppID, 翻译密钥:申请并填入百度翻译密钥, Script-Hub:true, Cuttle-Fish:true, Talkatone检测:PROXY, Talkatone分流:PROXY, 商店下载加速:iosapps, 商店加速地址:iosapps.itunes.apple.com.download.ks-cdn.com, 系统升级加速:updates, 升级加速地址:updates.cdn-apple.com.download.ks-cdn.com, Emby元数据策略:Proxy, Emby服务器策略:Proxy, Emby服务器域名1:okemby.org, Emby服务器域名2:emby.example.com, Emby服务器域名3:media.example.net
+#!arguments-desc=🔘 Spotify歌词翻译\n\n· 需申请百度翻译API，推荐申请高级版并开通通用文本翻译服务，成功拿到ID密钥后填入，在软件歌词界面左下角即可看到翻译按钮。申请时建议使用桌面设备，移动设备可能访问失败\n\n· 注册地址：http://api.fanyi.baidu.com\n\n🔘 Talkatone 分流策略\n\n· 默认首页节点，可填入节点名称或者代理分组名称指定策略\n\n🔘 商店下载加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   iosapps.itunes.apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   hls.itunes.apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   iosapps.itunes.apple.com.m.alikunlun.net\n\n🔘 系统升级加速填#可禁用，加速地址可选填其他\n\n· 默认金山CDN，CDN结果为本省\n\n   updates.cdn-apple.com.download.ks-cdn.com\n\n· 备选网宿CDN，CDN结果为本省或临近省份\n\n   updates.cdn-apple.com.mwcname.com\n\n· 备选阿里CDN，CDN结果可能异地\n\n   updates.cdn-apple.com.w.kunlunca.com\n\n🔘 分流策略可自定义直连、代理、节点名称、代理分组名称\n\n🔘 Emby元数据策略：海报、评分、字幕等元数据服务使用的策略\n\n🔘 Emby服务器策略：Emby 实际播放、Web、API 使用的策略\n\n🔘 Emby服务器域名：填写所需的Emby域名，每项仅支持单个域名
+# 整理作者：LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+
+[General]
+force-http-engine-hosts = %APPEND% script.hub, *.script.hub
+
+[Rule]
+# Spotify QUIC BLOCK
+AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,QUIC)),REJECT-NO-DROP
+# BLOCK QUIC
+AND,((DOMAIN-SUFFIX,ddgksf2013.top), (PROTOCOL,QUIC)),REJECT-NO-DROP
+
+# 苹果商店加速需要以下地址直连
+DOMAIN-SUFFIX,apps.apple.com,DIRECT
+DOMAIN-SUFFIX,itunes.apple.com,DIRECT
+
+####################################
+# Emby 服务器访问
+####################################
+DOMAIN-SUFFIX,{{{Emby服务器域名1}}},{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,{{{Emby服务器域名2}}},{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,{{{Emby服务器域名3}}},{{{Emby服务器策略}}}
+# 常见 Emby 服务域名
+DOMAIN-SUFFIX,emby.com,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.media,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.wtf,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.plus,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.best,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.moe,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.pro,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.club,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.world,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.vip,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.life,{{{Emby服务器策略}}}
+DOMAIN-SUFFIX,emby.cool,{{{Emby服务器策略}}}
+# 服务器关键词兜底
+DOMAIN-KEYWORD,emby,{{{Emby服务器策略}}}
+
+####################################
+# 影视元数据 / 信息服务
+####################################
+DOMAIN-SUFFIX,allocine.fr,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,themoviedb.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,thetvdb.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,imdb.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,trakt.tv,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,omdbapi.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,fanart.tv,{{{Emby元数据策略}}}
+
+####################################
+# 动漫 / 音乐元数据
+####################################
+DOMAIN-SUFFIX,anilist.co,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,musicbrainz.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,audiodb.com,{{{Emby元数据策略}}}
+
+####################################
+# 字幕服务
+####################################
+DOMAIN-SUFFIX,opensubtitles.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,opensubtitles.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,subscene.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,addic7ed.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,yifysubtitles.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,subdl.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,podnapisi.net,{{{Emby元数据策略}}}
+# 中文字幕
+DOMAIN-SUFFIX,assrt.net,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,zimuku.cn,{{{Emby元数据策略}}}
+# 动漫 / 剧集字幕
+DOMAIN-SUFFIX,kitsunekko.net,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,subsplease.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,subf2m.co,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,subtitles.hr,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,titlovi.com,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,planetdp.org,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,nyaa.si,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,erai-raws.info,{{{Emby元数据策略}}}
+DOMAIN-SUFFIX,anidb.net,{{{Emby元数据策略}}}
+
+####################################
+# Jellyfin 兼容
+####################################
+DOMAIN-SUFFIX,jellyfin.org,{{{Emby元数据策略}}}
+DOMAIN-KEYWORD,jellyfin,{{{Emby元数据策略}}}
+
+# 红果短剧部分去广告规则
+DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,reject
+DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,reject
+DOMAIN-WILDCARD,*-ad-sign.byteimg.com,reject
+DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,reject
+
+# 包子漫画所需特定规则
+DOMAIN-SUFFIX,baozimhcn.com,DIRECT
+DOMAIN-SUFFIX,baozimh.com,DIRECT
+DOMAIN-SUFFIX,baozicdn.com,DIRECT
+DOMAIN-SUFFIX,dzmanga.com,DIRECT
+DOMAIN-SUFFIX,twmanga.com,DIRECT
+DOMAIN-SUFFIX,baozimhapp.com,REJECT
+
+# Talkatone 分流规则集
+RULE-SET,https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list,reject
+DOMAIN-WILDCARD,*-sjc-*.tktn.be, {{{Talkatone检测}}}
+RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneProxyOnly.list,{{{Talkatone分流}}}
+RULE-SET,https://lowertop.github.io/Shadowrocket-First/TalkatoneDirect.list,DIRECT
+
+# DeepSeek 规则
+# 以下为该软件的疑似上传地址
+DOMAIN-SUFFIX,apmplus.volces.com,reject
+DOMAIN-SUFFIX,gator.volces.com,reject
+DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,reject
+# 以下为该软件代理规则集
+# RULE-SET,https://lowertop.github.io/Shadowrocket-First/DeepSeek.list,PROXY
+
+[URL Rewrite]
+# 包子漫画横幅APP广告
+^https?:\/\/static-tw\.baozimh\.com\/bzmhapp-data\/pics\/install_app_bar_baozimhappx\.jpg$ - reject
+
+# 小蚁
+^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - reject
+^https?://api.xiaoyi.com\/v5\/app\/config\?userid=.* - reject
+
+[Header Rewrite]
+# Spotify if-none-match 返回304状态码
+http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
+
+# Pluginhub
+http-request ^https://(hub|pluginhub)\.kelee\.one/list\.json header-del if-none-match
+
+[Body Rewrite]
+# Pluginhub
+http-response ^https://(hub|pluginhub)\.kelee\.one/list\.json "loon://import\?plugin=(https://kelee.one/Tool/Loon/Lpx/(.+).lpx)" "shadowrocket://install?module=http://script.hub/file/_start_/$1/_end_/$2.sgmodule%3Ftype%3Dloon-plugin%26target%3Dshadowrocket-module%26del%3Dtrue%26jqEnabled%3Dtrue"
+
+[Map Local]
+# Spotify
+# ^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com\/(?:ad-|pendragon) data-type=text data="" status-code=200
+
+[Script]
+# Spotify
+spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
+spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
+spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,argument=appid={{{翻译账户}}}&securityKey={{{翻译密钥}}}
+
+# 包子漫画网页
+web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://lowertop.github.io/Shadowrocket-First/JS/baozimh.js
+
+# Script Hub
+Script Hub: 前端 = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.js,enable={{{Script-Hub}}}, timeout=300
+Script Hub: 重写转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/Rewrite-Parser.js,enable={{{Script-Hub}}}, timeout=300
+Script Hub: 规则集转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/rule-parser.js,enable={{{Script-Hub}}}, timeout=300
+Script Hub: 脚本转换 = type=http-request, pattern=^https?:\/\/script\.hub\/convert\/, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-converter.js,enable={{{Script-Hub}}}, timeout=300
+
+网页变身 = type=http-response, pattern=^https?:\/\/ddgksf2013.top\/$,requires-body=1,max-size=-1,script-path=https://ddgksf2013.top/scripts/web.rocket.js,enable={{{Cuttle-Fish}}}, timeout=3500
+
+[Host]
+{{{商店下载加速}}}.itunes.apple.com = {{{商店加速地址}}}
+{{{系统升级加速}}}.cdn-apple.com = {{{升级加速地址}}}
+{{{系统升级加速}}}.cdn-apple.com.akadns.net = {{{升级加速地址}}}
+{{{系统升级加速}}}.g.aaplimg.com = {{{升级加速地址}}}
+
+[MITM]
+hostname = %APPEND% static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, script.hub, *.script.hub, hub.kelee.one, pluginhub.kelee.one, ddgksf2013.top
