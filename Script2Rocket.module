@@ -1,13 +1,13 @@
 #!name=资源解析转换方案
-#!desc=可莉插件中心及墨鱼手记模块直装，本模块集成 Script-Hub，若有侵权可联系删除
-#!author=iab0x00，LOWERTOP，感谢资源作者@iKeLee(https://github.com/luestr) 、@墨鱼(ddgksf2013.top) 和 Script-Hub(https://github.com/Script-Hub-Org)作者(@小白脸 @xream @keywos @ckyb)
+#!desc=可莉插件中心及墨鱼手记模块直装，本模块集成 Script-Hub，若有侵权可联系删除。安装后可直接访问以下地址使用相关资源：https://pluginhub.kelee.one/ 及 https://ddgksf2013.top/
+#!author=iab0x00，LOWERTOP，感谢资源作者@iKeLee(https://github.com/luestr) 、@Cuttlefish(https://github.com/ddgksf2013) 和 Script-Hub(https://github.com/Script-Hub-Org)作者(@小白脸 @xream @keywos @ckyb)
 
 [General]
 force-http-engine-hosts = %APPEND% script.hub, *.script.hub
 
 [Rule]
-# 墨鱼手记 QUIC
-AND, ((DOMAIN-SUFFIX, ddgksf2013.top), (PROTOCOL, QUIC)), REJECT-NO-DROP
+# BLOCK QUIC
+AND,((DOMAIN-SUFFIX,ddgksf2013.top), (PROTOCOL,QUIC)),REJECT-NO-DROP
 
 [Body Rewrite]
 http-response ^https://(hub|pluginhub)\.kelee\.one/list\.json "loon://import\?plugin=(https://kelee.one/Tool/Loon/Lpx/(.+).lpx)" "shadowrocket://install?module=http://script.hub/file/_start_/$1/_end_/$2.sgmodule%3Ftype%3Dloon-plugin%26target%3Dshadowrocket-module%26del%3Dtrue%26jqEnabled%3Dtrue"
