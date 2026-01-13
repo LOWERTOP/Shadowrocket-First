@@ -153,16 +153,37 @@
 > **使用大多数模块须正确 [开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而须重新解密可设置 [证书模块](#证书模块)**<br>
 > **部分模块的生效需要清除相应的程序的缓存或者重新安装**
 
-> **[资源解析转换方案](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule)**
+> **[插件中心转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule)**
 > 
-> > 本方案模块由 [iab0x00](https://github.com/iab0x00) 制作，现阶段可使小火箭直接安装并使用 [可莉插件中心](https://hub.kelee.one) 的插件/模块。本模块借助 **[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)** 的转换功能实现，为方便新手使用已内置 [Script-Hub](https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 相关代码。感谢 [iab0x00](https://github.com/iab0x00)、[可莉](https://github.com/luestr) 及 [Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki) 的辛苦付出，本案遵循 [可莉的授权说明](https://t.me/ibilibili/1498)
+> > 本方案模块由 [iab0x00](https://github.com/iab0x00) 制作，可使小火箭直接安装并使用 [可莉插件中心](https://hub.kelee.one) 的插件/模块。本模块借助 **[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)** 的转换功能实现，为方便新手使用已内置 [Script-Hub](https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 相关代码。感谢 [iab0x00](https://github.com/iab0x00)、[可莉](https://github.com/luestr) 及 [Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki) 的辛苦付出，本案遵循 [可莉的授权说明](https://t.me/ibilibili/1498)
 > > 
 > > * 安装并启用 [本模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule)
-> > * 访问  [插件中心](https://hub.kelee.one/) 选择需要的插件/模块，点击安装即可
+> > * 访问 [插件中心](https://hub.kelee.one/)，选择需要的插件/模块，点击安装即可
 > >   
 > > [![首先安装 解析模块](https://img.shields.io/static/v1?label=首先安装&message=解析模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule "一键安装本模块")
-> > [![其次访问 插件中心](https://img.shields.io/static/v1?label=其次访问&message=插件中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://hub.kelee.one "访问插件中心")
-
+> > [![其次访问 插件中心](https://img.shields.io/static/v1?label=其次访问&message=插件中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://hub.kelee.one "访问相应地址")
+> 
+> **[墨鱼资源索引模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)**
+> 
+> > 本模块来自 [墨鱼](https://github.com/ddgksf2013)，安装后使 [墨鱼手记](https://ddgksf2013.top) 变身为模块中心，可直接安装其中的模块
+> > 
+> > * 安装并启用 [本模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
+> > * 访问 [墨鱼手记](https://ddgksf2013.top)，Tab 栏将显示 Shadowrocket，选择其中需要的模块点击安装即可
+> >   
+> > [![首先安装 索引模块](https://img.shields.io/static/v1?label=首先安装&message=索引模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule "一键安装本模块")
+> > [![其次访问 墨鱼手记](https://img.shields.io/static/v1?label=其次访问&message=墨鱼手记&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://ddgksf2013.top "访问相应地址")
+> 
+> **[资源综合解析方案](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Script2Rocket.module)**
+> 
+> > 本方案已融合 [插件中心转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 和 [墨鱼资源索引](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule) 两个解析模块，仅需安装本模块即可同时支持解析 [可莉插件中心](https://hub.kelee.one) 和 [墨鱼手记](https://ddgksf2013.top)。本方案已集成 **[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)**，无需再次安装，感谢代码作者 [iab0x00](https://github.com/iab0x00) 及 [可莉](https://github.com/luestr)、[墨鱼](https://github.com/ddgksf2013) 等资源作者们的辛苦付出，同时感谢 **Script-Hub** 的技术支撑。本方案原则上遵循相关资源作者的声明，仅对相关页面和资源做解析转换和集成，若违反相关声明请及时告知
+> > 
+> > * 安装并启用 [本模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Script2Rocket.module)
+> > * 访问 [插件中心](https://hub.kelee.one/) 或 [墨鱼手记](https://ddgksf2013.top) 选择需要的插件/模块，点击安装即可
+> >   
+> > [![首先安装 解析模块](https://img.shields.io/static/v1?label=首先安装&message=解析模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Script2Rocket.module "一键安装本模块")
+> > [![支持解析 插件中心](https://img.shields.io/static/v1?label=支持解析&message=插件中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://hub.kelee.one "访问相应地址")
+> > [![支持解析 墨鱼手记](https://img.shields.io/static/v1?label=支持解析&message=墨鱼手记&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://ddgksf2013.top "访问相应地址")
+> 
 > **[奶思净化合集模块](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)**
 > 
 > > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，对数百款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/blockAds.module)
