@@ -94,6 +94,12 @@
 >
 > [![安装模块 苹果助手](https://img.shields.io/static/v1?label=安装模块&message=苹果助手&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Helper.sgmodule "一键安装本模块")
 
+### [私库访问模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Private.module)
+
+> 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的基于用户维度的访问 GitHub 私密仓库的多 Token 自动鉴权模块，支持配置 4 个不同的 GitHub 账号，自动匹配 `raw` 或 `gist` 文件地址中的用户名并注入对应的 Token，实现多用户、多仓库的鉴权访问，在 编辑参数 内填写所需内容即可生效
+> 
+> [![安装模块 私库模块](https://img.shields.io/static/v1?label=安装模块&message=私库模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Private.module "一键安装本模块")
+
 ### [证书模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CA.sgmodule)
 
 > 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的简化了创建 **[证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)** 流程的母版模块。使用时仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块。参数编辑界面同时提供添加主机名及主机名插入方式的修改入口，可作为主机名解密补充或者反解密主机名使用，其他证书模块功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)<br>
@@ -114,15 +120,9 @@
 >
 > [![安装模块 反解密模块](https://img.shields.io/static/v1?label=安装模块&message=反解密模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule "一键安装本模块")
 
-### [私库访问模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Private.module)
-
-> 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的基于用户维度的访问 GitHub 私密仓库的多 Token 自动鉴权模块，支持配置 4 个不同的 GitHub 账号，自动匹配 `raw` 或 `gist` 文件地址中的用户名并注入对应的 Token，实现多用户、多仓库的鉴权访问，在 编辑参数 内填写所需内容即可生效
-> 
-> [![安装模块 私库模块](https://img.shields.io/static/v1?label=安装模块&message=私库模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Private.module "一键安装本模块")
-
 ### [调试模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Commands.sgmodule)
 
-> 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的调整配置文件内部分参数、功能及隐藏参数选项的功能模块，相关参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
+> 本模块是使用 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的以 UI 界面调整配置文件内部分参数、功能及隐藏参数选项的功能增强型模块。相关参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 > 
 > [![安装模块 调试模块](https://img.shields.io/static/v1?label=安装模块&message=调试模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Commands.sgmodule "一键安装本模块")
 
