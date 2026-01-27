@@ -296,19 +296,6 @@
 > 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各代理软件分流规则的入口，是现阶段首推的代理规则集，使用时务必阅读相应的配置建议
 > 
 > [![规则检索 分流规则集](https://img.shields.io/static/v1?label=规则检索&message=分流规则集&color=grey&logo=searxng&logoColor=white&labelColor=%2325A162&messageColor=white)](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket "点击查看分类")
->
-> [anti-AD](https://github.com/privacy-protection-tools/anti-AD) 维护有适用于小火箭的 [去广告规则](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt)。其将各大著名的 hosts、ad filter lists、adblock list 等列表进行合并去重，再进行一系列的抽象化，例如主动剔除失效域名、easylist 优化模糊匹配、增强的黑白名单机制等措施，最终生成较高命中率的列表
-> 
-> [![规则文件 anti-AD](https://img.shields.io/static/v1?label=规则文件&message=anti-AD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-surge2.txt "点击访问规则集")
-> 
-> [ACL4SSR](https://github.com/ACL4SSR) 维护的 [去广告规则](https://github.com/ACL4SSR/ACL4SSR/tree/master)，其 [BanAD 规则](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list) 包含常见广告关键字、广告联盟，几乎没有副作用，可以放心使用。另外还有取自 Adblock 的 [EasyListChina 规则](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list) 等内容
-> 
-> [![规则文件 BanAD](https://img.shields.io/static/v1?label=规则文件&message=BanAD&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list "点击访问规则集")
-> [![规则文件 EasyListChina](https://img.shields.io/static/v1?label=规则文件&message=EasyListChina&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list "点击访问规则集")
->
-> [Cats-Team](https://github.com/Cats-Team) 维护的 [去广告规则](https://github.com/Cats-Team/AdRules)，维护相对及时，将其添加为规则集，并将策略设置为 `Reject` 即可使用
-> 
-> [![规则文件 Cats-Team](https://img.shields.io/static/v1?label=规则文件&message=Cats-Team&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules.list "点击访问规则集")
 > 
 > [iab0x00](https://github.com/iab0x00) 维护的轻量级 [去广告规则](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rule/Block.txt)，包含一些常用广告域名、360、百度、字节、腾讯等多个广告商或服务的屏蔽列表
 > 
