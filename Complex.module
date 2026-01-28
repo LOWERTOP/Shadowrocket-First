@@ -89,10 +89,10 @@ DOMAIN-SUFFIX,jellyfin.org,{{{Emby元数据策略}}}
 DOMAIN-KEYWORD,jellyfin,{{{Emby元数据策略}}}
 
 # 红果短剧部分去广告规则
-DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,reject
-DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,reject
-DOMAIN-WILDCARD,*-ad-sign.byteimg.com,reject
-DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,reject
+DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,REJECT-DROP
+DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-WILDCARD,*-ad-sign.byteimg.com,REJECT-DROP
+DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,REJECT-DROP
 
 # 包子漫画所需特定规则
 DOMAIN-SUFFIX,baozimhcn.com,DIRECT
