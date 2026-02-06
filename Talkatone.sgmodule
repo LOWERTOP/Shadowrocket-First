@@ -8,6 +8,8 @@
 [Rule]
 # 以下为该软件部分去广告规则
 # DOMAIN-KEYWORD,googleads,REJECT
+DOMAIN-WILDCARD,lb-iad-*.tktn.be,REJECT
+DOMAIN-SUFFIX,adrta.com,REJECT
 DOMAIN-SUFFIX,creatives.smadex.com,REJECT
 DOMAIN-SUFFIX,static-content-1.smadex.com,REJECT
 DOMAIN-SUFFIX,imp-lb-us2.jampp.com,REJECT
