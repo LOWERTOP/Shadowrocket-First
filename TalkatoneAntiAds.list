@@ -8,6 +8,8 @@
 
 # DOMAIN-KEYWORD,googleads
 # DOMAIN-SUFFIX,d.tktn.be
+DOMAIN-WILDCARD,lb-iad-*.tktn.be
+DOMAIN-SUFFIX,adrta.com
 DOMAIN-SUFFIX,creatives.smadex.com
 DOMAIN-SUFFIX,static-content-1.smadex.com
 DOMAIN-SUFFIX,imp-lb-us2.jampp.com
