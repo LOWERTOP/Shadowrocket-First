@@ -12,7 +12,7 @@
 > > 若您是相关索引的原作者或权利人，且不希望内容被引用，可点击 [此处](https://t.me/LOWERTOP) 要求剔除
 
 > **`项目目录`**
-> * **[Shadowrocket 自建文件](#shadowrocket-自建文件)**
+> * **[Shadowrocket 本仓文件](#shadowrocket-本仓文件)**
 > * **[Shadowrocket 收集文件](#shadowrocket-收集文件)**
 > * **[Shadowrocket 配色文件](#shadowrocket-配色文件)**
 > * **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
@@ -22,7 +22,7 @@
 
 ------
 
-# [Shadowrocket 自建文件](#shadowrocket-自建文件)
+# [Shadowrocket 本仓文件](#shadowrocket-本仓文件)
 
 > [!NOTE]
 > 
