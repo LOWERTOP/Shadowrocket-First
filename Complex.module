@@ -129,11 +129,11 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,reject
 http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
 
 # Pluginhub
-http-request ^https://(hub|pluginhub)\.kelee\.one/list\.json header-del if-none-match
+http-request ^https://hub\.kelee\.one/list\.json header-del if-none-match
 
 [Body Rewrite]
 # Pluginhub
-http-response ^https://(hub|pluginhub)\.kelee\.one/list\.json "loon://import\?plugin=(https://kelee.one/Tool/Loon/Lpx/(.+).lpx)" "shadowrocket://install?module=http://script.hub/file/_start_/$1/_end_/$2.sgmodule%3Ftype%3Dloon-plugin%26target%3Dshadowrocket-module%26del%3Dtrue%26jqEnabled%3Dtrue"
+http-response ^https://hub\.kelee\.one/list\.json "loon://import\?plugin=(https://kelee.one/Tool/Loon/Lpx/(.+).lpx)" "shadowrocket://install?module=http://script.hub/file/_start_/$1/_end_/$2.sgmodule%3Ftype%3Dloon-plugin%26target%3Dshadowrocket-module%26del%3Dtrue%26jqEnabled%3Dtrue"
 
 [Map Local]
 # Spotify
@@ -163,4 +163,4 @@ Script Hub: 脚本转换 = type=http-request, pattern=^https?:\/\/script\.hub\/c
 {{{系统升级加速}}}.g.aaplimg.com = {{{升级加速地址}}}
 
 [MITM]
-hostname = %APPEND% static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, script.hub, *.script.hub, hub.kelee.one, pluginhub.kelee.one, ddgksf2013.top
+hostname = %APPEND% static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, script.hub, *.script.hub, hub.kelee.one, ddgksf2013.top
