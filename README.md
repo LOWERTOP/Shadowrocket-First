@@ -39,6 +39,9 @@
 
 ### [Spotify](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)
 
+> [!IMPORTANT]
+> **由于 Spotify 近期更新频繁，本模块的相关功能可能受限**
+
 > 本模块原始代码来源于 [app2smile](https://github.com/app2smile)，本仓仅做功能微调和整合。模块原则上可以关闭随机播放及去除播放广告，可以使歌手/专辑列表正常展示，同时整合 **歌词翻译** 功能，可进入 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 进行设置，**首次登录或软件更新后可能需要重启软件方可生效，极端情况下可能需要重新登录或重装**。软件音质不能设置为超高，分流节点须同注册地保持一致，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)。同时可选 [app2smile](https://github.com/app2smile) 和 [001ProMax](https://github.com/001ProMax) 两位的上游作者的版本
 >   
 > [![安装模块 Spotify 模块](https://img.shields.io/static/v1?label=安装模块&message=Spotify%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule "一键安装本模块")
