@@ -1,0 +1,88 @@
+#!name=🅲🅻🅴🅰🅽🅴🆁
+#!desc=自用测试模块，编辑参数以使用
+#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译AppID, 翻译密钥:申请并填入百度翻译密钥
+#!arguments-desc=歌词翻译功能说明\n\n· 歌词翻译功能有效性暂不确定\n\n· 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n· 申请时建议使用桌面设备，移动设备可能访问失败\n\n· 成功启用后，歌词界面左下角即可看到翻译按钮\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露): \n\n    http://api.fanyi.baidu.com/manage/developer
+# 整理作者：LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+
+[Rule]
+DOMAIN,ad.12306.cn,DIRECT,extended-matching
+IP-CIDR,203.107.1.1/24,REJECT,no-resolve,pre-matching
+URL-REGEX,"^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native",REJECT,extended-matching
+
+# QUIC BLOCK
+AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,QUIC)),REJECT-NO-DROP
+AND,((DOMAIN-SUFFIX,ddgksf2013.top), (PROTOCOL,QUIC)),REJECT-NO-DROP
+
+# 红果短剧部分去广告规则
+DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,REJECT-DROP
+DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-WILDCARD,*-ad-sign.byteimg.com,REJECT-DROP
+DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,REJECT-DROP
+
+# 包子漫画所需特定规则
+DOMAIN-SUFFIX,baozimhcn.com,DIRECT
+DOMAIN-SUFFIX,baozimh.com,DIRECT
+DOMAIN-SUFFIX,baozicdn.com,DIRECT
+DOMAIN-SUFFIX,dzmanga.com,DIRECT
+DOMAIN-SUFFIX,twmanga.com,DIRECT
+DOMAIN-SUFFIX,baozimhapp.com,REJECT
+
+# DeepSeek 规则
+# 以下为该软件的疑似上传地址
+DOMAIN-SUFFIX,apmplus.volces.com,REJECT
+DOMAIN-SUFFIX,gator.volces.com,REJECT
+DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT
+# 以下为该软件代理规则集
+# RULE-SET,https://lowertop.github.io/Shadowrocket-First/DeepSeek.list,PROXY
+
+[URL Rewrite]
+# 包子漫画横幅APP广告
+^https?:\/\/static-tw\.baozimh\.com\/bzmhapp-data\/pics\/install_app_bar_baozimhappx\.jpg$ - REJECT
+
+# 小蚁
+^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - REJECT
+^https?://api.xiaoyi.com\/v5\/app\/config\?userid=.* - REJECT
+
+[Header Rewrite]
+# if-none-match返回304状态码
+http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
+
+[Body Rewrite]
+http-response-jq ^https:\/\/pan\.baidu\.com\/feed\/kingkongdistrict\? '.data.data |= map(select(.type != "novel" and .type != "shortplay" and .type != "print" and .type != "job_hunt"))'
+
+[Map Local]
+^https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_luckyBottle data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/pan\.baidu\.com\/api\/getconfig\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/pan\.baidu\.com\/api\/getsyscfg\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/pan\.baidu\.com\/act\/api\/activityentry\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/pan\.baidu\.com\/api\/plugin\/get\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/pan\.baidu\.com\/recommend\/query\/list\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/m\.douban\.com\/rexxar\/api\/v\d\/market\/products\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/frodo\.douban\.com\/api\/v\d\/movie\/ad data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+[Script]
+# Spotify
+spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
+spotify-json2 = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/device-capabilities\/v1\/capabilities,requires-body=1,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json2.js
+spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
+spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,argument=appid={{{翻译账户}}}&securityKey={{{翻译密钥}}}
+
+# 包子漫画网页
+web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://lowertop.github.io/Shadowrocket-First/JS/baozimh.js
+
+移除12306开屏广告 = type=http-request, pattern=^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$, script-path=https://kelee.one/Resource/JavaScript/12306/12306_remove_splashscreen_ads.js, requires-body=true
+移除12306应用内广告 = type=http-request, pattern=^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$, script-path=https://kelee.one/Resource/JavaScript/12306/12306_remove_ads.js
+移除阿里云盘广告 = type=http-response, pattern=^https:\/\/(biz)?api\.alipan\.com\/apps\/v\d\/users?\/home\/(news|widgets), script-path=https://kelee.one/Resource/JavaScript/AliYunDrive/AliYunDrive_remove_ads.js, requires-body=true
+移除阿里云盘广告 = type=http-response, pattern=^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list, script-path=https://kelee.one/Resource/JavaScript/AliYunDrive/AliYunDrive_remove_ads.js, requires-body=true
+移除航旅纵横首页广告 = type=http-response, pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://kelee.one/Resource/JavaScript/Umetrip/Umetrip_remove_ads.js
+
+[MITM]
+hostname = %APPEND% static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, ad.12306.cn, mobile.12306.cn, api.alipan.com, member.alipan.com, bizapi.alipan.com, pan.baidu.com, api.douban.com, frodo.douban.com, m.douban.com, 114.115.217.129, home.umetrip.com, 
