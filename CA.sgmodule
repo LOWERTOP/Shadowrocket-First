@@ -1,12 +1,13 @@
 #!name=证书模块
 #!desc=需要以编辑参数的方式启用并填写完整
-#!arguments=证书模块:false, 证书内容:此处粘贴有效的证书内容, 证书密码:Shadowrocket, 插入解密主机:英文逗号分隔主机名, 主机插入方式:%APPEND%
-#!arguments-desc=证书模块：启用并填写证书内容方可生效\n\n证书内容：粘贴自有效证书\n\n证书密码：若默认密码是Shadowrocket可不动\n\n插入解密主机：模块置于最下方可用作主机名反误杀\n\n主机插入方式：支持%APPEND%和%INSERT%
+#!arguments=证书模块:false, 启用h2解密:false, 证书内容:此处粘贴有效的证书内容, 证书密码:Shadowrocket, 插入解密主机:英文逗号分隔主机名, 主机插入方式:%APPEND%
+#!arguments-desc=证书模块：启用并填写证书内容方可生效\n\n启用h2解密:默认为关，此开关会覆盖配置文件中的相关设置\n\n证书内容：粘贴自有效证书\n\n证书密码：若默认密码是Shadowrocket可不动\n\n插入解密主机：模块置于最下方可用作主机名反误杀\n\n主机插入方式：支持%APPEND%和%INSERT%
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [MITM]
 enable={{{证书模块}}}
+h2 = {{{启用h2解密}}}
 ca-passphrase={{{证书密码}}}
 ca-p12={{{证书内容}}}
 hostname = {{{主机插入方式}}} {{{插入解密主机}}}
