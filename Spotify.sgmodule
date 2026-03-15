@@ -1,13 +1,21 @@
 #!name=Spotify
-#!desc=更新至测试版，未来本模块稳定后可能不再更新，请考虑使用原版模块
+#!desc=重新登陆软件后使用
 #!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译AppID, 翻译密钥:申请并填入百度翻译密钥
 #!arguments-desc=歌词翻译功能说明\n\n· 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n· 申请时建议使用桌面设备，移动设备可能访问失败\n\n· 成功启用后，歌词界面左下角即可看到翻译按钮\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露): \n\n    http://api.fanyi.baidu.com/manage/developer
 # 代码来源：https://github.com/app2smile
+# 代码来源：https://github.com/001ProMax
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
 # Spotify QUIC BLOCK
 AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,QUIC)),REJECT-NO-DROP
+
+[URL Rewrite]
+# 001ProMax
+# 移除追踪
+^https:\/\/(?:spclient\.wg|[a-z0-9]+-spclient)\.spotify\.com(?::443)?\/(?:ad-|gabo|pendragon|social) - reject
+# 移除广告
+^https:\/\/(?:spclient\.wg|[a-z0-9]+-spclient)\.spotify\.com(?::443)?\/(user-customization-service|bootstrap) {{{Mock}}}/$1 header
 
 [Header Rewrite]
 # if-none-match返回304状态码
