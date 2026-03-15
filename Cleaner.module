@@ -44,6 +44,13 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT
 ^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - REJECT
 ^https?://api.xiaoyi.com\/v5\/app\/config\?userid=.* - REJECT
 
+[URL Rewrite]
+# 001ProMax
+# 移除追踪
+^https:\/\/(?:spclient\.wg|[a-z0-9]+-spclient)\.spotify\.com(?::443)?\/(?:ad-|gabo|pendragon|social) - reject
+# 移除广告
+^https:\/\/(?:spclient\.wg|[a-z0-9]+-spclient)\.spotify\.com(?::443)?\/(user-customization-service|bootstrap) {{{Mock}}}/$1 header
+
 [Header Rewrite]
 # if-none-match返回304状态码
 http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
