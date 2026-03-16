@@ -1,6 +1,6 @@
 #!name=🅲🅻🅴🅰🅽🅴🆁
 #!desc=自用测试模块，编辑参数以使用
-#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译AppID, 翻译密钥:申请并填入百度翻译密钥, Mock:"https://mock.trigram-masques-8r.workers.dev/music"
+#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译AppID, 翻译密钥:申请并填入百度翻译密钥, 精简底栏:"true",接力功能:"true"
 #!arguments-desc=歌词翻译功能说明\n\n· 歌词翻译功能有效性暂不确定\n\n· 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n· 申请时建议使用桌面设备，移动设备可能访问失败\n\n· 成功启用后，歌词界面左下角即可看到翻译按钮\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露): \n\n    http://api.fanyi.baidu.com/manage/developer
 # 整理作者：LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
@@ -46,19 +46,15 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT
 
 [URL Rewrite]
 # 001ProMax
-# 移除追踪
-^https:\/\/(?:spclient\.wg|[a-z0-9]+-spclient)\.spotify\.com(?::443)?\/(?:ad-|gabo|pendragon|social) - reject
-# 移除广告
-^https:\/\/(?:spclient\.wg|[a-z0-9]+-spclient)\.spotify\.com(?::443)?\/(user-customization-service|bootstrap) {{{Mock}}}/$1 header
-
-[Header Rewrite]
-# if-none-match返回304状态码
-http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
+^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad header
 
 [Body Rewrite]
 http-response-jq ^https:\/\/pan\.baidu\.com\/feed\/kingkongdistrict\? '.data.data |= map(select(.type != "novel" and .type != "shortplay" and .type != "print" and .type != "job_hunt"))'
 
 [Map Local]
+# 001ProMax
+^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:ad-|pendragon) data-type=text data="" status-code=200
+
 ^https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_luckyBottle data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/pan\.baidu\.com\/api\/getconfig\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
@@ -77,10 +73,10 @@ http-response-jq ^https:\/\/pan\.baidu\.com\/feed\/kingkongdistrict\? '.data.dat
 
 [Script]
 # Spotify
-spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
-spotify-json2 = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/device-capabilities\/v1\/capabilities,requires-body=1,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json2.js
-spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto-test.js,script-update-interval=0
-spotify歌词翻译 = type=http-response,enable={{{歌词翻译}}},pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,argument=appid={{{翻译账户}}}&securityKey={{{翻译密钥}}}
+# 001ProMax
+Spotify.Crack = type=http-response, pattern=^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service), script-path=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js, requires-body=true, binary-body-mode=true, argument="{"tab":{{{精简底栏}}},"useractivity":{{{接力功能}}}}"
+# app2smile
+spotify歌词翻译 = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,enable={{{歌词翻译}}},argument=appid={{{翻译账户}}}&securityKey={{{翻译密钥}}}
 
 # 包子漫画网页
 web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://lowertop.github.io/Shadowrocket-First/JS/baozimh.js
