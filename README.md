@@ -190,7 +190,7 @@
 > 
 > > 本模块来自 [kokoryh](https://github.com/kokoryh)，可在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 界面动态调整最常访问、调整创作中心、过滤置顶评论广告、优化评论区加载，且提供“空降助手”功能等
 > > 
-> > **需要注意**：本模块需要小火箭版本号大于等于 [2.2.81 (3096)](https://t.me/ShadowrocketNews/1355)，且需要开启 [HTTP/2 MITM](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)
+> > **需要注意**：本模块需要小火箭版本号大于等于 [2.2.81 (3096)](https://t.me/ShadowrocketNews/1355)，且需要开启 [HTTP/2 MITM](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)。小火箭低于此版本如需使用本模块的，请自行使用排除解密模块或类似方法排除解密 `-grpc.biliapi.net`
 > >   
 > > [![安装模块 哔哩哔哩增强](https://img.shields.io/static/v1?label=安装模块&message=哔哩哔哩增强&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/release/surge/module/bilibili.sgmodule "一键安装本模块")
 >  
