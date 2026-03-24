@@ -208,7 +208,7 @@
 > 
 > **[小红书去广告模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule)**
 > 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除小红书广告及图片、视频的水印。仅适用于 HTTP 代理模式
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可以去除小红书广告及图片、视频的水印。仅保证适用于 HTTP [代理类型](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E4%BB%A3%E7%90%86%E7%B1%BB%E5%9E%8B)
 > >   
 > > [![安装模块 小红书模块](https://img.shields.io/static/v1?label=安装模块&message=小红书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule "一键安装本模块")
 >  
