@@ -1,4 +1,4 @@
-#!name=Wi-Fi Calling UK
+#!name=🆃🅾🅿🅼🅾🅳 UK Call
 #!desc=参数编辑可以细化设置。适用于部分英国SIM卡的Wi-Fi Calling功能
 #!arguments=默认代理分组:UK-Call, 通话端口代理:AND, 苹果地区检测:DOMAIN-SUFFIX
 #!arguments-desc=·默认代理分组：默认使用模块内置的名为“UK-Call”的代理分组进行代理，可填入自定义的代理分组或节点名称\n\n·通话端口代理：模块默认代理了Wi-Fi通话常用的500和4500的UDP端口，填入#号可以禁用相关端口的代理\n\n·苹果地区检测：模块默认代理了苹果的地区检测URL地址，填入#号可以恢复为默认规则\n\n·地区检测查询：https://gspe1-ssl.ls.apple.com/pep/gcc
