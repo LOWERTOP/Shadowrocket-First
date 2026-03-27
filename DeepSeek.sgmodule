@@ -1,16 +1,16 @@
 #!name=🆃🅾🅿🅼🅾🅳 DeepSeek
 #!desc=DeepSeek 代理及屏蔽上传模块
-#!arguments=分流策略:PROXY
-#!arguments-desc=分流策略\n\n· 默认使用首页节点进行分流\n\n· 可以输入节点名称或者代理分组名称进行修改
+#!arguments=分流策略:PROXY, 屏蔽策略:REJECT-DROP
+#!arguments-desc=分流策略\n\n· 默认使用首页节点进行分流\n\n· 可以输入节点名称或者代理分组名称进行修改\n\n屏蔽策略\n\n· 默认屏蔽，可选填 Proxy 等其他策略
 # 本模块主要为 DeepSeek 进行分流，可使用其他登录方式注册和登录，并尝试屏蔽上传信息的地址
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
 # 以下为该软件的疑似上传地址
-DOMAIN-SUFFIX,apmplus.volces.com,REJECT-DROP
-DOMAIN-SUFFIX,gator.volces.com,REJECT-DROP
-DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT-DROP
+DOMAIN-SUFFIX,apmplus.volces.com,{{{屏蔽策略}}}
+DOMAIN-SUFFIX,gator.volces.com,{{{屏蔽策略}}}
+DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,{{{屏蔽策略}}}
 
 # 以下为该软件可能需代理地址
 DOMAIN-SUFFIX,deepseek.com,{{{分流策略}}}
