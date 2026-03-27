@@ -1,4 +1,4 @@
-#!name=Wi-Fi Calling HK
+#!name=🆃🅾🅿🅼🅾🅳 HK Call
 #!desc=香港 SIM 卡 Wi-Fi Calling 配置规则
 # 本规则适用于 CSL、CMHK、3 HK 的香港 SIM 卡的 Wi-Fi Calling 功能，分流节点须是香港节点
 #!arguments=默认代理分组:HK-Call, 通话端口代理:AND, 苹果地区检测:DOMAIN-SUFFIX
