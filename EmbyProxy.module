@@ -1,4 +1,4 @@
-#!name=Emby分流策略
+#!name=🆃🅾🅿🅼🅾🅳 Emby模块
 #!desc=编辑参数以设置分流策略
 #!arguments=元数据策略:Proxy, 服务器策略:Proxy, 服务器域名1:okemby.org, 服务器域名2:emby.example.com, 服务器域名3:media.example.net
 #!arguments-desc=分流策略可自定义直连、代理、节点名称、代理分组名称\n元数据策略：海报、评分、字幕等元数据服务使用的策略\n服务器策略：Emby 实际播放、Web、API 使用的策略\n服务器域名：填写所需的Emby域名，每项仅支持单个域名
