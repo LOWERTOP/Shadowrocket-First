@@ -1,5 +1,5 @@
-#!name=DeepSeek
-#!desc=DeepSeek 代理模块
+#!name=🆃🅾🅿🅼🅾🅳 DeepSeek
+#!desc=DeepSeek 代理及屏蔽上传模块
 #!arguments=分流策略:PROXY
 #!arguments-desc=分流策略\n\n· 默认使用首页节点进行分流\n\n· 可以输入节点名称或者代理分组名称进行修改
 # 本模块主要为 DeepSeek 进行分流，可使用其他登录方式注册和登录，并尝试屏蔽上传信息的地址
