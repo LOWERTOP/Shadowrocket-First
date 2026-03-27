@@ -167,16 +167,16 @@
 > > [![首先安装 解析模块](https://img.shields.io/static/v1?label=首先安装&message=解析模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule "一键安装本模块")
 > > [![其次访问 插件中心](https://img.shields.io/static/v1?label=其次访问&message=插件中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://hub.kelee.one "访问相应地址")
 > 
-> **[Spotify 模块](https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module)**
+> **[Spotify 模块](https://raw.githubusercontent.com/001ProMax/Surge/main/Module/AD/Spotify.sgmodule)**
 > 
-> > 本模块由 [app2smile](https://github.com/app2smile) 开发，原则上可以关闭随机播放及去除播放广告，使歌手/专辑列表正常展示。软件音质不能设置为超高，分流节点须同注册地保持一致，首次登录或软件更新后可能需要重启软件方可生效，极端情况下可能需要重新登录或重装，其他功能说明请参阅 [备注](https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module)。同时提供测试版及 [001ProMax](https://github.com/001ProMax) 的版本
+> > 模块来自 [001ProMax](https://github.com/001ProMax)，原则上可以去除播放广告，使歌手/专辑列表正常展示。软件音质不能设置为超高，分流节点须同注册地保持一致，首次登录或软件更新后可能需要重启软件方可生效，极端情况下可能需要重新登录或重装。同时提供测试版及 [app2smile](https://github.com/app2smile) 的版本
 > >
-> > **Spotify 的更新可能导致相关模块的功能受限，可以尝试相应模块的测试版本**
+> > **Spotify 软件的更新可能导致相关模块部分或全部功能受限，可以尝试相应模块的测试版本或回滚软件至旧版**
 > >
-> > [![安装模块 app2smile 版本](https://img.shields.io/static/v1?label=安装模块&message=app2smile%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module "一键安装本模块")
-> > [![安装模块 app2smile Test](https://img.shields.io/static/v1?label=安装模块&message=app2smile%20Test&color=grey&logo=educative&logoColor=white&labelColor=%2380BAFF&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/refs/heads/master/module/spotify-test.module "一键安装本模块")
 > > [![安装模块 001ProMax 版本](https://img.shields.io/static/v1?label=安装模块&message=001ProMax%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/001ProMax/Surge/main/Module/AD/Spotify.sgmodule "一键安装本模块")
 > > [![安装模块 001ProMax Dev](https://img.shields.io/static/v1?label=安装模块&message=001ProMax%20Dev&color=grey&logo=educative&logoColor=white&labelColor=%2380BAFF&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Module/AD/Spotify.Dev.sgmodule "一键安装本模块")
+> > [![安装模块 app2smile 版本](https://img.shields.io/static/v1?label=安装模块&message=app2smile%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module "一键安装本模块")
+> > [![安装模块 app2smile Test](https://img.shields.io/static/v1?label=安装模块&message=app2smile%20Test&color=grey&logo=educative&logoColor=white&labelColor=%2380BAFF&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/refs/heads/master/module/spotify-test.module "一键安装本模块")
 > 
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
