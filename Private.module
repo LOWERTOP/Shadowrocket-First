@@ -1,4 +1,4 @@
-#!name=Github Private ByUser
+#!name=🆃🅾🅿🅼🅾🅳 私库助手
 #!desc=编辑参数以启用按GitHub用户名自动注入Token
 #!arguments=🔘启用用户1:http-request, 用户1:填写GitHub用户名, 密钥1:填写你的PAT密钥, 🔘启用用户2:http-request, 用户2:填写GitHub用户名, 密钥2:填写你的PAT密钥, 🔘启用用户3:http-request, 用户3:填写GitHub用户名, 密钥3:填写你的PAT密钥, 🔘启用用户4:http-request, 用户4:填写GitHub用户名, 密钥4:填写你的PAT密钥
 #!arguments-desc=参数说明\n\n按GitHub用户名自动注入Token的授权模块\n\n·在用户处填写所需的GitHub用户名\n\n·在密钥处填写所需的PAT密钥\n\n·密钥格式为：github_pat_xxxxx\n\n·若不启用相应用户，可在启用输入框填入#
