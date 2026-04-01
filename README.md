@@ -6,18 +6,17 @@
 [<img src="https://lowertop.github.io/Shadowrocket-First/img/01.png" width="100%">](https://github.com/LOWERTOP/Shadowrocket-First)
 
 > [!NOTE]
-> 
 > 本仓库主要提供小火箭适用的 **配置文件、模块、规则集、脚本** 等内容，同时还有多种原创的 **小火箭配色/主题/皮肤**。软件使用方面若有疑问可查看 **[小火箭使用手册](https://github.com/LOWERTOP/Shadowrocket)**
 >
 > > 若您是相关索引的原作者或权利人，且不希望内容被引用，可点击 [此处](https://t.me/LOWERTOP) 要求剔除
 
-> **`项目目录`**
+**项目目录**
 > * **[Shadowrocket 本仓文件](#shadowrocket-本仓文件)**
 > * **[Shadowrocket 社区文件](#shadowrocket-社区文件)**
 > * **[Shadowrocket 配色文件](#shadowrocket-配色文件)**
 > * **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
-> 
-> **`其他内容`**
+
+**其他内容**
 > * [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [调优原帖](https://www.nodeseek.com/post-197087-1) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool)
 
 ------
@@ -137,7 +136,7 @@
 >
 > [![教程文档 使用手册](https://img.shields.io/static/v1?label=教程文档&message=使用手册&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
 
-### [懒人配置](https://lowertop.github.io/Shadowrocket/lazy_group.conf)
+### [懒人配置](#shadowrocket-社区文件)
 
 > 顾名思义，[懒人配置](https://lowertop.github.io/Shadowrocket/lazy_group.conf) 就是专为 **懒人** 打造的开箱即用的配置文件，发布于 [官方群组](https://t.me/ShadowrocketApp)。该配置与默认配置内置本地规则的处理形式不同，是以规则集的形式设置代理规则，并设有示例分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件。配置文件的用法参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
 > 
@@ -243,7 +242,7 @@
 > >   
 > > [![安装模块 净化合集](https://img.shields.io/static/v1?label=安装模块&message=净化合集&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/blockAds.module "一键安装本模块")
 > 
-> **[zirawell合集模块](https://github.com/zirawell/R-Store/blob/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule)**
+> **[zirawell合集模块](https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule)**
 > 
 > > 模块出自 [zirawell](https://github.com/zirawell)，对数百款应用、小程序、网站等进行广告拦截，包含 [微信小程序去广告合集模块](https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/wechatAdBlock.sgmodule)、[支付宝小程序去广告合集模块](https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/alipayAdBlock.sgmodule)、[App 去广告合集模块](https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/appAdBlock.sgmodule) 以及 [全部去广告合集模块](https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule)，同时提供 [独立模块](https://github.com/zirawell/R-Store/tree/main/Rule/Surge/Adblock)，详情参阅 [仓库说明](https://github.com/zirawell/R-Store)
 > >   
