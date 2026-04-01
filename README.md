@@ -24,7 +24,6 @@
 # [Shadowrocket 本仓文件](#shadowrocket-本仓文件)
 
 > [!NOTE]
-> 
 > 本章主要是为 **特定软件或服务** 所制作的模块、规则集等自制内容<br>
 > 各模块基本都包含有 **编辑参数** 选项，可 [进入编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 进行调整
 
@@ -127,7 +126,6 @@
 # [Shadowrocket 社区文件](#shadowrocket-社区文件)
 
 > [!NOTE]
-> 
 > 本章主要是收集自社区相对可信来源的公开文件，其效果请以实际为准
 
 ### [使用手册](#shadowrocket-社区文件)
@@ -183,7 +181,7 @@
 > 
 > > 本模块来自 [kokoryh](https://github.com/kokoryh)，可在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 界面动态调整最常访问、调整创作中心、过滤置顶评论广告、优化评论区加载，且提供“空降助手”功能等
 > > 
-> > **需要注意**：本模块需要小火箭版本号大于等于 [2.2.81 (3096)](https://t.me/ShadowrocketNews/1355)，且需要开启 [HTTP/2 MITM](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)。小火箭低于此版本如需使用本模块的，请自行使用 [排除解密模块](#排除解密模块) 或类似方法排除解密 `-grpc.biliapi.net`
+> > **需要注意**：本模块需要小火箭版本号大于等于 [2.2.81 (3096)](https://t.me/ShadowrocketNews/1355)，且需要开启 [HTTP/2 MITM](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)。小火箭低于此版本如需使用本模块的，请自行排除解密 `-grpc.biliapi.net`
 > >   
 > > [![安装模块 哔哩哔哩增强](https://img.shields.io/static/v1?label=安装模块&message=哔哩哔哩增强&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/release/surge/module/bilibili.sgmodule "一键安装本模块")
 >  
@@ -317,7 +315,6 @@
 # [Shadowrocket 配色文件](#shadowrocket-配色文件)
 
 > [!NOTE]
-> 
 > 本单元主要提供作者原创的一些供 Shadowrocket 使用的配色文件
 >
 > **极其鸣谢** 快捷指令作者：[iab0x00](https://github.com/iab0x00)<br>
@@ -340,7 +337,6 @@
 ### [Shadowrocket 原创配色](#shadowrocket-配色文件)
 
 > [!IMPORTANT]
-> 
 > 小火箭原创配色文件已更新至 30 个<br>
 > 因苹果系统限制，部分细部图标不可自定义，且会跟随系统颜色模式改变。建议在使用 `亮底色` 时搭配浅色模式，使用 `暗底色` 时搭配深色模式
 
@@ -1071,11 +1067,9 @@ _To Be Continued..._
 # [非标准链接重定向跳转](#非标准链接重定向跳转)
 
 > [!NOTE]
-> 
 > 本单元为 URL Redirector 非标准链接重定向跳转相关内容。其作用主要是针对部分服务不支持诸如 `URL-Schemes` 的非标准链接作为超链使用，可将非标准链接使用本页 `HTML` 进行跳转可以实现将非标链接作为标准链接嵌入的功能。另外部分特殊链接因其编码等方面和普通链接有较大差异，本服务暂无法完全兼容
 
 > [!TIP]
-> 
 > 复制以下链接，粘贴在需要跳转的链接前进行访问即可
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=
@@ -1092,66 +1086,66 @@ _To Be Continued..._
 
 > 以下跳转链接后面直接跟相应文件地址
 > 
-> `配置文件` 的一键安装跳转链接
+> **配置文件** 的一键安装跳转链接
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/
 > ```
-> `模块文件` 的一键安装跳转链接
+> **模块文件** 的一键安装跳转链接
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=
 > ```
-> `订阅/节点` 的一键安装跳转链接
+> **订阅/节点** 的一键安装跳转链接
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
 > ```
 
 ### [Shadowrocket URL-Schemes](#非标准链接重定向跳转)
   
-> 请使用相应内容替换代码中的 `大括号及其内容`
+> 请使用相应内容替换代码中的 **大括号及其内容**
 >  
-> `启动 VPN 隧道` 
+> **启动 VPN 隧道**
 > ```ruby
 > shadowrocket://connect
 > ```
 > ```ruby
 > shadowrocket://open
 > ```
->  `停止 VPN 隧道` 
+>  **停止 VPN 隧道** 
 > ```ruby
 > shadowrocket://disconnect
 > ```
 > ```ruby
 > shadowrocket://close
 > ```
->  `切换 VPN 开关状态` 
+>  **切换 VPN 开关状态** 
 > ```ruby
 > shadowrocket://toggle
 > ```
->  `连通性测试` 
+>  **连通性测试** 
 > ```ruby
 > shadowrocket://connectivity-test
 > ```
->  `使用特定节点` 
+>  **使用特定节点** 
 > ```ruby
 > shadowrocket://select?s={节点名称}
 > ```
->  `添加 订阅/节点` 
+>  **添加 订阅/节点** 
 > ```ruby
 > shadowrocket://add/{url}
 > ```
->  `更新 订阅` 
+>  **更新 订阅** 
 > ```ruby
 > shadowrocket://update-subs
 > ```
->  `安装/使用 配置` 
+>  **安装/使用 配置** 
 > ```ruby
 > shadowrocket://config/add/{url}
 > ```
->  `安装/使用 模块` 
+>  **安装/使用 模块**
 > ```ruby
 > shadowrocket://install?module={url}
 > ```
->  `切换全局路由（代理/配置/直连/场景）` 
+>  **切换全局路由（代理/配置/直连/场景）**
 > ```ruby
 > shadowrocket://route/proxy
 > ```
@@ -1164,7 +1158,7 @@ _To Be Continued..._
 > ```ruby
 > shadowrocket://route/scene
 > ```
-> `安装/使用 配色` 
+> **安装/使用 配色**
 > ```ruby
 > shadowrocket://color?{配色设置}
 > ```
