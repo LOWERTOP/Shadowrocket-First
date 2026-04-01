@@ -105,9 +105,10 @@
 > > * 将本模块放置于模块列表最下方以确保生效顺序
 > > * 默认插入方式不建议修改，虽然支持选填 `%APPEND%` 或 `%INSERT%`
 > 
-> 关于主机名 MITM 反解密的疑问可以查看 [此处议题](https://github.com/LOWERTOP/Shadowrocket-First/issues/13)
+> 关于主机名 MITM 排除解密的疑问可以查看 [此处议题](https://github.com/LOWERTOP/Shadowrocket-First/issues/13)，并提供独立的排除解密模块安装入口，不过其功能已完全包含在本证书模块之内
 >
 > [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CA.sgmodule "一键安装本模块")
+> [![安装模块 排除解密模块](https://img.shields.io/static/v1?label=安装模块&message=排除解密模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule "一键安装本模块")
 
 ### [调试模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Commands.sgmodule)
 
