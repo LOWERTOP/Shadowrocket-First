@@ -10,13 +10,13 @@
 >
 > > 若您是相关索引的原作者或权利人，且不希望内容被引用，可点击 [此处](https://t.me/LOWERTOP) 要求剔除
 
-**项目目录**
+#### [项目目录](#项目目录)
 > * **[Shadowrocket 本仓文件](#shadowrocket-本仓文件)**
 > * **[Shadowrocket 社区文件](#shadowrocket-社区文件)**
 > * **[Shadowrocket 配色文件](#shadowrocket-配色文件)**
 > * **[非标准链接的重定向跳转](#非标准链接重定向跳转)**
 
-**其他内容**
+#### [其他内容](#其他内容)
 > * [TCP 缓冲区计算器](https://lowertop.github.io/Shadowrocket-First/TCP-Cal.html) [调优原帖](https://www.nodeseek.com/post-197087-1) [原仓库](https://github.com/BlackSheep-cry/TCP-Optimization-Tool)
 
 ------
@@ -27,7 +27,7 @@
 > 本章主要是为 **特定软件或服务** 所制作的模块、规则集等自制内容<br>
 > 各模块基本都包含有 **编辑参数** 选项，可 [进入编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 进行调整
 
-### [Talkatone](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Talkatone.sgmodule)
+### [Talkatone](#talkatone)
 
 > 近期 Talkatone 针对使用者 IP 的审查趋于严格，它使用了 `*-sjc-*.tktn.be` 这个地址对节点进行质量判断，用户可在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 内对 **节点质量检测** 和 **代理分流策略** 分别尝试不同的代理节点或分组，分流策略默认已设置为代理，原则上可以不做调整，但节点质量检测需要自行测试并设定为特定节点方可正常使用<br>
 > 本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供 [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneProxy.list)
@@ -35,7 +35,7 @@
 > [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Talkatone.sgmodule "一键安装本模块")
 > [![规则文件 去广告规则](https://img.shields.io/static/v1?label=规则文件&message=去广告规则&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list "点击访问规则集")
 
-### [Emby 分流控制策略](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/EmbyProxy.module)
+### [Emby分流控制策略](#emby分流控制策略)
 
 > 本模块为 Emby 使用场景设计，基于 Shadowrocket **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能实现。模块对 **服务器访问** 与 **元数据/字幕** 请求进行分流控制，旨在同时提升 **播放稳定性** 与 **刮削成功率**。同时支持补充最多 3 个非常见的 Emby 服务器域名
 > 
@@ -51,14 +51,14 @@
 > 
 > [![安装模块 Emby分流](https://img.shields.io/static/v1?label=安装模块&message=Emby分流&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/EmbyProxy.module "一键安装本模块")
 
-### [DeepSeek](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/DeepSeek.sgmodule)
+### [DeepSeek](#deepseek)
 
 > DeepSeek 在某些特定地区必须使用手机号注册和登陆使用，本仓提供分流模块和代理规则，可以解锁使用邮箱、谷歌账号等方式注册与登录该服务。同时，模块中屏蔽了部分 **存疑** 地址，也支持在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 内设置分流的代理节点或分组
 > 
 > [![安装模块 DeepSeek](https://img.shields.io/static/v1?label=安装模块&message=DeepSeek&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/DeepSeek.sgmodule "一键安装本模块")
 > [![规则文件 DeepSeek](https://img.shields.io/static/v1?label=规则文件&message=DeepSeek&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/DeepSeek.list "点击访问规则集")
 
-### [Wi-Fi Calling](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUS.sgmodule)
+### [Wi-Fi Calling](#wi-fi-calling)
 
 > Wi-Fi Calling 相关 **测试配置**，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择。以下模块均提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分可选参数调整选项
 > 
@@ -77,25 +77,25 @@
 > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUK.sgmodule "一键安装本模块")
 > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUK.list "点击访问规则集")
 
-### [咪咕直播源模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CMCCiTV.sgmodule)
+### [咪咕直播源模块](#咪咕直播源模块)
 
 > 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本模块，理论上应该支持任意网络环境使用咪咕直播源观看 IPTV。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分参数调整选项。若使用上存在问题可以尝试在 [DNS 覆写](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E4%BF%AE%E6%94%B9dns) 中添加 `114.114.114.114`
 >
 > [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CMCCiTV.sgmodule "一键安装本模块")
 
-### [苹果助手](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Helper.sgmodule)
+### [苹果助手](#苹果助手)
 
 > 本模块以苹果下载加速功能为主，包含 [苹果商店下载加速](https://t.me/ibilibili/994) 与 [系统升级加速](https://t.me/ibilibili/1014) 功能，应该可以改善部分地区下载更新相对缓慢的情况。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，可根据说明自行测试和修改相关参数
 >
 > [![安装模块 苹果助手](https://img.shields.io/static/v1?label=安装模块&message=苹果助手&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Helper.sgmodule "一键安装本模块")
 
-### [私库访问模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Private.module)
+### [私库访问模块](#私库访问模块)
 
 > 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的基于用户维度的访问 GitHub 私密仓库的多 Token 自动鉴权模块，支持配置 4 个不同的 GitHub 账号，自动匹配 `raw` 或 `gist` 文件地址中的用户名并注入对应的 Token，实现多用户、多仓库的鉴权访问，在 编辑参数 内填写所需内容即可生效
 > 
 > [![安装模块 私库模块](https://img.shields.io/static/v1?label=安装模块&message=私库模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Private.module "一键安装本模块")
 
-### [证书模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CA.sgmodule)
+### [证书模块](#证书模块)
 
 > 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的简化了创建 **[证书模块](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%AF%81%E4%B9%A6%E6%A8%A1%E5%9D%97)** 流程的母版模块。使用时仅需在编辑参数界面开启功能开关并填入有效证书内容即可，无需再以纯文本模式创建证书模块
 > 
@@ -110,13 +110,13 @@
 > [![安装模块 证书模块](https://img.shields.io/static/v1?label=安装模块&message=证书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CA.sgmodule "一键安装本模块")
 > [![安装模块 排除解密模块](https://img.shields.io/static/v1?label=安装模块&message=排除解密模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule "一键安装本模块")
 
-### [调试模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Commands.sgmodule)
+### [调试模块](#调试模块)
 
 > 本模块是使用 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的以 UI 界面调整配置文件内部分参数、功能及隐藏参数选项的功能增强型模块。相关参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 > 
 > [![安装模块 调试模块](https://img.shields.io/static/v1?label=安装模块&message=调试模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Commands.sgmodule "一键安装本模块")
 
-### [欧易规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/okx.list)
+### [欧易规则集](#欧易规则集)
 
 > 自收集的 欧易/OKX 规则集，OKX 本身在中国大陆地区可以直连，且会使用 `cloudfront` 和 `cloudflare` 进行提速，本规则集尽可能收集了其使用的所有地址，将其设为直连后可能更适合在中国大陆地区使用。本集暂不确定所包含的 `cloudfront.net` 的地址是否在不同地区存在变化，如有问题欢迎反馈
 >
@@ -129,13 +129,13 @@
 > [!NOTE]
 > 本章主要是收集自社区相对可信来源的公开文件，其效果请以实际为准
 
-### [使用手册](#shadowrocket-社区文件)
+### [使用手册](#使用手册)
 
 > 使用手册以 **[Shadowrocket 官方群组](https://t.me/ShadowrocketApp)** 使用的关键词列表为基础进行编写，涵盖软件 90% 以上的功能说明和常见问题的解决方案，可以帮助用户更好的理解和使用 Shadowrocket 软件
 >
 > [![教程文档 使用手册](https://img.shields.io/static/v1?label=教程文档&message=使用手册&color=grey&logo=gitbook&logoColor=white&labelColor=%23B6AB7A&messageColor=white)](https://github.com/LOWERTOP/Shadowrocket "点击查阅")
 
-### [懒人配置](#shadowrocket-社区文件)
+### [懒人配置](#懒人配置)
 
 > 顾名思义，[懒人配置](https://lowertop.github.io/Shadowrocket/lazy_group.conf) 就是专为 **懒人** 打造的开箱即用的配置文件，发布于 [官方群组](https://t.me/ShadowrocketApp)。该配置与默认配置内置本地规则的处理形式不同，是以规则集的形式设置代理规则，并设有示例分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，适合几乎任何阶段的用户使用，是除默认配置外首推的配置文件。配置文件的用法参见 [使用手册](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
 > 
@@ -143,7 +143,7 @@
 > 
 > [![安装配置 懒人配置](https://img.shields.io/static/v1?label=安装配置&message=懒人配置&color=grey&logo=googledocs&logoColor=white&labelColor=orange&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://config/add/https://lowertop.github.io/Shadowrocket/lazy_group.conf "一键安装本配置文件")
 
-### [模块收集](#shadowrocket-社区文件)
+### [模块收集](#模块收集)
 
 > [!TIP]
 > **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为配置模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外** <br>
@@ -247,7 +247,7 @@
 > >   
 > > [![安装模块 合集模块](https://img.shields.io/static/v1?label=安装模块&message=合集模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule "一键安装本模块")
 
-### [其他仓库](#shadowrocket-社区文件)
+### [其他仓库](#其他仓库)
 
 > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块
 >
@@ -269,7 +269,7 @@
 >
 > [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://ddgksf2013.top/ "点击查看")
 
-### [解锁检测](#shadowrocket-社区文件)
+### [解锁检测](#解锁检测)
 
 > 由 [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://github.com/huskydsb) 各制作有 **解锁检测快捷指令**，可用来检测各流媒体服务的解锁地区或可用性，也可以检测 ChatGPT、TikTok、YouTube 等服务的解锁地区或状态以及 IP 归属地等。脚本检测会根据你的分流规则进行测试，若出现错误请多试几次。其中 K 版是各服务统一通知结果，S 版是不同服务分别通知结果
 >   
@@ -281,7 +281,7 @@
 > [![首先安装 检测模块](https://img.shields.io/static/v1?label=首先安装&message=检测模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Sgmodule/流媒体解锁测试.module "一键安装本模块")
 > [![其次访问 检测页面](https://img.shields.io/static/v1?label=其次访问&message=检测页面&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://streaming.test/ "点击访问检测页面")
 
-### [进阶用法](#shadowrocket-社区文件)
+### [进阶用法](#进阶用法)
 
 > 在当前的 iOS 平台上，想要实现较为高级的功能和操作，往往需要借助 **[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)**、 **[Sub-Store](https://github.com/sub-store-org/Sub-Store/tree/master/config)** 和 **[BoxJs](https://docs.boxjs.app/)** 这三个工具来实现。详细用法请点击各自的 **蓝色超链** 跳转查看，点击下方徽章可一键安装相应模块
 >
@@ -289,7 +289,7 @@
 > [![安装模块 Sub-Store](https://img.shields.io/static/v1?label=安装模块&message=Sub-Store&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/sub-store-org/Sub-Store/master/config/Surge-Noability.sgmodule "一键安装本模块")
 > [![安装模块 BoxJs](https://img.shields.io/static/v1?label=安装模块&message=BoxJs&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.surge.sgmodule "一键安装本模块")
 
-### [筛选订阅脚本](#shadowrocket-社区文件)
+### [筛选订阅脚本](#筛选订阅脚本)
 
 > [kiwi707](https://github.com/kiwi707) 制作的 **筛选/规范订阅节点** 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
 > 
@@ -297,7 +297,7 @@
 >   
 > [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/main/FilterScript "点击查看脚本内容")
 
-### [规则收集](#shadowrocket-社区文件)
+### [规则收集](#规则收集)
 
 > 本页提供 [blackmatrix7](https://github.com/blackmatrix7) 维护的分类非常细致的各代理软件分流规则的入口，是现阶段首推的代理规则集，使用时务必阅读相应的配置建议
 > 
@@ -321,7 +321,7 @@
 > **极其鸣谢** 快捷指令作者：[iab0x00](https://github.com/iab0x00)<br>
 > **特别鸣谢** 提供建议好友：[Sage](https://github.com/huskydsb)
 
-**效果示例：TermiusDark**
+**效果示例：** [TermiusDark](#shadowrocket-termiusdark)
 
 > <img src="https://lowertop.github.io/Shadowrocket-First/img/RenderingTermiusDark.png" width="100%"> 
 > 
@@ -335,7 +335,7 @@
 
 ------
 
-### [Shadowrocket 原创配色](#shadowrocket-配色文件)
+### [Shadowrocket 原创配色](#shadowrocket-原创配色)
 
 > [!IMPORTANT]
 > 小火箭原创配色文件已更新至 30 个<br>
@@ -350,7 +350,7 @@
 
 ------
 
-#### [Shadowrocket EpicLight](#shadowrocket-原创配色)
+#### [Shadowrocket EpicLight](#shadowrocket-epiclight)
 > `Epic 清晨` <sup> `亮底色` <sup>
 > 
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23F2F2F2&logo=renovate&logoColor=grey&labelColor=%23F2F2F2&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=EpicLight18 "亮底色配色")
@@ -372,7 +372,7 @@
 
 ------
 
-#### [Shadowrocket V2EXDay](#shadowrocket-原创配色)
+#### [Shadowrocket V2EXDay](#shadowrocket-v2exday)
 > `V2EX 白昼` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23F5F5F5&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23555555)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=V2EXDay18 "亮底色配色")
@@ -394,7 +394,7 @@
 
 ------
 
-#### [Shadowrocket GitHubLight](#shadowrocket-原创配色)
+#### [Shadowrocket GitHubLight](#shadowrocket-githublight)
 > `GitHub 白昼` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23F0F1F3&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23161B22)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=GitHubLight18 "亮底色配色")
@@ -418,7 +418,7 @@
 
 ------
 
-#### [Shadowrocket BrightGold](#shadowrocket-原创配色)
+#### [Shadowrocket BrightGold](#shadowrocket-brightgold)
 > `亮金色` <sup> `亮底色` <sup>
 > 
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23D38301&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=BrightGold18 "亮底色配色")
@@ -441,7 +441,7 @@
 
 ------
 
-#### [Shadowrocket EcoGreen](#shadowrocket-原创配色)
+#### [Shadowrocket EcoGreen](#shadowrocket-ecogreen)
 > `生态绿` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23DDE1DD&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%2347634E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=EcoGreen18 "亮底色配色")
@@ -463,7 +463,7 @@
 
 ------
 
-#### [Shadowrocket IceCream](#shadowrocket-原创配色)
+#### [Shadowrocket IceCream](#shadowrocket-icecream)
 > `淡粉色` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23FFEBF4&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23F5197B)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=IceCream18 "亮底色配色")
@@ -486,7 +486,7 @@
 
 ------
 
-#### [Shadowrocket Elegant](#shadowrocket-原创配色)
+#### [Shadowrocket Elegant](#shadowrocket-elegant)
 > `典雅灰` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23EBEBEB&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23383838)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Elegant18 "亮底色配色")
@@ -508,7 +508,7 @@
 
 ------
 
-#### [Shadowrocket Cloudy](#shadowrocket-原创配色)
+#### [Shadowrocket Cloudy](#shadowrocket-cloudy)
 > `多云色` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23D5DDE0&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23303548)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Cloudy18 "亮底色配色")
@@ -530,7 +530,7 @@
 
 ------
 
-#### [Shadowrocket AyuLight](#shadowrocket-原创配色)
+#### [Shadowrocket AyuLight](#shadowrocket-ayulight)
 > `香鱼色` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23FAFAFA&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%235C6773)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=AyuLight18 "亮底色配色")
@@ -552,7 +552,7 @@
 
 ------
 
-#### [Shadowrocket Solarized](#shadowrocket-原创配色)
+#### [Shadowrocket Solarized](#shadowrocket-solarized)
 > `烈日色` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23FDF6E4&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23657B83)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Solarized18 "亮底色配色")
@@ -574,7 +574,7 @@
 
 ------
 
-#### [Shadowrocket LightOwl](#shadowrocket-原创配色)
+#### [Shadowrocket LightOwl](#shadowrocket-lightowl)
 > `鸮腹色` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23FBFBFB&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23403F52)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=LightOwl18 "亮底色配色")
@@ -596,7 +596,7 @@
 
 ------
 
-#### [Shadowrocket SnowTop](#shadowrocket-原创配色)
+#### [Shadowrocket SnowTop](#shadowrocket-snowtop)
 > `雪顶色` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23E5E6EC&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%234C4F68)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=SnowTop18 "亮底色配色")
@@ -618,7 +618,7 @@
 
 ------
 
-#### [Shadowrocket RomeDay](#shadowrocket-原创配色)
+#### [Shadowrocket RomeDay](#shadowrocket-romeday)
 > `假日色` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23F5E8E7&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23622229)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=RomeDay18 "亮底色配色")
@@ -640,7 +640,7 @@
 
 ------
 
-#### [Shadowrocket PeachFresh](#shadowrocket-原创配色)
+#### [Shadowrocket PeachFresh](#shadowrocket-peachfresh)
 > `鲜桃色` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23F4C1A0&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23510603)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Peach18 "亮底色配色")
@@ -662,7 +662,7 @@
 
 ------
 
-#### [Shadowrocket LightBlue](#shadowrocket-原创配色)
+#### [Shadowrocket LightBlue](#shadowrocket-lightblue)
 > `远峰蓝` <sup> `亮底色` <sup>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23F0F3FA&logo=renovate&logoColor=grey&labelColor=%23F0F3FA&messageColor=%23395886)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=LightBlue18 "亮底色配色")
@@ -684,7 +684,7 @@
 
 ------
 
-#### [Shadowrocket EpicDark](#shadowrocket-原创配色)
+#### [Shadowrocket EpicDark](#shadowrocket-epicdark)
 > `Epic 暗夜` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23343338&logo=renovate&logoColor=white&labelColor=gray&messageColor=%2380BAFF)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=EpicDark18 "暗底色配色")
@@ -706,7 +706,7 @@
 
 ------
 
-#### [Shadowrocket V2EXNight](#shadowrocket-原创配色)
+#### [Shadowrocket V2EXNight](#shadowrocket-v2exnight)
 > `V2EX 暗夜` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%2318222D&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=V2EXNight18 "暗底色配色")
@@ -728,7 +728,7 @@
 
 ------
 
-#### [Shadowrocket GitHubDark](#shadowrocket-原创配色)
+#### [Shadowrocket GitHubDark](#shadowrocket-githubdark)
 > `GitHub 暗夜` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%2322282F&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=GitHubDark18 "暗底色配色")
@@ -750,7 +750,7 @@
 
 ------
 
-#### [Shadowrocket KanagawaWave](#shadowrocket-原创配色)
+#### [Shadowrocket KanagawaWave](#shadowrocket-kanagawawave)
 > `神奈川夜` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%2336363E&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=KanagawaWave18 "暗底色配色")
@@ -772,7 +772,7 @@
 
 ------
 
-#### [Shadowrocket KanagawaGray](#shadowrocket-原创配色)
+#### [Shadowrocket KanagawaGray](#shadowrocket-kanagawagray)
 > `神奈川灰` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%2336363E&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=KanagawaGray18 "暗底色配色")
@@ -793,7 +793,7 @@
 > ```
 
 ------
-#### [Shadowrocket Chrome](#shadowrocket-原创配色)
+#### [Shadowrocket Chrome](#shadowrocket-chrome)
 > `金属灰` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%2380BAFF&logo=renovate&logoColor=white&labelColor=gray&messageColor=%2380BAFF)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Chrome18 "暗底色配色")
@@ -815,7 +815,7 @@
 
 ------
 
-#### [Shadowrocket BlueSky](#shadowrocket-原创配色)
+#### [Shadowrocket BlueSky](#shadowrocket-bluesky)
 > `深空蓝` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%232473BD&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23ADBBC8)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=BlueSky18 "暗底色配色")
@@ -837,7 +837,7 @@
 
 ------
 
-#### [Shadowrocket GodenDark](#shadowrocket-原创配色)
+#### [Shadowrocket GodenDark](#shadowrocket-godendark)
 > `暗金色` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23D4A763&logo=renovate&logoColor=white&labelColor=gray&messageColor=grey)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=GodenDark18 "暗底色配色")
@@ -859,7 +859,7 @@
 
 ------
 
-#### [Shadowrocket Fluoresce](#shadowrocket-原创配色)
+#### [Shadowrocket Fluoresce](#shadowrocket-fluoresce)
 > `荧光色` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23B4FE5F&logo=renovate&logoColor=white&labelColor=gray&messageColor=grey)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Fluoresce18 "暗底色配色")
@@ -881,7 +881,7 @@
 
 ------
 
-#### [Shadowrocket TermiusDark](#shadowrocket-原创配色)
+#### [Shadowrocket TermiusDark](#shadowrocket-termiusdark)
 > `终端绿` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%2321B869&logo=renovate&logoColor=white&labelColor=gray&messageColor=%2321B869)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=TermiusDark18 "暗底色配色")
@@ -903,7 +903,7 @@
 
 ------
 
-#### [Shadowrocket Sunset](#shadowrocket-原创配色)
+#### [Shadowrocket Sunset](#shadowrocket-sunset)
 > `余晖紫` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%239B50DC&logo=renovate&logoColor=white&labelColor=gray&messageColor=grey)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Sunset18 "暗底色配色")
@@ -925,7 +925,7 @@
 
 ------
 
-#### [Shadowrocket Rose](#shadowrocket-原创配色)
+#### [Shadowrocket Rose](#shadowrocket-rose)
 > `玫瑰红` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23BE1451&logo=renovate&logoColor=white&labelColor=gray&messageColor=grey)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Rose18 "暗底色配色")
@@ -947,7 +947,7 @@
 
 ------
 
-#### [Shadowrocket Violet](#shadowrocket-原创配色)
+#### [Shadowrocket Violet](#shadowrocket-violet)
 > `紫罗兰` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%2348426D&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=Violet18 "暗底色配色")
@@ -969,7 +969,7 @@
 
 ------
 
-#### [Shadowrocket CyberPurple](#shadowrocket-原创配色)
+#### [Shadowrocket CyberPurple](#shadowrocket-cyberpurple)
 > `赛博紫` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%23483F68&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=CyberPurple18 "暗底色配色")
@@ -991,7 +991,7 @@
 
 ------
 
-#### [Shadowrocket AtomDark](#shadowrocket-原创配色)
+#### [Shadowrocket AtomDark](#shadowrocket-atomdark)
 > `原子灰` <sub> `暗底色` <sub>
 >
 > [![安装配色 iOS 18](https://img.shields.io/static/v1?label=安装配色&message=iOS%2018&color=%231E2127&logo=renovate&logoColor=white&labelColor=gray&messageColor=%23F0C38E)](https://lowertop.github.io/Shadowrocket-First/theme.html?target=AtomDark18 "暗底色配色")
@@ -1021,11 +1021,11 @@ _To Be Continued..._
 
 ------
 
-### [Shadowrocket 颜色配置描述翻译](#shadowrocket-配色文件)
+### [Shadowrocket 颜色配置描述翻译](#shadowrocket-颜色配置描述翻译)
 
 > 以下为小火箭配色描述的参考翻译，小火箭配色使用十六进制色值进行定义，可根据需要自行参考调整
 
-`描述翻译`
+**描述翻译**
 
 > ```ruby
 > NavigationBarColor / 导航栏背景色
@@ -1076,14 +1076,14 @@ _To Be Continued..._
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=
 > ```
 
-`示例`
+**示例**
 
 > * 你想使用小火箭的 URL-Scheme `shadowrocket://install?module=` 一键安装小火箭的这个模块 `https://12345.com/67890.module`，也就是 `shadowrocket://install?module=https://12345.com/67890.module` 
 > * 但是不是所有站点都支持类似地址的超链，无法完成点击跳转安装，例如本页或者 TG 就不支持……
 > * 那么你就可以复制转换链接粘贴在待安装地址前访问即可，也就是【跳转链接】+【URL-Scheme】+【模块地址】。完成组合后类似这样： `https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://12345.com/67890.module`
 > * 完成后即可点击跳转并成功安装
 
-### [Shadowrocket 一键安装跳转链接](#非标准链接重定向跳转)
+### [Shadowrocket 一键安装跳转链接](#shadowrocket-一键安装跳转链接)
 
 > 以下跳转链接后面直接跟相应文件地址
 > 
@@ -1100,7 +1100,7 @@ _To Be Continued..._
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://add/
 > ```
 
-### [Shadowrocket URL-Schemes](#非标准链接重定向跳转)
+### [Shadowrocket URL-Schemes](#shadowrocket-url-schemes)
   
 > 请使用相应内容替换代码中的 **大括号及其内容**
 >  
