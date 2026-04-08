@@ -6,6 +6,7 @@
 [<img src="https://lowertop.github.io/Shadowrocket-First/img/01.png" width="100%">](https://github.com/LOWERTOP/Shadowrocket-First)
 
 > [!NOTE]
+> 
 > 本仓库主要提供小火箭适用的 **配置文件、模块、规则集、脚本** 等内容，同时还有多种原创的 **小火箭配色/主题/皮肤**。软件使用方面若有疑问可查看 **[小火箭使用手册](https://github.com/LOWERTOP/Shadowrocket)**
 >
 > > 本仓中的所有数据均收集自互联网公开信息，不代表我们支持或使用这些服务。请通过合法的互联网出入口信道访问或使用，并确保在使用过程中符合当地法律法规。若您是相关索引的原作者或权利人，且不希望内容被引用，可点击 [此处](https://github.com/LOWERTOP/Shadowrocket-First/issues/new?title=%E6%9D%83%E5%88%A9%E8%A6%81%E6%B1%82&body=%E8%A6%81%E6%B1%82%E7%AE%80%E8%BF%B0%EF%BC%9A&labels=invalid) 要求剔除
@@ -24,6 +25,7 @@
 # [Shadowrocket 本仓文件](#shadowrocket-本仓文件)
 
 > [!NOTE]
+> 
 > 本章主要是为 **特定软件或服务** 所制作的模块、规则集等自制内容<br>
 > 各模块基本都包含有 **编辑参数** 选项，可 [进入编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 进行调整
 
@@ -127,6 +129,7 @@
 # [Shadowrocket 社区文件](#shadowrocket-社区文件)
 
 > [!NOTE]
+> 
 > 本章主要是收集自社区相对可信来源的公开文件，其效果请以实际为准
 
 ### [使用手册](#使用手册)
@@ -146,6 +149,7 @@
 ### [模块收集](#模块收集)
 
 > [!TIP]
+> 
 > **使用绝大多数模块仅在 [全局路由](https://github.com/LOWERTOP/Shadowrocket#%E5%85%A8%E5%B1%80%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB) 设置为配置模式时生效，不含 [代理规则](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E8%A7%84%E5%88%99%E7%B1%BB%E5%9E%8B) 的模块除外** <br>
 > **使用大多数模块须 [正确开启解密](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)，为避免因切换配置而须重新解密可设置 [证书模块](#证书模块)** <br>
 > **模块的生效需要遵循自上而下的 [优先级顺序](https://github.com/LOWERTOP/Shadowrocket#%E8%A7%84%E5%88%99%E4%BC%98%E5%85%88%E7%BA%A7)** <br>
@@ -316,6 +320,7 @@
 # [Shadowrocket 配色文件](#shadowrocket-配色文件)
 
 > [!NOTE]
+> 
 > 本单元主要提供作者原创的一些供 Shadowrocket 使用的配色文件
 >
 > **极其鸣谢** 快捷指令作者：[iab0x00](https://github.com/iab0x00)<br>
@@ -338,6 +343,7 @@
 ### [Shadowrocket 原创配色](#shadowrocket-原创配色)
 
 > [!IMPORTANT]
+> 
 > 小火箭原创配色文件已更新至 30 个<br>
 > 因苹果系统限制，部分细部图标不可自定义，且会跟随系统颜色模式改变。建议在使用 `亮底色` 时搭配浅色模式，使用 `暗底色` 时搭配深色模式
 
@@ -1068,9 +1074,11 @@ _To Be Continued..._
 # [非标准链接重定向跳转](#非标准链接重定向跳转)
 
 > [!NOTE]
+> 
 > 本单元为 URL Redirector 非标准链接重定向跳转相关内容。其作用主要是针对部分服务不支持诸如 `URL-Schemes` 的非标准链接作为超链使用，可将非标准链接使用本页 `HTML` 进行跳转可以实现将非标链接作为标准链接嵌入的功能。另外部分特殊链接因其编码等方面和普通链接有较大差异，本服务暂无法完全兼容
 
 > [!TIP]
+> 
 > 复制以下链接，粘贴在需要跳转的链接前进行访问即可
 > ```ruby
 > https://lowertop.github.io/Shadowrocket-First/redirect.html?url=
