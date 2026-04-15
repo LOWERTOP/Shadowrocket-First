@@ -68,7 +68,20 @@
             // 更新手动跳转链接
             document.getElementById('redirect-link').href = targetUrl;
             document.getElementById('redirect-link').textContent = `点击一键安装`;
-            document.getElementById('raw-link').href = rawUrl;
+            let pureUrl = rawUrl;
+
+// 提取内部 https 链接
+try {
+    const decoded = decodeURIComponent(rawUrl);
+
+    // 匹配第一个 https:// 开头的链接
+    const match = decoded.match(/https:\/\/[^\s]+/i);
+    if (match) {
+        pureUrl = match[0];
+    }
+} catch (e) {}
+
+document.getElementById('raw-link').href = pureUrl;
             document.getElementById('raw-link').textContent = `访问原始链接`
         } else {
             // 如果 URL 无效，提示用户
