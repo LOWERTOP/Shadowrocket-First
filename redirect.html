@@ -55,13 +55,26 @@
     </div>
 
     <script>
-        // 获取 URL 参数
+        // =========================
+        // ⭐ 自动记录来源
+        // =========================
+        try {
+            const currentUrl = window.location.href;
+            const lastPage = sessionStorage.getItem('lastPage');
+
+            if (lastPage !== currentUrl) {
+                sessionStorage.setItem('lastPage', document.referrer || lastPage || '');
+            }
+        } catch (e) {}
+
+        // =========================
+        // 工具函数
+        // =========================
         function getQueryParam(param) {
             const params = new URLSearchParams(window.location.search);
             return params.get(param);
         }
 
-        // decode
         function decodeUrl(url) {
             try {
                 return decodeURIComponent(url);
@@ -70,11 +83,13 @@
             }
         }
 
-        // 安全校验
         function isSafeUrl(url) {
             return !/^(javascript|data|vbscript):/i.test(url);
         }
 
+        // =========================
+        // 主逻辑
+        // =========================
         const rawUrl = getQueryParam('url');
         const targetUrl = decodeUrl(rawUrl || "");
 
@@ -98,11 +113,27 @@
             document.getElementById('raw-link').href = pureUrl;
             document.getElementById('raw-link').textContent = '访问直达链接';
 
-            // 返回按钮
-            document.getElementById('back-link').href =
-                document.referrer || 'javascript:history.back()';
+            // =========================
+            // ⭐ 智能返回逻辑
+            // =========================
+            let backUrl = '';
 
-            document.getElementById('back-link').textContent = '返回来源页面';
+            try {
+                backUrl =
+                    sessionStorage.getItem('lastPage') ||
+                    document.referrer ||
+                    '';
+            } catch (e) {}
+
+            const backBtn = document.getElementById('back-link');
+
+            if (backUrl && backUrl !== window.location.href) {
+                backBtn.href = backUrl;
+            } else {
+                backBtn.href = 'javascript:history.back()';
+            }
+
+            backBtn.textContent = '返回来源页面';
 
             // 自动跳转
             window.location.href = targetUrl;
