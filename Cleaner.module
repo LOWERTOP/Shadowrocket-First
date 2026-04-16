@@ -12,7 +12,7 @@ URL-REGEX,"^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/
 
 # QUIC BLOCK
 AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,QUIC)),REJECT-NO-DROP
-AND,((DOMAIN-SUFFIX,ddgksf2013.top), (PROTOCOL,QUIC)),REJECT-NO-DROP
+AND,((DOMAIN-SUFFIX,ddgksf2013.top),(PROTOCOL,QUIC)),REJECT-NO-DROP
 
 # 红果短剧部分去广告规则
 DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,REJECT-DROP
@@ -36,6 +36,20 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT
 # 以下为该软件代理规则集
 # RULE-SET,https://lowertop.github.io/Shadowrocket-First/DeepSeek.list,PROXY
 
+# 美图
+DOMAIN-SUFFIX,corp.meitu.com,REJECT
+DOMAIN-SUFFIX,gg.meitu.com,REJECT
+DOMAIN-SUFFIX,message.meitu.com,REJECT
+DOMAIN-SUFFIX,tuiguang.meitu.com,REJECT
+DOMAIN-SUFFIX,xiuxiu.android.dl.meitu.com,REJECT
+DOMAIN-SUFFIX,adui.tg.meitu.com,REJECT
+DOMAIN-SUFFIX,rabbit.tg.meitu.com,REJECT
+DOMAIN-SUFFIX,meitubeauty.meitudata.com,REJECT
+DOMAIN-SUFFIX,xiuxiu.mobile.meitudata.com,REJECT
+DOMAIN-SUFFIX,dc.meitustat.com,REJECT
+DOMAIN-SUFFIX,mdc.meitustat.com,REJECT
+DOMAIN-SUFFIX,rabbit.meitustat.com,REJECT
+
 [URL Rewrite]
 # 包子漫画横幅APP广告
 ^https?:\/\/static-tw\.baozimh\.com\/bzmhapp-data\/pics\/install_app_bar_baozimhappx\.jpg$ - REJECT
@@ -44,12 +58,24 @@ DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT
 ^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - REJECT
 ^https?://api.xiaoyi.com\/v5\/app\/config\?userid=.* - REJECT
 
-[URL Rewrite]
 # 001ProMax
 ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad header
 
+# 美图
+^https?:\/\/mea\.meitudata\.com\/kaiping - REJECT
+
+# 大师兄
+^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/.*?\/v\d\/(version|notice\?|top_notice\?|advert\?position=[^2]+) - REJECT-200
+
+# 移动弹窗
+^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/popupWindow\/getDetail - REJECT-200
+
 [Body Rewrite]
 http-response-jq ^https:\/\/pan\.baidu\.com\/feed\/kingkongdistrict\? '.data.data |= map(select(.type != "novel" and .type != "shortplay" and .type != "print" and .type != "job_hunt"))'
+
+# 大师兄
+http-response-jq ^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/api\/v\d\/config\/getConfigList\.do '.data |= map(select(.keyName | test("config\\.(ad|search|recommend)") | not))'
+http-response-jq ^http:\/\/app\.dsx\.ac\/ndsx\.php\/v\d\/logs 'del(.data.banners) | if .data.is_top then .data = [] else . end'
 
 [Map Local]
 # 001ProMax
@@ -71,6 +97,14 @@ http-response-jq ^https:\/\/pan\.baidu\.com\/feed\/kingkongdistrict\? '.data.dat
 ^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
+# 美图
+^https?:\/\/adui\.tg\.meitu\.com data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+# 小米音箱
+^https:\/\/marketing-aibox\.v\.mitvos\.com\/advertise\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/halfScreenMulti\/(home|cache)\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/tabPage\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
 [Script]
 # Spotify
 # 001ProMax
@@ -87,5 +121,22 @@ web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(ba
 移除阿里云盘广告 = type=http-response, pattern=^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list, script-path=https://kelee.one/Resource/JavaScript/AliYunDrive/AliYunDrive_remove_ads.js, requires-body=true
 移除航旅纵横首页广告 = type=http-response, pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://kelee.one/Resource/JavaScript/Umetrip/Umetrip_remove_ads.js
 
+# 移动启动页
+NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit$, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
+
+# 移动首页 - 下拉
+NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/newTopPullSecond\/getNewTopPullList, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
+
+# 移动首页 - 悬浮广告
+NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/emotionMarket\/getEmotionMarketNew, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
+
+NoAds = type=http-response, pattern=^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/homeArea\/getTopAreaList, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
+
+# 移动办理 - 横幅
+NoAds = type=http-response, pattern=^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/navigation\/getNavigationNewInfo, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
+
+# 移动我的 - 弹窗 
+NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/friendShake\/getShakeList, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
+
 [MITM]
-hostname = %APPEND% static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, ad.12306.cn, mobile.12306.cn, api.alipan.com, member.alipan.com, bizapi.alipan.com, pan.baidu.com, api.douban.com, frodo.douban.com, m.douban.com, 114.115.217.129, home.umetrip.com, 
+hostname = %APPEND% static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, ad.12306.cn, mobile.12306.cn, api.alipan.com, member.alipan.com, bizapi.alipan.com, pan.baidu.com, api.douban.com, frodo.douban.com, m.douban.com, 114.115.217.129, home.umetrip.com, app.dsx.ac, client.app.coc.10086.cn, h.app.coc.10086.cn, marketing-aibox.v.mitvos.com, mea.meitudata.com, adui.tg.meitu.com
