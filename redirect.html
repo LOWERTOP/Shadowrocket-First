@@ -13,7 +13,6 @@
             margin-top: 20%;
         }
 
-        /* 容器：两列布局 */
         .btn-group {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -22,7 +21,6 @@
             margin: 0 auto;
         }
 
-        /* 通用按钮样式 */
         .btn-group a {
             display: block;
             padding: 12px 0;
@@ -37,7 +35,6 @@
             background-color: #0056b3;
         }
 
-        /* 第三个按钮：跨两列 */
         #back-link {
             grid-column: 1 / -1;
         }
@@ -55,21 +52,6 @@
     </div>
 
     <script>
-        // =========================
-        // ⭐ 自动记录来源
-        // =========================
-        try {
-            const currentUrl = window.location.href;
-            const lastPage = sessionStorage.getItem('lastPage');
-
-            if (lastPage !== currentUrl) {
-                sessionStorage.setItem('lastPage', document.referrer || lastPage || '');
-            }
-        } catch (e) {}
-
-        // =========================
-        // 工具函数
-        // =========================
         function getQueryParam(param) {
             const params = new URLSearchParams(window.location.search);
             return params.get(param);
@@ -87,9 +69,6 @@
             return !/^(javascript|data|vbscript):/i.test(url);
         }
 
-        // =========================
-        // 主逻辑
-        // =========================
         const rawUrl = getQueryParam('url');
         const targetUrl = decodeUrl(rawUrl || "");
 
@@ -103,8 +82,7 @@
             let pureUrl = rawUrl || "#";
 
             try {
-                const urlToParse = targetUrl;
-                const match = urlToParse.match(/https:\/\/[^\s"'<>]+/i);
+                const match = targetUrl.match(/https:\/\/[^\s"'<>]+/i);
                 if (match) {
                     pureUrl = match[0];
                 }
@@ -114,26 +92,17 @@
             document.getElementById('raw-link').textContent = '访问直达链接';
 
             // =========================
-            // ⭐ 智能返回逻辑
+            // ⭐ 返回按钮（无来源则隐藏）
             // =========================
-            let backUrl = '';
-
-            try {
-                backUrl =
-                    sessionStorage.getItem('lastPage') ||
-                    document.referrer ||
-                    '';
-            } catch (e) {}
-
             const backBtn = document.getElementById('back-link');
+            let backUrl = document.referrer || '';
 
-            if (backUrl && backUrl !== window.location.href) {
-                backBtn.href = backUrl;
+            if (!backUrl || backUrl === window.location.href) {
+                backBtn.style.display = 'none';
             } else {
-                backBtn.href = 'javascript:history.back()';
+                backBtn.href = backUrl;
+                backBtn.textContent = '返回来源页面';
             }
-
-            backBtn.textContent = '返回来源页面';
 
             // 自动跳转
             window.location.href = targetUrl;
