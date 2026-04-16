@@ -50,18 +50,22 @@
 
         // 自动编解码处理
         const rawUrl = getQueryParam('url'); // 原始输入 URL
-        const targetUrl = decodeUrl(rawUrl); // 尝试解码用户输入
+        const targetUrl = decodeUrl(rawUrl || ""); // 尝试解码用户输入
 
         // 校验 URL 是否有效
-        if (targetUrl && (targetUrl.startsWith('http') || targetUrl.includes(':'))) {
+        function isSafeUrl(url) {
+            return !/^(javascript|data|vbscript):/i.test(url);
+        }
+
+        if (targetUrl && isSafeUrl(targetUrl)) {
             // 更新手动跳转链接
             document.getElementById('redirect-link').href = targetUrl;
             document.getElementById('redirect-link').textContent = `点击一键安装`;
-            let pureUrl = rawUrl;
+            let pureUrl = rawUrl || "#";
 
             // 提取内部 https 链接
             try {
-                const decoded = decodeURIComponent(rawUrl);
+                const decoded = targetUrl;
 
                 // 匹配第一个 https:// 开头的链接
                 const match = decoded.match(/https:\/\/[^\s"'<>]+/i);
@@ -71,7 +75,7 @@
             } catch (e) {}
             
             document.getElementById('raw-link').href = pureUrl;
-            document.getElementById('raw-link').textContent = `访问原始链接`
+            document.getElementById('raw-link').textContent = `访问直达链接`
 
             // 自动跳转
             window.location.href = targetUrl;
