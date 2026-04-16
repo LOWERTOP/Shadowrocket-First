@@ -48,23 +48,12 @@
             }
         }
 
-        function encodeUrl(url) {
-            try {
-                return encodeURIComponent(url);
-            } catch (e) {
-                return url; // 如果编码失败，返回原始 URL
-            }
-        }
-
         // 自动编解码处理
         const rawUrl = getQueryParam('url'); // 原始输入 URL
         const targetUrl = decodeUrl(rawUrl); // 尝试解码用户输入
 
         // 校验 URL 是否有效
         if (targetUrl && (targetUrl.startsWith('http') || targetUrl.includes(':'))) {
-            // 自动跳转
-            window.location.href = targetUrl;
-
             // 更新手动跳转链接
             document.getElementById('redirect-link').href = targetUrl;
             document.getElementById('redirect-link').textContent = `点击一键安装`;
@@ -75,7 +64,7 @@
                 const decoded = decodeURIComponent(rawUrl);
 
                 // 匹配第一个 https:// 开头的链接
-                const match = decoded.match(/https:\/\/[^\s]+/i);
+                const match = decoded.match(/https:\/\/[^\s"'<>]+/i);
                 if (match) {
                     pureUrl = match[0];
                 }
@@ -83,6 +72,10 @@
             
             document.getElementById('raw-link').href = pureUrl;
             document.getElementById('raw-link').textContent = `访问原始链接`
+
+            // 自动跳转
+            window.location.href = targetUrl;
+
         } else {
             // 如果 URL 无效，提示用户
             document.body.innerHTML = `<h1>无效的链接！</h1><p>请检查 URL 是否正确。</p>`;
