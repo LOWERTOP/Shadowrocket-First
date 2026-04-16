@@ -31,6 +31,7 @@
     <p>若有弹出窗口，须点击【允许】</p>
     <a id="redirect-link" href="#">手动跳转</a>
     <a id="raw-link" href="#">访问原始链接</a>
+    <a id="back-link" href="#">返回原始页面</a>
 
     <script>
         // 获取 URL 参数
@@ -76,6 +77,9 @@
             
             document.getElementById('raw-link').href = pureUrl;
             document.getElementById('raw-link').textContent = `访问直达链接`
+
+            document.getElementById('back-link').href = document.referrer || 'javascript:history.back()';
+            document.getElementById('back-link').textContent = '返回原始页面';
 
             // 自动跳转
             window.location.href = targetUrl;
