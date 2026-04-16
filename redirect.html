@@ -48,7 +48,6 @@
     <div class="btn-group">
         <a id="redirect-link" href="#">手动跳转</a>
         <a id="raw-link" href="#">访问原始链接</a>
-        <a id="back-link" href="#">返回来源页面</a>
     </div>
 
     <script>
@@ -90,40 +89,6 @@
 
             document.getElementById('raw-link').href = pureUrl;
             document.getElementById('raw-link').textContent = '访问直达链接';
-
-            // =========================
-            // ⭐ 返回按钮（无来源则隐藏）
-            // =========================
-            const backBtn = document.getElementById('back-link');
-            let backUrl = document.referrer || '';
-            
-            let isValidReferrer = false;
-            
-            try {
-                if (backUrl) {
-                    const ref = new URL(backUrl);
-            
-                    // 只允许 http / https
-                    if (ref.protocol === 'http:' || ref.protocol === 'https:') {
-
-                        // ❗ 过滤“明显无效来源”
-                        if (
-                            ref.hostname !== location.hostname &&   // 不是自己
-                            !ref.hostname.includes('github.com') && // 过滤 GitHub 跳板
-                            !ref.hostname.includes('t.co')          // 过滤短链
-                        ) {
-                            isValidReferrer = true;
-                        }
-                    }
-                }
-            } catch (e) {}
-            
-            if (!isValidReferrer) {
-                backBtn.style.display = 'none';
-            } else {
-                backBtn.href = backUrl;
-                backBtn.textContent = '返回来源页面';
-            }
 
             // 自动跳转
             window.location.href = targetUrl;
