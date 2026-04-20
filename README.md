@@ -251,28 +251,6 @@
 > >   
 > > [![安装模块 合集模块](https://img.shields.io/static/v1?label=安装模块&message=合集模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule "一键安装本模块")
 
-### [其他仓库](#其他仓库)
-
-> [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块
->
-> [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看")
->
-> [QingRex](https://github.com/QingRex) 维护的 [模块仓库](https://github.com/QingRex/LoonKissSurge)，绝大部分可兼容使用
->
-> [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=QingRex&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看")
->
-> [奶思](https://github.com/fmz200) 维护的仓库，包含数百款独立模块
->
-> [![模块仓库 奶思](https://img.shields.io/static/v1?label=模块仓库&message=奶思&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/blob/main/README-RULE.md "点击查看")
-> 
-> [zirawell](https://github.com/zirawell) 维护的仓库，包含数百款独立模块和多个不同类型的合集类模块
->
-> [![模块仓库 zirawell](https://img.shields.io/static/v1?label=模块仓库&message=zirawell&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/zirawell/R-Store/tree/main/Rule/Surge/Adblock "点击查看")
-> 
-> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，包含高德、B站、彩云、菜鸟、微博等，需提前安装 [前置模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
->
-> [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=searxng&logoColor=white&labelColor=blue&messageColor=white)](https://ddgksf2013.top/ "点击查看")
-
 ### [解锁检测](#解锁检测)
 
 > 由 [Kristen](https://t.me/iam_Kristen) 和 [Sage](https://github.com/huskydsb) 各制作有 **解锁检测快捷指令**，可用来检测各流媒体服务的解锁地区或可用性，也可以检测 ChatGPT、TikTok、YouTube 等服务的解锁地区或状态以及 IP 归属地等。脚本检测会根据你的分流规则进行测试，若出现错误请多试几次。其中 K 版是各服务统一通知结果，S 版是不同服务分别通知结果
@@ -314,6 +292,33 @@
 > [iab0x00](https://github.com/iab0x00) 维护的 [交易所规则集](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rule/Crypto.txt)，包含 Binane、Bitget、Bybit、OKX 等
 > 
 > [![规则文件 交易所规则集](https://img.shields.io/static/v1?label=规则文件&message=交易所规则集&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rule/Crypto.txt "点击访问规则集")
+
+### [其他仓库](#其他仓库)
+
+> [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块
+>
+> [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看")
+>
+> [Kelee 可莉](https://github.com/ddgksf2013/ddgksf2013) 维护的插件中心，安装 [插件中心转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
+>
+> [![模块仓库 Kelee](https://img.shields.io/static/v1?label=模块仓库&message=Kelee&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://hub.kelee.one/ "点击查看")
+> 
+> [Ling KeQing](https://github.com/QingRex) 维护的 [模块仓库](https://github.com/QingRex/LoonKissSurge)，绝大部分可兼容使用，此页面的插件/模块主要来源于可莉
+>
+> [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=KeQing&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://surge.qingr.moe "点击查看")
+>
+> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，包含高德、B站、彩云、菜鸟、微博等，需提前安装 [前置模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
+>
+> [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://ddgksf2013.top/ "点击查看")
+> 
+> [奶思](https://github.com/fmz200) 维护的仓库，包含数百款独立模块
+>
+> [![模块仓库 奶思](https://img.shields.io/static/v1?label=模块仓库&message=奶思&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://github.com/fmz200/wool_scripts/blob/main/README-RULE.md "点击查看")
+> 
+> [zirawell](https://github.com/zirawell) 维护的仓库，包含数百款独立模块和多个不同类型的合集类模块
+>
+> [![模块仓库 zirawell](https://img.shields.io/static/v1?label=模块仓库&message=zirawell&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://github.com/zirawell/R-Store/tree/main/Rule/Surge/Adblock "点击查看")
+> 
 
 ------
 
