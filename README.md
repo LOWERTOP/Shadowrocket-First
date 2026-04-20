@@ -242,12 +242,16 @@
 > **[奶思净化合集模块](https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/blockAds.module)**
 > 
 > > 本模块由 [奶思](https://github.com/fmz200) 推出的可以兼容小火箭的模块，对数百款应用或小程序进行广告拦截，详情参阅 [注释内容](https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/blockAds.module)
+> >
+> > **合集类模块可能存在误杀、兼容性、稳定性等问题，或会导致部分软件或服务稳定性下降，请测试后使用**
 > >   
 > > [![安装模块 净化合集](https://img.shields.io/static/v1?label=安装模块&message=净化合集&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/blockAds.module "一键安装本模块")
 > 
 > **[zirawell合集模块](https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule)**
 > 
 > > 模块出自 [zirawell](https://github.com/zirawell)，对数百款应用、小程序、网站等进行广告拦截，包含 [微信小程序去广告合集模块](https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/wechatAdBlock.sgmodule)、[支付宝小程序去广告合集模块](https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/alipayAdBlock.sgmodule)、[App 去广告合集模块](https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/appAdBlock.sgmodule) 以及 [全部去广告合集模块](https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule)，同时提供 [独立模块](https://github.com/zirawell/R-Store/tree/main/Rule/Surge/Adblock)，详情参阅 [仓库说明](https://github.com/zirawell/R-Store)
+> >
+> > **合集类模块可能存在误杀、兼容性、稳定性等问题，或会导致部分软件或服务稳定性下降，请测试后使用**
 > >   
 > > [![安装模块 合集模块](https://img.shields.io/static/v1?label=安装模块&message=合集模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule "一键安装本模块")
 
