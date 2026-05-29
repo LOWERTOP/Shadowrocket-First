@@ -261,7 +261,7 @@
 > >
 > > [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看")
 > >
-> > [Kelee 可莉](https://github.com/ddgksf2013/ddgksf2013) 维护的插件中心，安装 [插件中心转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
+> > [Kelee 可莉](https://github.com/ddgksf2013/ddgksf2013) 维护的插件中心，安装 [插件中心专用转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
 > >
 > > [![模块仓库 Kelee](https://img.shields.io/static/v1?label=模块仓库&message=Kelee&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://hub.kelee.one/ "点击查看")
 > > 
@@ -269,7 +269,7 @@
 > >
 > > [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=KeQing&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看")
 > >
-> > [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，需提前安装 [前置模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
+> > [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，需提前安装 [墨鱼专用前置模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
 > >
 > > [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://ddgksf2013.top/ "点击查看")
 > > 
