@@ -14,6 +14,8 @@ URL-REGEX,"^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/
 AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,QUIC)),REJECT-NO-DROP
 AND,((DOMAIN-SUFFIX,ddgksf2013.top),(PROTOCOL,QUIC)),REJECT-NO-DROP
 
+# 放行抖音商城图片地址
+DOMAIN,p3-ad-sign.byteimg.com,DIRECT
 # 红果短剧部分去广告规则
 DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,REJECT-DROP
 DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,REJECT-DROP
