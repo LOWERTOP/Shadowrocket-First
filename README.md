@@ -113,6 +113,8 @@
 
 > 本模块是使用 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的以 UI 界面调整配置文件内部分参数、功能及隐藏参数选项的功能增强型模块。相关参数的功能详情请参考 [使用手册](https://github.com/LOWERTOP/Shadowrocket)
 > 
+> **不了解本模块作用的用户请不要使用本模块**
+> 
 > [![安装模块 调试模块](https://img.shields.io/static/v1?label=安装模块&message=调试模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Commands.sgmodule "一键安装本模块")
 
 ### [欧易规则集](#欧易规则集)
