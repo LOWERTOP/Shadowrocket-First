@@ -301,13 +301,13 @@
 
 ### [筛选订阅脚本](#筛选订阅脚本)
 
-> ~~[kiwi707](https://github.com/kiwi707) 制作的 **筛选/规范订阅节点** 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化~~
+> [kiwi707](https://github.com/kiwi707) 制作的 **筛选/规范订阅节点** 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
 > 
-> ~~_使用方法：打开下方脚件链接后复制所有内容，粘贴至 **订阅页面** 的 **[过滤](https://github.com/LOWERTOP/Shadowrocket#%E8%AE%A2%E9%98%85%E8%8A%82%E7%82%B9%E7%AD%9B%E9%80%89)** 区域，参考 [说明](https://github.com/kiwi707/Shadow-Rocket) 修改后保存即可_~~
+> _使用方法：打开下方脚件链接后复制所有内容，粘贴至 **订阅页面** 的 **[过滤](https://github.com/LOWERTOP/Shadowrocket#%E8%AE%A2%E9%98%85%E8%8A%82%E7%82%B9%E7%AD%9B%E9%80%89)** 区域，参考 [说明](https://github.com/LOWERTOP/Shadowrocket-First/blob/main/JS/FilterScript.md) 修改后保存即可_
 >
-> > 原作者仓库失效，等待后续补充
+> > 原作者仓库失效，此版本为本仓重建版
 > 
-> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/kiwi707/Shadow-Rocket/main/FilterScript "点击查看脚本内容")
+> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/FilterScript "点击查看脚本内容")
 
 ### [进阶用法](#进阶用法)
 
