@@ -154,6 +154,20 @@
 > **模块的生效需要遵循自上而下的 [优先级顺序](https://github.com/LOWERTOP/Shadowrocket#%E8%A7%84%E5%88%99%E4%BC%98%E5%85%88%E7%BA%A7)** <br>
 > **部分模块的生效需要清除相应的程序的缓存或者重新安装**
 
+> **[定位修改方案](https://github.com/Yu9191/wloc)**
+> 
+> > 本方案来自 [Yu9191](https://github.com/Yu9191)，可修改 Apple 网络定位服务 (WiFi/基站) 返回的坐标，实现 iOS 网络虚拟定位。本方案包含定位模块和辅助快捷指令，支持使用苹果地图、高德地图进行定位修改。更多信息请查看 [原始仓库](https://github.com/Yu9191/wloc)
+> >
+> > - **准备阶段：** 正确安装下方模块及快捷指令
+> > - **设置位置：** 在地图 App 里选好位置（长按地图选点）→ 共享 → 选「wloc 设置地理位置」快捷指令即可运行切换。在弹出定位设置页面后请关闭定位并等待10秒后重新打开即可完成切换，可在定位类软件中查看是否成功
+> >   - 苹果地图：选点 → 共享 → 「wloc 设置地理位置」快捷指令
+> >   - 高德地图：选点 → 分享 → **更多** → 「wloc 设置地理位置」快捷指令
+> > - **恢复位置：** 点「wloc 清理恢复位置」快捷指令即可恢复真实定位
+> >
+> > [![安装模块 定位修改](https://img.shields.io/static/v1?label=安装模块&message=定位修改&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Yu9191/wloc/refs/heads/main/modules/wloc.module "一键安装本模块")
+> > [![快捷指令 设置位置](https://img.shields.io/static/v1?label=快捷指令&message=设置位置&color=grey&logo=removedotbg&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/a82717d8fdad4e6280866fcf911173f7 "点击安装快捷指令")
+> > [![快捷指令 恢复位置](https://img.shields.io/static/v1?label=快捷指令&message=恢复位置&color=grey&logo=removedotbg&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/f42632d406504f24a2cd163af4fe012f "点击安装快捷指令")
+>
 > **[插件中心转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule)**
 > 
 > > 本方案模块由 [iab0x00](https://github.com/iab0x00) 制作，可使小火箭直接安装并使用 [可莉插件中心](https://hub.kelee.one) 的插件/模块。本模块借助 **[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)** 的转换功能实现，为方便新手使用已内置 [Script-Hub](https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 相关代码。感谢 [iab0x00](https://github.com/iab0x00)、[可莉](https://github.com/luestr) 及 [Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki) 的辛苦付出，本案遵循 [可莉的授权说明](https://t.me/ibilibili/1498)
@@ -244,22 +258,6 @@
 > > 本模块由 [Sage](https://github.com/huskydsb) 制作并维护，是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 为基础使用手段的定期检测订阅信息的模块，主要可以定期查询并提醒服务器订阅的当前信息，如上传流量、下载流量、流量总量、到期时间等提醒。安装后点击模块进入编辑参数页面设置，其时间间隔使用 Cron 表达式填写，其他内容参见编辑参数内的说明
 > >   
 > > [![安装模块 流量查询](https://img.shields.io/static/v1?label=安装模块&message=流量查询&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Sgmodule/%E6%9C%BA%E5%9C%BA%E6%B5%81%E9%87%8F%E6%9F%A5%E8%AF%A2.module "一键安装本模块")
->
-> **[定位修改方案](https://github.com/Yu9191/wloc)**
-> 
-> > 本方案来自 [Yu9191](https://github.com/Yu9191)，可修改 Apple 网络定位服务 (WiFi/基站) 返回的坐标，实现 iOS 网络虚拟定位。本方案包含定位模块和辅助快捷指令，支持使用苹果地图、高德地图进行定位修改。更多信息请查看 [原始仓库](https://github.com/Yu9191/wloc)
-> >
-> > **使用方法**
-> >
-> > - **准备阶段：** 正确安装下方模块及快捷指令
-> > - **设置位置：** 在地图 App 里选好位置（长按地图选点）→ 共享 → 选「wloc 设置地理位置」快捷指令即可运行切换。在弹出定位设置页面后请关闭定位并等待10秒后重新打开即可完成切换，可在定位类软件中查看是否成功
-> >   - 苹果地图：选点 → 共享 → 「wloc 设置地理位置」快捷指令
-> >   - 高德地图：选点 → 分享 → **更多** → 「wloc 设置地理位置」快捷指令
-> > - **恢复位置：** 点「wloc 清理恢复位置」快捷指令即可恢复真实定位
-> >
-> > [![安装模块 定位修改](https://img.shields.io/static/v1?label=安装模块&message=定位修改&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Yu9191/wloc/refs/heads/main/modules/wloc.module "一键安装本模块")
-> > [![快捷指令 设置位置](https://img.shields.io/static/v1?label=快捷指令&message=设置位置&color=grey&logo=removedotbg&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/a82717d8fdad4e6280866fcf911173f7 "点击安装快捷指令")
-> > [![快捷指令 恢复位置](https://img.shields.io/static/v1?label=快捷指令&message=恢复位置&color=grey&logo=removedotbg&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/f42632d406504f24a2cd163af4fe012f "点击安装快捷指令")
 >
 > **[奶思净化合集模块](https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/blockAds.module)**
 > 
