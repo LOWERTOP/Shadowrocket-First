@@ -277,29 +277,29 @@
 > 
 > **[更多模块](#模块收集)**
 > 
-> > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块
+> > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块资源仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块
 > >
-> > [![模块仓库 iab0x00](https://img.shields.io/static/v1?label=模块仓库&message=iab0x00&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看")
+> > [![社区资源 iab0x00](https://img.shields.io/static/v1?label=社区资源&message=iab0x00&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看")
 > >
 > > [Kelee 可莉](https://github.com/ddgksf2013/ddgksf2013) 维护的插件中心，安装 [插件中心专用转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
 > >
-> > [![模块仓库 Kelee](https://img.shields.io/static/v1?label=模块仓库&message=Kelee&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://hub.kelee.one/ "点击查看")
+> > [![社区资源 Kelee](https://img.shields.io/static/v1?label=社区资源&message=Kelee&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://hub.kelee.one/ "点击查看")
 > > 
-> > [Ling KeQing](https://github.com/QingRex) 维护的资源丰富的 [模块仓库](https://github.com/QingRex/LoonKissSurge)，多数可直接使用
+> > [Ling KeQing](https://github.com/QingRex) 维护的资源丰富的 [模块资源仓库](https://github.com/QingRex/LoonKissSurge)，多数可直接使用
 > >
-> > [![模块仓库 QingRex](https://img.shields.io/static/v1?label=模块仓库&message=KeQing&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看")
+> > [![社区资源 QingRex](https://img.shields.io/static/v1?label=社区资源&message=KeQing&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看")
 > >
-> > [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块仓库，需提前安装 [墨鱼专用前置模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
+> > [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块资源网站，需提前安装 [墨鱼专用前置模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
 > >
-> > [![模块仓库 Cuttlefish](https://img.shields.io/static/v1?label=模块仓库&message=Cuttlefish&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://ddgksf2013.top/ "点击查看")
+> > [![社区资源 Cuttlefish](https://img.shields.io/static/v1?label=社区资源&message=Cuttlefish&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://ddgksf2013.top/ "点击查看")
 > > 
 > > [奶思](https://github.com/fmz200) 维护的仓库，包含数百款独立模块
 > >
-> > [![模块仓库 奶思](https://img.shields.io/static/v1?label=模块仓库&message=奶思&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/blob/main/README-RULE.md "点击查看")
+> > [![社区资源 奶思](https://img.shields.io/static/v1?label=社区资源&message=奶思&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/blob/main/README-RULE.md "点击查看")
 > > 
 > > [zirawell](https://github.com/zirawell) 维护的仓库，包含数百款独立模块和多个不同类型的合集类模块
 > >
-> > [![模块仓库 zirawell](https://img.shields.io/static/v1?label=模块仓库&message=zirawell&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/zirawell/R-Store/tree/main/Rule/Surge/Adblock "点击查看")
+> > [![社区资源 zirawell](https://img.shields.io/static/v1?label=社区资源&message=zirawell&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/zirawell/R-Store/tree/main/Rule/Surge/Adblock "点击查看")
 
 ### [解锁检测](#解锁检测)
 
