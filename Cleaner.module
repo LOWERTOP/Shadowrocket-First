@@ -1,201 +1,213 @@
 #!name=🅲🅻🅴🅰🅽🅴🆁
 #!desc=自用测试模块，编辑参数以使用
-#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译AppID, 翻译密钥:申请并填入百度翻译密钥, 精简底栏:true, 接力功能:true
-#!arguments-desc=歌词翻译功能说明\n\n· 歌词翻译功能有效性暂不确定\n\n· 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n· 申请时建议使用桌面设备，移动设备可能访问失败\n\n· 成功启用后，歌词界面左下角即可看到翻译按钮\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露): \n\n    http://api.fanyi.baidu.com/manage/developer
+#!arguments=12306:# , Spotify:# , DeepSeek:# , 豆瓣:# , 拼多多:# , 航旅纵横:# , 阿里云盘:# , 百度网盘:# , 小米音箱:# , 美图秀秀:# , 红果短剧:# , 包子漫画:# , 中国移动:# , 小蚁摄像机:# , 大师兄影视:# , 歌词翻译:false, 翻译账户:申请并填入百度翻译AppID, 翻译密钥:申请并填入百度翻译密钥, 精简底栏:true, 接力功能:true
+#!arguments-desc=按应用启用去广告\n\n· 填入空格即可启用\n\n歌词翻译功能说明\n\n· 歌词翻译功能有效性暂不确定\n\n· 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n· 申请时建议使用桌面设备，移动设备可能访问失败\n\n· 成功启用后，歌词界面左下角即可看到翻译按钮\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露): \n\n    http://api.fanyi.baidu.com/manage/developer
 # 整理作者：LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
-DOMAIN,ad.12306.cn,DIRECT,extended-matching
-IP-CIDR,203.107.1.1/24,REJECT,no-resolve,pre-matching
-URL-REGEX,"^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native",REJECT,extended-matching
+{{{12306}}}DOMAIN,ad.12306.cn,DIRECT,extended-matching
+{{{12306}}}IP-CIDR,203.107.1.1/24,REJECT,no-resolve,pre-matching
+{{{航旅纵横}}}URL-REGEX,"^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native",REJECT,extended-matching
 
 # QUIC BLOCK
-AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,QUIC)),REJECT-NO-DROP
-AND,((DOMAIN-SUFFIX,ddgksf2013.top),(PROTOCOL,QUIC)),REJECT-NO-DROP
+{{{Spotify}}}AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,QUIC)),REJECT-NO-DROP
+{{{Spotify}}}AND,((DOMAIN-SUFFIX,ddgksf2013.top),(PROTOCOL,QUIC)),REJECT-NO-DROP
 
 # 放行抖音商城图片地址
-DOMAIN,p3-ad-sign.byteimg.com,DIRECT
+{{{红果短剧}}}DOMAIN,p3-ad-sign.byteimg.com,DIRECT
 # 红果短剧部分去广告规则
-DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,REJECT-DROP
-DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,REJECT-DROP
-DOMAIN-WILDCARD,*-ad-sign.byteimg.com,REJECT-DROP
-DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,REJECT-DROP
+{{{红果短剧}}}DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,REJECT-DROP
+{{{红果短剧}}}DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,REJECT-DROP
+{{{红果短剧}}}DOMAIN-WILDCARD,*-ad-sign.byteimg.com,REJECT-DROP
+{{{红果短剧}}}DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,REJECT-DROP
 
 # 包子漫画所需特定规则
-DOMAIN-SUFFIX,baozimhcn.com,DIRECT
-DOMAIN-SUFFIX,baozimh.com,DIRECT
-DOMAIN-SUFFIX,baozicdn.com,DIRECT
-DOMAIN-SUFFIX,dzmanga.com,DIRECT
-DOMAIN-SUFFIX,twmanga.com,DIRECT
-DOMAIN-SUFFIX,baozimhapp.com,REJECT
+{{{包子漫画}}}DOMAIN-SUFFIX,baozimhcn.com,DIRECT
+{{{包子漫画}}}DOMAIN-SUFFIX,baozimh.com,DIRECT
+{{{包子漫画}}}DOMAIN-SUFFIX,baozicdn.com,DIRECT
+{{{包子漫画}}}DOMAIN-SUFFIX,dzmanga.com,DIRECT
+{{{包子漫画}}}DOMAIN-SUFFIX,twmanga.com,DIRECT
+{{{包子漫画}}}DOMAIN-SUFFIX,baozimhapp.com,REJECT
 
 # DeepSeek 规则
 # 以下为该软件的疑似上传地址
-DOMAIN-SUFFIX,apmplus.volces.com,REJECT
-DOMAIN-SUFFIX,gator.volces.com,REJECT
-DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT
+{{{DeepSeek}}}DOMAIN-SUFFIX,apmplus.volces.com,REJECT
+{{{DeepSeek}}}DOMAIN-SUFFIX,gator.volces.com,REJECT
+{{{DeepSeek}}}DOMAIN-SUFFIX,guh50jw4-ios.mobile-messenger.intercom.com,REJECT
 # 以下为该软件代理规则集
 # RULE-SET,https://lowertop.github.io/Shadowrocket-First/DeepSeek.list,PROXY
 
 # 美图
-DOMAIN-SUFFIX,corp.meitu.com,REJECT
-DOMAIN-SUFFIX,gg.meitu.com,REJECT
-DOMAIN-SUFFIX,message.meitu.com,REJECT
-DOMAIN-SUFFIX,tuiguang.meitu.com,REJECT
-DOMAIN-SUFFIX,xiuxiu.android.dl.meitu.com,REJECT
-DOMAIN-SUFFIX,adui.tg.meitu.com,REJECT
-DOMAIN-SUFFIX,rabbit.tg.meitu.com,REJECT
-DOMAIN-SUFFIX,meitubeauty.meitudata.com,REJECT
-DOMAIN-SUFFIX,xiuxiu.mobile.meitudata.com,REJECT
-DOMAIN-SUFFIX,dc.meitustat.com,REJECT
-DOMAIN-SUFFIX,mdc.meitustat.com,REJECT
-DOMAIN-SUFFIX,rabbit.meitustat.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,corp.meitu.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,gg.meitu.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,message.meitu.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,tuiguang.meitu.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,xiuxiu.android.dl.meitu.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,adui.tg.meitu.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,rabbit.tg.meitu.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,meitubeauty.meitudata.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,xiuxiu.mobile.meitudata.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,dc.meitustat.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,mdc.meitustat.com,REJECT
+{{{美图秀秀}}}DOMAIN-SUFFIX,rabbit.meitustat.com,REJECT
 
 # PDD @XiangwanGuan
-DOMAIN,apm-a.pinduoduo.com,REJECT,pre-matching
-DOMAIN,apm.pinduoduo.com,REJECT,pre-matching
-DOMAIN,cd-1.pddpic.com,REJECT,pre-matching
-DOMAIN,cdl-1.pddpic.com,REJECT,pre-matching
-DOMAIN,cdl-p2.pddpic.com,REJECT,pre-matching
-DOMAIN,meta.pinduoduo.com,REJECT,pre-matching
-DOMAIN,ta-a.pinduoduo.com,REJECT,pre-matching
-DOMAIN,ta.pinduoduo.com,REJECT,pre-matching
-DOMAIN,th-a.pinduoduo.com,REJECT,pre-matching
-DOMAIN,th-b.pinduoduo.com,REJECT,pre-matching
-DOMAIN,th.pinduoduo.com,REJECT,pre-matching
-DOMAIN,titan.pinduoduo.com,REJECT,pre-matching
-DOMAIN,xg.pinduoduo.com,REJECT,pre-matching
-AND,((PROTOCOL,QUIC),(DOMAIN,api.pinduoduo.com)),REJECT-NO-DROP
-AND,((URL-REGEX,^https?:\/\/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/d(\d)?),(USER-AGENT,*com.xunmeng.pinduoduo*)),REJECT
-AND,((URL-REGEX,^https?:\/\/[[0-9a-fA-F:]+\]\/d(\d)?\?),(USER-AGENT,*com.xunmeng.pinduoduo*)),REJECT
+{{{拼多多}}}DOMAIN,apm-a.pinduoduo.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,apm.pinduoduo.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,cd-1.pddpic.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,cdl-1.pddpic.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,cdl-p2.pddpic.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,meta.pinduoduo.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,ta-a.pinduoduo.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,ta.pinduoduo.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,th-a.pinduoduo.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,th-b.pinduoduo.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,th.pinduoduo.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,titan.pinduoduo.com,REJECT,pre-matching
+{{{拼多多}}}DOMAIN,xg.pinduoduo.com,REJECT,pre-matching
+{{{拼多多}}}AND,((PROTOCOL,QUIC),(DOMAIN,api.pinduoduo.com)),REJECT-NO-DROP
+{{{拼多多}}}AND,((URL-REGEX,^https?:\/\/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/d(\d)?),(USER-AGENT,*com.xunmeng.pinduoduo*)),REJECT
+{{{拼多多}}}AND,((URL-REGEX,^https?:\/\/[[0-9a-fA-F:]+\]\/d(\d)?\?),(USER-AGENT,*com.xunmeng.pinduoduo*)),REJECT
 
 [URL Rewrite]
 # 包子漫画横幅APP广告
-^https?:\/\/static-tw\.baozimh\.com\/bzmhapp-data\/pics\/install_app_bar_baozimhappx\.jpg$ - REJECT
+{{{包子漫画}}}^https?:\/\/static-tw\.baozimh\.com\/bzmhapp-data\/pics\/install_app_bar_baozimhappx\.jpg$ - REJECT
 
 # 小蚁
-^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - REJECT
-^https?://api.xiaoyi.com\/v5\/app\/config\?userid=.* - REJECT
+{{{小蚁摄像机}}}^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - REJECT
+{{{小蚁摄像机}}}^https?://api.xiaoyi.com\/v5\/app\/config\?userid=.* - REJECT
 
 # 001ProMax
-^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad header
+{{{Spotify}}}^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad header
 
 # 美图
-^https?:\/\/mea\.meitudata\.com\/kaiping - REJECT
+{{{美图秀秀}}}^https?:\/\/mea\.meitudata\.com\/kaiping - REJECT
 
 # 大师兄
-^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/.*?\/v\d\/(version|notice\?|top_notice\?|advert\?position=[^2]+) - REJECT-200
+{{{大师兄影视}}}^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/.*?\/v\d\/(version|notice\?|top_notice\?|advert\?position=[^2]+) - REJECT-200
 
 # 移动弹窗
-^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/popupWindow\/getDetail - REJECT-200
+{{{中国移动}}}^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/popupWindow\/getDetail - REJECT-200
 
 # PDD @XiangwanGuan
-^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/buffon\/nasus\/recommend\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/goods_detail_with_tags\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/likes\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/my_order_group\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/new_chat_group\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/order_express_group\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/personal\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/engels\/wait\/receive\/review\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data\? - reject-dict
-^https?:\/\/api\.pinduoduo\.com\/search_hotquery\? - reject-dict
-^https?:\/\/images\.pinduoduo\.com\/marketing_api\/ - reject
-^https?:\/\/images\.pinduoduo\.com\/mrk\/ - reject
-^https?:\/\/t-dsp\.pinduoduo\.com\/dspcb\/i\/mrk_ - reject
-^https?:\/\/video-dsp\.pddpic\.com\/market-dsp-video\/ - reject
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/buffon\/nasus\/recommend\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/goods_detail_with_tags\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/likes\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/my_order_group\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/new_chat_group\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/order_express_group\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/personal\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/engels\/wait\/receive\/review\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data\? - reject-dict
+{{{拼多多}}}^https?:\/\/api\.pinduoduo\.com\/search_hotquery\? - reject-dict
+{{{拼多多}}}^https?:\/\/images\.pinduoduo\.com\/marketing_api\/ - reject
+{{{拼多多}}}^https?:\/\/images\.pinduoduo\.com\/mrk\/ - reject
+{{{拼多多}}}^https?:\/\/t-dsp\.pinduoduo\.com\/dspcb\/i\/mrk_ - reject
+{{{拼多多}}}^https?:\/\/video-dsp\.pddpic\.com\/market-dsp-video\/ - reject
 
 [Body Rewrite]
-http-response-jq ^https:\/\/pan\.baidu\.com\/feed\/kingkongdistrict\? '.data.data |= map(select(.type != "novel" and .type != "shortplay" and .type != "print" and .type != "job_hunt"))'
+{{{百度网盘}}}http-response-jq ^https:\/\/pan\.baidu\.com\/feed\/kingkongdistrict\? '.data.data |= map(select(.type != "novel" and .type != "shortplay" and .type != "print" and .type != "job_hunt"))'
 
 # 大师兄
-http-response-jq ^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/api\/v\d\/config\/getConfigList\.do '.data |= map(select(.keyName | test("config\\.(ad|search|recommend)") | not))'
-http-response-jq ^http:\/\/app\.dsx\.ac\/ndsx\.php\/v\d\/logs 'del(.data.banners) | if .data.is_top then .data = [] else . end'
+{{{大师兄影视}}}http-response-jq ^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/api\/v\d\/config\/getConfigList\.do '.data |= map(select(.keyName | test("config\\.(ad|search|recommend)") | not))'
+{{{大师兄影视}}}http-response-jq ^http:\/\/app\.dsx\.ac\/ndsx\.php\/v\d\/logs 'del(.data.banners) | if .data.is_top then .data = [] else . end'
 
 # PDD @XiangwanGuan
-http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? '.result.bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.buffer_bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.all_top_opts |= map(del(.selected_image, .image, .height, .width))'
-http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? 'delpaths([["result","dy_module","irregular_banner_dy"],["result","icon_set"],["result","search_bar_hot_query"],["result","dy_module","irregular_banner_dy"]])'
-http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/aristotle\/order_list_v\d+\? '.orders |= map(.order_buttons |= map(del(.order_growth_tip)))'
-http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/order_detail_group\? 'delpaths([["data","goods_list"]])'
-http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render\? 'delpaths([["bottom_section_list"],["ui","bottom_section"],["ui","live_section","float_info"]])'
-http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub\? 'delpaths([["monthly_card_entrance"],["personal_center_style_v2_vo"],["icon_set","icons"],["icon_set","top_personal_icons"],["personal_banner"]])'
-http-response-jq ^https?:\/\/api\.pinduoduo\.com\/order\/ 'delpaths([["marketing_banner_vo"],["shipping","banner_above_recommend"]])'
-http-response-jq ^https?:\/\/api\.pinduoduo\.com\/search\? 'delpaths([["expansion"]])'
+{{{拼多多}}}http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? '.result.bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.buffer_bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.all_top_opts |= map(del(.selected_image, .image, .height, .width))'
+{{{拼多多}}}http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? 'delpaths([["result","dy_module","irregular_banner_dy"],["result","icon_set"],["result","search_bar_hot_query"],["result","dy_module","irregular_banner_dy"]])'
+{{{拼多多}}}http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/aristotle\/order_list_v\d+\? '.orders |= map(.order_buttons |= map(del(.order_growth_tip)))'
+{{{拼多多}}}http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/order_detail_group\? 'delpaths([["data","goods_list"]])'
+{{{拼多多}}}http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render\? 'delpaths([["bottom_section_list"],["ui","bottom_section"],["ui","live_section","float_info"]])'
+{{{拼多多}}}http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub\? 'delpaths([["monthly_card_entrance"],["personal_center_style_v2_vo"],["icon_set","icons"],["icon_set","top_personal_icons"],["personal_banner"]])'
+{{{拼多多}}}http-response-jq ^https?:\/\/api\.pinduoduo\.com\/order\/ 'delpaths([["marketing_banner_vo"],["shipping","banner_above_recommend"]])'
+{{{拼多多}}}http-response-jq ^https?:\/\/api\.pinduoduo\.com\/search\? 'delpaths([["expansion"]])'
 
 [Map Local]
 # 001ProMax
-^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:ad-|pendragon) data-type=text data="" status-code=200
+{{{Spotify}}}^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:ad-|pendragon) data-type=text data="" status-code=200
 
-^https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_luckyBottle data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/pan\.baidu\.com\/api\/getconfig\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/pan\.baidu\.com\/api\/getsyscfg\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/pan\.baidu\.com\/act\/api\/activityentry\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/pan\.baidu\.com\/api\/plugin\/get\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/pan\.baidu\.com\/recommend\/query\/list\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/m\.douban\.com\/rexxar\/api\/v\d\/market\/products\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/frodo\.douban\.com\/api\/v\d\/movie\/ad data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{阿里云盘}}}^https:\/\/member\.alipan\.com\/v2\/activity\/sign_in_luckyBottle data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{阿里云盘}}}^https:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+{{{百度网盘}}}^https:\/\/pan\.baidu\.com\/api\/getconfig\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{百度网盘}}}^https:\/\/pan\.baidu\.com\/api\/getsyscfg\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{百度网盘}}}^https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{百度网盘}}}^https:\/\/pan\.baidu\.com\/act\/api\/activityentry\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{百度网盘}}}^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{百度网盘}}}^https:\/\/pan\.baidu\.com\/api\/plugin\/get\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{百度网盘}}}^https:\/\/pan\.baidu\.com\/recommend\/query\/list\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+{{{豆瓣}}}^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{豆瓣}}}^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{豆瓣}}}^https:\/\/m\.douban\.com\/rexxar\/api\/v\d\/market\/products\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{豆瓣}}}^https:\/\/frodo\.douban\.com\/api\/v\d\/movie\/ad data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{豆瓣}}}^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{豆瓣}}}^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 # 美图
-^https?:\/\/adui\.tg\.meitu\.com data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{美图秀秀}}}^https?:\/\/adui\.tg\.meitu\.com data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 # 小米音箱
-^https:\/\/marketing-aibox\.v\.mitvos\.com\/advertise\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/halfScreenMulti\/(home|cache)\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/tabPage\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{小米音箱}}}^https:\/\/marketing-aibox\.v\.mitvos\.com\/advertise\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{小米音箱}}}^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/halfScreenMulti\/(home|cache)\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+{{{小米音箱}}}^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/tabPage\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 [Script]
 # Spotify
 # 001ProMax
-Spotify.Crack = type=http-response, pattern=^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service), script-path=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js, requires-body=true, binary-body-mode=true, argument=tab={{{精简底栏}}}&useractivity={{{接力功能}}}
+{{{Spotify}}}Spotify.Crack = type=http-response, pattern=^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service), script-path=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js, requires-body=true, binary-body-mode=true, argument=tab={{{精简底栏}}}&useractivity={{{接力功能}}}
 # app2smile
-spotify歌词翻译 = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,enable={{{歌词翻译}}},argument=appid={{{翻译账户}}}&securityKey={{{翻译密钥}}}
+{{{Spotify}}}spotify歌词翻译 = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,enable={{{歌词翻译}}},argument=appid={{{翻译账户}}}&securityKey={{{翻译密钥}}}
 
 # 包子漫画网页
-web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://lowertop.github.io/Shadowrocket-First/JS/baozimh.js
+{{{包子漫画}}}web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://lowertop.github.io/Shadowrocket-First/JS/baozimh.js
 
-移除12306开屏广告 = type=http-request, pattern=^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$, script-path=https://kelee.one/Resource/JavaScript/12306/12306_remove_splashscreen_ads.js, requires-body=true
-移除12306应用内广告 = type=http-request, pattern=^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$, script-path=https://kelee.one/Resource/JavaScript/12306/12306_remove_ads.js
-移除阿里云盘广告 = type=http-response, pattern=^https:\/\/(biz)?api\.alipan\.com\/apps\/v\d\/users?\/home\/(news|widgets), script-path=https://kelee.one/Resource/JavaScript/AliYunDrive/AliYunDrive_remove_ads.js, requires-body=true
-移除阿里云盘广告 = type=http-response, pattern=^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list, script-path=https://kelee.one/Resource/JavaScript/AliYunDrive/AliYunDrive_remove_ads.js, requires-body=true
-移除航旅纵横首页广告 = type=http-response, pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://kelee.one/Resource/JavaScript/Umetrip/Umetrip_remove_ads.js
+{{{12306}}}移除12306开屏广告 = type=http-request, pattern=^https:\/\/ad\.12306\.cn\/ad\/ser\/getAdList$, script-path=https://kelee.one/Resource/JavaScript/12306/12306_remove_splashscreen_ads.js, requires-body=true
+{{{12306}}}移除12306应用内广告 = type=http-request, pattern=^https:\/\/mobile\.12306\.cn\/otsmobile\/app\/mgs\/mgw\.htm$, script-path=https://kelee.one/Resource/JavaScript/12306/12306_remove_ads.js
+
+{{{阿里云盘}}}移除阿里云盘广告 = type=http-response, pattern=^https:\/\/(biz)?api\.alipan\.com\/apps\/v\d\/users?\/home\/(news|widgets), script-path=https://kelee.one/Resource/JavaScript/AliYunDrive/AliYunDrive_remove_ads.js, requires-body=true
+{{{阿里云盘}}}移除阿里云盘广告 = type=http-response, pattern=^https:\/\/member\.alipan\.com\/v1\/users\/onboard_list, script-path=https://kelee.one/Resource/JavaScript/AliYunDrive/AliYunDrive_remove_ads.js, requires-body=true
+
+{{{航旅纵横}}}移除航旅纵横首页广告 = type=http-response, pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://kelee.one/Resource/JavaScript/Umetrip/Umetrip_remove_ads.js
 
 # 移动启动页
-NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit$, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
-
+{{{中国移动}}}NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit$, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
 # 移动首页 - 下拉
-NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/newTopPullSecond\/getNewTopPullList, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
-
+{{{中国移动}}}NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/newTopPullSecond\/getNewTopPullList, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
 # 移动首页 - 悬浮广告
-NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/emotionMarket\/getEmotionMarketNew, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
-
-NoAds = type=http-response, pattern=^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/homeArea\/getTopAreaList, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
-
+{{{中国移动}}}NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/emotionMarket\/getEmotionMarketNew, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
+{{{中国移动}}}NoAds = type=http-response, pattern=^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/homeArea\/getTopAreaList, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
 # 移动办理 - 横幅
-NoAds = type=http-response, pattern=^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/navigation\/getNavigationNewInfo, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
-
+{{{中国移动}}}NoAds = type=http-response, pattern=^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/navigation\/getNavigationNewInfo, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
 # 移动我的 - 弹窗 
-NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/friendShake\/getShakeList, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
+{{{中国移动}}}NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/friendShake\/getShakeList, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
 
 # PDD @XiangwanGuan
-PinDuoDuo = type=http-response, pattern=^https?:\/\/m\.pinduoduo\.net\/mdkd\/package\?from_app_scan, script-path=https://xiangwan.dev/Scripts/PinDuoDuo.js, requires-body=true, max-size=0
+{{{拼多多}}}PinDuoDuo = type=http-response, pattern=^https?:\/\/m\.pinduoduo\.net\/mdkd\/package\?from_app_scan, script-path=https://xiangwan.dev/Scripts/PinDuoDuo.js, requires-body=true, max-size=0
 
 [MITM]
-hostname = %APPEND% api.pinduoduo.com,images.pinduoduo.com,m.pinduoduo.net,t-dsp.pinduoduo.com,video-dsp.pddpic.com, static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, ad.12306.cn, mobile.12306.cn, api.alipan.com, member.alipan.com, bizapi.alipan.com, pan.baidu.com, api.douban.com, frodo.douban.com, m.douban.com, 114.115.217.129, home.umetrip.com, app.dsx.ac, client.app.coc.10086.cn, h.app.coc.10086.cn, marketing-aibox.v.mitvos.com, mea.meitudata.com, adui.tg.meitu.com
+hostname = %APPEND%
+{{{拼多多}}}api.pinduoduo.com,images.pinduoduo.com,m.pinduoduo.net,t-dsp.pinduoduo.com,video-dsp.pddpic.com
+{{{包子漫画}}}static-tw.baozimh.com,*.baozimhcn.com,*.dzmanga.com
+{{{小蚁摄像机}}}*.xiaoyi.com
+{{{Spotify}}}spclient.wg.spotify.com,*spclient.spotify.com
+{{{12306}}}ad.12306.cn,mobile.12306.cn
+{{{阿里云盘}}}api.alipan.com,member.alipan.com,bizapi.alipan.com
+{{{百度网盘}}}pan.baidu.com
+{{{豆瓣}}}api.douban.com,frodo.douban.com,m.douban.com
+{{{航旅纵横}}}114.115.217.129,home.umetrip.com
+{{{大师兄影视}}}app.dsx.ac
+{{{中国移动}}}client.app.coc.10086.cn,h.app.coc.10086.cn
+{{{小米音箱}}}marketing-aibox.v.mitvos.com
+{{{美图秀秀}}}mea.meitudata.com,adui.tg.meitu.com
