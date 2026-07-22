@@ -52,6 +52,24 @@ DOMAIN-SUFFIX,dc.meitustat.com,REJECT
 DOMAIN-SUFFIX,mdc.meitustat.com,REJECT
 DOMAIN-SUFFIX,rabbit.meitustat.com,REJECT
 
+# PDD @XiangwanGuan
+DOMAIN,apm-a.pinduoduo.com,REJECT,pre-matching
+DOMAIN,apm.pinduoduo.com,REJECT,pre-matching
+DOMAIN,cd-1.pddpic.com,REJECT,pre-matching
+DOMAIN,cdl-1.pddpic.com,REJECT,pre-matching
+DOMAIN,cdl-p2.pddpic.com,REJECT,pre-matching
+DOMAIN,meta.pinduoduo.com,REJECT,pre-matching
+DOMAIN,ta-a.pinduoduo.com,REJECT,pre-matching
+DOMAIN,ta.pinduoduo.com,REJECT,pre-matching
+DOMAIN,th-a.pinduoduo.com,REJECT,pre-matching
+DOMAIN,th-b.pinduoduo.com,REJECT,pre-matching
+DOMAIN,th.pinduoduo.com,REJECT,pre-matching
+DOMAIN,titan.pinduoduo.com,REJECT,pre-matching
+DOMAIN,xg.pinduoduo.com,REJECT,pre-matching
+AND,((PROTOCOL,QUIC),(DOMAIN,api.pinduoduo.com)),REJECT-NO-DROP
+AND,((URL-REGEX,^https?:\/\/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/d(\d)?),(USER-AGENT,*com.xunmeng.pinduoduo*)),REJECT
+AND,((URL-REGEX,^https?:\/\/[[0-9a-fA-F:]+\]\/d(\d)?\?),(USER-AGENT,*com.xunmeng.pinduoduo*)),REJECT
+
 [URL Rewrite]
 # 包子漫画横幅APP广告
 ^https?:\/\/static-tw\.baozimh\.com\/bzmhapp-data\/pics\/install_app_bar_baozimhappx\.jpg$ - REJECT
@@ -72,12 +90,48 @@ DOMAIN-SUFFIX,rabbit.meitustat.com,REJECT
 # 移动弹窗
 ^https?:\/\/h\.app\.coc\.10086\.cn\/biz-orange\/DH\/popupWindow\/getDetail - REJECT-200
 
+# PDD @XiangwanGuan
+^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/goods\/back_up\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/aristotle\/query_order_list_tabs_element\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/aristotle\/unrated_order_for_unreceived_tab\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/brand-olay\/goods_detail\/bybt_guide\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/buffon\/nasus\/recommend\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/goods_detail_with_tags\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/likes\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/my_order_group\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/new_chat_group\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/order_express_group\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/personal\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/engels\/wait\/receive\/review\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/api\/zaire_biz\/chat\/resource\/get_list_data\? - reject-dict
+^https?:\/\/api\.pinduoduo\.com\/search_hotquery\? - reject-dict
+^https?:\/\/images\.pinduoduo\.com\/marketing_api\/ - reject
+^https?:\/\/images\.pinduoduo\.com\/mrk\/ - reject
+^https?:\/\/t-dsp\.pinduoduo\.com\/dspcb\/i\/mrk_ - reject
+^https?:\/\/video-dsp\.pddpic\.com\/market-dsp-video\/ - reject
+
 [Body Rewrite]
 http-response-jq ^https:\/\/pan\.baidu\.com\/feed\/kingkongdistrict\? '.data.data |= map(select(.type != "novel" and .type != "shortplay" and .type != "print" and .type != "job_hunt"))'
 
 # 大师兄
 http-response-jq ^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/api\/v\d\/config\/getConfigList\.do '.data |= map(select(.keyName | test("config\\.(ad|search|recommend)") | not))'
 http-response-jq ^http:\/\/app\.dsx\.ac\/ndsx\.php\/v\d\/logs 'del(.data.banners) | if .data.is_top then .data = [] else . end'
+
+# PDD @XiangwanGuan
+http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? '.result.bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.buffer_bottom_tabs? |= map(select(.link | IN("index.html", "chat_list.html", "personal.html"))) | .result.all_top_opts |= map(del(.selected_image, .image, .height, .width))'
+http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub\? 'delpaths([["result","dy_module","irregular_banner_dy"],["result","icon_set"],["result","search_bar_hot_query"],["result","dy_module","irregular_banner_dy"]])'
+http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/aristotle\/order_list_v\d+\? '.orders |= map(.order_buttons |= map(del(.order_growth_tip)))'
+http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/caterham\/v\d+\/query\/order_detail_group\? 'delpaths([["data","goods_list"]])'
+http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render\? 'delpaths([["bottom_section_list"],["ui","bottom_section"],["ui","live_section","float_info"]])'
+http-response-jq ^https?:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub\? 'delpaths([["monthly_card_entrance"],["personal_center_style_v2_vo"],["icon_set","icons"],["icon_set","top_personal_icons"],["personal_banner"]])'
+http-response-jq ^https?:\/\/api\.pinduoduo\.com\/order\/ 'delpaths([["marketing_banner_vo"],["shipping","banner_above_recommend"]])'
+http-response-jq ^https?:\/\/api\.pinduoduo\.com\/search\? 'delpaths([["expansion"]])'
 
 [Map Local]
 # 001ProMax
@@ -140,5 +194,8 @@ NoAds = type=http-response, pattern=^https?:\/\/h\.app\.coc\.10086\.cn\/biz-oran
 # 移动我的 - 弹窗 
 NoAds = type=http-response, pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/friendShake\/getShakeList, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/ChinaMobile/NoAds.js, requires-body=true, max-size=-1, timeout=60
 
+# PDD @XiangwanGuan
+PinDuoDuo = type=http-response, pattern=^https?:\/\/m\.pinduoduo\.net\/mdkd\/package\?from_app_scan, script-path=https://xiangwan.dev/Scripts/PinDuoDuo.js, requires-body=true, max-size=0
+
 [MITM]
-hostname = %APPEND% static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, ad.12306.cn, mobile.12306.cn, api.alipan.com, member.alipan.com, bizapi.alipan.com, pan.baidu.com, api.douban.com, frodo.douban.com, m.douban.com, 114.115.217.129, home.umetrip.com, app.dsx.ac, client.app.coc.10086.cn, h.app.coc.10086.cn, marketing-aibox.v.mitvos.com, mea.meitudata.com, adui.tg.meitu.com
+hostname = %APPEND% api.pinduoduo.com,images.pinduoduo.com,m.pinduoduo.net,t-dsp.pinduoduo.com,video-dsp.pddpic.com, static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, spclient.wg.spotify.com, *spclient.spotify.com, ad.12306.cn, mobile.12306.cn, api.alipan.com, member.alipan.com, bizapi.alipan.com, pan.baidu.com, api.douban.com, frodo.douban.com, m.douban.com, 114.115.217.129, home.umetrip.com, app.dsx.ac, client.app.coc.10086.cn, h.app.coc.10086.cn, marketing-aibox.v.mitvos.com, mea.meitudata.com, adui.tg.meitu.com
