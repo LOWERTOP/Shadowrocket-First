@@ -1,9 +1,9 @@
 #!name=🆃🅾🅿🅼🅾🅳 米家3D打印增强
 #!desc=编辑参数以隐藏底部标签页
+#!arguments=隐藏首页:false, 隐藏社区:false, 隐藏创意:false, 隐藏消息:false, 隐藏我的:false
+#!arguments-desc=切换开关状态并重启软件即可生效
 # 整理作者：https://github.com/LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
-
-#!arguments=隐藏首页:false,隐藏社区:false,隐藏创意:false,隐藏消息:false,隐藏我的:false
 
 [Script]
 Mi3D-Enhance = type=http-response,pattern=^https?:\/\/app\.mieco\.net\/api\/utrend-printing\/buttonConfig\/1(?:\?.*)?$,requires-body=1,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/Mi3D-Enhance.js,argument=hide_home={{{隐藏首页}}}&hide_community={{{隐藏社区}}}&hide_creative={{{隐藏创意}}}&hide_message={{{隐藏消息}}}&hide_me={{{隐藏我的}}}
