@@ -1,6 +1,7 @@
-#!name=米家3D打印增强
+#!name=🆃🅾🅿🅼🅾🅳 米家3D打印增强
 #!desc=编辑参数以隐藏底部标签页
-#!author=LOWERTOP
+# 整理作者：https://github.com/LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 #!arguments=隐藏首页:false,隐藏社区:false,隐藏创意:false,隐藏消息:false,隐藏我的:false
 
