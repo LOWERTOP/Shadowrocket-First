@@ -33,7 +33,7 @@ DOMAIN-SUFFIX,emby.vip,{{{Emby服务器策略}}}
 DOMAIN-SUFFIX,emby.life,{{{Emby服务器策略}}}
 DOMAIN-SUFFIX,emby.cool,{{{Emby服务器策略}}}
 # 服务器关键词兜底
-DOMAIN-KEYWORD,emby,{{{Emby服务器策略}}}
+# DOMAIN-KEYWORD,emby,{{{Emby服务器策略}}}
 
 ####################################
 # 影视元数据 / 信息服务
