@@ -34,6 +34,12 @@
 > [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Talkatone.sgmodule "一键安装本模块")
 > [![规则文件 去广告规则](https://img.shields.io/static/v1?label=规则文件&message=去广告规则&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list "点击访问规则集")
 
+### [米家3D打印增强](#米家3d打印增强)
+
+> 本模块以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 的方式设置可选隐藏该应用的底部各标签栏，包含 **首页**、**社区**、**创意**、**消息** 以及 **我的** 页面。若隐藏 **首页** 后，进入应用并加载完成后的默认界面将切换至下一个未隐藏的标签页<br>
+> 
+> [![安装模块 米家3D打印](https://img.shields.io/static/v1?label=安装模块&message=米家3D打印&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Mi3D-Enhance.sgmodule "一键安装本模块")
+
 ### [Emby分流控制策略](#emby分流控制策略)
 
 > 本模块为 Emby 使用场景设计，基于 Shadowrocket **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能实现。模块对 **服务器访问** 与 **元数据/字幕** 请求进行分流控制，旨在同时提升 **播放稳定性** 与 **刮削成功率**。同时支持补充最多 3 个非常见的 Emby 服务器域名
