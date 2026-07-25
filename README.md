@@ -281,13 +281,13 @@
 > >   
 > > [![安装模块 合集模块](https://img.shields.io/static/v1?label=安装模块&message=合集模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/All/allAdBlock.sgmodule "一键安装本模块")
 > 
-> **[更多模块](#模块收集)**
+> **[更多资源](#模块收集)**
 > 
-> > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块资源仓库，包含 YouTube、滴滴出行、酷安、小红书等软件的相关模块
+> > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等相关模块
 > >
 > > [![社区资源 iab0x00](https://img.shields.io/static/v1?label=社区资源&message=iab0x00&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看")
 > >
-> > [Kelee 可莉](https://github.com/ddgksf2013/ddgksf2013) 维护的插件中心，安装 [插件中心专用转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
+> > [Kelee 可莉](https://github.com/ddgksf2013/ddgksf2013) 维护的插件资源，安装 [插件中心专用转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
 > >
 > > [![社区资源 Kelee](https://img.shields.io/static/v1?label=社区资源&message=Kelee&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://hub.kelee.one/ "点击查看")
 > > 
