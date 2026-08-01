@@ -4,9 +4,6 @@
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
-# QUIC BLOCK
-AND,((DOMAIN-SUFFIX,ddgksf2013.top),(PROTOCOL,QUIC)),REJECT-NO-DROP
-
 # 放行抖音商城图片地址
 DOMAIN,p3-ad-sign.byteimg.com,DIRECT
 # 红果短剧部分去广告规则
@@ -30,10 +27,6 @@ DOMAIN-SUFFIX,baozimhapp.com,REJECT
 # 小蚁
 ^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - REJECT
 ^https?://api.xiaoyi.com\/v5\/app\/config\?userid=.* - REJECT
-
-[Body Rewrite]
-
-[Map Local]
 
 [Script]
 # 包子漫画网页
