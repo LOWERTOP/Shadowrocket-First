@@ -1,7 +1,7 @@
 #!name=🅼🅾🅳🆂🅷🆄🅱
 #!desc=多功能转换模块，编辑参数以使用
-#!arguments=Script-Hub:true, Cuttle-Fish:true, PluginHub:http, 插件中心策略:PROXY
-#!arguments-desc=🔘Script-Hub\n\n· 默认启用，若禁用则下方设置无效\n\n🔘 Cuttle-Fish\n\n· 墨鱼手记网页变身，默认启用\n\n🔘 PluginHub\n\n· 可莉插件中心变身，默认启用，填入#可禁用\n\n· 可莉插件中心策略，建议使用随机节点
+#!arguments=Script-Hub:true, Cuttle-Fish:true, Plugin-Hub:http, 插件中心策略:PROXY
+#!arguments-desc=🔘Script-Hub\n\n· 默认启用，若禁用则下方设置无效\n\n🔘 Cuttle-Fish\n\n· 墨鱼手记网页变身，默认启用\n\n🔘 Plugin-Hub\n\n· 可莉插件中心变身，默认启用，填入#可禁用\n\n· 可莉插件中心策略，建议使用随机节点
 # 整理作者：LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
@@ -17,11 +17,11 @@ DOMAIN-SUFFIX,kelee.one,{{{插件中心策略}}}
 
 [Header Rewrite]
 # PluginHub
-{{{PluginHub}}}-request ^https://hub\.kelee\.one/list\.json header-del if-none-match
+{{{Plugin-Hub}}}-request ^https://hub\.kelee\.one/list\.json header-del if-none-match
 
 [Body Rewrite]
 # PluginHub
-{{{PluginHub}}}-response ^https://hub\.kelee\.one/list\.json "loon://import\?plugin=(https://kelee.one/Tool/Loon/Lpx/(.+).lpx)" "shadowrocket://install?module=http://script.hub/file/_start_/$1/_end_/$2.sgmodule%3Ftype%3Dloon-plugin%26target%3Dshadowrocket-module%26del%3Dtrue%26jqEnabled%3Dtrue"
+{{{Plugin-Hub}}}-response ^https://hub\.kelee\.one/list\.json "loon://import\?plugin=(https://kelee.one/Tool/Loon/Lpx/(.+).lpx)" "shadowrocket://install?module=http://script.hub/file/_start_/$1/_end_/$2.sgmodule%3Ftype%3Dloon-plugin%26target%3Dshadowrocket-module%26del%3Dtrue%26jqEnabled%3Dtrue"
 
 [Script]
 # Script Hub
