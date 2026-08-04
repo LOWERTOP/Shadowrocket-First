@@ -1,7 +1,7 @@
 #!name=🅼🅾🅳🆂🅷🆄🅱
 #!desc=多功能转换模块，编辑参数以使用
 #!arguments=Script-Hub:true, Cuttle-Fish:true, Plugin-Hub:http, 资源网站策略:随机节点
-#!arguments-desc=🔘Script-Hub\n\n· 默认启用，若禁用则下方设置无效\n\n🔘 Cuttle-Fish\n\n· 墨鱼手记网页变身，默认启用\n\n🔘 Plugin-Hub\n\n· 可莉插件中心变身，默认启用，填入 # 可禁用\n\n🔘 资源网站策略\n\n· 认使用模块内置随机节点分组以避免下载受限，可选填其他节点或策略
+#!arguments-desc=🔘Script-Hub\n\n· 默认启用，若禁用则下方设置无效\n\n🔘 Cuttle-Fish\n\n· 墨鱼手记网页变身，默认启用\n\n🔘 Plugin-Hub\n\n· 可莉插件中心变身，默认启用，填入 # 可禁用\n\n🔘 资源网站策略\n\n· 默认使用模块内置随机节点分组以避免下载受限
 # 整理作者：LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
