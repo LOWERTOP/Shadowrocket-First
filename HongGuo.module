@@ -1,0 +1,14 @@
+#!name=🆃🅾🅿🅼🅾🅳🆂 红果短剧
+#!desc=红果短剧部分去广告及放行规则
+# 本模块主要为红果短剧去除部分广告所用
+# 整理作者：LOWERTOP
+# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+
+[Rule]
+# 放行抖音商城图片地址
+DOMAIN,p3-ad-sign.byteimg.com,DIRECT
+# 红果短剧部分去广告规则
+DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,REJECT-DROP
+DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,REJECT-DROP
+DOMAIN-WILDCARD,*-ad-sign.byteimg.com,REJECT-DROP
+DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,REJECT-DROP
