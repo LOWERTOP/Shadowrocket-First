@@ -145,27 +145,38 @@
             perspective: 1000px; /* 启用 3D 视角 */
         }
 
-.iphone-17 {
-    width: 400px;
-    height: 850px;
+        .iphone-17 {
+            width: 400px;
+            height: 850px;
+            background: #000;
+            border-radius: 55px;
+            position: relative;
 
-    background: #000;
-    border-radius: 55px;
+            /* 修复 3D transform 下四角背景溢出 */
+            overflow: clip;
 
-    position: relative;
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.05),
+                0 40px 80px rgba(0,0,0,0.7);
 
-    /* 修复 GPU 裁剪溢出 */
-    overflow: clip;
+            transform: rotateY(0deg) rotateX(0deg) translateZ(0);
+            will-change: transform;
+            transition: transform 0.3s ease-out;
 
-    box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,0.05),
-        0 40px 80px rgba(0,0,0,0.7);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
 
-    transform: rotateY(0deg) rotateX(0deg) translateZ(0);
-    will-change: transform;
-
-    transition: transform 0.3s ease-out;
-}
+        /* 钛金属边框：使用真实图层替代扩散阴影 */
+        .iphone-17::before {
+            content: "";
+            position: absolute;
+            inset: -6px;
+            border-radius: 61px;
+            background: linear-gradient(135deg,#666,#222 45%,#111);
+            z-index: -1;
+            pointer-events: none;
+        }
         
         /* ******** 手机按键细节 ******** */
         .side-button {
@@ -234,12 +245,11 @@
             border-radius: 1px;
         }
 
-.screen {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-
-/* ======================================================= */
+        .screen {
+            /* 避免亚像素缩放导致边缘泄漏 */
+            width: 100%;
+            height: 100%;
+            margin: 0;
 
             background-color: var(--TableBackgroundColor);
             display: flex; flex-direction: column; overflow: hidden; position: relative;
@@ -248,6 +258,7 @@
             /* 强制 GPU 加速 */
             transform: translateZ(0); 
             will-change: transform;
+            isolation: isolate;
         }
 
         /* 屏幕玻璃基础高光效果 (z-index: 200) */
@@ -271,32 +282,26 @@
         }
 
         /* ******** 动态反光元素 (z-index: 201) ******** */
-.glass-reflection {
-    position: absolute;
-    top: -25%;
-    left: -25%;
-
-    width: 150%;
-    height: 150%;
-
-    border-radius: 55px;
-    pointer-events: none;
-    z-index: 201;
-
-    background: linear-gradient(
-        45deg,
-        transparent 30%,
-        rgba(255,255,255,0.2) 48%,
-        rgba(255,255,255,0.3) 50%,
-        rgba(255,255,255,0.2) 52%,
-        transparent 70%
-    );
-
-    opacity: 0.8;
-
-    transform: translate(0%, 0%);
-    transition: transform 0.8s ease-out, opacity 0.5s;
-}
+        .glass-reflection {
+            position: absolute;
+            top: 0; left: 0;
+            width: 300%; 
+            height: 300%;
+            border-radius: 55px; 
+            pointer-events: none; 
+            z-index: 201; /* 最高层级 */
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.2) 48%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                rgba(255, 255, 255, 0.2) 52%,
+                transparent 70%
+            );
+            opacity: 0.8;
+            transform: translate(-33.33%, -33.33%); 
+            transition: transform 0.8s ease-out, opacity 0.5s; 
+        }
         /* ******** 动态反光元素 (结束) ******** */
         
         /* 导航栏 (基于截图重新实现 iOS 样式) */
@@ -938,11 +943,11 @@
         iphone17.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) translateZ(0)`;
 
         // 2. 更新动态反光位置
-const reflectX = -offsetX * 15;
-const reflectY = -offsetY * 15;
+        const reflectX = -offsetX * 33.33; 
+        const reflectY = -offsetY * 33.33;
 
-glassReflection.style.transform =
-    `translate(${reflectX}%, ${reflectY}%)`;
+        // Base position is -33.33% to center the 300% reflection element on the 100% screen.
+        glassReflection.style.transform = `translate(calc(-33.33% + ${reflectX}%), calc(-33.33% + ${reflectY}%) )`;
         // 略微调整透明度，增强动态感
         glassReflection.style.opacity = 0.8 + (Math.abs(offsetX) + Math.abs(offsetY)) * 0.1;
     });
