@@ -146,36 +146,30 @@
         }
 
         .iphone-17 {
-            width: 400px;
-            height: 850px;
-            background: #000;
+            width: 400px; height: 850px;
+            background: #000; 
             border-radius: 55px;
-            position: relative;
-
-            /* 修复 3D transform 下四角背景溢出 */
-            overflow: clip;
-
-            box-shadow:
-                inset 0 0 0 1px rgba(255,255,255,0.05),
-                0 40px 80px rgba(0,0,0,0.7);
-
-            transform: rotateY(0deg) rotateX(0deg) translateZ(0);
-            will-change: transform;
-            transition: transform 0.3s ease-out;
-
-            backface-visibility: hidden;
+            position: relative; 
+            overflow: hidden;
+            isolation: isolate;
             -webkit-backface-visibility: hidden;
-        }
+            backface-visibility: hidden;
+            
+            /* ******** 手机边框/模型增强 (保持之前的钛金属边框效果) ******** */
+            box-shadow: 
+                /* 1. 屏幕边缘/内圈黑框 (Bezel lip) */
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+                /* 2. 较亮的钛金属边框 (Outer Frame) */
+                0 0 0 4px #444,
+                /* 3. 外层深色边框 */
+                0 0 0 6px #1a1a1a,
+                /* 4. 底部环境阴影 (3D 景深) */
+                0 40px 80px rgba(0, 0, 0, 0.7);
 
-        /* 钛金属边框：使用真实图层替代扩散阴影 */
-        .iphone-17::before {
-            content: "";
-            position: absolute;
-            inset: -6px;
-            border-radius: 61px;
-            background: linear-gradient(135deg,#666,#222 45%,#111);
-            z-index: -1;
-            pointer-events: none;
+            /* 3D Transform Properties */
+            transform: rotateY(0deg) rotateX(0deg) translateZ(0); 
+            will-change: transform;
+            transition: transform 0.3s ease-out; 
         }
         
         /* ******** 手机按键细节 ******** */
@@ -246,19 +240,23 @@
         }
 
         .screen {
-            /* 避免亚像素缩放导致边缘泄漏 */
-            width: 100%;
-            height: 100%;
-            margin: 0;
+            /* === 颜色溢出修复：将内屏幕稍微拉进 0.5px 以确保裁剪干净 === */
+            width: calc(100% - 1px); 
+            height: calc(100% - 1px); 
+            margin: 0.5px; 
+            /* ======================================================= */
 
             background-color: var(--TableBackgroundColor);
             display: flex; flex-direction: column; overflow: hidden; position: relative;
             /* 关键修正：内屏幕圆角恢复与外壳一致，依赖 GPU 加速进行完美裁剪 */
-            border-radius: 55px; 
+            border-radius: 55px;
+            clip-path: inset(0 round 55px);
+            isolation: isolate;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
             /* 强制 GPU 加速 */
             transform: translateZ(0); 
             will-change: transform;
-            isolation: isolate;
         }
 
         /* 屏幕玻璃基础高光效果 (z-index: 200) */
