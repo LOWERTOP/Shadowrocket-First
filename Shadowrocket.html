@@ -273,26 +273,32 @@
         }
 
         /* ******** 动态反光元素 (z-index: 201) ******** */
-        .glass-reflection {
-            position: absolute;
-            top: 0; left: 0;
-            width: 300%; 
-            height: 300%;
-            border-radius: 55px; 
-            pointer-events: none; 
-            z-index: 201; /* 最高层级 */
-            background: linear-gradient(
-                45deg,
-                transparent 30%,
-                rgba(255, 255, 255, 0.2) 48%, 
-                rgba(255, 255, 255, 0.3) 50%, 
-                rgba(255, 255, 255, 0.2) 52%,
-                transparent 70%
-            );
-            opacity: 0.8;
-            transform: translate(-33.33%, -33.33%); 
-            transition: transform 0.8s ease-out, opacity 0.5s; 
-        }
+.glass-reflection {
+    position: absolute;
+    top: -25%;
+    left: -25%;
+
+    width: 150%;
+    height: 150%;
+
+    border-radius: 55px;
+    pointer-events: none;
+    z-index: 201;
+
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255,255,255,0.2) 48%,
+        rgba(255,255,255,0.3) 50%,
+        rgba(255,255,255,0.2) 52%,
+        transparent 70%
+    );
+
+    opacity: 0.8;
+
+    transform: translate(0%, 0%);
+    transition: transform 0.8s ease-out, opacity 0.5s;
+}
         /* ******** 动态反光元素 (结束) ******** */
         
         /* 导航栏 (基于截图重新实现 iOS 样式) */
@@ -934,11 +940,11 @@
         iphone17.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) translateZ(0)`;
 
         // 2. 更新动态反光位置
-        const reflectX = -offsetX * 33.33; 
-        const reflectY = -offsetY * 33.33;
+const reflectX = -offsetX * 15;
+const reflectY = -offsetY * 15;
 
-        // Base position is -33.33% to center the 300% reflection element on the 100% screen.
-        glassReflection.style.transform = `translate(calc(-33.33% + ${reflectX}%), calc(-33.33% + ${reflectY}%) )`;
+glassReflection.style.transform =
+    `translate(${reflectX}%, ${reflectY}%)`;
         // 略微调整透明度，增强动态感
         glassReflection.style.opacity = 0.8 + (Math.abs(offsetX) + Math.abs(offsetY)) * 0.1;
     });
