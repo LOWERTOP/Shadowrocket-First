@@ -417,6 +417,25 @@
             opacity: 1;
         }
     </style>
+
+<style>
+.alpha-row {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:6px;
+    width:100%;
+    font-size:12px;
+    color:#aaa;
+}
+.alpha-row input[type=range]{
+    flex:1;
+}
+.alpha-row span:last-child{
+    width:35px;
+    text-align:right;
+}
+</style>
 </head>
 <body>
 
@@ -741,6 +760,7 @@
     ];
 
     let currentState = {};
+    let alphaState = {};
 
     const controlsContainer = document.getElementById('controlsContainer');
     
@@ -749,12 +769,25 @@
         div.className = 'control-group';
         div.innerHTML = `
             <span class="control-label">${key}</span>
-            <input type="color" id="input-${key}" oninput="updateColor('${key}', this.value)">
+            <div class="color-row">
+                <input type="color" id="input-${key}" onchange="updateColor('${key}', this.value)">
+            </div>
+            <div class="alpha-row">
+                <span>透明度</span>
+                <input type="range" id="alpha-${key}" min="0" max="100" value="100" oninput="updateAlpha('${key}', this.value)">
+                <span id="alpha-value-${key}">100%</span>
+            </div>
         `;
         controlsContainer.appendChild(div);
     });
+    function updateAlpha(key, value) {
+        alphaState[key] = Number(value);
+        document.getElementById("alpha-value-"+key).innerText = value + "%";
+        const input = document.getElementById("input-"+key);
+        updateColor(key, input.value);
+    }
 
-    // === 新增 Toast 提示函数 ===
+// === 新增 Toast 提示函数 ===
     function showToast(message) {
         const toastEl = document.getElementById('toastMessage');
         toastEl.innerText = message;
@@ -810,8 +843,12 @@
 
     // 核心逻辑 (保留原文件逻辑)
     function updateColor(key, value) {
-        document.documentElement.style.setProperty(`--${key}`, value);
-        currentState[key] = value + "FF"; 
+        const alpha = alphaState[key] ?? 100;
+        const rgb = value.replace('#','');
+        const a = Math.round(alpha * 255 / 100).toString(16).padStart(2,'0').toUpperCase();
+        const rgba = `rgba(${parseInt(rgb.substring(0,2),16)},${parseInt(rgb.substring(2,4),16)},${parseInt(rgb.substring(4,6),16)},${alpha/100})`;
+        document.documentElement.style.setProperty(`--${key}`, alpha===100 ? value : rgba);
+        currentState[key] = alpha===100 ? rgb+'FF' : a+rgb;
     }
 
     // 导入配置 (替换 alert)
@@ -839,6 +876,19 @@
                 if (inputEl) {
                     inputEl.value = cssToInput(cssColor);
                 }
+
+                // 同步透明度滑块状态
+                let alpha = 100;
+                const decoded = decodedValue.replace('#','');
+                if (decoded.length === 8) {
+                    alpha = Math.round(parseInt(decoded.substring(0,2),16) / 255 * 100);
+                }
+                alphaState[key] = alpha;
+
+                const slider = document.getElementById(`alpha-${key}`);
+                const label = document.getElementById(`alpha-value-${key}`);
+                if (slider) slider.value = alpha;
+                if (label) label.innerText = alpha + '%';
             }
         });
         showToast("配置已加载并应用到手机模型");
@@ -984,6 +1034,50 @@
         // 页面加载完成提示
         showToast("默认主题已加载");
     };
+
+// Alpha slider initialization sync
+function hexAlphaToPercent(color) {
+    if (!color) return 100;
+    color = color.trim();
+
+    if (color.startsWith("#")) {
+        const hex = color.substring(1);
+        if (hex.length === 8) {
+            return Math.round(parseInt(hex.substring(0, 2), 16) / 255 * 100);
+        }
+    }
+
+    const rgba = color.match(/rgba?\(([^)]+)\)/);
+    if (rgba) {
+        const parts = rgba[1].split(",").map(v => v.trim());
+        if (parts.length === 4) {
+            return Math.round(parseFloat(parts[3]) * 100);
+        }
+    }
+
+    return 100;
+}
+
+function syncAlphaSlidersFromTheme() {
+    document.querySelectorAll(".alpha-slider").forEach(slider => {
+        const key = slider.dataset.key;
+        if (!key) return;
+
+        const value = getComputedStyle(document.documentElement)
+            .getPropertyValue("--" + key)
+            .trim();
+
+        slider.value = hexAlphaToPercent(value);
+
+        const label = slider.parentElement.querySelector(".alpha-value");
+        if (label) {
+            label.textContent = slider.value + "%";
+        }
+    });
+}
+
+
+
 </script>
 
 </body>
