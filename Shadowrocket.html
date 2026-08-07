@@ -780,15 +780,27 @@
     }
 
     function cssToSrHex(cssHex) {
-        let hex = cssHex.replace('#', '');
+        let hex = cssHex.replace('#', '').toUpperCase();
+
+        // Shadowrocket color URL: 默认输出 #RRGGBB
+        // 仅在存在透明度且透明度不是 FF 时输出 #AARRGGBB
         if (hex.length === 6) {
-            return `%23FF${hex}`.toUpperCase();
-        } else if (hex.length === 8) {
+            return `%23${hex}`;
+        }
+
+        if (hex.length === 8) {
+            // CSS 内部格式为 #RRGGBBAA
             const rgb = hex.substring(0, 6);
             const alpha = hex.substring(6, 8);
-            return `%23${alpha}${rgb}`.toUpperCase();
+
+            if (alpha === 'FF') {
+                return `%23${rgb}`;
+            }
+
+            return `%23${alpha}${rgb}`;
         }
-        return `%23FF000000`;
+
+        return `%23000000`;
     }
 
     function cssToInput(cssHex) {
