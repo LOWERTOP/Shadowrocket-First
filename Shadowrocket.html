@@ -8,7 +8,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
         :root {
-            /* === 动态配色变量 (默认 Light Mode 主题，匹配截图) === */
+            /* === 动态配色变量 (默认 Light Mode 主题) === */
             --NavigationBarColor: transparent;
             --NavigationBarTextColor: #000000;
             --TableBackgroundColor: #F2F2F7;
@@ -24,13 +24,11 @@
             --ButtonNormalColor: #E5E5EA; /* Light background for switch off */
             --TableCellSelectedBackgroundColor: #D1D1D6;
             
-            /* === 视觉常量 (为匹配截图，调整为更传统的 iOS 样式) === */
+            /* === 视觉常量 === */
             --glass-blur: blur(20px);
             --nav-height: 98px;
             --tab-height: 85px;
             --safe-area-top: 47px;
-
-            /* 保留原文件的字体变量 */
             --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
         }
 
@@ -39,7 +37,6 @@
         body {
             margin: 0;
             padding: 0;
-            /* 保留原文件的渐变背景 */
             background: radial-gradient(circle at 50% 10%, #2b32b2, #1488cc);
             height: 100vh;
             display: flex;
@@ -50,7 +47,7 @@
             color: white;
         }
 
-        /* 布局容器 (保留原文件V4结构) */
+        /* 布局容器 */
         .workspace {
             display: flex;
             gap: 50px;
@@ -59,7 +56,7 @@
             height: 90vh;
         }
 
-        /* 左侧：编辑器 (保留原文件V4结构) */
+        /* 左侧：编辑器 */
         .editor-panel {
             flex: 1;
             background: rgba(255, 255, 255, 0.1);
@@ -70,7 +67,6 @@
             padding: 24px;
             display: flex;
             flex-direction: column;
-            /* 保留面板阴影 */
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
@@ -114,7 +110,6 @@
             background: none;
         }
         
-        /* === 调整输入框高度以容纳更长的配色地址 === */
         textarea {
             width: 100%;
             height: 200px; 
@@ -126,7 +121,6 @@
             font-size: 11px;
             resize: none;
         }
-        /* ======================================= */
 
         .actions { margin-top: 20px; display: flex; gap: 10px; flex-direction: column; }
         .btn-row { display: flex; gap: 10px; }
@@ -142,7 +136,7 @@
         /* 右侧：iPhone 模型 (3D 效果) */
         .device-container { 
             display: flex; justify-content: center; align-items: center; 
-            perspective: 1000px; /* 启用 3D 视角 */
+            perspective: 1000px;
         }
 
         .iphone-17 {
@@ -155,78 +149,62 @@
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             
-            /* ******** 手机边框/模型增强 (保持之前的钛金属边框效果) ******** */
             box-shadow: 
-                /* 1. 屏幕边缘/内圈黑框 (Bezel lip) */
                 inset 0 0 0 1px rgba(255, 255, 255, 0.05),
-                /* 2. 较亮的钛金属边框 (Outer Frame) */
                 0 0 0 4px #444,
-                /* 3. 外层深色边框 */
                 0 0 0 6px #1a1a1a,
-                /* 4. 底部环境阴影 (3D 景深) */
                 0 40px 80px rgba(0, 0, 0, 0.7);
 
-            /* 3D Transform Properties */
             transform: rotateY(0deg) rotateX(0deg) translateZ(0); 
             will-change: transform;
             transition: transform 0.3s ease-out; 
         }
         
-        /* ******** 手机按键细节 ******** */
         .side-button {
             position: absolute;
-            width: 4px; /* Slim button width */
+            width: 4px;
             height: 40px;
-            background: #444; /* Dark metal color */
+            background: #444;
             border-radius: 2px;
             z-index: 1000;
             box-shadow: 
-                inset 0 0 1px rgba(255, 255, 255, 0.3), /* Highlight */
-                0 0 2px rgba(0, 0, 0, 0.5); /* Shadow */
+                inset 0 0 1px rgba(255, 255, 255, 0.3),
+                0 0 2px rgba(0, 0, 0, 0.5);
         }
 
-        /* Power Button (Right Side) */
         .power-button {
             top: 250px;
-            right: -5px; /* Position slightly outside the frame for realism */
+            right: -5px;
             height: 60px;
         }
 
-        /* Volume Up (Left Side) */
         .volume-up-button {
             top: 150px;
             left: -5px;
         }
 
-        /* Volume Down (Left Side) */
         .volume-down-button {
             top: 220px;
             left: -5px;
         }
 
-        /* 静音开关/动作按钮 (Left Side) */
         .mute-switch {
             position: absolute;
             top: 100px;
             left: -5px;
             width: 4px;
             height: 18px;
-            background: #666; /* Slightly different color for switch */
+            background: #666;
             border-radius: 2px;
             z-index: 1000;
-            box-shadow: 
-                inset 0 0 1px rgba(255, 255, 255, 0.3);
+            box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.3);
         }
-        /* ******** 手机按键细节 (结束) ******** */
-
 
         .dynamic-island {
-            /* 保持原有的 z-index 100，确保它在玻璃层 (200/201) 下方 */
             position: absolute; top: 15px; left: 50%; transform: translateX(-50%);
             width: 120px; height: 35px; background: #000; border-radius: 20px; z-index: 100; 
         }
 
-        /* 听筒/前摄槽 */
         .dynamic-island::before {
             content: '';
             position: absolute;
@@ -240,26 +218,20 @@
         }
 
         .screen {
-            /* === 颜色溢出修复：将内屏幕稍微拉进 0.5px 以确保裁剪干净 === */
             width: calc(100% - 1px); 
             height: calc(100% - 1px); 
             margin: 0.5px; 
-            /* ======================================================= */
-
             background-color: var(--TableBackgroundColor);
             display: flex; flex-direction: column; overflow: hidden; position: relative;
-            /* 关键修正：内屏幕圆角恢复与外壳一致，依赖 GPU 加速进行完美裁剪 */
             border-radius: 55px;
             clip-path: inset(0 round 55px);
             isolation: isolate;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            /* 强制 GPU 加速 */
             transform: translateZ(0); 
             will-change: transform;
         }
 
-        /* 屏幕玻璃基础高光效果 (z-index: 200) */
         .screen::before {
             content: '';
             position: absolute;
@@ -276,10 +248,9 @@
                 rgba(255, 255, 255, 0.02) 100%
             );
             pointer-events: none; 
-            z-index: 200; /* 高于灵动岛 100 */
+            z-index: 200;
         }
 
-        /* ******** 动态反光元素 (z-index: 201) ******** */
         .glass-reflection {
             position: absolute;
             top: 0; left: 0;
@@ -287,7 +258,7 @@
             height: 300%;
             border-radius: 55px; 
             pointer-events: none; 
-            z-index: 201; /* 最高层级 */
+            z-index: 201;
             background: linear-gradient(
                 45deg,
                 transparent 30%,
@@ -300,9 +271,7 @@
             transform: translate(-33.33%, -33.33%); 
             transition: transform 0.8s ease-out, opacity 0.5s; 
         }
-        /* ******** 动态反光元素 (结束) ******** */
         
-        /* 导航栏 (基于截图重新实现 iOS 样式) */
         .nav-bar {
             height: var(--nav-height); padding-top: var(--safe-area-top);
             background-color: var(--NavigationBarColor);
@@ -320,14 +289,12 @@
         .nav-btn.left { left: 10px; }
         .nav-btn.right { right: 10px; }
 
-        /* 内容区域 */
         .content-area { flex: 1; overflow-y: auto; scroll-behavior: smooth; position: relative; }
         .content-area::-webkit-scrollbar { display: none; }
         
         .tab-page { display: none; padding-bottom: 20px; }
         .tab-page.active { display: block; }
 
-        /* UI 组件 (匹配截图的 iOS 样式) */
         .section-header {
             padding: 24px 16px 8px; font-size: 13px; color: var(--HeaderFooterTextColor); text-transform: uppercase; letter-spacing: -0.2px;
         }
@@ -360,19 +327,16 @@
         .accessory-text { font-size: 17px; margin-right: 4px; color: var(--DetailLabelTextColor); }
         .info-btn { font-size: 22px; color: var(--ButtonIconColor); margin-left: 10px; }
 
-        /* iOS 开关 */
         .switch {
             width: 51px; height: 31px; background: var(--ButtonNormalColor); border-radius: 16px; position: relative; transition: 0.3s;
         }
         .switch::after {
             content: ''; position: absolute; top: 2px; left: 2px; width: 27px; height: 27px; background: white; border-radius: 50%; transition: 0.3s;
-            /* 确保移除开关滑块阴影 */
             box-shadow: none;
         }
-        .switch.checked { background: #34C759; } /* iOS standard Green for 'ON' */
+        .switch.checked { background: #34C759; }
         .switch.checked::after { transform: translateX(20px); }
 
-        /* 底部 Tab 栏 */
         .tab-bar {
             height: var(--tab-height);
             background-color: var(--TabBarColor);
@@ -394,7 +358,6 @@
             width: 134px; height: 5px; background: rgba(0,0,0,0.3); border-radius: 100px;
         }
         
-        /* Toast/HUD 样式 (新增) */
         .toast-message {
             position: fixed;
             top: 50%;
@@ -416,26 +379,24 @@
         .toast-message.show {
             opacity: 1;
         }
-    </style>
 
-<style>
-.alpha-row {
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin-top:6px;
-    width:100%;
-    font-size:12px;
-    color:#aaa;
-}
-.alpha-row input[type=range]{
-    flex:1;
-}
-.alpha-row span:last-child{
-    width:35px;
-    text-align:right;
-}
-</style>
+        .alpha-row {
+            display:flex;
+            align-items:center;
+            gap:8px;
+            margin-top:6px;
+            width:100%;
+            font-size:12px;
+            color:#aaa;
+        }
+        .alpha-row input[type=range]{
+            flex:1;
+        }
+        .alpha-row span:last-child{
+            width:35px;
+            text-align:right;
+        }
+    </style>
 </head>
 <body>
 
@@ -447,7 +408,7 @@
         </div>
         
         <div class="controls" id="controlsContainer">
-            </div>
+        </div>
 
         <div class="actions">
             <textarea id="configOutput" placeholder="Paste Shadowrocket Color URL here or copy from here..."></textarea>
@@ -476,10 +437,8 @@
                 </div>
 
                 <div class="content-area">
-                    
                     <div id="page-home" class="tab-page">
                         <br>
-                        
                         <div class="table-group">
                             <div class="cell" style="justify-content: space-between;">
                                 <div class="cell-body" style="font-weight: 600;">
@@ -747,7 +706,6 @@
 <div class="toast-message" id="toastMessage"></div>
 
 <script>
-    // 定义 Shadowrocket 支持的所有颜色键值 (保留原文件逻辑)
     const colorKeys = [
         "NavigationBarColor", "NavigationBar2Color", "NavigationBarTextColor", "NavigationBar2TextColor", 
         "TabBarColor", "TabBarBorderColor", "TabBarSelectedColor", "TabBarUnselectedColor", 
@@ -780,56 +738,44 @@
         `;
         controlsContainer.appendChild(div);
     });
+
     function updateAlpha(key, value) {
         alphaState[key] = Number(value);
-        document.getElementById("alpha-value-"+key).innerText = value + "%";
-        const input = document.getElementById("input-"+key);
+        document.getElementById("alpha-value-" + key).innerText = value + "%";
+        const input = document.getElementById("input-" + key);
         updateColor(key, input.value);
     }
 
-// === 新增 Toast 提示函数 ===
     function showToast(message) {
         const toastEl = document.getElementById('toastMessage');
         toastEl.innerText = message;
         toastEl.classList.add('show');
         
-        // 延时 2s 消失
         setTimeout(() => {
             toastEl.classList.remove('show');
         }, 2000); 
     }
-    // ===========================
 
-    // 颜色转换工具函数 (保留原文件逻辑)
-    function srHexToCss(srHex) {
-        if (!srHex || !srHex.startsWith('#')) return 'transparent';
-        const hex = srHex.replace('#', '');
-        if (hex.length === 8) {
-            const alpha = hex.substring(0, 2);
-            const rgb = hex.substring(2);
-            return `#${rgb}${alpha}`;
-        }
-        return srHex;
-    }
+    // 转换为 Shadowrocket 格式 (%23AARRGGBB 或 %23RRGGBB)
+    function cssToSrHex(val) {
+        if (!val) return '%23000000';
+        let hex = val.replace('#', '').toUpperCase();
 
-    function cssToSrHex(cssHex) {
-        let hex = cssHex.replace('#', '').toUpperCase();
-
-        // Shadowrocket color URL: 默认输出 #RRGGBB
-        // 仅在存在透明度且透明度不是 FF 时输出 #AARRGGBB
         if (hex.length === 6) {
             return `%23${hex}`;
         }
 
         if (hex.length === 8) {
-            // CSS 内部格式为 #RRGGBBAA
-            const rgb = hex.substring(0, 6);
-            const alpha = hex.substring(6, 8);
+            // Shadowrocket 格式: 前两位 Alpha(AA)，后六位 RGB(RRGGBB)
+            const alpha = hex.substring(0, 2);
+            const rgb = hex.substring(2, 8);
 
+            // 如果透明度是 FF (100% 不透明)，输出 %23RRGGBB
             if (alpha === 'FF') {
                 return `%23${rgb}`;
             }
 
+            // 其它透明度（包括 00% 透明度）正确输出 %23AARRGGBB
             return `%23${alpha}${rgb}`;
         }
 
@@ -841,17 +787,20 @@
         return cssHex.substring(0, 7);
     }
 
-    // 核心逻辑 (保留原文件逻辑)
+    // 更新颜色与透明度状态
     function updateColor(key, value) {
         const alpha = alphaState[key] ?? 100;
-        const rgb = value.replace('#','');
-        const a = Math.round(alpha * 255 / 100).toString(16).padStart(2,'0').toUpperCase();
-        const rgba = `rgba(${parseInt(rgb.substring(0,2),16)},${parseInt(rgb.substring(2,4),16)},${parseInt(rgb.substring(4,6),16)},${alpha/100})`;
-        document.documentElement.style.setProperty(`--${key}`, alpha===100 ? value : rgba);
-        currentState[key] = alpha===100 ? rgb+'FF' : a+rgb;
+        const rgb = value.replace('#', '').toUpperCase();
+        const aHex = Math.round(alpha * 255 / 100).toString(16).padStart(2, '0').toUpperCase();
+        
+        const rgba = `rgba(${parseInt(rgb.substring(0,2),16)}, ${parseInt(rgb.substring(2,4),16)}, ${parseInt(rgb.substring(4,6),16)}, ${alpha/100})`;
+        document.documentElement.style.setProperty(`--${key}`, alpha === 100 ? `#${rgb}` : rgba);
+        
+        // 统一在 currentState 中存储 AARRGGBB 格式（Alpha在前，RGB在后）
+        currentState[key] = aHex + rgb;
     }
 
-    // 导入配置 (替换 alert)
+    // 导入配置
     function importConfig() {
         const inputStr = document.getElementById('configOutput').value;
         if (!inputStr.includes('shadowrocket://color')) {
@@ -866,24 +815,32 @@
         
         params.forEach((value, key) => {
             if (colorKeys.includes(key)) {
-                let decodedValue = decodeURIComponent(value); 
-                let cssColor = srHexToCss(decodedValue); 
+                let decodedValue = decodeURIComponent(value).replace('#', '').toUpperCase(); 
 
+                let alpha = 100;
+                let rgb = decodedValue;
+                let aHex = 'FF';
+
+                if (decodedValue.length === 8) {
+                    aHex = decodedValue.substring(0, 2);
+                    rgb = decodedValue.substring(2, 8);
+                    alpha = Math.round(parseInt(aHex, 16) / 255 * 100);
+                } else if (decodedValue.length === 6) {
+                    rgb = decodedValue;
+                    aHex = 'FF';
+                    alpha = 100;
+                }
+
+                currentState[key] = aHex + rgb;
+                alphaState[key] = alpha;
+
+                const cssColor = alpha === 100 ? `#${rgb}` : `rgba(${parseInt(rgb.substring(0,2),16)}, ${parseInt(rgb.substring(2,4),16)}, ${parseInt(rgb.substring(4,6),16)}, ${alpha/100})`;
                 document.documentElement.style.setProperty(`--${key}`, cssColor);
-                currentState[key] = cssColor;
 
                 const inputEl = document.getElementById(`input-${key}`);
                 if (inputEl) {
-                    inputEl.value = cssToInput(cssColor);
+                    inputEl.value = `#${rgb}`;
                 }
-
-                // 同步透明度滑块状态
-                let alpha = 100;
-                const decoded = decodedValue.replace('#','');
-                if (decoded.length === 8) {
-                    alpha = Math.round(parseInt(decoded.substring(0,2),16) / 255 * 100);
-                }
-                alphaState[key] = alpha;
 
                 const slider = document.getElementById(`alpha-${key}`);
                 const label = document.getElementById(`alpha-value-${key}`);
@@ -894,7 +851,7 @@
         showToast("配置已加载并应用到手机模型");
     }
 
-    // 导出配置 (替换 alert)
+    // 导出配置
     function exportConfig() {
         let baseUrl = "shadowrocket://color?";
         let params = [];
@@ -916,7 +873,7 @@
         });
     }
 
-    // Tab 切换逻辑 (保留原文件逻辑)
+    // Tab 切换逻辑
     function switchTab(pageId, element) {
         document.querySelectorAll('.tab-item').forEach(el => el.classList.remove('selected'));
         document.querySelectorAll('.tab-page').forEach(el => el.classList.remove('active'));
@@ -924,21 +881,17 @@
         element.classList.add('selected');
         document.getElementById(`page-${pageId}`).classList.add('active');
 
-        // 切换 Tab Icon 状态 (填充 vs 轮廓)
         const tabItems = document.querySelectorAll('.tab-item');
         tabItems.forEach(item => {
             const icon = item.querySelector('.tab-icon');
             let name = icon.getAttribute('name');
 
             if (item.classList.contains('selected')) {
-                // 选中状态使用填充图标
                 if (name.endsWith('-outline')) {
                     icon.setAttribute('name', name.replace('-outline', ''));
                 }
             } else {
-                 // 未选中状态使用轮廓图标
                 if (!name.endsWith('-outline')) {
-                    // 特殊处理 'folder-open' to 'folder-open-outline'
                     if (name === 'folder-open') {
                         icon.setAttribute('name', 'folder-open-outline');
                     } else {
@@ -948,8 +901,6 @@
             }
         });
 
-
-        // 更新导航栏标题/按钮状态
         const navTitle = document.getElementById('navTitle');
         const leftBtn = document.getElementById('navLeft');
         const rightBtn = document.getElementById('navRight');
@@ -977,7 +928,7 @@
         }
     }
     
-    // 鼠标随动效果逻辑 (已优化平滑归位)
+    // 鼠标随动 3D 效果
     const deviceContainer = document.querySelector('.device-container');
     const iphone17 = document.querySelector('.iphone-17');
     const glassReflection = document.querySelector('.glass-reflection'); 
@@ -991,93 +942,37 @@
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
         
-        const offsetX = (e.clientX - centerX) / (rect.width / 2); // -1 to 1
-        const offsetY = (e.clientY - centerY) / (rect.height / 2); // -1 to 1
+        const offsetX = (e.clientX - centerX) / (rect.width / 2);
+        const offsetY = (e.clientY - centerY) / (rect.height / 2);
         
         const maxTilt = 5; 
         
         const rotateY = initialRotationY + (offsetX * maxTilt);
         const rotateX = initialRotationX - (offsetY * maxTilt); 
 
-        // 1. 更新手机旋转
         iphone17.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) translateZ(0)`;
 
-        // 2. 更新动态反光位置
         const reflectX = -offsetX * 33.33; 
         const reflectY = -offsetY * 33.33;
 
-        // Base position is -33.33% to center the 300% reflection element on the 100% screen.
-        glassReflection.style.transform = `translate(calc(-33.33% + ${reflectX}%), calc(-33.33% + ${reflectY}%) )`;
-        // 略微调整透明度，增强动态感
+        glassReflection.style.transform = `translate(calc(-33.33% + ${reflectX}%), calc(-33.33% + ${reflectY}%))`;
         glassReflection.style.opacity = 0.8 + (Math.abs(offsetX) + Math.abs(offsetY)) * 0.1;
     });
 
     deviceContainer.addEventListener('mouseleave', () => {
-        // 1. 恢复手机旋转 (保持原有的 0.3s 过渡)
         iphone17.style.transform = `rotateY(${initialRotationY}deg) rotateX(${initialRotationX}deg) translateZ(0)`;
-        
-        // 2. 依赖 CSS transition 平滑归位
     });
 
-
-    // 页面加载默认主题 (新的深色/金色主题)
+    // 页面加载默认主题
     window.onload = function() {
-        // 用户提供的深色/金色主题链接
         const darkThemeLink = "shadowrocket://color?NavigationBarColor=%2300FFFFFF&NavigationBar2Color=%2300FFFFFF&NavigationBarTextColor=%23D4A763&NavigationBar2TextColor=%23D4A763&TabBarColor=%2300FFFFFF&TabBarBorderColor=%232C2B31&TabBarSelectedColor=%23D4A763&TabBarUnselectedColor=%23D1C0A2&TableBackgroundColor=%232C2B31&TableCellBackgroundColor=%2338373D&TableCellSelectedBackgroundColor=%232C2B31&TableSeparatorColor=%232C2B31&TextFieldTextColor=%23D4A763&PlaceholderColor=%23D1C0A2&TextLabelTextColor=%23D4A763&DetailLabelTextColor=%23D1C0A2&TextLabelDeleteColor=%23ED402E&HeaderFooterTextColor=%23D1C0A2&SearchFieldBackgroundColor=%2338373D&IndicatorColor=%23D1C0A2&ButtonIconColor=%23D4A763&ButtonNormalColor=%23D4A763&ButtonNormal2Color=%23D4A763&ButtonNormal3Color=%23D4A763&ButtonHighlightedColor=%23FFFFFF&ButtonHighlighted2Color=%23FFFFFF&ButtonHighlighted3Color=%23FFFFFF&ButtonDisabledColor=%23FFFFFF&ButtonDisabled2Color=%23FFFFFF&PingSuccessTextColor=%23D1C0A2&PingTimeoutTextColor=%23CF5747&DefaultDotColor=%23D1C0A2&HUDBackgroundColor=%2338373D&v=1.0";
         
         document.getElementById('configOutput').value = darkThemeLink;
         importConfig();
         
-        // 确保默认选中 Config
         switchTab('config', document.querySelector('.tab-item:nth-child(2)'));
-        
-        // 页面加载完成提示
         showToast("默认主题已加载");
     };
-
-// Alpha slider initialization sync
-function hexAlphaToPercent(color) {
-    if (!color) return 100;
-    color = color.trim();
-
-    if (color.startsWith("#")) {
-        const hex = color.substring(1);
-        if (hex.length === 8) {
-            return Math.round(parseInt(hex.substring(0, 2), 16) / 255 * 100);
-        }
-    }
-
-    const rgba = color.match(/rgba?\(([^)]+)\)/);
-    if (rgba) {
-        const parts = rgba[1].split(",").map(v => v.trim());
-        if (parts.length === 4) {
-            return Math.round(parseFloat(parts[3]) * 100);
-        }
-    }
-
-    return 100;
-}
-
-function syncAlphaSlidersFromTheme() {
-    document.querySelectorAll(".alpha-slider").forEach(slider => {
-        const key = slider.dataset.key;
-        if (!key) return;
-
-        const value = getComputedStyle(document.documentElement)
-            .getPropertyValue("--" + key)
-            .trim();
-
-        slider.value = hexAlphaToPercent(value);
-
-        const label = slider.parentElement.querySelector(".alpha-value");
-        if (label) {
-            label.textContent = slider.value + "%";
-        }
-    });
-}
-
-
-
 </script>
 
 </body>
