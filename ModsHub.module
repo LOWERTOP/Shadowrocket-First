@@ -19,11 +19,11 @@ DOMAIN-SUFFIX,ddgksf2013.top,{{{资源网站策略}}}
 随机节点 = url-test,url=http://www.gstatic.com/generate_204,interval=180,tolerance=0,timeout=3,select=0,policy-regex-filter=.*
 
 [Header Rewrite]
-# PluginHub
+# PluginHub @iab0x00
 {{{Plugin-Hub}}}-request ^https://hub\.kelee\.one/list\.json header-del if-none-match
 
 [Body Rewrite]
-# PluginHub
+# PluginHub @iab0x00
 {{{Plugin-Hub}}}-response ^https://hub\.kelee\.one/list\.json "loon://import\?plugin=(https://kelee.one/Tool/Loon/Lpx/(.+).lpx)" "shadowrocket://install?module=http://script.hub/file/_start_/$1/_end_/$2.sgmodule%3Ftype%3Dloon-plugin%26target%3Dshadowrocket-module%26del%3Dtrue%26jqEnabled%3Dtrue"
 
 [Script]
