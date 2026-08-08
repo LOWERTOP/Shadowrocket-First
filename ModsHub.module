@@ -6,6 +6,7 @@
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
 [General]
+# Script Hub
 force-http-engine-hosts = %APPEND% script.hub, *.script.hub
 
 [Rule]
@@ -33,6 +34,7 @@ Script Hub: 重写转换 = type=http-request, pattern=^https?:\/\/script\.hub\/f
 Script Hub: 规则集转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/rule-parser.js, timeout=300, enable={{{Script-Hub}}}
 Script Hub: 脚本转换 = type=http-request, pattern=^https?:\/\/script\.hub\/convert\/, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-converter.js, timeout=300, enable={{{Script-Hub}}}
 
+# Cuttle-Fish
 网页变身 = type=http-response, pattern=^https?:\/\/ddgksf2013.top\/$,requires-body=1,max-size=-1,script-path=https://ddgksf2013.top/scripts/web.rocket.js,enable={{{Cuttle-Fish}}}, timeout=3500
 
 [MITM]
