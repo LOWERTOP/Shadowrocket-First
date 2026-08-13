@@ -590,13 +590,15 @@
 
     <script>
         /* =========================================================
-           Configuration & Mirrors
+           Configuration & Cache
         ========================================================= */
         const CONFIG = {
             README_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/README-RULE.md",
             REDIRECT_URL: "https://lowertop.github.io/Shadowrocket-First/redirect.html",
-            GITHUB_API: "https://api.github.com",
-            CONCURRENCY: 5
+            CONCURRENCY: 10,
+            CACHE_KEY: "sr_modules_data_v3",
+            CACHE_TIME_KEY: "sr_modules_time_v3",
+            CACHE_EXPIRE: 3600 * 6 * 1000 // 缓存有效时间：6小时
         };
 
         /* =========================================================
@@ -650,7 +652,6 @@
                 }
             } catch (e) {}
 
-            // Fallback for older browsers
             const textArea = document.createElement("textarea");
             textArea.value = text;
             textArea.style.position = "fixed";
@@ -677,14 +678,12 @@
 
         async function fetchWithFallback(url) {
             try {
-                // 1. 尝试直连
                 const response = await fetch(url, { cache: "no-store" });
                 if (response.ok) return await response.text();
             } catch (e) {
                 console.warn("Direct fetch failed, trying CDN mirror:", url);
             }
 
-            // 2. 直连失败，尝试 CDN 镜像回退（针对国内环境）
             const cdnUrl = getCdnURL(url);
             if (cdnUrl !== url) {
                 const response = await fetch(cdnUrl, { cache: "no-store" });
@@ -871,9 +870,6 @@
             return `${metadata.name}，适用于 Shadowrocket 的网络模块。`;
         }
 
-        /* =========================================================
-           Commit Date (with GitHub Rate Limit Protection)
-        ========================================================= */
         function parseGitHubRawURL(rawURL) {
             try {
                 const url = new URL(rawURL);
@@ -883,27 +879,6 @@
                 return { owner: parts[0], repo: parts[1], branch: parts[2], path: parts.slice(3).join("/") };
             } catch {
                 return null;
-            }
-        }
-
-        async function getGitHubCommitDate(rawURL, fallbackDate) {
-            const info = parseGitHubRawURL(rawURL);
-            if (!info) return fallbackDate || "";
-
-            try {
-                const apiURL = `${CONFIG.GITHUB_API}/repos/${encodeURIComponent(info.owner)}/${encodeURIComponent(info.repo)}/commits?path=${encodeURIComponent(info.path)}&sha=${encodeURIComponent(info.branch)}&per_page=1`;
-                const response = await fetch(apiURL, {
-                    headers: { "Accept": "application/vnd.github+json" },
-                    cache: "no-store"
-                });
-
-                if (!response.ok) return fallbackDate || "";
-                const data = await response.json();
-                if (!Array.isArray(data) || !data.length) return fallbackDate || "";
-
-                return data[0]?.commit?.committer?.date || data[0]?.commit?.author?.date || fallbackDate || "";
-            } catch {
-                return fallbackDate || "";
             }
         }
 
@@ -973,14 +948,13 @@
         }
 
         /* =========================================================
-           Fetch Single Module
+           Fetch Single Module (已精简高延迟 GitHub API 请求)
         ========================================================= */
         async function fetchModule(item) {
             try {
                 const rawText = await fetchWithFallback(item.rawURL);
                 const metadata = parseModuleMetadata(rawText, item.name);
                 const icon = resolveIconURL(metadata.icon, item.rawURL);
-                const updateDate = await getGitHubCommitDate(item.rawURL, metadata.date);
                 const description = generateDescription(metadata, rawText);
 
                 let authorAvatar = metadata.author.username
@@ -995,7 +969,7 @@
                     authorAvatar,
                     icon,
                     tags: metadata.tags,
-                    updateDate,
+                    updateDate: metadata.date || "",
                     installURL: createInstallURL(item.rawURL)
                 };
             } catch (error) {
@@ -1090,7 +1064,6 @@
                 </div>
             `;
 
-            // 复制按钮事件绑
             const copyBtn = card.querySelector(".copy-btn");
             if (copyBtn) {
                 copyBtn.addEventListener("click", async (e) => {
@@ -1101,7 +1074,6 @@
                 });
             }
 
-            // 图标加载失败回退
             const image = card.querySelector(".module-icon img");
             if (image) {
                 image.addEventListener("error", () => { image.src = fallbackIcon; }, { once: true });
@@ -1137,7 +1109,6 @@
         function filterModules() {
             const keyword = searchInput.value.trim().toLowerCase();
 
-            // 显隐清空按钮
             if (keyword.length > 0) {
                 searchClear.classList.add("visible");
             } else {
@@ -1163,7 +1134,6 @@
             renderModules(filtered);
         }
 
-        // 输入防抖
         searchInput.addEventListener("input", () => {
             clearTimeout(searchTimer);
             searchTimer = setTimeout(filterModules, 150);
@@ -1176,43 +1146,85 @@
         });
 
         /* =========================================================
-           Main Loader
+           Main Loader (支持 LocalStorage 极速缓存 + 后台同步)
         ========================================================= */
         async function loadModules() {
+            const cachedData = localStorage.getItem(CONFIG.CACHE_KEY);
+            const cachedTime = localStorage.getItem(CONFIG.CACHE_TIME_KEY);
+            const now = Date.now();
+            let hasCache = false;
+
+            // 1. 本地缓存读取（二次打开实现秒开）
+            if (cachedData) {
+                try {
+                    allModules = JSON.parse(cachedData);
+                    renderModules(allModules);
+                    hasCache = true;
+
+                    const isExpired = !cachedTime || (now - Number(cachedTime) > CONFIG.CACHE_EXPIRE);
+                    if (!isExpired) {
+                        statusText.textContent = "已同步";
+                        statusDot.className = "status-dot";
+                        return; // 缓存有效时立即返回
+                    }
+
+                    statusText.textContent = "正在同步模块...";
+                    statusDot.className = "status-dot loading";
+                } catch (e) {
+                    localStorage.removeItem(CONFIG.CACHE_KEY);
+                    localStorage.removeItem(CONFIG.CACHE_TIME_KEY);
+                    hasCache = false;
+                }
+            }
+
+            // 2. 远端数据抓取
             try {
-                statusText.textContent = "正在读取模块列表...";
-                statusDot.className = "status-dot loading";
+                if (!hasCache) {
+                    statusText.textContent = "正在读取模块列表...";
+                    statusDot.className = "status-dot loading";
+                }
 
-                // 1. Fetch README
                 const markdown = await fetchWithFallback(CONFIG.README_URL);
-
-                // 2. Parse Markdown Table
                 const sourceModules = parseMarkdown(markdown);
                 if (!sourceModules.length) {
                     throw new Error("README 中未解析到有效模块信息");
                 }
 
-                // 3. Concurrent fetch metadata
-                statusText.textContent = `正在加载 ${sourceModules.length} 个模块内容...`;
+                if (!hasCache) {
+                    statusText.textContent = `正在加载 ${sourceModules.length} 个模块内容...`;
+                }
+
                 allModules = await processModules(sourceModules);
 
-                // 4. Render
+                // 渲染并保存缓存
                 renderModules(allModules);
+                try {
+                    localStorage.setItem(CONFIG.CACHE_KEY, JSON.stringify(allModules));
+                    localStorage.setItem(CONFIG.CACHE_TIME_KEY, String(Date.now()));
+                } catch (e) {
+                    console.warn("缓存写入失败：", e);
+                }
+
                 statusText.textContent = "已同步";
                 statusDot.className = "status-dot";
 
             } catch (error) {
                 console.error("模块同步失败：", error);
-                statusText.textContent = "同步失败";
-                statusDot.className = "status-dot error";
-                countText.textContent = "";
+                if (!hasCache) {
+                    statusText.textContent = "同步失败";
+                    statusDot.className = "status-dot error";
+                    countText.textContent = "";
 
-                modulesContainer.innerHTML = `
-                    <div class="empty">
-                        <div class="empty-icon">⚠️</div>
-                        无法读取模块列表
-                        <div class="empty-error">${escapeHTML(error.message || "请检查网络连接")}</div>
-                    </div>`;
+                    modulesContainer.innerHTML = `
+                        <div class="empty">
+                            <div class="empty-icon">⚠️</div>
+                            无法读取模块列表
+                            <div class="empty-error">${escapeHTML(error.message || "请检查网络连接")}</div>
+                        </div>`;
+                } else {
+                    statusText.textContent = "已同步";
+                    statusDot.className = "status-dot";
+                }
             }
         }
 
