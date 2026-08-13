@@ -7,6 +7,12 @@
     <meta name="theme-color" content="#000000">
     <title>Shadowrocket 模块中心</title>
 
+    <!-- 方案 1：网络层 - 预解析与预连接 -->
+    <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
     <style>
         /* =========================================================
            Design Tokens
@@ -242,6 +248,10 @@
             background: var(--card);
             overflow: hidden;
             transition: background .2s ease, transform .2s ease;
+
+            /* 方案 3：渲染层 - 跳过屏外 DOM 渲染计算 */
+            content-visibility: auto;
+            contain-intrinsic-size: 0 180px;
         }
 
         .module-card:hover {
@@ -556,7 +566,7 @@
 
         <div class="search-wrapper">
             <div class="search-icon">🔍</div>
-            <input id="search" class="search" type="search" placeholder="请等待加载完成后再执行搜索" autocomplete="off" spellcheck="false">
+            <input id="search" class="search" type="search" placeholder="输入关键字快捷搜索..." autocomplete="off" spellcheck="false">
             <button id="searchClear" class="search-clear" title="清空搜索">✕</button>
         </div>
 
@@ -595,9 +605,9 @@
         const CONFIG = {
             README_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/README-RULE.md",
             REDIRECT_URL: "https://lowertop.github.io/Shadowrocket-First/redirect.html",
-            CONCURRENCY: 10,
-            CACHE_KEY: "sr_modules_data_v3",
-            CACHE_TIME_KEY: "sr_modules_time_v3",
+            CONCURRENCY: 12, // 适当提升并发数
+            CACHE_KEY: "sr_modules_data_v4",
+            CACHE_TIME_KEY: "sr_modules_time_v4",
             CACHE_EXPIRE: 3600 * 6 * 1000 // 缓存有效时间：6小时
         };
 
@@ -668,7 +678,7 @@
         }
 
         /* =========================================================
-           Network Resilience (Fetch with CDN Mirror Fallback)
+           方案 2：流量层 - HTTP Range 分片截取 (仅请求前 2KB 元信息)
         ========================================================= */
         function getCdnURL(githubRawUrl) {
             const parsed = parseGitHubRawURL(githubRawUrl);
@@ -676,18 +686,21 @@
             return `https://cdn.jsdelivr.net/gh/${parsed.owner}/${parsed.repo}@${parsed.branch}/${parsed.path}`;
         }
 
-        async function fetchWithFallback(url) {
+        async function fetchWithFallback(url, isPartial = true) {
+            // 如果是获取模块，只加载前 2048 字节 (2KB) 头部数据，快速解析元信息
+            const headers = isPartial ? { 'Range': 'bytes=0-2047' } : {};
+
             try {
-                const response = await fetch(url, { cache: "no-store" });
-                if (response.ok) return await response.text();
+                const response = await fetch(url, { headers, cache: "no-store" });
+                if (response.ok || response.status === 206) return await response.text();
             } catch (e) {
                 console.warn("Direct fetch failed, trying CDN mirror:", url);
             }
 
             const cdnUrl = getCdnURL(url);
             if (cdnUrl !== url) {
-                const response = await fetch(cdnUrl, { cache: "no-store" });
-                if (response.ok) return await response.text();
+                const response = await fetch(cdnUrl, { headers, cache: "no-store" });
+                if (response.ok || response.status === 206) return await response.text();
             }
 
             throw new Error(`无法获取资源: ${url}`);
@@ -843,7 +856,6 @@
                 description: metadata.desc || "",
                 author: parseAuthor(metadata.author),
                 icon: metadata.icon || "",
-                date: metadata.date || "",
                 tags
             };
         }
@@ -925,18 +937,6 @@
             return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
         }
 
-        function formatDate(value) {
-            if (!value) return "已同步";
-            let normalized = String(value).trim().replace(/^(\d{4}-\d{2}-\d{2})\s+/, "$1T");
-            const date = new Date(normalized);
-            if (Number.isNaN(date.getTime())) return value;
-
-            const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, "0");
-            const day = String(date.getDate()).padStart(2, "0");
-            return `${year}-${month}-${day}`;
-        }
-
         function createInstallURL(rawURL) {
             const shadowrocketURL = "shadowrocket://install?module=" + rawURL;
             return CONFIG.REDIRECT_URL + "?url=" + encodeURIComponent(shadowrocketURL);
@@ -948,11 +948,12 @@
         }
 
         /* =========================================================
-           Fetch Single Module (已精简高延迟 GitHub API 请求)
+           Fetch Single Module (Partially)
         ========================================================= */
         async function fetchModule(item) {
             try {
-                const rawText = await fetchWithFallback(item.rawURL);
+                // isPartial = true, 只读取文件头 2KB 内容
+                const rawText = await fetchWithFallback(item.rawURL, true);
                 const metadata = parseModuleMetadata(rawText, item.name);
                 const icon = resolveIconURL(metadata.icon, item.rawURL);
                 const description = generateDescription(metadata, rawText);
@@ -969,7 +970,6 @@
                     authorAvatar,
                     icon,
                     tags: metadata.tags,
-                    updateDate: metadata.date || "",
                     installURL: createInstallURL(item.rawURL)
                 };
             } catch (error) {
@@ -982,13 +982,15 @@
                     authorAvatar: getRepositoryAvatar(item.rawURL),
                     icon: "",
                     tags: [],
-                    updateDate: "",
                     installURL: createInstallURL(item.rawURL)
                 };
             }
         }
 
-        async function processModules(items) {
+        /* =========================================================
+           方案 4：交互层 - 首屏流式渲染 (Stream Processor)
+        ========================================================= */
+        async function processModulesStream(items, onItemLoaded) {
             const results = new Array(items.length);
             let currentIndex = 0;
 
@@ -996,7 +998,11 @@
                 while (true) {
                     const index = currentIndex++;
                     if (index >= items.length) return;
-                    results[index] = await fetchModule(items[index]);
+                    const data = await fetchModule(items[index]);
+                    results[index] = data;
+                    if (onItemLoaded) {
+                        onItemLoaded(data, index);
+                    }
                 }
             }
 
@@ -1032,7 +1038,6 @@
             const authorHTML = renderAuthor(module);
             const tags = Array.isArray(module.tags) ? module.tags : [];
             const tagsHTML = tags.slice(0, 6).map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join("");
-            const updateDate = formatDate(module.updateDate);
 
             card.innerHTML = `
                 <div class="card-header">
@@ -1044,7 +1049,7 @@
                         <div class="module-meta">
                             ${authorHTML}
                             <span class="meta-separator">·</span>
-                            <span>${escapeHTML(updateDate)}</span>
+                            <span>已同步至最新版本</span>
                         </div>
                         ${tagsHTML ? `<div class="tags">${tagsHTML}</div>` : ""}
                     </div>
@@ -1097,7 +1102,7 @@
 
             const fragment = document.createDocumentFragment();
             for (const module of modules) {
-                fragment.appendChild(createModuleCard(module));
+                if (module) fragment.appendChild(createModuleCard(module));
             }
             modulesContainer.appendChild(fragment);
             countText.textContent = `${modules.length} 个模块`;
@@ -1121,6 +1126,7 @@
             }
 
             const filtered = allModules.filter(module => {
+                if (!module) return false;
                 const searchable = [
                     module.name,
                     module.description,
@@ -1146,7 +1152,7 @@
         });
 
         /* =========================================================
-           Main Loader (支持 LocalStorage 极速缓存 + 后台同步)
+           Main Loader
         ========================================================= */
         async function loadModules() {
             const cachedData = localStorage.getItem(CONFIG.CACHE_KEY);
@@ -1154,7 +1160,6 @@
             const now = Date.now();
             let hasCache = false;
 
-            // 1. 本地缓存读取（二次打开实现秒开）
             if (cachedData) {
                 try {
                     allModules = JSON.parse(cachedData);
@@ -1165,7 +1170,7 @@
                     if (!isExpired) {
                         statusText.textContent = "已同步";
                         statusDot.className = "status-dot";
-                        return; // 缓存有效时立即返回
+                        return;
                     }
 
                     statusText.textContent = "正在同步模块...";
@@ -1177,27 +1182,46 @@
                 }
             }
 
-            // 2. 远端数据抓取
             try {
                 if (!hasCache) {
                     statusText.textContent = "正在读取模块列表...";
                     statusDot.className = "status-dot loading";
                 }
 
-                const markdown = await fetchWithFallback(CONFIG.README_URL);
+                // README 必须完整获取 (isPartial = false)
+                const markdown = await fetchWithFallback(CONFIG.README_URL, false);
                 const sourceModules = parseMarkdown(markdown);
                 if (!sourceModules.length) {
                     throw new Error("README 中未解析到有效模块信息");
                 }
 
-                if (!hasCache) {
-                    statusText.textContent = `正在加载 ${sourceModules.length} 个模块内容...`;
+                let loadedCount = 0;
+                let isFirstStream = true;
+
+                // 启动流式请求与渲染
+                const results = await processModulesStream(sourceModules, (moduleData, index) => {
+                    loadedCount++;
+                    
+                    // 无缓存时，流式逐个上屏渲染
+                    if (!hasCache && !searchInput.value.trim()) {
+                        if (isFirstStream) {
+                            modulesContainer.innerHTML = ""; // 清除骨架屏
+                            isFirstStream = false;
+                        }
+                        const card = createModuleCard(moduleData);
+                        modulesContainer.appendChild(card);
+                        countText.textContent = `${loadedCount} 个模块`;
+                        statusText.textContent = `加载中 (${loadedCount}/${sourceModules.length})...`;
+                    }
+                });
+
+                allModules = results.filter(Boolean);
+
+                // 全量同步完毕后重新校准顺序
+                if (!searchInput.value.trim()) {
+                    renderModules(allModules);
                 }
 
-                allModules = await processModules(sourceModules);
-
-                // 渲染并保存缓存
-                renderModules(allModules);
                 try {
                     localStorage.setItem(CONFIG.CACHE_KEY, JSON.stringify(allModules));
                     localStorage.setItem(CONFIG.CACHE_TIME_KEY, String(Date.now()));
