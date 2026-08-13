@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000">
     <title>Shadowrocket 模块中心</title>
 
-    <!-- 方案 1：网络层 - 预解析与预连接 -->
+    <!-- 网络层 - 预解析与预连接 -->
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
@@ -90,6 +90,17 @@
             line-height: 1.15;
             font-weight: 700;
             letter-spacing: -1px;
+        }
+
+        /* 标题超链接样式 */
+        .title a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .title a:hover {
+            opacity: 0.8;
         }
 
         .subtitle {
@@ -249,7 +260,7 @@
             overflow: hidden;
             transition: background .2s ease, transform .2s ease;
 
-            /* 方案 3：渲染层 - 跳过屏外 DOM 渲染计算 */
+            /* 渲染优化：跳过屏外 DOM 渲染计算 */
             content-visibility: auto;
             contain-intrinsic-size: 0 180px;
         }
@@ -550,7 +561,9 @@
     <div class="container">
 
         <header class="header">
-            <h1 class="title">Shadowrocket 模块中心</h1>
+            <h1 class="title">
+                <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener">Shadowrocket 模块中心</a>
+            </h1>
             <div class="subtitle">
                 资源来自于
                 <a href="https://github.com/fmz200/wool_scripts" target="_blank" rel="noopener">
@@ -605,10 +618,10 @@
         const CONFIG = {
             README_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/README-RULE.md",
             REDIRECT_URL: "https://lowertop.github.io/Shadowrocket-First/redirect.html",
-            CONCURRENCY: 12, // 适当提升并发数
+            CONCURRENCY: 12,
             CACHE_KEY: "sr_modules_data_v4",
             CACHE_TIME_KEY: "sr_modules_time_v4",
-            CACHE_EXPIRE: 3600 * 6 * 1000 // 缓存有效时间：6小时
+            CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
         /* =========================================================
@@ -678,7 +691,7 @@
         }
 
         /* =========================================================
-           方案 2：流量层 - HTTP Range 分片截取 (仅请求前 2KB 元信息)
+           HTTP Range 分片截取 (仅请求前 2KB 元信息)
         ========================================================= */
         function getCdnURL(githubRawUrl) {
             const parsed = parseGitHubRawURL(githubRawUrl);
@@ -687,7 +700,6 @@
         }
 
         async function fetchWithFallback(url, isPartial = true) {
-            // 如果是获取模块，只加载前 2048 字节 (2KB) 头部数据，快速解析元信息
             const headers = isPartial ? { 'Range': 'bytes=0-2047' } : {};
 
             try {
@@ -952,7 +964,6 @@
         ========================================================= */
         async function fetchModule(item) {
             try {
-                // isPartial = true, 只读取文件头 2KB 内容
                 const rawText = await fetchWithFallback(item.rawURL, true);
                 const metadata = parseModuleMetadata(rawText, item.name);
                 const icon = resolveIconURL(metadata.icon, item.rawURL);
@@ -988,7 +999,7 @@
         }
 
         /* =========================================================
-           方案 4：交互层 - 首屏流式渲染 (Stream Processor)
+           首屏流式渲染 (Stream Processor)
         ========================================================= */
         async function processModulesStream(items, onItemLoaded) {
             const results = new Array(items.length);
@@ -1188,7 +1199,6 @@
                     statusDot.className = "status-dot loading";
                 }
 
-                // README 必须完整获取 (isPartial = false)
                 const markdown = await fetchWithFallback(CONFIG.README_URL, false);
                 const sourceModules = parseMarkdown(markdown);
                 if (!sourceModules.length) {
@@ -1198,14 +1208,12 @@
                 let loadedCount = 0;
                 let isFirstStream = true;
 
-                // 启动流式请求与渲染
                 const results = await processModulesStream(sourceModules, (moduleData, index) => {
                     loadedCount++;
                     
-                    // 无缓存时，流式逐个上屏渲染
                     if (!hasCache && !searchInput.value.trim()) {
                         if (isFirstStream) {
-                            modulesContainer.innerHTML = ""; // 清除骨架屏
+                            modulesContainer.innerHTML = "";
                             isFirstStream = false;
                         }
                         const card = createModuleCard(moduleData);
@@ -1217,7 +1225,6 @@
 
                 allModules = results.filter(Boolean);
 
-                // 全量同步完毕后重新校准顺序
                 if (!searchInput.value.trim()) {
                     renderModules(allModules);
                 }
