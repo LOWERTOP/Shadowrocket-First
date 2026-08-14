@@ -728,31 +728,49 @@
         let searchTimer = null;
 
         /* =========================================================
-           Theme Switcher (深/浅色模式)
+           Theme Switcher (深/浅色模式 & 自动动态响应)
         ========================================================= */
-        function initTheme() {
-            const savedTheme = localStorage.getItem("sr_theme");
-            const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-            
-            const initialTheme = savedTheme || (systemPrefersLight ? "light" : "dark");
-            applyTheme(initialTheme);
+        const mediaQueryLight = window.matchMedia("(prefers-color-scheme: light)");
+
+        function getSystemTheme() {
+            return mediaQueryLight.matches ? "light" : "dark";
         }
 
-        function applyTheme(theme) {
+        function applyTheme(theme, isUserAction = false) {
             if (theme === "light") {
                 document.documentElement.setAttribute("data-theme", "light");
                 themeToggle.innerHTML = SUN_ICON;
+                themeToggle.setAttribute("title", "当前：浅色模式（点击切换为深色）");
             } else {
                 document.documentElement.removeAttribute("data-theme");
                 themeToggle.innerHTML = MOON_ICON;
+                themeToggle.setAttribute("title", "当前：深色模式（点击切换为浅色）");
             }
-            localStorage.setItem("sr_theme", theme);
+
+            // 仅当用户手动点击时记录覆盖偏好
+            if (isUserAction) {
+                localStorage.setItem("sr_theme", theme);
+            }
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem("sr_theme");
+            // 若用户未手动指定，则跟随系统
+            const activeTheme = savedTheme || getSystemTheme();
+            applyTheme(activeTheme, false);
+
+            // 监听系统自动切换（如日落自动变深色）
+            mediaQueryLight.addEventListener("change", (e) => {
+                if (!localStorage.getItem("sr_theme")) {
+                    applyTheme(e.matches ? "light" : "dark", false);
+                }
+            });
         }
 
         themeToggle.addEventListener("click", () => {
             const currentTheme = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
             const newTheme = currentTheme === "light" ? "dark" : "light";
-            applyTheme(newTheme);
+            applyTheme(newTheme, true);
         });
 
         initTheme();
@@ -1010,7 +1028,7 @@
         }
 
         /* =========================================================
-           iOS 风格渲染图标 (渐变高明度、清新柔和)
+           iOS 风格渲染图标 (高明度渐变)
         ========================================================= */
         function hashString(value) {
             let hash = 0;
@@ -1028,7 +1046,6 @@
             const hue1 = hash % 360;
             const hue2 = (hue1 + 35 + (hash % 30)) % 360;
 
-            /* 高明度 (60%~68%) + 柔和饱和度 (50%~55%)，使颜色明亮而不刺眼 */
             const color1 = `hsl(${hue1}, 52%, 68%)`;
             const color2 = `hsl(${hue2}, 55%, 58%)`;
 
@@ -1152,9 +1169,7 @@
             const card = document.createElement("article");
             card.className = "module-card";
 
-            /* 高明度渐变渲染降级图标 */
             const fallbackIcon = createIOSAppIcon(module.name);
-            /* 若模块文件中自带 icon 字段则优先显示，无原生图标时使用渐变渲染图标 */
             const icon = module.icon || fallbackIcon;
 
             const authorHTML = renderAuthor(module);
@@ -1201,7 +1216,6 @@
                 });
             }
 
-            /* 原生图标加载失败时自动平滑回退到高明度渐变图标 */
             const image = card.querySelector(".module-icon img");
             if (image) {
                 image.addEventListener("error", () => { image.src = fallbackIcon; }, { once: true });
