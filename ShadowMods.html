@@ -21,7 +21,7 @@
         /* =========================================================
            Design Tokens (深色/浅色 双主题)
         ========================================================= */
-        :root {
+        :root, [data-theme="dark"] {
             /* 默认深色主题 (Dark Mode) */
             --background: #000000;
             --card: #1c1c1e;
@@ -647,7 +647,7 @@
                 <h1 class="title">
                     <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener">Shadowrocket 模块中心</a>
                 </h1>
-                <button id="themeToggle" class="theme-toggle" title="切换深/浅色模式" aria-label="切换深/浅色模式"></button>
+                <button id="themeToggle" class="theme-toggle" aria-label="切换主题"></button>
             </div>
             <div class="subtitle">
                 资源来自于
@@ -728,52 +728,52 @@
         let searchTimer = null;
 
         /* =========================================================
-           Theme Switcher (深/浅色模式 & 自动动态响应)
+           Theme Engine (系统深浅色完全自动同步)
         ========================================================= */
-        const mediaQueryLight = window.matchMedia("(prefers-color-scheme: light)");
+        const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-        function getSystemTheme() {
-            return mediaQueryLight.matches ? "light" : "dark";
+        // 判定当前需要应用的主题模式
+        function getEffectiveTheme() {
+            const userChoice = localStorage.getItem("sr_theme_override");
+            if (userChoice === "dark" || userChoice === "light") {
+                return userChoice;
+            }
+            return mediaQueryDark.matches ? "dark" : "light";
         }
 
-        function applyTheme(theme, isUserAction = false) {
-            if (theme === "light") {
+        // 应用主题与同步渲染对应的图标
+        function applyTheme(theme) {
+            if (theme === "dark") {
+                document.documentElement.setAttribute("data-theme", "dark");
+                themeToggle.innerHTML = MOON_ICON;
+                themeToggle.setAttribute("title", "当前：深色模式（点击可手动切换）");
+            } else {
                 document.documentElement.setAttribute("data-theme", "light");
                 themeToggle.innerHTML = SUN_ICON;
-                themeToggle.setAttribute("title", "当前：浅色模式（点击切换为深色）");
-            } else {
-                document.documentElement.removeAttribute("data-theme");
-                themeToggle.innerHTML = MOON_ICON;
-                themeToggle.setAttribute("title", "当前：深色模式（点击切换为浅色）");
-            }
-
-            // 仅当用户手动点击时记录覆盖偏好
-            if (isUserAction) {
-                localStorage.setItem("sr_theme", theme);
+                themeToggle.setAttribute("title", "当前：浅色模式（点击可手动切换）");
             }
         }
 
-        function initTheme() {
-            const savedTheme = localStorage.getItem("sr_theme");
-            // 若用户未手动指定，则跟随系统
-            const activeTheme = savedTheme || getSystemTheme();
-            applyTheme(activeTheme, false);
-
-            // 监听系统自动切换（如日落自动变深色）
-            mediaQueryLight.addEventListener("change", (e) => {
-                if (!localStorage.getItem("sr_theme")) {
-                    applyTheme(e.matches ? "light" : "dark", false);
-                }
-            });
-        }
-
-        themeToggle.addEventListener("click", () => {
-            const currentTheme = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
-            const newTheme = currentTheme === "light" ? "dark" : "light";
-            applyTheme(newTheme, true);
+        // 监听系统深浅色动态变化 (核心：无需刷新页面，自动同步外观与图标)
+        mediaQueryDark.addEventListener("change", (e) => {
+            // 当用户未强制锁定特定偏好时，无缝跟随系统深浅色
+            if (!localStorage.getItem("sr_theme_override")) {
+                applyTheme(e.matches ? "dark" : "light");
+            }
         });
 
-        initTheme();
+        // 允许手动点击切换
+        themeToggle.addEventListener("click", () => {
+            const currentTheme = getEffectiveTheme();
+            const nextTheme = currentTheme === "dark" ? "light" : "dark";
+            
+            localStorage.setItem("sr_theme_override", nextTheme);
+            applyTheme(nextTheme);
+            showToast(`已切换为${nextTheme === "dark" ? "深色" : "浅色"}模式`);
+        });
+
+        // 初始化调用
+        applyTheme(getEffectiveTheme());
 
         /* =========================================================
            Utilities
@@ -1124,7 +1124,7 @@
         }
 
         /* =========================================================
-           首屏流式渲染
+           流式渲染处理
         ========================================================= */
         async function processModulesStream(items, onItemLoaded) {
             const results = new Array(items.length);
