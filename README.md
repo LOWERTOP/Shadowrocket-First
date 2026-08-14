@@ -336,7 +336,7 @@
 > [![首先安装 检测模块](https://img.shields.io/static/v1?label=首先安装&message=检测模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Sgmodule/流媒体解锁测试.module "一键安装本模块")
 > [![其次访问 检测页面](https://img.shields.io/static/v1?label=其次访问&message=检测页面&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://streaming.test/ "点击访问检测页面")
 
-### [筛选订阅脚本](#筛选订阅脚本)
+### [筛选脚本](#筛选脚本)
 
 > [GodLike631](https://github.com/GodLike631) 制作的 **筛选/规范订阅节点** 脚本，该脚本异常强大，可根据需要过滤节点并将保留的节点的名称进行标准化和格式化
 > 
