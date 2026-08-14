@@ -7,23 +7,22 @@
     <meta name="theme-color" content="#000000">
     <title>Shadowrocket 模块中心</title>
 
-    <!-- 1. 浏览器标签页 Icon (🚀 Emoji) -->
+    <!-- 1. 浏览器标签页 Icon (🚀 Emoji Data URI) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 
-    <!-- 2. iOS 桌面主屏幕图标 (Apple Touch Icon) -->
+    <!-- 2. iOS 桌面主屏幕图标 -->
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowMods.png">
 
-    <!-- 网络层 - 预解析与预连接 -->
+    <!-- 网络层 - 仅预解析 GitHub 原生域名 -->
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
     <style>
         /* =========================================================
-           Design Tokens
+           Design Tokens (深色/浅色 双主题)
         ========================================================= */
         :root {
+            /* 默认深色主题 (Dark Mode) */
             --background: #000000;
             --card: #1c1c1e;
             --card-hover: #232326;
@@ -42,6 +41,33 @@
 
             --radius-large: 22px;
             --content-width: 900px;
+            
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --toast-bg: rgba(255, 255, 255, 0.9);
+            --toast-text: #000000;
+        }
+
+        [data-theme="light"] {
+            /* 浅色主题 (Light Mode) */
+            --background: #f2f2f7;
+            --card: #ffffff;
+            --card-hover: #f9f9fb;
+            --card-secondary: #e5e5ea;
+
+            --text-primary: #1c1c1e;
+            --text-secondary: #8e8e93;
+            --text-tertiary: #aeaeb2;
+
+            --blue: #007aff;
+            --blue-hover: #0056b3;
+
+            --green: #34c759;
+            --orange: #ff9500;
+            --red: #ff3b30;
+
+            --border-subtle: rgba(0, 0, 0, 0.06);
+            --toast-bg: rgba(0, 0, 0, 0.85);
+            --toast-text: #ffffff;
         }
 
         /* =========================================================
@@ -56,6 +82,7 @@
             margin: 0;
             padding: 0;
             background: var(--background);
+            transition: background-color 0.25s ease;
         }
 
         body {
@@ -66,6 +93,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
+            transition: background-color 0.25s ease, color 0.25s ease;
         }
 
         button, input {
@@ -90,6 +118,13 @@
             padding: 24px 0 16px;
         }
 
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
         .title {
             margin: 0;
             font-size: 34px;
@@ -98,7 +133,6 @@
             letter-spacing: -1px;
         }
 
-        /* 标题超链接样式 */
         .title a {
             color: inherit;
             text-decoration: none;
@@ -107,6 +141,36 @@
 
         .title a:hover {
             opacity: 0.8;
+        }
+
+        /* 主题切换按钮 */
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            border-radius: 50%;
+            background: var(--card);
+            color: var(--text-primary);
+            cursor: pointer;
+            box-shadow: inset 0 0 0 1px var(--border-subtle);
+            transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.92);
+        }
+
+        .theme-toggle svg {
+            display: block;
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
         }
 
         .subtitle {
@@ -135,9 +199,10 @@
             padding: 12px 18px;
             background: var(--card);
             border-radius: 16px;
-            color: #d1d1d6;
+            color: var(--text-primary);
             font-size: 14.5px;
             line-height: 1.4;
+            box-shadow: inset 0 0 0 1px var(--border-subtle);
         }
 
         .notice-icon {
@@ -167,16 +232,25 @@
             display: block;
             width: 100%;
             height: 54px;
-            padding: 0 44px 0 50px;
+            padding: 0 48px 0 50px;
             border: 0;
             outline: none;
             border-radius: 18px;
             background: var(--card);
             color: var(--text-primary);
             font-size: 17px;
-            transition: background 0.2s ease;
+            box-shadow: inset 0 0 0 1px var(--border-subtle);
+            transition: background 0.2s ease, box-shadow 0.2s ease;
             appearance: none;
             -webkit-appearance: none;
+        }
+
+        .search::-webkit-search-decoration,
+        .search::-webkit-search-cancel-button,
+        .search::-webkit-search-results-button,
+        .search::-webkit-search-results-decoration {
+            -webkit-appearance: none;
+            display: none;
         }
 
         .search::placeholder {
@@ -184,7 +258,7 @@
         }
 
         .search:focus {
-            background: #242428;
+            box-shadow: inset 0 0 0 1.5px var(--blue);
         }
 
         .search-clear {
@@ -201,10 +275,12 @@
             border-radius: 50%;
             background: var(--text-tertiary);
             color: var(--background);
-            font-size: 14px;
+            font-size: 13px;
+            font-weight: bold;
             cursor: pointer;
             padding: 0;
             line-height: 1;
+            transition: opacity 0.15s ease;
         }
 
         .search-clear.visible {
@@ -263,10 +339,10 @@
             padding: 20px 22px;
             border-radius: var(--radius-large);
             background: var(--card);
+            box-shadow: inset 0 0 0 1px var(--border-subtle);
             overflow: hidden;
-            transition: background .2s ease, transform .2s ease;
+            transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
 
-            /* 渲染优化：跳过屏外 DOM 渲染计算 */
             content-visibility: auto;
             contain-intrinsic-size: 0 180px;
         }
@@ -289,7 +365,7 @@
             border-radius: 18px;
             background: var(--card-secondary);
             overflow: hidden;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
         }
 
         .module-icon img {
@@ -360,8 +436,8 @@
             height: 22px;
             padding: 0 8px;
             border-radius: 11px;
-            background: rgba(255,255,255,.06);
-            color: #8e8e93;
+            background: var(--card-secondary);
+            color: var(--text-secondary);
             font-size: 11px;
             white-space: nowrap;
         }
@@ -402,7 +478,7 @@
             flex: 0 0 26px;
             border-radius: 50%;
             background: var(--card-secondary);
-            color: #d1d1d6;
+            color: var(--text-primary);
             font-size: 12px;
         }
 
@@ -446,7 +522,7 @@
         }
 
         .button-secondary:hover {
-            background: #3a3a3c;
+            opacity: 0.85;
         }
 
         .button-primary {
@@ -480,14 +556,14 @@
         .loading-card {
             height: 190px;
             border-radius: var(--radius-large);
-            background: linear-gradient(90deg, #1c1c1e 0%, #28282b 50%, #1c1c1e 100%);
-            background-size: 200% 100%;
-            animation: skeletonLoading 1.4s infinite;
+            background: var(--card);
+            box-shadow: inset 0 0 0 1px var(--border-subtle);
+            animation: skeletonPulse 1.4s infinite;
         }
 
-        @keyframes skeletonLoading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+        @keyframes skeletonPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 0.9; }
         }
 
         /* Footer */
@@ -517,11 +593,11 @@
             z-index: 999;
             padding: 10px 20px;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #000000;
+            background: var(--toast-bg);
+            color: var(--toast-text);
             font-size: 14px;
             font-weight: 600;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
             opacity: 0;
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
             pointer-events: none;
@@ -567,9 +643,12 @@
     <div class="container">
 
         <header class="header">
-            <h1 class="title">
-                <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener">Shadowrocket 模块中心</a>
-            </h1>
+            <div class="header-top">
+                <h1 class="title">
+                    <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener">Shadowrocket 模块中心</a>
+                </h1>
+                <button id="themeToggle" class="theme-toggle" title="切换深/浅色模式" aria-label="切换深/浅色模式"></button>
+            </div>
             <div class="subtitle">
                 资源来自于
                 <a href="https://github.com/fmz200/wool_scripts" target="_blank" rel="noopener">
@@ -623,12 +702,15 @@
         ========================================================= */
         const CONFIG = {
             README_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/README-RULE.md",
-            REDIRECT_URL: "https://lowertop.github.io/Shadowrocket-First/redirect.html",
             CONCURRENCY: 12,
-            CACHE_KEY: "sr_modules_data_v4",
-            CACHE_TIME_KEY: "sr_modules_time_v4",
+            CACHE_KEY: "sr_modules_data_v8",
+            CACHE_TIME_KEY: "sr_modules_time_v8",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
+
+        /* SVG 图标定义 */
+        const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+        const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
 
         /* =========================================================
            DOM Elements
@@ -640,9 +722,40 @@
         const statusDot = document.getElementById("statusDot");
         const countText = document.getElementById("countText");
         const toast = document.getElementById("toast");
+        const themeToggle = document.getElementById("themeToggle");
 
         let allModules = [];
         let searchTimer = null;
+
+        /* =========================================================
+           Theme Switcher (深/浅色模式)
+        ========================================================= */
+        function initTheme() {
+            const savedTheme = localStorage.getItem("sr_theme");
+            const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+            
+            const initialTheme = savedTheme || (systemPrefersLight ? "light" : "dark");
+            applyTheme(initialTheme);
+        }
+
+        function applyTheme(theme) {
+            if (theme === "light") {
+                document.documentElement.setAttribute("data-theme", "light");
+                themeToggle.innerHTML = SUN_ICON;
+            } else {
+                document.documentElement.removeAttribute("data-theme");
+                themeToggle.innerHTML = MOON_ICON;
+            }
+            localStorage.setItem("sr_theme", theme);
+        }
+
+        themeToggle.addEventListener("click", () => {
+            const currentTheme = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+            const newTheme = currentTheme === "light" ? "dark" : "light";
+            applyTheme(newTheme);
+        });
+
+        initTheme();
 
         /* =========================================================
            Utilities
@@ -697,30 +810,14 @@
         }
 
         /* =========================================================
-           HTTP Range 分片截取 (仅请求前 2KB 元信息)
+           网络请求
         ========================================================= */
-        function getCdnURL(githubRawUrl) {
-            const parsed = parseGitHubRawURL(githubRawUrl);
-            if (!parsed) return githubRawUrl;
-            return `https://cdn.jsdelivr.net/gh/${parsed.owner}/${parsed.repo}@${parsed.branch}/${parsed.path}`;
-        }
-
-        async function fetchWithFallback(url, isPartial = true) {
+        async function fetchRawText(url, isPartial = true) {
             const headers = isPartial ? { 'Range': 'bytes=0-2047' } : {};
-
-            try {
-                const response = await fetch(url, { headers, cache: "no-store" });
-                if (response.ok || response.status === 206) return await response.text();
-            } catch (e) {
-                console.warn("Direct fetch failed, trying CDN mirror:", url);
+            const response = await fetch(url, { headers, cache: "no-store" });
+            if (response.ok || response.status === 206) {
+                return await response.text();
             }
-
-            const cdnUrl = getCdnURL(url);
-            if (cdnUrl !== url) {
-                const response = await fetch(cdnUrl, { headers, cache: "no-store" });
-                if (response.ok || response.status === 206) return await response.text();
-            }
-
             throw new Error(`无法获取资源: ${url}`);
         }
 
@@ -913,8 +1010,43 @@
         }
 
         /* =========================================================
-           Icon Resolvers & Generators
+           iOS 风格渲染图标 (渐变高明度、清新柔和)
         ========================================================= */
+        function hashString(value) {
+            let hash = 0;
+            for (let i = 0; i < value.length; i++) {
+                hash = ((hash << 5) - hash + value.charCodeAt(i)) | 0;
+            }
+            return Math.abs(hash);
+        }
+
+        function createIOSAppIcon(name) {
+            const cleanName = (name || "").trim();
+            const char = Array.from(cleanName)[0] || "模";
+            const hash = hashString(cleanName);
+
+            const hue1 = hash % 360;
+            const hue2 = (hue1 + 35 + (hash % 30)) % 360;
+
+            /* 高明度 (60%~68%) + 柔和饱和度 (50%~55%)，使颜色明亮而不刺眼 */
+            const color1 = `hsl(${hue1}, 52%, 68%)`;
+            const color2 = `hsl(${hue2}, 55%, 58%)`;
+
+            const svg = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                <defs>
+                    <linearGradient id="g_${hash}" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="${color1}"/>
+                        <stop offset="100%" stop-color="${color2}"/>
+                    </linearGradient>
+                </defs>
+                <rect width="256" height="256" rx="58" ry="58" fill="url(#g_${hash})"/>
+                <text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text>
+            </svg>`;
+
+            return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+        }
+
         function resolveIconURL(icon, rawURL) {
             if (!icon) return "";
             icon = icon.trim();
@@ -926,38 +1058,8 @@
             }
         }
 
-        function hashString(value) {
-            let hash = 0;
-            for (let i = 0; i < value.length; i++) {
-                hash = ((hash << 5) - hash + value.charCodeAt(i)) | 0;
-            }
-            return Math.abs(hash);
-        }
-
-        function generateIcon(name) {
-            const hash = hashString(name);
-            const hue1 = hash % 360;
-            const hue2 = (hue1 + 55 + (hash % 45)) % 360;
-            const first = Array.from(name.trim())[0] || "模";
-
-            const svg = `
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <defs>
-                    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="hsl(${hue1},75%,55%)"/>
-                        <stop offset="100%" stop-color="hsl(${hue2},75%,48%)"/>
-                    </linearGradient>
-                </defs>
-                <rect width="256" height="256" rx="58" fill="url(#g)"/>
-                <text x="128" y="130" text-anchor="middle" dominant-baseline="middle" fill="white" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="104" font-weight="700">${escapeHTML(first)}</text>
-            </svg>`;
-
-            return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
-        }
-
         function createInstallURL(rawURL) {
-            const shadowrocketURL = "shadowrocket://install?module=" + rawURL;
-            return CONFIG.REDIRECT_URL + "?url=" + encodeURIComponent(shadowrocketURL);
+            return "shadowrocket://install?module=" + encodeURIComponent(rawURL);
         }
 
         function getRepositoryAvatar(rawURL) {
@@ -966,11 +1068,11 @@
         }
 
         /* =========================================================
-           Fetch Single Module (Partially)
+           Fetch Single Module
         ========================================================= */
         async function fetchModule(item) {
             try {
-                const rawText = await fetchWithFallback(item.rawURL, true);
+                const rawText = await fetchRawText(item.rawURL, true);
                 const metadata = parseModuleMetadata(rawText, item.name);
                 const icon = resolveIconURL(metadata.icon, item.rawURL);
                 const description = generateDescription(metadata, rawText);
@@ -1005,7 +1107,7 @@
         }
 
         /* =========================================================
-           首屏流式渲染 (Stream Processor)
+           首屏流式渲染
         ========================================================= */
         async function processModulesStream(items, onItemLoaded) {
             const results = new Array(items.length);
@@ -1050,8 +1152,11 @@
             const card = document.createElement("article");
             card.className = "module-card";
 
-            const fallbackIcon = generateIcon(module.name);
+            /* 高明度渐变渲染降级图标 */
+            const fallbackIcon = createIOSAppIcon(module.name);
+            /* 若模块文件中自带 icon 字段则优先显示，无原生图标时使用渐变渲染图标 */
             const icon = module.icon || fallbackIcon;
+
             const authorHTML = renderAuthor(module);
             const tags = Array.isArray(module.tags) ? module.tags : [];
             const tagsHTML = tags.slice(0, 6).map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join("");
@@ -1096,6 +1201,7 @@
                 });
             }
 
+            /* 原生图标加载失败时自动平滑回退到高明度渐变图标 */
             const image = card.querySelector(".module-icon img");
             if (image) {
                 image.addEventListener("error", () => { image.src = fallbackIcon; }, { once: true });
@@ -1131,7 +1237,7 @@
         function filterModules() {
             const keyword = searchInput.value.trim().toLowerCase();
 
-            if (keyword.length > 0) {
+            if (searchInput.value.length > 0) {
                 searchClear.classList.add("visible");
             } else {
                 searchClear.classList.remove("visible");
@@ -1205,7 +1311,7 @@
                     statusDot.className = "status-dot loading";
                 }
 
-                const markdown = await fetchWithFallback(CONFIG.README_URL, false);
+                const markdown = await fetchRawText(CONFIG.README_URL, false);
                 const sourceModules = parseMarkdown(markdown);
                 if (!sourceModules.length) {
                     throw new Error("README 中未解析到有效模块信息");
