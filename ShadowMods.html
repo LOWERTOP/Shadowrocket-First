@@ -7,13 +7,13 @@
     <meta name="theme-color" content="#000000">
     <title>Shadowrocket 模块中心</title>
 
-    <!-- 1. 浏览器标签页 Icon (🚀 Emoji Data URI) -->
+    <!-- 1. 浏览器标签页 Icon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 
     <!-- 2. iOS 桌面主屏幕图标 -->
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowMods.png">
 
-    <!-- 网络层 - 仅预解析 GitHub 原生域名 -->
+    <!-- 网络层 - 预解析 GitHub 原生域名 -->
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
     <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
 
@@ -22,7 +22,6 @@
            Design Tokens (深色/浅色 双主题)
         ========================================================= */
         :root, [data-theme="dark"] {
-            /* 默认深色主题 (Dark Mode) */
             --background: #000000;
             --card: #1c1c1e;
             --card-hover: #232326;
@@ -48,7 +47,6 @@
         }
 
         [data-theme="light"] {
-            /* 浅色主题 (Light Mode) */
             --background: #f2f2f7;
             --card: #ffffff;
             --card-hover: #f9f9fb;
@@ -70,599 +68,98 @@
             --toast-text: #ffffff;
         }
 
-        /* =========================================================
-           Reset
-        ========================================================= */
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html {
-            margin: 0;
-            padding: 0;
-            background: var(--background);
-            transition: background-color 0.25s ease;
-        }
-
-        body {
-            margin: 0;
-            padding: max(16px, env(safe-area-inset-top)) 16px max(32px, env(safe-area-inset-bottom));
-            background: var(--background);
-            color: var(--text-primary);
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-            transition: background-color 0.25s ease, color 0.25s ease;
-        }
-
-        button, input {
-            font: inherit;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        /* =========================================================
-           Container & Layout
-        ========================================================= */
-        .container {
-            width: 100%;
-            max-width: var(--content-width);
-            margin: 0 auto;
-        }
-
-        /* Header */
-        .header {
-            padding: 24px 0 16px;
-        }
-
-        .header-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-        }
-
-        .title {
-            margin: 0;
-            font-size: 34px;
-            line-height: 1.15;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .title a {
-            color: inherit;
-            text-decoration: none;
-            transition: opacity 0.2s ease;
-        }
-
-        .title a:hover {
-            opacity: 0.8;
-        }
-
-        /* 主题控制按钮组 */
-        .theme-controls {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-shrink: 0;
-        }
-
-        .theme-toggle {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 42px;
-            height: 42px;
-            padding: 0;
-            margin: 0;
-            border: 0;
-            border-radius: 50%;
-            background: var(--card);
-            color: var(--text-primary);
-            cursor: pointer;
-            box-shadow: inset 0 0 0 1px var(--border-subtle);
-            transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.92);
-        }
-
-        /* 高亮激活状态（如“自动跟随系统”开启时） */
-        .theme-toggle.active {
-            color: var(--blue);
-            box-shadow: inset 0 0 0 1.5px var(--blue);
-        }
-
-        .theme-toggle svg {
-            display: block;
-            width: 20px;
-            height: 20px;
-            pointer-events: none;
-        }
-
-        .subtitle {
-            margin-top: 8px;
-            color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.5;
-        }
-
-        .subtitle a {
-            color: var(--blue);
-            text-decoration: none;
-        }
-
-        .subtitle a:hover {
-            text-decoration: underline;
-        }
-
-        /* Notice */
-        .notice {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            min-height: 56px;
-            margin-bottom: 16px;
-            padding: 12px 18px;
-            background: var(--card);
-            border-radius: 16px;
-            color: var(--text-primary);
-            font-size: 14.5px;
-            line-height: 1.4;
-            box-shadow: inset 0 0 0 1px var(--border-subtle);
-        }
-
-        .notice-icon {
-            flex: 0 0 auto;
-            font-size: 22px;
-        }
-
-        /* Search Bar */
-        .search-wrapper {
-            position: relative;
-            margin-bottom: 14px;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            z-index: 1;
-            transform: translateY(-50%);
-            color: var(--text-secondary);
-            font-size: 20px;
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        .search {
-            display: block;
-            width: 100%;
-            height: 54px;
-            padding: 0 48px 0 50px;
-            border: 0;
-            outline: none;
-            border-radius: 18px;
-            background: var(--card);
-            color: var(--text-primary);
-            font-size: 17px;
-            box-shadow: inset 0 0 0 1px var(--border-subtle);
-            transition: background 0.2s ease, box-shadow 0.2s ease;
-            appearance: none;
-            -webkit-appearance: none;
-        }
-
-        .search::-webkit-search-decoration,
-        .search::-webkit-search-cancel-button,
-        .search::-webkit-search-results-button,
-        .search::-webkit-search-results-decoration {
-            -webkit-appearance: none;
-            display: none;
-        }
-
-        .search::placeholder {
-            color: var(--text-secondary);
-        }
-
-        .search:focus {
-            box-shadow: inset 0 0 0 1.5px var(--blue);
-        }
-
-        .search-clear {
-            position: absolute;
-            right: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-            border: 0;
-            border-radius: 50%;
-            background: var(--text-tertiary);
-            color: var(--background);
-            font-size: 13px;
-            font-weight: bold;
-            cursor: pointer;
-            padding: 0;
-            line-height: 1;
-            transition: opacity 0.15s ease;
-        }
-
-        .search-clear.visible {
-            display: flex;
-        }
-
-        /* Status Bar */
-        .status {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 22px;
-            margin: 0 4px 12px;
-            color: var(--text-tertiary);
-            font-size: 13px;
-        }
-
-        .status-left {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-        }
-
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            flex: 0 0 7px;
-            border-radius: 50%;
-            background: var(--green);
-        }
-
-        .status-dot.loading {
-            background: var(--orange);
-            animation: statusPulse 1.2s infinite;
-        }
-
-        .status-dot.error {
-            background: var(--red);
-        }
-
-        @keyframes statusPulse {
-            0%, 100% { opacity: .35; }
-            50% { opacity: 1; }
-        }
-
-        /* Module List */
-        .modules {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        /* Module Card */
-        .module-card {
-            position: relative;
-            padding: 20px 22px;
-            border-radius: var(--radius-large);
-            background: var(--card);
-            box-shadow: inset 0 0 0 1px var(--border-subtle);
-            overflow: hidden;
-            transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
-
-            content-visibility: auto;
-            contain-intrinsic-size: 0 180px;
-        }
-
-        .module-card:hover {
-            background: var(--card-hover);
-        }
-
-        /* Card Header */
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .module-icon {
-            width: 70px;
-            height: 70px;
-            flex: 0 0 70px;
-            border-radius: 18px;
-            background: var(--card-secondary);
-            overflow: hidden;
-            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
-        }
-
-        .module-icon img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-main {
-            min-width: 0;
-            flex: 1;
-        }
-
-        .module-name {
-            margin: 0;
-            font-size: 22px;
-            line-height: 1.25;
-            font-weight: 600;
-            letter-spacing: -.3px;
-            word-break: break-word;
-        }
-
-        .module-meta {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 6px;
-            color: var(--text-tertiary);
-            font-size: 13px;
-        }
-
-        .meta-separator {
-            opacity: .45;
-        }
-
-        .author {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            color: var(--text-tertiary);
-            text-decoration: none;
-        }
-
-        .author:hover {
-            color: var(--text-secondary);
-        }
-
-        .author-avatar {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        /* Tags */
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 8px;
-        }
-
-        .tag {
-            display: inline-flex;
-            align-items: center;
-            height: 22px;
-            padding: 0 8px;
-            border-radius: 11px;
-            background: var(--card-secondary);
-            color: var(--text-secondary);
-            font-size: 11px;
-            white-space: nowrap;
-        }
-
-        /* Description */
-        .module-description {
-            margin-top: 14px;
-            color: var(--text-secondary);
-            font-size: 15.5px;
-            line-height: 1.55;
-            word-break: break-word;
-        }
-
-        /* Bottom Actions */
-        .card-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            margin-top: 18px;
-        }
-
-        .source {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            min-width: 0;
-            color: var(--text-tertiary);
-            font-size: 13px;
-        }
-
-        .source-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 26px;
-            height: 26px;
-            flex: 0 0 26px;
-            border-radius: 50%;
-            background: var(--card-secondary);
-            color: var(--text-primary);
-            font-size: 12px;
-        }
-
-        .source-text {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .action-buttons {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-shrink: 0;
-        }
-
-        /* Buttons */
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 42px;
-            padding: 0 18px;
-            border: 0;
-            border-radius: 21px;
-            font-size: 15px;
-            font-weight: 600;
-            white-space: nowrap;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background .15s ease, transform .15s ease, opacity .15s ease;
-        }
-
-        .button:active {
-            transform: scale(.95);
-        }
-
-        .button-secondary {
-            background: var(--card-secondary);
-            color: var(--blue);
-        }
-
-        .button-secondary:hover {
-            opacity: 0.85;
-        }
-
-        .button-primary {
-            background: var(--blue);
-            color: #ffffff;
-        }
-
-        .button-primary:hover {
-            background: var(--blue-hover);
-        }
-
-        /* Empty & Loading */
-        .empty {
-            padding: 60px 20px;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 16px;
-        }
-
-        .empty-icon {
-            margin-bottom: 12px;
-            font-size: 36px;
-        }
-
-        .empty-error {
-            margin-top: 8px;
-            color: var(--text-tertiary);
-            font-size: 13px;
-        }
-
-        .loading-card {
-            height: 190px;
-            border-radius: var(--radius-large);
-            background: var(--card);
-            box-shadow: inset 0 0 0 1px var(--border-subtle);
-            animation: skeletonPulse 1.4s infinite;
-        }
-
-        @keyframes skeletonPulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 0.9; }
-        }
-
-        /* Footer */
-        .footer {
-            padding: 32px 0 16px;
-            color: var(--text-tertiary);
-            text-align: center;
-            font-size: 12px;
-            line-height: 1.6;
-        }
-
-        .footer a {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            z-index: 999;
-            padding: 10px 20px;
-            border-radius: 20px;
-            background: var(--toast-bg);
-            color: var(--toast-text);
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-            opacity: 0;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-
-        /* Mobile Optimization */
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { margin: 0; padding: 0; background: var(--background); transition: background-color 0.25s ease; }
+        body { margin: 0; padding: max(16px, env(safe-area-inset-top)) 16px max(32px, env(safe-area-inset-bottom)); background: var(--background); color: var(--text-primary); font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; transition: background-color 0.25s ease, color 0.25s ease; }
+        button, input { font: inherit; }
+        a { color: inherit; }
+        .container { width: 100%; max-width: var(--content-width); margin: 0 auto; }
+        .header { padding: 24px 0 16px; }
+        .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+        .title { margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -1px; }
+        .title a { color: inherit; text-decoration: none; transition: opacity 0.2s ease; }
+        .title a:hover { opacity: 0.8; }
+        .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0; margin: 0; border: 0; border-radius: 50%; background: var(--card); color: var(--text-primary); cursor: pointer; box-shadow: inset 0 0 0 1px var(--border-subtle); transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease, box-shadow 0.2s ease; }
+        .theme-toggle:active { transform: scale(0.92); }
+        .theme-toggle.active { color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--blue); }
+        .theme-toggle svg { display: block; width: 20px; height: 20px; pointer-events: none; }
+        .subtitle { margin-top: 8px; color: var(--text-secondary); font-size: 15px; line-height: 1.5; }
+        .subtitle a { color: var(--blue); text-decoration: none; }
+        .subtitle a:hover { text-decoration: underline; }
+        .notice { display: flex; align-items: center; gap: 12px; min-height: 56px; margin-bottom: 16px; padding: 12px 18px; background: var(--card); border-radius: 16px; color: var(--text-primary); font-size: 14.5px; line-height: 1.4; box-shadow: inset 0 0 0 1px var(--border-subtle); }
+        .notice-icon { flex: 0 0 auto; font-size: 22px; }
+        .search-wrapper { position: relative; margin-bottom: 14px; }
+        .search-icon { position: absolute; left: 18px; top: 50%; z-index: 1; transform: translateY(-50%); color: var(--text-secondary); font-size: 20px; line-height: 1; pointer-events: none; }
+        .search { display: block; width: 100%; height: 54px; padding: 0 48px 0 50px; border: 0; outline: none; border-radius: 18px; background: var(--card); color: var(--text-primary); font-size: 17px; box-shadow: inset 0 0 0 1px var(--border-subtle); transition: background 0.2s ease, box-shadow 0.2s ease; appearance: none; -webkit-appearance: none; }
+        .search::-webkit-search-decoration, .search::-webkit-search-cancel-button, .search::-webkit-search-results-button, .search::-webkit-search-results-decoration { -webkit-appearance: none; display: none; }
+        .search::placeholder { color: var(--text-secondary); }
+        .search:focus { box-shadow: inset 0 0 0 1.5px var(--blue); }
+        .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); display: none; align-items: center; justify-content: center; width: 24px; height: 24px; border: 0; border-radius: 50%; background: var(--text-tertiary); color: var(--background); font-size: 13px; font-weight: bold; cursor: pointer; padding: 0; line-height: 1; transition: opacity 0.15s ease; }
+        .search-clear.visible { display: flex; }
+        .status { display: flex; align-items: center; justify-content: space-between; min-height: 22px; margin: 0 4px 12px; color: var(--text-tertiary); font-size: 13px; }
+        .status-left { display: flex; align-items: center; gap: 7px; }
+        .status-dot { width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: var(--green); }
+        .status-dot.loading { background: var(--orange); animation: statusPulse 1.2s infinite; }
+        .status-dot.error { background: var(--red); }
+        @keyframes statusPulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+        .modules { display: flex; flex-direction: column; gap: 14px; }
+        .module-card { position: relative; padding: 20px 22px; border-radius: var(--radius-large); background: var(--card); box-shadow: inset 0 0 0 1px var(--border-subtle); overflow: hidden; transition: background .2s ease, transform .2s ease, box-shadow .2s ease; content-visibility: auto; contain-intrinsic-size: 0 180px; }
+        .module-card:hover { background: var(--card-hover); }
+        .card-header { display: flex; align-items: center; gap: 16px; }
+        .module-icon { width: 70px; height: 70px; flex: 0 0 70px; border-radius: 18px; background: var(--card-secondary); overflow: hidden; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06); }
+        .module-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .card-main { min-width: 0; flex: 1; }
+        .module-name { margin: 0; font-size: 22px; line-height: 1.25; font-weight: 600; letter-spacing: -.3px; word-break: break-word; }
+        .module-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 6px; color: var(--text-tertiary); font-size: 13px; }
+        .meta-separator { opacity: .45; }
+        .author { display: inline-flex; align-items: center; gap: 5px; color: var(--text-tertiary); text-decoration: none; }
+        .author:hover { color: var(--text-secondary); }
+        .author-avatar { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; }
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .tag { display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 11px; background: var(--card-secondary); color: var(--text-secondary); font-size: 11px; white-space: nowrap; }
+        .module-description { margin-top: 14px; color: var(--text-secondary); font-size: 15.5px; line-height: 1.55; word-break: break-word; }
+        .card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; }
+        .source { display: flex; align-items: center; gap: 8px; min-width: 0; color: var(--text-tertiary); font-size: 13px; }
+        .source-icon { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; flex: 0 0 26px; border-radius: 50%; background: var(--card-secondary); color: var(--text-primary); font-size: 12px; }
+        .source-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .action-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .button { display: inline-flex; align-items: center; justify-content: center; height: 42px; padding: 0 18px; border: 0; border-radius: 21px; font-size: 15px; font-weight: 600; white-space: nowrap; cursor: pointer; text-decoration: none; transition: background .15s ease, transform .15s ease, opacity .15s ease; }
+        .button:active { transform: scale(.95); }
+        .button-secondary { background: var(--card-secondary); color: var(--blue); }
+        .button-secondary:hover { opacity: 0.85; }
+        .button-primary { background: var(--blue); color: #ffffff; }
+        .button-primary:hover { background: var(--blue-hover); }
+        .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 16px; }
+        .empty-icon { margin-bottom: 12px; font-size: 36px; }
+        .empty-error { margin-top: 8px; color: var(--text-tertiary); font-size: 13px; }
+        .loading-card { height: 190px; border-radius: var(--radius-large); background: var(--card); box-shadow: inset 0 0 0 1px var(--border-subtle); animation: skeletonPulse 1.4s infinite; }
+        @keyframes skeletonPulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 0.9; } }
+        .footer { padding: 32px 0 16px; color: var(--text-tertiary); text-align: center; font-size: 12px; line-height: 1.6; }
+        .footer a { color: var(--text-secondary); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); z-index: 999; padding: 10px 20px; border-radius: 20px; background: var(--toast-bg); color: var(--toast-text); font-size: 14px; font-weight: 600; box-shadow: 0 10px 25px rgba(0,0,0,0.25); opacity: 0; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; pointer-events: none; }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
         @media (max-width: 600px) {
-            body {
-                padding-left: 12px;
-                padding-right: 12px;
-            }
-            .title {
-                font-size: 28px;
-            }
-            .module-card {
-                padding: 18px 16px;
-            }
-            .module-icon {
-                width: 60px;
-                height: 60px;
-                flex-basis: 60px;
-                border-radius: 15px;
-            }
-            .module-name {
-                font-size: 19px;
-            }
-            .button {
-                height: 38px;
-                padding: 0 14px;
-                font-size: 14px;
-            }
+            body { padding-left: 12px; padding-right: 12px; }
+            .title { font-size: 28px; }
+            .module-card { padding: 18px 16px; }
+            .module-icon { width: 60px; height: 60px; flex-basis: 60px; border-radius: 15px; }
+            .module-name { font-size: 19px; }
+            .button { height: 38px; padding: 0 14px; font-size: 14px; }
         }
     </style>
 </head>
 
 <body>
-
     <div class="container">
-
         <header class="header">
             <div class="header-top">
                 <h1 class="title">
                     <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener">Shadowrocket 模块中心</a>
                 </h1>
                 <div class="theme-controls">
-                    <!-- 1. 自动跟随系统按钮 -->
                     <button id="themeAuto" class="theme-toggle" aria-label="自动跟随系统"></button>
-                    <!-- 2. 手动切换深浅色按钮 -->
                     <button id="themeToggle" class="theme-toggle" aria-label="手动切换模式"></button>
                 </div>
             </div>
@@ -700,17 +197,10 @@
         </main>
 
         <footer class="footer">
-            特别鸣谢：
-            <a href="https://github.com/fmz200" target="_blank" rel="noopener">
-                奶思
-            </a>
-            <br>
+            特别鸣谢：<a href="https://github.com/fmz200" target="_blank" rel="noopener">奶思</a><br>
             著作权归奶思所有
         </footer>
-
     </div>
-
-    <!-- Toast 提示框 -->
     <div id="toast" class="toast">已复制模块链接</div>
 
     <script>
@@ -719,20 +209,65 @@
         ========================================================= */
         const CONFIG = {
             README_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/README-RULE.md",
+            ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json", 
             CONCURRENCY: 12,
-            CACHE_KEY: "sr_modules_data_v8",
-            CACHE_TIME_KEY: "sr_modules_time_v8",
+            CACHE_KEY: "sr_modules_data_v12", // 升级缓存号彻底清除坏数据
+            CACHE_TIME_KEY: "sr_modules_time_v12",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
-        /* SVG 图标定义 */
+        /* 常用 App 中英文/拼音别名映射表 */
+        const APP_ALIASES = {
+            "苹果": ["apple"],
+            "apple": ["apple"],
+            "谷歌": ["google"],
+            "微软": ["microsoft"],
+            "油管": ["youtube"],
+            "电报": ["telegram"],
+            "推特": ["twitter", "x"],
+            "奈飞": ["netflix"],
+            "网飞": ["netflix"],
+            "迪士尼": ["disney"],
+            "京东": ["jd", "jingdong"],
+            "哔哩哔哩": ["bilibili", "b站"],
+            "b站": ["bilibili"],
+            "微信": ["weixin", "wechat"],
+            "微博": ["weibo"],
+            "知乎": ["zhihu"],
+            "小红书": ["xhs", "xiaohongshu"],
+            "抖音": ["douyin", "tiktok"],
+            "快手": ["kuaishou"],
+            "网易云": ["netease", "cloudmusic"],
+            "百度": ["baidu"],
+            "高德": ["amap", "gaode"],
+            "腾讯": ["tencent"],
+            "美团": ["meituan"],
+            "拼多多": ["pdd", "pinduoduo"],
+            "闲鱼": ["xianyu"],
+            "咸鱼": ["xianyu"],
+            "饿了么": ["eleme"],
+            "爱奇艺": ["iqiyi"],
+            "优酷": ["youku"],
+            "淘宝": ["taobao"],
+            "豆瓣": ["douban"],
+            "贴吧": ["tieba"],
+            "夸克": ["quark"],
+            "12306": ["12306"],
+            "高德地图": ["amap"]
+        };
+
+        // 国旗 / 国家代码排除黑名单
+        const FLAG_CODES = new Set([
+            "cn", "us", "hk", "tw", "jp", "kr", "sg", "uk", "gb", "de", "fr", "ca",
+            "ru", "au", "mo", "vn", "th", "ph", "my", "in", "id", "br", "cl", "ar",
+            "mx", "nl", "se", "no", "fi", "ch", "at", "it", "es", "pt", "tr", "ua",
+            "za", "nz", "ie", "pl", "ro", "cz", "hu", "gr", "bg", "hr", "sk", "il"
+        ]);
+
         const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
         const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
         const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
 
-        /* =========================================================
-           DOM Elements
-        ========================================================= */
         const modulesContainer = document.getElementById("modules");
         const searchInput = document.getElementById("search");
         const searchClear = document.getElementById("searchClear");
@@ -746,34 +281,25 @@
 
         let allModules = [];
         let searchTimer = null;
+        let remoteIconsMap = {};
 
         /* =========================================================
-           Theme Engine (支持系统自动跟随 + 手动独立控制)
+           Theme Engine
         ========================================================= */
         const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-        // 渲染初始化图标
         themeAutoBtn.innerHTML = SYSTEM_ICON;
 
-        // 计算当前生效的主题
         function getEffectiveTheme() {
             const userChoice = localStorage.getItem("sr_theme_override");
-            if (userChoice === "dark" || userChoice === "light") {
-                return userChoice;
-            }
+            if (userChoice === "dark" || userChoice === "light") return userChoice;
             return mediaQueryDark.matches ? "dark" : "light";
         }
 
-        // 应用主题并刷新两个按钮的视觉状态
         function updateThemeUI() {
             const userChoice = localStorage.getItem("sr_theme_override");
             const isAutoMode = !userChoice;
             const currentTheme = getEffectiveTheme();
-
-            // 1. 设置根节点 HTML dataset
             document.documentElement.setAttribute("data-theme", currentTheme);
-
-            // 2. 自动跟随按钮状态
             if (isAutoMode) {
                 themeAutoBtn.classList.add("active");
                 themeAutoBtn.setAttribute("title", "已开启：自动跟随系统");
@@ -781,8 +307,6 @@
                 themeAutoBtn.classList.remove("active");
                 themeAutoBtn.setAttribute("title", "点击恢复为自动跟随系统");
             }
-
-            // 3. 手动切换按钮图标
             if (currentTheme === "dark") {
                 themeToggleBtn.innerHTML = MOON_ICON;
                 themeToggleBtn.setAttribute("title", "当前：深色模式（点击切换为浅色）");
@@ -792,60 +316,41 @@
             }
         }
 
-        // 监听系统深浅色事件变动
         mediaQueryDark.addEventListener("change", () => {
-            if (!localStorage.getItem("sr_theme_override")) {
-                updateThemeUI();
-            }
+            if (!localStorage.getItem("sr_theme_override")) updateThemeUI();
         });
 
-        // 事件 1：点击“自动跟随系统”按钮
         themeAutoBtn.addEventListener("click", () => {
             localStorage.removeItem("sr_theme_override");
             updateThemeUI();
             showToast("已恢复自动跟随系统");
         });
 
-        // 事件 2：点击“手动切换”按钮
         themeToggleBtn.addEventListener("click", () => {
             const currentTheme = getEffectiveTheme();
             const nextTheme = currentTheme === "dark" ? "light" : "dark";
-
             localStorage.setItem("sr_theme_override", nextTheme);
             updateThemeUI();
             showToast(`已切换为${nextTheme === "dark" ? "深色" : "浅色"}模式`);
         });
 
-        // 初始化外观
         updateThemeUI();
 
         /* =========================================================
            Utilities
         ========================================================= */
         function escapeHTML(value) {
-            return String(value ?? "")
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
+            return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
 
         function cleanText(value) {
-            return String(value ?? "")
-                .replace(/\\n/g, " ")
-                .replace(/\\r/g, "")
-                .replace(/\\t/g, " ")
-                .replace(/\s+/g, " ")
-                .trim();
+            return String(value ?? "").replace(/\\n/g, " ").replace(/\\r/g, "").replace(/\\t/g, " ").replace(/\s+/g, " ").trim();
         }
 
         function showToast(text) {
             toast.textContent = text;
             toast.classList.add("show");
-            setTimeout(() => {
-                toast.classList.remove("show");
-            }, 2000);
+            setTimeout(() => { toast.classList.remove("show"); }, 2000);
         }
 
         async function copyToClipboard(text) {
@@ -855,7 +360,6 @@
                     return true;
                 }
             } catch (e) {}
-
             const textArea = document.createElement("textarea");
             textArea.value = text;
             textArea.style.position = "fixed";
@@ -864,37 +368,153 @@
             textArea.focus();
             textArea.select();
             let success = false;
-            try {
-                success = document.execCommand("copy");
-            } catch (e) {}
+            try { success = document.execCommand("copy"); } catch (e) {}
             document.body.removeChild(textArea);
             return success;
         }
 
         /* =========================================================
-           网络请求
+           网络请求与图标匹配引擎（修复防误吸 & 空Key逻辑）
         ========================================================= */
         async function fetchRawText(url, isPartial = true) {
             const headers = isPartial ? { 'Range': 'bytes=0-2047' } : {};
             const response = await fetch(url, { headers, cache: "no-store" });
-            if (response.ok || response.status === 206) {
-                return await response.text();
-            }
+            if (response.ok || response.status === 206) return await response.text();
             throw new Error(`无法获取资源: ${url}`);
         }
 
+        function isFlagKey(key) {
+            if (!key) return false;
+            const k = key.toLowerCase().trim();
+            return FLAG_CODES.has(k) || k.includes("flag") || k.startsWith("国旗");
+        }
+
+        async function loadRemoteIcons() {
+            try {
+                const response = await fetch(CONFIG.ICONS_JSON_URL, { cache: "no-store" });
+                if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
+                const data = await response.json();
+                
+                const extractUrl = (item) => {
+                    if (typeof item === 'string') return item;
+                    if (typeof item === 'object' && item !== null) {
+                        return item.icon || item.url || item.src || item.img || item.path || item.link || "";
+                    }
+                    return "";
+                };
+
+                const extractName = (item) => {
+                    if (typeof item === 'object' && item !== null) {
+                        return item.name || item.title || item.label || item.id || item.app || "";
+                    }
+                    return "";
+                };
+
+                const addMap = (name, url) => {
+                    if (name && typeof name === 'string' && url && typeof url === 'string' && url.length > 5) {
+                        const cleanName = name.trim().toLowerCase();
+                        if (cleanName.length < 2) return; // 关键防御 1：拒绝极短或空 Key 进入地图
+
+                        remoteIconsMap[cleanName] = url.trim();
+
+                        // 提取通用无编号 Key（例如 Apple_01 -> apple）
+                        const baseName = cleanName.replace(/[_-]?\d+$/, "").trim();
+                        if (baseName && baseName.length >= 2 && !remoteIconsMap[baseName]) {
+                            remoteIconsMap[baseName] = url.trim();
+                        }
+                    }
+                };
+
+                if (Array.isArray(data)) {
+                    data.forEach(item => addMap(extractName(item), extractUrl(item)));
+                } else if (data && typeof data === 'object') {
+                    const list = data.icons || data.data || data.list;
+                    if (Array.isArray(list)) {
+                        list.forEach(item => addMap(extractName(item), extractUrl(item)));
+                    } else {
+                        Object.entries(data).forEach(([k, v]) => addMap(k, extractUrl(v)));
+                    }
+                }
+            } catch (e) {
+                console.warn("⚠️ 远程图标库加载失败：", e);
+            }
+        }
+
+        function findIconInMap(key) {
+            if (!key) return "";
+            const lowerKey = key.toLowerCase().trim();
+            if (!lowerKey || lowerKey.length < 2) return "";
+
+            if (remoteIconsMap[lowerKey]) return remoteIconsMap[lowerKey];
+
+            const baseKey = lowerKey.replace(/[_-]?\d+$/, "").trim();
+            if (baseKey && baseKey.length >= 2 && remoteIconsMap[baseKey]) return remoteIconsMap[baseKey];
+
+            for (const [iconKey, iconUrl] of Object.entries(remoteIconsMap)) {
+                const cleanIconKey = iconKey.replace(/[_-]?\d+$/, "").trim();
+                if (cleanIconKey === lowerKey || (baseKey && cleanIconKey === baseKey)) {
+                    return iconUrl;
+                }
+            }
+            return "";
+        }
+
+        // 严谨智能匹配算法
+        function getMatchedIcon(name) {
+            if (!name) return "";
+            const lowerName = name.trim().toLowerCase();
+            if (!lowerName) return "";
+
+            // 1. 尝试直接原名匹配
+            let matched = findIconInMap(lowerName);
+            if (matched) return matched;
+
+            // 2. 清洗干扰词匹配
+            const cleanName = lowerName
+                .replace(/(去广告|净化|移除|破解|签到|脚本|模块|解锁|自动|净化版|修复|增强|vip|pro|lite|hd|edge|plus|v\d+)/g, "")
+                .replace(/[-_.\s]/g, "")
+                .trim();
+
+            if (cleanName && cleanName.length >= 2) {
+                matched = findIconInMap(cleanName);
+                if (matched) return matched;
+            }
+
+            // 3. 中英文别名表匹配
+            for (const [cnKeyword, enKeys] of Object.entries(APP_ALIASES)) {
+                if (lowerName.includes(cnKeyword.toLowerCase())) {
+                    for (const key of enKeys) {
+                        matched = findIconInMap(key);
+                        if (matched) return matched;
+                    }
+                }
+            }
+
+            // 4. 严谨模糊包含匹配（限制 Icon Key 必须 >= 3 字符，且排除国旗）
+            for (const [iconName, iconUrl] of Object.entries(remoteIconsMap)) {
+                if (!iconName || iconName.length < 3 || isFlagKey(iconName)) continue;
+
+                const baseIconName = iconName.replace(/[_-]?\d+$/, "").trim();
+                if (baseIconName.length < 3) continue;
+
+                if (lowerName.includes(iconName) || lowerName.includes(baseIconName)) {
+                    return iconUrl;
+                }
+            }
+
+            // 匹配不到时严格返回空字符串，确保完美触发原本的 iOS 渐变字母图标！
+            return "";
+        }
+
         /* =========================================================
-           Normalize Raw URL
+           Normalize Raw URL & Extract Markdown
         ========================================================= */
         function normalizeRawURL(url) {
             if (!url) return "";
             let value = url.trim().replace(/^<|>$/g, "").replace(/&amp;/g, "&");
-
             try {
                 const parsed = new URL(value);
-                if (parsed.hostname === "raw.githubusercontent.com") {
-                    return parsed.href;
-                }
+                if (parsed.hostname === "raw.githubusercontent.com") return parsed.href;
                 if (parsed.hostname === "github.com") {
                     const parts = parsed.pathname.split("/").filter(Boolean);
                     const rawIndex = parts.indexOf("raw");
@@ -903,9 +523,7 @@
                     }
                 }
                 return parsed.href;
-            } catch {
-                return value;
-            }
+            } catch { return value; }
         }
 
         function extractMarkdownLinks(text) {
@@ -913,10 +531,7 @@
             const regex = /\[([^\]]*)\]\(\s*(https?:\/\/[^)\s]+)\s*\)/g;
             let match;
             while ((match = regex.exec(text)) !== null) {
-                links.push({
-                    label: cleanText(match[1]),
-                    url: normalizeRawURL(match[2])
-                });
+                links.push({ label: cleanText(match[1]), url: normalizeRawURL(match[2]) });
             }
             return links;
         }
@@ -925,38 +540,25 @@
             if (!cell) return "";
             const links = extractMarkdownLinks(cell);
             for (const link of links) {
-                if (/raw/i.test(link.label) || /sgmodule/i.test(link.url) || /module/i.test(link.url)) {
-                    return link.url;
-                }
+                if (/raw/i.test(link.label) || /sgmodule/i.test(link.url) || /module/i.test(link.url)) return link.url;
             }
             const urlMatch = cell.match(/https?:\/\/[^\s|<>]+/i);
             return urlMatch ? normalizeRawURL(urlMatch[0]) : "";
         }
 
-        /* =========================================================
-           Parse Markdown
-        ========================================================= */
         function parseMarkdown(markdown) {
             const lines = markdown.split(/\r?\n/);
-            let headerIndex = -1;
-            let surgeIndex = -1;
-            let nameIndex = -1;
+            let headerIndex = -1, surgeIndex = -1, nameIndex = -1;
 
             for (let i = 0; i < lines.length; i++) {
                 const line = lines[i].trim();
                 if (!line.startsWith("|")) continue;
-
                 const columns = line.split("|").slice(1, -1).map(item => item.trim());
                 if (!columns.length) continue;
-
                 const foundSurgeIndex = columns.findIndex(col => /^(Surge|Surge\s*链接|Surge\s*模块|Surge\s*配置)$/i.test(col));
                 const foundNameIndex = columns.findIndex(col => /^(规则名称|模块名称|配置名称|名称)$/i.test(col));
-
                 if (foundSurgeIndex >= 0 && foundNameIndex >= 0) {
-                    headerIndex = i;
-                    surgeIndex = foundSurgeIndex;
-                    nameIndex = foundNameIndex;
-                    break;
+                    headerIndex = i; surgeIndex = foundSurgeIndex; nameIndex = foundNameIndex; break;
                 }
             }
 
@@ -966,24 +568,17 @@
             for (let i = headerIndex + 1; i < lines.length; i++) {
                 const line = lines[i].trim();
                 if (!line.startsWith("|")) continue;
-
                 const columns = line.split("|").slice(1, -1).map(item => item.trim());
                 if (!columns.length || columns.every(col => /^:?-+:?$/.test(col))) continue;
-
                 if (columns.length <= Math.max(surgeIndex, nameIndex)) continue;
 
                 let name = columns[nameIndex] || "";
                 name = name.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`/g, "").replace(/<br\s*\/?>/gi, " ").replace(/\s+/g, " ").trim();
-
                 const rawURL = findModuleRawURL(columns[surgeIndex]);
                 if (!rawURL || result.some(item => item.rawURL === rawURL)) continue;
 
-                result.push({
-                    name: name || "未命名模块",
-                    rawURL
-                });
+                result.push({ name: name || "未命名模块", rawURL });
             }
-
             return result;
         }
 
@@ -993,15 +588,12 @@
         function parseAuthor(value) {
             value = cleanText(value);
             if (!value) return { name: "未知作者", url: "", username: "" };
-
             const match = value.match(/^(.*?)\s*\[\s*(https?:\/\/[^\]]+)\s*\]\s*$/);
             if (!match) {
                 const github = value.match(/^https?:\/\/github\.com\/([^/?#]+)/i);
                 return github ? { name: github[1], url: value, username: github[1] } : { name: value, url: "", username: "" };
             }
-
-            const name = match[1].trim();
-            const url = match[2].trim();
+            const name = match[1].trim(), url = match[2].trim();
             const github = url.match(/github\.com\/([^/?#]+)/i);
             return { name, url, username: github ? github[1] : "" };
         }
@@ -1009,25 +601,18 @@
         function parseModuleMetadata(text, fallbackName) {
             const metadata = {};
             const lines = text.split(/\r?\n/);
-
             for (let i = 0; i < lines.length; i++) {
                 const line = lines[i].trim();
                 if (!line) continue;
-
                 if (line.startsWith("#!")) {
                     const match = line.match(/^#!([a-zA-Z0-9_-]+)\s*=\s*(.*)$/);
-                    if (match) {
-                        const key = match[1].trim().toLowerCase();
-                        metadata[key] = cleanText(match[2]);
-                    }
+                    if (match) metadata[match[1].trim().toLowerCase()] = cleanText(match[2]);
                     continue;
                 }
                 if (line.startsWith("#")) continue;
                 break;
             }
-
             const tags = metadata.tag ? metadata.tag.split(/[,，、]/).map(i => i.trim()).filter(Boolean) : [];
-
             return {
                 name: metadata.name || fallbackName || "未命名模块",
                 description: metadata.desc || "",
@@ -1039,22 +624,16 @@
 
         function generateDescription(metadata, rawText) {
             if (metadata.description) return metadata.description;
-
             const lines = rawText.split(/\r?\n/);
             const comments = [];
-
             for (let i = 0; i < Math.min(lines.length, 40); i++) {
                 let line = lines[i].trim();
                 if (!line || line.startsWith("#!") || line.startsWith("//")) continue;
-
                 if (line.startsWith("#")) {
                     line = line.replace(/^#+\s*/, "").trim();
-                    if (line && !/^[-=*]+$/.test(line) && line.length >= 4) {
-                        comments.push(line);
-                    }
+                    if (line && !/^[-=*]+$/.test(line) && line.length >= 4) comments.push(line);
                 }
             }
-
             if (comments.length) return comments.slice(0, 2).join(" ");
             return `${metadata.name}，适用于 Shadowrocket 的网络模块。`;
         }
@@ -1066,19 +645,12 @@
                 const parts = url.pathname.split("/").filter(Boolean);
                 if (parts.length < 4) return null;
                 return { owner: parts[0], repo: parts[1], branch: parts[2], path: parts.slice(3).join("/") };
-            } catch {
-                return null;
-            }
+            } catch { return null; }
         }
 
-        /* =========================================================
-           iOS 风格渲染图标 (高明度渐变)
-        ========================================================= */
         function hashString(value) {
             let hash = 0;
-            for (let i = 0; i < value.length; i++) {
-                hash = ((hash << 5) - hash + value.charCodeAt(i)) | 0;
-            }
+            for (let i = 0; i < value.length; i++) hash = ((hash << 5) - hash + value.charCodeAt(i)) | 0;
             return Math.abs(hash);
         }
 
@@ -1086,25 +658,9 @@
             const cleanName = (name || "").trim();
             const char = Array.from(cleanName)[0] || "模";
             const hash = hashString(cleanName);
-
-            const hue1 = hash % 360;
-            const hue2 = (hue1 + 35 + (hash % 30)) % 360;
-
-            const color1 = `hsl(${hue1}, 52%, 68%)`;
-            const color2 = `hsl(${hue2}, 55%, 58%)`;
-
-            const svg = `
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-                <defs>
-                    <linearGradient id="g_${hash}" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0%" stop-color="${color1}"/>
-                        <stop offset="100%" stop-color="${color2}"/>
-                    </linearGradient>
-                </defs>
-                <rect width="256" height="256" rx="58" ry="58" fill="url(#g_${hash})"/>
-                <text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text>
-            </svg>`;
-
+            const hue1 = hash % 360, hue2 = (hue1 + 35 + (hash % 30)) % 360;
+            const color1 = `hsl(${hue1}, 52%, 68%)`, color2 = `hsl(${hue2}, 55%, 58%)`;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="g_${hash}" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${color1}"/><stop offset="100%" stop-color="${color2}"/></linearGradient></defs><rect width="256" height="256" rx="58" ry="58" fill="url(#g_${hash})"/><text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
             return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
         }
 
@@ -1112,17 +668,10 @@
             if (!icon) return "";
             icon = icon.trim();
             if (icon.startsWith("data:") || /^https?:\/\//i.test(icon)) return icon;
-            try {
-                return new URL(icon, rawURL).href;
-            } catch {
-                return "";
-            }
+            try { return new URL(icon, rawURL).href; } catch { return ""; }
         }
 
-        function createInstallURL(rawURL) {
-            return "shadowrocket://install?module=" + encodeURIComponent(rawURL);
-        }
-
+        function createInstallURL(rawURL) { return "shadowrocket://install?module=" + encodeURIComponent(rawURL); }
         function getRepositoryAvatar(rawURL) {
             const info = parseGitHubRawURL(rawURL);
             return info ? `https://github.com/${encodeURIComponent(info.owner)}.png?size=64` : "";
@@ -1135,9 +684,14 @@
             try {
                 const rawText = await fetchRawText(item.rawURL, true);
                 const metadata = parseModuleMetadata(rawText, item.name);
-                const icon = resolveIconURL(metadata.icon, item.rawURL);
-                const description = generateDescription(metadata, rawText);
+                
+                let icon = resolveIconURL(metadata.icon, item.rawURL);
+                if (!icon) {
+                    const matchedIconUrl = getMatchedIcon(metadata.name) || getMatchedIcon(item.name);
+                    if (matchedIconUrl) icon = resolveIconURL(matchedIconUrl, item.rawURL);
+                }
 
+                const description = generateDescription(metadata, rawText);
                 let authorAvatar = metadata.author.username
                     ? `https://github.com/${encodeURIComponent(metadata.author.username)}.png?size=64`
                     : getRepositoryAvatar(item.rawURL);
@@ -1153,14 +707,15 @@
                     installURL: createInstallURL(item.rawURL)
                 };
             } catch (error) {
-                console.warn("模块读取失败：", item.rawURL, error);
+                const fallbackIconUrl = getMatchedIcon(item.name) ? resolveIconURL(getMatchedIcon(item.name), item.rawURL) : "";
+
                 return {
                     name: item.name || "未命名模块",
                     rawURL: item.rawURL,
                     description: `${item.name || "该模块"}，适用于 Shadowrocket 的网络模块。`,
                     author: { name: "未知作者", url: "", username: "" },
                     authorAvatar: getRepositoryAvatar(item.rawURL),
-                    icon: "",
+                    icon: fallbackIconUrl,
                     tags: [],
                     installURL: createInstallURL(item.rawURL)
                 };
@@ -1173,19 +728,15 @@
         async function processModulesStream(items, onItemLoaded) {
             const results = new Array(items.length);
             let currentIndex = 0;
-
             async function worker() {
                 while (true) {
                     const index = currentIndex++;
                     if (index >= items.length) return;
                     const data = await fetchModule(items[index]);
                     results[index] = data;
-                    if (onItemLoaded) {
-                        onItemLoaded(data, index);
-                    }
+                    if (onItemLoaded) onItemLoaded(data, index);
                 }
             }
-
             const workerCount = Math.min(CONFIG.CONCURRENCY, items.length);
             const workers = Array.from({ length: workerCount }, () => worker());
             await Promise.all(workers);
@@ -1196,26 +747,17 @@
            Render Functions
         ========================================================= */
         function renderAuthor(module) {
-            const author = module.author;
-            const avatar = module.authorAvatar;
-
-            const avatarHTML = avatar
-                ? `<img class="author-avatar" src="${escapeHTML(avatar)}" loading="lazy" alt="" onerror="this.style.display='none';">`
-                : "";
-
-            if (author.url) {
-                return `<a class="author" href="${escapeHTML(author.url)}" target="_blank" rel="noopener">${avatarHTML}${escapeHTML(author.name)}</a>`;
-            }
+            const author = module.author, avatar = module.authorAvatar;
+            const avatarHTML = avatar ? `<img class="author-avatar" src="${escapeHTML(avatar)}" loading="lazy" alt="" onerror="this.style.display='none';">` : "";
+            if (author.url) return `<a class="author" href="${escapeHTML(author.url)}" target="_blank" rel="noopener">${avatarHTML}${escapeHTML(author.name)}</a>`;
             return `<span class="author">${avatarHTML}${escapeHTML(author.name)}</span>`;
         }
 
         function createModuleCard(module) {
             const card = document.createElement("article");
             card.className = "module-card";
-
             const fallbackIcon = createIOSAppIcon(module.name);
             const icon = module.icon || fallbackIcon;
-
             const authorHTML = renderAuthor(module);
             const tags = Array.isArray(module.tags) ? module.tags : [];
             const tagsHTML = tags.slice(0, 6).map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join("");
@@ -1235,9 +777,7 @@
                         ${tagsHTML ? `<div class="tags">${tagsHTML}</div>` : ""}
                     </div>
                 </div>
-
                 <div class="module-description">${escapeHTML(module.description)}</div>
-
                 <div class="card-bottom">
                     <div class="source">
                         <div class="source-icon">🚀</div>
@@ -1249,7 +789,6 @@
                     </div>
                 </div>
             `;
-
             const copyBtn = card.querySelector(".copy-btn");
             if (copyBtn) {
                 copyBtn.addEventListener("click", async (e) => {
@@ -1259,32 +798,20 @@
                     showToast(success ? "已复制模块 Raw 链接" : "复制失败，请手动复制");
                 });
             }
-
             const image = card.querySelector(".module-icon img");
-            if (image) {
-                image.addEventListener("error", () => { image.src = fallbackIcon; }, { once: true });
-            }
-
+            if (image) image.addEventListener("error", () => { image.src = fallbackIcon; }, { once: true });
             return card;
         }
 
         function renderModules(modules) {
             modulesContainer.innerHTML = "";
-
             if (!modules.length) {
-                modulesContainer.innerHTML = `
-                    <div class="empty">
-                        <div class="empty-icon">🔍</div>
-                        没有找到匹配的模块
-                    </div>`;
+                modulesContainer.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div>没有找到匹配的模块</div>`;
                 countText.textContent = "0 个模块";
                 return;
             }
-
             const fragment = document.createDocumentFragment();
-            for (const module of modules) {
-                if (module) fragment.appendChild(createModuleCard(module));
-            }
+            for (const module of modules) { if (module) fragment.appendChild(createModuleCard(module)); }
             modulesContainer.appendChild(fragment);
             countText.textContent = `${modules.length} 个模块`;
         }
@@ -1294,30 +821,16 @@
         ========================================================= */
         function filterModules() {
             const keyword = searchInput.value.trim().toLowerCase();
+            if (searchInput.value.length > 0) searchClear.classList.add("visible");
+            else searchClear.classList.remove("visible");
 
-            if (searchInput.value.length > 0) {
-                searchClear.classList.add("visible");
-            } else {
-                searchClear.classList.remove("visible");
-            }
-
-            if (!keyword) {
-                renderModules(allModules);
-                return;
-            }
+            if (!keyword) { renderModules(allModules); return; }
 
             const filtered = allModules.filter(module => {
                 if (!module) return false;
-                const searchable = [
-                    module.name,
-                    module.description,
-                    module.author?.name,
-                    ...(module.tags || [])
-                ].join(" ").toLowerCase();
-
+                const searchable = [ module.name, module.description, module.author?.name, ...(module.tags || []) ].join(" ").toLowerCase();
                 return searchable.includes(keyword);
             });
-
             renderModules(filtered);
         }
 
@@ -1346,14 +859,12 @@
                     allModules = JSON.parse(cachedData);
                     renderModules(allModules);
                     hasCache = true;
-
                     const isExpired = !cachedTime || (now - Number(cachedTime) > CONFIG.CACHE_EXPIRE);
                     if (!isExpired) {
                         statusText.textContent = "已同步";
                         statusDot.className = "status-dot";
                         return;
                     }
-
                     statusText.textContent = "正在同步模块...";
                     statusDot.className = "status-dot loading";
                 } catch (e) {
@@ -1365,46 +876,38 @@
 
             try {
                 if (!hasCache) {
-                    statusText.textContent = "正在读取模块列表...";
+                    statusText.textContent = "正在读取模块及图标库...";
                     statusDot.className = "status-dot loading";
                 }
 
-                const markdown = await fetchRawText(CONFIG.README_URL, false);
+                const [markdown] = await Promise.all([
+                    fetchRawText(CONFIG.README_URL, false),
+                    loadRemoteIcons()
+                ]);
+
                 const sourceModules = parseMarkdown(markdown);
-                if (!sourceModules.length) {
-                    throw new Error("README 中未解析到有效模块信息");
-                }
+                if (!sourceModules.length) throw new Error("README 中未解析到有效模块信息");
 
                 let loadedCount = 0;
                 let isFirstStream = true;
 
                 const results = await processModulesStream(sourceModules, (moduleData, index) => {
                     loadedCount++;
-                    
                     if (!hasCache && !searchInput.value.trim()) {
-                        if (isFirstStream) {
-                            modulesContainer.innerHTML = "";
-                            isFirstStream = false;
-                        }
-                        const card = createModuleCard(moduleData);
-                        modulesContainer.appendChild(card);
+                        if (isFirstStream) { modulesContainer.innerHTML = ""; isFirstStream = false; }
+                        modulesContainer.appendChild(createModuleCard(moduleData));
                         countText.textContent = `${loadedCount} 个模块`;
                         statusText.textContent = `加载中 (${loadedCount}/${sourceModules.length})...`;
                     }
                 });
 
                 allModules = results.filter(Boolean);
-
-                if (!searchInput.value.trim()) {
-                    renderModules(allModules);
-                }
+                if (!searchInput.value.trim()) renderModules(allModules);
 
                 try {
                     localStorage.setItem(CONFIG.CACHE_KEY, JSON.stringify(allModules));
                     localStorage.setItem(CONFIG.CACHE_TIME_KEY, String(Date.now()));
-                } catch (e) {
-                    console.warn("缓存写入失败：", e);
-                }
+                } catch (e) { console.warn("缓存写入失败：", e); }
 
                 statusText.textContent = "已同步";
                 statusDot.className = "status-dot";
@@ -1415,7 +918,6 @@
                     statusText.textContent = "同步失败";
                     statusDot.className = "status-dot error";
                     countText.textContent = "";
-
                     modulesContainer.innerHTML = `
                         <div class="empty">
                             <div class="empty-icon">⚠️</div>
@@ -1433,5 +935,4 @@
         loadModules();
     </script>
 </body>
-
 </html>
