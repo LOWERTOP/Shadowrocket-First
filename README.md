@@ -241,13 +241,13 @@
 > >   
 > > [![安装模块 小红书模块](https://img.shields.io/static/v1?label=安装模块&message=小红书模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/RedBook.srmodule "一键安装本模块")
 >  
-> **[NodeSeek 自动签到](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/NodeSeek.srmodule)**
+> **[NodeSeek 自动签到](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/NodeSeek.sgmodule)**
 > 
 > > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，用于 [NodeSeek](https://www.nodeseek.com/) 论坛自动签到，模块提供自定义签到时间以及是否随机获取鸡腿
 > > 
 > > 首次使用需要在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 页面开启 Cookie 捕获开关，并于浏览器访问 NodeSeek 个人页面，在获取成功后会弹出通知，随后关闭  Cookie 捕获开关即可
 > >   
-> > [![安装模块 自动签到](https://img.shields.io/static/v1?label=安装模块&message=自动签到&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/NodeSeek.srmodule "一键安装本模块")
+> > [![安装模块 自动签到](https://img.shields.io/static/v1?label=安装模块&message=自动签到&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/NodeSeek.sgmodule "一键安装本模块")
 > 
 > **[微博轻享版模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/WeiboIntl.sgmodule)**
 > 
