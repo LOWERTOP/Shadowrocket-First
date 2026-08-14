@@ -143,7 +143,14 @@
             opacity: 0.8;
         }
 
-        /* 主题切换按钮 */
+        /* 主题控制按钮组 */
+        .theme-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
         .theme-toggle {
             display: inline-flex;
             align-items: center;
@@ -158,12 +165,17 @@
             color: var(--text-primary);
             cursor: pointer;
             box-shadow: inset 0 0 0 1px var(--border-subtle);
-            transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
-            flex-shrink: 0;
+            transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .theme-toggle:active {
             transform: scale(0.92);
+        }
+
+        /* 高亮激活状态（如“自动跟随系统”开启时） */
+        .theme-toggle.active {
+            color: var(--blue);
+            box-shadow: inset 0 0 0 1.5px var(--blue);
         }
 
         .theme-toggle svg {
@@ -647,7 +659,12 @@
                 <h1 class="title">
                     <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener">Shadowrocket 模块中心</a>
                 </h1>
-                <button id="themeToggle" class="theme-toggle" aria-label="切换主题"></button>
+                <div class="theme-controls">
+                    <!-- 1. 自动跟随系统按钮 -->
+                    <button id="themeAuto" class="theme-toggle" aria-label="自动跟随系统"></button>
+                    <!-- 2. 手动切换深浅色按钮 -->
+                    <button id="themeToggle" class="theme-toggle" aria-label="手动切换模式"></button>
+                </div>
             </div>
             <div class="subtitle">
                 资源来自于
@@ -709,6 +726,7 @@
         };
 
         /* SVG 图标定义 */
+        const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
         const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
         const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
 
@@ -722,17 +740,22 @@
         const statusDot = document.getElementById("statusDot");
         const countText = document.getElementById("countText");
         const toast = document.getElementById("toast");
-        const themeToggle = document.getElementById("themeToggle");
+        
+        const themeAutoBtn = document.getElementById("themeAuto");
+        const themeToggleBtn = document.getElementById("themeToggle");
 
         let allModules = [];
         let searchTimer = null;
 
         /* =========================================================
-           Theme Engine (系统深浅色完全自动同步)
+           Theme Engine (支持系统自动跟随 + 手动独立控制)
         ========================================================= */
         const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-        // 判定当前需要应用的主题模式
+        // 渲染初始化图标
+        themeAutoBtn.innerHTML = SYSTEM_ICON;
+
+        // 计算当前生效的主题
         function getEffectiveTheme() {
             const userChoice = localStorage.getItem("sr_theme_override");
             if (userChoice === "dark" || userChoice === "light") {
@@ -741,39 +764,60 @@
             return mediaQueryDark.matches ? "dark" : "light";
         }
 
-        // 应用主题与同步渲染对应的图标
-        function applyTheme(theme) {
-            if (theme === "dark") {
-                document.documentElement.setAttribute("data-theme", "dark");
-                themeToggle.innerHTML = MOON_ICON;
-                themeToggle.setAttribute("title", "当前：深色模式（点击可手动切换）");
+        // 应用主题并刷新两个按钮的视觉状态
+        function updateThemeUI() {
+            const userChoice = localStorage.getItem("sr_theme_override");
+            const isAutoMode = !userChoice;
+            const currentTheme = getEffectiveTheme();
+
+            // 1. 设置根节点 HTML dataset
+            document.documentElement.setAttribute("data-theme", currentTheme);
+
+            // 2. 自动跟随按钮状态
+            if (isAutoMode) {
+                themeAutoBtn.classList.add("active");
+                themeAutoBtn.setAttribute("title", "已开启：自动跟随系统");
             } else {
-                document.documentElement.setAttribute("data-theme", "light");
-                themeToggle.innerHTML = SUN_ICON;
-                themeToggle.setAttribute("title", "当前：浅色模式（点击可手动切换）");
+                themeAutoBtn.classList.remove("active");
+                themeAutoBtn.setAttribute("title", "点击恢复为自动跟随系统");
+            }
+
+            // 3. 手动切换按钮图标
+            if (currentTheme === "dark") {
+                themeToggleBtn.innerHTML = MOON_ICON;
+                themeToggleBtn.setAttribute("title", "当前：深色模式（点击切换为浅色）");
+            } else {
+                themeToggleBtn.innerHTML = SUN_ICON;
+                themeToggleBtn.setAttribute("title", "当前：浅色模式（点击切换为深色）");
             }
         }
 
-        // 监听系统深浅色动态变化 (核心：无需刷新页面，自动同步外观与图标)
-        mediaQueryDark.addEventListener("change", (e) => {
-            // 当用户未强制锁定特定偏好时，无缝跟随系统深浅色
+        // 监听系统深浅色事件变动
+        mediaQueryDark.addEventListener("change", () => {
             if (!localStorage.getItem("sr_theme_override")) {
-                applyTheme(e.matches ? "dark" : "light");
+                updateThemeUI();
             }
         });
 
-        // 允许手动点击切换
-        themeToggle.addEventListener("click", () => {
+        // 事件 1：点击“自动跟随系统”按钮
+        themeAutoBtn.addEventListener("click", () => {
+            localStorage.removeItem("sr_theme_override");
+            updateThemeUI();
+            showToast("已恢复自动跟随系统");
+        });
+
+        // 事件 2：点击“手动切换”按钮
+        themeToggleBtn.addEventListener("click", () => {
             const currentTheme = getEffectiveTheme();
             const nextTheme = currentTheme === "dark" ? "light" : "dark";
-            
+
             localStorage.setItem("sr_theme_override", nextTheme);
-            applyTheme(nextTheme);
+            updateThemeUI();
             showToast(`已切换为${nextTheme === "dark" ? "深色" : "浅色"}模式`);
         });
 
-        // 初始化调用
-        applyTheme(getEffectiveTheme());
+        // 初始化外观
+        updateThemeUI();
 
         /* =========================================================
            Utilities
