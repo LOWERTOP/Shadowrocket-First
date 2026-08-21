@@ -7,7 +7,7 @@
 # 策略建议：PROXY
 
 # 节点质量判断地址，需要特定节点代理
-DOMAIN-WILDCARD,*-sjc-*.tktn.be
+DOMAIN-WILDCARD,xmpp*.tktn.be
 # 以下规则必须走代理
 DOMAIN-SUFFIX,tktn.at
 DOMAIN-SUFFIX,tktn.be
