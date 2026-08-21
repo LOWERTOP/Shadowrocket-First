@@ -8,7 +8,10 @@
 
 # DOMAIN-KEYWORD,googleads
 # DOMAIN-SUFFIX,d.tktn.be
-
+DOMAIN-SUFFIX,eqt-gc.rendering.sharethrough.com
+DOMAIN-SUFFIX,sdkc.vervegroupinc.net
+DOMAIN-SUFFIX,api.nextgen.verve.net
+DOMAIN-SUFFIX,smartadserver.com
 DOMAIN-SUFFIX,tk0x1.com
 DOMAIN-SUFFIX,bidswitch.net
 DOMAIN-SUFFIX,iteleserve.com
