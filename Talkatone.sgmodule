@@ -8,6 +8,11 @@
 [Rule]
 # 以下为该软件部分去广告规则
 # DOMAIN-KEYWORD,googleads,REJECT
+DOMAIN-SUFFIX,eqt-gc.rendering.sharethrough.com,REJECT
+DOMAIN-SUFFIX,sdkc.vervegroupinc.net,REJECT
+DOMAIN-SUFFIX,api.nextgen.verve.net,REJECT
+DOMAIN-SUFFIX,smartadserver.com,REJECT
+
 DOMAIN-SUFFIX,tk0x1.com,REJECT
 DOMAIN-SUFFIX,bidswitch.net,REJECT
 DOMAIN-SUFFIX,iteleserve.com,REJECT
@@ -86,7 +91,7 @@ DOMAIN-SUFFIX,wv.inner-active.mobi,REJECT
 DOMAIN-SUFFIX,www.googletagservices-cn.com,REJECT
 
 # 节点质量判断地址，需要特定节点代理
-DOMAIN-WILDCARD,relay-*.tktn.be,{{{节点检测}}}
+DOMAIN-WILDCARD,xmpp*.tktn.be,{{{节点检测}}}
 # 以下为该软件可能需要走代理的规则
 DOMAIN-SUFFIX,tktn.at,{{{代理分流}}}
 DOMAIN-SUFFIX,tktn.be,{{{代理分流}}}
