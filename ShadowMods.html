@@ -245,7 +245,7 @@
         .notice-item { height: 22px; line-height: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary); }
 
         /* =========================================================
-           Search Bar (Flex 容器外壳方案：彻底锁死光标居中)
+           Search Bar (独立 GPU 渲染层 + Label 语义绝对居中方案)
         ========================================================= */
         .search-wrapper { 
             position: sticky; 
@@ -256,6 +256,8 @@
             background: var(--bg-page-glass); 
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
             transition: background-color 0.25s ease;
         }
         .search-box-inner {
@@ -269,8 +271,10 @@
             border-radius: var(--radius-pill);
             box-shadow: var(--card-shadow);
             padding: 0 13px 0 12px;
-            transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: text;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .search-box-inner:focus-within {
             border-color: var(--primary);
@@ -293,10 +297,12 @@
             margin-right: 10px;
         }
         .search { 
+            display: block;
+            width: 100%;
             flex: 1;
             min-width: 0;
-            height: 24px;
-            line-height: 24px;
+            height: 28px;
+            line-height: 28px;
             padding: 0;
             margin: 0;
             border: 0;
@@ -305,8 +311,11 @@
             color: var(--text-primary);
             font-size: 16px;
             font-weight: 500;
-            appearance: none;
+            vertical-align: middle;
             -webkit-appearance: none;
+            appearance: none;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
         .search::-webkit-search-decoration, 
         .search::-webkit-search-cancel-button, 
@@ -315,11 +324,18 @@
             -webkit-appearance: none; 
             display: none; 
         }
+        .search::-webkit-input-placeholder { 
+            color: var(--text-tertiary); 
+            font-size: 16px;
+            font-weight: 400; 
+            line-height: 28px;
+            vertical-align: middle;
+        }
         .search::placeholder { 
             color: var(--text-tertiary); 
             font-size: 16px;
             font-weight: 400; 
-            line-height: 24px;
+            line-height: 28px;
         }
         .search:disabled { 
             cursor: not-allowed; 
@@ -636,14 +652,14 @@
             </div>
         </div>
 
-        <!-- 两端全圆角吸顶搜索框 (基于 Flex 容器定位，光标全场景绝对居中) -->
+        <!-- 两端全圆角吸顶搜索框 (Label 语义驱动 + 独立 GPU 坐标锁死) -->
         <div class="search-wrapper">
-            <div class="search-box-inner">
+            <label for="search" class="search-box-inner">
                 <div class="search-icon">🔍</div>
                 <input id="search" class="search" type="text" inputmode="search" placeholder="请在加载完成后执行搜索..." autocomplete="off" spellcheck="false" disabled>
                 <span class="search-shortcut">/</span>
-                <button id="searchClear" class="search-clear" title="清空搜索">✕</button>
-            </div>
+                <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
+            </label>
         </div>
 
         <!-- 状态栏与计数 -->
@@ -688,8 +704,8 @@
             LUESTR_TREE_API: "https://api.github.com/repos/luestr/IconResource/git/trees/main?recursive=1",
             CONCURRENCY: 12,
             PAGE_SIZE: 30,
-            CACHE_KEY: "sr_modules_data_v57", 
-            CACHE_TIME_KEY: "sr_modules_time_v57",
+            CACHE_KEY: "sr_modules_data_v58", 
+            CACHE_TIME_KEY: "sr_modules_time_v58",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -1703,7 +1719,9 @@
             searchTimer = setTimeout(filterModules, 120);
         });
 
-        searchClear.addEventListener("click", () => {
+        searchClear.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             searchInput.value = "";
             filterModules();
             searchInput.focus();
