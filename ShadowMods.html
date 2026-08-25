@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#F4F7FC">
-    <title>模块中心</title>
+    <title>ShadowSTORE</title>
 
     <!-- 1. 防主题闪烁 (FOUC) 极简同步初始化 -->
     <script>
@@ -245,7 +245,7 @@
         .notice-item { height: 22px; line-height: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary); }
 
         /* =========================================================
-           Search Bar (同心圆两侧完全对称 + 圆形外框搜索 Emoji)
+           Search Bar (修复垂直光标居中与移动端基线抖动)
         ========================================================= */
         .search-wrapper { 
             position: sticky; 
@@ -286,13 +286,14 @@
             display: block; 
             width: 100%; 
             height: 52px; 
-            padding: 0 54px 0 52px; 
+            padding: 14px 54px 14px 52px; 
+            line-height: 24px;
+            font-size: 16px; 
             border: 1px solid var(--border-card); 
             outline: none; 
             border-radius: var(--radius-pill); 
             background: var(--bg-card); 
             color: var(--text-primary); 
-            font-size: 15px; 
             font-weight: 500;
             box-shadow: var(--card-shadow); 
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); 
@@ -583,6 +584,12 @@
             .module-name { font-size: 17.5px; }
             .button { height: 36px; padding: 0 14px; font-size: 13.5px; }
             .search-shortcut { display: none; }
+            
+            .search {
+                font-size: 16px;
+                line-height: 24px;
+                padding: 14px 46px 14px 48px;
+            }
         }
     </style>
 </head>
@@ -595,7 +602,7 @@
                 <div class="brand-wrapper">
                     <h1 class="title">
                         <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener">模块中心</a>
-                        <span class="tag-pill-badge">STORE</span>
+                        <span class="tag-pill-badge">Shadowrocket</span>
                     </h1>
                 </div>
                 <div class="theme-controls">
