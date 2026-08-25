@@ -215,8 +215,8 @@
             ZIRAWELL_DIR_API: "https://api.github.com/repos/zirawell/R-Store/contents/Rule/Surge",
             ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json", 
             CONCURRENCY: 12,
-            CACHE_KEY: "sr_modules_data_v25", // 升级缓存版本号加载 R-Store 资源
-            CACHE_TIME_KEY: "sr_modules_time_v25",
+            CACHE_KEY: "sr_modules_data_v26", // 升级缓存版本号排除已合并模块
+            CACHE_TIME_KEY: "sr_modules_time_v26",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -721,7 +721,7 @@
                                     const fileName = file.name.replace(/\.(?:sgmodule|module)$/i, "");
                                     modules.push({
                                         name: fileName,
-                                        rawURL: file.download_url || `https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/${file.name}`,
+                                        rawURL,
                                         sourceType: "r-store",
                                         sourceName: "R-Store"
                                     });
@@ -920,20 +920,24 @@
         }
 
         /* =========================================================
-           Fetch Single Module (优先使用资源地址作者)
+           Fetch Single Module (排除“已合并至” & 优先使用资源地址作者)
         ========================================================= */
         async function fetchModule(item) {
             try {
                 const rawText = await fetchRawText(item.rawURL, true);
                 const metadata = parseModuleMetadata(rawText, item.name);
+                const description = generateDescription(metadata, rawText);
+
+                // 排除模块描述中带有“已合并至”字样的模块
+                if (description && description.includes("已合并至")) {
+                    return null;
+                }
                 
                 let icon = resolveIconURL(metadata.icon, item.rawURL);
                 if (!icon) {
                     const matchedIconUrl = getMatchedIcon(metadata.name) || getMatchedIcon(item.name);
                     if (matchedIconUrl) icon = resolveIconURL(matchedIconUrl, item.rawURL);
                 }
-
-                const description = generateDescription(metadata, rawText);
 
                 const urlAuthor = getAuthorFromURL(item.rawURL);
                 let author = urlAuthor;
@@ -963,13 +967,18 @@
                     installURL: createInstallURL(item.rawURL)
                 };
             } catch (error) {
+                const fallbackDescription = `${item.name || "该模块"}，适用于 Shadowrocket 的网络模块。`;
+                if (fallbackDescription.includes("已合并至")) {
+                    return null;
+                }
+
                 const fallbackIconUrl = getMatchedIcon(item.name) ? resolveIconURL(getMatchedIcon(item.name), item.rawURL) : "";
                 const urlAuthor = getAuthorFromURL(item.rawURL);
 
                 return {
                     name: item.name || "未命名模块",
                     rawURL: item.rawURL,
-                    description: `${item.name || "该模块"}，适用于 Shadowrocket 的网络模块。`,
+                    description: fallbackDescription,
                     author: urlAuthor || { name: "未知作者", url: "", username: "" },
                     authorAvatar: getRepositoryAvatar(item.rawURL),
                     icon: fallbackIconUrl,
@@ -993,7 +1002,7 @@
                     if (index >= items.length) return;
                     const data = await fetchModule(items[index]);
                     results[index] = data;
-                    if (onItemLoaded) onItemLoaded(data, index);
+                    if (onItemLoaded && data) onItemLoaded(data, index);
                 }
             }
             const workerCount = Math.min(CONFIG.CONCURRENCY, items.length);
@@ -1186,6 +1195,7 @@
                 let isFirstStream = true;
 
                 const results = await processModulesStream(sourceModules, (moduleData, index) => {
+                    if (!moduleData) return;
                     loadedCount++;
                     if (!hasCache && !searchInput.value.trim()) {
                         if (isFirstStream) { modulesContainer.innerHTML = ""; isFirstStream = false; }
