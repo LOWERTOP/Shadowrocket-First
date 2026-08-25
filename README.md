@@ -26,6 +26,14 @@
 > 本章主要是为 **特定软件或服务** 所制作的模块、规则集等自制内容<br>
 > 各模块基本都包含有 **编辑参数** 选项，可 [进入编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 进行调整
 
+### [模块中心](#模块中心)
+
+> 模块中心是一个集 **模块索引**、**模块检索**、**一键安装**、**一键复制** 等功能于一体的模块资源平台，目前收录模块已超过千款。网页支持发送快捷方式至桌面，并可正常显示应用图标
+> 
+> 模块资源均来源于开源仓库。特别鸣谢 **[奶思](https://github.com/fmz200)**、**[zirawell](https://github.com/zirawell)**、**[iab0x00](https://github.com/iab0x00)** 等开源作者的分享与持续维护
+> 
+> [![访问页面 模块中心](https://img.shields.io/static/v1?label=访问页面&message=模块中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/ShadowMods.html "访问相应地址")
+
 ### [Talkatone](#talkatone)
 
 > 本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供 [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneProxy.list)
@@ -169,14 +177,6 @@
 > **模块的生效需要遵循自上而下的 [优先级顺序](https://github.com/LOWERTOP/Shadowrocket#%E8%A7%84%E5%88%99%E4%BC%98%E5%85%88%E7%BA%A7)** <br>
 > **部分模块的生效需要清除相应的程序的缓存或者重新安装**
 
-> **[模块中心](https://lowertop.github.io/Shadowrocket-First/ShadowMods.html)**
-> 
-> > 模块中心是一个集 **模块索引**、**模块检索**、**一键安装**、**一键复制** 等功能于一体的模块资源平台，目前收录模块已超过 **700** 款。网页支持发送快捷方式至桌面，并可正常显示应用图标
-> > 
-> > 模块资源均来源于 **[fmz200/wool_scripts](https://github.com/fmz200/wool_scripts)** 开源仓库。感谢项目作者 **[fmz200](https://github.com/fmz200)** 的开源分享与持续维护
-> > 
-> > [![访问页面 模块中心](https://img.shields.io/static/v1?label=访问页面&message=模块中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/ShadowMods.html "访问相应地址")
-> 
 > **[插件中心转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule)**
 > 
 > > 本方案模块由 [iab0x00](https://github.com/iab0x00) 制作，可使小火箭直接安装并使用 [可莉插件中心](https://hub.kelee.one) 的插件/模块。本模块借助 **[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)** 的转换功能实现，为方便新手使用已内置 [Script-Hub](https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 相关代码。感谢 [iab0x00](https://github.com/iab0x00)、[可莉](https://github.com/luestr) 及 [Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki) 的辛苦付出，本案遵循 [可莉的授权说明](https://t.me/ibilibili/1498)
