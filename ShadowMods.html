@@ -7,19 +7,29 @@
     <meta name="theme-color" content="#000000">
     <title>Shadowrocket 模块中心</title>
 
-    <!-- 1. 浏览器标签页 Icon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <!-- 1. 防主题闪烁 (FOUC) 极简同步初始化 -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem("sr_theme_override");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const theme = saved === "dark" || saved === "light" ? saved : (prefersDark ? "dark" : "light");
+            document.documentElement.setAttribute("data-theme", theme);
+        })();
+    </script>
 
-    <!-- 2. iOS 桌面主屏幕图标 -->
+    <!-- 2. 浏览器标签页与 iOS 桌面图标 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowMods.png">
 
-    <!-- 网络层 - 预解析 GitHub 原生域名 -->
+    <!-- 3. 网络层预解析 -->
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
     <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+    <link rel="dns-prefetch" href="https://data.jsdelivr.com">
+    <link rel="preconnect" href="https://data.jsdelivr.com" crossorigin>
 
     <style>
         /* =========================================================
-           Design Tokens (深色/浅色 双主题)
+           Design Tokens
         ========================================================= */
         :root, [data-theme="dark"] {
             --background: #000000;
@@ -85,24 +95,25 @@
         .theme-toggle.active { color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--blue); }
         .theme-toggle svg { display: block; width: 20px; height: 20px; pointer-events: none; }
         .subtitle { margin-top: 8px; color: var(--text-secondary); font-size: 15px; line-height: 1.5; }
-        .subtitle a { color: var(--blue); text-decoration: none; }
-        .subtitle a:hover { text-decoration: underline; }
         .notice { display: flex; align-items: center; gap: 12px; min-height: 56px; margin-bottom: 16px; padding: 12px 18px; background: var(--card); border-radius: 16px; color: var(--text-primary); font-size: 14.5px; line-height: 1.4; box-shadow: inset 0 0 0 1px var(--border-subtle); }
         .notice-icon { flex: 0 0 auto; font-size: 22px; }
         .search-wrapper { position: relative; margin-bottom: 14px; }
         .search-icon { position: absolute; left: 18px; top: 50%; z-index: 1; transform: translateY(-50%); color: var(--text-secondary); font-size: 18px; line-height: 1; pointer-events: none; }
-        .search { display: block; width: 100%; height: 54px; padding: 0 48px 0 50px; border: 0; outline: none; border-radius: 18px; background: var(--card); color: var(--text-primary); font-size: 14.5px; box-shadow: inset 0 0 0 1px var(--border-subtle); transition: background 0.2s ease, box-shadow 0.2s ease; appearance: none; -webkit-appearance: none; }
+        .search { display: block; width: 100%; height: 54px; padding: 0 80px 0 50px; border: 0; outline: none; border-radius: 18px; background: var(--card); color: var(--text-primary); font-size: 14.5px; box-shadow: inset 0 0 0 1px var(--border-subtle); transition: background 0.2s ease, box-shadow 0.2s ease; appearance: none; -webkit-appearance: none; }
         .search::-webkit-search-decoration, .search::-webkit-search-cancel-button, .search::-webkit-search-results-button, .search::-webkit-search-results-decoration { -webkit-appearance: none; display: none; }
         .search::placeholder { color: var(--text-secondary); }
         .search:focus { box-shadow: inset 0 0 0 1.5px var(--blue); }
+        .search-shortcut { position: absolute; right: 44px; top: 50%; transform: translateY(-50%); padding: 3px 6px; border-radius: 6px; background: var(--card-secondary); color: var(--text-tertiary); font-size: 11px; font-weight: 600; pointer-events: none; transition: opacity 0.15s ease; }
         .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); display: none; align-items: center; justify-content: center; width: 24px; height: 24px; border: 0; border-radius: 50%; background: var(--text-tertiary); color: var(--background); font-size: 13px; font-weight: bold; cursor: pointer; padding: 0; line-height: 1; transition: opacity 0.15s ease; }
         .search-clear.visible { display: flex; }
+
         .status { display: flex; align-items: center; justify-content: space-between; min-height: 22px; margin: 0 4px 12px; color: var(--text-tertiary); font-size: 13px; }
         .status-left { display: flex; align-items: center; gap: 7px; }
         .status-dot { width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: var(--green); }
         .status-dot.loading { background: var(--orange); animation: statusPulse 1.2s infinite; }
         .status-dot.error { background: var(--red); }
         @keyframes statusPulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+        
         .modules { display: flex; flex-direction: column; gap: 14px; }
         .module-card { position: relative; padding: 20px 22px; border-radius: var(--radius-large); background: var(--card); box-shadow: inset 0 0 0 1px var(--border-subtle); overflow: hidden; transition: background .2s ease, transform .2s ease, box-shadow .2s ease; content-visibility: auto; contain-intrinsic-size: 0 180px; }
         .module-card:hover { background: var(--card-hover); }
@@ -117,8 +128,6 @@
         .author { display: inline-flex; align-items: center; gap: 5px; color: var(--text-tertiary); text-decoration: none; }
         .author:hover { color: var(--text-secondary); }
         .author-avatar { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; }
-        .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-        .tag { display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 11px; background: var(--card-secondary); color: var(--text-secondary); font-size: 11px; white-space: nowrap; }
         .module-description { margin-top: 14px; color: var(--text-secondary); font-size: 15.5px; line-height: 1.55; word-break: break-word; }
         .card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; }
         .source { display: flex; align-items: center; gap: 8px; min-width: 0; color: var(--text-tertiary); font-size: 13px; }
@@ -133,16 +142,17 @@
         .button-secondary:hover { opacity: 0.85; }
         .button-primary { background: var(--blue); color: #ffffff; }
         .button-primary:hover { background: var(--blue-hover); }
+        
+        .sentinel { height: 20px; margin: 10px 0; }
         .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 16px; }
         .empty-icon { margin-bottom: 12px; font-size: 36px; }
         .empty-error { margin-top: 8px; color: var(--text-tertiary); font-size: 13px; }
         .loading-card { height: 190px; border-radius: var(--radius-large); background: var(--card); box-shadow: inset 0 0 0 1px var(--border-subtle); animation: skeletonPulse 1.4s infinite; }
         @keyframes skeletonPulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 0.9; } }
         .footer { padding: 32px 0 16px; color: var(--text-tertiary); text-align: center; font-size: 12px; line-height: 1.6; }
-        .footer a { color: var(--text-secondary); text-decoration: none; }
-        .footer a:hover { text-decoration: underline; }
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); z-index: 999; padding: 10px 20px; border-radius: 20px; background: var(--toast-bg); color: var(--toast-text); font-size: 14px; font-weight: 600; box-shadow: 0 10px 25px rgba(0,0,0,0.25); opacity: 0; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; pointer-events: none; }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
         @media (max-width: 600px) {
             body { padding-left: 12px; padding-right: 12px; }
             .title { font-size: 28px; }
@@ -150,6 +160,7 @@
             .module-icon { width: 60px; height: 60px; flex-basis: 60px; border-radius: 15px; }
             .module-name { font-size: 19px; }
             .button { height: 38px; padding: 0 14px; font-size: 14px; }
+            .search-shortcut { display: none; }
         }
     </style>
 </head>
@@ -173,12 +184,13 @@
 
         <div class="notice">
             <div class="notice-icon">🚀</div>
-            <div>资源首次加载可能需要一定时间，请耐心等待</div>
+            <div>资源已启用并发缓存与快速索引机制</div>
         </div>
 
         <div class="search-wrapper">
             <div class="search-icon">🔍</div>
             <input id="search" class="search" type="search" placeholder="输入关键字快捷搜索..." autocomplete="off" spellcheck="false">
+            <span class="search-shortcut">/</span>
             <button id="searchClear" class="search-clear" title="清空搜索">✕</button>
         </div>
 
@@ -195,6 +207,8 @@
             <div class="loading-card"></div>
             <div class="loading-card"></div>
         </main>
+        
+        <div id="sentinel" class="sentinel"></div>
 
         <footer class="footer">
             特别鸣谢开源社区创作者<br>
@@ -217,12 +231,12 @@
             ZIRAWELL_TREE_API: "https://api.github.com/repos/zirawell/R-Store/git/trees/main?recursive=1",
             ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json", 
             CONCURRENCY: 12,
-            CACHE_KEY: "sr_modules_data_v41", // 升级缓存版本号
-            CACHE_TIME_KEY: "sr_modules_time_v41",
+            PAGE_SIZE: 30,
+            CACHE_KEY: "sr_modules_data_v44", 
+            CACHE_TIME_KEY: "sr_modules_time_v44",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
-        /* 常用 App 中英文/拼音别名映射表 */
         const APP_ALIASES = {
             "苹果": ["apple"],
             "apple": ["apple"],
@@ -267,7 +281,6 @@
             "高德地图": ["amap"]
         };
 
-        // 国旗 / 国家代码排除黑名单
         const FLAG_CODES = new Set([
             "cn", "us", "hk", "tw", "jp", "kr", "sg", "uk", "gb", "de", "fr", "ca",
             "ru", "au", "mo", "vn", "th", "ph", "my", "in", "id", "br", "cl", "ar",
@@ -284,15 +297,19 @@
         const modulesContainer = document.getElementById("modules");
         const searchInput = document.getElementById("search");
         const searchClear = document.getElementById("searchClear");
+        const searchShortcut = document.querySelector(".search-shortcut");
         const statusText = document.getElementById("statusText");
         const statusDot = document.getElementById("statusDot");
         const countText = document.getElementById("countText");
         const toast = document.getElementById("toast");
+        const sentinel = document.getElementById("sentinel");
         
         const themeAutoBtn = document.getElementById("themeAuto");
         const themeToggleBtn = document.getElementById("themeToggle");
 
         let allModules = [];
+        let filteredModules = [];
+        let currentlyRendered = 0;
         let searchTimer = null;
         let remoteIconsMap = {};
 
@@ -350,7 +367,7 @@
         updateThemeUI();
 
         /* =========================================================
-           Utilities
+           Utilities & Network Resilience
         ========================================================= */
         function escapeHTML(value) {
             return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
@@ -386,7 +403,6 @@
             return success;
         }
 
-        // 提取模块地址的主域名（如 https://ddgksf2013.top/ -> ddgksf2013）
         function getDomainPrimaryName(rawURL) {
             if (!rawURL) return "";
             try {
@@ -410,7 +426,6 @@
             }
         }
 
-        // 从模块 URL 中截取最后一个 / 与后缀之间的完整名称（支持 module、srmodule、sgmodule）
         function getModuleNameFromURL(rawURL) {
             if (!rawURL) return "";
             try {
@@ -433,7 +448,6 @@
             return urlName || "未命名模块";
         }
 
-        // 严格排查国旗/地区节点图标
         function isFlagKey(key, url = "") {
             if (!key && !url) return false;
             const k = (key || "").toLowerCase().trim();
@@ -446,7 +460,6 @@
             return false;
         }
 
-        // 判断是否返回了 404: Not Found 或明确表示失效
         function isInvalidOr404(text) {
             if (!text) return false;
             const t = String(text);
@@ -456,30 +469,41 @@
                    /(?:已失效|此模块已失效|资源已失效|链接已失效|文件已删除|文件不存在|404\s*失效)/i.test(t);
         }
 
-        /* =========================================================
-           网络请求与图标匹配引擎
-        ========================================================= */
-        async function fetchRawText(url, isPartial = true) {
+        async function fetchWithTimeout(url, options = {}, timeoutMs = 6000) {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), timeoutMs);
             try {
-                const headers = isPartial ? { 'Range': 'bytes=0-2047' } : {};
-                const response = await fetch(url, { headers, cache: "no-store" });
-                if (response.status === 404) return "404: Not Found";
-                if (response.ok || response.status === 206) return await response.text();
-            } catch (e) {
-                if (isPartial) {
-                    try {
-                        const fallbackRes = await fetch(url, { cache: "no-store" });
-                        if (fallbackRes.status === 404) return "404: Not Found";
-                        if (fallbackRes.ok) return await fallbackRes.text();
-                    } catch (err) {}
-                }
+                const response = await fetch(url, { ...options, signal: controller.signal });
+                clearTimeout(timer);
+                return response;
+            } catch (err) {
+                clearTimeout(timer);
+                throw err;
             }
+        }
+
+        async function fetchRawText(url, isPartial = true) {
+            if (isPartial) {
+                try {
+                    const response = await fetchWithTimeout(url, { headers: { 'Range': 'bytes=0-2047' }, cache: "no-store" }, 4500);
+                    if (response.status === 404) return "404: Not Found";
+                    if (response.ok || response.status === 206) return await response.text();
+                } catch (e) {}
+            }
+            try {
+                const fallbackRes = await fetchWithTimeout(url, { cache: "no-store" }, 6000);
+                if (fallbackRes.status === 404) return "404: Not Found";
+                if (fallbackRes.ok) return await fallbackRes.text();
+            } catch (err) {}
             throw new Error(`无法获取资源: ${url}`);
         }
 
+        /* =========================================================
+           图标解析与匹配
+        ========================================================= */
         async function loadRemoteIcons() {
             try {
-                const response = await fetch(CONFIG.ICONS_JSON_URL, { cache: "no-store" });
+                const response = await fetchWithTimeout(CONFIG.ICONS_JSON_URL, { cache: "no-store" }, 6000);
                 if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
                 const data = await response.json();
                 
@@ -500,7 +524,7 @@
 
                 const addMap = (name, url) => {
                     if (name && typeof name === 'string' && url && typeof url === 'string' && url.length > 5) {
-                        if (isFlagKey(name, url)) return; // 严格过滤国旗图标
+                        if (isFlagKey(name, url)) return;
 
                         const cleanName = name.trim().toLowerCase();
                         if (cleanName.length < 2) return;
@@ -558,13 +582,11 @@
             const lowerName = name.trim().toLowerCase();
             if (!lowerName) return "";
 
-            // YouTube / 油管 特殊优先匹配（无论大小写）
             if (lowerName.includes("youtube") || lowerName.includes("油管") || lowerName.includes("ytb")) {
                 const ytIcon = findIconInMap("youtube");
                 if (ytIcon && !isFlagKey("youtube", ytIcon)) return ytIcon;
             }
 
-            // 小米 / 米家 特殊匹配规则
             if (lowerName.includes("小米") || lowerName.includes("米家") || lowerName.includes("xiaomi") || lowerName.includes("mihome")) {
                 const miIcon = findIconInMap("xiaomi") || findIconInMap("mihome") || findIconInMap("mi");
                 if (miIcon && !isFlagKey("xiaomi", miIcon)) return miIcon;
@@ -606,9 +628,6 @@
             return "";
         }
 
-        /* =========================================================
-           Normalize Raw URL & Extract Markdown
-        ========================================================= */
         function normalizeRawURL(url) {
             if (!url) return "";
             let value = url.trim().replace(/^<|>$/g, "").replace(/&amp;/g, "&");
@@ -643,90 +662,12 @@
             } catch { return value; }
         }
 
-        function extractMarkdownLinks(text) {
-            const links = [];
-            const regex = /\[([^\]]*)\]\(\s*(https?:\/\/[^)\s]+)\s*\)/g;
-            let match;
-            while ((match = regex.exec(text)) !== null) {
-                links.push({ label: cleanText(match[1]), url: normalizeRawURL(match[2]) });
-            }
-            return links;
-        }
-
-        function findModuleRawURL(cell) {
-            if (!cell) return "";
-            const links = extractMarkdownLinks(cell);
-            for (const link of links) {
-                if (/\.(?:sgmodule|srmodule|module)(?:$|[?#%])/i.test(link.url)) {
-                    return normalizeRawURL(link.url);
-                }
-            }
-            const urlMatches = cell.match(/https?:\/\/[^\s|<>)]+/gi);
-            if (urlMatches) {
-                for (const u of urlMatches) {
-                    const clean = normalizeRawURL(u);
-                    if (/\.(?:sgmodule|srmodule|module)(?:$|[?#%])/i.test(clean)) {
-                        return clean;
-                    }
-                }
-            }
-            return "";
-        }
-
-        function parseMarkdown(markdown) {
-            const lines = markdown.split(/\r?\n/);
-            let headerIndex = -1, surgeIndex = -1, nameIndex = -1;
-
-            for (let i = 0; i < lines.length; i++) {
-                const line = lines[i].trim();
-                if (!line.startsWith("|")) continue;
-                const columns = line.split("|").slice(1, -1).map(item => item.trim());
-                if (!columns.length) continue;
-                const foundSurgeIndex = columns.findIndex(col => /^(Surge|Surge\s*链接|Surge\s*模块|Surge\s*配置|模块链接|链接)$/i.test(col));
-                const foundNameIndex = columns.findIndex(col => /^(规则名称|模块名称|配置名称|名称|模块)$/i.test(col));
-                if (foundSurgeIndex >= 0 && foundNameIndex >= 0) {
-                    headerIndex = i; surgeIndex = foundSurgeIndex; nameIndex = foundNameIndex; break;
-                }
-            }
-
-            if (headerIndex < 0) return [];
-
-            const result = [];
-            for (let i = headerIndex + 1; i < lines.length; i++) {
-                const line = lines[i].trim();
-                if (!line.startsWith("|")) continue;
-                const columns = line.split("|").slice(1, -1).map(item => item.trim());
-                if (!columns.length || columns.every(col => /^:?-+:?$/.test(col))) continue;
-                if (columns.length <= Math.max(surgeIndex, nameIndex)) continue;
-
-                let name = columns[nameIndex] || "";
-                name = name.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`/g, "").replace(/<br\s*\/?>/gi, " ").replace(/\s+/g, " ").trim();
-                const rawURL = findModuleRawURL(columns[surgeIndex]);
-                
-                if (!rawURL || !/\.(?:sgmodule|srmodule|module)(?:$|[?#%])/i.test(rawURL) || result.some(item => item.rawURL === rawURL)) continue;
-
-                result.push({ name: name || getModuleNameFromURL(rawURL) || "未命名模块", rawURL });
-            }
-            return result;
-        }
-
         /* =========================================================
-           Parse Shadowrocket-First 全局文件
+           Markdown & 仓库模块扫描
         ========================================================= */
         function parseRepositoryModules(markdown) {
             if (!markdown) return [];
-
             const result = [];
-
-            if (markdown.includes("|")) {
-                const tableModules = parseMarkdown(markdown);
-                tableModules.forEach(item => {
-                    if (/\.(?:sgmodule|srmodule|module)(?:$|[?#%])/i.test(item.rawURL)) {
-                        result.push(item);
-                    }
-                });
-            }
-
             let currentHeading = "";
             const lines = markdown.split(/\r?\n/);
 
@@ -738,13 +679,11 @@
                 if (headingMatch) {
                     const rawTitle = (headingMatch[1] || headingMatch[2] || headingMatch[3] || "").trim();
                     const cleanTitle = cleanText(rawTitle.replace(/[*`_#]/g, "").replace(/^[🚀📁📦\s]+/, ""));
-                    if (cleanTitle && cleanTitle.length >= 2) {
-                        currentHeading = cleanTitle;
-                    }
+                    if (cleanTitle && cleanTitle.length >= 2) currentHeading = cleanTitle;
                 }
 
                 let decodedLine = line;
-                for (let i = 0; i < 3; i++) {
+                for (let i = 0; i < 2; i++) {
                     try {
                         const next = decodeURIComponent(decodedLine);
                         if (next === decodedLine) break;
@@ -775,14 +714,10 @@
             });
         }
 
-        /* =========================================================
-           Fetch fmz200 wool_scripts/Shadowrocket/module 包含子文件夹模块
-        ========================================================= */
         async function fetchFMZModules() {
             const modules = [];
-
             try {
-                const res = await fetch(CONFIG.FMZ_JSDELIVR_API, { cache: "no-store" });
+                const res = await fetchWithTimeout(CONFIG.FMZ_JSDELIVR_API, { cache: "no-store" }, 6000);
                 if (res.ok) {
                     const data = await res.json();
                     if (data && Array.isArray(data.files)) {
@@ -791,10 +726,7 @@
                             if (path.startsWith("/Shadowrocket/module/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
                                 const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
                                 const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/fmz200/wool_scripts/main${path}`);
-                                modules.push({
-                                    name: fileName,
-                                    rawURL
-                                });
+                                modules.push({ name: fileName, rawURL });
                             }
                         }
                     }
@@ -803,7 +735,7 @@
 
             if (!modules.length) {
                 try {
-                    const res = await fetch(CONFIG.FMZ_TREE_API, { cache: "no-store" });
+                    const res = await fetchWithTimeout(CONFIG.FMZ_TREE_API, { cache: "no-store" }, 6000);
                     if (res.ok) {
                         const data = await res.json();
                         if (data && Array.isArray(data.tree)) {
@@ -812,26 +744,18 @@
                                 if (item.type === "blob" && path.startsWith("Shadowrocket/module/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
                                     const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
                                     const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/fmz200/wool_scripts/main/${path}`);
-                                    modules.push({
-                                        name: fileName,
-                                        rawURL
-                                    });
+                                    modules.push({ name: fileName, rawURL });
                                 }
                             }
                         }
                     }
                 } catch (e2) {}
             }
-
             return modules;
         }
 
-        /* =========================================================
-           Fetch Zirawell R-Store 包含子文件夹模块
-        ========================================================= */
         async function fetchZirawellModules() {
             const modules = [];
-
             try {
                 const readme = await fetchRawText(CONFIG.ZIRAWELL_README_URL, false);
                 const fromReadme = parseRepositoryModules(readme);
@@ -839,7 +763,7 @@
             } catch (e) {}
 
             try {
-                const res = await fetch(CONFIG.ZIRAWELL_JSDELIVR_API, { cache: "no-store" });
+                const res = await fetchWithTimeout(CONFIG.ZIRAWELL_JSDELIVR_API, { cache: "no-store" }, 6000);
                 if (res.ok) {
                     const data = await res.json();
                     if (data && Array.isArray(data.files)) {
@@ -848,17 +772,14 @@
                             if (path.startsWith("/Rule/Surge/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
                                 const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
                                 const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/zirawell/R-Store/main${path}`);
-                                modules.push({
-                                    name: fileName,
-                                    rawURL
-                                });
+                                modules.push({ name: fileName, rawURL });
                             }
                         }
                     }
                 }
             } catch (e) {
                 try {
-                    const res = await fetch(CONFIG.ZIRAWELL_TREE_API, { cache: "no-store" });
+                    const res = await fetchWithTimeout(CONFIG.ZIRAWELL_TREE_API, { cache: "no-store" }, 6000);
                     if (res.ok) {
                         const data = await res.json();
                         if (data && Array.isArray(data.tree)) {
@@ -867,22 +788,18 @@
                                 if (item.type === "blob" && path.startsWith("Rule/Surge/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
                                     const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
                                     const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/zirawell/R-Store/main/${path}`);
-                                    modules.push({
-                                        name: fileName,
-                                        rawURL
-                                    });
+                                    modules.push({ name: fileName, rawURL });
                                 }
                             }
                         }
                     }
                 } catch (e2) {}
             }
-
             return modules;
         }
 
         /* =========================================================
-           Parse Metadata, Author & Source Repository
+           元数据与模块实体构建
         ========================================================= */
         function parseGitHubRawURL(rawURL) {
             try {
@@ -890,23 +807,13 @@
                 if (url.hostname === "raw.githubusercontent.com" || url.hostname === "github.com") {
                     const parts = url.pathname.split("/").filter(Boolean);
                     if (parts.length >= 2) {
-                        return { 
-                            owner: parts[0], 
-                            repo: parts[1], 
-                            fullName: `${parts[0]}/${parts[1]}`, 
-                            url: `https://github.com/${parts[0]}/${parts[1]}` 
-                        };
+                        return { owner: parts[0], repo: parts[1], fullName: `${parts[0]}/${parts[1]}`, url: `https://github.com/${parts[0]}/${parts[1]}` };
                     }
                 }
                 if (url.hostname.includes("jsdelivr.net")) {
                     const match = url.pathname.match(/\/gh\/([^/@]+)\/([^/@]+)/i);
                     if (match) {
-                        return { 
-                            owner: match[1], 
-                            repo: match[2], 
-                            fullName: `${match[1]}/${match[2]}`, 
-                            url: `https://github.com/${match[1]}/${match[2]}` 
-                        };
+                        return { owner: match[1], repo: match[2], fullName: `${match[1]}/${match[2]}`, url: `https://github.com/${match[1]}/${match[2]}` };
                     }
                 }
             } catch { return null; }
@@ -915,57 +822,28 @@
 
         function getSourceRepoInfo(rawURL) {
             const githubInfo = parseGitHubRawURL(rawURL);
-            if (githubInfo) {
-                return {
-                    name: githubInfo.fullName,
-                    url: githubInfo.url
-                };
-            }
+            if (githubInfo) return { name: githubInfo.fullName, url: githubInfo.url };
             try {
                 const url = new URL(rawURL);
-                return {
-                    name: url.hostname,
-                    url: url.origin
-                };
+                return { name: url.hostname, url: url.origin };
             } catch {
-                return {
-                    name: "开源仓库",
-                    url: "#"
-                };
+                return { name: "开源仓库", url: "#" };
             }
         }
 
         function getAuthorFromURL(rawURL) {
             const info = parseGitHubRawURL(rawURL);
-            if (info) {
-                return {
-                    name: info.owner,
-                    url: `https://github.com/${encodeURIComponent(info.owner)}`,
-                    username: info.owner
-                };
-            }
+            if (info) return { name: info.owner, url: `https://github.com/${encodeURIComponent(info.owner)}`, username: info.owner };
             const domainName = getDomainPrimaryName(rawURL);
             if (domainName) {
                 try {
                     const url = new URL(rawURL);
-                    return {
-                        name: domainName,
-                        url: url.origin,
-                        username: ""
-                    };
+                    return { name: domainName, url: url.origin, username: "" };
                 } catch {
-                    return {
-                        name: domainName,
-                        url: "",
-                        username: ""
-                    };
+                    return { name: domainName, url: "", username: "" };
                 }
             }
-            return {
-                name: "未识别作者",
-                url: "",
-                username: ""
-            };
+            return { name: "未识别作者", url: "", username: "" };
         }
 
         function parseModuleMetadata(text, fallbackName, rawURL = "") {
@@ -988,19 +866,14 @@
                 }
             }
 
-            const tags = metadata.tag
-                ? metadata.tag.split(/[,，、]/).map(i => i.trim()).filter(Boolean)
-                : [];
-
             const declaredName = metadata.name || "";
             const resolvedName = declaredName || resolveFallbackName(fallbackName, rawURL);
 
             return {
                 name: resolvedName,
-                declaredName, // 模块头部/备注中显式声明的名字
+                declaredName,
                 description: metadata.desc || "",
-                icon: metadata.icon || "",
-                tags
+                icon: metadata.icon || ""
             };
         }
 
@@ -1039,7 +912,7 @@
         function resolveIconURL(icon, rawURL) {
             if (!icon) return "";
             icon = icon.trim();
-            if (isFlagKey("", icon)) return ""; // 避免使用国旗
+            if (isFlagKey("", icon)) return "";
             if (icon.startsWith("data:")) return icon;
             if (/^https?:\/\//i.test(icon)) return normalizeRawURL(icon);
             try { 
@@ -1069,81 +942,67 @@
                 const metadata = parseModuleMetadata(rawText, item.name, item.rawURL);
                 const description = generateDescription(metadata, rawText);
 
-                if (description && description.includes("已合并至")) {
-                    return null;
-                }
+                if (description && description.includes("已合并至")) return null;
                 
-                // 图标匹配优先级：
-                // 1. 模块本身指定的有效图标
                 let icon = resolveIconURL(metadata.icon, item.rawURL);
-                
-                // 2. 首选：使用模块备注/元数据中的名称匹配图标
                 if (!icon && metadata.declaredName) {
                     const matchedNameIcon = getMatchedIcon(metadata.declaredName);
                     if (matchedNameIcon) icon = resolveIconURL(matchedNameIcon, item.rawURL);
                 }
-                
-                // 3. 次选：使用文件名匹配图标
                 if (!icon) {
                     const fileName = getModuleNameFromURL(item.rawURL) || item.name;
                     const matchedFileIcon = getMatchedIcon(fileName);
                     if (matchedFileIcon) icon = resolveIconURL(matchedFileIcon, item.rawURL);
                 }
-                
-                // 4. 兜底尝试
                 if (!icon && metadata.name) {
                     const fallbackMatched = getMatchedIcon(metadata.name);
                     if (fallbackMatched) icon = resolveIconURL(fallbackMatched, item.rawURL);
                 }
 
-                // 判断是否包含 404: Not Found 或明确表示失效
                 const isDubious = isInvalidOr404(rawText) || isInvalidOr404(description);
-
                 let authorAvatar = urlAuthor.username
                     ? `https://github.com/${encodeURIComponent(urlAuthor.username)}.png?size=64`
                     : getRepositoryAvatar(item.rawURL);
+
+                const _searchKeywords = [metadata.name, description, urlAuthor.name, sourceInfo.name].join(" ").toLowerCase();
 
                 return {
                     name: metadata.name,
                     rawURL: item.rawURL,
                     description,
-                    author: urlAuthor, // 前台始终显示模块地址中的作者
+                    author: urlAuthor,
                     authorAvatar,
                     icon,
-                    tags: metadata.tags,
                     sourceName: sourceInfo.name,
                     sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL),
-                    isDubious
+                    isDubious,
+                    _searchKeywords
                 };
             } catch (error) {
                 const resolvedName = resolveFallbackName(item.name, item.rawURL);
                 const fallbackDescription = `${resolvedName || "该模块"}，适用于 Shadowrocket 的网络模块。`;
-                if (fallbackDescription.includes("已合并至")) {
-                    return null;
-                }
+                if (fallbackDescription.includes("已合并至")) return null;
 
                 const fallbackIconUrl = getMatchedIcon(resolvedName) ? resolveIconURL(getMatchedIcon(resolvedName), item.rawURL) : "";
+                const _searchKeywords = [resolvedName, fallbackDescription, urlAuthor.name, sourceInfo.name].join(" ").toLowerCase();
 
                 return {
                     name: resolvedName,
                     rawURL: item.rawURL,
                     description: fallbackDescription,
-                    author: urlAuthor, // 前台始终显示模块地址中的作者
+                    author: urlAuthor,
                     authorAvatar: getRepositoryAvatar(item.rawURL),
                     icon: fallbackIconUrl,
-                    tags: [],
                     sourceName: sourceInfo.name,
                     sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL),
-                    isDubious: true
+                    isDubious: true,
+                    _searchKeywords
                 };
             }
         }
 
-        /* =========================================================
-           流式渲染处理
-        ========================================================= */
         async function processModulesStream(items, onItemLoaded) {
             const results = new Array(items.length);
             let currentIndex = 0;
@@ -1163,7 +1022,7 @@
         }
 
         /* =========================================================
-           Render Functions
+           分批渲染与卡片创建
         ========================================================= */
         function renderAuthor(module) {
             const author = module.author || {};
@@ -1182,14 +1041,12 @@
             const fallbackIcon = createIOSAppIcon(module.name);
             const icon = module.icon || fallbackIcon;
             const authorHTML = renderAuthor(module);
-            const tags = Array.isArray(module.tags) ? module.tags : [];
-            const tagsHTML = tags.slice(0, 6).map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join("");
             
             const sourceInfo = getSourceRepoInfo(module.rawURL);
             const sourceName = module.sourceName || sourceInfo.name;
             const sourceURL = module.sourceURL || sourceInfo.url;
 
-            const statusTextVal = module.isDubious ? "该模块有效性存疑" : "已同步至最新版本";
+            const statusTextVal = module.isDubious ? "获取模块信息失败" : "已获取到最新版本";
             const statusClass = module.isDubious ? "status-badge-dubious" : "";
 
             card.innerHTML = `
@@ -1204,7 +1061,6 @@
                             <span class="meta-separator">·</span>
                             <span class="${statusClass}">${escapeHTML(statusTextVal)}</span>
                         </div>
-                        ${tagsHTML ? `<div class="tags">${tagsHTML}</div>` : ""}
                     </div>
                 </div>
                 <div class="module-description">${escapeHTML(module.description)}</div>
@@ -1233,40 +1089,64 @@
             return card;
         }
 
-        function renderModules(modules) {
+        function appendNextBatch() {
+            if (currentlyRendered >= filteredModules.length) return;
+            const fragment = document.createDocumentFragment();
+            const nextBatch = filteredModules.slice(currentlyRendered, currentlyRendered + CONFIG.PAGE_SIZE);
+            for (const module of nextBatch) {
+                if (module) fragment.appendChild(createModuleCard(module));
+            }
+            modulesContainer.appendChild(fragment);
+            currentlyRendered += nextBatch.length;
+        }
+
+        function renderFilteredList(list) {
+            filteredModules = list;
+            currentlyRendered = 0;
             modulesContainer.innerHTML = "";
-            if (!modules.length) {
+
+            if (!filteredModules.length) {
                 modulesContainer.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div>没有找到匹配的模块</div>`;
                 countText.textContent = "0 个模块";
                 return;
             }
-            const fragment = document.createDocumentFragment();
-            for (const module of modules) { if (module) fragment.appendChild(createModuleCard(module)); }
-            modulesContainer.appendChild(fragment);
-            countText.textContent = `${modules.length} 个模块`;
+
+            countText.textContent = `${filteredModules.length} 个模块`;
+            appendNextBatch();
         }
 
+        /* 触底自动追加 */
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                appendNextBatch();
+            }
+        }, { rootMargin: "300px" });
+        observer.observe(sentinel);
+
         /* =========================================================
-           Search & Filter
+           Search & Shortcuts
         ========================================================= */
         function filterModules() {
             const keyword = searchInput.value.trim().toLowerCase();
-            if (searchInput.value.length > 0) searchClear.classList.add("visible");
-            else searchClear.classList.remove("visible");
+            if (searchInput.value.length > 0) {
+                searchClear.classList.add("visible");
+                if (searchShortcut) searchShortcut.style.display = "none";
+            } else {
+                searchClear.classList.remove("visible");
+                if (searchShortcut) searchShortcut.style.display = "";
+            }
 
-            if (!keyword) { renderModules(allModules); return; }
+            let result = allModules;
+            if (keyword) {
+                result = result.filter(m => m._searchKeywords && m._searchKeywords.includes(keyword));
+            }
 
-            const filtered = allModules.filter(module => {
-                if (!module) return false;
-                const searchable = [ module.name, module.description, module.author?.name, module.sourceName, ...(module.tags || []) ].join(" ").toLowerCase();
-                return searchable.includes(keyword);
-            });
-            renderModules(filtered);
+            renderFilteredList(result);
         }
 
         searchInput.addEventListener("input", () => {
             clearTimeout(searchTimer);
-            searchTimer = setTimeout(filterModules, 150);
+            searchTimer = setTimeout(filterModules, 120);
         });
 
         searchClear.addEventListener("click", () => {
@@ -1275,8 +1155,20 @@
             searchInput.focus();
         });
 
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "/" && document.activeElement !== searchInput) {
+                e.preventDefault();
+                searchInput.focus();
+                searchInput.select();
+            } else if (e.key === "Escape" && document.activeElement === searchInput) {
+                searchInput.value = "";
+                searchInput.blur();
+                filterModules();
+            }
+        });
+
         /* =========================================================
-           Main Loader
+           主加载调度引擎
         ========================================================= */
         async function loadModules() {
             const cachedData = localStorage.getItem(CONFIG.CACHE_KEY);
@@ -1287,7 +1179,12 @@
             if (cachedData) {
                 try {
                     allModules = JSON.parse(cachedData);
-                    renderModules(allModules);
+                    allModules.forEach(m => {
+                        if (!m._searchKeywords) {
+                            m._searchKeywords = [m.name, m.description, m.author?.name, m.sourceName].join(" ").toLowerCase();
+                        }
+                    });
+                    renderFilteredList(allModules);
                     hasCache = true;
                     const isExpired = !cachedTime || (now - Number(cachedTime) > CONFIG.CACHE_EXPIRE);
                     if (!isExpired) {
@@ -1316,9 +1213,7 @@
                 } catch (e) {
                     try {
                         repoMarkdown = await fetchRawText(CONFIG.REPO_README_BACKUP, false);
-                    } catch (e2) {
-                        console.warn("本仓 README 拉取失败，仅同步社区资源");
-                    }
+                    } catch (e2) {}
                 }
 
                 const [fmzModules, zirawellModules] = await Promise.all([
@@ -1341,19 +1236,27 @@
                 let loadedCount = 0;
                 let isFirstStream = true;
 
-                const results = await processModulesStream(sourceModules, (moduleData, index) => {
+                const results = await processModulesStream(sourceModules, (moduleData) => {
                     if (!moduleData) return;
                     loadedCount++;
                     if (!hasCache && !searchInput.value.trim()) {
-                        if (isFirstStream) { modulesContainer.innerHTML = ""; isFirstStream = false; }
-                        modulesContainer.appendChild(createModuleCard(moduleData));
+                        if (isFirstStream) { 
+                            modulesContainer.innerHTML = ""; 
+                            isFirstStream = false; 
+                        }
+                        if (currentlyRendered < CONFIG.PAGE_SIZE) {
+                            modulesContainer.appendChild(createModuleCard(moduleData));
+                            currentlyRendered++;
+                        }
                         countText.textContent = `${loadedCount} 个模块`;
                         statusText.textContent = `加载中 (${loadedCount}/${sourceModules.length})...`;
                     }
                 });
 
                 allModules = results.filter(Boolean);
-                if (!searchInput.value.trim()) renderModules(allModules);
+                if (!searchInput.value.trim()) {
+                    renderFilteredList(allModules);
+                }
 
                 try {
                     localStorage.setItem(CONFIG.CACHE_KEY, JSON.stringify(allModules));
