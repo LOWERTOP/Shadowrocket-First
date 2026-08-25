@@ -17,7 +17,7 @@
         })();
     </script>
 
-    <!-- 2. 浏览器标签页 Icon (圆形外框同心火箭 Emoji) 与 iOS 桌面图标 -->
+    <!-- 2. 浏览器标签页 Icon 与 iOS 桌面图标 -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%234E60FF%22 stroke=%22rgba(255,255,255,0.3)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowMods.png">
 
@@ -205,7 +205,7 @@
             align-items: center; 
             height: 50px; 
             margin-bottom: 16px; 
-            padding: 0 20px 0 11px; /* 50px高度的圆心在25px，28px图标left 11px时中心严格在25px同心圆心 */
+            padding: 0 20px 0 11px; 
             background: var(--bg-card); 
             border: 1px solid var(--border-card);
             border-radius: var(--radius-pill); 
@@ -263,7 +263,6 @@
             width: 100%;
             height: 52px;
         }
-        /* 52px高度的左端圆心在26px，28px图标left:12px时中心严格在26px同心圆心 */
         .search-icon { 
             position: absolute; 
             left: 12px; 
@@ -309,7 +308,6 @@
         .search:disabled { cursor: not-allowed; opacity: 0.65; }
         .search:disabled::placeholder { color: var(--text-tertiary); }
         
-        /* 52px高度的右端圆心在距右边26px处，26px徽标right:13px时中心严格在26px同心圆心 */
         .search-shortcut { 
             position: absolute; 
             right: 13px; 
@@ -606,7 +604,7 @@
                 </div>
             </div>
             <div class="subtitle">
-                相关资源均来自于开源社区，本页仅提供索引服务，所有权利归原作者所有
+                相关资源均来源于开源社区，本页仅提供索引服务，所有权利归原作者所有
             </div>
         </header>
 
@@ -615,8 +613,8 @@
             <div class="notice-icon-box">🚀</div>
             <div class="notice-slider">
                 <div id="noticeTrack" class="notice-track">
-                    <div class="notice-item">资源已启用并发缓存与快速索引机制</div>
-                    <div class="notice-item">资源首次完整加载需要一定时间，请耐心等待</div>
+                    <div class="notice-item">已启用并发缓存与快速索引</div>
+                    <div class="notice-item">首次完整加载需要一定时间，请耐心等待</div>
                 </div>
             </div>
         </div>
@@ -650,7 +648,7 @@
         <div id="sentinel" class="sentinel"></div>
 
         <footer class="footer">
-            特别鸣谢开源社区创作者<br>
+            鸣谢所有开源社区作者<br>
             著作权归资源作者所有
         </footer>
     </div>
@@ -668,11 +666,13 @@
             ZIRAWELL_README_URL: "https://raw.githubusercontent.com/zirawell/R-Store/main/README.md",
             ZIRAWELL_JSDELIVR_API: "https://data.jsdelivr.com/v1/package/gh/zirawell/R-Store@main/flat",
             ZIRAWELL_TREE_API: "https://api.github.com/repos/zirawell/R-Store/git/trees/main?recursive=1",
-            ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json", 
+            ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json",
+            LUESTR_JSDELIVR_API: "https://data.jsdelivr.com/v1/package/gh/luestr/IconResource@main/flat",
+            LUESTR_TREE_API: "https://api.github.com/repos/luestr/IconResource/git/trees/main?recursive=1",
             CONCURRENCY: 12,
             PAGE_SIZE: 30,
-            CACHE_KEY: "sr_modules_data_v54", 
-            CACHE_TIME_KEY: "sr_modules_time_v54",
+            CACHE_KEY: "sr_modules_data_v55", 
+            CACHE_TIME_KEY: "sr_modules_time_v55",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -986,58 +986,108 @@
         }
 
         /* =========================================================
-           图标库抓取与匹配
+           多源图标库加载与智能索引 (fmz200 + luestr/IconResource)
         ========================================================= */
+        async function loadLuestrIcons() {
+            try {
+                const res = await fetchWithTimeout(CONFIG.LUESTR_JSDELIVR_API, { cache: "no-store" }, 6000);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && Array.isArray(data.files)) {
+                        for (const file of data.files) {
+                            const path = file.name || "";
+                            if (/\.(?:png|jpg|jpeg|svg|webp)$/i.test(path)) {
+                                const fileName = path.split("/").pop().replace(/\.(?:png|jpg|jpeg|svg|webp)$/i, "");
+                                const url = `https://raw.githubusercontent.com/luestr/IconResource/main${path}`;
+                                if (!isFlagKey(fileName, url)) {
+                                    const cleanName = fileName.trim().toLowerCase();
+                                    if (cleanName.length >= 2 && !remoteIconsMap[cleanName]) {
+                                        remoteIconsMap[cleanName] = url;
+                                    }
+                                }
+                            }
+                        }
+                        return;
+                    }
+                }
+            } catch (e) {}
+
+            try {
+                const res = await fetchWithTimeout(CONFIG.LUESTR_TREE_API, { cache: "no-store" }, 6000);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && Array.isArray(data.tree)) {
+                        for (const item of data.tree) {
+                            const path = item.path || "";
+                            if (item.type === "blob" && /\.(?:png|jpg|jpeg|svg|webp)$/i.test(path)) {
+                                const fileName = path.split("/").pop().replace(/\.(?:png|jpg|jpeg|svg|webp)$/i, "");
+                                const url = `https://raw.githubusercontent.com/luestr/IconResource/main/${path}`;
+                                if (!isFlagKey(fileName, url)) {
+                                    const cleanName = fileName.trim().toLowerCase();
+                                    if (cleanName.length >= 2 && !remoteIconsMap[cleanName]) {
+                                        remoteIconsMap[cleanName] = url;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (e2) {}
+        }
+
         async function loadRemoteIcons() {
             try {
                 const response = await fetchWithTimeout(CONFIG.ICONS_JSON_URL, { cache: "no-store" }, 6000);
-                if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
-                const data = await response.json();
-                
-                const extractUrl = (item) => {
-                    if (typeof item === 'string') return item;
-                    if (typeof item === 'object' && item !== null) {
-                        return item.icon || item.url || item.src || item.img || item.path || item.link || "";
-                    }
-                    return "";
-                };
-
-                const extractName = (item) => {
-                    if (typeof item === 'object' && item !== null) {
-                        return item.name || item.title || item.label || item.id || item.app || "";
-                    }
-                    return "";
-                };
-
-                const addMap = (name, url) => {
-                    if (name && typeof name === 'string' && url && typeof url === 'string' && url.length > 5) {
-                        if (isFlagKey(name, url)) return;
-
-                        const cleanName = name.trim().toLowerCase();
-                        if (cleanName.length < 2) return;
-
-                        remoteIconsMap[cleanName] = url.trim();
-
-                        const baseName = cleanName.replace(/[_-]?\d+$/, "").trim();
-                        if (baseName && baseName.length >= 2 && !remoteIconsMap[baseName]) {
-                            remoteIconsMap[baseName] = url.trim();
+                if (response.ok) {
+                    const data = await response.json();
+                    const extractUrl = (item) => {
+                        if (typeof item === 'string') return item;
+                        if (typeof item === 'object' && item !== null) {
+                            return item.icon || item.url || item.src || item.img || item.path || item.link || "";
                         }
-                    }
-                };
+                        return "";
+                    };
 
-                if (Array.isArray(data)) {
-                    data.forEach(item => addMap(extractName(item), extractUrl(item)));
-                } else if (data && typeof data === 'object') {
-                    const list = data.icons || data.data || data.list;
-                    if (Array.isArray(list)) {
-                        list.forEach(item => addMap(extractName(item), extractUrl(item)));
-                    } else {
-                        Object.entries(data).forEach(([k, v]) => addMap(k, extractUrl(v)));
+                    const extractName = (item) => {
+                        if (typeof item === 'object' && item !== null) {
+                            return item.name || item.title || item.label || item.id || item.app || "";
+                        }
+                        return "";
+                    };
+
+                    const addMap = (name, url) => {
+                        if (name && typeof name === 'string' && url && typeof url === 'string' && url.length > 5) {
+                            if (isFlagKey(name, url)) return;
+
+                            const cleanName = name.trim().toLowerCase();
+                            if (cleanName.length < 2) return;
+
+                            remoteIconsMap[cleanName] = url.trim();
+
+                            const baseName = cleanName.replace(/[_-]?\d+$/, "").trim();
+                            if (baseName && baseName.length >= 2 && !remoteIconsMap[baseName]) {
+                                remoteIconsMap[baseName] = url.trim();
+                            }
+                        }
+                    };
+
+                    if (Array.isArray(data)) {
+                        data.forEach(item => addMap(extractName(item), extractUrl(item)));
+                    } else if (data && typeof data === 'object') {
+                        const list = data.icons || data.data || data.list;
+                        if (Array.isArray(list)) {
+                            list.forEach(item => addMap(extractName(item), extractUrl(item)));
+                        } else {
+                            Object.entries(data).forEach(([k, v]) => addMap(k, extractUrl(v)));
+                        }
                     }
                 }
             } catch (e) {
-                console.warn("⚠️ 远程图标库加载失败：", e);
+                console.warn("⚠️ 默认图标库加载失败，尝试备用源：", e);
             }
+
+            // 载入 luestr/IconResource 补充图标库
+            await loadLuestrIcons();
         }
 
         function findIconInMap(key) {
@@ -1330,7 +1380,7 @@
                     return { name: domainName, url: "", username: "" };
                 }
             }
-            return { name: "未识别作者", url: "", username: "" };
+            return { name: "作者信息识别失败", url: "", username: "" };
         }
 
         function parseModuleMetadata(text, fallbackName, rawURL = "") {
@@ -1520,7 +1570,7 @@
             if (authorURL) {
                 return `<a class="author" href="${escapeHTML(authorURL)}" target="_blank" rel="noopener">${avatarHTML}${escapeHTML(author.name || author.username)}</a>`;
             }
-            return `<span class="author">${avatarHTML}${escapeHTML(author.name || "未识别作者")}</span>`;
+            return `<span class="author">${avatarHTML}${escapeHTML(author.name || "作者信息识别失败")}</span>`;
         }
 
         function createModuleCard(module) {
@@ -1534,7 +1584,7 @@
             const sourceName = module.sourceName || sourceInfo.name;
             const sourceURL = module.sourceURL || sourceInfo.url;
 
-            const statusTextVal = module.isDubious ? "未获取模块信息" : "已同步至最新版本";
+            const statusTextVal = module.isDubious ? "模块信息获取失败" : "已获取至最新版本";
             const statusClass = module.isDubious ? "status-badge-dubious" : "";
 
             card.innerHTML = `
@@ -1603,7 +1653,6 @@
             appendNextBatch();
         }
 
-        /* 触底自动追加 */
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 appendNextBatch();
