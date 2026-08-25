@@ -245,7 +245,7 @@
         .notice-item { height: 22px; line-height: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary); }
 
         /* =========================================================
-           Search Bar (修复垂直光标居中与移动端基线抖动)
+           Search Bar (修复首次点击光标偏上与基线跳动)
         ========================================================= */
         .search-wrapper { 
             position: sticky; 
@@ -286,8 +286,8 @@
             display: block; 
             width: 100%; 
             height: 52px; 
-            padding: 14px 54px 14px 52px; 
-            line-height: 24px;
+            padding: 0 54px 0 52px; 
+            line-height: normal; 
             font-size: 16px; 
             border: 1px solid var(--border-card); 
             outline: none; 
@@ -300,8 +300,20 @@
             appearance: none; 
             -webkit-appearance: none; 
         }
-        .search::-webkit-search-decoration, .search::-webkit-search-cancel-button, .search::-webkit-search-results-button, .search::-webkit-search-results-decoration { -webkit-appearance: none; display: none; }
-        .search::placeholder { color: var(--text-tertiary); font-weight: 400; transition: color 0.2s ease; }
+        .search::-webkit-search-decoration, 
+        .search::-webkit-search-cancel-button, 
+        .search::-webkit-search-results-button, 
+        .search::-webkit-search-results-decoration { 
+            -webkit-appearance: none; 
+            display: none; 
+        }
+        .search::placeholder { 
+            color: var(--text-tertiary); 
+            font-size: 16px;
+            font-weight: 400; 
+            line-height: normal;
+            transition: color 0.2s ease; 
+        }
         .search:focus { 
             border-color: var(--primary); 
             box-shadow: 0 0 0 4px var(--primary-soft), var(--card-shadow-hover); 
@@ -586,9 +598,7 @@
             .search-shortcut { display: none; }
             
             .search {
-                font-size: 16px;
-                line-height: 24px;
-                padding: 14px 46px 14px 48px;
+                padding: 0 46px 0 48px;
             }
         }
     </style>
