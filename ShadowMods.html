@@ -95,8 +95,14 @@
         .theme-toggle.active { color: var(--blue); box-shadow: inset 0 0 0 1.5px var(--blue); }
         .theme-toggle svg { display: block; width: 20px; height: 20px; pointer-events: none; }
         .subtitle { margin-top: 8px; color: var(--text-secondary); font-size: 15px; line-height: 1.5; }
-        .notice { display: flex; align-items: center; gap: 12px; min-height: 56px; margin-bottom: 16px; padding: 12px 18px; background: var(--card); border-radius: 16px; color: var(--text-primary); font-size: 14.5px; line-height: 1.4; box-shadow: inset 0 0 0 1px var(--border-subtle); }
-        .notice-icon { flex: 0 0 auto; font-size: 22px; }
+        
+        /* 轮播公告栏 */
+        .notice { display: flex; align-items: center; gap: 12px; height: 54px; margin-bottom: 16px; padding: 0 18px; background: var(--card); border-radius: 16px; color: var(--text-primary); font-size: 14.5px; box-shadow: inset 0 0 0 1px var(--border-subtle); overflow: hidden; }
+        .notice-icon { flex: 0 0 auto; font-size: 20px; line-height: 1; }
+        .notice-slider { flex: 1; height: 24px; overflow: hidden; position: relative; }
+        .notice-track { display: flex; flex-direction: column; transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1); }
+        .notice-item { height: 24px; line-height: 24px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
         .search-wrapper { position: relative; margin-bottom: 14px; }
         .search-icon { position: absolute; left: 18px; top: 50%; z-index: 1; transform: translateY(-50%); color: var(--text-secondary); font-size: 18px; line-height: 1; pointer-events: none; }
         .search { display: block; width: 100%; height: 54px; padding: 0 80px 0 50px; border: 0; outline: none; border-radius: 18px; background: var(--card); color: var(--text-primary); font-size: 14.5px; box-shadow: inset 0 0 0 1px var(--border-subtle); transition: background 0.2s ease, box-shadow 0.2s ease; appearance: none; -webkit-appearance: none; }
@@ -182,9 +188,15 @@
             </div>
         </header>
 
+        <!-- 多信息滚动公告栏 -->
         <div class="notice">
             <div class="notice-icon">🚀</div>
-            <div>资源已启用并发缓存与快速索引机制</div>
+            <div class="notice-slider">
+                <div id="noticeTrack" class="notice-track">
+                    <div class="notice-item">资源已启用并发缓存与快速索引机制</div>
+                    <div class="notice-item">资源首次完整加载需要一定时间，请耐心等待</div>
+                </div>
+            </div>
         </div>
 
         <div class="search-wrapper">
@@ -232,8 +244,8 @@
             ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json", 
             CONCURRENCY: 12,
             PAGE_SIZE: 30,
-            CACHE_KEY: "sr_modules_data_v44", 
-            CACHE_TIME_KEY: "sr_modules_time_v44",
+            CACHE_KEY: "sr_modules_data_v45", 
+            CACHE_TIME_KEY: "sr_modules_time_v45",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -303,6 +315,7 @@
         const countText = document.getElementById("countText");
         const toast = document.getElementById("toast");
         const sentinel = document.getElementById("sentinel");
+        const noticeTrack = document.getElementById("noticeTrack");
         
         const themeAutoBtn = document.getElementById("themeAuto");
         const themeToggleBtn = document.getElementById("themeToggle");
@@ -312,6 +325,18 @@
         let currentlyRendered = 0;
         let searchTimer = null;
         let remoteIconsMap = {};
+
+        /* =========================================================
+           公告栏滚动轮播
+        ========================================================= */
+        if (noticeTrack) {
+            let noticeIndex = 0;
+            const noticeCount = noticeTrack.children.length;
+            setInterval(() => {
+                noticeIndex = (noticeIndex + 1) % noticeCount;
+                noticeTrack.style.transform = `translateY(-${noticeIndex * 24}px)`;
+            }, 3800);
+        }
 
         /* =========================================================
            Theme Engine
@@ -1046,7 +1071,7 @@
             const sourceName = module.sourceName || sourceInfo.name;
             const sourceURL = module.sourceURL || sourceInfo.url;
 
-            const statusTextVal = module.isDubious ? "获取模块信息失败" : "已获取到最新版本";
+            const statusTextVal = module.isDubious ? "未获取模块信息" : "已同步至最新版本";
             const statusClass = module.isDubious ? "status-badge-dubious" : "";
 
             card.innerHTML = `
