@@ -215,8 +215,8 @@
             ZIRAWELL_DIR_API: "https://api.github.com/repos/zirawell/R-Store/contents/Rule/Surge",
             ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json", 
             CONCURRENCY: 12,
-            CACHE_KEY: "sr_modules_data_v26", // 升级缓存版本号排除已合并模块
-            CACHE_TIME_KEY: "sr_modules_time_v26",
+            CACHE_KEY: "sr_modules_data_v27", // 升级缓存版本号以应用动态来源仓库信息
+            CACHE_TIME_KEY: "sr_modules_time_v27",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -567,7 +567,7 @@
             return "";
         }
 
-        function parseMarkdown(markdown, defaultSource = "Shadowrocket 开源资源") {
+        function parseMarkdown(markdown) {
             const lines = markdown.split(/\r?\n/);
             let headerIndex = -1, surgeIndex = -1, nameIndex = -1;
 
@@ -599,7 +599,7 @@
                 
                 if (!rawURL || !/\.(?:sgmodule|module)(?:$|[?#])/i.test(rawURL) || result.some(item => item.rawURL === rawURL)) continue;
 
-                result.push({ name: name || "未命名模块", rawURL, sourceName: defaultSource });
+                result.push({ name: name || "未命名模块", rawURL });
             }
             return result;
         }
@@ -607,20 +607,16 @@
         /* =========================================================
            Parse Shadowrocket-First 全局文件
         ========================================================= */
-        function parseRepositoryModules(markdown, defaultSource = "Shadowrocket 开源资源") {
+        function parseRepositoryModules(markdown) {
             if (!markdown) return [];
 
             const result = [];
 
             if (markdown.includes("|")) {
-                const tableModules = parseMarkdown(markdown, defaultSource);
+                const tableModules = parseMarkdown(markdown);
                 tableModules.forEach(item => {
                     if (/\.(?:sgmodule|module)(?:$|[?#])/i.test(item.rawURL)) {
-                        result.push({
-                            ...item,
-                            sourceType: defaultSource === "R-Store" ? "r-store" : "local",
-                            sourceName: defaultSource
-                        });
+                        result.push(item);
                     }
                 });
             }
@@ -659,9 +655,7 @@
 
                     result.push({
                         name: currentHeading || "未命名模块",
-                        rawURL,
-                        sourceType: defaultSource === "R-Store" ? "r-store" : "local",
-                        sourceName: defaultSource
+                        rawURL
                     });
                 }
             }
@@ -684,7 +678,7 @@
             // 1. 尝试从 R-Store 根目录 README 解析
             try {
                 const readme = await fetchRawText(CONFIG.ZIRAWELL_README_URL, false);
-                const fromReadme = parseRepositoryModules(readme, "R-Store");
+                const fromReadme = parseRepositoryModules(readme);
                 fromReadme.forEach(m => modules.push(m));
             } catch (e) {}
 
@@ -701,9 +695,7 @@
                                 const rawURL = `https://raw.githubusercontent.com/zirawell/R-Store/main${path}`;
                                 modules.push({
                                     name: fileName,
-                                    rawURL,
-                                    sourceType: "r-store",
-                                    sourceName: "R-Store"
+                                    rawURL
                                 });
                             }
                         }
@@ -721,9 +713,7 @@
                                     const fileName = file.name.replace(/\.(?:sgmodule|module)$/i, "");
                                     modules.push({
                                         name: fileName,
-                                        rawURL,
-                                        sourceType: "r-store",
-                                        sourceName: "R-Store"
+                                        rawURL
                                     });
                                 }
                             }
@@ -736,34 +726,68 @@
         }
 
         /* =========================================================
-           Parse Metadata & Author
+           Parse Metadata, Author & Source Repository
         ========================================================= */
-        function getAuthorFromURL(rawURL) {
-            if (!rawURL) return null;
+        function parseGitHubRawURL(rawURL) {
             try {
                 const url = new URL(rawURL);
                 if (url.hostname === "raw.githubusercontent.com" || url.hostname === "github.com") {
                     const parts = url.pathname.split("/").filter(Boolean);
-                    if (parts.length >= 1) {
-                        const username = parts[0];
-                        return {
-                            name: username,
-                            url: `https://github.com/${encodeURIComponent(username)}`,
-                            username: username
-                        };
-                    }
-                } else if (url.hostname.includes("jsdelivr.net")) {
-                    const match = url.pathname.match(/\/gh\/([^/@]+)/i);
-                    if (match) {
-                        const username = match[1];
-                        return {
-                            name: username,
-                            url: `https://github.com/${encodeURIComponent(username)}`,
-                            username: username
+                    if (parts.length >= 2) {
+                        return { 
+                            owner: parts[0], 
+                            repo: parts[1], 
+                            fullName: `${parts[0]}/${parts[1]}`, 
+                            url: `https://github.com/${parts[0]}/${parts[1]}` 
                         };
                     }
                 }
-            } catch (e) {}
+                if (url.hostname.includes("jsdelivr.net")) {
+                    const match = url.pathname.match(/\/gh\/([^/@]+)\/([^/@]+)/i);
+                    if (match) {
+                        return { 
+                            owner: match[1], 
+                            repo: match[2], 
+                            fullName: `${match[1]}/${match[2]}`, 
+                            url: `https://github.com/${match[1]}/${match[2]}` 
+                        };
+                    }
+                }
+            } catch { return null; }
+            return null;
+        }
+
+        function getSourceRepoInfo(rawURL) {
+            const githubInfo = parseGitHubRawURL(rawURL);
+            if (githubInfo) {
+                return {
+                    name: githubInfo.fullName,
+                    url: githubInfo.url
+                };
+            }
+            try {
+                const url = new URL(rawURL);
+                return {
+                    name: url.hostname,
+                    url: url.origin
+                };
+            } catch {
+                return {
+                    name: "开源仓库",
+                    url: "#"
+                };
+            }
+        }
+
+        function getAuthorFromURL(rawURL) {
+            const info = parseGitHubRawURL(rawURL);
+            if (info) {
+                return {
+                    name: info.owner,
+                    url: `https://github.com/${encodeURIComponent(info.owner)}`,
+                    username: info.owner
+                };
+            }
             return null;
         }
 
@@ -775,7 +799,7 @@
                 const github = fallbackURL.match(/github\.com\/([^/?#]+)/i);
                 return github
                     ? { name: github[1], url: `https://github.com/${github[1]}`, username: github[1] }
-                    : { name: "未知作者", url: "", username: "" };
+                    : { name: "未识别作者", url: "", username: "" };
             }
 
             const bracket = value.match(/^(.*?)\s*[\[\(]\s*(https?:\/\/[^\]\)]+)\s*[\]\)]\s*$/);
@@ -877,16 +901,6 @@
             return `${metadata.name}，适用于 Shadowrocket 的网络模块。`;
         }
 
-        function parseGitHubRawURL(rawURL) {
-            try {
-                const url = new URL(rawURL);
-                if (url.hostname !== "raw.githubusercontent.com") return null;
-                const parts = url.pathname.split("/").filter(Boolean);
-                if (parts.length < 4) return null;
-                return { owner: parts[0], repo: parts[1], branch: parts[2], path: parts.slice(3).join("/") };
-            } catch { return null; }
-        }
-
         function hashString(value) {
             let hash = 0;
             for (let i = 0; i < value.length; i++) hash = ((hash << 5) - hash + value.charCodeAt(i)) | 0;
@@ -920,9 +934,10 @@
         }
 
         /* =========================================================
-           Fetch Single Module (排除“已合并至” & 优先使用资源地址作者)
+           Fetch Single Module (排除“已合并至” & 关联来源仓库)
         ========================================================= */
         async function fetchModule(item) {
+            const sourceInfo = getSourceRepoInfo(item.rawURL);
             try {
                 const rawText = await fetchRawText(item.rawURL, true);
                 const metadata = parseModuleMetadata(rawText, item.name);
@@ -947,7 +962,7 @@
                 }
 
                 if (!author || !author.name) {
-                    author = { name: "未知作者", url: "", username: "" };
+                    author = { name: "未识别作者", url: "", username: "" };
                 }
 
                 let authorAvatar = author.username
@@ -962,8 +977,8 @@
                     authorAvatar,
                     icon,
                     tags: metadata.tags,
-                    sourceType: item.sourceType || "community",
-                    sourceName: item.sourceName || "Shadowrocket 开源资源",
+                    sourceName: sourceInfo.name,
+                    sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL)
                 };
             } catch (error) {
@@ -979,12 +994,12 @@
                     name: item.name || "未命名模块",
                     rawURL: item.rawURL,
                     description: fallbackDescription,
-                    author: urlAuthor || { name: "未知作者", url: "", username: "" },
+                    author: urlAuthor || { name: "未识别作者", url: "", username: "" },
                     authorAvatar: getRepositoryAvatar(item.rawURL),
                     icon: fallbackIconUrl,
                     tags: [],
-                    sourceType: item.sourceType || "community",
-                    sourceName: item.sourceName || "Shadowrocket 开源资源",
+                    sourceName: sourceInfo.name,
+                    sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL)
                 };
             }
@@ -1022,13 +1037,7 @@
             if (authorURL) {
                 return `<a class="author" href="${escapeHTML(authorURL)}" target="_blank" rel="noopener">${avatarHTML}${escapeHTML(author.name || author.username)}</a>`;
             }
-            return `<span class="author">${avatarHTML}${escapeHTML(author.name || "未知作者")}</span>`;
-        }
-
-        function getSourceRepoURL(module) {
-            if (module.sourceType === "local") return "https://github.com/LOWERTOP/Shadowrocket-First";
-            if (module.sourceType === "r-store" || module.sourceName === "R-Store") return "https://github.com/zirawell/R-Store";
-            return "https://github.com/fmz200/wool_scripts";
+            return `<span class="author">${avatarHTML}${escapeHTML(author.name || "未识别作者")}</span>`;
         }
 
         function createModuleCard(module) {
@@ -1039,6 +1048,10 @@
             const authorHTML = renderAuthor(module);
             const tags = Array.isArray(module.tags) ? module.tags : [];
             const tagsHTML = tags.slice(0, 6).map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join("");
+            
+            const sourceInfo = getSourceRepoInfo(module.rawURL);
+            const sourceName = module.sourceName || sourceInfo.name;
+            const sourceURL = module.sourceURL || sourceInfo.url;
 
             card.innerHTML = `
                 <div class="card-header">
@@ -1059,7 +1072,7 @@
                 <div class="card-bottom">
                     <div class="source">
                         <div class="source-icon">🚀</div>
-                        <div class="source-text">${module.sourceName ? `<a href="${escapeHTML(getSourceRepoURL(module))}" target="_blank" rel="noopener">${escapeHTML(module.sourceName)}</a>` : "Shadowrocket 开源资源"}</div>
+                        <div class="source-text"><a href="${escapeHTML(sourceURL)}" target="_blank" rel="noopener">${escapeHTML(sourceName)}</a></div>
                     </div>
                     <div class="action-buttons">
                         <button class="button button-secondary copy-btn" data-url="${escapeHTML(module.rawURL)}">复制链接</button>
@@ -1106,7 +1119,7 @@
 
             const filtered = allModules.filter(module => {
                 if (!module) return false;
-                const searchable = [ module.name, module.description, module.author?.name, ...(module.tags || []) ].join(" ").toLowerCase();
+                const searchable = [ module.name, module.description, module.author?.name, module.sourceName, ...(module.tags || []) ].join(" ").toLowerCase();
                 return searchable.includes(keyword);
             });
             renderModules(filtered);
@@ -1175,11 +1188,7 @@
                     loadRemoteIcons()
                 ]);
 
-                const communityModules = parseMarkdown(markdown).map(item => ({
-                    ...item,
-                    sourceType: "community",
-                    sourceName: "Shadowrocket 开源资源"
-                }));
+                const communityModules = parseMarkdown(markdown);
                 const localModules = parseRepositoryModules(repoMarkdown);
 
                 const seenURLs = new Set();
