@@ -166,10 +166,7 @@
                 </div>
             </div>
             <div class="subtitle">
-                本页仅提供开源资源的索引服务，所有权利归原作者所有。特别鸣谢 
-                <a href="https://github.com/fmz200" target="_blank" rel="noopener">
-                    <strong>奶思</strong>
-                </a>
+                相关资源均来自于开源社区，本页仅提供索引服务，所有权利归原作者所有
             </div>
         </header>
 
@@ -199,7 +196,7 @@
         </main>
 
         <footer class="footer">
-            特别鸣谢：<a href="https://github.com/fmz200" target="_blank" rel="noopener">奶思</a><br>
+            特别鸣谢开源社区创作者<br>
             著作权归资源作者所有
         </footer>
     </div>
@@ -213,10 +210,13 @@
             README_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/README-RULE.md",
             REPO_README_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/README.md",
             REPO_README_BACKUP: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/README.md",
+            ZIRAWELL_README_URL: "https://raw.githubusercontent.com/zirawell/R-Store/main/README.md",
+            ZIRAWELL_JSDELIVR_API: "https://data.jsdelivr.com/v1/package/gh/zirawell/R-Store@main/flat",
+            ZIRAWELL_DIR_API: "https://api.github.com/repos/zirawell/R-Store/contents/Rule/Surge",
             ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json", 
             CONCURRENCY: 12,
-            CACHE_KEY: "sr_modules_data_v24", // 升级缓存版本号刷新作者数据
-            CACHE_TIME_KEY: "sr_modules_time_v24",
+            CACHE_KEY: "sr_modules_data_v25", // 升级缓存版本号加载 R-Store 资源
+            CACHE_TIME_KEY: "sr_modules_time_v25",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -567,7 +567,7 @@
             return "";
         }
 
-        function parseMarkdown(markdown) {
+        function parseMarkdown(markdown, defaultSource = "Shadowrocket 开源资源") {
             const lines = markdown.split(/\r?\n/);
             let headerIndex = -1, surgeIndex = -1, nameIndex = -1;
 
@@ -599,34 +599,32 @@
                 
                 if (!rawURL || !/\.(?:sgmodule|module)(?:$|[?#])/i.test(rawURL) || result.some(item => item.rawURL === rawURL)) continue;
 
-                result.push({ name: name || "未命名模块", rawURL });
+                result.push({ name: name || "未命名模块", rawURL, sourceName: defaultSource });
             }
             return result;
         }
 
         /* =========================================================
-           Parse Shadowrocket-First 全局文件（全文档检索 & 仅保留模块直链）
+           Parse Shadowrocket-First 全局文件
         ========================================================= */
-        function parseRepositoryModules(markdown) {
+        function parseRepositoryModules(markdown, defaultSource = "Shadowrocket 开源资源") {
             if (!markdown) return [];
 
             const result = [];
 
-            // 1. 若 Markdown 包含表格，解析全表模块
             if (markdown.includes("|")) {
-                const tableModules = parseMarkdown(markdown);
+                const tableModules = parseMarkdown(markdown, defaultSource);
                 tableModules.forEach(item => {
                     if (/\.(?:sgmodule|module)(?:$|[?#])/i.test(item.rawURL)) {
                         result.push({
                             ...item,
-                            sourceType: "local",
-                            sourceName: "Shadowrocket 开源资源"
+                            sourceType: defaultSource === "R-Store" ? "r-store" : "local",
+                            sourceName: defaultSource
                         });
                     }
                 });
             }
 
-            // 2. 遍历整个 Markdown 文档，按行提取标题与模块直链
             let currentHeading = "";
             const lines = markdown.split(/\r?\n/);
 
@@ -662,8 +660,8 @@
                     result.push({
                         name: currentHeading || "未命名模块",
                         rawURL,
-                        sourceType: "local",
-                        sourceName: "Shadowrocket 开源资源"
+                        sourceType: defaultSource === "R-Store" ? "r-store" : "local",
+                        sourceName: defaultSource
                     });
                 }
             }
@@ -675,6 +673,66 @@
                 seen.add(key);
                 return true;
             });
+        }
+
+        /* =========================================================
+           Fetch Zirawell R-Store 仓库模块
+        ========================================================= */
+        async function fetchZirawellModules() {
+            const modules = [];
+
+            // 1. 尝试从 R-Store 根目录 README 解析
+            try {
+                const readme = await fetchRawText(CONFIG.ZIRAWELL_README_URL, false);
+                const fromReadme = parseRepositoryModules(readme, "R-Store");
+                fromReadme.forEach(m => modules.push(m));
+            } catch (e) {}
+
+            // 2. 利用 jsDelivr 树目录 API（免鉴权且无频次限制）检索 Rule/Surge 目录下的模块直链
+            try {
+                const res = await fetch(CONFIG.ZIRAWELL_JSDELIVR_API, { cache: "no-store" });
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && Array.isArray(data.files)) {
+                        for (const file of data.files) {
+                            const path = file.name || "";
+                            if (path.startsWith("/Rule/Surge/") && /\.(?:sgmodule|module)$/i.test(path)) {
+                                const fileName = path.split("/").pop().replace(/\.(?:sgmodule|module)$/i, "");
+                                const rawURL = `https://raw.githubusercontent.com/zirawell/R-Store/main${path}`;
+                                modules.push({
+                                    name: fileName,
+                                    rawURL,
+                                    sourceType: "r-store",
+                                    sourceName: "R-Store"
+                                });
+                            }
+                        }
+                    }
+                }
+            } catch (e) {
+                // 3. 备用通过 GitHub 官方目录 API 获取
+                try {
+                    const res = await fetch(CONFIG.ZIRAWELL_DIR_API, { cache: "no-store" });
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (Array.isArray(data)) {
+                            for (const file of data) {
+                                if (file.type === "file" && /\.(?:sgmodule|module)$/i.test(file.name)) {
+                                    const fileName = file.name.replace(/\.(?:sgmodule|module)$/i, "");
+                                    modules.push({
+                                        name: fileName,
+                                        rawURL: file.download_url || `https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/${file.name}`,
+                                        sourceType: "r-store",
+                                        sourceName: "R-Store"
+                                    });
+                                }
+                            }
+                        }
+                    }
+                } catch (e2) {}
+            }
+
+            return modules;
         }
 
         /* =========================================================
@@ -877,11 +935,9 @@
 
                 const description = generateDescription(metadata, rawText);
 
-                // 优先将资源地址中的作者作为首选作者
                 const urlAuthor = getAuthorFromURL(item.rawURL);
                 let author = urlAuthor;
 
-                // 若 URL 未解析出作者，再回退读取模块内注释或元数据作者
                 if (!author) {
                     author = extractAuthorFromModuleText(rawText) || metadata.author;
                 }
@@ -960,6 +1016,12 @@
             return `<span class="author">${avatarHTML}${escapeHTML(author.name || "未知作者")}</span>`;
         }
 
+        function getSourceRepoURL(module) {
+            if (module.sourceType === "local") return "https://github.com/LOWERTOP/Shadowrocket-First";
+            if (module.sourceType === "r-store" || module.sourceName === "R-Store") return "https://github.com/zirawell/R-Store";
+            return "https://github.com/fmz200/wool_scripts";
+        }
+
         function createModuleCard(module) {
             const card = document.createElement("article");
             card.className = "module-card";
@@ -988,7 +1050,7 @@
                 <div class="card-bottom">
                     <div class="source">
                         <div class="source-icon">🚀</div>
-                        <div class="source-text">${module.sourceName ? `<a href="${escapeHTML(module.sourceType === "local" ? "https://github.com/LOWERTOP/Shadowrocket-First" : "https://github.com/fmz200/wool_scripts")}" target="_blank" rel="noopener">${escapeHTML(module.sourceName)}</a>` : "Shadowrocket 开源资源"}</div>
+                        <div class="source-text">${module.sourceName ? `<a href="${escapeHTML(getSourceRepoURL(module))}" target="_blank" rel="noopener">${escapeHTML(module.sourceName)}</a>` : "Shadowrocket 开源资源"}</div>
                     </div>
                     <div class="action-buttons">
                         <button class="button button-secondary copy-btn" data-url="${escapeHTML(module.rawURL)}">复制链接</button>
@@ -1098,8 +1160,9 @@
                     }
                 }
 
-                const [markdown] = await Promise.all([
+                const [markdown, zirawellModules] = await Promise.all([
                     fetchRawText(CONFIG.README_URL, false),
+                    fetchZirawellModules(),
                     loadRemoteIcons()
                 ]);
 
@@ -1111,9 +1174,9 @@
                 const localModules = parseRepositoryModules(repoMarkdown);
 
                 const seenURLs = new Set();
-                const sourceModules = [...localModules, ...communityModules].filter(item => {
-                    if (!item.rawURL || seenURLs.has(item.rawURL)) return false;
-                    seenURLs.add(item.rawURL);
+                const sourceModules = [...localModules, ...zirawellModules, ...communityModules].filter(item => {
+                    if (!item.rawURL || !/\.(?:sgmodule|module)(?:$|[?#])/i.test(item.rawURL) || seenURLs.has(item.rawURL.toLowerCase())) return false;
+                    seenURLs.add(item.rawURL.toLowerCase());
                     return true;
                 });
 
