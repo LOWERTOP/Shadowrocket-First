@@ -1092,7 +1092,7 @@
             const sourceName = module.sourceName || sourceInfo.name;
             const sourceURL = module.sourceURL || sourceInfo.url;
 
-            const statusTextVal = module.isDubious ? "未获取模块信息" : "已同步至最新版本";
+            const statusTextVal = module.isDubious ? "模块信息获取失败" : "已获取到最新版本";
             const statusClass = module.isDubious ? "status-badge-dubious" : "";
 
             card.innerHTML = `
