@@ -166,7 +166,7 @@
                 </div>
             </div>
             <div class="subtitle">
-                本页仅提供开源资源的索引服务，所有权利归原作者所有。特别鸣谢：
+                本页仅提供开源资源的索引服务，所有权利归原作者所有。特别鸣谢 
                 <a href="https://github.com/fmz200" target="_blank" rel="noopener">
                     <strong>奶思</strong>
                 </a>
@@ -215,8 +215,8 @@
             REPO_README_BACKUP: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/README.md",
             ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json", 
             CONCURRENCY: 12,
-            CACHE_KEY: "sr_modules_data_v22", // 升级缓存号强制清理非模块坏数据
-            CACHE_TIME_KEY: "sr_modules_time_v22",
+            CACHE_KEY: "sr_modules_data_v24", // 升级缓存版本号刷新作者数据
+            CACHE_TIME_KEY: "sr_modules_time_v24",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -510,7 +510,6 @@
             if (!url) return "";
             let value = url.trim().replace(/^<|>$/g, "").replace(/&amp;/g, "&");
 
-            // 彻底去除 redirect.html 等跳转地址包裹，直接解出原生直链
             if (value.includes("url=")) {
                 const match = value.match(/url=([^&]+)/i);
                 if (match) {
@@ -560,7 +559,6 @@
             if (urlMatches) {
                 for (const u of urlMatches) {
                     const clean = normalizeRawURL(u);
-                    // 严格限制：只保留 .sgmodule / .module
                     if (/\.(?:sgmodule|module)(?:$|[?#])/i.test(clean)) {
                         return clean;
                     }
@@ -599,7 +597,6 @@
                 name = name.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/`/g, "").replace(/<br\s*\/?>/gi, " ").replace(/\s+/g, " ").trim();
                 const rawURL = findModuleRawURL(columns[surgeIndex]);
                 
-                // 仅保留模块文件，过滤规则集等其他非模块文件
                 if (!rawURL || !/\.(?:sgmodule|module)(?:$|[?#])/i.test(rawURL) || result.some(item => item.rawURL === rawURL)) continue;
 
                 result.push({ name: name || "未命名模块", rawURL });
@@ -608,26 +605,16 @@
         }
 
         /* =========================================================
-           Parse Shadowrocket-First 本仓文件（仅保留模块 & 提取直链）
+           Parse Shadowrocket-First 全局文件（全文档检索 & 仅保留模块直链）
         ========================================================= */
         function parseRepositoryModules(markdown) {
             if (!markdown) return [];
 
-            const startMatch = markdown.match(/^#{1,6}[^\n]*?(?:本仓|Shadowrocket-First)[^\n]*/im);
-            let section = markdown;
-
-            if (startMatch) {
-                const startIndex = startMatch.index;
-                const rest = markdown.slice(startIndex);
-                const communityMatch = rest.match(/^#{1,6}[^\n]*?社区[^\n]*/im);
-                section = communityMatch ? rest.slice(0, communityMatch.index) : rest;
-            }
-
             const result = [];
 
-            // 1. 若为 Markdown 表格，提取其中的模块直链
-            if (section.includes("|")) {
-                const tableModules = parseMarkdown(section);
+            // 1. 若 Markdown 包含表格，解析全表模块
+            if (markdown.includes("|")) {
+                const tableModules = parseMarkdown(markdown);
                 tableModules.forEach(item => {
                     if (/\.(?:sgmodule|module)(?:$|[?#])/i.test(item.rawURL)) {
                         result.push({
@@ -639,9 +626,9 @@
                 });
             }
 
-            // 2. 按行提取模块直链（剔除各类规则集与跳转地址）
+            // 2. 遍历整个 Markdown 文档，按行提取标题与模块直链
             let currentHeading = "";
-            const lines = section.split(/\r?\n/);
+            const lines = markdown.split(/\r?\n/);
 
             for (const rawLine of lines) {
                 const line = rawLine.trim();
@@ -651,7 +638,7 @@
                 if (headingMatch) {
                     const rawTitle = (headingMatch[1] || headingMatch[2] || headingMatch[3] || "").trim();
                     const cleanTitle = cleanText(rawTitle.replace(/[*`_#]/g, "").replace(/^[🚀📁📦\s]+/, ""));
-                    if (cleanTitle && cleanTitle.length >= 2 && !cleanTitle.includes("本仓文件")) {
+                    if (cleanTitle && cleanTitle.length >= 2) {
                         currentHeading = cleanTitle;
                     }
                 }
@@ -665,7 +652,6 @@
                     } catch (e) { break; }
                 }
 
-                // 仅匹配 .sgmodule 和 .module 结尾的模块直链
                 const rawRegex = /(https?:\/\/[^\s)\]"'<>]+?\.(?:sgmodule|module)(?:[^\s)\]"'<>]*)?)/ig;
                 let match;
                 while ((match = rawRegex.exec(decodedLine)) !== null) {
@@ -674,7 +660,7 @@
                     if (!rawURL || !/\.(?:sgmodule|module)(?:$|[?#])/i.test(rawURL)) continue;
 
                     result.push({
-                        name: currentHeading || "未命名本仓模块",
+                        name: currentHeading || "未命名模块",
                         rawURL,
                         sourceType: "local",
                         sourceName: "Shadowrocket 开源资源"
@@ -694,6 +680,35 @@
         /* =========================================================
            Parse Metadata & Author
         ========================================================= */
+        function getAuthorFromURL(rawURL) {
+            if (!rawURL) return null;
+            try {
+                const url = new URL(rawURL);
+                if (url.hostname === "raw.githubusercontent.com" || url.hostname === "github.com") {
+                    const parts = url.pathname.split("/").filter(Boolean);
+                    if (parts.length >= 1) {
+                        const username = parts[0];
+                        return {
+                            name: username,
+                            url: `https://github.com/${encodeURIComponent(username)}`,
+                            username: username
+                        };
+                    }
+                } else if (url.hostname.includes("jsdelivr.net")) {
+                    const match = url.pathname.match(/\/gh\/([^/@]+)/i);
+                    if (match) {
+                        const username = match[1];
+                        return {
+                            name: username,
+                            url: `https://github.com/${encodeURIComponent(username)}`,
+                            username: username
+                        };
+                    }
+                }
+            } catch (e) {}
+            return null;
+        }
+
         function parseAuthor(value, fallbackURL = "") {
             value = cleanText(value);
             fallbackURL = cleanText(fallbackURL);
@@ -837,7 +852,6 @@
             try { return new URL(icon, rawURL).href; } catch { return ""; }
         }
 
-        // 原生直接拉起小火箭安装直链，无任何中间跳转页面
         function createInstallURL(rawURL) { 
             return "shadowrocket://install?module=" + encodeURIComponent(rawURL); 
         }
@@ -848,7 +862,7 @@
         }
 
         /* =========================================================
-           Fetch Single Module
+           Fetch Single Module (优先使用资源地址作者)
         ========================================================= */
         async function fetchModule(item) {
             try {
@@ -863,16 +877,17 @@
 
                 const description = generateDescription(metadata, rawText);
 
-                let author = metadata.author;
-                const textAuthor = extractAuthorFromModuleText(rawText);
-                if (textAuthor) author = textAuthor;
+                // 优先将资源地址中的作者作为首选作者
+                const urlAuthor = getAuthorFromURL(item.rawURL);
+                let author = urlAuthor;
 
-                if (!author.url && item.sourceType === "local") {
-                    author = parseAuthor(author.name, item.rawURL);
+                // 若 URL 未解析出作者，再回退读取模块内注释或元数据作者
+                if (!author) {
+                    author = extractAuthorFromModuleText(rawText) || metadata.author;
                 }
 
-                if (author.name === "奶思" && !author.url) {
-                    author = { name: "奶思", url: "https://github.com/fmz200", username: "fmz200" };
+                if (!author || !author.name) {
+                    author = { name: "未知作者", url: "", username: "" };
                 }
 
                 let authorAvatar = author.username
@@ -893,12 +908,13 @@
                 };
             } catch (error) {
                 const fallbackIconUrl = getMatchedIcon(item.name) ? resolveIconURL(getMatchedIcon(item.name), item.rawURL) : "";
+                const urlAuthor = getAuthorFromURL(item.rawURL);
 
                 return {
                     name: item.name || "未命名模块",
                     rawURL: item.rawURL,
                     description: `${item.name || "该模块"}，适用于 Shadowrocket 的网络模块。`,
-                    author: { name: "未知作者", url: "", username: "" },
+                    author: urlAuthor || { name: "未知作者", url: "", username: "" },
                     authorAvatar: getRepositoryAvatar(item.rawURL),
                     icon: fallbackIconUrl,
                     tags: [],
