@@ -79,7 +79,17 @@
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html { margin: 0; padding: 0; background: var(--background); transition: background-color 0.25s ease; }
+        
+        /* 锁定垂直滚动条槽位，防止搜索过滤时页面左右晃动 */
+        html { 
+            margin: 0; 
+            padding: 0; 
+            background: var(--background); 
+            transition: background-color 0.25s ease;
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
+        }
+        
         body { margin: 0; padding: max(16px, env(safe-area-inset-top)) 16px max(32px, env(safe-area-inset-bottom)); background: var(--background); color: var(--text-primary); font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; transition: background-color 0.25s ease, color 0.25s ease; }
         button, input { font: inherit; }
         a { color: inherit; }
@@ -116,10 +126,13 @@
             transition: background-color 0.25s ease;
         }
         .search-icon { position: absolute; left: 18px; top: 50%; z-index: 1; transform: translateY(-50%); color: var(--text-secondary); font-size: 18px; line-height: 1; pointer-events: none; }
-        .search { display: block; width: 100%; height: 54px; padding: 0 80px 0 50px; border: 0; outline: none; border-radius: 18px; background: var(--card); color: var(--text-primary); font-size: 16px; box-shadow: inset 0 0 0 1px var(--border-subtle); transition: background 0.2s ease, box-shadow 0.2s ease; appearance: none; -webkit-appearance: none; }
+        .search { display: block; width: 100%; height: 54px; padding: 0 80px 0 50px; border: 0; outline: none; border-radius: 18px; background: var(--card); color: var(--text-primary); font-size: 16px; box-shadow: inset 0 0 0 1px var(--border-subtle); transition: background 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease; appearance: none; -webkit-appearance: none; }
         .search::-webkit-search-decoration, .search::-webkit-search-cancel-button, .search::-webkit-search-results-button, .search::-webkit-search-results-decoration { -webkit-appearance: none; display: none; }
-        .search::placeholder { color: var(--text-secondary); }
+        .search::placeholder { color: var(--text-secondary); transition: color 0.2s ease; }
         .search:focus { box-shadow: inset 0 0 0 1.5px var(--blue); }
+        .search:disabled { cursor: not-allowed; opacity: 0.65; background: var(--card); }
+        .search:disabled::placeholder { color: var(--text-tertiary); }
+        
         .search-shortcut { position: absolute; right: 44px; top: 50%; transform: translateY(-50%); padding: 3px 6px; border-radius: 6px; background: var(--card-secondary); color: var(--text-tertiary); font-size: 11px; font-weight: 600; pointer-events: none; transition: opacity 0.15s ease; }
         .search-clear { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); display: none; align-items: center; justify-content: center; width: 24px; height: 24px; border: 0; border-radius: 50%; background: var(--text-tertiary); color: var(--background); font-size: 13px; font-weight: bold; cursor: pointer; padding: 0; line-height: 1; transition: opacity 0.15s ease; }
         .search-clear.visible { display: flex; }
@@ -213,7 +226,7 @@
         <!-- 下拉时吸顶常驻的搜索框 -->
         <div class="search-wrapper">
             <div class="search-icon">🔍</div>
-            <input id="search" class="search" type="search" placeholder="输入关键字快捷搜索..." autocomplete="off" spellcheck="false">
+            <input id="search" class="search" type="search" placeholder="请在加载完成后执行搜索..." autocomplete="off" spellcheck="false" disabled>
             <span class="search-shortcut">/</span>
             <button id="searchClear" class="search-clear" title="清空搜索">✕</button>
         </div>
@@ -256,8 +269,8 @@
             ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json", 
             CONCURRENCY: 12,
             PAGE_SIZE: 30,
-            CACHE_KEY: "sr_modules_data_v48", 
-            CACHE_TIME_KEY: "sr_modules_time_v48",
+            CACHE_KEY: "sr_modules_data_v50", 
+            CACHE_TIME_KEY: "sr_modules_time_v50",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -338,6 +351,22 @@
         let currentlyRendered = 0;
         let searchTimer = null;
         let remoteIconsMap = {};
+
+        /* =========================================================
+           搜索框状态控制 (加载中禁用 / 完成后恢复)
+        ========================================================= */
+        function setSearchState(enabled) {
+            if (enabled) {
+                searchInput.disabled = false;
+                searchInput.placeholder = "输入关键字快捷搜索...";
+                if (searchShortcut) searchShortcut.style.opacity = "1";
+            } else {
+                searchInput.disabled = true;
+                searchInput.placeholder = "请在加载完成后执行搜索...";
+                if (searchShortcut) searchShortcut.style.opacity = "0.35";
+                searchClear.classList.remove("visible");
+            }
+        }
 
         /* =========================================================
            公告栏循环轮播 & 点击循环切换
@@ -1213,6 +1242,7 @@
 
         window.addEventListener("keydown", (e) => {
             if (e.key === "/" && document.activeElement !== searchInput) {
+                if (searchInput.disabled) return;
                 e.preventDefault();
                 searchInput.focus();
                 searchInput.select();
@@ -1242,6 +1272,8 @@
                     });
                     renderFilteredList(allModules);
                     hasCache = true;
+                    setSearchState(true);
+                    
                     const isExpired = !cachedTime || (now - Number(cachedTime) > CONFIG.CACHE_EXPIRE);
                     if (!isExpired) {
                         statusText.textContent = "已同步";
@@ -1259,6 +1291,7 @@
 
             try {
                 if (!hasCache) {
+                    setSearchState(false);
                     statusText.textContent = "正在读取模块及图标库...";
                     statusDot.className = "status-dot loading";
                 }
@@ -1310,6 +1343,10 @@
                 });
 
                 allModules = results.filter(Boolean);
+                
+                // 加载全部完成，解除搜索框锁定
+                setSearchState(true);
+
                 if (!searchInput.value.trim()) {
                     renderFilteredList(allModules);
                 }
@@ -1325,6 +1362,7 @@
             } catch (error) {
                 console.error("模块同步失败：", error);
                 if (!hasCache) {
+                    setSearchState(false);
                     statusText.textContent = "同步失败";
                     statusDot.className = "status-dot error";
                     countText.textContent = "";
@@ -1335,6 +1373,7 @@
                             <div class="empty-error">${escapeHTML(error.message || "请检查网络连接")}</div>
                         </div>`;
                 } else {
+                    setSearchState(true);
                     statusText.textContent = "已同步";
                     statusDot.className = "status-dot";
                 }
