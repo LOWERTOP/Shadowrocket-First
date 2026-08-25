@@ -245,7 +245,7 @@
         .notice-item { height: 22px; line-height: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary); }
 
         /* =========================================================
-           Search Bar (修复首次点击光标偏上与基线跳动)
+           Search Bar (Flex 容器外壳方案：彻底锁死光标居中)
         ========================================================= */
         .search-wrapper { 
             position: sticky; 
@@ -262,15 +262,24 @@
             position: relative;
             width: 100%;
             height: 52px;
+            display: flex;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-pill);
+            box-shadow: var(--card-shadow);
+            padding: 0 13px 0 12px;
+            transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: text;
+        }
+        .search-box-inner:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-soft), var(--card-shadow-hover);
         }
         .search-icon { 
-            position: absolute; 
-            left: 12px; 
-            top: 50%; 
-            z-index: 2; 
-            transform: translateY(-50%); 
             width: 28px;
             height: 28px;
+            flex: 0 0 28px;
             border-radius: 50%;
             background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
@@ -281,24 +290,23 @@
             line-height: 1; 
             pointer-events: none; 
             box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            margin-right: 10px;
         }
         .search { 
-            display: block; 
-            width: 100%; 
-            height: 52px; 
-            padding: 0 54px 0 52px; 
-            line-height: normal; 
-            font-size: 16px; 
-            border: 1px solid var(--border-card); 
-            outline: none; 
-            border-radius: var(--radius-pill); 
-            background: var(--bg-card); 
-            color: var(--text-primary); 
+            flex: 1;
+            min-width: 0;
+            height: 24px;
+            line-height: 24px;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            outline: none;
+            background: transparent;
+            color: var(--text-primary);
+            font-size: 16px;
             font-weight: 500;
-            box-shadow: var(--card-shadow); 
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); 
-            appearance: none; 
-            -webkit-appearance: none; 
+            appearance: none;
+            -webkit-appearance: none;
         }
         .search::-webkit-search-decoration, 
         .search::-webkit-search-cancel-button, 
@@ -311,23 +319,20 @@
             color: var(--text-tertiary); 
             font-size: 16px;
             font-weight: 400; 
-            line-height: normal;
-            transition: color 0.2s ease; 
+            line-height: 24px;
         }
-        .search:focus { 
-            border-color: var(--primary); 
-            box-shadow: 0 0 0 4px var(--primary-soft), var(--card-shadow-hover); 
+        .search:disabled { 
+            cursor: not-allowed; 
+            opacity: 0.65; 
         }
-        .search:disabled { cursor: not-allowed; opacity: 0.65; }
-        .search:disabled::placeholder { color: var(--text-tertiary); }
+        .search:disabled::placeholder { 
+            color: var(--text-tertiary); 
+        }
         
         .search-shortcut { 
-            position: absolute; 
-            right: 13px; 
-            top: 50%; 
-            transform: translateY(-50%); 
             width: 26px;
             height: 26px;
+            flex: 0 0 26px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -338,18 +343,16 @@
             font-weight: 700; 
             border: 1px solid var(--border-subtle);
             pointer-events: none; 
+            margin-left: 8px;
             transition: opacity 0.15s ease; 
         }
         .search-clear { 
-            position: absolute; 
-            right: 13px; 
-            top: 50%; 
-            transform: translateY(-50%); 
             display: none; 
             align-items: center; 
             justify-content: center; 
             width: 26px; 
             height: 26px; 
+            flex: 0 0 26px;
             border: 0; 
             border-radius: 50%; 
             background: var(--bg-surface); 
@@ -359,6 +362,7 @@
             cursor: pointer; 
             padding: 0; 
             line-height: 1; 
+            margin-left: 8px;
             transition: all 0.15s ease; 
         }
         .search-clear:hover { background: var(--border-card); color: var(--text-primary); }
@@ -596,10 +600,6 @@
             .module-name { font-size: 17.5px; }
             .button { height: 36px; padding: 0 14px; font-size: 13.5px; }
             .search-shortcut { display: none; }
-            
-            .search {
-                padding: 0 46px 0 48px;
-            }
         }
     </style>
 </head>
@@ -636,11 +636,11 @@
             </div>
         </div>
 
-        <!-- 两端全圆角吸顶搜索框 (同心圆两侧完全对称 + 圆形外框搜索 Emoji) -->
+        <!-- 两端全圆角吸顶搜索框 (基于 Flex 容器定位，光标全场景绝对居中) -->
         <div class="search-wrapper">
             <div class="search-box-inner">
                 <div class="search-icon">🔍</div>
-                <input id="search" class="search" type="search" placeholder="请在加载完成后执行搜索..." autocomplete="off" spellcheck="false" disabled>
+                <input id="search" class="search" type="text" inputmode="search" placeholder="请在加载完成后执行搜索..." autocomplete="off" spellcheck="false" disabled>
                 <span class="search-shortcut">/</span>
                 <button id="searchClear" class="search-clear" title="清空搜索">✕</button>
             </div>
@@ -688,8 +688,8 @@
             LUESTR_TREE_API: "https://api.github.com/repos/luestr/IconResource/git/trees/main?recursive=1",
             CONCURRENCY: 12,
             PAGE_SIZE: 30,
-            CACHE_KEY: "sr_modules_data_v56", 
-            CACHE_TIME_KEY: "sr_modules_time_v56",
+            CACHE_KEY: "sr_modules_data_v57", 
+            CACHE_TIME_KEY: "sr_modules_time_v57",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
