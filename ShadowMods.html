@@ -8,7 +8,7 @@
     <!-- PWA 独立应用模式与动态状态栏颜色支持 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="theme-color" content="#f0f2f5">
+    <meta name="theme-color" content="#ffffff">
     
     <title>ShadowStore</title>
 
@@ -19,7 +19,7 @@
             const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
             const theme = saved === "dark" || saved === "light" ? saved : (prefersDark ? "dark" : "light");
             document.documentElement.setAttribute("data-theme", theme);
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#14161a' : '#f0f2f5');
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#14161a' : '#ffffff');
         })();
     </script>
 
@@ -32,12 +32,12 @@
 
     <style>
         /* =========================================================
-           Design Tokens (高光更锐利，阴影范围与扩散减小)
+           Design Tokens (浅色模式顶部聚光与主题色完美衔接)
         ========================================================= */
         :root, [data-theme="light"] {
-            /* 聚光灯底色：光源在右上角 (90% 10%)[cite: 2] */
+            /* 聚光灯底色：光源在顶部正中心 (50% 0%)，顶部边缘为纯白以完美匹配灵动岛 */
             --bg-page-base: #f0f2f5;
-            --bg-page-grad: radial-gradient(circle at 90% 10%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
+            --bg-page-grad: radial-gradient(circle at 50% 0%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
             
             /* 玻璃通透渐变：225deg 表示从右上到左下[cite: 2] */
             --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
@@ -53,17 +53,12 @@
                核心大体块阴影重构：锐利高光、收敛范围与减小扩散
             ============================================== */
             --shadow-glass-lg: 
-                /* 更锐利的边缘内高光 */
                 inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
-                
-                /* 焦散光斑（同步缩小范围与扩散） */
                 -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
                 -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
                 -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
                 -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
-                
-                /* 缩小的阴影范围与扩散效果 */
                 -1px 4px 6px rgba(0, 0, 0, 0.12),        
                 -8px 18px 22px -4px rgba(0, 0, 0, 0.10), 
                 -35px 65px 75px -15px rgba(0, 0, 0, 0.2);
@@ -589,7 +584,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)[cite: 2]
         ========================================================= */
-        const CACHE_VERSION = "20260826_1953"; 
+        const CACHE_VERSION = "20260826_1959"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -735,7 +730,7 @@
             
             const themeColorMeta = document.querySelector('meta[name="theme-color"]');
             if (themeColorMeta) {
-                themeColorMeta.setAttribute("content", currentTheme === "dark" ? "#14161a" : "#f0f2f5");
+                themeColorMeta.setAttribute("content", currentTheme === "dark" ? "#14161a" : "#ffffff");
             }
 
             if (isAutoMode) {
