@@ -511,8 +511,8 @@
             align-items: center; 
             justify-content: space-between; 
             gap: 12px; 
-            margin-top: 18px; 
-            padding-top: 14px;
+            margin-top: 24px; 
+            padding-top: 24px; 
             border-top: 1px solid var(--border-card);
         }
         .source { 
@@ -528,13 +528,13 @@
             display: inline-flex; 
             align-items: center; 
             justify-content: center; 
-            width: 32px; 
-            height: 32px; 
-            flex: 0 0 32px; 
+            width: 38px; 
+            height: 38px; 
+            flex: 0 0 38px; 
             border-radius: 50%; 
             background: var(--bg-surface); 
             border: 1px solid var(--border-subtle);
-            font-size: 14px; 
+            font-size: 16px; 
             line-height: 1;
         }
         .source-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -624,7 +624,9 @@
             .module-card { padding: 20px 18px; border-radius: 24px; }
             .module-icon { width: 56px; height: 56px; flex-basis: 56px; }
             .module-name { font-size: 17.5px; }
+            .card-bottom { margin-top: 20px; padding-top: 20px; }
             .button { height: 36px; padding: 0 14px; font-size: 13.5px; }
+            .source-icon { width: 36px; height: 36px; flex-basis: 36px; font-size: 15px; }
             .search-shortcut { display: none; }
         }
     </style>
@@ -642,7 +644,7 @@
                     </h1>
                 </div>
                 <div class="theme-controls">
-                    <!-- 新增：强制刷新按钮 -->
+                    <!-- 强制刷新按钮 -->
                     <button id="refreshCacheBtn" class="theme-toggle" aria-label="强制刷新缓存" title="强制拉取最新数据"></button>
                     <button id="themeAuto" class="theme-toggle" aria-label="自动跟随系统"></button>
                     <button id="themeToggle" class="theme-toggle" aria-label="手动切换模式"></button>
@@ -659,6 +661,7 @@
             <div class="notice-slider">
                 <div id="noticeTrack" class="notice-track">
                     <div class="notice-item">已启用并发缓存与快速索引</div>
+                    <div class="notice-item">资源均直接引用自原始地址</div>
                     <div class="notice-item">首次完整加载需要一定时间，请耐心等待</div>
                 </div>
             </div>
@@ -869,17 +872,14 @@
         });
         
         refreshCacheBtn.addEventListener("click", async () => {
-            // 防抖：正在加载时阻止重复请求
             if (statusDot.classList.contains("loading")) {
                 showToast("正在拉取数据中，请稍候...");
                 return;
             }
             
-            // 清理本地缓存
             localStorage.removeItem(CONFIG.CACHE_KEY);
             localStorage.removeItem(CONFIG.CACHE_TIME_KEY);
             
-            // UI 回归骨架屏初始状态
             searchInput.value = "";
             setSearchState(false);
             countText.textContent = "";
@@ -891,7 +891,6 @@
             
             showToast("正在强制拉取最新数据...");
             
-            // 重新调用加载入口并等待执行结束
             await loadModules();
             showToast("模块数据已刷新");
         });
