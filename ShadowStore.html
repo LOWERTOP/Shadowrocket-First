@@ -541,6 +541,9 @@
         .source-text a { color: inherit; transition: color 0.15s ease; }
         .source-text a:hover { color: var(--primary); text-decoration: underline; }
         
+        /* 来源名称响应式切换 */
+        .source-mobile { display: none; }
+        
         .action-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         .button { 
             display: inline-flex; 
@@ -628,6 +631,10 @@
             .button { height: 36px; padding: 0 14px; font-size: 13.5px; }
             .source-icon { width: 36px; height: 36px; flex-basis: 36px; font-size: 15px; }
             .search-shortcut { display: none; }
+            
+            /* 手机端隐藏全称，显示仓库简称 */
+            .source-desktop { display: none; }
+            .source-mobile { display: inline; }
         }
     </style>
 </head>
@@ -716,8 +723,8 @@
             LUESTR_TREE_API: "https://api.github.com/repos/luestr/IconResource/git/trees/main?recursive=1",
             CONCURRENCY: 8,
             PAGE_SIZE: 30,
-            CACHE_KEY: "sr_modules_data_v3", 
-            CACHE_TIME_KEY: "sr_modules_time_v3",
+            CACHE_KEY: "sr_modules_data_v4", 
+            CACHE_TIME_KEY: "sr_modules_time_v4",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -1336,24 +1343,19 @@
                         return { owner: parts[0], repo: parts[1], fullName: `${parts[0]}/${parts[1]}`, url: `https://github.com/${parts[0]}/${parts[1]}` };
                     }
                 }
-                if (url.hostname.includes("jsdelivr.net")) {
-                    const match = url.pathname.match(/\/gh\/([^/@]+)\/([^/@]+)/i);
-                    if (match) {
-                        return { owner: match[1], repo: match[2], fullName: `${match[1]}/${match[2]}`, url: `https://github.com/${match[1]}/${match[2]}` };
-                    }
-                }
             } catch { return null; }
             return null;
         }
 
         function getSourceRepoInfo(rawURL) {
             const githubInfo = parseGitHubRawURL(rawURL);
-            if (githubInfo) return { name: githubInfo.fullName, url: githubInfo.url };
+            /* 获取数据层分离: name 保持全称，shortName 取仓库缩写 */
+            if (githubInfo) return { name: githubInfo.fullName, shortName: githubInfo.repo, url: githubInfo.url };
             try {
                 const url = new URL(rawURL);
-                return { name: url.hostname, url: url.origin };
+                return { name: url.hostname, shortName: url.hostname, url: url.origin };
             } catch {
-                return { name: "开源仓库", url: "#" };
+                return { name: "开源仓库", shortName: "开源仓库", url: "#" };
             }
         }
 
@@ -1501,6 +1503,7 @@
                     authorAvatar,
                     icon,
                     sourceName: sourceInfo.name,
+                    sourceShortName: sourceInfo.shortName,
                     sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL),
                     isDubious,
@@ -1522,6 +1525,7 @@
                     authorAvatar: getRepositoryAvatar(item.rawURL),
                     icon: fallbackIconUrl,
                     sourceName: sourceInfo.name,
+                    sourceShortName: sourceInfo.shortName,
                     sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL),
                     isDubious: true,
@@ -1569,8 +1573,10 @@
             const icon = module.icon || fallbackIcon;
             const authorHTML = renderAuthor(module);
             
+            // 为了兼容旧缓存，如果缺失 sourceShortName 则重新解析一次
             const sourceInfo = getSourceRepoInfo(module.rawURL);
             const sourceName = module.sourceName || sourceInfo.name;
+            const sourceShortName = module.sourceShortName || sourceInfo.shortName || sourceName;
             const sourceURL = module.sourceURL || sourceInfo.url;
 
             const statusTextVal = module.isDubious ? "模块信息获取失败" : "已获取至最新版本";
@@ -1594,7 +1600,12 @@
                 <div class="card-bottom">
                     <div class="source">
                         <div class="source-icon">🚀</div>
-                        <div class="source-text"><a href="${escapeHTML(sourceURL)}" target="_blank" rel="noopener">${escapeHTML(sourceName)}</a></div>
+                        <div class="source-text">
+                            <a href="${escapeHTML(sourceURL)}" target="_blank" rel="noopener">
+                                <span class="source-desktop">${escapeHTML(sourceName)}</span>
+                                <span class="source-mobile">${escapeHTML(sourceShortName)}</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="action-buttons">
                         <button class="button button-secondary copy-btn" data-url="${escapeHTML(module.rawURL)}">复制链接</button>
