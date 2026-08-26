@@ -32,7 +32,7 @@
 
     <style>
         /* =========================================================
-           Design Tokens (浅色模式焦散适度增强，暗色模式无焦散)
+           Design Tokens (高光更锐利，阴影范围与扩散减小)
         ========================================================= */
         :root, [data-theme="light"] {
             /* 聚光灯底色：光源在右上角 (90% 10%)[cite: 2] */
@@ -50,39 +50,44 @@
             --glass-border-l: rgba(255, 255, 255, 0.1);
 
             /* ==============================================
-               核心大体块阴影重构：浅色模式焦散光斑
+               核心大体块阴影重构：锐利高光、收敛范围与减小扩散
             ============================================== */
             --shadow-glass-lg: 
-                inset -1.5px 1.5px 0px rgba(255, 255, 255, 1),
-                inset 1px -1px 3px rgba(0, 0, 0, 0.04),
-                -3.3px 9.5px 6px -4px rgba(255, 255, 255, 0.33),
-                -1.8px 11px 8px -4.5px rgba(255, 255, 255, 0.3),
-                -4.8px 14px 10px -5.5px rgba(255, 255, 255, 0.25),
-                -2.5px 16px 12px -5px rgba(255, 255, 255, 0.17),
-                -2px 8px 10px rgba(0, 0, 0, 0.15),        
-                -15px 35px 45px -5px rgba(0, 0, 0, 0.12), 
-                -80px 140px 160px -20px rgba(0, 0, 0, 0.25);
+                /* 更锐利的边缘内高光 */
+                inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
+                
+                /* 焦散光斑（同步缩小范围与扩散） */
+                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
+                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
+                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
+                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
+                
+                /* 缩小的阴影范围与扩散效果 */
+                -1px 4px 6px rgba(0, 0, 0, 0.12),        
+                -8px 18px 22px -4px rgba(0, 0, 0, 0.10), 
+                -35px 65px 75px -15px rgba(0, 0, 0, 0.2);
 
             --shadow-glass-lg-hover: 
-                inset -1.5px 1.5px 0px rgba(255, 255, 255, 1),
-                inset 1px -1px 3px rgba(0, 0, 0, 0.05),
-                -4px 11.5px 7px -4.5px rgba(255, 255, 255, 0.33),
-                -2.2px 13.5px 9.5px -5px rgba(255, 255, 255, 0.3),
-                -5.8px 17px 12px -6px rgba(255, 255, 255, 0.25),
-                -3px 19.5px 14px -5.5px rgba(255, 255, 255, 0.18),
-                -4px 12px 16px rgba(0, 0, 0, 0.15),
-                -20px 45px 55px -5px rgba(0, 0, 0, 0.12),
-                -90px 160px 180px -20px rgba(0, 0, 0, 0.3);
+                inset -1px 1px 0.5px rgba(255, 255, 255, 1),
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
+                -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
+                -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
+                -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
+                -2.2px 14px 10px -4px rgba(255, 255, 255, 0.18),
+                -1.5px 6px 8px rgba(0, 0, 0, 0.12),
+                -10px 20px 25px -4px rgba(0, 0, 0, 0.10),
+                -40px 70px 80px -15px rgba(0, 0, 0, 0.25);
 
             --shadow-glass-sm: 
-                inset -1px 1px 0px rgba(255, 255, 255, 1),
-                inset 1px -1px 2px rgba(0, 0, 0, 0.04),
-                -2px 5.5px 4px -3px rgba(255, 255, 255, 0.33),
-                -1px 7px 5.5px -3.5px rgba(255, 255, 255, 0.28),
-                -3px 8.5px 6.5px -4px rgba(255, 255, 255, 0.22),
-                -1px 4px 6px rgba(0, 0, 0, 0.12),
-                -8px 15px 20px -3px rgba(0, 0, 0, 0.08),
-                -30px 60px 70px -10px rgba(0, 0, 0, 0.18);
+                inset -0.5px 0.5px 0.5px rgba(255, 255, 255, 0.9),
+                inset 0.5px -0.5px 1.5px rgba(0, 0, 0, 0.04),
+                -1.5px 4px 3px -2px rgba(255, 255, 255, 0.33),
+                -0.8px 5px 4px -2.5px rgba(255, 255, 255, 0.28),
+                -2.2px 6px 5px -3px rgba(255, 255, 255, 0.22),
+                -0.8px 3px 4px rgba(0, 0, 0, 0.10),
+                -5px 10px 12px -3px rgba(0, 0, 0, 0.08),
+                -15px 30px 35px -10px rgba(0, 0, 0, 0.15);
 
             /* 全局文字明度调和[cite: 2] */
             --text-primary: #4a4f59;
@@ -120,21 +125,20 @@
             --glass-border-b: transparent;
             --glass-border-l: transparent;
 
-            /* 暗色模式纯阴影（已完全移除焦散光斑效果）[cite: 2] */
+            /* 暗色模式收敛阴影范围与扩散 */
             --shadow-glass-lg: 
-                -2px 8px 10px rgba(0, 0, 0, 0.6),
-                -15px 35px 45px -5px rgba(0, 0, 0, 0.4),
-                -80px 140px 160px -20px rgba(0, 0, 0, 0.95);
+                -1px 4px 6px rgba(0, 0, 0, 0.5),
+                -8px 18px 22px -4px rgba(0, 0, 0, 0.35),
+                -35px 65px 75px -15px rgba(0, 0, 0, 0.8);
 
             --shadow-glass-lg-hover: 
-                -4px 12px 16px rgba(0, 0, 0, 0.7),
-                -20px 45px 55px -5px rgba(0, 0, 0, 0.5),
-                -90px 160px 180px -20px rgba(0, 0, 0, 1);
+                -1.5px 6px 8px rgba(0, 0, 0, 0.6),
+                -10px 22px 28px -4px rgba(0, 0, 0, 0.45),
+                -40px 70px 80px -15px rgba(0, 0, 0, 0.9);
 
             --shadow-glass-sm: 
-                -1px 4px 6px rgba(0, 0, 0, 0.5),
-                -8px 15px 20px -3px rgba(0, 0, 0, 0.4),
-                -30px 60px 70px -10px rgba(0, 0, 0, 0.85);
+                -0.8px 3px 4px rgba(0, 0, 0, 0.4),
+                -5px 10px 12px -3px rgba(0, 0, 0, 0.3);
 
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
@@ -585,7 +589,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)[cite: 2]
         ========================================================= */
-        const CACHE_VERSION = "20260826_1943"; 
+        const CACHE_VERSION = "20260826_1953"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
