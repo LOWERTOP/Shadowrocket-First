@@ -4,16 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <!-- PWA 独立应用模式与动态状态栏颜色支持 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="theme-color" content="#F4F7FC">
+    
     <title>ShadowStore</title>
 
-    <!-- 1. 防主题闪烁 (FOUC) 极简同步初始化 -->
+    <!-- 1. 防主题闪烁 (FOUC) 极简同步初始化及状态栏颜色预设 -->
     <script>
         (function() {
             const saved = localStorage.getItem("sr_theme_override");
             const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
             const theme = saved === "dark" || saved === "light" ? saved : (prefersDark ? "dark" : "light");
             document.documentElement.setAttribute("data-theme", theme);
+            // 首次加载时同步 iOS 状态栏颜色
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0E101B' : '#F4F7FC');
         })();
     </script>
 
@@ -715,7 +722,7 @@
            - CACHE_VERSION: 日期+时间戳版本号
            - 修改此常量会触发全局用户的强制更新并清理旧缓存
         ========================================================= */
-        const CACHE_VERSION = "20260826_1245"; 
+        const CACHE_VERSION = "20260826_1430"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -870,6 +877,13 @@
             const isAutoMode = !userChoice;
             const currentTheme = getEffectiveTheme();
             document.documentElement.setAttribute("data-theme", currentTheme);
+            
+            // 动态同步 iOS 状态栏/灵动岛颜色
+            const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+            if (themeColorMeta) {
+                themeColorMeta.setAttribute("content", currentTheme === "dark" ? "#0E101B" : "#F4F7FC");
+            }
+
             if (isAutoMode) {
                 themeAutoBtn.classList.add("active");
                 themeAutoBtn.setAttribute("title", "已开启：自动跟随系统");
