@@ -67,7 +67,7 @@
             --border-card: rgba(228, 233, 243, 0.8);
             --border-subtle: rgba(0, 0, 0, 0.06);
 
-            --radius-card: 28px;
+            --radius-card: 44px; /* 同心圆基准外圆角 */
             --radius-pill: 9999px;
 
             --toast-bg: rgba(23, 26, 38, 0.9);
@@ -103,7 +103,7 @@
             --border-card: rgba(255, 255, 255, 0.06);
             --border-subtle: rgba(255, 255, 255, 0.08);
 
-            --radius-card: 28px;
+            --radius-card: 44px; /* 同心圆基准外圆角 */
             --radius-pill: 9999px;
 
             --toast-bg: rgba(255, 255, 255, 0.95);
@@ -139,7 +139,8 @@
         /* =========================================================
            Header
         ========================================================= */
-        .header { padding: 24px 4px 18px; }
+        /* 移除左右 padding 以保证右上角按钮组与下方组件严格右对齐 */
+        .header { padding: 24px 0 18px; }
         .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
         
         .brand-wrapper { display: flex; align-items: center; gap: 10px; }
@@ -183,12 +184,12 @@
             display: inline-flex; 
             align-items: center; 
             justify-content: center; 
-            width: 42px; 
-            height: 42px; 
+            width: 44px; /* 同心基准 */
+            height: 44px; 
             padding: 0; 
             margin: 0; 
             border: 1px solid var(--border-card); 
-            border-radius: 50%; 
+            border-radius: 50%; /* 半径22px */
             background: var(--bg-card); 
             color: var(--text-secondary); 
             cursor: pointer; 
@@ -220,12 +221,13 @@
             position: relative;
             display: flex; 
             align-items: center; 
-            height: 50px; 
+            height: 44px; /* 同心基准外圈 */
             margin-bottom: 16px; 
-            padding: 0 20px 0 11px; 
+            padding: 6px 14px 6px 6px; /* 同心边距 */
+            gap: 10px; /* 元素间距 */
             background: var(--bg-card); 
             border: 1px solid var(--border-card);
-            border-radius: var(--radius-pill); 
+            border-radius: 22px; /* 等同基准半径 */
             color: var(--text-primary); 
             font-size: 13.5px; 
             font-weight: 500;
@@ -242,19 +244,18 @@
         .notice:active { transform: scale(0.99); }
         
         .notice-icon-box { 
-            width: 28px;
-            height: 28px;
-            flex: 0 0 28px; 
-            border-radius: 50%; 
+            width: 32px; /* 同心基准内圈 (22-6)*2 */
+            height: 32px;
+            flex: 0 0 32px; 
+            border-radius: 50%; /* 半径16px */
             background: var(--primary-soft);
             border: 1px solid var(--primary-soft-border);
             color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1;
-            margin-right: 12px;
             box-shadow: 0 2px 6px rgba(78, 96, 255, 0.12);
         }
         .notice-slider { flex: 1; height: 22px; overflow: hidden; position: relative; pointer-events: none; }
@@ -280,14 +281,15 @@
         .search-box-inner {
             position: relative;
             width: 100%;
-            height: 52px;
+            height: 44px; /* 同心基准外圈 */
             display: flex;
             align-items: center;
+            gap: 8px; /* 元素间距 */
             background: var(--bg-card);
             border: 1px solid var(--border-card);
-            border-radius: var(--radius-pill);
+            border-radius: 22px; /* 等同基准半径 */
             box-shadow: var(--card-shadow);
-            padding: 0 13px 0 12px;
+            padding: 6px; /* 同心边距 */
             cursor: text;
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
@@ -298,9 +300,9 @@
             box-shadow: 0 0 0 4px var(--primary-soft), var(--card-shadow-hover);
         }
         .search-icon { 
-            width: 28px;
-            height: 28px;
-            flex: 0 0 28px;
+            width: 32px; /* 同心基准内圈 */
+            height: 32px;
+            flex: 0 0 32px;
             border-radius: 50%;
             background: var(--bg-surface);
             border: 1px solid var(--border-subtle);
@@ -311,15 +313,14 @@
             line-height: 1; 
             pointer-events: none; 
             box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-            margin-right: 10px;
         }
         .search { 
             display: block;
             width: 100%;
             flex: 1;
             min-width: 0;
-            height: 28px;
-            line-height: 28px;
+            height: 32px; /* 匹配同心内圈高度 */
+            line-height: 32px;
             padding: 0;
             margin: 0;
             border: 0;
@@ -345,14 +346,14 @@
             color: var(--text-tertiary); 
             font-size: 16px;
             font-weight: 400; 
-            line-height: 28px;
+            line-height: 32px;
             vertical-align: middle;
         }
         .search::placeholder { 
             color: var(--text-tertiary); 
             font-size: 16px;
             font-weight: 400; 
-            line-height: 28px;
+            line-height: 32px;
         }
         .search:disabled { 
             cursor: not-allowed; 
@@ -362,41 +363,30 @@
             color: var(--text-tertiary); 
         }
         
-        .search-shortcut { 
-            width: 26px;
-            height: 26px;
-            flex: 0 0 26px;
+        .search-shortcut, .search-clear { 
+            width: 32px; /* 同心内圈高度 */
+            height: 32px;
+            flex: 0 0 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             background: var(--bg-surface); 
-            color: var(--text-tertiary); 
+            border: 1px solid var(--border-subtle);
             font-size: 12px; 
             font-weight: 700; 
-            border: 1px solid var(--border-subtle);
+            line-height: 1; 
+            transition: all 0.15s ease; 
+        }
+        .search-shortcut { 
+            color: var(--text-tertiary); 
             pointer-events: none; 
-            margin-left: 8px;
-            transition: opacity 0.15s ease; 
         }
         .search-clear { 
             display: none; 
-            align-items: center; 
-            justify-content: center; 
-            width: 26px; 
-            height: 26px; 
-            flex: 0 0 26px;
-            border: 0; 
-            border-radius: 50%; 
-            background: var(--bg-surface); 
             color: var(--text-secondary); 
-            font-size: 12px; 
-            font-weight: bold; 
             cursor: pointer; 
             padding: 0; 
-            line-height: 1; 
-            margin-left: 8px;
-            transition: all 0.15s ease; 
         }
         .search-clear:hover { background: var(--border-card); color: var(--text-primary); }
         .search-clear.visible { display: flex; }
@@ -426,8 +416,8 @@
         .modules { display: flex; flex-direction: column; gap: 14px; }
         .module-card { 
             position: relative; 
-            padding: 24px 26px; 
-            border-radius: var(--radius-card); 
+            padding: 22px; /* 同心外围边距 */
+            border-radius: var(--radius-card); /* 44px */
             background: var(--bg-card); 
             border: 1px solid var(--border-card);
             box-shadow: var(--card-shadow); 
@@ -444,9 +434,9 @@
 
         .card-header { display: flex; align-items: center; gap: 16px; }
         .module-icon { 
-            width: 64px; 
-            height: 64px; 
-            flex: 0 0 64px; 
+            width: 44px;  /* 同心基准内圈 (半径22+边距22=外圆角44) */
+            height: 44px; 
+            flex: 0 0 44px; 
             border-radius: 50%; 
             background: var(--bg-surface); 
             overflow: hidden; 
@@ -518,8 +508,8 @@
             align-items: center; 
             justify-content: space-between; 
             gap: 12px; 
-            margin-top: 24px; 
-            padding-top: 24px; 
+            margin-top: 22px; 
+            padding-top: 22px; 
             border-top: 1px solid var(--border-card);
         }
         .source { 
@@ -535,9 +525,9 @@
             display: inline-flex; 
             align-items: center; 
             justify-content: center; 
-            width: 38px; 
-            height: 38px; 
-            flex: 0 0 38px; 
+            width: 44px; /* 同心基准内圈 */
+            height: 44px; 
+            flex: 0 0 44px; 
             border-radius: 50%; 
             background: var(--bg-surface); 
             border: 1px solid var(--border-subtle);
@@ -556,10 +546,10 @@
             display: inline-flex; 
             align-items: center; 
             justify-content: center; 
-            height: 38px; 
-            padding: 0 18px; 
+            height: 44px; /* 同心基准内圈 */
+            padding: 0 20px; 
             border: 0; 
-            border-radius: var(--radius-pill); 
+            border-radius: 22px; /* 等同基准半径 */
             font-size: 14px; 
             font-weight: 600; 
             line-height: 1;
@@ -631,12 +621,11 @@
         @media (max-width: 600px) {
             body { padding-left: 12px; padding-right: 12px; }
             .title { font-size: 22px; }
-            .module-card { padding: 20px 18px; border-radius: 24px; }
-            .module-icon { width: 56px; height: 56px; flex-basis: 56px; }
-            .module-name { font-size: 17.5px; }
+            
+            /* 手机端保持内圈 44(半径22) 尺寸，外围 Padding 为 20px，得外圆角 42px 同心 */
+            .module-card { padding: 20px; border-radius: 42px; }
             .card-bottom { margin-top: 20px; padding-top: 20px; }
-            .button { height: 36px; padding: 0 14px; font-size: 13.5px; }
-            .source-icon { width: 36px; height: 36px; flex-basis: 36px; font-size: 15px; }
+            
             .search-shortcut { display: none; }
             
             /* 手机端隐藏全称，显示仓库简称 */
@@ -722,7 +711,7 @@
            - CACHE_VERSION: 日期+时间戳版本号
            - 修改此常量会触发全局用户的强制更新并清理旧缓存
         ========================================================= */
-        const CACHE_VERSION = "20260826_1430"; 
+        const CACHE_VERSION = "20260826_1616"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
