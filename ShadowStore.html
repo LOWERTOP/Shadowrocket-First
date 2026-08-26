@@ -21,11 +21,11 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%234E60FF%22 stroke=%22rgba(255,255,255,0.3)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowMods.png">
 
-    <!-- 3. 网络层预解析 -->
+    <!-- 3. 网络层预解析 (移除已弃用的 CDN) -->
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
     <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
-    <link rel="dns-prefetch" href="https://data.jsdelivr.com">
-    <link rel="preconnect" href="https://data.jsdelivr.com" crossorigin>
+    <link rel="dns-prefetch" href="https://api.github.com">
+    <link rel="preconnect" href="https://api.github.com" crossorigin>
 
     <style>
         /* =========================================================
@@ -197,7 +197,7 @@
         .theme-toggle svg { display: block; width: 19px; height: 19px; pointer-events: none; }
 
         /* =========================================================
-           Notice Banner (同心圆左端定位 + 圆形外框火箭图标)
+           Notice Banner
         ========================================================= */
         .notice { 
             position: relative;
@@ -245,7 +245,7 @@
         .notice-item { height: 22px; line-height: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary); }
 
         /* =========================================================
-           Search Bar (独立 GPU 渲染层 + Label 语义绝对居中方案)
+           Search Bar
         ========================================================= */
         .search-wrapper { 
             position: sticky; 
@@ -641,7 +641,7 @@
             </div>
         </header>
 
-        <!-- 两端全圆角公告栏 (同心圆左端定位 + 圆形外框火箭图标) -->
+        <!-- 两端全圆角公告栏 -->
         <div id="noticeBanner" class="notice" title="点击切换下一条公告">
             <div class="notice-icon-box">🚀</div>
             <div class="notice-slider">
@@ -652,7 +652,7 @@
             </div>
         </div>
 
-        <!-- 两端全圆角吸顶搜索框 (Label 语义驱动 + 独立 GPU 坐标锁死) -->
+        <!-- 两端全圆角吸顶搜索框 -->
         <div class="search-wrapper">
             <label for="search" class="search-box-inner">
                 <div class="search-icon">🔍</div>
@@ -690,67 +690,38 @@
     <script>
         /* =========================================================
            Configuration & Cache
+           - 已移除 CDN 相关备用 API，全部采用 GitHub Tree 接口直连
+           - 调整并发数为 8，避免 VPS 防火墙规则阻断瞬间高频连接
         ========================================================= */
         const CONFIG = {
-            FMZ_JSDELIVR_API: "https://data.jsdelivr.com/v1/package/gh/fmz200/wool_scripts@main/flat",
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
             REPO_README_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/README.md",
             REPO_README_BACKUP: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/README.md",
             ZIRAWELL_README_URL: "https://raw.githubusercontent.com/zirawell/R-Store/main/README.md",
-            ZIRAWELL_JSDELIVR_API: "https://data.jsdelivr.com/v1/package/gh/zirawell/R-Store@main/flat",
             ZIRAWELL_TREE_API: "https://api.github.com/repos/zirawell/R-Store/git/trees/main?recursive=1",
             ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json",
-            LUESTR_JSDELIVR_API: "https://data.jsdelivr.com/v1/package/gh/luestr/IconResource@main/flat",
             LUESTR_TREE_API: "https://api.github.com/repos/luestr/IconResource/git/trees/main?recursive=1",
-            CONCURRENCY: 12,
+            CONCURRENCY: 8,
             PAGE_SIZE: 30,
-            CACHE_KEY: "sr_modules_data_v01", 
-            CACHE_TIME_KEY: "sr_modules_time_v01",
+            CACHE_KEY: "sr_modules_data_v2", 
+            CACHE_TIME_KEY: "sr_modules_time_v2",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
         const APP_ALIASES = {
-            "苹果": ["apple"],
-            "apple": ["apple"],
-            "谷歌": ["google"],
-            "微软": ["microsoft"],
-            "油管": ["youtube"],
-            "youtube": ["youtube"],
-            "电报": ["telegram"],
-            "推特": ["twitter", "x"],
-            "奈飞": ["netflix"],
-            "网飞": ["netflix"],
-            "迪士尼": ["disney"],
-            "小米": ["xiaomi", "mi"],
-            "米家": ["xiaomi", "mihome", "mi"],
-            "xiaomi": ["xiaomi", "mi"],
-            "mihome": ["xiaomi", "mihome"],
-            "京东": ["jd", "jingdong"],
-            "哔哩哔哩": ["bilibili", "b站"],
-            "b站": ["bilibili"],
-            "微信": ["weixin", "wechat"],
-            "微博": ["weibo"],
-            "知乎": ["zhihu"],
-            "小红书": ["xhs", "xiaohongshu"],
-            "抖音": ["douyin", "tiktok"],
-            "快手": ["kuaishou"],
-            "网易云": ["netease", "cloudmusic"],
-            "百度": ["baidu"],
-            "高德": ["amap", "gaode"],
-            "腾讯": ["tencent"],
-            "美团": ["meituan"],
-            "拼多多": ["pdd", "pinduoduo"],
-            "闲鱼": ["xianyu"],
-            "咸鱼": ["xianyu"],
-            "饿了么": ["eleme"],
-            "爱奇艺": ["iqiyi"],
-            "优酷": ["youku"],
-            "淘宝": ["taobao"],
-            "豆瓣": ["douban"],
-            "贴吧": ["tieba"],
-            "夸克": ["quark"],
-            "12306": ["12306"],
-            "高德地图": ["amap"]
+            "苹果": ["apple"], "apple": ["apple"], "谷歌": ["google"], "微软": ["microsoft"],
+            "油管": ["youtube"], "youtube": ["youtube"], "电报": ["telegram"], "推特": ["twitter", "x"],
+            "奈飞": ["netflix"], "网飞": ["netflix"], "迪士尼": ["disney"],
+            "小米": ["xiaomi", "mi"], "米家": ["xiaomi", "mihome", "mi"],
+            "xiaomi": ["xiaomi", "mi"], "mihome": ["xiaomi", "mihome"],
+            "京东": ["jd", "jingdong"], "哔哩哔哩": ["bilibili", "b站"], "b站": ["bilibili"],
+            "微信": ["weixin", "wechat"], "微博": ["weibo"], "知乎": ["zhihu"],
+            "小红书": ["xhs", "xiaohongshu"], "抖音": ["douyin", "tiktok"], "快手": ["kuaishou"],
+            "网易云": ["netease", "cloudmusic"], "百度": ["baidu"], "高德": ["amap", "gaode"],
+            "腾讯": ["tencent"], "美团": ["meituan"], "拼多多": ["pdd", "pinduoduo"],
+            "闲鱼": ["xianyu"], "咸鱼": ["xianyu"], "饿了么": ["eleme"], "爱奇艺": ["iqiyi"],
+            "优酷": ["youku"], "淘宝": ["taobao"], "豆瓣": ["douban"], "贴吧": ["tieba"],
+            "夸克": ["quark"], "12306": ["12306"], "高德地图": ["amap"]
         };
 
         const FLAG_CODES = new Set([
@@ -995,6 +966,12 @@
             try {
                 const response = await fetch(url, { ...options, signal: controller.signal });
                 clearTimeout(timer);
+                
+                // 新增：全局拦截 GitHub API 的速率限制
+                if (url.includes("api.github.com") && (response.status === 403 || response.status === 429)) {
+                    throw new Error("GitHub_API_Rate_Limit");
+                }
+                
                 return response;
             } catch (err) {
                 clearTimeout(timer);
@@ -1019,32 +996,9 @@
         }
 
         /* =========================================================
-           多源图标库加载与智能索引 (fmz200 + luestr/IconResource)
+           多源图标库加载与智能索引 (纯 GitHub Tree 直连)
         ========================================================= */
         async function loadLuestrIcons() {
-            try {
-                const res = await fetchWithTimeout(CONFIG.LUESTR_JSDELIVR_API, { cache: "no-store" }, 6000);
-                if (res.ok) {
-                    const data = await res.json();
-                    if (data && Array.isArray(data.files)) {
-                        for (const file of data.files) {
-                            const path = file.name || "";
-                            if (/\.(?:png|jpg|jpeg|svg|webp)$/i.test(path)) {
-                                const fileName = path.split("/").pop().replace(/\.(?:png|jpg|jpeg|svg|webp)$/i, "");
-                                const url = `https://raw.githubusercontent.com/luestr/IconResource/main${path}`;
-                                if (!isFlagKey(fileName, url)) {
-                                    const cleanName = fileName.trim().toLowerCase();
-                                    if (cleanName.length >= 2 && !remoteIconsMap[cleanName]) {
-                                        remoteIconsMap[cleanName] = url;
-                                    }
-                                }
-                            }
-                        }
-                        return;
-                    }
-                }
-            } catch (e) {}
-
             try {
                 const res = await fetchWithTimeout(CONFIG.LUESTR_TREE_API, { cache: "no-store" }, 6000);
                 if (res.ok) {
@@ -1065,7 +1019,11 @@
                         }
                     }
                 }
-            } catch (e2) {}
+            } catch (e) {
+                if (e.message === "GitHub_API_Rate_Limit") {
+                    console.warn("⚠️ 节点IP触发速率限制，IconResource图标库拉取失败");
+                }
+            }
         }
 
         async function loadRemoteIcons() {
@@ -1091,12 +1049,9 @@
                     const addMap = (name, url) => {
                         if (name && typeof name === 'string' && url && typeof url === 'string' && url.length > 5) {
                             if (isFlagKey(name, url)) return;
-
                             const cleanName = name.trim().toLowerCase();
                             if (cleanName.length < 2) return;
-
                             remoteIconsMap[cleanName] = url.trim();
-
                             const baseName = cleanName.replace(/[_-]?\d+$/, "").trim();
                             if (baseName && baseName.length >= 2 && !remoteIconsMap[baseName]) {
                                 remoteIconsMap[baseName] = url.trim();
@@ -1116,7 +1071,7 @@
                     }
                 }
             } catch (e) {
-                console.warn("⚠️ 默认图标库加载失败，尝试备用源：", e);
+                console.warn("⚠️ 默认 JSON 图标库加载失败：", e);
             }
 
             // 载入 luestr/IconResource 补充图标库
@@ -1233,7 +1188,7 @@
         }
 
         /* =========================================================
-           Markdown & 模块扫描
+           Markdown & 模块扫描 (移除 jsDelivr 回退方案)
         ========================================================= */
         function parseRepositoryModules(markdown) {
             if (!markdown) return [];
@@ -1287,39 +1242,24 @@
         async function fetchFMZModules() {
             const modules = [];
             try {
-                const res = await fetchWithTimeout(CONFIG.FMZ_JSDELIVR_API, { cache: "no-store" }, 6000);
+                const res = await fetchWithTimeout(CONFIG.FMZ_TREE_API, { cache: "no-store" }, 6000);
                 if (res.ok) {
                     const data = await res.json();
-                    if (data && Array.isArray(data.files)) {
-                        for (const file of data.files) {
-                            const path = file.name || "";
-                            if (path.startsWith("/Shadowrocket/module/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
+                    if (data && Array.isArray(data.tree)) {
+                        for (const item of data.tree) {
+                            const path = item.path || "";
+                            if (item.type === "blob" && path.startsWith("Shadowrocket/module/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
                                 const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
-                                const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/fmz200/wool_scripts/main${path}`);
+                                const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/fmz200/wool_scripts/main/${path}`);
                                 modules.push({ name: fileName, rawURL });
                             }
                         }
                     }
                 }
-            } catch (e) {}
-
-            if (!modules.length) {
-                try {
-                    const res = await fetchWithTimeout(CONFIG.FMZ_TREE_API, { cache: "no-store" }, 6000);
-                    if (res.ok) {
-                        const data = await res.json();
-                        if (data && Array.isArray(data.tree)) {
-                            for (const item of data.tree) {
-                                const path = item.path || "";
-                                if (item.type === "blob" && path.startsWith("Shadowrocket/module/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
-                                    const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
-                                    const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/fmz200/wool_scripts/main/${path}`);
-                                    modules.push({ name: fileName, rawURL });
-                                }
-                            }
-                        }
-                    }
-                } catch (e2) {}
+            } catch (e) {
+                if (e.message === "GitHub_API_Rate_Limit") {
+                    console.warn("⚠️ 节点IP触发速率限制，FMZ 模块拉取失败");
+                }
             }
             return modules;
         }
@@ -1333,37 +1273,24 @@
             } catch (e) {}
 
             try {
-                const res = await fetchWithTimeout(CONFIG.ZIRAWELL_JSDELIVR_API, { cache: "no-store" }, 6000);
+                const res = await fetchWithTimeout(CONFIG.ZIRAWELL_TREE_API, { cache: "no-store" }, 6000);
                 if (res.ok) {
                     const data = await res.json();
-                    if (data && Array.isArray(data.files)) {
-                        for (const file of data.files) {
-                            const path = file.name || "";
-                            if (path.startsWith("/Rule/Surge/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
+                    if (data && Array.isArray(data.tree)) {
+                        for (const item of data.tree) {
+                            const path = item.path || "";
+                            if (item.type === "blob" && path.startsWith("Rule/Surge/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
                                 const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
-                                const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/zirawell/R-Store/main${path}`);
+                                const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/zirawell/R-Store/main/${path}`);
                                 modules.push({ name: fileName, rawURL });
                             }
                         }
                     }
                 }
             } catch (e) {
-                try {
-                    const res = await fetchWithTimeout(CONFIG.ZIRAWELL_TREE_API, { cache: "no-store" }, 6000);
-                    if (res.ok) {
-                        const data = await res.json();
-                        if (data && Array.isArray(data.tree)) {
-                            for (const item of data.tree) {
-                                const path = item.path || "";
-                                if (item.type === "blob" && path.startsWith("Rule/Surge/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
-                                    const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
-                                    const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/zirawell/R-Store/main/${path}`);
-                                    modules.push({ name: fileName, rawURL });
-                                }
-                            }
-                        }
-                    }
-                } catch (e2) {}
+                if (e.message === "GitHub_API_Rate_Limit") {
+                    console.warn("⚠️ 节点IP触发速率限制，Zirawell 模块拉取失败");
+                }
             }
             return modules;
         }
@@ -1846,6 +1773,9 @@
 
             } catch (error) {
                 console.error("模块同步失败：", error);
+                const isRateLimit = error.message === "GitHub_API_Rate_Limit";
+                const errorMsg = isRateLimit ? "当前代理节点触发了 GitHub 速率限制，请尝试更换节点后重新加载" : (error.message || "请检查网络连接");
+
                 if (!hasCache) {
                     setSearchState(false);
                     statusText.textContent = "同步失败";
@@ -1855,12 +1785,14 @@
                         <div class="empty">
                             <div class="empty-icon">⚠️</div>
                             无法读取模块列表
-                            <div class="empty-error">${escapeHTML(error.message || "请检查网络连接")}</div>
+                            <div class="empty-error">${escapeHTML(errorMsg)}</div>
                         </div>`;
+                    if (isRateLimit) showToast("当前节点触发 GitHub API 限制");
                 } else {
                     setSearchState(true);
-                    statusText.textContent = "已同步";
-                    statusDot.className = "status-dot";
+                    statusText.textContent = isRateLimit ? "同步中断：节点IP受限" : "同步失败，显示缓存数据";
+                    statusDot.className = "status-dot error";
+                    if (isRateLimit) showToast("节点IP触发 GitHub 限制，使用缓存数据");
                 }
             }
         }
