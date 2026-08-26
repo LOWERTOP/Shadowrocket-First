@@ -712,7 +712,11 @@
     <script>
         /* =========================================================
            Configuration & Cache
+           - CACHE_VERSION: 日期+时间戳版本号
+           - 修改此常量会触发全局用户的强制更新并清理旧缓存
         ========================================================= */
+        const CACHE_VERSION = "20260826_1215"; 
+        
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
             REPO_README_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/README.md",
@@ -723,8 +727,8 @@
             LUESTR_TREE_API: "https://api.github.com/repos/luestr/IconResource/git/trees/main?recursive=1",
             CONCURRENCY: 8,
             PAGE_SIZE: 30,
-            CACHE_KEY: "sr_modules_data_v66", 
-            CACHE_TIME_KEY: "sr_modules_time_v66",
+            CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`, 
+            CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`,
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -1349,7 +1353,6 @@
 
         function getSourceRepoInfo(rawURL) {
             const githubInfo = parseGitHubRawURL(rawURL);
-            /* 获取数据层分离: name 保持全称，shortName 取仓库缩写 */
             if (githubInfo) return { name: githubInfo.fullName, shortName: githubInfo.repo, url: githubInfo.url };
             try {
                 const url = new URL(rawURL);
@@ -1573,7 +1576,6 @@
             const icon = module.icon || fallbackIcon;
             const authorHTML = renderAuthor(module);
             
-            // 为了兼容旧缓存，如果缺失 sourceShortName 则重新解析一次
             const sourceInfo = getSourceRepoInfo(module.rawURL);
             const sourceName = module.sourceName || sourceInfo.name;
             const sourceShortName = module.sourceShortName || sourceInfo.shortName || sourceName;
@@ -1711,6 +1713,20 @@
            主调度加载入口
         ========================================================= */
         async function loadModules() {
+            // 自动清理非当前版本的旧缓存，防止 LocalStorage 被长期占满
+            try {
+                const keysToRemove = [];
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key && (key.startsWith("sr_modules_data_") || key.startsWith("sr_modules_time_"))) {
+                        if (key !== CONFIG.CACHE_KEY && key !== CONFIG.CACHE_TIME_KEY) {
+                            keysToRemove.push(key);
+                        }
+                    }
+                }
+                keysToRemove.forEach(k => localStorage.removeItem(k));
+            } catch (e) {}
+
             // 设置刷新按钮状态
             const svgIcon = refreshCacheBtn.querySelector("svg");
             const setBtnLoading = (isLoading) => {
