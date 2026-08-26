@@ -541,6 +541,9 @@
         .source-text a { color: inherit; transition: color 0.15s ease; }
         .source-text a:hover { color: var(--primary); text-decoration: underline; }
         
+        /* 来源名称响应式切换 */
+        .source-mobile { display: none; }
+        
         .action-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         .button { 
             display: inline-flex; 
@@ -628,6 +631,10 @@
             .button { height: 36px; padding: 0 14px; font-size: 13.5px; }
             .source-icon { width: 36px; height: 36px; flex-basis: 36px; font-size: 15px; }
             .search-shortcut { display: none; }
+            
+            /* 手机端隐藏全称，显示仓库简称 */
+            .source-desktop { display: none; }
+            .source-mobile { display: inline; }
         }
     </style>
 </head>
@@ -661,6 +668,7 @@
             <div class="notice-slider">
                 <div id="noticeTrack" class="notice-track">
                     <div class="notice-item">已启用并发缓存与快速索引</div>
+                    <div class="notice-item">资源均直接引用自原始地址</div>
                     <div class="notice-item">首次完整加载需要一定时间，请耐心等待</div>
                 </div>
             </div>
@@ -704,7 +712,11 @@
     <script>
         /* =========================================================
            Configuration & Cache
+           - CACHE_VERSION: 日期+时间戳版本号
+           - 修改此常量会触发全局用户的强制更新并清理旧缓存
         ========================================================= */
+        const CACHE_VERSION = "20260826_1245"; 
+        
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
             REPO_README_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/README.md",
@@ -715,8 +727,8 @@
             LUESTR_TREE_API: "https://api.github.com/repos/luestr/IconResource/git/trees/main?recursive=1",
             CONCURRENCY: 8,
             PAGE_SIZE: 30,
-            CACHE_KEY: "sr_modules_data_v3", 
-            CACHE_TIME_KEY: "sr_modules_time_v3",
+            CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`, 
+            CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`,
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -789,20 +801,42 @@
         }
 
         /* =========================================================
-           公告栏循环轮播 & 点击切换
+           公告栏无缝循环轮播 & 点击切换
         ========================================================= */
         if (noticeTrack && noticeBanner) {
+            // 克隆第一条公告到末尾，实现无缝滚动
+            const firstItemClone = noticeTrack.children[0].cloneNode(true);
+            noticeTrack.appendChild(firstItemClone);
+
             let noticeIndex = 0;
-            const noticeCount = noticeTrack.children.length;
+            const originalCount = noticeTrack.children.length - 1; 
             let noticeTimer = null;
+            let isAnimating = false;
 
             function updateNoticePosition() {
+                noticeTrack.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
                 noticeTrack.style.transform = `translateY(-${noticeIndex * 22}px)`;
             }
 
             function nextNotice() {
-                noticeIndex = (noticeIndex + 1) % noticeCount;
+                if (isAnimating) return;
+                isAnimating = true;
+                noticeIndex++;
                 updateNoticePosition();
+
+                if (noticeIndex === originalCount) {
+                    // 滚动到最后一条（克隆体）时，等待动画结束瞬间重置回真实的第一条
+                    setTimeout(() => {
+                        noticeTrack.style.transition = 'none';
+                        noticeIndex = 0;
+                        noticeTrack.style.transform = `translateY(0)`;
+                        // 强制回流重绘
+                        void noticeTrack.offsetHeight;
+                        isAnimating = false;
+                    }, 450); 
+                } else {
+                    setTimeout(() => { isAnimating = false; }, 450);
+                }
             }
 
             function resetNoticeInterval() {
@@ -1335,24 +1369,18 @@
                         return { owner: parts[0], repo: parts[1], fullName: `${parts[0]}/${parts[1]}`, url: `https://github.com/${parts[0]}/${parts[1]}` };
                     }
                 }
-                if (url.hostname.includes("jsdelivr.net")) {
-                    const match = url.pathname.match(/\/gh\/([^/@]+)\/([^/@]+)/i);
-                    if (match) {
-                        return { owner: match[1], repo: match[2], fullName: `${match[1]}/${match[2]}`, url: `https://github.com/${match[1]}/${match[2]}` };
-                    }
-                }
             } catch { return null; }
             return null;
         }
 
         function getSourceRepoInfo(rawURL) {
             const githubInfo = parseGitHubRawURL(rawURL);
-            if (githubInfo) return { name: githubInfo.fullName, url: githubInfo.url };
+            if (githubInfo) return { name: githubInfo.fullName, shortName: githubInfo.repo, url: githubInfo.url };
             try {
                 const url = new URL(rawURL);
-                return { name: url.hostname, url: url.origin };
+                return { name: url.hostname, shortName: url.hostname, url: url.origin };
             } catch {
-                return { name: "开源仓库", url: "#" };
+                return { name: "开源仓库", shortName: "开源仓库", url: "#" };
             }
         }
 
@@ -1500,6 +1528,7 @@
                     authorAvatar,
                     icon,
                     sourceName: sourceInfo.name,
+                    sourceShortName: sourceInfo.shortName,
                     sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL),
                     isDubious,
@@ -1521,6 +1550,7 @@
                     authorAvatar: getRepositoryAvatar(item.rawURL),
                     icon: fallbackIconUrl,
                     sourceName: sourceInfo.name,
+                    sourceShortName: sourceInfo.shortName,
                     sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL),
                     isDubious: true,
@@ -1568,8 +1598,10 @@
             const icon = module.icon || fallbackIcon;
             const authorHTML = renderAuthor(module);
             
+            // 为了兼容旧缓存，如果缺失 sourceShortName 则重新解析一次
             const sourceInfo = getSourceRepoInfo(module.rawURL);
             const sourceName = module.sourceName || sourceInfo.name;
+            const sourceShortName = module.sourceShortName || sourceInfo.shortName || sourceName;
             const sourceURL = module.sourceURL || sourceInfo.url;
 
             const statusTextVal = module.isDubious ? "模块信息获取失败" : "已获取至最新版本";
@@ -1593,7 +1625,12 @@
                 <div class="card-bottom">
                     <div class="source">
                         <div class="source-icon">🚀</div>
-                        <div class="source-text"><a href="${escapeHTML(sourceURL)}" target="_blank" rel="noopener">${escapeHTML(sourceName)}</a></div>
+                        <div class="source-text">
+                            <a href="${escapeHTML(sourceURL)}" target="_blank" rel="noopener">
+                                <span class="source-desktop">${escapeHTML(sourceName)}</span>
+                                <span class="source-mobile">${escapeHTML(sourceShortName)}</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="action-buttons">
                         <button class="button button-secondary copy-btn" data-url="${escapeHTML(module.rawURL)}">复制链接</button>
@@ -1699,6 +1736,20 @@
            主调度加载入口
         ========================================================= */
         async function loadModules() {
+            // 自动清理非当前版本的旧缓存，防止 LocalStorage 被长期占满
+            try {
+                const keysToRemove = [];
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key && (key.startsWith("sr_modules_data_") || key.startsWith("sr_modules_time_"))) {
+                        if (key !== CONFIG.CACHE_KEY && key !== CONFIG.CACHE_TIME_KEY) {
+                            keysToRemove.push(key);
+                        }
+                    }
+                }
+                keysToRemove.forEach(k => localStorage.removeItem(k));
+            } catch (e) {}
+
             // 设置刷新按钮状态
             const svgIcon = refreshCacheBtn.querySelector("svg");
             const setBtnLoading = (isLoading) => {
@@ -1771,7 +1822,8 @@
                 const localModules = parseRepositoryModules(repoMarkdown);
 
                 const seenURLs = new Set();
-                const sourceModules = [...localModules, ...zirawellModules, ...fmzModules].filter(item => {
+                /* 新的合并顺序：localModules (主仓库) -> fmzModules -> zirawellModules */
+                const sourceModules = [...localModules, ...fmzModules, ...zirawellModules].filter(item => {
                     if (!item.rawURL || !/\.(?:sgmodule|srmodule|module)(?:$|[?#%])/i.test(item.rawURL) || seenURLs.has(item.rawURL.toLowerCase())) return false;
                     seenURLs.add(item.rawURL.toLowerCase());
                     return true;
