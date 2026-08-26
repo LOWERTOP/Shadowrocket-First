@@ -32,7 +32,7 @@
 > 
 > 模块资源均来源于开源仓库。特别鸣谢 **[奶思](https://github.com/fmz200)**、**[zirawell](https://github.com/zirawell)**、**[iab0x00](https://github.com/iab0x00)** 等开源作者的分享与持续维护
 > 
-> [![访问页面 模块中心](https://img.shields.io/static/v1?label=访问页面&message=模块中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/ShadowMods.html "访问相应地址")
+> [![访问页面 模块中心](https://img.shields.io/static/v1?label=访问页面&message=模块中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/ShadowStore.html "访问相应地址")
 
 ### [Talkatone](#talkatone)
 
