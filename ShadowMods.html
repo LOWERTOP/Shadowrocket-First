@@ -508,7 +508,135 @@
             .source-desktop { display: none;[cite: 2]}
             .source-mobile { display: inline;[cite: 2]}
         }
-    </style>
+    
+
+/* =========================================================
+   ShadowStore — Adaptive Card Layout
+   仅改变页面布局，不修改现有功能、数据及交互逻辑
+   ========================================================= */
+
+/* 页面宽度稍微放宽，让自适应网格有足够空间 */
+.container {
+    max-width: 1180px;
+}
+
+/* 模块区改为 CSS Grid：
+   浏览器根据可用宽度自动决定一行放 1 / 2 / 3 张卡片 */
+.modules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 22px;
+    align-items: stretch;
+    padding-bottom: 24px;
+}
+
+/* 卡片填满 Grid 单元格，取消原来的纵向单卡布局 */
+.module-card {
+    width: auto;
+    height: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 内容区自动占据剩余空间，使同一行卡片底部保持齐平 */
+.module-description {
+    flex: 1 1 auto;
+}
+
+/* 底部区域始终贴合卡片底部 */
+.card-bottom {
+    margin-top: 24px;
+    flex-shrink: 0;
+}
+
+/* 加载骨架也使用相同的自适应网格 */
+.loading-card {
+    width: auto;
+    min-width: 0;
+}
+
+/* 空状态横跨整行 */
+.modules > .empty {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+/* 公告、搜索和状态仍然使用完整主轴 */
+.notice,
+.search-wrapper {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* 中等桌面：允许两列，但卡片不会被压得太窄 */
+@media (min-width: 861px) and (max-width: 1200px) {
+    .container {
+        max-width: 1040px;
+    }
+
+    .modules {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    }
+}
+
+/* 平板：两列 */
+@media (min-width: 601px) and (max-width: 860px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .modules {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .module-card {
+        padding: 24px;
+    }
+}
+
+/* 手机：单列 */
+@media (max-width: 600px) {
+    .modules {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .module-card,
+    .loading-card {
+        width: 100%;
+    }
+
+    .module-description {
+        flex: none;
+    }
+}
+
+/* 超窄屏：保证底部按钮不会被挤压 */
+@media (max-width: 420px) {
+    .modules {
+        grid-template-columns: 1fr;
+    }
+
+    .card-bottom {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .source {
+        width: 100%;
+    }
+
+    .action-buttons {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -584,7 +712,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)[cite: 2]
         ========================================================= */
-        const CACHE_VERSION = "20260826_1959"; 
+        const CACHE_VERSION = "20260826_2112"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
