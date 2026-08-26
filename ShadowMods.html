@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#F4F7FC">
-    <title>ShadowSTORE</title>
+    <title>ShadowStore</title>
 
     <!-- 1. 防主题闪烁 (FOUC) 极简同步初始化 -->
     <script>
@@ -24,8 +24,8 @@
     <!-- 3. 网络层预解析 -->
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
     <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
-    <link rel="dns-prefetch" href="https://data.jsdelivr.com">
-    <link rel="preconnect" href="https://data.jsdelivr.com" crossorigin>
+    <link rel="dns-prefetch" href="https://api.github.com">
+    <link rel="preconnect" href="https://api.github.com" crossorigin>
 
     <style>
         /* =========================================================
@@ -195,9 +195,19 @@
             border-color: var(--primary-soft-border); 
         }
         .theme-toggle svg { display: block; width: 19px; height: 19px; pointer-events: none; }
+        
+        /* 刷新按钮高亮旋转动画 */
+        @keyframes spinNode { 
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); } 
+        }
+        .spin-anim { 
+            animation: spinNode 1s linear infinite; 
+            transform-origin: center center;
+        }
 
         /* =========================================================
-           Notice Banner (同心圆左端定位 + 圆形外框火箭图标)
+           Notice Banner
         ========================================================= */
         .notice { 
             position: relative;
@@ -245,7 +255,7 @@
         .notice-item { height: 22px; line-height: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary); }
 
         /* =========================================================
-           Search Bar (独立 GPU 渲染层 + Label 语义绝对居中方案)
+           Search Bar
         ========================================================= */
         .search-wrapper { 
             position: sticky; 
@@ -501,8 +511,8 @@
             align-items: center; 
             justify-content: space-between; 
             gap: 12px; 
-            margin-top: 18px; 
-            padding-top: 14px;
+            margin-top: 24px; 
+            padding-top: 24px; 
             border-top: 1px solid var(--border-card);
         }
         .source { 
@@ -518,13 +528,13 @@
             display: inline-flex; 
             align-items: center; 
             justify-content: center; 
-            width: 32px; 
-            height: 32px; 
-            flex: 0 0 32px; 
+            width: 38px; 
+            height: 38px; 
+            flex: 0 0 38px; 
             border-radius: 50%; 
             background: var(--bg-surface); 
             border: 1px solid var(--border-subtle);
-            font-size: 14px; 
+            font-size: 16px; 
             line-height: 1;
         }
         .source-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -614,7 +624,9 @@
             .module-card { padding: 20px 18px; border-radius: 24px; }
             .module-icon { width: 56px; height: 56px; flex-basis: 56px; }
             .module-name { font-size: 17.5px; }
+            .card-bottom { margin-top: 20px; padding-top: 20px; }
             .button { height: 36px; padding: 0 14px; font-size: 13.5px; }
+            .source-icon { width: 36px; height: 36px; flex-basis: 36px; font-size: 15px; }
             .search-shortcut { display: none; }
         }
     </style>
@@ -632,6 +644,8 @@
                     </h1>
                 </div>
                 <div class="theme-controls">
+                    <!-- 强制刷新按钮 -->
+                    <button id="refreshCacheBtn" class="theme-toggle" aria-label="强制刷新缓存" title="强制拉取最新数据"></button>
                     <button id="themeAuto" class="theme-toggle" aria-label="自动跟随系统"></button>
                     <button id="themeToggle" class="theme-toggle" aria-label="手动切换模式"></button>
                 </div>
@@ -641,7 +655,7 @@
             </div>
         </header>
 
-        <!-- 两端全圆角公告栏 (同心圆左端定位 + 圆形外框火箭图标) -->
+        <!-- 两端全圆角公告栏 -->
         <div id="noticeBanner" class="notice" title="点击切换下一条公告">
             <div class="notice-icon-box">🚀</div>
             <div class="notice-slider">
@@ -652,7 +666,7 @@
             </div>
         </div>
 
-        <!-- 两端全圆角吸顶搜索框 (Label 语义驱动 + 独立 GPU 坐标锁死) -->
+        <!-- 两端全圆角吸顶搜索框 -->
         <div class="search-wrapper">
             <label for="search" class="search-box-inner">
                 <div class="search-icon">🔍</div>
@@ -692,65 +706,34 @@
            Configuration & Cache
         ========================================================= */
         const CONFIG = {
-            FMZ_JSDELIVR_API: "https://data.jsdelivr.com/v1/package/gh/fmz200/wool_scripts@main/flat",
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
             REPO_README_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/README.md",
             REPO_README_BACKUP: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/README.md",
             ZIRAWELL_README_URL: "https://raw.githubusercontent.com/zirawell/R-Store/main/README.md",
-            ZIRAWELL_JSDELIVR_API: "https://data.jsdelivr.com/v1/package/gh/zirawell/R-Store@main/flat",
             ZIRAWELL_TREE_API: "https://api.github.com/repos/zirawell/R-Store/git/trees/main?recursive=1",
             ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json",
-            LUESTR_JSDELIVR_API: "https://data.jsdelivr.com/v1/package/gh/luestr/IconResource@main/flat",
             LUESTR_TREE_API: "https://api.github.com/repos/luestr/IconResource/git/trees/main?recursive=1",
-            CONCURRENCY: 12,
+            CONCURRENCY: 8,
             PAGE_SIZE: 30,
-            CACHE_KEY: "sr_modules_data_v58", 
-            CACHE_TIME_KEY: "sr_modules_time_v58",
+            CACHE_KEY: "sr_modules_data_v3", 
+            CACHE_TIME_KEY: "sr_modules_time_v3",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
         const APP_ALIASES = {
-            "苹果": ["apple"],
-            "apple": ["apple"],
-            "谷歌": ["google"],
-            "微软": ["microsoft"],
-            "油管": ["youtube"],
-            "youtube": ["youtube"],
-            "电报": ["telegram"],
-            "推特": ["twitter", "x"],
-            "奈飞": ["netflix"],
-            "网飞": ["netflix"],
-            "迪士尼": ["disney"],
-            "小米": ["xiaomi", "mi"],
-            "米家": ["xiaomi", "mihome", "mi"],
-            "xiaomi": ["xiaomi", "mi"],
-            "mihome": ["xiaomi", "mihome"],
-            "京东": ["jd", "jingdong"],
-            "哔哩哔哩": ["bilibili", "b站"],
-            "b站": ["bilibili"],
-            "微信": ["weixin", "wechat"],
-            "微博": ["weibo"],
-            "知乎": ["zhihu"],
-            "小红书": ["xhs", "xiaohongshu"],
-            "抖音": ["douyin", "tiktok"],
-            "快手": ["kuaishou"],
-            "网易云": ["netease", "cloudmusic"],
-            "百度": ["baidu"],
-            "高德": ["amap", "gaode"],
-            "腾讯": ["tencent"],
-            "美团": ["meituan"],
-            "拼多多": ["pdd", "pinduoduo"],
-            "闲鱼": ["xianyu"],
-            "咸鱼": ["xianyu"],
-            "饿了么": ["eleme"],
-            "爱奇艺": ["iqiyi"],
-            "优酷": ["youku"],
-            "淘宝": ["taobao"],
-            "豆瓣": ["douban"],
-            "贴吧": ["tieba"],
-            "夸克": ["quark"],
-            "12306": ["12306"],
-            "高德地图": ["amap"]
+            "苹果": ["apple"], "apple": ["apple"], "谷歌": ["google"], "微软": ["microsoft"],
+            "油管": ["youtube"], "youtube": ["youtube"], "电报": ["telegram"], "推特": ["twitter", "x"],
+            "奈飞": ["netflix"], "网飞": ["netflix"], "迪士尼": ["disney"],
+            "小米": ["xiaomi", "mi"], "米家": ["xiaomi", "mihome", "mi"],
+            "xiaomi": ["xiaomi", "mi"], "mihome": ["xiaomi", "mihome"],
+            "京东": ["jd", "jingdong"], "哔哩哔哩": ["bilibili", "b站"], "b站": ["bilibili"],
+            "微信": ["weixin", "wechat"], "微博": ["weibo"], "知乎": ["zhihu"],
+            "小红书": ["xhs", "xiaohongshu"], "抖音": ["douyin", "tiktok"], "快手": ["kuaishou"],
+            "网易云": ["netease", "cloudmusic"], "百度": ["baidu"], "高德": ["amap", "gaode"],
+            "腾讯": ["tencent"], "美团": ["meituan"], "拼多多": ["pdd", "pinduoduo"],
+            "闲鱼": ["xianyu"], "咸鱼": ["xianyu"], "饿了么": ["eleme"], "爱奇艺": ["iqiyi"],
+            "优酷": ["youku"], "淘宝": ["taobao"], "豆瓣": ["douban"], "贴吧": ["tieba"],
+            "夸克": ["quark"], "12306": ["12306"], "高德地图": ["amap"]
         };
 
         const FLAG_CODES = new Set([
@@ -765,6 +748,7 @@
         const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
         const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
         const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+        const REFRESH_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>`;
 
         const modulesContainer = document.getElementById("modules");
         const searchInput = document.getElementById("search");
@@ -780,6 +764,7 @@
         
         const themeAutoBtn = document.getElementById("themeAuto");
         const themeToggleBtn = document.getElementById("themeToggle");
+        const refreshCacheBtn = document.getElementById("refreshCacheBtn");
 
         let allModules = [];
         let filteredModules = [];
@@ -834,10 +819,11 @@
         }
 
         /* =========================================================
-           Theme Engine
+           Theme & Refresh Controls
         ========================================================= */
         const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
         themeAutoBtn.innerHTML = SYSTEM_ICON;
+        refreshCacheBtn.innerHTML = REFRESH_ICON;
 
         function getEffectiveTheme() {
             const userChoice = localStorage.getItem("sr_theme_override");
@@ -882,6 +868,30 @@
             localStorage.setItem("sr_theme_override", nextTheme);
             updateThemeUI();
             showToast(`已切换为${nextTheme === "dark" ? "深色" : "浅色"}模式`);
+        });
+        
+        refreshCacheBtn.addEventListener("click", async () => {
+            if (statusDot.classList.contains("loading")) {
+                showToast("正在拉取数据中，请稍候...");
+                return;
+            }
+            
+            localStorage.removeItem(CONFIG.CACHE_KEY);
+            localStorage.removeItem(CONFIG.CACHE_TIME_KEY);
+            
+            searchInput.value = "";
+            setSearchState(false);
+            countText.textContent = "";
+            modulesContainer.innerHTML = `
+                <div class="loading-card"></div>
+                <div class="loading-card"></div>
+                <div class="loading-card"></div>
+            `;
+            
+            showToast("正在强制拉取最新数据...");
+            
+            await loadModules();
+            showToast("模块数据已刷新");
         });
 
         updateThemeUI();
@@ -995,6 +1005,9 @@
             try {
                 const response = await fetch(url, { ...options, signal: controller.signal });
                 clearTimeout(timer);
+                if (url.includes("api.github.com") && (response.status === 403 || response.status === 429)) {
+                    throw new Error("GitHub_API_Rate_Limit");
+                }
                 return response;
             } catch (err) {
                 clearTimeout(timer);
@@ -1019,32 +1032,9 @@
         }
 
         /* =========================================================
-           多源图标库加载与智能索引 (fmz200 + luestr/IconResource)
+           多源图标库加载与智能索引
         ========================================================= */
         async function loadLuestrIcons() {
-            try {
-                const res = await fetchWithTimeout(CONFIG.LUESTR_JSDELIVR_API, { cache: "no-store" }, 6000);
-                if (res.ok) {
-                    const data = await res.json();
-                    if (data && Array.isArray(data.files)) {
-                        for (const file of data.files) {
-                            const path = file.name || "";
-                            if (/\.(?:png|jpg|jpeg|svg|webp)$/i.test(path)) {
-                                const fileName = path.split("/").pop().replace(/\.(?:png|jpg|jpeg|svg|webp)$/i, "");
-                                const url = `https://raw.githubusercontent.com/luestr/IconResource/main${path}`;
-                                if (!isFlagKey(fileName, url)) {
-                                    const cleanName = fileName.trim().toLowerCase();
-                                    if (cleanName.length >= 2 && !remoteIconsMap[cleanName]) {
-                                        remoteIconsMap[cleanName] = url;
-                                    }
-                                }
-                            }
-                        }
-                        return;
-                    }
-                }
-            } catch (e) {}
-
             try {
                 const res = await fetchWithTimeout(CONFIG.LUESTR_TREE_API, { cache: "no-store" }, 6000);
                 if (res.ok) {
@@ -1065,7 +1055,9 @@
                         }
                     }
                 }
-            } catch (e2) {}
+            } catch (e) {
+                if (e.message === "GitHub_API_Rate_Limit") console.warn("⚠️ IconResource图标库拉取受限");
+            }
         }
 
         async function loadRemoteIcons() {
@@ -1091,12 +1083,9 @@
                     const addMap = (name, url) => {
                         if (name && typeof name === 'string' && url && typeof url === 'string' && url.length > 5) {
                             if (isFlagKey(name, url)) return;
-
                             const cleanName = name.trim().toLowerCase();
                             if (cleanName.length < 2) return;
-
                             remoteIconsMap[cleanName] = url.trim();
-
                             const baseName = cleanName.replace(/[_-]?\d+$/, "").trim();
                             if (baseName && baseName.length >= 2 && !remoteIconsMap[baseName]) {
                                 remoteIconsMap[baseName] = url.trim();
@@ -1116,10 +1105,8 @@
                     }
                 }
             } catch (e) {
-                console.warn("⚠️ 默认图标库加载失败，尝试备用源：", e);
+                console.warn("⚠️ 默认 JSON 图标库加载失败：", e);
             }
-
-            // 载入 luestr/IconResource 补充图标库
             await loadLuestrIcons();
         }
 
@@ -1287,39 +1274,22 @@
         async function fetchFMZModules() {
             const modules = [];
             try {
-                const res = await fetchWithTimeout(CONFIG.FMZ_JSDELIVR_API, { cache: "no-store" }, 6000);
+                const res = await fetchWithTimeout(CONFIG.FMZ_TREE_API, { cache: "no-store" }, 6000);
                 if (res.ok) {
                     const data = await res.json();
-                    if (data && Array.isArray(data.files)) {
-                        for (const file of data.files) {
-                            const path = file.name || "";
-                            if (path.startsWith("/Shadowrocket/module/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
+                    if (data && Array.isArray(data.tree)) {
+                        for (const item of data.tree) {
+                            const path = item.path || "";
+                            if (item.type === "blob" && path.startsWith("Shadowrocket/module/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
                                 const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
-                                const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/fmz200/wool_scripts/main${path}`);
+                                const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/fmz200/wool_scripts/main/${path}`);
                                 modules.push({ name: fileName, rawURL });
                             }
                         }
                     }
                 }
-            } catch (e) {}
-
-            if (!modules.length) {
-                try {
-                    const res = await fetchWithTimeout(CONFIG.FMZ_TREE_API, { cache: "no-store" }, 6000);
-                    if (res.ok) {
-                        const data = await res.json();
-                        if (data && Array.isArray(data.tree)) {
-                            for (const item of data.tree) {
-                                const path = item.path || "";
-                                if (item.type === "blob" && path.startsWith("Shadowrocket/module/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
-                                    const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
-                                    const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/fmz200/wool_scripts/main/${path}`);
-                                    modules.push({ name: fileName, rawURL });
-                                }
-                            }
-                        }
-                    }
-                } catch (e2) {}
+            } catch (e) {
+                if (e.message === "GitHub_API_Rate_Limit") console.warn("⚠️ FMZ 模块拉取受限");
             }
             return modules;
         }
@@ -1333,37 +1303,22 @@
             } catch (e) {}
 
             try {
-                const res = await fetchWithTimeout(CONFIG.ZIRAWELL_JSDELIVR_API, { cache: "no-store" }, 6000);
+                const res = await fetchWithTimeout(CONFIG.ZIRAWELL_TREE_API, { cache: "no-store" }, 6000);
                 if (res.ok) {
                     const data = await res.json();
-                    if (data && Array.isArray(data.files)) {
-                        for (const file of data.files) {
-                            const path = file.name || "";
-                            if (path.startsWith("/Rule/Surge/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
+                    if (data && Array.isArray(data.tree)) {
+                        for (const item of data.tree) {
+                            const path = item.path || "";
+                            if (item.type === "blob" && path.startsWith("Rule/Surge/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
                                 const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
-                                const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/zirawell/R-Store/main${path}`);
+                                const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/zirawell/R-Store/main/${path}`);
                                 modules.push({ name: fileName, rawURL });
                             }
                         }
                     }
                 }
             } catch (e) {
-                try {
-                    const res = await fetchWithTimeout(CONFIG.ZIRAWELL_TREE_API, { cache: "no-store" }, 6000);
-                    if (res.ok) {
-                        const data = await res.json();
-                        if (data && Array.isArray(data.tree)) {
-                            for (const item of data.tree) {
-                                const path = item.path || "";
-                                if (item.type === "blob" && path.startsWith("Rule/Surge/") && /\.(?:sgmodule|srmodule|module)$/i.test(path)) {
-                                    const fileName = path.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
-                                    const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/zirawell/R-Store/main/${path}`);
-                                    modules.push({ name: fileName, rawURL });
-                                }
-                            }
-                        }
-                    }
-                } catch (e2) {}
+                if (e.message === "GitHub_API_Rate_Limit") console.warn("⚠️ Zirawell 模块拉取受限");
             }
             return modules;
         }
@@ -1744,6 +1699,18 @@
            主调度加载入口
         ========================================================= */
         async function loadModules() {
+            // 设置刷新按钮状态
+            const svgIcon = refreshCacheBtn.querySelector("svg");
+            const setBtnLoading = (isLoading) => {
+                if (isLoading) {
+                    refreshCacheBtn.classList.add("active");
+                    if (svgIcon) svgIcon.classList.add("spin-anim");
+                } else {
+                    refreshCacheBtn.classList.remove("active");
+                    if (svgIcon) svgIcon.classList.remove("spin-anim");
+                }
+            };
+
             const cachedData = localStorage.getItem(CONFIG.CACHE_KEY);
             const cachedTime = localStorage.getItem(CONFIG.CACHE_TIME_KEY);
             const now = Date.now();
@@ -1765,10 +1732,12 @@
                     if (!isExpired) {
                         statusText.textContent = "已同步";
                         statusDot.className = "status-dot";
+                        setBtnLoading(false); // 不在加载，确保静态
                         return;
                     }
                     statusText.textContent = "正在同步模块...";
                     statusDot.className = "status-dot loading";
+                    setBtnLoading(true); // 缓存过期，后台加载，按钮激活旋转
                 } catch (e) {
                     localStorage.removeItem(CONFIG.CACHE_KEY);
                     localStorage.removeItem(CONFIG.CACHE_TIME_KEY);
@@ -1781,6 +1750,7 @@
                     setSearchState(false);
                     statusText.textContent = "正在读取模块及图标库...";
                     statusDot.className = "status-dot loading";
+                    setBtnLoading(true); // 无缓存初次加载，按钮激活旋转
                 }
 
                 let repoMarkdown = "";
@@ -1843,9 +1813,13 @@
 
                 statusText.textContent = "已同步";
                 statusDot.className = "status-dot";
+                setBtnLoading(false); // 加载完成，停止动画取消高亮
 
             } catch (error) {
                 console.error("模块同步失败：", error);
+                const isRateLimit = error.message === "GitHub_API_Rate_Limit";
+                const errorMsg = isRateLimit ? "当前代理节点触发了 GitHub 速率限制，请尝试更换节点后重新加载" : (error.message || "请检查网络连接");
+
                 if (!hasCache) {
                     setSearchState(false);
                     statusText.textContent = "同步失败";
@@ -1855,13 +1829,17 @@
                         <div class="empty">
                             <div class="empty-icon">⚠️</div>
                             无法读取模块列表
-                            <div class="empty-error">${escapeHTML(error.message || "请检查网络连接")}</div>
+                            <div class="empty-error">${escapeHTML(errorMsg)}</div>
                         </div>`;
+                    if (isRateLimit) showToast("当前节点触发 GitHub API 限制");
                 } else {
                     setSearchState(true);
-                    statusText.textContent = "已同步";
-                    statusDot.className = "status-dot";
+                    statusText.textContent = isRateLimit ? "同步中断：节点IP受限" : "同步失败，显示缓存数据";
+                    statusDot.className = "status-dot error";
+                    if (isRateLimit) showToast("节点IP触发 GitHub 限制，使用缓存数据");
                 }
+                
+                setBtnLoading(false); // 发生错误，停止动画取消高亮
             }
         }
 
