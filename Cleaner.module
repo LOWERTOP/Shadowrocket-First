@@ -1,5 +1,5 @@
 #!name=🅲🅻🅴🅰🅽🅴🆁
-#!desc=红果短剧、包子漫画网页版及小蚁摄像机等去广告
+#!desc=红果短剧、包子漫画网页、知乎网页及小蚁摄像机等去广告
 # 整理作者：LOWERTOP
 # 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
 
@@ -28,9 +28,16 @@ DOMAIN-SUFFIX,baozimhapp.com,REJECT
 ^https?://api.xiaoyi.com\/v5\/app\/mobile\/ads - REJECT
 ^https?://api.xiaoyi.com\/v5\/app\/config\?userid=.* - REJECT
 
+# 知乎网页广告
+https://(www|zhuanlan)\.zhihu\.com/api/v4/questions/\d+/related-readings reject
+https://(www|zhuanlan)\.zhihu\.com/api/v4/answers/\d+/related-readings reject
+#https://(www|zhuanlan)\.zhihu\.com/api/v4/hot_recommendation reject
+https://(www|zhuanlan)\.zhihu\.com/commercial_api/banners_v3/(mobile_banner|mobile_question) reject
+https://(www|zhuanlan)\.zhihu\.com/api/articles/\d+/recommendation reject
+
 [Script]
 # 包子漫画网页
 web-element-block = type=http-response,pattern=^https?:\/\/([a-zA-Z0-9-]+\.)*(baozimhcn|dzmanga)\.com\/.*,requires-body=1,script-path=https://lowertop.github.io/Shadowrocket-First/JS/baozimh.js
 
 [MITM]
-hostname = %APPEND% static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com
+hostname = %APPEND% static-tw.baozimh.com, *.baozimhcn.com, *.dzmanga.com, *.xiaoyi.com, zhuanlan.zhihu.com, www.zhihu.com
