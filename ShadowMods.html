@@ -8,7 +8,7 @@
     <!-- PWA 独立应用模式与动态状态栏颜色支持 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="theme-color" content="#F4F7FC">
+    <meta name="theme-color" content="#f0f2f5">
     
     <title>ShadowStore</title>
 
@@ -19,15 +19,12 @@
             const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
             const theme = saved === "dark" || saved === "light" ? saved : (prefersDark ? "dark" : "light");
             document.documentElement.setAttribute("data-theme", theme);
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0E101B' : '#F4F7FC');
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#14161a' : '#f0f2f5');
         })();
     </script>
 
-    <!-- 2. 浏览器标签页 Icon 与 iOS 桌面图标 -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%234E60FF%22 stroke=%22rgba(255,255,255,0.3)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23768a9e%22 stroke=%22rgba(255,255,255,0.6)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowMods.png">
-
-    <!-- 3. 网络层预解析 -->
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
     <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
     <link rel="dns-prefetch" href="https://api.github.com">
@@ -35,457 +32,489 @@
 
     <style>
         /* =========================================================
-           Design Tokens (Liquid Glass & 同心曲率规范体系)
+           Design Tokens (浅色模式焦散适度增强，暗色模式无焦散)
         ========================================================= */
         :root, [data-theme="light"] {
-            /* 页面底层底色 */
-            --bg-page: #F4F7FC;
+            /* 聚光灯底色：光源在右上角 (90% 10%)[cite: 2] */
+            --bg-page-base: #f0f2f5;
+            --bg-page-grad: radial-gradient(circle at 90% 10%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
             
-            /* 流体环境光 (Ambient Mesh) */
-            --ambient-1: rgba(78, 96, 255, 0.18);
-            --ambient-2: rgba(0, 210, 147, 0.12);
-            --ambient-3: rgba(112, 71, 235, 0.08);
-
-            /* 液态玻璃核心材质参数 */
-            --bg-glass: rgba(255, 255, 255, 0.55);
-            --bg-glass-hover: rgba(255, 255, 255, 0.75);
-            --bg-surface: rgba(238, 242, 248, 0.6);
-            --bg-page-glass: rgba(244, 247, 252, 0.65);
+            /* 玻璃通透渐变：225deg 表示从右上到左下[cite: 2] */
+            --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
+            --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
             
-            /* 物理厚度边框 - 调细透明度使其更锐利 */
-            --border-glass-top: rgba(255, 255, 255, 0.7);
-            --border-glass-bottom: rgba(228, 233, 243, 0.3);
-            --border-subtle: rgba(255, 255, 255, 0.5);
+            /* 切边高光：右侧和顶部迎光(白)，左侧和底部背光(暗)[cite: 2] */
+            --glass-border-t: rgba(255, 255, 255, 0.85);
+            --glass-border-r: rgba(255, 255, 255, 0.6);
+            --glass-border-b: rgba(255, 255, 255, 0.05);
+            --glass-border-l: rgba(255, 255, 255, 0.1);
 
-            --text-primary: #171A26;
-            --text-secondary: #606A85;
-            --text-tertiary: #929AB3;
+            /* ==============================================
+               核心大体块阴影重构：浅色模式焦散光斑
+            ============================================== */
+            --shadow-glass-lg: 
+                inset -1.5px 1.5px 0px rgba(255, 255, 255, 1),
+                inset 1px -1px 3px rgba(0, 0, 0, 0.04),
+                -3.3px 9.5px 6px -4px rgba(255, 255, 255, 0.33),
+                -1.8px 11px 8px -4.5px rgba(255, 255, 255, 0.3),
+                -4.8px 14px 10px -5.5px rgba(255, 255, 255, 0.25),
+                -2.5px 16px 12px -5px rgba(255, 255, 255, 0.17),
+                -2px 8px 10px rgba(0, 0, 0, 0.15),        
+                -15px 35px 45px -5px rgba(0, 0, 0, 0.12), 
+                -80px 140px 160px -20px rgba(0, 0, 0, 0.25);
 
-            --primary: #4E60FF;
-            --primary-hover: #3E50F0;
-            --primary-soft: rgba(78, 96, 255, 0.1);
-            --primary-soft-border: rgba(78, 96, 255, 0.2);
+            --shadow-glass-lg-hover: 
+                inset -1.5px 1.5px 0px rgba(255, 255, 255, 1),
+                inset 1px -1px 3px rgba(0, 0, 0, 0.05),
+                -4px 11.5px 7px -4.5px rgba(255, 255, 255, 0.33),
+                -2.2px 13.5px 9.5px -5px rgba(255, 255, 255, 0.3),
+                -5.8px 17px 12px -6px rgba(255, 255, 255, 0.25),
+                -3px 19.5px 14px -5.5px rgba(255, 255, 255, 0.18),
+                -4px 12px 16px rgba(0, 0, 0, 0.15),
+                -20px 45px 55px -5px rgba(0, 0, 0, 0.12),
+                -90px 160px 180px -20px rgba(0, 0, 0, 0.3);
 
-            --accent-mint: #00D293;
-            --accent-mint-soft: rgba(0, 210, 147, 0.15);
-            --accent-orange: #FF8E3C;
-            --accent-orange-soft: rgba(255, 142, 60, 0.15);
-            --accent-red: #FF4D4D;
+            --shadow-glass-sm: 
+                inset -1px 1px 0px rgba(255, 255, 255, 1),
+                inset 1px -1px 2px rgba(0, 0, 0, 0.04),
+                -2px 5.5px 4px -3px rgba(255, 255, 255, 0.33),
+                -1px 7px 5.5px -3.5px rgba(255, 255, 255, 0.28),
+                -3px 8.5px 6.5px -4px rgba(255, 255, 255, 0.22),
+                -1px 4px 6px rgba(0, 0, 0, 0.12),
+                -8px 15px 20px -3px rgba(0, 0, 0, 0.08),
+                -30px 60px 70px -10px rgba(0, 0, 0, 0.18);
 
-            /* 体积光与环境投影 - 取消模糊半径使其变为锐利的1px高光线 */
-            --shadow-glass: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.6), 
-                inset 0 0 2px rgba(255, 255, 255, 0.2),
-                0 10px 30px rgba(35, 47, 85, 0.05), 
-                0 2px 8px rgba(35, 47, 85, 0.02);
-            --shadow-glass-hover: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.9), 
-                inset 0 0 4px rgba(255, 255, 255, 0.4),
-                0 18px 44px rgba(78, 96, 255, 0.1), 
-                0 6px 16px rgba(78, 96, 255, 0.05);
+            /* 全局文字明度调和[cite: 2] */
+            --text-primary: #4a4f59;
+            --text-secondary: #7e8596;
+            --text-tertiary: #a1a9ba;
 
-            --radius-card: 44px; 
+            --primary: #768a9e; 
+            --primary-hover: #62768a;
+            --primary-soft: rgba(118, 138, 158, 0.15);
+            
+            --bg-surface: #e6eaf0;
+            --border-subtle: #d6dbe3;
+
+            --accent-mint: #8eaeb8;  
+            --accent-mint-soft: rgba(142, 174, 184, 0.2);
+            --accent-orange: #c4af9d; 
+            --accent-orange-soft: rgba(196, 175, 157, 0.2);
+
+            --radius-card: 44px;
             --radius-pill: 9999px;
-            --toast-bg: rgba(23, 26, 38, 0.85);
+            --toast-bg: #4a4f59;
             --toast-text: #FFFFFF;
         }
 
         [data-theme="dark"] {
-            --bg-page: #080A11;
+            /* 暗色模式取消背景渐变，仅保留纯色基底[cite: 2] */
+            --bg-page-base: #14161a;
+            --bg-page-grad: none;
             
-            --ambient-1: rgba(88, 104, 255, 0.22);
-            --ambient-2: rgba(0, 229, 153, 0.15);
-            --ambient-3: rgba(139, 104, 255, 0.12);
+            /* 暗色模式下取消玻璃渐变与边框反射[cite: 2] */
+            --glass-bg: none;
+            --glass-bg-hover: none;
+            --glass-border-t: transparent;
+            --glass-border-r: transparent;
+            --glass-border-b: transparent;
+            --glass-border-l: transparent;
 
-            --bg-glass: rgba(28, 32, 50, 0.45);
-            --bg-glass-hover: rgba(36, 41, 64, 0.65);
-            --bg-surface: rgba(36, 40, 66, 0.5);
-            --bg-page-glass: rgba(8, 10, 17, 0.7);
-            
-            --border-glass-top: rgba(255, 255, 255, 0.12);
-            --border-glass-bottom: rgba(255, 255, 255, 0.02);
-            --border-subtle: rgba(255, 255, 255, 0.06);
+            /* 暗色模式纯阴影（已完全移除焦散光斑效果）[cite: 2] */
+            --shadow-glass-lg: 
+                -2px 8px 10px rgba(0, 0, 0, 0.6),
+                -15px 35px 45px -5px rgba(0, 0, 0, 0.4),
+                -80px 140px 160px -20px rgba(0, 0, 0, 0.95);
 
-            --text-primary: #F5F7FC;
-            --text-secondary: #9AA3C0;
-            --text-tertiary: #68708C;
+            --shadow-glass-lg-hover: 
+                -4px 12px 16px rgba(0, 0, 0, 0.7),
+                -20px 45px 55px -5px rgba(0, 0, 0, 0.5),
+                -90px 160px 180px -20px rgba(0, 0, 0, 1);
 
-            --primary: #6E7CFF;
-            --primary-hover: #828FFF;
-            --primary-soft: rgba(110, 124, 255, 0.15);
-            --primary-soft-border: rgba(110, 124, 255, 0.25);
+            --shadow-glass-sm: 
+                -1px 4px 6px rgba(0, 0, 0, 0.5),
+                -8px 15px 20px -3px rgba(0, 0, 0, 0.4),
+                -30px 60px 70px -10px rgba(0, 0, 0, 0.85);
 
-            --accent-mint: #00E599;
-            --accent-mint-soft: rgba(0, 229, 153, 0.15);
-            --accent-orange: #FFA043;
-            --accent-orange-soft: rgba(255, 160, 67, 0.18);
-            --accent-red: #FF5C5C;
+            --text-primary: #dce1e8;
+            --text-secondary: #939aa8;
+            --text-tertiary: #6b7280;
 
-            --shadow-glass: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.12), 
-                inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-                0 14px 36px rgba(0, 0, 0, 0.45),
-                0 4px 12px rgba(0, 0, 0, 0.2);
-            --shadow-glass-hover: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.18), 
-                inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-                0 22px 52px rgba(0, 0, 0, 0.6),
-                0 8px 24px rgba(0, 0, 0, 0.3);
+            --primary: #758b9f;
+            --primary-hover: #8da1b5;
+            --primary-soft: rgba(117, 139, 159, 0.2);
+            --bg-surface: #1d2026;
+            --border-subtle: #2b3038;
 
-            --radius-card: 44px; 
-            --radius-pill: 9999px;
-            --toast-bg: rgba(255, 255, 255, 0.9);
-            --toast-text: #080A11;
+            --accent-mint: #8bb7c4;
+            --accent-mint-soft: rgba(139, 183, 196, 0.2);
+            --accent-orange: #c4a991;
+            --accent-orange-soft: rgba(196, 169, 145, 0.2);
+
+            --toast-bg: #dce1e8;
+            --toast-text: #14161a;
         }
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent;[cite: 2]}
         
         html { 
-            margin: 0; 
-            padding: 0; 
-            background: var(--bg-page); 
-            transition: background-color 0.4s ease;
-            overflow-y: scroll;
-            scrollbar-gutter: stable;
+            margin: 0; padding: 0; overflow-y: scroll; scrollbar-gutter: stable;[cite: 2]
         }
         
         body { 
-            position: relative;
             margin: 0; 
             padding: max(16px, env(safe-area-inset-top)) 16px max(36px, env(safe-area-inset-bottom)); 
-            background: transparent; 
+            background-color: var(--bg-page-base);
+            background-image: var(--bg-page-grad);
+            background-attachment: fixed;
             color: var(--text-primary); 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; 
             -webkit-font-smoothing: antialiased; 
             text-rendering: optimizeLegibility; 
-            transition: color 0.4s ease; 
+            transition: background-color 0.4s ease, color 0.4s ease;[cite: 2]
         }
 
-        /* 环境流体光效 (Ambient Fluid Mesh) */
-        .ambient-bg {
-            position: fixed;
-            top: -20%; left: -20%; width: 140%; height: 140%;
-            z-index: -1;
-            pointer-events: none;
-            background: 
-                radial-gradient(circle at 20% 30%, var(--ambient-1), transparent 50%),
-                radial-gradient(circle at 80% 70%, var(--ambient-2), transparent 50%),
-                radial-gradient(circle at 50% 50%, var(--ambient-3), transparent 60%);
-            filter: blur(80px);
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            animation: liquidFlow 18s ease-in-out infinite alternate;
-            transition: background 0.5s ease;
-        }
-
-        @keyframes liquidFlow {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(3%, -3%) scale(1.03); }
-            100% { transform: translate(-2%, 4%) scale(1.05); }
-        }
-
-        button, input { font: inherit; }
-        a { color: inherit; text-decoration: none; }
-        .container { width: 100%; max-width: 900px; margin: 0 auto; position: relative; }
+        button, input { font: inherit;[cite: 2]}
+        a { color: inherit; text-decoration: none;[cite: 2]}
+        .container { width: 100%; max-width: 900px; margin: 0 auto; position: relative;[cite: 2]}
 
         /* =========================================================
            Header
         ========================================================= */
-        .header { padding: 24px 0 18px; }
-        .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-        .brand-wrapper { display: flex; align-items: center; gap: 10px; }
+        .header { padding: 24px 0 18px;[cite: 2]}
+        .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px;[cite: 2]}
+        
+        .brand-wrapper { display: flex; align-items: center; gap: 10px;[cite: 2]}
 
         .title { 
-            margin: 0; font-size: 26px; line-height: 1.2; font-weight: 800; 
-            letter-spacing: -0.6px; display: flex; align-items: center; gap: 10px;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            margin: 0; font-size: 26px; line-height: 1.2; font-weight: 300;
+            letter-spacing: -0.6px; display: flex; align-items: center; gap: 10px;[cite: 2]
         }
-        .title a { transition: opacity 0.3s ease; }
-        .title a:hover { opacity: 0.8; }
+        .title a { transition: opacity 0.2s ease;[cite: 2]}
+        .title a:hover { opacity: 0.85;[cite: 2]}
 
+        /* 完全扁平化的徽章 (无玻璃效果)[cite: 2] */
         .tag-pill-badge {
             display: inline-flex; align-items: center; height: 22px; padding: 0 10px;
-            border-radius: var(--radius-pill); background: var(--accent-mint-soft);
-            color: var(--accent-mint); font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-radius: var(--radius-pill); background: var(--bg-surface);
+            color: var(--text-secondary); font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+            border: none; box-shadow: none;[cite: 2]
         }
 
-        .subtitle { margin-top: 8px; color: var(--text-secondary); font-size: 14px; font-weight: 400; }
+        .subtitle { margin-top: 8px; color: var(--text-secondary); font-size: 14px; line-height: 1.5; font-weight: 300;[cite: 2]}
         
-        .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0;[cite: 2]}
+
+        /* =========================================================
+           Glass Element Class (核心四大载体专属：暗色下为纯实体+阴影)
+        ========================================================= */
+        .glass-element {
+            background-color: transparent;
+            background-image: 
+                var(--glass-bg),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            border: none;
+            border-top: 1px solid var(--glass-border-t);
+            border-left: 1px solid var(--glass-border-l);
+            border-right: 1px solid var(--glass-border-r);
+            border-bottom: 1px solid var(--glass-border-b);
+        }
+
+        /* 暗色模式下强制关闭玻璃质感，改为纯色实体背景，仅保留阴影[cite: 2] */
+        [data-theme="dark"] .glass-element {
+            background-color: var(--bg-surface);
+            background-image: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: none;[cite: 2]
+        }
+
         .theme-toggle { 
             display: inline-flex; align-items: center; justify-content: center; 
             width: 44px; height: 44px; padding: 0; margin: 0; 
-            border: 1px solid transparent; 
-            border-top-color: var(--border-glass-top);
-            border-left-color: var(--border-glass-top);
-            border-bottom-color: var(--border-glass-bottom);
-            border-right-color: var(--border-glass-bottom);
             border-radius: 50%; 
-            background: var(--bg-glass); 
-            backdrop-filter: blur(24px) saturate(160%);
-            -webkit-backdrop-filter: blur(24px) saturate(160%);
             color: var(--text-secondary); cursor: pointer; 
-            box-shadow: var(--shadow-glass); 
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+            box-shadow: var(--shadow-glass-sm); 
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);[cite: 2]
         }
-        .theme-toggle:hover { background: var(--bg-glass-hover); box-shadow: var(--shadow-glass-hover); color: var(--text-primary); transform: translateY(-1px); }
-        .theme-toggle:active { transform: scale(0.92); }
+        .theme-toggle:hover { 
+            background-image: var(--glass-bg-hover), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            color: var(--text-primary); transform: translateY(-1px);[cite: 2]
+        }
+        [data-theme="dark"] .theme-toggle:hover {
+            background-image: none;
+            background-color: var(--border-subtle);[cite: 2]
+        }
+        .theme-toggle:active { transform: scale(0.92);[cite: 2]}
         .theme-toggle.active { 
-            color: var(--primary); background: var(--primary-soft); 
-            border-color: var(--primary-soft-border); 
-            box-shadow: inset 0 2px 8px rgba(78, 96, 255, 0.15);
+            color: var(--primary); background-color: var(--primary-soft);[cite: 2]
         }
-        .theme-toggle svg { display: block; width: 19px; height: 19px; pointer-events: none; }
+        .theme-toggle svg { display: block; width: 19px; height: 19px; pointer-events: none; stroke-width: 1.5;[cite: 2]}
         
-        @keyframes spinNode { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .spin-anim { animation: spinNode 1s linear infinite; transform-origin: center center; }
+        @keyframes spinNode { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); }[cite: 2]}
+        .spin-anim { animation: spinNode 1s linear infinite; transform-origin: center center;[cite: 2]}
 
         /* =========================================================
-           Notice Banner & Search Bar (Liquid Glass)
+           Notice Banner
         ========================================================= */
         .notice { 
             position: relative; display: flex; align-items: center; 
             height: 44px; margin-bottom: 16px; padding: 6px 14px 6px 6px; gap: 10px; 
-            background: var(--bg-glass); 
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border: 1px solid transparent;
-            border-top-color: var(--border-glass-top);
-            border-left-color: var(--border-glass-top);
-            border-bottom-color: var(--border-glass-bottom);
-            border-right-color: var(--border-glass-bottom);
             border-radius: 22px; color: var(--text-primary); 
-            font-size: 13.5px; font-weight: 500;
-            box-shadow: var(--shadow-glass); 
+            font-size: 13.5px; font-weight: 400;
+            box-shadow: var(--shadow-glass-sm); 
             overflow: hidden; cursor: pointer; user-select: none; 
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);[cite: 2]
         }
-        .notice:hover { background: var(--bg-glass-hover); box-shadow: var(--shadow-glass-hover); transform: translateY(-1px); }
-        .notice:active { transform: scale(0.99) translateY(0); }
+        .notice:hover { 
+            background-image: var(--glass-bg-hover), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            transform: translateY(-1px);[cite: 2]
+        }
+        [data-theme="dark"] .notice:hover {
+            background-image: none;
+            background-color: var(--border-subtle);[cite: 2]
+        }
+        .notice:active { transform: scale(0.99) translateY(0);[cite: 2]}
         
+        /* 公告图标框（带分割线同款边框）[cite: 2] */
         .notice-icon-box { 
             width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; 
-            background: var(--primary-soft); border: 1px solid var(--primary-soft-border);
+            background: transparent; border: 1px solid var(--border-subtle); box-shadow: none;
             color: var(--primary); display: flex; align-items: center; justify-content: center;
-            font-size: 14px; box-shadow: 0 2px 6px rgba(78, 96, 255, 0.12);
+            font-size: 14px;[cite: 2]
         }
-        .notice-slider { flex: 1; height: 22px; overflow: hidden; position: relative; pointer-events: none; }
-        .notice-track { display: flex; flex-direction: column; transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1); }
-        .notice-item { height: 22px; line-height: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary); }
+        .notice-slider { flex: 1; height: 22px; overflow: hidden; position: relative; pointer-events: none;[cite: 2]}
+        .notice-track { display: flex; flex-direction: column; transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);[cite: 2]}
+        .notice-item { height: 22px; line-height: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary);[cite: 2]}
 
-        /* 移除了 wrapper 上的背景和模糊，避免产生丑陋的矩形底块 */
+        /* =========================================================
+           Search Bar
+        ========================================================= */
         .search-wrapper { 
             position: sticky; top: 0; z-index: 100; 
             padding: 8px 0 12px; margin-bottom: 12px; 
             background: transparent; 
-            -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0);
-            transition: background-color 0.4s ease;
+            -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0);[cite: 2]
         }
         .search-box-inner {
             position: relative; width: 100%; height: 44px; display: flex; align-items: center; gap: 8px; 
-            background: var(--bg-glass);
-            /* 模糊效果移至胶囊体内 */
-            backdrop-filter: blur(28px) saturate(200%);
-            -webkit-backdrop-filter: blur(28px) saturate(200%);
-            border: 1px solid transparent;
-            border-top-color: var(--border-glass-top);
-            border-left-color: var(--border-glass-top);
-            border-bottom-color: var(--border-glass-bottom);
-            border-right-color: var(--border-glass-bottom);
-            border-radius: 22px; box-shadow: var(--shadow-glass); padding: 6px; cursor: text;
+            border-radius: 22px; box-shadow: var(--shadow-glass-sm); padding: 6px; cursor: text;
             -webkit-transform: translateZ(0); transform: translateZ(0);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);[cite: 2]
         }
         .search-box-inner:focus-within {
-            background: var(--bg-glass-hover);
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px var(--primary-soft), var(--shadow-glass-hover);
+            background-image: var(--glass-bg-hover), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            border-color: rgba(255,255,255,0.8);[cite: 2]
         }
+        [data-theme="dark"] .search-box-inner:focus-within {
+            background-image: none;
+            background-color: var(--border-subtle);
+            border-color: var(--text-tertiary);[cite: 2]
+        }
+        
+        /* 搜索框图标（带分割线同款边框）[cite: 2] */
         .search-icon { 
             width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%;
-            background: var(--bg-surface); border: 1px solid var(--border-subtle);
+            background: transparent; border: 1px solid var(--border-subtle); box-shadow: none;
             display: flex; align-items: center; justify-content: center;
-            font-size: 13px; pointer-events: none; box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            font-size: 14px; pointer-events: none; color: var(--primary);[cite: 2]
         }
         .search { 
             display: block; width: 100%; flex: 1; min-width: 0; height: 32px; line-height: 32px;
             padding: 0; margin: 0; border: 0; outline: none; background: transparent;
-            color: var(--text-primary); font-size: 16px; font-weight: 500; vertical-align: middle;
-            -webkit-appearance: none; appearance: none;
+            color: var(--text-primary); font-size: 15px; font-weight: 400; vertical-align: middle;
+            -webkit-appearance: none; appearance: none;[cite: 2]
         }
         .search::-webkit-search-decoration, .search::-webkit-search-cancel-button, 
-        .search::-webkit-search-results-button, .search::-webkit-search-results-decoration { display: none; }
-        .search::-webkit-input-placeholder, .search::placeholder { color: var(--text-tertiary); font-size: 16px; font-weight: 400; line-height: 32px; }
-        .search:disabled { cursor: not-allowed; opacity: 0.65; }
+        .search::-webkit-search-results-button, .search::-webkit-search-results-decoration { display: none;[cite: 2]}
+        .search::-webkit-input-placeholder, .search::placeholder { color: var(--text-tertiary); font-size: 15px; font-weight: 300; line-height: 32px;[cite: 2]}
+        .search:disabled { cursor: not-allowed; opacity: 0.65;[cite: 2]}
         
         .search-shortcut, .search-clear { 
             width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            background: var(--bg-surface); border: 1px solid var(--border-subtle);
-            font-size: 12px; font-weight: 700; transition: all 0.2s ease; 
+            background: transparent; border: none; box-shadow: none;
+            font-size: 12px; font-weight: 600; transition: all 0.2s ease;[cite: 2]
         }
-        .search-shortcut { color: var(--text-tertiary); pointer-events: none; }
-        .search-clear { display: none; color: var(--text-secondary); cursor: pointer; padding: 0; }
-        .search-clear:hover { background: var(--text-primary); color: var(--bg-card); }
-        .search-clear.visible { display: flex; }
+        .search-shortcut { color: var(--text-tertiary); pointer-events: none;[cite: 2]}
+        .search-clear { display: none; color: var(--primary); cursor: pointer; padding: 0;[cite: 2]}
+        .search-clear:hover { color: var(--text-primary);[cite: 2]}
+        .search-clear.visible { display: flex;[cite: 2]}
 
         /* =========================================================
            Status Metric Strip
         ========================================================= */
         .status { 
             display: flex; align-items: center; justify-content: space-between; 
-            min-height: 22px; margin: 0 6px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 500;
+            min-height: 22px; margin: 0 6px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400;[cite: 2]
         }
-        .status-left { display: flex; align-items: center; gap: 8px; }
-        .status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint-soft); }
-        .status-dot.loading { background: var(--accent-orange); box-shadow: 0 0 0 3px var(--accent-orange-soft); animation: statusPulse 1.2s infinite; }
-        .status-dot.error { background: var(--accent-red); box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.15); }
-        @keyframes statusPulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
+        .status-left { display: flex; align-items: center; gap: 8px;[cite: 2]}
+        .status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint-soft);[cite: 2]}
+        .status-dot.loading { background: var(--accent-orange); box-shadow: 0 0 0 3px var(--accent-orange-soft); animation: statusPulse 1.2s infinite;[cite: 2]}
+        .status-dot.error { background: #c8a3ab; box-shadow: 0 0 0 3px rgba(200, 163, 171, 0.2);[cite: 2]}
+        @keyframes statusPulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; }[cite: 2]}
         
         /* =========================================================
-           Module Cards (Liquid Glass)
+           Module Cards
         ========================================================= */
-        .modules { display: flex; flex-direction: column; gap: 16px; }
+        .modules { display: flex; flex-direction: column; gap: 32px; padding-bottom: 20px;[cite: 2]}
         .module-card { 
-            position: relative; padding: 22px; border-radius: var(--radius-card); 
-            background: var(--bg-glass); 
-            backdrop-filter: blur(32px) saturate(200%);
-            -webkit-backdrop-filter: blur(32px) saturate(200%);
-            border: 1px solid transparent;
-            border-top-color: var(--border-glass-top);
-            border-left-color: var(--border-glass-top);
-            border-bottom-color: var(--border-glass-bottom);
-            border-right-color: var(--border-glass-bottom);
-            box-shadow: var(--shadow-glass); 
+            position: relative; padding: 28px; border-radius: var(--radius-card); 
+            box-shadow: var(--shadow-glass-lg); 
             overflow: hidden; content-visibility: auto; contain-intrinsic-size: 0 180px; 
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            -webkit-transform: translateZ(0); transform: translateZ(0);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            -webkit-transform: translateZ(0); transform: translateZ(0);[cite: 2]
         }
-        /* 光学反射形变流光 */
+
         .module-card::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
-            transform: skewX(-20deg); transition: none; pointer-events: none;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+            transform: skewX(-20deg); transition: none; pointer-events: none; z-index: 10;[cite: 2]
         }
         .module-card:hover { 
-            transform: translateY(-3px) scale(1.005);
-            background: var(--bg-glass-hover);
-            box-shadow: var(--shadow-glass-hover); 
+            transform: translateY(-2px);
+            background-image: var(--glass-bg-hover), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            box-shadow: var(--shadow-glass-lg-hover);[cite: 2]
         }
-        .module-card:hover::before { left: 200%; transition: left 0.8s ease-in-out; }
+        [data-theme="dark"] .module-card:hover {
+            background-image: none;
+            background-color: var(--bg-surface);[cite: 2]
+        }
+        .module-card:hover::before { left: 200%; transition: left 0.9s ease-in-out;[cite: 2]}
 
-        .card-header { display: flex; align-items: center; gap: 16px; }
+        .card-header { display: flex; align-items: center; gap: 20px;[cite: 2]}
+        
+        /* 内部图标纯扁平化处理 (无玻璃/发光效果) */
         .module-icon { 
-            width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; 
-            background: var(--bg-surface); overflow: hidden; 
-            box-shadow: inset 0 0 0 1px var(--border-subtle), 0 4px 12px rgba(0,0,0,0.06); 
+            width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; 
+            background: transparent; overflow: hidden; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* 仅保留极其微弱的环境投影 */
+            border: none;[cite: 2]
         }
-        .module-icon img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .module-icon img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%;[cite: 2]}
         
-        .card-main { min-width: 0; flex: 1; }
-        .module-name { margin: 0; font-size: 19px; line-height: 1.3; font-weight: 700; letter-spacing: -0.3px; color: var(--text-primary); word-break: break-word; }
+        .card-main { min-width: 0; flex: 1;[cite: 2]}
+        .module-name { 
+            margin: 0; font-size: 20px; line-height: 1.3; font-weight: 400;
+            letter-spacing: -0.2px; color: var(--text-primary); word-break: break-word;[cite: 2]
+        }
         
-        .module-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 6px; color: var(--text-secondary); font-size: 12.5px; font-weight: 500; }
-        .meta-separator { opacity: .4; }
+        .module-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 6px; color: var(--text-secondary); font-size: 13px; font-weight: 300;[cite: 2]}
+        .meta-separator { opacity: .4;[cite: 2]}
         
+        /* 内部扁平小胶囊 */
         .status-pill {
             display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px;
-            border-radius: var(--radius-pill); font-size: 11.5px; font-weight: 600;
-            background: var(--accent-mint-soft); color: var(--accent-mint);
+            border-radius: var(--radius-pill); font-size: 11.5px; font-weight: 500;
+            background: var(--bg-surface); color: var(--text-secondary);
+            border: none; box-shadow: none;[cite: 2]
         }
-        .status-pill.status-badge-dubious { background: var(--accent-orange-soft); color: var(--accent-orange); }
+        /* 模块信息获取失败：低饱和度紫红色 */
+        .status-badge-dubious {
+            background: rgba(160, 110, 140, 0.15);
+            color: #a37295;[cite: 2]
+        }
+        [data-theme="dark"] .status-badge-dubious {
+            background: rgba(160, 110, 140, 0.22);
+            color: #d19bbd;[cite: 2]
+        }
 
-        .author { display: inline-flex; align-items: center; gap: 6px; color: var(--text-secondary); font-weight: 600; transition: color 0.2s ease; }
-        .author:hover { color: var(--primary); }
-        .author-avatar { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .author { display: inline-flex; align-items: center; gap: 6px; color: var(--text-secondary); font-weight: 400; transition: color 0.2s ease;[cite: 2]}
+        .author:hover { color: var(--primary);[cite: 2]}
+        .author-avatar { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; box-shadow: none;[cite: 2]}
         
-        .module-description { margin-top: 14px; color: var(--text-secondary); font-size: 14.5px; line-height: 1.6; font-weight: 400; word-break: break-word; }
+        .module-description { margin-top: 16px; color: var(--text-secondary); font-size: 14.5px; line-height: 1.6; font-weight: 300; word-break: break-word;[cite: 2]}
         
         .card-bottom { 
             display: flex; align-items: center; justify-content: space-between; gap: 12px; 
-            margin-top: 22px; padding-top: 22px; 
-            border-top: 1px solid var(--border-glass-bottom);
+            margin-top: 24px; padding-top: 24px; 
+            border-top: 1px solid var(--border-subtle); /* 使用扁平色系分隔线 */
+            box-shadow: none;[cite: 2]
         }
-        .source { display: flex; align-items: center; gap: 10px; min-width: 0; color: var(--text-tertiary); font-size: 13px; font-weight: 500; }
+        /* 来源区域同行布局与低明度文字颜色对齐 */
+        .source { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1; color: var(--text-tertiary); font-size: 13px; font-weight: 400;[cite: 2]}
+        /* 来源图标（带分割线同款边框）[cite: 2] */
         .source-icon { 
             display: inline-flex; align-items: center; justify-content: center; 
             width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; 
-            background: var(--bg-surface); border: 1px solid var(--border-subtle);
-            font-size: 16px; 
+            background: transparent; border: 1px solid var(--border-subtle); box-shadow: none;
+            font-size: 18px;[cite: 2]
         }
-        .source-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .source-text a { color: inherit; transition: color 0.2s ease; }
-        .source-text a:hover { color: var(--primary); text-decoration: underline; }
-        .source-mobile { display: none; }
+        .source-text { min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;[cite: 2]}
+        .source-text a { color: var(--text-tertiary); transition: color 0.2s ease; display: inline-block; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;[cite: 2]}
+        .source-text a:hover { color: var(--primary); text-decoration: underline;[cite: 2]}
+        .source-mobile { display: none;[cite: 2]}
         
-        .action-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .action-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0;[cite: 2]}
+        
+        /* 内部操作按钮扁平化 (不再叠加玻璃光影) */
         .button { 
             display: inline-flex; align-items: center; justify-content: center; 
             height: 44px; padding: 0 20px; border: 0; border-radius: 22px; 
-            font-size: 14px; font-weight: 600; white-space: nowrap; cursor: pointer; 
-            text-decoration: none; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
+            font-size: 14px; font-weight: 500; white-space: nowrap; cursor: pointer; 
+            text-decoration: none; transition: all 0.2s ease;[cite: 2]
         }
-        .button:active { transform: scale(0.94); }
+        .button:active { transform: scale(0.96);[cite: 2]}
         
         .button-secondary { 
-            background: var(--bg-surface); color: var(--primary); 
-            border: 1px solid var(--border-subtle);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+            background: var(--bg-surface); color: var(--text-primary); 
+            border: 1px solid var(--border-subtle); box-shadow: none;[cite: 2]
         }
-        .button-secondary:hover { background: var(--primary-soft); }
+        .button-secondary:hover { background: var(--border-subtle);[cite: 2]}
         
         .button-primary { 
             background: var(--primary); color: #FFFFFF; 
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 6px 16px rgba(78, 96, 255, 0.25);
+            border: none; box-shadow: 0 4px 12px var(--primary-soft);[cite: 2]
         }
         .button-primary:hover { 
-            background: var(--primary-hover); 
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 8px 24px rgba(78, 96, 255, 0.4);
+            background: var(--primary-hover); transform: translateY(-1px);[cite: 2]
         }
         
-        .sentinel { height: 20px; margin: 10px 0; }
-        .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 15px; }
-        .empty-icon { margin-bottom: 12px; font-size: 36px; }
-        .empty-error { margin-top: 8px; color: var(--text-tertiary); font-size: 13px; }
+        .sentinel { height: 20px; margin: 10px 0;[cite: 2]}
+        .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 15px; font-weight: 300;[cite: 2]}
+        /* 空状态图标（带分割线同款边框）[cite: 2] */
+        .empty-icon { 
+            width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 50%;
+            border: 1px solid var(--border-subtle); background: var(--bg-surface);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; opacity: 1;[cite: 2]
+        }
+        .empty-error { margin-top: 8px; color: var(--text-tertiary); font-size: 13px;[cite: 2]}
         
         .loading-card { 
             height: 180px; border-radius: var(--radius-card); 
-            background: var(--bg-glass); border: 1px solid var(--border-subtle); 
-            box-shadow: var(--shadow-glass); animation: skeletonPulse 1.4s infinite; 
+            box-shadow: var(--shadow-glass-lg); animation: skeletonPulse 1.4s infinite;[cite: 2]
         }
-        @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
+        @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; }[cite: 2]}
         
-        .footer { padding: 36px 0 16px; color: var(--text-tertiary); text-align: center; font-size: 12.5px; line-height: 1.6; }
+        .footer { padding: 36px 0 16px; color: var(--text-tertiary); text-align: center; font-size: 12.5px; line-height: 1.6; font-weight: 300;[cite: 2]}
         
         .toast { 
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); 
             z-index: 999; padding: 12px 24px; border-radius: var(--radius-pill); 
-            background: var(--toast-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            color: var(--toast-text); font-size: 14px; font-weight: 600; 
-            box-shadow: 0 14px 30px rgba(0,0,0,0.22); opacity: 0; 
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
-            pointer-events: none; border: 1px solid rgba(255,255,255,0.1);
+            background: var(--toast-bg); color: var(--toast-text); 
+            font-size: 14px; font-weight: 400; box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+            opacity: 0; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
+            pointer-events: none; border: none; /* 移除毛玻璃，使用实色背景[cite: 2] */
         }
-        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1;[cite: 2]}
 
         @media (max-width: 600px) {
-            body { padding-left: 12px; padding-right: 12px; }
-            .title { font-size: 22px; }
-            .module-card { padding: 20px; border-radius: 42px; }
-            .card-bottom { margin-top: 20px; padding-top: 20px; }
-            .search-shortcut { display: none; }
-            .source-desktop { display: none; }
-            .source-mobile { display: inline; }
+            body { padding-left: 12px; padding-right: 12px;[cite: 2]}
+            .title { font-size: 22px;[cite: 2]}
+            .module-card { padding: 22px; border-radius: 42px;[cite: 2]}
+            .card-bottom { margin-top: 20px; padding-top: 20px;[cite: 2]}
+            .search-shortcut { display: none;[cite: 2]}
+            .source-desktop { display: none;[cite: 2]}
+            .source-mobile { display: inline;[cite: 2]}
         }
     </style>
 </head>
 
 <body>
-    <!-- 环境光容器 -->
-    <div class="ambient-bg"></div>
-
     <div class="container">
-        <!-- 顶栏 -->
+        <!-- 顶栏[cite: 2] -->
         <header class="header">
             <div class="header-top">
                 <div class="brand-wrapper">
@@ -495,10 +524,9 @@
                     </h1>
                 </div>
                 <div class="theme-controls">
-                    <!-- 强制刷新按钮 -->
-                    <button id="refreshCacheBtn" class="theme-toggle" aria-label="强制刷新缓存" title="强制拉取最新数据"></button>
-                    <button id="themeAuto" class="theme-toggle" aria-label="自动跟随系统"></button>
-                    <button id="themeToggle" class="theme-toggle" aria-label="手动切换模式"></button>
+                    <button id="refreshCacheBtn" class="theme-toggle glass-element" aria-label="强制刷新缓存" title="强制拉取最新数据"></button>
+                    <button id="themeAuto" class="theme-toggle glass-element" aria-label="自动跟随系统"></button>
+                    <button id="themeToggle" class="theme-toggle glass-element" aria-label="手动切换模式"></button>
                 </div>
             </div>
             <div class="subtitle">
@@ -506,8 +534,8 @@
             </div>
         </header>
 
-        <!-- 两端全圆角公告栏 -->
-        <div id="noticeBanner" class="notice" title="点击切换下一条公告">
+        <!-- 两端全圆角公告栏[cite: 2] -->
+        <div id="noticeBanner" class="notice glass-element" title="点击切换下一条公告">
             <div class="notice-icon-box">🚀</div>
             <div class="notice-slider">
                 <div id="noticeTrack" class="notice-track">
@@ -518,9 +546,9 @@
             </div>
         </div>
 
-        <!-- 两端全圆角吸顶搜索框 -->
+        <!-- 两端全圆角吸顶搜索框[cite: 2] -->
         <div class="search-wrapper">
-            <label for="search" class="search-box-inner">
+            <label for="search" class="search-box-inner glass-element">
                 <div class="search-icon">🔍</div>
                 <input id="search" class="search" type="text" inputmode="search" placeholder="请在加载完成后执行搜索..." autocomplete="off" spellcheck="false" disabled>
                 <span class="search-shortcut">/</span>
@@ -528,7 +556,7 @@
             </label>
         </div>
 
-        <!-- 状态栏与计数 -->
+        <!-- 状态栏与计数[cite: 2] -->
         <div class="status">
             <div class="status-left">
                 <span id="statusDot" class="status-dot loading"></span>
@@ -537,11 +565,11 @@
             <div id="countText"></div>
         </div>
 
-        <!-- 主模块列表容器 -->
+        <!-- 主模块列表容器[cite: 2] -->
         <main id="modules" class="modules">
-            <div class="loading-card"></div>
-            <div class="loading-card"></div>
-            <div class="loading-card"></div>
+            <div class="loading-card glass-element"></div>
+            <div class="loading-card glass-element"></div>
+            <div class="loading-card glass-element"></div>
         </main>
         
         <div id="sentinel" class="sentinel"></div>
@@ -555,9 +583,9 @@
 
     <script>
         /* =========================================================
-           Configuration & Cache
+           Configuration & Cache (时间戳格式)[cite: 2]
         ========================================================= */
-        const CACHE_VERSION = "20260826_LiquidGlass_V2"; 
+        const CACHE_VERSION = "20260826_1943"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -703,7 +731,7 @@
             
             const themeColorMeta = document.querySelector('meta[name="theme-color"]');
             if (themeColorMeta) {
-                themeColorMeta.setAttribute("content", currentTheme === "dark" ? "#0E101B" : "#F4F7FC");
+                themeColorMeta.setAttribute("content", currentTheme === "dark" ? "#14161a" : "#f0f2f5");
             }
 
             if (isAutoMode) {
@@ -753,9 +781,9 @@
             setSearchState(false);
             countText.textContent = "";
             modulesContainer.innerHTML = `
-                <div class="loading-card"></div>
-                <div class="loading-card"></div>
-                <div class="loading-card"></div>
+                <div class="loading-card glass-element"></div>
+                <div class="loading-card glass-element"></div>
+                <div class="loading-card glass-element"></div>
             `;
             
             showToast("正在强制拉取最新数据...");
@@ -1279,10 +1307,7 @@
         function createIOSAppIcon(name) {
             const cleanName = (name || "").trim();
             const char = Array.from(cleanName)[0] || "模";
-            const hash = hashString(cleanName);
-            const hue1 = hash % 360, hue2 = (hue1 + 35 + (hash % 30)) % 360;
-            const color1 = `hsl(${hue1}, 58%, 68%)`, color2 = `hsl(${hue2}, 62%, 56%)`;
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="g_${hash}" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${color1}"/><stop offset="100%" stop-color="${color2}"/></linearGradient></defs><circle cx="128" cy="128" r="128" fill="url(#g_${hash})"/><text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><circle cx="128" cy="128" r="128" fill="#768a9e"/><text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
             return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
         }
 
@@ -1410,7 +1435,7 @@
 
         function createModuleCard(module) {
             const card = document.createElement("article");
-            card.className = "module-card";
+            card.className = "module-card glass-element";
             const fallbackIcon = createIOSAppIcon(module.name);
             const icon = module.icon || fallbackIcon;
             const authorHTML = renderAuthor(module);
