@@ -21,7 +21,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%234E60FF%22 stroke=%22rgba(255,255,255,0.3)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowMods.png">
 
-    <!-- 3. 网络层预解析 (移除已弃用的 CDN) -->
+    <!-- 3. 网络层预解析 -->
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
     <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
     <link rel="dns-prefetch" href="https://api.github.com">
@@ -195,6 +195,16 @@
             border-color: var(--primary-soft-border); 
         }
         .theme-toggle svg { display: block; width: 19px; height: 19px; pointer-events: none; }
+        
+        /* 刷新按钮高亮旋转动画 */
+        @keyframes spinNode { 
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); } 
+        }
+        .spin-anim { 
+            animation: spinNode 1s linear infinite; 
+            transform-origin: center center;
+        }
 
         /* =========================================================
            Notice Banner
@@ -632,6 +642,8 @@
                     </h1>
                 </div>
                 <div class="theme-controls">
+                    <!-- 新增：强制刷新按钮 -->
+                    <button id="refreshCacheBtn" class="theme-toggle" aria-label="强制刷新缓存" title="强制拉取最新数据"></button>
                     <button id="themeAuto" class="theme-toggle" aria-label="自动跟随系统"></button>
                     <button id="themeToggle" class="theme-toggle" aria-label="手动切换模式"></button>
                 </div>
@@ -690,8 +702,6 @@
     <script>
         /* =========================================================
            Configuration & Cache
-           - 已移除 CDN 相关备用 API，全部采用 GitHub Tree 接口直连
-           - 调整并发数为 8，避免 VPS 防火墙规则阻断瞬间高频连接
         ========================================================= */
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -703,8 +713,8 @@
             LUESTR_TREE_API: "https://api.github.com/repos/luestr/IconResource/git/trees/main?recursive=1",
             CONCURRENCY: 8,
             PAGE_SIZE: 30,
-            CACHE_KEY: "sr_modules_data_v2", 
-            CACHE_TIME_KEY: "sr_modules_time_v2",
+            CACHE_KEY: "sr_modules_data_v3", 
+            CACHE_TIME_KEY: "sr_modules_time_v3",
             CACHE_EXPIRE: 3600 * 6 * 1000
         };
 
@@ -736,6 +746,7 @@
         const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
         const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
         const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+        const REFRESH_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>`;
 
         const modulesContainer = document.getElementById("modules");
         const searchInput = document.getElementById("search");
@@ -751,6 +762,7 @@
         
         const themeAutoBtn = document.getElementById("themeAuto");
         const themeToggleBtn = document.getElementById("themeToggle");
+        const refreshCacheBtn = document.getElementById("refreshCacheBtn");
 
         let allModules = [];
         let filteredModules = [];
@@ -805,10 +817,11 @@
         }
 
         /* =========================================================
-           Theme Engine
+           Theme & Refresh Controls
         ========================================================= */
         const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
         themeAutoBtn.innerHTML = SYSTEM_ICON;
+        refreshCacheBtn.innerHTML = REFRESH_ICON;
 
         function getEffectiveTheme() {
             const userChoice = localStorage.getItem("sr_theme_override");
@@ -853,6 +866,34 @@
             localStorage.setItem("sr_theme_override", nextTheme);
             updateThemeUI();
             showToast(`已切换为${nextTheme === "dark" ? "深色" : "浅色"}模式`);
+        });
+        
+        refreshCacheBtn.addEventListener("click", async () => {
+            // 防抖：正在加载时阻止重复请求
+            if (statusDot.classList.contains("loading")) {
+                showToast("正在拉取数据中，请稍候...");
+                return;
+            }
+            
+            // 清理本地缓存
+            localStorage.removeItem(CONFIG.CACHE_KEY);
+            localStorage.removeItem(CONFIG.CACHE_TIME_KEY);
+            
+            // UI 回归骨架屏初始状态
+            searchInput.value = "";
+            setSearchState(false);
+            countText.textContent = "";
+            modulesContainer.innerHTML = `
+                <div class="loading-card"></div>
+                <div class="loading-card"></div>
+                <div class="loading-card"></div>
+            `;
+            
+            showToast("正在强制拉取最新数据...");
+            
+            // 重新调用加载入口并等待执行结束
+            await loadModules();
+            showToast("模块数据已刷新");
         });
 
         updateThemeUI();
@@ -966,12 +1007,9 @@
             try {
                 const response = await fetch(url, { ...options, signal: controller.signal });
                 clearTimeout(timer);
-                
-                // 新增：全局拦截 GitHub API 的速率限制
                 if (url.includes("api.github.com") && (response.status === 403 || response.status === 429)) {
                     throw new Error("GitHub_API_Rate_Limit");
                 }
-                
                 return response;
             } catch (err) {
                 clearTimeout(timer);
@@ -996,7 +1034,7 @@
         }
 
         /* =========================================================
-           多源图标库加载与智能索引 (纯 GitHub Tree 直连)
+           多源图标库加载与智能索引
         ========================================================= */
         async function loadLuestrIcons() {
             try {
@@ -1020,9 +1058,7 @@
                     }
                 }
             } catch (e) {
-                if (e.message === "GitHub_API_Rate_Limit") {
-                    console.warn("⚠️ 节点IP触发速率限制，IconResource图标库拉取失败");
-                }
+                if (e.message === "GitHub_API_Rate_Limit") console.warn("⚠️ IconResource图标库拉取受限");
             }
         }
 
@@ -1073,8 +1109,6 @@
             } catch (e) {
                 console.warn("⚠️ 默认 JSON 图标库加载失败：", e);
             }
-
-            // 载入 luestr/IconResource 补充图标库
             await loadLuestrIcons();
         }
 
@@ -1188,7 +1222,7 @@
         }
 
         /* =========================================================
-           Markdown & 模块扫描 (移除 jsDelivr 回退方案)
+           Markdown & 模块扫描
         ========================================================= */
         function parseRepositoryModules(markdown) {
             if (!markdown) return [];
@@ -1257,9 +1291,7 @@
                     }
                 }
             } catch (e) {
-                if (e.message === "GitHub_API_Rate_Limit") {
-                    console.warn("⚠️ 节点IP触发速率限制，FMZ 模块拉取失败");
-                }
+                if (e.message === "GitHub_API_Rate_Limit") console.warn("⚠️ FMZ 模块拉取受限");
             }
             return modules;
         }
@@ -1288,9 +1320,7 @@
                     }
                 }
             } catch (e) {
-                if (e.message === "GitHub_API_Rate_Limit") {
-                    console.warn("⚠️ 节点IP触发速率限制，Zirawell 模块拉取失败");
-                }
+                if (e.message === "GitHub_API_Rate_Limit") console.warn("⚠️ Zirawell 模块拉取受限");
             }
             return modules;
         }
@@ -1671,6 +1701,18 @@
            主调度加载入口
         ========================================================= */
         async function loadModules() {
+            // 设置刷新按钮状态
+            const svgIcon = refreshCacheBtn.querySelector("svg");
+            const setBtnLoading = (isLoading) => {
+                if (isLoading) {
+                    refreshCacheBtn.classList.add("active");
+                    if (svgIcon) svgIcon.classList.add("spin-anim");
+                } else {
+                    refreshCacheBtn.classList.remove("active");
+                    if (svgIcon) svgIcon.classList.remove("spin-anim");
+                }
+            };
+
             const cachedData = localStorage.getItem(CONFIG.CACHE_KEY);
             const cachedTime = localStorage.getItem(CONFIG.CACHE_TIME_KEY);
             const now = Date.now();
@@ -1692,10 +1734,12 @@
                     if (!isExpired) {
                         statusText.textContent = "已同步";
                         statusDot.className = "status-dot";
+                        setBtnLoading(false); // 不在加载，确保静态
                         return;
                     }
                     statusText.textContent = "正在同步模块...";
                     statusDot.className = "status-dot loading";
+                    setBtnLoading(true); // 缓存过期，后台加载，按钮激活旋转
                 } catch (e) {
                     localStorage.removeItem(CONFIG.CACHE_KEY);
                     localStorage.removeItem(CONFIG.CACHE_TIME_KEY);
@@ -1708,6 +1752,7 @@
                     setSearchState(false);
                     statusText.textContent = "正在读取模块及图标库...";
                     statusDot.className = "status-dot loading";
+                    setBtnLoading(true); // 无缓存初次加载，按钮激活旋转
                 }
 
                 let repoMarkdown = "";
@@ -1770,6 +1815,7 @@
 
                 statusText.textContent = "已同步";
                 statusDot.className = "status-dot";
+                setBtnLoading(false); // 加载完成，停止动画取消高亮
 
             } catch (error) {
                 console.error("模块同步失败：", error);
@@ -1794,6 +1840,8 @@
                     statusDot.className = "status-dot error";
                     if (isRateLimit) showToast("节点IP触发 GitHub 限制，使用缓存数据");
                 }
+                
+                setBtnLoading(false); // 发生错误，停止动画取消高亮
             }
         }
 
