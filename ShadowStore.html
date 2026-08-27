@@ -56,10 +56,25 @@
             /* 真实的高频磨砂质感噪点 (强制锁定256x256尺寸触发平铺，去色滤镜实现黑白微粒) */
             --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
 
-            /* 大模块卡片专属阴影 */
+            /* ==============================================
+               新增：内容悬浮通透投影 (模拟透过玻璃的内部投射)
+            ============================================== */
+            --content-shadow-lg: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
+            --text-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.18);
+            --content-shadow-sm: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+            --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+            /* ==============================================
+               大模块卡片专属阴影 (增加了容积厚度 inset)
+            ============================================== */
             --shadow-glass-lg: 
+                /* 高光与基础切边 */
                 inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
+                /* 新增：模拟玻璃边缘内部容积的厚度阴影和顶部强反光 */
+                inset 0 20px 40px -10px rgba(255, 255, 255, 0.65), 
+                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.08),      
+                /* 原本的外部投影 */
                 -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
                 -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
                 -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
@@ -71,6 +86,8 @@
             --shadow-glass-lg-hover: 
                 inset -1px 1px 0.5px rgba(255, 255, 255, 1),
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
+                inset 0 20px 40px -10px rgba(255, 255, 255, 0.75), 
+                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.1),      
                 -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
                 -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
                 -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
@@ -79,10 +96,15 @@
                 -10px 20px 25px -4px rgba(0, 0, 0, 0.10),
                 -40px 70px 80px -15px rgba(0, 0, 0, 0.25);
 
-            /* 小组件视觉补偿阴影（光学补偿） */
+            /* ==============================================
+               小组件专属阴影 (增加了容积厚度 inset)
+            ============================================== */
             --shadow-glass-ui: 
                 inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
+                /* 新增：模拟玻璃边缘内部容积的厚度阴影和顶部强反光 */
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),      
                 -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
                 -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
                 -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
@@ -94,6 +116,8 @@
             --shadow-glass-ui-hover: 
                 inset -1px 1px 0.5px rgba(255, 255, 255, 1),
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),      
                 -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
                 -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
                 -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
@@ -141,24 +165,38 @@
             /* 深色模式磨砂噪点：提高了一点点不透明度，确保在暗色背景上同样清晰 */
             --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
 
-            /* 大体块暗色收敛阴影 */
+            /* 新增：深色模式内容悬浮通透投影 */
+            --content-shadow-lg: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.55));
+            --text-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.55);
+            --content-shadow-sm: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+            --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.45);
+
+            /* 大体块暗色收敛阴影 (增加内部厚度) */
             --shadow-glass-lg: 
+                inset 0 20px 40px -10px rgba(255, 255, 255, 0.05),
+                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.4),
                 -1px 4px 6px rgba(0, 0, 0, 0.5),
                 -8px 18px 22px -4px rgba(0, 0, 0, 0.35),
                 -35px 65px 75px -15px rgba(0, 0, 0, 0.8);
 
             --shadow-glass-lg-hover: 
+                inset 0 20px 40px -10px rgba(255, 255, 255, 0.08),
+                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.5),
                 -1.5px 6px 8px rgba(0, 0, 0, 0.6),
                 -10px 22px 28px -4px rgba(0, 0, 0, 0.45),
                 -40px 70px 80px -15px rgba(0, 0, 0, 0.9);
 
-            /* 小组件暗色收敛阴影（视觉补偿） */
+            /* 小组件暗色收敛阴影 (增加内部厚度) */
             --shadow-glass-ui: 
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.05),
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.4),
                 -1px 4px 6px rgba(0, 0, 0, 0.5),
                 -8px 18px 22px -3px rgba(0, 0, 0, 0.4),
                 -25px 45px 55px -6px rgba(0, 0, 0, 0.85);
 
             --shadow-glass-ui-hover: 
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.08),
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.5),
                 -1.5px 6px 8px rgba(0, 0, 0, 0.6),
                 -10px 22px 28px -3px rgba(0, 0, 0, 0.5),
                 -30px 50px 60px -6px rgba(0, 0, 0, 0.95);
@@ -216,6 +254,7 @@
         .title { 
             margin: 0; font-size: 26px; line-height: 1.2; font-weight: 300;
             letter-spacing: -0.6px; display: flex; align-items: center; gap: 10px; 
+            text-shadow: var(--text-shadow-lg); /* 内容悬浮通透阴影 */
         }
         .title a { transition: opacity 0.2s ease; }
         .title a:hover { opacity: 0.85; }
@@ -226,9 +265,14 @@
             border-radius: var(--radius-pill); background: var(--bg-surface);
             color: var(--text-secondary); font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
             border: none; box-shadow: none; 
+            text-shadow: none;
         }
 
-        .subtitle { margin-top: 8px; color: var(--text-secondary); font-size: 14px; line-height: 1.5; font-weight: 300; }
+        .subtitle { 
+            margin-top: 8px; color: var(--text-secondary); font-size: 14px; 
+            line-height: 1.5; font-weight: 300; 
+            text-shadow: var(--text-shadow-sm); /* 内容悬浮通透阴影 */
+        }
         
         .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
@@ -279,9 +323,10 @@
             color: var(--primary); background-color: var(--primary-soft); 
         }
         
-        /* 核心修复：确保 SVG 大小为偶数并强制基于 viewBox 旋转，彻底消除刷新图标的偏心和摇晃现象 */
+        /* 确保 SVG 大小为偶数并强制基于 viewBox 旋转 */
         .theme-toggle svg { 
             display: block; width: 20px; height: 20px; pointer-events: none; stroke-width: 1.5; 
+            filter: var(--content-shadow-sm); /* 内容悬浮通透阴影 */
         }
         
         @keyframes spinNode { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -296,7 +341,7 @@
         ========================================================= */
         .search-wrapper { 
             position: sticky; 
-            /* 修正：使用 env 环境变量，确保 PWA 模式下自动避开灵动岛和刘海 */
+            /* 使用 env 环境变量，确保 PWA 模式下自动避开灵动岛和刘海 */
             top: 0; 
             top: env(safe-area-inset-top, 0px); 
             z-index: 100; 
@@ -332,6 +377,7 @@
             background: transparent; box-shadow: none; border: 1px solid var(--border-subtle);
             display: flex; align-items: center; justify-content: center;
             font-size: 14px; pointer-events: none; color: var(--primary); 
+            filter: var(--content-shadow-sm); /* 内容悬浮通透阴影 */
         }
         
         /* 融合公告的占位符包裹层 */
@@ -347,6 +393,7 @@
             color: var(--text-primary); font-size: 15px; font-weight: 400; vertical-align: middle;
             -webkit-appearance: none; appearance: none;
             position: relative; z-index: 2;
+            text-shadow: var(--text-shadow-sm); /* 内容悬浮通透阴影 */
         }
         
         /* 将原生 placeholder 隐藏掉，交给底下的假占位符来表演 */
@@ -367,6 +414,7 @@
             height: 32px; line-height: 32px;
             color: var(--text-tertiary); font-size: 15px; font-weight: 300;
             overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+            text-shadow: var(--text-shadow-sm); /* 内容悬浮通透阴影 */
         }
 
         /* CSS 黑魔法：当输入框聚焦或有文字输入时，自动隐藏背后的轮播层 */
@@ -398,6 +446,7 @@
         .status { 
             display: flex; align-items: center; justify-content: space-between; 
             min-height: 22px; margin: 0 6px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
+            text-shadow: var(--text-shadow-sm); /* 内容悬浮通透阴影 */
         }
         .status-left { display: flex; align-items: center; gap: 8px; }
         .status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint-soft); }
@@ -441,6 +490,7 @@
             background: transparent; overflow: hidden; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* 仅保留极其微弱的环境投影 */
             border: none; 
+            filter: var(--content-shadow-lg); /* 内容悬浮通透阴影 */
         }
         .module-icon img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         
@@ -448,6 +498,7 @@
         .module-name { 
             margin: 0; font-size: 20px; line-height: 1.3; font-weight: 400;
             letter-spacing: -0.2px; color: var(--text-primary); word-break: break-word; 
+            text-shadow: var(--text-shadow-lg); /* 内容悬浮通透阴影 */
         }
         
         .module-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 6px; color: var(--text-secondary); font-size: 13px; font-weight: 300; }
@@ -474,7 +525,11 @@
         .author:hover { color: var(--primary); }
         .author-avatar { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; box-shadow: none; }
         
-        .module-description { margin-top: 16px; color: var(--text-secondary); font-size: 14.5px; line-height: 1.6; font-weight: 300; word-break: break-word; }
+        .module-description { 
+            margin-top: 16px; color: var(--text-secondary); font-size: 14.5px; 
+            line-height: 1.6; font-weight: 300; word-break: break-word; 
+            text-shadow: var(--text-shadow-sm); /* 内容悬浮通透阴影 */
+        }
         
         .card-bottom { 
             display: flex; align-items: center; justify-content: space-between; gap: 12px; 
@@ -490,6 +545,7 @@
             width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; 
             background: transparent; border: 1px solid var(--border-subtle); box-shadow: none;
             font-size: 18px; 
+            filter: var(--content-shadow-sm); /* 内容悬浮通透阴影 */
         }
         .source-text { min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .source-text a { color: var(--text-tertiary); transition: color 0.2s ease; display: inline-block; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -510,12 +566,14 @@
         .button-secondary { 
             background: var(--bg-surface); color: var(--text-primary); 
             border: 1px solid var(--border-subtle); box-shadow: none; 
+            text-shadow: var(--text-shadow-sm); /* 内容悬浮通透阴影 */
         }
         .button-secondary:hover { background: var(--border-subtle); }
         
         .button-primary { 
             background: var(--primary); color: #FFFFFF; 
             border: none; box-shadow: 0 4px 12px var(--primary-soft); 
+            text-shadow: var(--text-shadow-sm); /* 内容悬浮通透阴影 */
         }
         .button-primary:hover { 
             background: var(--primary-hover); transform: translateY(-1px); 
@@ -529,6 +587,7 @@
             border: 1px solid var(--border-subtle); background: var(--bg-surface);
             display: flex; align-items: center; justify-content: center;
             font-size: 24px; opacity: 1; 
+            filter: var(--content-shadow-lg); /* 内容悬浮通透阴影 */
         }
         .empty-error { margin-top: 8px; color: var(--text-tertiary); font-size: 13px; }
         
@@ -750,7 +809,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260827_1555"; 
+        const CACHE_VERSION = "20260827_1612"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
