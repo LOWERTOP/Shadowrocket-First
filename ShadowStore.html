@@ -50,7 +50,7 @@
             --glass-border-b: rgba(255, 255, 255, 0.05);
             --glass-border-l: rgba(255, 255, 255, 0.1);
 
-            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
 
             --content-shadow-lg: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
             --text-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.18);
@@ -109,33 +109,6 @@
                 -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
                 -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
 
-            /* 混合变量：搜索框专属（主卡片尺寸 + 悬浮按钮明暗度） */
-            --shadow-search: 
-                inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
-                inset 0 20px 40px -10px rgba(255, 255, 255, 0.65), 
-                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.08),      
-                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
-                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
-                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
-                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
-                -1px 4px 6px rgba(0, 0, 0, 0.15),        
-                -8px 18px 22px -4px rgba(0, 0, 0, 0.12), 
-                -35px 65px 75px -15px rgba(0, 0, 0, 0.22);
-
-            --shadow-search-hover: 
-                inset -1px 1px 0.5px rgba(255, 255, 255, 1),
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
-                inset 0 20px 40px -10px rgba(255, 255, 255, 0.75), 
-                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.1),      
-                -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
-                -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
-                -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
-                -2.2px 14px 10px -4px rgba(255, 255, 255, 0.18),
-                -1.5px 6px 8px rgba(0, 0, 0, 0.15),
-                -10px 20px 25px -4px rgba(0, 0, 0, 0.12),
-                -40px 70px 80px -15px rgba(0, 0, 0, 0.25);
-
             --text-primary: #4a4f59;
             --text-secondary: #7e8596;
             --text-tertiary: #a1a9ba;
@@ -191,15 +164,6 @@
             --shadow-glass-ui-hover: 
                 0 8px 24px rgba(0, 0, 0, 0.5),
                 0 3px 8px rgba(0, 0, 0, 0.3);
-
-            /* 混合变量：搜索框专属（主卡片尺寸 + 悬浮按钮明暗度） */
-            --shadow-search: 
-                0 10px 30px rgba(0, 0, 0, 0.4),
-                0 4px 10px rgba(0, 0, 0, 0.25);
-
-            --shadow-search-hover: 
-                0 14px 36px rgba(0, 0, 0, 0.5),
-                0 6px 14px rgba(0, 0, 0, 0.3);
 
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
@@ -351,21 +315,24 @@
         .search-box-inner {
             position: relative; width: 100%; height: 44px; display: flex; align-items: center; gap: 8px; 
             border-radius: 22px; 
-            box-shadow: var(--shadow-search); 
+            /* 设置与主卡片完全一致的阴影参数 */
+            box-shadow: var(--shadow-glass-lg); 
             padding: 6px; cursor: text;
             -webkit-transform: translateZ(0); transform: translateZ(0);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
         }
+
         .search-box-inner:focus-within {
             background-image: var(--noise-pattern), var(--glass-bg-hover);
             border-color: rgba(255,255,255,0.8); 
-            box-shadow: var(--shadow-search-hover); 
+            box-shadow: var(--shadow-glass-lg-hover); 
         }
+        
         [data-theme="dark"] .search-box-inner:focus-within {
             background-image: var(--noise-pattern);
             background-color: var(--border-subtle);
             border-color: var(--text-tertiary); 
-            box-shadow: var(--shadow-search-hover);
+            box-shadow: var(--shadow-glass-lg-hover);
         }
         
         .search-icon { 
@@ -378,15 +345,17 @@
         
         .input-wrapper {
             position: relative; flex: 1; min-width: 0;
-            height: 32px; overflow: hidden; display: flex;
+            height: 32px; overflow: hidden; 
+            display: block; /* 移除 Flex，防止 iOS Safari 中嵌套 Flex 导致的光标跳跃 Bug */
         }
 
         .search { 
-            display: block; width: 100%; flex: 1; height: 32px; line-height: 32px;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: block; line-height: 32px;
             padding: 0; margin: 0; border: 0; outline: none; background: transparent;
             color: var(--text-primary); font-size: 15px; font-weight: 400; vertical-align: middle;
-            -webkit-appearance: none; appearance: none;
-            position: relative; z-index: 2;
+            -webkit-appearance: none; appearance: none; border-radius: 0;
+            z-index: 2;
             text-shadow: none; 
         }
         
@@ -695,7 +664,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260827_2121"; 
+        const CACHE_VERSION = "20260827_2133"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
