@@ -50,22 +50,18 @@
             --glass-border-b: rgba(255, 255, 255, 0.05);
             --glass-border-l: rgba(255, 255, 255, 0.1);
 
-            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
 
             --content-shadow-lg: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
             --text-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.18);
             --content-shadow-sm: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
             --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.15);
 
-            /* 解剖：大模块卡片专属阴影（内侧高光光斑） */
-            --shadow-glass-lg-inset: 
+            --shadow-glass-lg: 
                 inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
                 inset 0 20px 40px -10px rgba(255, 255, 255, 0.65), 
-                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.08);
-
-            /* 解剖：大模块卡片专属阴影（外侧投影） */
-            --shadow-glass-lg-outer: 
+                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.08),      
                 -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
                 -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
                 -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
@@ -74,26 +70,18 @@
                 -8px 18px 22px -4px rgba(0, 0, 0, 0.10), 
                 -35px 65px 75px -15px rgba(0, 0, 0, 0.2);
 
-            --shadow-glass-lg: var(--shadow-glass-lg-inset), var(--shadow-glass-lg-outer);
-
-            /* 解剖：大模块卡片Hover专属阴影（内侧高光光斑） */
-            --shadow-glass-lg-hover-inset: 
+            --shadow-glass-lg-hover: 
                 inset -1px 1px 0.5px rgba(255, 255, 255, 1),
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
                 inset 0 20px 40px -10px rgba(255, 255, 255, 0.75), 
-                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.1);
-
-            /* 解剖：大模块卡片Hover专属阴影（外侧投影） */
-            --shadow-glass-lg-hover-outer: 
+                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.1),      
                 -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
                 -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
                 -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
                 -2.2px 14px 10px -4px rgba(255, 255, 255, 0.18),
-                -1.5px 6px 8px rgba(0, 0, 0, 0.15),
+                -1.5px 6px 8px rgba(0, 0, 0, 0.12),
                 -10px 20px 25px -4px rgba(0, 0, 0, 0.10),
                 -40px 70px 80px -15px rgba(0, 0, 0, 0.25);
-
-            --shadow-glass-lg-hover: var(--shadow-glass-lg-hover-inset), var(--shadow-glass-lg-hover-outer);
 
             --shadow-glass-ui: 
                 inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
@@ -120,6 +108,33 @@
                 -1.5px 6px 8px rgba(0, 0, 0, 0.15),
                 -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
                 -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
+
+            /* 混合变量：搜索框专属（主卡片尺寸 + 悬浮按钮明暗度） */
+            --shadow-search: 
+                inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
+                inset 0 20px 40px -10px rgba(255, 255, 255, 0.65), 
+                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.08),      
+                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
+                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
+                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
+                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
+                -1px 4px 6px rgba(0, 0, 0, 0.15),        
+                -8px 18px 22px -4px rgba(0, 0, 0, 0.12), 
+                -35px 65px 75px -15px rgba(0, 0, 0, 0.22);
+
+            --shadow-search-hover: 
+                inset -1px 1px 0.5px rgba(255, 255, 255, 1),
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
+                inset 0 20px 40px -10px rgba(255, 255, 255, 0.75), 
+                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.1),      
+                -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
+                -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
+                -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
+                -2.2px 14px 10px -4px rgba(255, 255, 255, 0.18),
+                -1.5px 6px 8px rgba(0, 0, 0, 0.15),
+                -10px 20px 25px -4px rgba(0, 0, 0, 0.12),
+                -40px 70px 80px -15px rgba(0, 0, 0, 0.25);
 
             --text-primary: #4a4f59;
             --text-secondary: #7e8596;
@@ -161,20 +176,13 @@
             --content-shadow-sm: none;
             --text-shadow-sm: none;
 
-            /* 深色模式：移除内部高光，通过解剖变量直接让它失效为none */
-            --shadow-glass-lg-inset: none;
-            --shadow-glass-lg-hover-inset: none;
-
-            --shadow-glass-lg-outer: 
+            --shadow-glass-lg: 
                 0 10px 30px rgba(0, 0, 0, 0.45),
                 0 4px 10px rgba(0, 0, 0, 0.3);
 
-            --shadow-glass-lg-hover-outer: 
+            --shadow-glass-lg-hover: 
                 0 14px 36px rgba(0, 0, 0, 0.55),
                 0 6px 14px rgba(0, 0, 0, 0.35);
-
-            --shadow-glass-lg: var(--shadow-glass-lg-outer);
-            --shadow-glass-lg-hover: var(--shadow-glass-lg-hover-outer);
 
             --shadow-glass-ui: 
                 0 6px 20px rgba(0, 0, 0, 0.4),
@@ -183,6 +191,15 @@
             --shadow-glass-ui-hover: 
                 0 8px 24px rgba(0, 0, 0, 0.5),
                 0 3px 8px rgba(0, 0, 0, 0.3);
+
+            /* 混合变量：搜索框专属（主卡片尺寸 + 悬浮按钮明暗度） */
+            --shadow-search: 
+                0 10px 30px rgba(0, 0, 0, 0.4),
+                0 4px 10px rgba(0, 0, 0, 0.25);
+
+            --shadow-search-hover: 
+                0 14px 36px rgba(0, 0, 0, 0.5),
+                0 6px 14px rgba(0, 0, 0, 0.3);
 
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
@@ -237,7 +254,7 @@
         .title { 
             margin: 0; font-size: 26px; line-height: 1.2; font-weight: 300;
             letter-spacing: -0.6px; display: flex; align-items: center; gap: 10px; 
-            text-shadow: var(--text-shadow-lg); 
+            text-shadow: none; 
         }
         .title a { transition: opacity 0.2s ease; }
         .title a:hover { opacity: 0.85; }
@@ -253,7 +270,7 @@
         .subtitle { 
             margin-top: 8px; color: var(--text-secondary); font-size: 14px; 
             line-height: 1.5; font-weight: 300; 
-            text-shadow: var(--text-shadow-sm); 
+            text-shadow: none; 
         }
         
         .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
@@ -305,7 +322,7 @@
         
         .theme-toggle svg { 
             display: block; width: 20px; height: 20px; pointer-events: none; stroke-width: 1.5; 
-            filter: var(--content-shadow-sm); 
+            filter: none; 
         }
         
         @keyframes spinNode { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -316,13 +333,13 @@
         }
 
         /* =========================================================
-           Search Bar & Integrated Notice Animation (本体层)
+           Search Bar & Integrated Notice Animation
         ========================================================= */
         .search-wrapper { 
             position: sticky; 
             top: 0; 
             top: env(safe-area-inset-top, 0px); 
-            z-index: 99990; /* 保持超高层级，使其本体盖在所有卡片之上 */
+            z-index: 99990; 
             padding: 8px 0 12px; margin-bottom: 12px; 
             background: transparent; 
             -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); 
@@ -334,24 +351,21 @@
         .search-box-inner {
             position: relative; width: 100%; height: 44px; display: flex; align-items: center; gap: 8px; 
             border-radius: 22px; 
-            /* 重新将阴影绑定回搜索框本体，并应用与主卡片完全一致的阴影参数 */
-            box-shadow: var(--shadow-glass-lg); 
+            box-shadow: var(--shadow-search); 
             padding: 6px; cursor: text;
             -webkit-transform: translateZ(0); transform: translateZ(0);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
         }
-
         .search-box-inner:focus-within {
             background-image: var(--noise-pattern), var(--glass-bg-hover);
             border-color: rgba(255,255,255,0.8); 
-            box-shadow: var(--shadow-glass-lg-hover); 
+            box-shadow: var(--shadow-search-hover); 
         }
-        
         [data-theme="dark"] .search-box-inner:focus-within {
             background-image: var(--noise-pattern);
             background-color: var(--border-subtle);
             border-color: var(--text-tertiary); 
-            box-shadow: var(--shadow-glass-lg-hover); 
+            box-shadow: var(--shadow-search-hover);
         }
         
         .search-icon { 
@@ -359,7 +373,7 @@
             background: transparent; box-shadow: none; border: 1px solid var(--border-subtle);
             display: flex; align-items: center; justify-content: center;
             font-size: 14px; pointer-events: none; color: var(--primary); 
-            filter: var(--content-shadow-sm); 
+            filter: none; 
         }
         
         .input-wrapper {
@@ -373,7 +387,7 @@
             color: var(--text-primary); font-size: 15px; font-weight: 400; vertical-align: middle;
             -webkit-appearance: none; appearance: none;
             position: relative; z-index: 2;
-            text-shadow: var(--text-shadow-sm); 
+            text-shadow: none; 
         }
         
         .search::placeholder {
@@ -392,7 +406,7 @@
             height: 32px; line-height: 32px;
             color: var(--text-tertiary); font-size: 15px; font-weight: 300;
             overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-            text-shadow: var(--text-shadow-sm); 
+            text-shadow: none; 
         }
 
         .search:focus ~ .placeholder-track,
@@ -422,7 +436,7 @@
         .status { 
             display: flex; align-items: center; justify-content: space-between; 
             min-height: 22px; margin: 0 6px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
-            text-shadow: var(--text-shadow-sm); 
+            text-shadow: none; 
         }
         .status-left { display: flex; align-items: center; gap: 8px; }
         .status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint-soft); }
@@ -556,7 +570,7 @@
             border: 1px solid var(--border-subtle); background: var(--bg-surface);
             display: flex; align-items: center; justify-content: center;
             font-size: 24px; opacity: 1; 
-            filter: var(--content-shadow-lg); 
+            filter: none; 
         }
         .empty-error { margin-top: 8px; color: var(--text-tertiary); font-size: 13px; }
         
@@ -590,7 +604,7 @@
         }
     
 /* =========================================================
-   ShadowStore — Adaptive Card Layout (模块卡片间距已放大一倍)
+   ShadowStore — Adaptive Card Layout (间距已放大一倍)
    ========================================================= */
 .container { max-width: 1180px; }
 .modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 44px; align-items: stretch; padding-bottom: 24px; }
@@ -681,7 +695,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260827_2100"; 
+        const CACHE_VERSION = "20260827_2121"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
