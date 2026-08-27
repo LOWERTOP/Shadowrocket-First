@@ -321,11 +321,18 @@
            Search Bar
         ========================================================= */
         .search-wrapper { 
-            position: sticky; top: 0; z-index: 100; 
+            position: sticky; top: 0; 
+            /* 1. 初始图层极低，确保巨大的阴影乖乖藏在下方第一排卡片的底层 */
+            z-index: 100; 
             padding: 8px 0 12px; margin-bottom: 12px; 
             background: transparent; 
             -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); 
         }
+        /* 2. 吸停状态：图层瞬间拔高，悬浮并盖住滚上来的卡片 */
+        .search-wrapper.is-sticky {
+            z-index: 9999;
+        }
+
         .search-box-inner {
             position: relative; width: 100%; height: 44px; display: flex; align-items: center; gap: 8px; 
             border-radius: 22px; box-shadow: var(--shadow-glass-ui); /* 引入补偿后的 UI 组件阴影 */
@@ -522,7 +529,8 @@
         
         .toast { 
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); 
-            z-index: 999; padding: 12px 24px; border-radius: var(--radius-pill); 
+            z-index: 99999; /* 确保提示框层级始终最高 */
+            padding: 12px 24px; border-radius: var(--radius-pill); 
             background: var(--toast-bg); color: var(--toast-text); 
             font-size: 14px; font-weight: 400; box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
             opacity: 0; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
@@ -729,7 +737,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260827_1507"; 
+        const CACHE_VERSION = "20260827_1520"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -776,6 +784,8 @@
         const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
         const REFRESH_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>`;
 
+        const searchWrapperEl = document.querySelector('.search-wrapper'); // 获取搜索框节点
+
         const modulesContainer = document.getElementById("modules");
         const searchInput = document.getElementById("search");
         const searchClear = document.getElementById("searchClear");
@@ -798,9 +808,21 @@
         let searchTimer = null;
         let remoteIconsMap = {};
 
+        // 动态判断搜索框是否吸顶，智能切换阴影层级（动态图层引擎）
+        function updateSearchLayer() {
+            if (!searchWrapperEl) return;
+            // 只要其距屏幕顶部距离 <= 1px，说明此时页面已下滚，触发了 sticky 吸顶
+            if (searchWrapperEl.getBoundingClientRect().top <= 1) {
+                searchWrapperEl.classList.add('is-sticky');
+            } else {
+                searchWrapperEl.classList.remove('is-sticky');
+            }
+        }
+        
+        // 绑定滚动监听
+        window.addEventListener('scroll', updateSearchLayer, { passive: true });
+        
         // 动态统一计算所有卡片的图层顺序 (z-index)
-        // 规则：1. 下方行的整体层级高于上方行（解决上方阴影压住下方卡片问题）
-        //       2. 同一行中，左侧卡片层级高于右侧卡片（解决右侧阴影压住左侧卡片问题）
         function updateCardLayerOrder() {
             const cards = modulesContainer.querySelectorAll('.module-card');
             if (!cards.length) return;
@@ -819,16 +841,16 @@
             const sortedRows = Array.from(rowsMap.entries()).sort((a, b) => a[0] - b[0]);
 
             sortedRows.forEach(([top, rowCards], rowIndex) => {
-                // 下方行的基准 z-index 大于上方行
                 const rowBaseZ = (rowIndex + 1) * 1000;
                 rowCards.forEach((card, colIndex) => {
-                    // 同一行中左侧卡片 z-index 高于右侧卡片
                     card.style.zIndex = rowBaseZ + (rowCards.length - colIndex);
                 });
             });
+            
+            // 每次重新计算卡片层级后，顺便检查一下搜索框层级状态
+            updateSearchLayer();
         }
 
-        // 监听窗口大小改变，防抖重新计算图层顺序
         let resizeTimer = null;
         window.addEventListener("resize", () => {
             clearTimeout(resizeTimer);
