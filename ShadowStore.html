@@ -278,16 +278,27 @@
         .theme-toggle.active { 
             color: var(--primary); background-color: var(--primary-soft); 
         }
-        .theme-toggle svg { display: block; width: 19px; height: 19px; pointer-events: none; stroke-width: 1.5; }
+        
+        /* 核心修复：确保 SVG 大小为偶数并强制基于 viewBox 旋转，彻底消除刷新图标的偏心和摇晃现象 */
+        .theme-toggle svg { 
+            display: block; width: 20px; height: 20px; pointer-events: none; stroke-width: 1.5; 
+        }
         
         @keyframes spinNode { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .spin-anim { animation: spinNode 1s linear infinite; transform-origin: center center; }
+        .spin-anim { 
+            animation: spinNode 1s linear infinite; 
+            transform-origin: 50% 50%; 
+            transform-box: view-box; /* 强迫按照画布几何中心计算原点 */
+        }
 
         /* =========================================================
            Search Bar & Integrated Notice Animation (虚拟占位符映射)
         ========================================================= */
         .search-wrapper { 
-            position: sticky; top: 0; 
+            position: sticky; 
+            /* 修正：使用 env 环境变量，确保 PWA 模式下自动避开灵动岛和刘海 */
+            top: 0; 
+            top: env(safe-area-inset-top, 0px); 
             z-index: 100; 
             padding: 8px 0 12px; margin-bottom: 12px; 
             background: transparent; 
@@ -739,7 +750,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260827_1542"; 
+        const CACHE_VERSION = "20260827_1555"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -797,6 +808,7 @@
         const countText = document.getElementById("countText");
         const toast = document.getElementById("toast");
         const sentinel = document.getElementById("sentinel");
+        const noticeTrack = document.getElementById("placeholderTrack");
         
         const themeAutoBtn = document.getElementById("themeAuto");
         const themeToggleBtn = document.getElementById("themeToggle");
@@ -808,10 +820,12 @@
         let searchTimer = null;
         let remoteIconsMap = {};
 
-        // 动态判断搜索框是否吸顶，智能切换阴影层级
+        // 动态判断搜索框是否吸顶，智能解析 env(safe-area-inset-top) 切换阴影层级
         function updateSearchLayer() {
             if (!searchWrapperEl) return;
-            if (searchWrapperEl.getBoundingClientRect().top <= 1) {
+            // 动态读取 CSS 中 top 的计算值 (处理 PWA 下 env 变量的真实像素偏移)
+            const stickyTop = parseFloat(window.getComputedStyle(searchWrapperEl).top) || 0;
+            if (searchWrapperEl.getBoundingClientRect().top <= stickyTop + 1) {
                 searchWrapperEl.classList.add('is-sticky');
             } else {
                 searchWrapperEl.classList.remove('is-sticky');
@@ -875,19 +889,18 @@
         }
 
         // 输入框内的占位符滚动逻辑
-        const placeholderTrack = document.getElementById("placeholderTrack");
-        if (placeholderTrack) {
-            const firstItemClone = placeholderTrack.children[0].cloneNode(true);
+        if (noticeTrack) {
+            const firstItemClone = noticeTrack.children[0].cloneNode(true);
             firstItemClone.id = "mainPlaceholderClone";
-            placeholderTrack.appendChild(firstItemClone);
+            noticeTrack.appendChild(firstItemClone);
 
             let noticeIndex = 0;
-            const originalCount = placeholderTrack.children.length - 1; 
+            const originalCount = noticeTrack.children.length - 1; 
             let isAnimating = false;
 
             function updateNoticePosition() {
-                placeholderTrack.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
-                placeholderTrack.style.transform = `translateY(-${noticeIndex * 32}px)`;
+                noticeTrack.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
+                noticeTrack.style.transform = `translateY(-${noticeIndex * 32}px)`;
             }
 
             function nextNotice() {
@@ -901,10 +914,10 @@
 
                 if (noticeIndex === originalCount) {
                     setTimeout(() => {
-                        placeholderTrack.style.transition = 'none';
+                        noticeTrack.style.transition = 'none';
                         noticeIndex = 0;
-                        placeholderTrack.style.transform = `translateY(0)`;
-                        void placeholderTrack.offsetHeight;
+                        noticeTrack.style.transform = `translateY(0)`;
+                        void noticeTrack.offsetHeight;
                         isAnimating = false;
                     }, 450); 
                 } else {
