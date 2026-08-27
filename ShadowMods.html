@@ -53,9 +53,10 @@
             --glass-border-b: rgba(255, 255, 255, 0.05);
             --glass-border-l: rgba(255, 255, 255, 0.1);
 
-            /* ==============================================
-               大模块卡片专属阴影
-            ============================================== */
+            /* 真实的高频磨砂质感噪点 (强制锁定256x256尺寸触发平铺，去色滤镜实现黑白微粒) */
+            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+
+            /* 大模块卡片专属阴影 */
             --shadow-glass-lg: 
                 inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
@@ -78,10 +79,7 @@
                 -10px 20px 25px -4px rgba(0, 0, 0, 0.10),
                 -40px 70px 80px -15px rgba(0, 0, 0, 0.25);
 
-            /* ==============================================
-               小组件视觉补偿阴影（光学补偿）：
-               光斑折射层与大卡片完全一致，仅减小黑阴影的"负向收缩率"，增加微弱浓度以抗衡面积消融
-            ============================================== */
+            /* 小组件视觉补偿阴影（光学补偿） */
             --shadow-glass-ui: 
                 inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
@@ -91,7 +89,7 @@
                 -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
                 -1px 4px 6px rgba(0, 0, 0, 0.15),        
                 -8px 18px 22px -3px rgba(0, 0, 0, 0.12), 
-                -25px 45px 55px -5px rgba(0, 0, 0, 0.22); /* 视觉补偿点：扩散仅收缩5px */
+                -25px 45px 55px -5px rgba(0, 0, 0, 0.22); 
 
             --shadow-glass-ui-hover: 
                 inset -1px 1px 0.5px rgba(255, 255, 255, 1),
@@ -139,6 +137,9 @@
             --glass-border-r: transparent;
             --glass-border-b: transparent;
             --glass-border-l: transparent;
+
+            /* 深色模式磨砂噪点：提高了一点点不透明度，确保在暗色背景上同样清晰 */
+            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
 
             /* 大体块暗色收敛阴影 */
             --shadow-glass-lg: 
@@ -232,13 +233,12 @@
         .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
         /* =========================================================
-           Glass Element Class (核心四大载体专属：暗色下为纯实体+阴影)
+           Glass Element Class (核心四大载体专属：引入极细磨砂噪点)
         ========================================================= */
         .glass-element {
             background-color: transparent;
-            background-image: 
-                var(--glass-bg),
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            /* 噪点层叠加在玻璃渐变之上 */
+            background-image: var(--noise-pattern), var(--glass-bg);
             backdrop-filter: blur(32px) saturate(120%) brightness(102%);
             -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
             border: none;
@@ -248,13 +248,13 @@
             border-bottom: 1px solid var(--glass-border-b);
         }
 
-        /* 暗色模式下：纯色实体背景、保留阴影，并增加细边框勾勒轮廓 */
+        /* 暗色模式下：纯色实体背景、加入极细磨砂噪点，并带细边框勾勒轮廓 */
         [data-theme="dark"] .glass-element {
             background-color: var(--bg-surface);
-            background-image: none;
+            background-image: var(--noise-pattern);
             backdrop-filter: none;
             -webkit-backdrop-filter: none;
-            border: 1px solid var(--border-subtle); /* 统一添加了和分割线一致的极细边框 */
+            border: 1px solid var(--border-subtle);
         }
 
         .theme-toggle { 
@@ -262,16 +262,16 @@
             width: 44px; height: 44px; padding: 0; margin: 0; 
             border-radius: 50%; 
             color: var(--text-secondary); cursor: pointer; 
-            box-shadow: var(--shadow-glass-ui); /* 引入补偿后的 UI 组件阴影 */
+            box-shadow: var(--shadow-glass-ui); 
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         .theme-toggle:hover { 
-            background-image: var(--glass-bg-hover), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            background-image: var(--noise-pattern), var(--glass-bg-hover);
             color: var(--text-primary); transform: translateY(-1px); 
             box-shadow: var(--shadow-glass-ui-hover); 
         }
         [data-theme="dark"] .theme-toggle:hover {
-            background-image: none;
+            background-image: var(--noise-pattern);
             background-color: var(--border-subtle); 
         }
         .theme-toggle:active { transform: scale(0.92); }
@@ -284,84 +284,93 @@
         .spin-anim { animation: spinNode 1s linear infinite; transform-origin: center center; }
 
         /* =========================================================
-           Notice Banner
-        ========================================================= */
-        .notice { 
-            position: relative; display: flex; align-items: center; 
-            height: 44px; margin-bottom: 16px; padding: 6px 14px 6px 6px; gap: 10px; 
-            border-radius: 22px; color: var(--text-primary); 
-            font-size: 13.5px; font-weight: 400;
-            box-shadow: var(--shadow-glass-ui); /* 引入补偿后的 UI 组件阴影 */
-            overflow: hidden; cursor: pointer; user-select: none; 
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .notice:hover { 
-            background-image: var(--glass-bg-hover), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-            transform: translateY(-1px); 
-            box-shadow: var(--shadow-glass-ui-hover); 
-        }
-        [data-theme="dark"] .notice:hover {
-            background-image: none;
-            background-color: var(--border-subtle); 
-        }
-        .notice:active { transform: scale(0.99) translateY(0); }
-        
-        /* 公告图标框（带分割线同款边框） */
-        .notice-icon-box { 
-            width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; 
-            background: transparent; border: 1px solid var(--border-subtle); box-shadow: none;
-            color: var(--primary); display: flex; align-items: center; justify-content: center;
-            font-size: 14px; 
-        }
-        .notice-slider { flex: 1; height: 22px; overflow: hidden; position: relative; pointer-events: none; }
-        .notice-track { display: flex; flex-direction: column; transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1); }
-        .notice-item { height: 22px; line-height: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-secondary); }
-
-        /* =========================================================
-           Search Bar
+           Search Bar & Integrated Notice Animation (虚拟占位符映射)
         ========================================================= */
         .search-wrapper { 
-            position: sticky; top: 0; z-index: 100; 
+            position: sticky; top: 0; 
+            z-index: 100; 
             padding: 8px 0 12px; margin-bottom: 12px; 
             background: transparent; 
             -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); 
         }
+        .search-wrapper.is-sticky {
+            z-index: 9999;
+        }
+
         .search-box-inner {
             position: relative; width: 100%; height: 44px; display: flex; align-items: center; gap: 8px; 
-            border-radius: 22px; box-shadow: var(--shadow-glass-ui); /* 引入补偿后的 UI 组件阴影 */
+            border-radius: 22px; box-shadow: var(--shadow-glass-ui); 
             padding: 6px; cursor: text;
             -webkit-transform: translateZ(0); transform: translateZ(0);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         .search-box-inner:focus-within {
-            background-image: var(--glass-bg-hover), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            background-image: var(--noise-pattern), var(--glass-bg-hover);
             border-color: rgba(255,255,255,0.8); 
             box-shadow: var(--shadow-glass-ui-hover); 
         }
         [data-theme="dark"] .search-box-inner:focus-within {
-            background-image: none;
+            background-image: var(--noise-pattern);
             background-color: var(--border-subtle);
             border-color: var(--text-tertiary); 
         }
         
-        /* 搜索框图标（带分割线同款边框） */
+        /* 搜索框左侧图标 */
         .search-icon { 
             width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%;
-            background: transparent; border: 1px solid var(--border-subtle); box-shadow: none;
+            background: transparent; box-shadow: none; border: 1px solid var(--border-subtle);
             display: flex; align-items: center; justify-content: center;
             font-size: 14px; pointer-events: none; color: var(--primary); 
         }
+        
+        /* 融合公告的占位符包裹层 */
+        .input-wrapper {
+            position: relative; flex: 1; min-width: 0;
+            height: 32px; overflow: hidden; display: flex;
+        }
+
+        /* 真实的输入框 */
         .search { 
-            display: block; width: 100%; flex: 1; min-width: 0; height: 32px; line-height: 32px;
+            display: block; width: 100%; flex: 1; height: 32px; line-height: 32px;
             padding: 0; margin: 0; border: 0; outline: none; background: transparent;
             color: var(--text-primary); font-size: 15px; font-weight: 400; vertical-align: middle;
-            -webkit-appearance: none; appearance: none; 
+            -webkit-appearance: none; appearance: none;
+            position: relative; z-index: 2;
         }
-        .search::-webkit-search-decoration, .search::-webkit-search-cancel-button, 
-        .search::-webkit-search-results-button, .search::-webkit-search-results-decoration { display: none; }
-        .search::-webkit-input-placeholder, .search::placeholder { color: var(--text-tertiary); font-size: 15px; font-weight: 300; line-height: 32px; }
-        .search:disabled { cursor: not-allowed; opacity: 0.65; }
         
+        /* 将原生 placeholder 隐藏掉，交给底下的假占位符来表演 */
+        .search::placeholder {
+            color: transparent; 
+        }
+        .search:disabled { cursor: not-allowed; }
+
+        /* 模拟的滚动占位符层 */
+        .placeholder-track {
+            position: absolute; top: 0; left: 0; width: 100%;
+            display: flex; flex-direction: column;
+            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 1; pointer-events: none;
+        }
+        
+        .placeholder-item {
+            height: 32px; line-height: 32px;
+            color: var(--text-tertiary); font-size: 15px; font-weight: 300;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+
+        /* CSS 黑魔法：当输入框聚焦或有文字输入时，自动隐藏背后的轮播层 */
+        .search:focus ~ .placeholder-track,
+        .search:not(:placeholder-shown) ~ .placeholder-track {
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        
+        /* 当失去焦点并且框内空空如也时，再把轮播层渐显出来 */
+        .search:not(:focus):placeholder-shown ~ .placeholder-track {
+            opacity: 1;
+            transition: opacity 0.3s ease 0.1s;
+        }
+
         .search-shortcut, .search-clear { 
             width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
             background: transparent; border: none; box-shadow: none;
@@ -391,7 +400,7 @@
         .modules { display: flex; flex-direction: column; gap: 32px; padding-bottom: 20px; }
         .module-card { 
             position: relative; padding: 28px; border-radius: var(--radius-card); 
-            box-shadow: var(--shadow-glass-lg); /* 模块卡片保持原本的物理阴影大小 */
+            box-shadow: var(--shadow-glass-lg); 
             overflow: hidden; content-visibility: auto; contain-intrinsic-size: 0 180px; 
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             -webkit-transform: translateZ(0); transform: translateZ(0); 
@@ -404,11 +413,11 @@
         }
         .module-card:hover { 
             transform: translateY(-2px);
-            background-image: var(--glass-bg-hover), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            background-image: var(--noise-pattern), var(--glass-bg-hover);
             box-shadow: var(--shadow-glass-lg-hover); 
         }
         [data-theme="dark"] .module-card:hover {
-            background-image: none;
+            background-image: var(--noise-pattern);
             background-color: var(--bg-surface); 
         }
         .module-card:hover::before { left: 200%; transition: left 0.9s ease-in-out; }
@@ -522,7 +531,8 @@
         
         .toast { 
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); 
-            z-index: 999; padding: 12px 24px; border-radius: var(--radius-pill); 
+            z-index: 99999; /* 确保提示框层级始终最高 */
+            padding: 12px 24px; border-radius: var(--radius-pill); 
             background: var(--toast-bg); color: var(--toast-text); 
             font-size: 14px; font-weight: 400; box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
             opacity: 0; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
@@ -585,7 +595,6 @@
     width: 100%;
 }
 
-.notice,
 .search-wrapper {
     width: 100%;
     margin-left: 0;
@@ -674,27 +683,28 @@
                 </div>
             </div>
             <div class="subtitle">
-                相关资源均来源于开源社区，本页仅提供索引服务，所有权利归原作者所有
+                开源社区资源聚合检索平台
             </div>
         </header>
 
-        <!-- 两端全圆角公告栏 -->
-        <div id="noticeBanner" class="notice glass-element" title="点击切换下一条公告">
-            <div class="notice-icon-box">🚀</div>
-            <div class="notice-slider">
-                <div id="noticeTrack" class="notice-track">
-                    <div class="notice-item">已启用并发缓存与快速索引</div>
-                    <div class="notice-item">资源均直接引用自原始地址</div>
-                    <div class="notice-item">首次完整加载需要一定时间，请耐心等待</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 两端全圆角吸顶搜索框 -->
+        <!-- 聚合了搜索与公告滚动的全圆角吸顶框 -->
         <div class="search-wrapper">
             <label for="search" class="search-box-inner glass-element">
                 <div class="search-icon">🔍</div>
-                <input id="search" class="search" type="text" inputmode="search" placeholder="请在加载完成后执行搜索..." autocomplete="off" spellcheck="false" disabled>
+                
+                <div class="input-wrapper">
+                    <!-- input 占位符设为空格，激活 :placeholder-shown 伪类特性 -->
+                    <input id="search" class="search" type="text" inputmode="search" placeholder=" " autocomplete="off" spellcheck="false" disabled>
+                    
+                    <!-- 模拟的底层公告文字动画滚动轨道 -->
+                    <div id="placeholderTrack" class="placeholder-track">
+                        <div id="mainPlaceholder" class="placeholder-item">请在加载完成后执行搜索...</div>
+                        <div class="placeholder-item">📣 相关资源均来源于开源社区</div>
+                        <div class="placeholder-item">📣 所有权利责任归原作者所有</div>
+                        <div class="placeholder-item">📣 首次加载需一定时间，请耐心等待</div>
+                    </div>
+                </div>
+
                 <span class="search-shortcut">/</span>
                 <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
             </label>
@@ -729,7 +739,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260827_1501"; 
+        const CACHE_VERSION = "20260827_1542"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -776,6 +786,8 @@
         const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
         const REFRESH_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>`;
 
+        const searchWrapperEl = document.querySelector('.search-wrapper');
+
         const modulesContainer = document.getElementById("modules");
         const searchInput = document.getElementById("search");
         const searchClear = document.getElementById("searchClear");
@@ -785,8 +797,6 @@
         const countText = document.getElementById("countText");
         const toast = document.getElementById("toast");
         const sentinel = document.getElementById("sentinel");
-        const noticeBanner = document.getElementById("noticeBanner");
-        const noticeTrack = document.getElementById("noticeTrack");
         
         const themeAutoBtn = document.getElementById("themeAuto");
         const themeToggleBtn = document.getElementById("themeToggle");
@@ -798,9 +808,19 @@
         let searchTimer = null;
         let remoteIconsMap = {};
 
+        // 动态判断搜索框是否吸顶，智能切换阴影层级
+        function updateSearchLayer() {
+            if (!searchWrapperEl) return;
+            if (searchWrapperEl.getBoundingClientRect().top <= 1) {
+                searchWrapperEl.classList.add('is-sticky');
+            } else {
+                searchWrapperEl.classList.remove('is-sticky');
+            }
+        }
+        
+        window.addEventListener('scroll', updateSearchLayer, { passive: true });
+        
         // 动态统一计算所有卡片的图层顺序 (z-index)
-        // 规则：1. 下方行的整体层级高于上方行（解决上方阴影压住下方卡片问题）
-        //       2. 同一行中，左侧卡片层级高于右侧卡片（解决右侧阴影压住左侧卡片问题）
         function updateCardLayerOrder() {
             const cards = modulesContainer.querySelectorAll('.module-card');
             if (!cards.length) return;
@@ -819,16 +839,15 @@
             const sortedRows = Array.from(rowsMap.entries()).sort((a, b) => a[0] - b[0]);
 
             sortedRows.forEach(([top, rowCards], rowIndex) => {
-                // 下方行的基准 z-index 大于上方行
                 const rowBaseZ = (rowIndex + 1) * 1000;
                 rowCards.forEach((card, colIndex) => {
-                    // 同一行中左侧卡片 z-index 高于右侧卡片
                     card.style.zIndex = rowBaseZ + (rowCards.length - colIndex);
                 });
             });
+            
+            updateSearchLayer();
         }
 
-        // 监听窗口大小改变，防抖重新计算图层顺序
         let resizeTimer = null;
         window.addEventListener("resize", () => {
             clearTimeout(resizeTimer);
@@ -836,33 +855,45 @@
         });
 
         function setSearchState(enabled) {
+            const mainP = document.getElementById("mainPlaceholder");
+            const mainPClone = document.getElementById("mainPlaceholderClone");
+            
             if (enabled) {
                 searchInput.disabled = false;
-                searchInput.placeholder = "输入关键字快捷搜索...";
+                const text = "输入关键字快捷搜索...";
+                if (mainP) mainP.textContent = text;
+                if (mainPClone) mainPClone.textContent = text;
                 if (searchShortcut) searchShortcut.style.opacity = "1";
             } else {
                 searchInput.disabled = true;
-                searchInput.placeholder = "请在加载完成后执行搜索...";
+                const text = "请在加载完成后执行搜索...";
+                if (mainP) mainP.textContent = text;
+                if (mainPClone) mainPClone.textContent = text;
                 if (searchShortcut) searchShortcut.style.opacity = "0.35";
                 searchClear.classList.remove("visible");
             }
         }
 
-        if (noticeTrack && noticeBanner) {
-            const firstItemClone = noticeTrack.children[0].cloneNode(true);
-            noticeTrack.appendChild(firstItemClone);
+        // 输入框内的占位符滚动逻辑
+        const placeholderTrack = document.getElementById("placeholderTrack");
+        if (placeholderTrack) {
+            const firstItemClone = placeholderTrack.children[0].cloneNode(true);
+            firstItemClone.id = "mainPlaceholderClone";
+            placeholderTrack.appendChild(firstItemClone);
 
             let noticeIndex = 0;
-            const originalCount = noticeTrack.children.length - 1; 
-            let noticeTimer = null;
+            const originalCount = placeholderTrack.children.length - 1; 
             let isAnimating = false;
 
             function updateNoticePosition() {
-                noticeTrack.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
-                noticeTrack.style.transform = `translateY(-${noticeIndex * 22}px)`;
+                placeholderTrack.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
+                placeholderTrack.style.transform = `translateY(-${noticeIndex * 32}px)`;
             }
 
             function nextNotice() {
+                // 如果当前处于焦点状态或是已输入内容，则暂停滚动，防止错乱
+                if (document.activeElement === searchInput || searchInput.value.length > 0) return;
+                
                 if (isAnimating) return;
                 isAnimating = true;
                 noticeIndex++;
@@ -870,10 +901,10 @@
 
                 if (noticeIndex === originalCount) {
                     setTimeout(() => {
-                        noticeTrack.style.transition = 'none';
+                        placeholderTrack.style.transition = 'none';
                         noticeIndex = 0;
-                        noticeTrack.style.transform = `translateY(0)`;
-                        void noticeTrack.offsetHeight;
+                        placeholderTrack.style.transform = `translateY(0)`;
+                        void placeholderTrack.offsetHeight;
                         isAnimating = false;
                     }, 450); 
                 } else {
@@ -881,17 +912,7 @@
                 }
             }
 
-            function resetNoticeInterval() {
-                if (noticeTimer) clearInterval(noticeTimer);
-                noticeTimer = setInterval(nextNotice, 3800);
-            }
-
-            noticeBanner.addEventListener("click", () => {
-                nextNotice();
-                resetNoticeInterval();
-            });
-
-            resetNoticeInterval();
+            setInterval(nextNotice, 3800);
         }
 
         const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
