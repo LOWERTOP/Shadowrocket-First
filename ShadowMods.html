@@ -144,13 +144,11 @@
 
             --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
 
-            /* 深色模式：移除所有文字和内容的额外投影，还原最纯净的扁平 */
             --content-shadow-lg: none;
             --text-shadow-lg: none;
             --content-shadow-sm: none;
             --text-shadow-sm: none;
 
-            /* 深色模式：纯正的阴影效果（没有光斑和高光） */
             --shadow-glass-lg: 
                 0 10px 30px rgba(0, 0, 0, 0.45),
                 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -175,7 +173,7 @@
             --primary-hover: #8da1b5;
             --primary-soft: rgba(117, 139, 159, 0.2);
             --bg-surface: #1d2026;
-            --border-subtle: #2b3038; /* 边框的一像素描边色彩 */
+            --border-subtle: #2b3038;
 
             --accent-mint: #8bb7c4;
             --accent-mint-soft: rgba(139, 183, 196, 0.2);
@@ -256,7 +254,6 @@
             border-bottom: 1px solid var(--glass-border-b);
         }
 
-        /* 深色模式：纯色实体背景 + 1像素的描边框 */
         [data-theme="dark"] .glass-element {
             background-color: var(--bg-surface);
             background-image: var(--noise-pattern);
@@ -569,10 +566,10 @@
         }
     
 /* =========================================================
-   ShadowStore — Adaptive Card Layout
+   ShadowStore — Adaptive Card Layout (间距已放大一倍)
    ========================================================= */
 .container { max-width: 1180px; }
-.modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 22px; align-items: stretch; padding-bottom: 24px; }
+.modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 44px; align-items: stretch; padding-bottom: 24px; }
 .module-card { width: auto; height: 100%; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; }
 .module-description { flex: 1 1 auto; }
 .card-bottom { margin-top: 24px; flex-shrink: 0; }
@@ -580,9 +577,9 @@
 .modules > .empty { grid-column: 1 / -1; width: 100%; }
 .search-wrapper { width: 100%; margin-left: 0; margin-right: 0; }
 @media (min-width: 861px) and (max-width: 1200px) { .container { max-width: 1040px; } .modules { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); } }
-@media (min-width: 601px) and (max-width: 860px) { .container { max-width: 100%; } .modules { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; } .module-card { padding: 24px; } }
-@media (max-width: 600px) { .modules { grid-template-columns: 1fr; gap: 18px; } .module-card, .loading-card { width: 100%; } .module-description { flex: none; } }
-@media (max-width: 420px) { .modules { grid-template-columns: 1fr; } .card-bottom { flex-direction: column; align-items: stretch; } .source { width: 100%; } .action-buttons { width: 100%; justify-content: flex-end; } }
+@media (min-width: 601px) and (max-width: 860px) { .container { max-width: 100%; } .modules { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; } .module-card { padding: 24px; } }
+@media (max-width: 600px) { .modules { grid-template-columns: 1fr; gap: 36px; } .module-card, .loading-card { width: 100%; } .module-description { flex: none; } }
+@media (max-width: 420px) { .modules { grid-template-columns: 1fr; gap: 36px; } .card-bottom { flex-direction: column; align-items: stretch; } .source { width: 100%; } .action-buttons { width: 100%; justify-content: flex-end; } }
 </style>
 </head>
 
@@ -660,7 +657,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260827_1652"; 
+        const CACHE_VERSION = "20260827_1612"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
