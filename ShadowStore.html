@@ -54,7 +54,7 @@
             --glass-border-l: rgba(255, 255, 255, 0.1);
 
             /* ==============================================
-               统一全局空间光照：所有元素采用相同的阴影辐射与光斑参数
+               大模块卡片专属阴影
             ============================================== */
             --shadow-glass-lg: 
                 inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
@@ -77,6 +77,32 @@
                 -1.5px 6px 8px rgba(0, 0, 0, 0.12),
                 -10px 20px 25px -4px rgba(0, 0, 0, 0.10),
                 -40px 70px 80px -15px rgba(0, 0, 0, 0.25);
+
+            /* ==============================================
+               小组件视觉补偿阴影（光学补偿）：
+               光斑折射层与大卡片完全一致，仅减小黑阴影的"负向收缩率"，增加微弱浓度以抗衡面积消融
+            ============================================== */
+            --shadow-glass-ui: 
+                inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
+                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
+                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
+                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
+                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
+                -1px 4px 6px rgba(0, 0, 0, 0.15),        
+                -8px 18px 22px -3px rgba(0, 0, 0, 0.12), 
+                -25px 45px 55px -5px rgba(0, 0, 0, 0.22); /* 视觉补偿点：扩散仅收缩5px */
+
+            --shadow-glass-ui-hover: 
+                inset -1px 1px 0.5px rgba(255, 255, 255, 1),
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
+                -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
+                -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
+                -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
+                -2.2px 14px 10px -4px rgba(255, 255, 255, 0.18),
+                -1.5px 6px 8px rgba(0, 0, 0, 0.15),
+                -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
+                -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
 
             /* 全局文字明度调和 */
             --text-primary: #4a4f59;
@@ -114,7 +140,7 @@
             --glass-border-b: transparent;
             --glass-border-l: transparent;
 
-            /* 暗色模式收敛阴影范围与扩散 */
+            /* 大体块暗色收敛阴影 */
             --shadow-glass-lg: 
                 -1px 4px 6px rgba(0, 0, 0, 0.5),
                 -8px 18px 22px -4px rgba(0, 0, 0, 0.35),
@@ -124,6 +150,17 @@
                 -1.5px 6px 8px rgba(0, 0, 0, 0.6),
                 -10px 22px 28px -4px rgba(0, 0, 0, 0.45),
                 -40px 70px 80px -15px rgba(0, 0, 0, 0.9);
+
+            /* 小组件暗色收敛阴影（视觉补偿） */
+            --shadow-glass-ui: 
+                -1px 4px 6px rgba(0, 0, 0, 0.5),
+                -8px 18px 22px -3px rgba(0, 0, 0, 0.4),
+                -25px 45px 55px -6px rgba(0, 0, 0, 0.85);
+
+            --shadow-glass-ui-hover: 
+                -1.5px 6px 8px rgba(0, 0, 0, 0.6),
+                -10px 22px 28px -3px rgba(0, 0, 0, 0.5),
+                -30px 50px 60px -6px rgba(0, 0, 0, 0.95);
 
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
@@ -225,13 +262,13 @@
             width: 44px; height: 44px; padding: 0; margin: 0; 
             border-radius: 50%; 
             color: var(--text-secondary); cursor: pointer; 
-            box-shadow: var(--shadow-glass-lg); /* 使用统一的大阴影和光斑 */
+            box-shadow: var(--shadow-glass-ui); /* 引入补偿后的 UI 组件阴影 */
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         .theme-toggle:hover { 
             background-image: var(--glass-bg-hover), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
             color: var(--text-primary); transform: translateY(-1px); 
-            box-shadow: var(--shadow-glass-lg-hover); /* 补充交互状态下的阴影 */
+            box-shadow: var(--shadow-glass-ui-hover); 
         }
         [data-theme="dark"] .theme-toggle:hover {
             background-image: none;
@@ -254,14 +291,14 @@
             height: 44px; margin-bottom: 16px; padding: 6px 14px 6px 6px; gap: 10px; 
             border-radius: 22px; color: var(--text-primary); 
             font-size: 13.5px; font-weight: 400;
-            box-shadow: var(--shadow-glass-lg); /* 使用统一的大阴影和光斑 */
+            box-shadow: var(--shadow-glass-ui); /* 引入补偿后的 UI 组件阴影 */
             overflow: hidden; cursor: pointer; user-select: none; 
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         .notice:hover { 
             background-image: var(--glass-bg-hover), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
             transform: translateY(-1px); 
-            box-shadow: var(--shadow-glass-lg-hover); /* 补充交互状态下的阴影 */
+            box-shadow: var(--shadow-glass-ui-hover); 
         }
         [data-theme="dark"] .notice:hover {
             background-image: none;
@@ -291,7 +328,7 @@
         }
         .search-box-inner {
             position: relative; width: 100%; height: 44px; display: flex; align-items: center; gap: 8px; 
-            border-radius: 22px; box-shadow: var(--shadow-glass-lg); /* 使用统一的大阴影和光斑 */
+            border-radius: 22px; box-shadow: var(--shadow-glass-ui); /* 引入补偿后的 UI 组件阴影 */
             padding: 6px; cursor: text;
             -webkit-transform: translateZ(0); transform: translateZ(0);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
@@ -299,7 +336,7 @@
         .search-box-inner:focus-within {
             background-image: var(--glass-bg-hover), url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
             border-color: rgba(255,255,255,0.8); 
-            box-shadow: var(--shadow-glass-lg-hover); /* 补充交互状态下的阴影 */
+            box-shadow: var(--shadow-glass-ui-hover); 
         }
         [data-theme="dark"] .search-box-inner:focus-within {
             background-image: none;
@@ -354,7 +391,7 @@
         .modules { display: flex; flex-direction: column; gap: 32px; padding-bottom: 20px; }
         .module-card { 
             position: relative; padding: 28px; border-radius: var(--radius-card); 
-            box-shadow: var(--shadow-glass-lg); 
+            box-shadow: var(--shadow-glass-lg); /* 模块卡片保持原本的物理阴影大小 */
             overflow: hidden; content-visibility: auto; contain-intrinsic-size: 0 180px; 
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             -webkit-transform: translateZ(0); transform: translateZ(0); 
@@ -637,7 +674,7 @@
                 </div>
             </div>
             <div class="subtitle">
-                相关资源均来源于开源社区，本页仅提供索引服务，所有权利归原作者所有
+                开源社区资源聚合检索平台
             </div>
         </header>
 
@@ -646,8 +683,8 @@
             <div class="notice-icon-box">🚀</div>
             <div class="notice-slider">
                 <div id="noticeTrack" class="notice-track">
-                    <div class="notice-item">已启用并发缓存与快速索引</div>
-                    <div class="notice-item">资源均直接引用自原始地址</div>
+                    <div class="notice-item">相关资源均来源于开源社区</div>
+                    <div class="notice-item">所有权利责任归原作者所有</div>
                     <div class="notice-item">首次完整加载需要一定时间，请耐心等待</div>
                 </div>
             </div>
@@ -692,7 +729,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260827_1442"; 
+        const CACHE_VERSION = "20260827_1507"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
