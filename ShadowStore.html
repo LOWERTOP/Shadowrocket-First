@@ -24,6 +24,7 @@
             if (themeMeta) {
                 themeMeta.setAttribute('content', themeColor);
             }
+            document.documentElement.style.backgroundColor = themeColor;
         })();
     </script>
 
@@ -39,7 +40,8 @@
            Design Tokens
         ========================================================= */
         :root, [data-theme="light"] {
-            --bg-page-base: #f0f2f5;
+            --bg-overscroll: #ffffff;
+            --bg-page-base: #ffffff;
             --bg-page-grad: radial-gradient(circle at 50% 0%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
             
             --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
@@ -128,6 +130,7 @@
         }
 
         [data-theme="dark"] {
+            --bg-overscroll: #14161a;
             --bg-page-base: #14161a;
             --bg-page-grad: none;
             
@@ -184,10 +187,12 @@
         
         html { 
             margin: 0; padding: 0; overflow-y: scroll; scrollbar-gutter: stable; 
-            background-color: var(--bg-page-base);
+            background-color: var(--bg-overscroll);
             background-image: var(--bg-page-grad);
             background-attachment: fixed;
             min-height: 100%;
+            overscroll-behavior-y: none;
+            -webkit-overscroll-behavior-y: none;
             transition: background-color 0.4s ease;
         }
         
@@ -195,14 +200,12 @@
             margin: 0; 
             min-height: 100vh;
             padding: max(16px, env(safe-area-inset-top)) clamp(16px, 2.5vw, 40px) max(36px, env(safe-area-inset-bottom)); 
-            background-color: var(--bg-page-base);
-            background-image: var(--bg-page-grad);
-            background-attachment: fixed;
+            background: transparent;
             color: var(--text-primary); 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; 
             -webkit-font-smoothing: antialiased; 
             text-rendering: optimizeLegibility; 
-            transition: background-color 0.4s ease, color 0.4s ease; 
+            transition: color 0.4s ease; 
         }
 
         button, input { font: inherit; }
@@ -780,7 +783,7 @@
         /* =========================================================
            Configuration & Cache
         ========================================================= */
-        const CACHE_VERSION = "20260828_1433"; 
+        const CACHE_VERSION = "20260828_1438"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -855,7 +858,6 @@
         let searchTimer = null;
         let remoteIconsMap = {};
         
-        // 核心锁：页面加载与同步状态标记，默认启动时即禁用下拉
         let isPageLoading = true;
 
         function updateSearchLayer() {
@@ -921,7 +923,7 @@
         });
 
         /* =========================================================
-           Pull-to-Refresh Gesture (加大距离 + 消除卡顿 + 加载期完全禁用)
+           Pull-to-Refresh Gesture
         ========================================================= */
         let touchStartX = 0;
         let touchStartY = 0;
@@ -967,7 +969,6 @@
         }
 
         window.addEventListener('touchstart', (e) => {
-            // 加载中、刷新中均严格禁止下拉激活
             if (isRefreshing || isPageLoading) {
                 isPulling = false;
                 return;
@@ -996,7 +997,6 @@
             const diffX = currentX - touchStartX;
             const diffY = currentY - touchStartY;
 
-            // 1. 方向锁与斜滑/横滑防误触判定
             if (!isPullLocked) {
                 if (Math.abs(diffX) > Math.abs(diffY) || diffY <= 0) {
                     isPulling = false;
@@ -1008,7 +1008,6 @@
                 }
             }
 
-            // 2. 进入有效下拉阶段
             if (isPullLocked && diffY > MIN_DRAG_DEADZONE) {
                 const effectiveDiff = diffY - MIN_DRAG_DEADZONE;
                 
@@ -1147,6 +1146,7 @@
             if (themeColorMeta) {
                 themeColorMeta.setAttribute("content", themeColor);
             }
+            document.documentElement.style.backgroundColor = themeColor;
 
             const statusBarMeta = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
             if (statusBarMeta) {
@@ -2020,7 +2020,7 @@
                         statusText.textContent = "已同步";
                         statusDot.className = "status-dot";
                         setBtnLoading(false); 
-                        isPageLoading = false; // 缓存有效且立即可用，解锁下拉刷新
+                        isPageLoading = false;
                         return;
                     }
                     statusText.textContent = "正在同步模块...";
@@ -2132,7 +2132,6 @@
                 
                 setBtnLoading(false); 
             } finally {
-                // 无论拉取成功还是失败，均解除全局加载锁，允许后续下拉刷新
                 isPageLoading = false;
             }
         }
