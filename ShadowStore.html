@@ -82,7 +82,7 @@
                 -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
                 -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
 
-            /* 搜索框与返回按钮专用阴影（光斑亮度降低约 1/3） */
+            /* 搜索框与返回按钮专用阴影 */
             --shadow-search: 
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
@@ -210,7 +210,6 @@
         button, input { font: inherit; }
         a { color: inherit; text-decoration: none; }
         
-        /* 自适应宽屏容器 */
         .container { 
             width: 100%; 
             max-width: clamp(1080px, 95vw, 2560px); 
@@ -253,13 +252,8 @@
             color: var(--primary);
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .ptr-icon svg {
-            width: 100%;
-            height: 100%;
-        }
-        .ptr-icon.rotate {
-            transform: rotate(180deg);
-        }
+        .ptr-icon svg { width: 100%; height: 100%; }
+        .ptr-icon.rotate { transform: rotate(180deg); }
 
         /* =========================================================
            Header
@@ -365,9 +359,7 @@
             width: 100%;
             -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); 
         }
-        .search-wrapper.is-sticky {
-            z-index: 99999;
-        }
+        .search-wrapper.is-sticky { z-index: 99999; }
 
         .search-box-inner {
             position: relative; flex: 1 1 auto; min-width: 0; height: 44px; display: flex; align-items: center; gap: 8px; 
@@ -415,9 +407,7 @@
             text-shadow: none; 
         }
         
-        .search::placeholder {
-            color: transparent; 
-        }
+        .search::placeholder { color: transparent; }
         .search:disabled { cursor: not-allowed; }
 
         .placeholder-track {
@@ -455,7 +445,7 @@
         .search-clear:hover { color: var(--text-primary); }
         .search-clear.visible { display: flex; }
 
-        /* 返回顶部按钮弹性折叠与展开动画 */
+        /* 返回顶部按钮 */
         .back-to-top-btn {
             width: 0;
             height: 44px;
@@ -497,9 +487,7 @@
             transform: translateY(-1px);
             box-shadow: var(--shadow-search-hover);
         }
-        .back-to-top-btn.visible:active {
-            transform: scale(0.92);
-        }
+        .back-to-top-btn.visible:active { transform: scale(0.92); }
 
         /* =========================================================
            Status Metric Strip
@@ -516,7 +504,7 @@
         @keyframes statusPulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
         
         /* =========================================================
-           Module Cards — 全响应式多列自适应网格
+           Module Cards
         ========================================================= */
         .modules { 
             display: grid; 
@@ -605,6 +593,7 @@
             flex: 1 1 auto;
         }
         
+        /* 恢复卡片底部分割线与标准内边距 */
         .card-bottom { 
             display: flex; align-items: center; justify-content: space-between; gap: 12px; 
             margin-top: 24px; padding-top: 24px; 
@@ -623,7 +612,6 @@
         .source-text { min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .source-text a { color: var(--text-tertiary); transition: color 0.2s ease; display: inline-block; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .source-text a:hover { color: var(--primary); text-decoration: underline; }
-        .source-mobile { display: none; }
         
         .action-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         
@@ -696,8 +684,6 @@
             .module-description { flex: none; }
             .card-bottom { margin-top: 20px; padding-top: 20px; }
             .search-shortcut { display: none; }
-            .source-desktop { display: none; }
-            .source-mobile { display: inline; }
         }
         @media (max-width: 420px) {
             .card-bottom { flex-direction: column; align-items: stretch; }
@@ -732,6 +718,12 @@
                 <div class="theme-controls">
                     <button id="refreshCacheBtn" class="theme-toggle glass-element" aria-label="强制刷新缓存" title="强制拉取最新数据"></button>
                     <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
+                    <!-- GitHub 仓库直达与 Star 按钮（放置于最右侧） -->
+                    <a id="githubStarBtn" class="theme-toggle glass-element" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
             <div class="subtitle">
@@ -745,10 +737,8 @@
                 <div class="search-icon">🔍</div>
                 
                 <div class="input-wrapper">
-                    <!-- input 占位符设为空格，激活 :placeholder-shown 伪类特性 -->
                     <input id="search" class="search" type="text" inputmode="search" placeholder=" " autocomplete="off" spellcheck="false" disabled>
                     
-                    <!-- 模拟的底层公告文字动画滚动轨道 -->
                     <div id="placeholderTrack" class="placeholder-track">
                         <div id="mainPlaceholder" class="placeholder-item">请在加载完成后执行搜索...</div>
                         <div class="placeholder-item">📣 相关资源均来源于开源社区</div>
@@ -798,7 +788,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260828_1245"; 
+        const CACHE_VERSION = "20260828_1355"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -882,7 +872,6 @@
                 searchWrapperEl.classList.remove('is-sticky');
             }
 
-            // 滚动超过 160px 显示返回顶部按钮并平滑压缩搜索框
             if (window.scrollY > 160) {
                 backToTopBtn.classList.add('visible');
             } else {
@@ -892,7 +881,6 @@
         
         window.addEventListener('scroll', updateSearchLayer, { passive: true });
 
-        // 点击平滑滚动至页面最顶部
         backToTopBtn.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
@@ -934,25 +922,23 @@
         });
 
         /* =========================================================
-           Pull-to-Refresh Gesture (强制刷新代码与缓存)
+           Pull-to-Refresh Gesture
         ========================================================= */
         let touchStartY = 0;
         let isPulling = false;
         let isRefreshing = false;
-        const PULL_THRESHOLD = 76; // 触发刷新阈值
+        const PULL_THRESHOLD = 76;
 
         async function triggerForceReload() {
             if (isRefreshing) return;
             isRefreshing = true;
 
-            // UI 状态转入刷新中
             ptrIcon.innerHTML = REFRESH_ICON;
             ptrIcon.classList.remove("rotate");
             ptrIcon.querySelector("svg")?.classList.add("spin-anim");
             ptrText.textContent = "正在强制刷新本站...";
 
             try {
-                // 1. 清理 localStorage 中的业务和版本缓存
                 for (let i = localStorage.length - 1; i >= 0; i--) {
                     const key = localStorage.key(i);
                     if (key && (key.startsWith("sr_") || key.includes("cache") || key.includes("module"))) {
@@ -963,7 +949,6 @@
                 localStorage.removeItem(CONFIG.CACHE_TIME_KEY);
             } catch (e) {}
 
-            // 2. 清理 ServiceWorker / PWA CacheStorage 离线缓存
             if ('caches' in window) {
                 try {
                     const cacheKeys = await caches.keys();
@@ -971,7 +956,6 @@
                 } catch (e) {}
             }
 
-            // 3. 携带时间戳强制重载网页本体代码，彻底绕过 HTTP 强缓存
             setTimeout(() => {
                 const base = window.location.href.split('#')[0].split('?')[0];
                 window.location.replace(base + '?_force_ts=' + Date.now());
@@ -994,11 +978,8 @@
             const diffY = currentY - touchStartY;
 
             if (diffY > 0) {
-                // 原生阻尼计算
                 const pullDistance = Math.min(Math.pow(diffY, 0.82), 110);
-                
                 pageContainer.style.transform = `translate3d(0, ${pullDistance}px, 0)`;
-                
                 pullRefreshIndicator.style.opacity = Math.min(pullDistance / 35, 1);
                 pullRefreshIndicator.style.transform = `translate3d(-50%, ${Math.min(pullDistance - 10, 48)}px, 0)`;
 
@@ -1023,16 +1004,13 @@
             const pullDistance = Math.min(Math.pow(Math.max(0, diffY), 0.82), 110);
 
             if (pullDistance >= PULL_THRESHOLD && window.scrollY <= 0) {
-                // 停留在固定高度并执行刷新
                 pageContainer.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
                 pageContainer.style.transform = `translate3d(0, 56px, 0)`;
                 pullRefreshIndicator.style.transform = `translate3d(-50%, 48px, 0)`;
                 triggerForceReload();
             } else {
-                // 弹性回弹复原
                 pageContainer.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
                 pageContainer.style.transform = 'translate3d(0, 0, 0)';
-                
                 pullRefreshIndicator.style.opacity = '0';
                 pullRefreshIndicator.style.transform = 'translate3d(-50%, -80px, 0)';
                 ptrIcon.classList.remove("rotate");
@@ -1075,7 +1053,6 @@
 
             function nextNotice() {
                 if (document.activeElement === searchInput || searchInput.value.length > 0) return;
-                
                 if (isAnimating) return;
                 isAnimating = true;
                 noticeIndex++;
@@ -1181,7 +1158,6 @@
             `;
             
             showToast("正在强制拉取最新数据...");
-            
             await loadModules();
             showToast("模块数据已刷新");
         });
@@ -1619,14 +1595,15 @@
             return null;
         }
 
+        /* 仅提取仓库纯名称，移除作者与前缀斜杠 */
         function getSourceRepoInfo(rawURL) {
             const githubInfo = parseGitHubRawURL(rawURL);
-            if (githubInfo) return { name: githubInfo.fullName, shortName: githubInfo.repo, url: githubInfo.url };
+            if (githubInfo) return { name: githubInfo.repo, url: githubInfo.url };
             try {
                 const url = new URL(rawURL);
-                return { name: url.hostname, shortName: url.hostname, url: url.origin };
+                return { name: url.hostname, url: url.origin };
             } catch {
-                return { name: "开源仓库", shortName: "开源仓库", url: "#" };
+                return { name: "开源仓库", url: "#" };
             }
         }
 
@@ -1690,12 +1667,6 @@
             }
             if (comments.length) return comments.slice(0, 2).join(" ");
             return `${metadata.name}，适用于 Shadowrocket 的网络模块。`;
-        }
-
-        function hashString(value) {
-            let hash = 0;
-            for (let i = 0; i < value.length; i++) hash = ((hash << 5) - hash + value.charCodeAt(i)) | 0;
-            return Math.abs(hash);
         }
 
         function createIOSAppIcon(name) {
@@ -1767,7 +1738,6 @@
                     authorAvatar,
                     icon,
                     sourceName: sourceInfo.name,
-                    sourceShortName: sourceInfo.shortName,
                     sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL),
                     isDubious,
@@ -1789,7 +1759,6 @@
                     authorAvatar: getRepositoryAvatar(item.rawURL),
                     icon: fallbackIconUrl,
                     sourceName: sourceInfo.name,
-                    sourceShortName: sourceInfo.shortName,
                     sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL),
                     isDubious: true,
@@ -1838,7 +1807,6 @@
             
             const sourceInfo = getSourceRepoInfo(module.rawURL);
             const sourceName = module.sourceName || sourceInfo.name;
-            const sourceShortName = module.sourceShortName || sourceInfo.shortName || sourceName;
             const sourceURL = module.sourceURL || sourceInfo.url;
 
             const statusTextVal = module.isDubious ? "模块信息获取失败" : "已获取至最新版本";
@@ -1864,8 +1832,7 @@
                         <div class="source-icon">🚀</div>
                         <div class="source-text">
                             <a href="${escapeHTML(sourceURL)}" target="_blank" rel="noopener">
-                                <span class="source-desktop">${escapeHTML(sourceName)}</span>
-                                <span class="source-mobile">${escapeHTML(sourceShortName)}</span>
+                                <span>${escapeHTML(sourceName)}</span>
                             </a>
                         </div>
                     </div>
