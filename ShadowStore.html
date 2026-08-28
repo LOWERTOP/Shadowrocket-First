@@ -548,7 +548,6 @@
 
         .card-header { display: flex; align-items: center; gap: 20px; }
         
-        /* 彻底消除动态加载时的暗影方形伪影 */
         .module-icon { 
             width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; 
             background: transparent; overflow: hidden; 
@@ -792,7 +791,7 @@
         /* =========================================================
            Configuration & Cache
         ========================================================= */
-        const CACHE_VERSION = "20260828_1451"; 
+        const CACHE_VERSION = "20260828_1512"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -868,6 +867,37 @@
         let remoteIconsMap = {};
         
         let isPageLoading = true;
+
+        /* =========================================================
+           Pinned Modules Priority Helper
+           精准排除 ddgksf2013.top，锁定我仓库的 Script-Hub、Sub-Store、BoxJs
+        ========================================================= */
+        function getPinnedRank(item) {
+            if (!item) return 9999;
+            const rawURL = (item.rawURL || "").toLowerCase();
+
+            // 1. 严格排除 ddgksf2013.top 来源的任何模块
+            if (rawURL.includes("ddgksf2013.top")) {
+                return 9999;
+            }
+
+            const name = (item.name || "").toLowerCase().replace(/[\s_\-.]/g, "");
+            const isFromMyRepo = Boolean(item.fromMyRepo || rawURL.includes("lowertop"));
+
+            // 仅对提取自我仓库的模块应用前三位最高优先级置顶
+            if (isFromMyRepo) {
+                if (name.includes("scripthub") || rawURL.includes("script-hub") || rawURL.includes("scripthub")) return 1;
+                if (name.includes("substore") || rawURL.includes("sub-store") || rawURL.includes("substore")) return 2;
+                if (name.includes("boxjs") || rawURL.includes("boxjs") || name.includes("box.js")) return 3;
+            }
+
+            return 9999;
+        }
+
+        function sortPinnedModules(list) {
+            if (!Array.isArray(list)) return [];
+            return [...list].sort((a, b) => getPinnedRank(a) - getPinnedRank(b));
+        }
 
         function updateSearchLayer() {
             if (!searchWrapperEl) return;
@@ -1751,6 +1781,7 @@
             const sourceInfo = getSourceRepoInfo(item.rawURL, githubInfo);
             const urlAuthor = getAuthorFromURL(item.rawURL, githubInfo);
             const avatarUrl = getRepositoryAvatar(githubInfo);
+            const fromMyRepo = item.fromMyRepo || false;
 
             try {
                 const rawText = await fetchRawText(item.rawURL, true);
@@ -1792,6 +1823,7 @@
                     sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL),
                     isDubious,
+                    fromMyRepo,
                     _searchKeywords
                 };
             } catch (error) {
@@ -1813,6 +1845,7 @@
                     sourceURL: sourceInfo.url,
                     installURL: createInstallURL(item.rawURL),
                     isDubious: true,
+                    fromMyRepo,
                     _searchKeywords
                 };
             }
@@ -1920,7 +1953,7 @@
         }
 
         function renderFilteredList(list) {
-            filteredModules = list;
+            filteredModules = sortPinnedModules(list);
             currentlyRendered = 0;
             modulesContainer.innerHTML = "";
 
@@ -2014,7 +2047,7 @@
 
             if (cachedData) {
                 try {
-                    allModules = JSON.parse(cachedData);
+                    allModules = sortPinnedModules(JSON.parse(cachedData));
                     allModules.forEach(m => {
                         if (!m._searchKeywords) {
                             m._searchKeywords = [m.name, m.description, m.author?.name, m.sourceName].join(" ").toLowerCase();
@@ -2067,16 +2100,20 @@
                     loadRemoteIcons()
                 ]);
 
-                const localModules = parseRepositoryModules(repoMarkdown);
+                // 显式标记来自用户自身仓库的模块
+                const localModules = parseRepositoryModules(repoMarkdown).map(m => ({ ...m, fromMyRepo: true }));
 
                 const seenURLs = new Set();
-                const sourceModules = [...localModules, ...fmzModules, ...zirawellModules].filter(item => {
+                let sourceModules = [...localModules, ...fmzModules, ...zirawellModules].filter(item => {
                     if (!item.rawURL || !/\.(?:sgmodule|srmodule|module)(?:$|[?#%])/i.test(item.rawURL) || seenURLs.has(item.rawURL.toLowerCase())) return false;
                     seenURLs.add(item.rawURL.toLowerCase());
                     return true;
                 });
 
                 if (!sourceModules.length) throw new Error("未解析到有效模块信息");
+
+                // 预排序源队列，确保置顶模块在首屏流式解析中优先请求与展示
+                sourceModules = sortPinnedModules(sourceModules);
 
                 let loadedCount = 0;
                 let isFirstStream = true;
@@ -2099,7 +2136,7 @@
                     }
                 });
 
-                allModules = results.filter(Boolean);
+                allModules = sortPinnedModules(results.filter(Boolean));
                 setSearchState(true);
 
                 if (!searchInput.value.trim()) {
