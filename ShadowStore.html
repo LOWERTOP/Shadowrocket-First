@@ -209,7 +209,52 @@
 
         button, input { font: inherit; }
         a { color: inherit; text-decoration: none; }
-        .container { width: 100%; max-width: 900px; margin: 0 auto; position: relative; }
+        .container { 
+            width: 100%; max-width: 900px; margin: 0 auto; position: relative; 
+            will-change: transform;
+        }
+
+        /* =========================================================
+           Pull-to-Refresh Indicator
+        ========================================================= */
+        .pull-refresh-indicator {
+            position: fixed;
+            top: max(12px, env(safe-area-inset-top));
+            left: 50%;
+            transform: translate3d(-50%, -80px, 0);
+            z-index: 999999;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            height: 38px;
+            padding: 0 16px;
+            border-radius: var(--radius-pill);
+            box-shadow: var(--shadow-glass-ui);
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 400;
+            pointer-events: none;
+            opacity: 0;
+            will-change: transform, opacity;
+            transition: opacity 0.2s ease;
+        }
+        .ptr-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            color: var(--primary);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ptr-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+        .ptr-icon.rotate {
+            transform: rotate(180deg);
+        }
 
         /* =========================================================
            Header
@@ -636,7 +681,18 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- 顶部下拉刷新跟随指示胶囊 -->
+    <div id="pullRefreshIndicator" class="pull-refresh-indicator glass-element">
+        <span id="ptrIcon" class="ptr-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+        </span>
+        <span id="ptrText">继续下拉将强制刷新本站</span>
+    </div>
+
+    <div id="pageContainer" class="container">
         <!-- 顶栏 -->
         <header class="header">
             <div class="header-top">
@@ -779,6 +835,11 @@
         const refreshCacheBtn = document.getElementById("refreshCacheBtn");
         const backToTopBtn = document.getElementById("backToTopBtn");
 
+        const pageContainer = document.getElementById("pageContainer");
+        const pullRefreshIndicator = document.getElementById("pullRefreshIndicator");
+        const ptrIcon = document.getElementById("ptrIcon");
+        const ptrText = document.getElementById("ptrText");
+
         let allModules = [];
         let filteredModules = [];
         let currentlyRendered = 0;
@@ -844,6 +905,112 @@
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(updateCardLayerOrder, 150);
         });
+
+        /* =========================================================
+           Pull-to-Refresh Gesture (强制刷新代码与缓存)
+        ========================================================= */
+        let touchStartY = 0;
+        let isPulling = false;
+        let isRefreshing = false;
+        const PULL_THRESHOLD = 76; // 触发刷新阈值
+
+        async function triggerForceReload() {
+            if (isRefreshing) return;
+            isRefreshing = true;
+
+            // UI 状态转入刷新中
+            ptrIcon.innerHTML = REFRESH_ICON;
+            ptrIcon.classList.remove("rotate");
+            ptrIcon.querySelector("svg")?.classList.add("spin-anim");
+            ptrText.textContent = "正在强制刷新本站...";
+
+            try {
+                // 1. 清理 localStorage 中的业务和版本缓存
+                for (let i = localStorage.length - 1; i >= 0; i--) {
+                    const key = localStorage.key(i);
+                    if (key && (key.startsWith("sr_") || key.includes("cache") || key.includes("module"))) {
+                        localStorage.removeItem(key);
+                    }
+                }
+                localStorage.removeItem(CONFIG.CACHE_KEY);
+                localStorage.removeItem(CONFIG.CACHE_TIME_KEY);
+            } catch (e) {}
+
+            // 2. 清理 ServiceWorker / PWA CacheStorage 离线缓存
+            if ('caches' in window) {
+                try {
+                    const cacheKeys = await caches.keys();
+                    await Promise.all(cacheKeys.map(key => caches.delete(key)));
+                } catch (e) {}
+            }
+
+            // 3. 携带时间戳强制重载网页本体代码，彻底绕过 HTTP 强缓存
+            setTimeout(() => {
+                const base = window.location.href.split('#')[0].split('?')[0];
+                window.location.replace(base + '?_force_ts=' + Date.now());
+            }, 300);
+        }
+
+        window.addEventListener('touchstart', (e) => {
+            if (isRefreshing) return;
+            if (window.scrollY <= 0) {
+                touchStartY = e.touches[0].clientY;
+                isPulling = true;
+                pageContainer.style.transition = 'none';
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isPulling || isRefreshing || window.scrollY > 0) return;
+
+            const currentY = e.touches[0].clientY;
+            const diffY = currentY - touchStartY;
+
+            if (diffY > 0) {
+                // 原生阻尼计算
+                const pullDistance = Math.min(Math.pow(diffY, 0.82), 110);
+                
+                pageContainer.style.transform = `translate3d(0, ${pullDistance}px, 0)`;
+                
+                pullRefreshIndicator.style.opacity = Math.min(pullDistance / 35, 1);
+                pullRefreshIndicator.style.transform = `translate3d(-50%, ${Math.min(pullDistance - 10, 48)}px, 0)`;
+
+                if (pullDistance >= PULL_THRESHOLD) {
+                    ptrIcon.classList.add("rotate");
+                    ptrText.textContent = "松开立即强制刷新本站";
+                } else {
+                    ptrIcon.classList.remove("rotate");
+                    ptrText.textContent = "继续下拉将强制刷新本站";
+                }
+
+                if (e.cancelable) e.preventDefault();
+            }
+        }, { passive: false });
+
+        window.addEventListener('touchend', (e) => {
+            if (!isPulling || isRefreshing) return;
+            isPulling = false;
+
+            const currentY = e.changedTouches[0].clientY;
+            const diffY = currentY - touchStartY;
+            const pullDistance = Math.min(Math.pow(Math.max(0, diffY), 0.82), 110);
+
+            if (pullDistance >= PULL_THRESHOLD && window.scrollY <= 0) {
+                // 停留在固定高度并执行刷新
+                pageContainer.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+                pageContainer.style.transform = `translate3d(0, 56px, 0)`;
+                pullRefreshIndicator.style.transform = `translate3d(-50%, 48px, 0)`;
+                triggerForceReload();
+            } else {
+                // 弹性回弹复原
+                pageContainer.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+                pageContainer.style.transform = 'translate3d(0, 0, 0)';
+                
+                pullRefreshIndicator.style.opacity = '0';
+                pullRefreshIndicator.style.transform = 'translate3d(-50%, -80px, 0)';
+                ptrIcon.classList.remove("rotate");
+            }
+        }, { passive: true });
 
         function setSearchState(enabled) {
             const mainP = document.getElementById("mainPlaceholder");
