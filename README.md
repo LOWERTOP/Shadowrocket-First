@@ -32,7 +32,7 @@
 > 
 > 模块资源均来源于开源仓库。特别鸣谢 **[奶思](https://github.com/fmz200)**、**[zirawell](https://github.com/zirawell)**、**[iab0x00](https://github.com/iab0x00)** 等开源作者的分享与持续维护
 > 
-> [![访问页面 模块中心](https://img.shields.io/static/v1?label=访问页面&message=模块中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/ShadowStore.html "访问相应地址")
+> [![访问页面 模块中心](https://img.shields.io/static/v1?label=访问页面&message=模块中心&color=grey&logo=safari&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/ShadowStore.html "访问相应地址")
 
 ### [Talkatone](#talkatone)
 
@@ -185,7 +185,7 @@
 > > * 访问 [插件中心](https://hub.kelee.one/)，选择需要的插件/模块，点击安装即可
 > >   
 > > [![首先安装 解析模块](https://img.shields.io/static/v1?label=首先安装&message=解析模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule "一键安装本模块")
-> > [![其次访问 插件中心](https://img.shields.io/static/v1?label=其次访问&message=插件中心&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://hub.kelee.one "访问相应地址")
+> > [![其次访问 插件中心](https://img.shields.io/static/v1?label=其次访问&message=插件中心&color=grey&logo=safari&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://hub.kelee.one "访问相应地址")
 > 
 > **[定位修改方案](https://github.com/Yu9191/wloc)**
 > 
@@ -294,27 +294,27 @@
 > 
 > > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等相关模块
 > >
-> > [![社区资源 iab0x00](https://img.shields.io/static/v1?label=社区资源&message=iab0x00&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看")
+> > [![社区资源 iab0x00](https://img.shields.io/static/v1?label=社区资源&message=iab0x00&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看")
 > >
 > > [Kelee 可莉](https://github.com/ddgksf2013/ddgksf2013) 维护的插件资源，安装 [插件中心专用转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
 > >
-> > [![社区资源 Kelee](https://img.shields.io/static/v1?label=社区资源&message=Kelee&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://hub.kelee.one/ "点击查看")
+> > [![社区资源 Kelee](https://img.shields.io/static/v1?label=社区资源&message=Kelee&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://hub.kelee.one/ "点击查看")
 > > 
 > > [Ling KeQing](https://github.com/QingRex) 维护的资源丰富的 [模块资源仓库](https://github.com/QingRex/LoonKissSurge)，多数可直接使用
 > >
-> > [![社区资源 QingRex](https://img.shields.io/static/v1?label=社区资源&message=KeQing&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看")
+> > [![社区资源 QingRex](https://img.shields.io/static/v1?label=社区资源&message=KeQing&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看")
 > >
 > > [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块资源网站，需提前安装 [墨鱼专用前置模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
 > >
-> > [![社区资源 Cuttlefish](https://img.shields.io/static/v1?label=社区资源&message=Cuttlefish&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://ddgksf2013.top/ "点击查看")
+> > [![社区资源 Cuttlefish](https://img.shields.io/static/v1?label=社区资源&message=Cuttlefish&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://ddgksf2013.top/ "点击查看")
 > > 
 > > [奶思](https://github.com/fmz200) 维护的仓库，包含数百款独立模块
 > >
-> > [![社区资源 奶思](https://img.shields.io/static/v1?label=社区资源&message=奶思&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/blob/main/README-RULE.md "点击查看")
+> > [![社区资源 奶思](https://img.shields.io/static/v1?label=社区资源&message=奶思&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/blob/main/README-RULE.md "点击查看")
 > > 
 > > [zirawell](https://github.com/zirawell) 维护的仓库，包含数百款独立模块和多个不同类型的合集类模块
 > >
-> > [![社区资源 zirawell](https://img.shields.io/static/v1?label=社区资源&message=zirawell&color=grey&logo=html5&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/zirawell/R-Store/tree/main/Rule/Surge/Adblock "点击查看")
+> > [![社区资源 zirawell](https://img.shields.io/static/v1?label=社区资源&message=zirawell&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/zirawell/R-Store/tree/main/Rule/Surge/Adblock "点击查看")
 
 ### [进阶工具](#进阶工具)
 
@@ -334,7 +334,7 @@
 > [Sage](https://github.com/huskydsb) 另有提供 **常用服务解锁检测** 服务。安装 [模块](https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Sgmodule/流媒体解锁测试.module) 后访问 [链接](https://streaming.test/)，根据页面服务内容进行可视化操作即可。现阶段支持检测的服务内容包括：YouTube、NETFLIX、OpenAI、TikTok、Disney+、Spotify、Scamalytics、Bing、bilibili、Steam、动画疯、Niconico动画、Google Play、维基百科编辑、Starz、iQIYI、DAZN、派拉蒙+、ViuTV、Now E、KKTV、LINE TV、IPv6 检测、DNS 检测等，以上解锁检测以实际访问为准
 >
 > [![首先安装 检测模块](https://img.shields.io/static/v1?label=首先安装&message=检测模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Sgmodule/流媒体解锁测试.module "一键安装本模块")
-> [![其次访问 检测页面](https://img.shields.io/static/v1?label=其次访问&message=检测页面&color=grey&logo=html5&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://streaming.test/ "点击访问检测页面")
+> [![其次访问 检测页面](https://img.shields.io/static/v1?label=其次访问&message=检测页面&color=grey&logo=safari&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://streaming.test/ "点击访问检测页面")
 
 ### [筛选脚本](#筛选脚本)
 
