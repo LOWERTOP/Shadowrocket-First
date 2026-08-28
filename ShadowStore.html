@@ -19,10 +19,10 @@
             const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
             const theme = saved === "dark" || saved === "light" ? saved : (saved === "auto" ? (prefersDark ? "dark" : "light") : "light");
             document.documentElement.setAttribute("data-theme", theme);
-            document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#14161a' : '#ffffff');
-            const statusMeta = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
-            if (statusMeta) {
-                statusMeta.setAttribute('content', theme === 'dark' ? 'black-translucent' : 'default');
+            const themeColor = theme === 'dark' ? '#14161a' : '#ffffff';
+            const themeMeta = document.querySelector('meta[name="theme-color"]');
+            if (themeMeta) {
+                themeMeta.setAttribute('content', themeColor);
             }
         })();
     </script>
@@ -186,6 +186,8 @@
         
         html { 
             margin: 0; padding: 0; overflow-y: scroll; scrollbar-gutter: stable; 
+            background-color: var(--bg-page-base);
+            transition: background-color 0.4s ease;
         }
         
         body { 
@@ -917,14 +919,15 @@
             const currentTheme = getEffectiveTheme(mode);
             document.documentElement.setAttribute("data-theme", currentTheme);
             
+            const themeColor = currentTheme === "dark" ? "#14161a" : "#ffffff";
             const themeColorMeta = document.querySelector('meta[name="theme-color"]');
             if (themeColorMeta) {
-                themeColorMeta.setAttribute("content", currentTheme === "dark" ? "#14161a" : "#ffffff");
+                themeColorMeta.setAttribute("content", themeColor);
             }
 
             const statusBarMeta = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
             if (statusBarMeta) {
-                statusBarMeta.setAttribute("content", currentTheme === "dark" ? "black-translucent" : "default");
+                statusBarMeta.setAttribute("content", "default");
             }
 
             if (mode === "light") {
