@@ -214,10 +214,12 @@
             margin: 0 auto; 
             position: relative; 
             will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         /* =========================================================
-           Pull-to-Refresh Indicator（紧凑防遮挡设计）
+           Pull-to-Refresh Indicator
         ========================================================= */
         .pull-refresh-indicator {
             position: fixed;
@@ -239,7 +241,8 @@
             pointer-events: none;
             opacity: 0;
             will-change: transform, opacity;
-            transition: opacity 0.2s ease;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
         .ptr-icon {
             display: inline-flex;
@@ -915,16 +918,18 @@
         });
 
         /* =========================================================
-           Pull-to-Refresh Gesture (高精度防误触与轻量化位移)
+           Pull-to-Refresh Gesture (加大下拉距离 + 消除回弹卡顿)
         ========================================================= */
         let touchStartX = 0;
         let touchStartY = 0;
         let isPulling = false;
         let isRefreshing = false;
         let isPullLocked = false; 
+        let pullRafId = null;
 
-        const MIN_DRAG_DEADZONE = 18; 
-        const PULL_TRIGGER_DIFF = 125; 
+        // 阈值大幅提升 2.2 倍以上（需实际拉动 280px）
+        const MIN_DRAG_DEADZONE = 30; 
+        const PULL_TRIGGER_DIFF = 280; 
 
         async function triggerForceReload() {
             if (isRefreshing) return;
@@ -965,7 +970,10 @@
                 touchStartY = e.touches[0].clientY;
                 isPulling = true;
                 isPullLocked = false;
+                
+                // 彻底清除过渡动画，保证跟手即时响应
                 pageContainer.style.transition = 'none';
+                pullRefreshIndicator.style.transition = 'none';
             } else {
                 isPulling = false;
             }
@@ -998,24 +1006,25 @@
             if (isPullLocked && diffY > MIN_DRAG_DEADZONE) {
                 const effectiveDiff = diffY - MIN_DRAG_DEADZONE;
                 
-                // 页面容器轻量下移（最大仅下移 44px，完全避开按钮区域）
-                const containerShift = Math.min(Math.pow(effectiveDiff, 0.7) * 1.2, 44);
-                pageContainer.style.transform = `translate3d(0, ${containerShift}px, 0)`;
-                
-                // 顶部胶囊轻度下推并显现
-                const indicatorShift = Math.min(containerShift * 0.45, 18);
+                // 阻尼位移计算（最大仅下移 48px）
+                const containerShift = Math.min(Math.pow(effectiveDiff, 0.65) * 1.3, 48);
+                const indicatorShift = Math.min(containerShift * 0.42, 18);
                 const progress = Math.min(effectiveDiff / (PULL_TRIGGER_DIFF - MIN_DRAG_DEADZONE), 1);
-                
-                pullRefreshIndicator.style.opacity = Math.min(progress * 1.3, 1);
-                pullRefreshIndicator.style.transform = `translate3d(-50%, ${indicatorShift}px, 0)`;
 
-                if (diffY >= PULL_TRIGGER_DIFF) {
-                    ptrIcon.classList.add("rotate");
-                    ptrText.textContent = "松开立即强制刷新本站";
-                } else {
-                    ptrIcon.classList.remove("rotate");
-                    ptrText.textContent = "继续下拉将强制刷新本站";
-                }
+                if (pullRafId) cancelAnimationFrame(pullRafId);
+                pullRafId = requestAnimationFrame(() => {
+                    pageContainer.style.transform = `translate3d(0, ${containerShift}px, 0)`;
+                    pullRefreshIndicator.style.opacity = Math.min(progress * 1.2, 1);
+                    pullRefreshIndicator.style.transform = `translate3d(-50%, ${indicatorShift}px, 0)`;
+
+                    if (diffY >= PULL_TRIGGER_DIFF) {
+                        ptrIcon.classList.add("rotate");
+                        ptrText.textContent = "松开立即强制刷新本站";
+                    } else {
+                        ptrIcon.classList.remove("rotate");
+                        ptrText.textContent = "继续下拉将强制刷新本站";
+                    }
+                });
 
                 if (e.cancelable) e.preventDefault();
             }
@@ -1025,20 +1034,28 @@
             if (!isPulling || isRefreshing) return;
             isPulling = false;
             isPullLocked = false;
+            if (pullRafId) cancelAnimationFrame(pullRafId);
 
             const currentY = e.changedTouches[0].clientY;
             const diffY = currentY - touchStartY;
 
             if (diffY >= PULL_TRIGGER_DIFF && window.scrollY <= 0) {
-                // 触发刷新：容器和指示器停靠在舒适的微位移状态
-                pageContainer.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+                // 触发刷新：轻柔悬停
+                pageContainer.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)';
                 pageContainer.style.transform = `translate3d(0, 38px, 0)`;
+                
+                pullRefreshIndicator.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.25s ease';
                 pullRefreshIndicator.style.transform = `translate3d(-50%, 16px, 0)`;
+                pullRefreshIndicator.style.opacity = '1';
+                
                 triggerForceReload();
             } else {
-                // 回弹复原
-                pageContainer.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+                // 丝滑双轨同步弹性回弹（彻底解决卡顿）
+                const reboundBezier = 'transform 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
+                pageContainer.style.transition = reboundBezier;
                 pageContainer.style.transform = 'translate3d(0, 0, 0)';
+
+                pullRefreshIndicator.style.transition = `${reboundBezier}, opacity 0.25s ease`;
                 pullRefreshIndicator.style.opacity = '0';
                 pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
                 ptrIcon.classList.remove("rotate");
