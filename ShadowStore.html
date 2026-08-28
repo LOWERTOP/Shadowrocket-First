@@ -217,24 +217,24 @@
         }
 
         /* =========================================================
-           Pull-to-Refresh Indicator
+           Pull-to-Refresh Indicator（紧凑防遮挡设计）
         ========================================================= */
         .pull-refresh-indicator {
             position: fixed;
-            top: max(12px, env(safe-area-inset-top));
+            top: max(8px, env(safe-area-inset-top));
             left: 50%;
-            transform: translate3d(-50%, -80px, 0);
+            transform: translate3d(-50%, -60px, 0);
             z-index: 999999;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            height: 38px;
-            padding: 0 16px;
+            gap: 7px;
+            height: 32px;
+            padding: 0 14px;
             border-radius: var(--radius-pill);
             box-shadow: var(--shadow-glass-ui);
             color: var(--text-secondary);
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 400;
             pointer-events: none;
             opacity: 0;
@@ -245,8 +245,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             color: var(--primary);
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -688,6 +688,7 @@
 </head>
 
 <body>
+    <!-- 顶部下拉刷新跟随指示胶囊 -->
     <div id="pullRefreshIndicator" class="pull-refresh-indicator glass-element">
         <span id="ptrIcon" class="ptr-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -876,7 +877,6 @@
             });
         });
         
-        /* 优化：消除 Layout Thrashing，批量读取与批量写入分离 */
         function updateCardLayerOrder() {
             const cards = modulesContainer.querySelectorAll('.module-card');
             if (!cards.length) return;
@@ -915,12 +915,16 @@
         });
 
         /* =========================================================
-           Pull-to-Refresh Gesture
+           Pull-to-Refresh Gesture (高精度防误触与轻量化位移)
         ========================================================= */
+        let touchStartX = 0;
         let touchStartY = 0;
         let isPulling = false;
         let isRefreshing = false;
-        const PULL_THRESHOLD = 76;
+        let isPullLocked = false; 
+
+        const MIN_DRAG_DEADZONE = 18; 
+        const PULL_TRIGGER_DIFF = 125; 
 
         async function triggerForceReload() {
             if (isRefreshing) return;
@@ -956,26 +960,56 @@
 
         window.addEventListener('touchstart', (e) => {
             if (isRefreshing) return;
-            if (window.scrollY <= 0) {
+            if (window.scrollY <= 0 && document.documentElement.scrollTop <= 0) {
+                touchStartX = e.touches[0].clientX;
                 touchStartY = e.touches[0].clientY;
                 isPulling = true;
+                isPullLocked = false;
                 pageContainer.style.transition = 'none';
+            } else {
+                isPulling = false;
             }
         }, { passive: true });
 
         window.addEventListener('touchmove', (e) => {
-            if (!isPulling || isRefreshing || window.scrollY > 0) return;
+            if (!isPulling || isRefreshing || window.scrollY > 0) {
+                isPulling = false;
+                return;
+            }
 
+            const currentX = e.touches[0].clientX;
             const currentY = e.touches[0].clientY;
+            const diffX = currentX - touchStartX;
             const diffY = currentY - touchStartY;
 
-            if (diffY > 0) {
-                const pullDistance = Math.min(Math.pow(diffY, 0.82), 110);
-                pageContainer.style.transform = `translate3d(0, ${pullDistance}px, 0)`;
-                pullRefreshIndicator.style.opacity = Math.min(pullDistance / 35, 1);
-                pullRefreshIndicator.style.transform = `translate3d(-50%, ${Math.min(pullDistance - 10, 48)}px, 0)`;
+            // 1. 方向锁与斜滑/横滑防误触判定
+            if (!isPullLocked) {
+                if (Math.abs(diffX) > Math.abs(diffY) || diffY <= 0) {
+                    isPulling = false;
+                    isPullLocked = true;
+                    return;
+                }
+                if (diffY > MIN_DRAG_DEADZONE) {
+                    isPullLocked = true;
+                }
+            }
 
-                if (pullDistance >= PULL_THRESHOLD) {
+            // 2. 进入有效下拉阶段
+            if (isPullLocked && diffY > MIN_DRAG_DEADZONE) {
+                const effectiveDiff = diffY - MIN_DRAG_DEADZONE;
+                
+                // 页面容器轻量下移（最大仅下移 44px，完全避开按钮区域）
+                const containerShift = Math.min(Math.pow(effectiveDiff, 0.7) * 1.2, 44);
+                pageContainer.style.transform = `translate3d(0, ${containerShift}px, 0)`;
+                
+                // 顶部胶囊轻度下推并显现
+                const indicatorShift = Math.min(containerShift * 0.45, 18);
+                const progress = Math.min(effectiveDiff / (PULL_TRIGGER_DIFF - MIN_DRAG_DEADZONE), 1);
+                
+                pullRefreshIndicator.style.opacity = Math.min(progress * 1.3, 1);
+                pullRefreshIndicator.style.transform = `translate3d(-50%, ${indicatorShift}px, 0)`;
+
+                if (diffY >= PULL_TRIGGER_DIFF) {
                     ptrIcon.classList.add("rotate");
                     ptrText.textContent = "松开立即强制刷新本站";
                 } else {
@@ -987,22 +1021,26 @@
             }
         }, { passive: false });
 
-        window.addEventListener('touchend', () => {
+        window.addEventListener('touchend', (e) => {
             if (!isPulling || isRefreshing) return;
             isPulling = false;
+            isPullLocked = false;
 
-            const pullDistance = parseFloat(pageContainer.style.transform.replace(/[^0-9.]/g, '')) || 0;
+            const currentY = e.changedTouches[0].clientY;
+            const diffY = currentY - touchStartY;
 
-            if (pullDistance >= PULL_THRESHOLD && window.scrollY <= 0) {
+            if (diffY >= PULL_TRIGGER_DIFF && window.scrollY <= 0) {
+                // 触发刷新：容器和指示器停靠在舒适的微位移状态
                 pageContainer.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
-                pageContainer.style.transform = `translate3d(0, 56px, 0)`;
-                pullRefreshIndicator.style.transform = `translate3d(-50%, 48px, 0)`;
+                pageContainer.style.transform = `translate3d(0, 38px, 0)`;
+                pullRefreshIndicator.style.transform = `translate3d(-50%, 16px, 0)`;
                 triggerForceReload();
             } else {
-                pageContainer.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+                // 回弹复原
+                pageContainer.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
                 pageContainer.style.transform = 'translate3d(0, 0, 0)';
                 pullRefreshIndicator.style.opacity = '0';
-                pullRefreshIndicator.style.transform = 'translate3d(-50%, -80px, 0)';
+                pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
                 ptrIcon.classList.remove("rotate");
             }
         }, { passive: true });
@@ -1419,7 +1457,6 @@
                 }
             }
 
-            /* 性能优化：加入长度与精准词截断 */
             for (const [iconName, iconUrl] of Object.entries(remoteIconsMap)) {
                 if (!iconName || iconName.length < 3 || isFlagKey(iconName, iconUrl)) continue;
 
@@ -1582,7 +1619,6 @@
             return null;
         }
 
-        /* 优化：复用 githubInfo 避免重复 URL 结构解析 */
         function getSourceRepoInfo(rawURL, githubInfo) {
             if (githubInfo) return { name: githubInfo.repo, url: githubInfo.url };
             try {
@@ -1677,7 +1713,6 @@
             return "shadowrocket://install?module=" + encodeURIComponent(rawURL); 
         }
 
-        /* 优化：统一从 githubInfo 获取头像 */
         function getRepositoryAvatar(githubInfo) {
             return githubInfo ? `https://github.com/${encodeURIComponent(githubInfo.owner)}.png?size=64` : "";
         }
