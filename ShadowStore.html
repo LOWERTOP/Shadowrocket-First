@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
-    <!-- PWA 独立应用模式与动态状态栏颜色支持（开启全屏沉浸穿透，背景无缝延伸至灵动岛区域） -->
+    <!-- PWA 独立应用模式与动态状态栏颜色支持 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#ffffff">
@@ -57,7 +57,6 @@
             --content-shadow-sm: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
             --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.15);
 
-            /* 统一高光与阴影 Tokens */
             --shadow-glass-ui: 
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
@@ -82,7 +81,6 @@
                 -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
                 -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
 
-            /* 搜索框与返回按钮专用阴影 */
             --shadow-search: 
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
@@ -593,7 +591,6 @@
             flex: 1 1 auto;
         }
         
-        /* 恢复卡片底部分割线与标准内边距 */
         .card-bottom { 
             display: flex; align-items: center; justify-content: space-between; gap: 12px; 
             margin-top: 24px; padding-top: 24px; 
@@ -673,9 +670,6 @@
         }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-        /* =========================================================
-           移动与平板端自适应微调
-        ========================================================= */
         @media (max-width: 600px) {
             body { padding-left: 12px; padding-right: 12px; }
             .title { font-size: 22px; }
@@ -694,7 +688,6 @@
 </head>
 
 <body>
-    <!-- 顶部下拉刷新跟随指示胶囊 -->
     <div id="pullRefreshIndicator" class="pull-refresh-indicator glass-element">
         <span id="ptrIcon" class="ptr-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -706,7 +699,6 @@
     </div>
 
     <div id="pageContainer" class="container">
-        <!-- 顶栏 -->
         <header class="header">
             <div class="header-top">
                 <div class="brand-wrapper">
@@ -718,7 +710,6 @@
                 <div class="theme-controls">
                     <button id="refreshCacheBtn" class="theme-toggle glass-element" aria-label="强制刷新缓存" title="强制拉取最新数据"></button>
                     <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
-                    <!-- GitHub 仓库直达与 Star 按钮（放置于最右侧） -->
                     <a id="githubStarBtn" class="theme-toggle glass-element" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
                         <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -731,7 +722,6 @@
             </div>
         </header>
 
-        <!-- 聚合了搜索与公告滚动的全圆角吸顶框及返回顶部按钮 -->
         <div class="search-wrapper">
             <label for="search" class="search-box-inner glass-element">
                 <div class="search-icon">🔍</div>
@@ -759,7 +749,6 @@
             </button>
         </div>
 
-        <!-- 状态栏与计数 -->
         <div class="status">
             <div class="status-left">
                 <span id="statusDot" class="status-dot loading"></span>
@@ -768,7 +757,6 @@
             <div id="countText"></div>
         </div>
 
-        <!-- 主模块列表容器 -->
         <main id="modules" class="modules">
             <div class="loading-card glass-element"></div>
             <div class="loading-card glass-element"></div>
@@ -786,9 +774,9 @@
 
     <script>
         /* =========================================================
-           Configuration & Cache (时间戳格式)
+           Configuration & Cache
         ========================================================= */
-        const CACHE_VERSION = "20260828_1355"; 
+        const CACHE_VERSION = "20260828_1400"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -888,13 +876,18 @@
             });
         });
         
+        /* 优化：消除 Layout Thrashing，批量读取与批量写入分离 */
         function updateCardLayerOrder() {
             const cards = modulesContainer.querySelectorAll('.module-card');
             if (!cards.length) return;
 
+            const cardOffsets = [];
+            for (let i = 0; i < cards.length; i++) {
+                cardOffsets.push({ card: cards[i], top: cards[i].offsetTop });
+            }
+
             const rowsMap = new Map();
-            cards.forEach(card => {
-                const top = card.offsetTop;
+            cardOffsets.forEach(({ card, top }) => {
                 let foundKey = Array.from(rowsMap.keys()).find(k => Math.abs(k - top) < 12);
                 if (foundKey === undefined) {
                     foundKey = top;
@@ -905,7 +898,7 @@
 
             const sortedRows = Array.from(rowsMap.entries()).sort((a, b) => a[0] - b[0]);
 
-            sortedRows.forEach(([top, rowCards], rowIndex) => {
+            sortedRows.forEach(([_, rowCards], rowIndex) => {
                 const rowBaseZ = (rowIndex + 1) * 1000;
                 rowCards.forEach((card, colIndex) => {
                     card.style.zIndex = rowBaseZ + (rowCards.length - colIndex);
@@ -939,12 +932,11 @@
             ptrText.textContent = "正在强制刷新本站...";
 
             try {
-                for (let i = localStorage.length - 1; i >= 0; i--) {
-                    const key = localStorage.key(i);
-                    if (key && (key.startsWith("sr_") || key.includes("cache") || key.includes("module"))) {
+                Object.keys(localStorage).forEach(key => {
+                    if (key.startsWith("sr_") || key.includes("cache") || key.includes("module")) {
                         localStorage.removeItem(key);
                     }
-                }
+                });
                 localStorage.removeItem(CONFIG.CACHE_KEY);
                 localStorage.removeItem(CONFIG.CACHE_TIME_KEY);
             } catch (e) {}
@@ -995,13 +987,11 @@
             }
         }, { passive: false });
 
-        window.addEventListener('touchend', (e) => {
+        window.addEventListener('touchend', () => {
             if (!isPulling || isRefreshing) return;
             isPulling = false;
 
-            const currentY = e.changedTouches[0].clientY;
-            const diffY = currentY - touchStartY;
-            const pullDistance = Math.min(Math.pow(Math.max(0, diffY), 0.82), 110);
+            const pullDistance = parseFloat(pageContainer.style.transform.replace(/[^0-9.]/g, '')) || 0;
 
             if (pullDistance >= PULL_THRESHOLD && window.scrollY <= 0) {
                 pageContainer.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
@@ -1228,8 +1218,7 @@
                 const parts = cleanURL.split("/").filter(Boolean);
                 const last = parts.pop() || "";
                 let decoded = decodeURIComponent(last);
-                decoded = decoded.replace(/\.(?:sgmodule|srmodule|module)$/i, "").trim();
-                return decoded;
+                return decoded.replace(/\.(?:sgmodule|srmodule|module)$/i, "").trim();
             } catch {
                 return "";
             }
@@ -1239,8 +1228,7 @@
             if (fallbackName && fallbackName !== "未命名模块" && fallbackName.trim()) {
                 return fallbackName.trim();
             }
-            const urlName = getModuleNameFromURL(rawURL);
-            return urlName || "未命名模块";
+            return getModuleNameFromURL(rawURL) || "未命名模块";
         }
 
         function isFlagKey(key, url = "") {
@@ -1269,14 +1257,12 @@
             const timer = setTimeout(() => controller.abort(), timeoutMs);
             try {
                 const response = await fetch(url, { ...options, signal: controller.signal });
-                clearTimeout(timer);
                 if (url.includes("api.github.com") && (response.status === 403 || response.status === 429)) {
                     throw new Error("GitHub_API_Rate_Limit");
                 }
                 return response;
-            } catch (err) {
+            } finally {
                 clearTimeout(timer);
-                throw err;
             }
         }
 
@@ -1433,6 +1419,7 @@
                 }
             }
 
+            /* 性能优化：加入长度与精准词截断 */
             for (const [iconName, iconUrl] of Object.entries(remoteIconsMap)) {
                 if (!iconName || iconName.length < 3 || isFlagKey(iconName, iconUrl)) continue;
 
@@ -1595,9 +1582,8 @@
             return null;
         }
 
-        /* 仅提取仓库纯名称，移除作者与前缀斜杠 */
-        function getSourceRepoInfo(rawURL) {
-            const githubInfo = parseGitHubRawURL(rawURL);
+        /* 优化：复用 githubInfo 避免重复 URL 结构解析 */
+        function getSourceRepoInfo(rawURL, githubInfo) {
             if (githubInfo) return { name: githubInfo.repo, url: githubInfo.url };
             try {
                 const url = new URL(rawURL);
@@ -1607,9 +1593,8 @@
             }
         }
 
-        function getAuthorFromURL(rawURL) {
-            const info = parseGitHubRawURL(rawURL);
-            if (info) return { name: info.owner, url: `https://github.com/${encodeURIComponent(info.owner)}`, username: info.owner };
+        function getAuthorFromURL(rawURL, githubInfo) {
+            if (githubInfo) return { name: githubInfo.owner, url: `https://github.com/${encodeURIComponent(githubInfo.owner)}`, username: githubInfo.owner };
             const domainName = getDomainPrimaryName(rawURL);
             if (domainName) {
                 try {
@@ -1692,14 +1677,16 @@
             return "shadowrocket://install?module=" + encodeURIComponent(rawURL); 
         }
 
-        function getRepositoryAvatar(rawURL) {
-            const info = parseGitHubRawURL(rawURL);
-            return info ? `https://github.com/${encodeURIComponent(info.owner)}.png?size=64` : "";
+        /* 优化：统一从 githubInfo 获取头像 */
+        function getRepositoryAvatar(githubInfo) {
+            return githubInfo ? `https://github.com/${encodeURIComponent(githubInfo.owner)}.png?size=64` : "";
         }
 
         async function fetchModule(item) {
-            const sourceInfo = getSourceRepoInfo(item.rawURL);
-            const urlAuthor = getAuthorFromURL(item.rawURL);
+            const githubInfo = parseGitHubRawURL(item.rawURL);
+            const sourceInfo = getSourceRepoInfo(item.rawURL, githubInfo);
+            const urlAuthor = getAuthorFromURL(item.rawURL, githubInfo);
+            const avatarUrl = getRepositoryAvatar(githubInfo);
 
             try {
                 const rawText = await fetchRawText(item.rawURL, true);
@@ -1726,7 +1713,7 @@
                 const isDubious = isInvalidOr404(rawText) || isInvalidOr404(description);
                 let authorAvatar = urlAuthor.username
                     ? `https://github.com/${encodeURIComponent(urlAuthor.username)}.png?size=64`
-                    : getRepositoryAvatar(item.rawURL);
+                    : avatarUrl;
 
                 const _searchKeywords = [metadata.name, description, urlAuthor.name, sourceInfo.name].join(" ").toLowerCase();
 
@@ -1756,7 +1743,7 @@
                     rawURL: item.rawURL,
                     description: fallbackDescription,
                     author: urlAuthor,
-                    authorAvatar: getRepositoryAvatar(item.rawURL),
+                    authorAvatar: avatarUrl,
                     icon: fallbackIconUrl,
                     sourceName: sourceInfo.name,
                     sourceURL: sourceInfo.url,
@@ -1805,9 +1792,8 @@
             const icon = module.icon || fallbackIcon;
             const authorHTML = renderAuthor(module);
             
-            const sourceInfo = getSourceRepoInfo(module.rawURL);
-            const sourceName = module.sourceName || sourceInfo.name;
-            const sourceURL = module.sourceURL || sourceInfo.url;
+            const sourceName = module.sourceName || "开源仓库";
+            const sourceURL = module.sourceURL || "#";
 
             const statusTextVal = module.isDubious ? "模块信息获取失败" : "已获取至最新版本";
             const statusClass = module.isDubious ? "status-badge-dubious" : "";
@@ -1937,16 +1923,12 @@
 
         async function loadModules() {
             try {
-                const keysToRemove = [];
-                for (let i = 0; i < localStorage.length; i++) {
-                    const key = localStorage.key(i);
-                    if (key && (key.startsWith("sr_modules_data_") || key.startsWith("sr_modules_time_"))) {
-                        if (key !== CONFIG.CACHE_KEY && key !== CONFIG.CACHE_TIME_KEY) {
-                            keysToRemove.push(key);
-                        }
+                Object.keys(localStorage).forEach(key => {
+                    if ((key.startsWith("sr_modules_data_") || key.startsWith("sr_modules_time_")) && 
+                        key !== CONFIG.CACHE_KEY && key !== CONFIG.CACHE_TIME_KEY) {
+                        localStorage.removeItem(key);
                     }
-                }
-                keysToRemove.forEach(k => localStorage.removeItem(k));
+                });
             } catch (e) {}
 
             const svgIcon = refreshCacheBtn.querySelector("svg");
@@ -2033,7 +2015,7 @@
                 let loadedCount = 0;
                 let isFirstStream = true;
 
-                const results = await processModulesStream(sourceModules, (moduleData, index) => {
+                const results = await processModulesStream(sourceModules, (moduleData) => {
                     if (!moduleData) return;
                     loadedCount++;
                     if (!hasCache && !searchInput.value.trim()) {
