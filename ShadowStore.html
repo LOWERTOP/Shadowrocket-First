@@ -12,12 +12,12 @@
     
     <title>ShadowStore</title>
 
-    <!-- 1. 防主题闪烁 (FOUC) 极简同步初始化及状态栏颜色预设 -->
+    <!-- 1. 防主题闪烁 (FOUC) 极简同步初始化及状态栏颜色预设（默认浅色） -->
     <script>
         (function() {
             const saved = localStorage.getItem("sr_theme_override");
             const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            const theme = saved === "dark" || saved === "light" ? saved : (prefersDark ? "dark" : "light");
+            const theme = saved === "dark" || saved === "light" ? saved : (saved === "auto" ? (prefersDark ? "dark" : "light") : "light");
             document.documentElement.setAttribute("data-theme", theme);
             document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#14161a' : '#ffffff');
             const statusMeta = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
@@ -82,7 +82,7 @@
                 -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
                 -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
 
-            /* 搜索框与返回按钮专用阴影（光斑亮度降低约 1/3） */
+            /* 搜索框与返回按钮专用阴影 */
             --shadow-search: 
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
@@ -398,7 +398,7 @@
         .search-clear:hover { color: var(--text-primary); }
         .search-clear.visible { display: flex; }
 
-        /* 返回顶部按钮弹性折叠与展开动画（投影与搜索框保持一致） */
+        /* 返回顶部按钮弹性折叠与展开动画 */
         .back-to-top-btn {
             width: 0;
             height: 44px;
@@ -642,8 +642,7 @@
                 </div>
                 <div class="theme-controls">
                     <button id="refreshCacheBtn" class="theme-toggle glass-element" aria-label="强制刷新缓存" title="强制拉取最新数据"></button>
-                    <button id="themeAuto" class="theme-toggle glass-element" aria-label="自动跟随系统"></button>
-                    <button id="themeToggle" class="theme-toggle glass-element" aria-label="手动切换模式"></button>
+                    <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
                 </div>
             </div>
             <div class="subtitle">
@@ -710,7 +709,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260828_1155"; 
+        const CACHE_VERSION = "20260828_1204"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -770,7 +769,6 @@
         const sentinel = document.getElementById("sentinel");
         const noticeTrack = document.getElementById("placeholderTrack");
         
-        const themeAutoBtn = document.getElementById("themeAuto");
         const themeToggleBtn = document.getElementById("themeToggle");
         const refreshCacheBtn = document.getElementById("refreshCacheBtn");
         const backToTopBtn = document.getElementById("backToTopBtn");
@@ -900,19 +898,23 @@
         }
 
         const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
-        themeAutoBtn.innerHTML = SYSTEM_ICON;
         refreshCacheBtn.innerHTML = REFRESH_ICON;
 
-        function getEffectiveTheme() {
-            const userChoice = localStorage.getItem("sr_theme_override");
-            if (userChoice === "dark" || userChoice === "light") return userChoice;
-            return mediaQueryDark.matches ? "dark" : "light";
+        function getThemeMode() {
+            const saved = localStorage.getItem("sr_theme_override");
+            if (saved === "dark" || saved === "light" || saved === "auto") return saved;
+            return "light";
+        }
+
+        function getEffectiveTheme(mode) {
+            if (mode === "dark" || mode === "light") return mode;
+            if (mode === "auto") return mediaQueryDark.matches ? "dark" : "light";
+            return "light";
         }
 
         function updateThemeUI() {
-            const userChoice = localStorage.getItem("sr_theme_override");
-            const isAutoMode = !userChoice;
-            const currentTheme = getEffectiveTheme();
+            const mode = getThemeMode();
+            const currentTheme = getEffectiveTheme(mode);
             document.documentElement.setAttribute("data-theme", currentTheme);
             
             const themeColorMeta = document.querySelector('meta[name="theme-color"]');
@@ -925,38 +927,38 @@
                 statusBarMeta.setAttribute("content", currentTheme === "dark" ? "black-translucent" : "default");
             }
 
-            if (isAutoMode) {
-                themeAutoBtn.classList.add("active");
-                themeAutoBtn.setAttribute("title", "已开启：自动跟随系统");
-            } else {
-                themeAutoBtn.classList.remove("active");
-                themeAutoBtn.setAttribute("title", "点击恢复为自动跟随系统");
-            }
-            if (currentTheme === "dark") {
-                themeToggleBtn.innerHTML = MOON_ICON;
-                themeToggleBtn.setAttribute("title", "当前：深色模式（点击切换为浅色）");
-            } else {
+            if (mode === "light") {
                 themeToggleBtn.innerHTML = SUN_ICON;
-                themeToggleBtn.setAttribute("title", "当前：浅色模式（点击切换为深色）");
+                themeToggleBtn.setAttribute("title", "当前：浅色模式（点击切换深色）");
+            } else if (mode === "dark") {
+                themeToggleBtn.innerHTML = MOON_ICON;
+                themeToggleBtn.setAttribute("title", "当前：深色模式（点击切换自动跟随）");
+            } else {
+                themeToggleBtn.innerHTML = SYSTEM_ICON;
+                themeToggleBtn.setAttribute("title", "当前：自动跟随系统（点击切换浅色）");
             }
         }
 
         mediaQueryDark.addEventListener("change", () => {
-            if (!localStorage.getItem("sr_theme_override")) updateThemeUI();
-        });
-
-        themeAutoBtn.addEventListener("click", () => {
-            localStorage.removeItem("sr_theme_override");
-            updateThemeUI();
-            showToast("已恢复自动跟随系统");
+            if (getThemeMode() === "auto") updateThemeUI();
         });
 
         themeToggleBtn.addEventListener("click", () => {
-            const currentTheme = getEffectiveTheme();
-            const nextTheme = currentTheme === "dark" ? "light" : "dark";
-            localStorage.setItem("sr_theme_override", nextTheme);
+            const currentMode = getThemeMode();
+            let nextMode, toastText;
+            if (currentMode === "light") {
+                nextMode = "dark";
+                toastText = "已切换为深色模式";
+            } else if (currentMode === "dark") {
+                nextMode = "auto";
+                toastText = "已切换为自动跟随系统";
+            } else {
+                nextMode = "light";
+                toastText = "已切换为浅色模式";
+            }
+            localStorage.setItem("sr_theme_override", nextMode);
             updateThemeUI();
-            showToast(`已切换为${nextTheme === "dark" ? "深色" : "浅色"}模式`);
+            showToast(toastText);
         });
         
         refreshCacheBtn.addEventListener("click", async () => {
