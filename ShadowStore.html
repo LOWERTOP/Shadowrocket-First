@@ -57,34 +57,8 @@
             --content-shadow-sm: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
             --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.15);
 
-            --shadow-glass-lg: 
-                inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
-                inset 0 20px 40px -10px rgba(255, 255, 255, 0.65), 
-                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.08),      
-                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
-                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
-                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
-                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
-                -1px 4px 6px rgba(0, 0, 0, 0.12),        
-                -8px 18px 22px -4px rgba(0, 0, 0, 0.10), 
-                -35px 65px 75px -15px rgba(0, 0, 0, 0.2);
-
-            --shadow-glass-lg-hover: 
-                inset -1px 1px 0.5px rgba(255, 255, 255, 1),
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
-                inset 0 20px 40px -10px rgba(255, 255, 255, 0.75), 
-                inset 0 -20px 40px -10px rgba(0, 0, 0, 0.1),      
-                -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
-                -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
-                -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
-                -2.2px 14px 10px -4px rgba(255, 255, 255, 0.18),
-                -1.5px 6px 8px rgba(0, 0, 0, 0.12),
-                -10px 20px 25px -4px rgba(0, 0, 0, 0.10),
-                -40px 70px 80px -15px rgba(0, 0, 0, 0.25);
-
+            /* 统一高光与阴影 Tokens */
             --shadow-glass-ui: 
-                inset -1px 1px 0.5px rgba(255, 255, 255, 0.95),
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
                 inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),      
@@ -97,7 +71,6 @@
                 -25px 45px 55px -5px rgba(0, 0, 0, 0.22); 
 
             --shadow-glass-ui-hover: 
-                inset -1px 1px 0.5px rgba(255, 255, 255, 1),
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
                 inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),      
@@ -108,6 +81,31 @@
                 -1.5px 6px 8px rgba(0, 0, 0, 0.15),
                 -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
                 -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
+
+            /* 搜索框与返回按钮专用阴影（恢复原始外漫射白光亮度，辐射范围缩小 1/3） */
+            --shadow-search: 
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),      
+                -1.7px 4.7px 3px -2px rgba(255, 255, 255, 0.33),
+                -0.9px 5.3px 4px -2.3px rgba(255, 255, 255, 0.30),
+                -2.3px 6.7px 5px -2.7px rgba(255, 255, 255, 0.25),
+                -1.2px 8px 6px -2.7px rgba(255, 255, 255, 0.17),
+                -0.7px 2.7px 4px rgba(0, 0, 0, 0.10),        
+                -5.3px 12px 14.7px -2px rgba(0, 0, 0, 0.08), 
+                -16.7px 30px 36.7px -3.3px rgba(0, 0, 0, 0.15); 
+
+            --shadow-search-hover: 
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),      
+                -2px 5.7px 3.3px -2px rgba(255, 255, 255, 0.33),
+                -1.1px 6.3px 4.7px -2.3px rgba(255, 255, 255, 0.30),
+                -2.8px 8px 6px -2.7px rgba(255, 255, 255, 0.25),
+                -1.5px 9.3px 6.7px -2.7px rgba(255, 255, 255, 0.18),
+                -1px 4px 5.3px rgba(0, 0, 0, 0.10),
+                -6.7px 13.3px 16.7px -2px rgba(0, 0, 0, 0.08),
+                -20px 33.3px 40px -4px rgba(0, 0, 0, 0.17);
 
             --text-primary: #4a4f59;
             --text-secondary: #7e8596;
@@ -149,14 +147,6 @@
             --content-shadow-sm: none;
             --text-shadow-sm: none;
 
-            --shadow-glass-lg: 
-                0 10px 30px rgba(0, 0, 0, 0.45),
-                0 4px 10px rgba(0, 0, 0, 0.3);
-
-            --shadow-glass-lg-hover: 
-                0 14px 36px rgba(0, 0, 0, 0.55),
-                0 6px 14px rgba(0, 0, 0, 0.35);
-
             --shadow-glass-ui: 
                 0 6px 20px rgba(0, 0, 0, 0.4),
                 0 2px 6px rgba(0, 0, 0, 0.25);
@@ -164,6 +154,14 @@
             --shadow-glass-ui-hover: 
                 0 8px 24px rgba(0, 0, 0, 0.5),
                 0 3px 8px rgba(0, 0, 0, 0.3);
+
+            --shadow-search: 
+                0 4px 13.3px rgba(0, 0, 0, 0.27),
+                0 1.3px 4px rgba(0, 0, 0, 0.17);
+
+            --shadow-search-hover: 
+                0 5.3px 16px rgba(0, 0, 0, 0.33),
+                0 2px 5.3px rgba(0, 0, 0, 0.20);
 
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
@@ -228,7 +226,7 @@
             border-radius: var(--radius-pill); background: var(--bg-surface);
             color: var(--text-secondary); font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
             border: none; box-shadow: none; 
-            text-shadow: none;
+            text-shadow: none; 
         }
 
         .subtitle { 
@@ -297,7 +295,7 @@
         }
 
         /* =========================================================
-           Search Bar & Integrated Notice Animation
+           Search Bar & Integrated Notice Animation & BackToTop
         ========================================================= */
         .search-wrapper { 
             position: sticky; 
@@ -306,6 +304,8 @@
             z-index: 99990; 
             padding: 8px 0 12px; margin-bottom: 12px; 
             background: transparent; 
+            display: flex;
+            align-items: center;
             -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); 
         }
         .search-wrapper.is-sticky {
@@ -313,26 +313,25 @@
         }
 
         .search-box-inner {
-            position: relative; width: 100%; height: 44px; display: flex; align-items: center; gap: 8px; 
+            position: relative; flex: 1 1 auto; min-width: 0; height: 44px; display: flex; align-items: center; gap: 8px; 
             border-radius: 22px; 
-            /* 设置与主卡片完全一致的阴影参数 */
-            box-shadow: var(--shadow-glass-lg); 
+            box-shadow: var(--shadow-search); 
             padding: 6px; cursor: text;
             -webkit-transform: translateZ(0); transform: translateZ(0);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); 
         }
 
         .search-box-inner:focus-within {
             background-image: var(--noise-pattern), var(--glass-bg-hover);
             border-color: rgba(255,255,255,0.8); 
-            box-shadow: var(--shadow-glass-lg-hover); 
+            box-shadow: var(--shadow-search-hover); 
         }
         
         [data-theme="dark"] .search-box-inner:focus-within {
             background-image: var(--noise-pattern);
             background-color: var(--border-subtle);
             border-color: var(--text-tertiary); 
-            box-shadow: var(--shadow-glass-lg-hover);
+            box-shadow: var(--shadow-search-hover);
         }
         
         .search-icon { 
@@ -346,7 +345,7 @@
         .input-wrapper {
             position: relative; flex: 1; min-width: 0;
             height: 32px; overflow: hidden; 
-            display: block; /* 移除 Flex，防止 iOS Safari 中嵌套 Flex 导致的光标跳跃 Bug */
+            display: block;
         }
 
         .search { 
@@ -399,6 +398,52 @@
         .search-clear:hover { color: var(--text-primary); }
         .search-clear.visible { display: flex; }
 
+        /* 返回顶部按钮弹性折叠与展开动画（投影与搜索框保持一致） */
+        .back-to-top-btn {
+            width: 0;
+            height: 44px;
+            padding: 0;
+            margin-left: 0;
+            border-color: transparent !important;
+            box-shadow: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.6);
+            pointer-events: none;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        margin-left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        visibility 0.35s ease,
+                        box-shadow 0.35s ease,
+                        border-color 0.35s ease;
+        }
+        .back-to-top-btn.visible {
+            width: 44px;
+            margin-left: 10px;
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            pointer-events: auto;
+            box-shadow: var(--shadow-search);
+            border-top-color: var(--glass-border-t) !important;
+            border-left-color: var(--glass-border-l) !important;
+            border-right-color: var(--glass-border-r) !important;
+            border-bottom-color: var(--glass-border-b) !important;
+        }
+        [data-theme="dark"] .back-to-top-btn.visible {
+            border-color: var(--border-subtle) !important;
+        }
+        .back-to-top-btn.visible:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-search-hover);
+        }
+        .back-to-top-btn.visible:active {
+            transform: scale(0.92);
+        }
+
         /* =========================================================
            Status Metric Strip
         ========================================================= */
@@ -419,27 +464,21 @@
         .modules { display: flex; flex-direction: column; gap: 32px; padding-bottom: 20px; }
         .module-card { 
             position: relative; padding: 28px; border-radius: var(--radius-card); 
-            box-shadow: var(--shadow-glass-lg); 
+            box-shadow: var(--shadow-glass-ui); 
             overflow: hidden; content-visibility: auto; contain-intrinsic-size: 0 180px; 
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             -webkit-transform: translateZ(0); transform: translateZ(0); 
         }
 
-        .module-card::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
-            transform: skewX(-20deg); transition: none; pointer-events: none; z-index: 10; 
-        }
         .module-card:hover { 
             transform: translateY(-2px);
             background-image: var(--noise-pattern), var(--glass-bg-hover);
-            box-shadow: var(--shadow-glass-lg-hover); 
+            box-shadow: var(--shadow-glass-ui-hover); 
         }
         [data-theme="dark"] .module-card:hover {
             background-image: var(--noise-pattern);
             background-color: var(--bg-surface); 
         }
-        .module-card:hover::before { left: 200%; transition: left 0.9s ease-in-out; }
 
         .card-header { display: flex; align-items: center; gap: 20px; }
         
@@ -545,7 +584,7 @@
         
         .loading-card { 
             height: 180px; border-radius: var(--radius-card); 
-            box-shadow: var(--shadow-glass-lg); animation: skeletonPulse 1.4s infinite; 
+            box-shadow: var(--shadow-glass-ui); animation: skeletonPulse 1.4s infinite; 
         }
         @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
         
@@ -612,7 +651,7 @@
             </div>
         </header>
 
-        <!-- 聚合了搜索与公告滚动的全圆角吸顶框 -->
+        <!-- 聚合了搜索与公告滚动的全圆角吸顶框及返回顶部按钮 -->
         <div class="search-wrapper">
             <label for="search" class="search-box-inner glass-element">
                 <div class="search-icon">🔍</div>
@@ -633,6 +672,13 @@
                 <span class="search-shortcut">/</span>
                 <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
             </label>
+
+            <button id="backToTopBtn" class="theme-toggle glass-element back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="19" x2="12" y2="5"></line>
+                    <polyline points="5 12 12 5 19 12"></polyline>
+                </svg>
+            </button>
         </div>
 
         <!-- 状态栏与计数 -->
@@ -664,7 +710,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260827_2135"; 
+        const CACHE_VERSION = "20260828_1144"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -727,6 +773,7 @@
         const themeAutoBtn = document.getElementById("themeAuto");
         const themeToggleBtn = document.getElementById("themeToggle");
         const refreshCacheBtn = document.getElementById("refreshCacheBtn");
+        const backToTopBtn = document.getElementById("backToTopBtn");
 
         let allModules = [];
         let filteredModules = [];
@@ -742,9 +789,24 @@
             } else {
                 searchWrapperEl.classList.remove('is-sticky');
             }
+
+            // 滚动超过 160px 显示返回顶部按钮并平滑压缩搜索框
+            if (window.scrollY > 160) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
         }
         
         window.addEventListener('scroll', updateSearchLayer, { passive: true });
+
+        // 点击平滑滚动至页面最顶部
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
         
         function updateCardLayerOrder() {
             const cards = modulesContainer.querySelectorAll('.module-card');
@@ -1773,7 +1835,9 @@
                 let repoMarkdown = "";
                 try {
                     repoMarkdown = await fetchRawText(CONFIG.REPO_README_URL, false);
-                } catch (e) {
+                } catch (e) {}
+
+                if (!repoMarkdown) {
                     try {
                         repoMarkdown = await fetchRawText(CONFIG.REPO_README_BACKUP, false);
                     } catch (e2) {}
