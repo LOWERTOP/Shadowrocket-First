@@ -512,7 +512,7 @@
         /* =========================================================
            Module Cards
         ========================================================= */
-        .modules { display: flex; flex-direction: column; gap: 32px; padding-bottom: 20px; }
+        .modules { display: flex; flex-direction: column; gap: 44px; padding-bottom: 20px; }
         .module-card { 
             position: relative; padding: 28px; border-radius: var(--radius-card); 
             box-shadow: var(--shadow-glass-ui); 
@@ -663,7 +663,7 @@
         }
     
 /* =========================================================
-   ShadowStore — Adaptive Card Layout (间距已放大一倍)
+   ShadowStore — Adaptive Card Layout (留白间距已统一为44px)
    ========================================================= */
 .container { max-width: 1180px; }
 .modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 44px; align-items: stretch; padding-bottom: 24px; }
@@ -673,10 +673,10 @@
 .loading-card { width: auto; min-width: 0; }
 .modules > .empty { grid-column: 1 / -1; width: 100%; }
 .search-wrapper { width: 100%; margin-left: 0; margin-right: 0; }
-@media (min-width: 861px) and (max-width: 1200px) { .container { max-width: 1040px; } .modules { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); } }
-@media (min-width: 601px) and (max-width: 860px) { .container { max-width: 100%; } .modules { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; } .module-card { padding: 24px; } }
-@media (max-width: 600px) { .modules { grid-template-columns: 1fr; gap: 36px; } .module-card, .loading-card { width: 100%; } .module-description { flex: none; } }
-@media (max-width: 420px) { .modules { grid-template-columns: 1fr; gap: 36px; } .card-bottom { flex-direction: column; align-items: stretch; } .source { width: 100%; } .action-buttons { width: 100%; justify-content: flex-end; } }
+@media (min-width: 861px) and (max-width: 1200px) { .container { max-width: 1040px; } .modules { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 44px; } }
+@media (min-width: 601px) and (max-width: 860px) { .container { max-width: 100%; } .modules { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px; } .module-card { padding: 24px; } }
+@media (max-width: 600px) { .modules { grid-template-columns: 1fr; gap: 44px; } .module-card, .loading-card { width: 100%; } .module-description { flex: none; } }
+@media (max-width: 420px) { .modules { grid-template-columns: 1fr; gap: 44px; } .card-bottom { flex-direction: column; align-items: stretch; } .source { width: 100%; } .action-buttons { width: 100%; justify-content: flex-end; } }
 </style>
 </head>
 
@@ -699,7 +699,7 @@
                 <div class="brand-wrapper">
                     <h1 class="title">
                         <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener">模块中心</a>
-                        <span class="tag-pill-badge">Shadowrocket</span>
+                        <span class="tag-pill-badge">ShadowStore</span>
                     </h1>
                 </div>
                 <div class="theme-controls">
@@ -771,7 +771,7 @@
         /* =========================================================
            Configuration & Cache (时间戳格式)
         ========================================================= */
-        const CACHE_VERSION = "20260828_1212"; 
+        const CACHE_VERSION = "20260828_1233"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -815,7 +815,7 @@
 
         const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
         const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
-        const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+        const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
         const REFRESH_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>`;
 
         const searchWrapperEl = document.querySelector('.search-wrapper');
