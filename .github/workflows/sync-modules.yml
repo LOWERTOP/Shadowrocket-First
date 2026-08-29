@@ -1,0 +1,48 @@
+name: Sync Modules & Build JSON
+
+on:
+  schedule:
+    # 每天 UTC 时间 0:00, 6:00, 12:00, 18:00 (即北京时间 8:00, 14:00, 20:00, 02:00) 自动执行
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # 启用网页端“运行工作流程 (Run workflow)”手动触发
+  push:
+    branches:
+      - README
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/sync-modules.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # 授予向 README 分支提交 modules.json 的权限
+
+    steps:
+      - name: 检出 README 分支代码
+        uses: actions/checkout@v4
+        with:
+          ref: README
+
+      - name: 设置 Node.js 环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 抓取并构建 modules.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/build-modules.js
+
+      - name: 提交更新后的 modules.json 到 README 分支
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add modules.json
+          if git diff --staged --quiet; then
+            echo "数据无变动，跳过提交。"
+          else
+            git commit -m "chore(data): 自动同步最新模块列表 [skip ci]"
+            git push origin README
+          fi
