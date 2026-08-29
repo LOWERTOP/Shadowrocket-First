@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
-    <!-- PWA 独立应用模式与动态状态栏颜色支持 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#ffffff">
     
     <title>ShadowStore</title>
 
-    <!-- 1. 防主题闪烁 (FOUC) 极简同步初始化及状态栏颜色预设（默认浅色） -->
     <script>
         (function() {
             const saved = localStorage.getItem("sr_theme_override");
@@ -37,7 +35,7 @@
 
     <style>
         /* =========================================================
-           Design Tokens
+           1. 浅色主题 Tokens (Light Theme Tokens - 默认)
         ========================================================= */
         :root, [data-theme="light"] {
             --bg-overscroll: #ffffff;
@@ -129,6 +127,9 @@
             --toast-text: #FFFFFF;
         }
 
+        /* =========================================================
+           2. 暗色主题 Tokens (Dark Theme Tokens)
+        ========================================================= */
         [data-theme="dark"] {
             --bg-overscroll: #14161a;
             --bg-page-base: #14161a;
@@ -183,6 +184,9 @@
             --toast-text: #14161a;
         }
 
+        /* =========================================================
+           3. 基础布局与页面重置 (Base & Layout)
+        ========================================================= */
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         html { 
@@ -222,7 +226,30 @@
         }
 
         /* =========================================================
-           Pull-to-Refresh Indicator
+           4. 核心毛玻璃效果基类 (Glass Effect Component)
+        ========================================================= */
+        .glass-element {
+            background-color: transparent;
+            background-image: var(--noise-pattern), var(--glass-bg);
+            backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            border: none;
+            border-top: 1px solid var(--glass-border-t);
+            border-left: 1px solid var(--glass-border-l);
+            border-right: 1px solid var(--glass-border-r);
+            border-bottom: 1px solid var(--glass-border-b);
+        }
+
+        [data-theme="dark"] .glass-element {
+            background-color: var(--bg-surface);
+            background-image: var(--noise-pattern);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* =========================================================
+           5. 顶部下拉刷新胶囊 (Pull-to-Refresh Indicator)
         ========================================================= */
         .pull-refresh-indicator {
             position: fixed;
@@ -260,11 +287,10 @@
         .ptr-icon.rotate { transform: rotate(180deg); }
 
         /* =========================================================
-           Header
+           6. 顶部 Header 与 按钮控件 (Header & Control Buttons)
         ========================================================= */
         .header { padding: 24px 0 18px; }
         .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-        
         .brand-wrapper { display: flex; align-items: center; gap: 10px; }
 
         .title { 
@@ -290,29 +316,6 @@
         }
         
         .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-
-        /* =========================================================
-           Glass Element Class
-        ========================================================= */
-        .glass-element {
-            background-color: transparent;
-            background-image: var(--noise-pattern), var(--glass-bg);
-            backdrop-filter: blur(32px) saturate(120%) brightness(102%);
-            -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
-            border: none;
-            border-top: 1px solid var(--glass-border-t);
-            border-left: 1px solid var(--glass-border-l);
-            border-right: 1px solid var(--glass-border-r);
-            border-bottom: 1px solid var(--glass-border-b);
-        }
-
-        [data-theme="dark"] .glass-element {
-            background-color: var(--bg-surface);
-            background-image: var(--noise-pattern);
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border: 1px solid var(--border-subtle);
-        }
 
         .theme-toggle { 
             display: inline-flex; align-items: center; justify-content: center; 
@@ -349,7 +352,7 @@
         }
 
         /* =========================================================
-           Search Bar & Integrated Notice Animation & BackToTop
+           7. 搜索栏与返回顶部 (Search Bar & Notice Animation & BackToTop)
         ========================================================= */
         .search-wrapper { 
             position: sticky; 
@@ -449,7 +452,6 @@
         .search-clear:hover { color: var(--text-primary); }
         .search-clear.visible { display: flex; }
 
-        /* 返回顶部按钮 */
         .back-to-top-btn {
             width: 0;
             height: 44px;
@@ -494,7 +496,7 @@
         .back-to-top-btn.visible:active { transform: scale(0.92); }
 
         /* =========================================================
-           Status Metric Strip
+           8. 状态指标条 (Status Metric Strip)
         ========================================================= */
         .status { 
             display: flex; align-items: center; justify-content: space-between; 
@@ -508,7 +510,7 @@
         @keyframes statusPulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
         
         /* =========================================================
-           Module Cards
+           9. 模块卡片网格与卡片组件 (Module Cards & Grid)
         ========================================================= */
         .modules { 
             display: grid; 
@@ -671,6 +673,9 @@
         }
         @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
         
+        /* =========================================================
+           10. 页脚与提示吐司 (Footer & Toast)
+        ========================================================= */
         .footer { padding: 36px 0 16px; color: var(--text-tertiary); text-align: center; font-size: 12.5px; line-height: 1.6; font-weight: 300; }
         
         .toast { 
@@ -684,6 +689,9 @@
         }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
+        /* =========================================================
+           11. 响应式适配 (Responsive Media Queries)
+        ========================================================= */
         @media (max-width: 600px) {
             body { padding-left: 12px; padding-right: 12px; }
             .title { font-size: 22px; }
@@ -702,7 +710,6 @@
 </head>
 
 <body>
-    <!-- 顶部下拉刷新跟随指示胶囊 -->
     <div id="pullRefreshIndicator" class="pull-refresh-indicator glass-element">
         <span id="ptrIcon" class="ptr-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -723,6 +730,13 @@
                     </h1>
                 </div>
                 <div class="theme-controls">
+                    <button id="extraThemeToggle" class="theme-toggle glass-element" aria-label="自定义扩展主题" title="自定义扩展主题" style="display: none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 2a10 10 0 0 0 0 20z" fill="currentColor"></path>
+                        </svg>
+                    </button>
+
                     <button id="refreshCacheBtn" class="theme-toggle glass-element" aria-label="强制刷新缓存" title="强制拉取最新数据"></button>
                     <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
                     <a id="githubStarBtn" class="theme-toggle glass-element" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
@@ -791,7 +805,7 @@
         /* =========================================================
            Configuration & Cache
         ========================================================= */
-        const CACHE_VERSION = "20260828_1512"; 
+        const CACHE_VERSION = "20260829_1541"; 
         
         const CONFIG = {
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
@@ -811,12 +825,12 @@
         const APP_ALIASES = {
             "苹果": ["apple"], "apple": ["apple"], "谷歌": ["google"], "微软": ["microsoft"],
             "油管": ["youtube"], "youtube": ["youtube"], "电报": ["telegram"], "推特": ["twitter", "x"],
-            "奈飞": ["netflix"], "网飞": ["netflix"], "迪士尼": ["disney"],
-            "小米": ["xiaomi", "mi"], "米家": ["xiaomi", "mihome", "mi"],
-            "xiaomi": ["xiaomi", "mi"], "mihome": ["xiaomi", "mihome"],
-            "京东": ["jd", "jingdong"], "哔哩哔哩": ["bilibili", "b站"], "b站": ["bilibili"],
-            "微信": ["weixin", "wechat"], "微博": ["weibo"], "知乎": ["zhihu"],
-            "小红书": ["xhs", "xiaohongshu"], "抖音": ["douyin", "tiktok"], "快手": ["kuaishou"],
+            "奈飞": ["netflix"], "网飞": ["netflix"], "迪士尼": ["disney"], "cmcc": ["中国移动"],
+            "小米": ["xiaomi", "mi"], "米家": ["xiaomi", "mihome", "mi"], "call": ["googlevoice"],
+            "xiaomi": ["xiaomi", "mi"], "mihome": ["xiaomi", "mihome"],"ali": ["alibaba"],"阿里": ["alibaba"],
+            "京东": ["jd", "jingdong"], "哔哩哔哩": ["bilibili", "b站", "bili"], "b站": ["bilibili"], "bili": ["bilibili"],
+            "微信": ["weixin", "wechat"], "微博": ["weibo"], "知乎": ["zhihu"], "script": ["script-hub"],
+            "小红书": ["xhs", "xiaohongshu", "rednot", "redbook"], "rednot": ["xhs", "xiaohongshu", "rednot", "redbook"], "抖音": ["douyin", "tiktok"], "快手": ["kuaishou"],
             "网易云": ["netease", "cloudmusic"], "百度": ["baidu"], "高德": ["amap", "gaode"],
             "腾讯": ["tencent"], "美团": ["meituan"], "拼多多": ["pdd", "pinduoduo"],
             "闲鱼": ["xianyu"], "咸鱼": ["xianyu"], "饿了么": ["eleme"], "爱奇艺": ["iqiyi"],
@@ -1746,7 +1760,7 @@
                 }
             }
             if (comments.length) return comments.slice(0, 2).join(" ");
-            return `${metadata.name}，适用于 Shadowrocket 的网络模块。`;
+            return `${metadata.name}，请自行判断该模块的作用和有效性。`;
         }
 
         function createIOSAppIcon(name) {
@@ -1892,7 +1906,7 @@
             const sourceName = module.sourceName || "开源仓库";
             const sourceURL = module.sourceURL || "#";
 
-            const statusTextVal = module.isDubious ? "模块信息获取失败" : "已获取至最新版本";
+            const statusTextVal = module.isDubious ? "自动获取信息失败" : "已获取至最新版本";
             const statusClass = module.isDubious ? "status-badge-dubious" : "";
 
             card.innerHTML = `
@@ -2100,7 +2114,7 @@
                     loadRemoteIcons()
                 ]);
 
-                // 显式标记来自用户自身仓库的模块
+                // 显式标记来自自身仓库的模块
                 const localModules = parseRepositoryModules(repoMarkdown).map(m => ({ ...m, fromMyRepo: true }));
 
                 const seenURLs = new Set();
