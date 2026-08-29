@@ -1842,7 +1842,7 @@
                 };
             } catch (error) {
                 const resolvedName = resolveFallbackName(item.name, item.rawURL);
-                const fallbackDescription = `${resolvedName || "该模块"}，适用于 Shadowrocket 的网络模块。`;
+                const fallbackDescription = `${resolvedName || "该模块"}，请自行判断该模块的作用和有效性。`;
                 if (fallbackDescription.includes("已合并至")) return null;
 
                 const fallbackIconUrl = getMatchedIcon(resolvedName) ? resolveIconURL(getMatchedIcon(resolvedName), item.rawURL) : "";
