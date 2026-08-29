@@ -28,11 +28,11 @@
 
 ### [模块中心](#模块中心)
 
-> 模块中心是一个集 **模块索引**、**模块检索**、**一键安装**、**一键复制** 等功能于一体的模块资源平台，目前收录模块已超过千款。网页支持发送快捷方式至桌面，并可正常显示应用图标
+> [模块中心](https://github.com/LOWERTOP/Store) 是一个集 **模块索引**、**模块检索**、**一键安装**、**一键复制** 等功能于一体的模块资源平台，目前收录模块已超过千款。网页支持发送快捷方式至桌面，并可正常显示应用图标
 > 
-> 模块资源均来源于开源仓库。特别鸣谢 **[奶思](https://github.com/fmz200)**、**[zirawell](https://github.com/zirawell)**、**[iab0x00](https://github.com/iab0x00)** 等开源作者的分享与持续维护
+> 相关资源均直接引用自原始开源仓库。特别鸣谢 **[奶思](https://github.com/fmz200)**、**[zirawell](https://github.com/zirawell)**、**[iab0x00](https://github.com/iab0x00)** 等开源作者的分享与持续维护
 > 
-> [![访问页面 模块中心](https://img.shields.io/static/v1?label=访问页面&message=模块中心&color=grey&logo=safari&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/ShadowStore.html "访问相应地址")
+> [![访问页面 模块中心](https://img.shields.io/static/v1?label=访问页面&message=模块中心&color=grey&logo=safari&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://shadowstore.dpdns.org/ "访问相应地址")
 
 ### [Talkatone](#talkatone)
 
