@@ -767,7 +767,7 @@
         <div class="status">
             <div class="status-left">
                 <span id="statusDot" class="status-dot loading"></span>
-                <span id="statusText">正在同步资源...</span>
+                <span id="statusText">正在获取最新资源，请稍后...</span>
             </div>
             <div id="countText"></div>
         </div>
@@ -1228,7 +1228,7 @@
         
         refreshCacheBtn.addEventListener("click", async () => {
             if (statusDot.classList.contains("loading") || isPageLoading) {
-                showToast("正在拉取数据中，请稍候...");
+                showToast("正在获取最新资源，请稍后...");
                 return;
             }
             
@@ -2065,7 +2065,7 @@
                         isPageLoading = false;
                         return;
                     }
-                    statusText.textContent = "正在同步模块...";
+                    statusText.textContent = "正在获取最新资源，请稍后...";
                     statusDot.className = "status-dot loading";
                     setBtnLoading(true); 
                 } catch (e) {
@@ -2078,7 +2078,7 @@
             try {
                 if (!hasCache) {
                     setSearchState(false);
-                    statusText.textContent = "正在读取模块及图标库...";
+                    statusText.textContent = "正在获取资源及图标库...";
                     statusDot.className = "status-dot loading";
                     setBtnLoading(true); 
                 }
