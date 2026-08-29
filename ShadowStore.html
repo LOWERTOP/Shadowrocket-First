@@ -829,7 +829,7 @@
            全局配置与缓存控制 (Configuration & Cache)
         ========================================================= */
         // 缓存版本号：更新此版本号将立即废除旧本地缓存，触发全量重新拉取
-        const CACHE_VERSION = "20260829_1541"; 
+        const CACHE_VERSION = "20260829_2310"; 
         
         const CONFIG = {
             // 各大开源模块仓库及 GitHub API 树结构端点
@@ -2013,7 +2013,7 @@
             } catch (error) {
                 // 网络异常或拉取失败时的降级方案
                 const resolvedName = resolveFallbackName(item.name, item.rawURL);
-                const fallbackDescription = `${resolvedName || "该模块"}，请自行判断该模块的作用和有效性。`;
+                const fallbackDescription = `${resolvedName || "该模块"} 模块信息获取失败，请自行判断该模块的作用和有效性。`;
                 if (fallbackDescription.includes("已合并至")) return null;
 
                 const fallbackIconUrl = getMatchedIcon(resolvedName) ? resolveIconURL(getMatchedIcon(resolvedName), item.rawURL) : "";
