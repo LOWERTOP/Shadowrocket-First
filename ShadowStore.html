@@ -28,6 +28,7 @@
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23768a9e%22 stroke=%22rgba(255,255,255,0.6)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowMods.png">
+    
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
     <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
     <link rel="dns-prefetch" href="https://api.github.com">
@@ -35,21 +36,25 @@
 
     <style>
         /* =========================================================
-           1. 浅色主题 Tokens (Light Theme Tokens - 默认)
+           1. 浅色主题设计令牌 (Light Theme Tokens - 默认)
+           使用 CSS 变量（Custom Properties）定义整套拟物拟态与毛玻璃参数
         ========================================================= */
         :root, [data-theme="light"] {
             --bg-overscroll: #ffffff;
             --bg-page-base: #ffffff;
             --bg-page-grad: radial-gradient(circle at 50% 0%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
             
+            /* 毛玻璃半透明背景渐变 */
             --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
             --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
             
+            /* 拟物高光边框：模拟顶部受光亮边，底部背光暗边 */
             --glass-border-t: rgba(255, 255, 255, 0.85);
             --glass-border-r: rgba(255, 255, 255, 0.6);
             --glass-border-b: rgba(255, 255, 255, 0.05);
             --glass-border-l: rgba(255, 255, 255, 0.1);
 
+            /* 内联 SVG 噪点纹理：消除渐变色阶断层，增加高级磨砂质感 */
             --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
 
             --content-shadow-lg: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
@@ -57,6 +62,7 @@
             --content-shadow-sm: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
             --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.15);
 
+            /* 核心多重拟态阴影：通过 10 层内外阴影叠加，营造出晶莹通透的 3D 厚度玻璃效果 */
             --shadow-glass-ui: 
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
@@ -105,10 +111,12 @@
                 -6.7px 13.3px 16.7px -2px rgba(0, 0, 0, 0.08),
                 -20px 33.3px 40px -4px rgba(0, 0, 0, 0.17);
 
+            /* 文字排版颜色层级 */
             --text-primary: #4a4f59;
             --text-secondary: #7e8596;
             --text-tertiary: #a1a9ba;
 
+            /* 品牌主色系（莫兰迪灰蓝） */
             --primary: #768a9e; 
             --primary-hover: #62768a;
             --primary-soft: rgba(118, 138, 158, 0.15);
@@ -116,6 +124,7 @@
             --bg-surface: #e6eaf0;
             --border-subtle: #d6dbe3;
 
+            /* 辅助状态点缀色 */
             --accent-mint: #8eaeb8;  
             --accent-mint-soft: rgba(142, 174, 184, 0.2);
             --accent-orange: #c4af9d; 
@@ -128,7 +137,8 @@
         }
 
         /* =========================================================
-           2. 暗色主题 Tokens (Dark Theme Tokens)
+           2. 暗色主题设计令牌 (Dark Theme Tokens)
+           为暗色模式优化对比度与阴影，关闭耗费 GPU 的复杂毛玻璃，提升低功耗体验
         ========================================================= */
         [data-theme="dark"] {
             --bg-overscroll: #14161a;
@@ -195,6 +205,7 @@
             background-image: var(--bg-page-grad);
             background-attachment: fixed;
             min-height: 100%;
+            /* 禁用默认的过度滚动反弹链，配合自定义的下拉刷新手势 */
             overscroll-behavior-y: none;
             -webkit-overscroll-behavior-y: none;
             transition: background-color 0.4s ease;
@@ -203,6 +214,7 @@
         body { 
             margin: 0; 
             min-height: 100vh;
+            /* 结合 safe-area-inset 适配 iPhone 全面屏上下边距 */
             padding: max(16px, env(safe-area-inset-top)) clamp(16px, 2.5vw, 40px) max(36px, env(safe-area-inset-bottom)); 
             background: transparent;
             color: var(--text-primary); 
@@ -220,6 +232,7 @@
             max-width: clamp(1080px, 95vw, 2560px); 
             margin: 0 auto; 
             position: relative; 
+            /* 开启硬件加速，防止在平移或过渡时产生页面抖动 */
             will-change: transform;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
@@ -344,6 +357,7 @@
             filter: none; 
         }
         
+        /* 强制刷新图标旋转动画 */
         @keyframes spinNode { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .spin-anim { 
             animation: spinNode 1s linear infinite; 
@@ -358,7 +372,7 @@
             position: sticky; 
             top: 0; 
             top: env(safe-area-inset-top, 0px); 
-            z-index: 99990; 
+            z-index: 999999; 
             padding: 8px 0 12px; margin-bottom: 12px; 
             background: transparent; 
             display: flex;
@@ -366,7 +380,7 @@
             width: 100%;
             -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); 
         }
-        .search-wrapper.is-sticky { z-index: 99999; }
+        .search-wrapper.is-sticky { z-index: 999999; }
 
         .search-box-inner {
             position: relative; flex: 1 1 auto; min-width: 0; height: 44px; display: flex; align-items: center; gap: 8px; 
@@ -417,6 +431,7 @@
         .search::placeholder { color: transparent; }
         .search:disabled { cursor: not-allowed; }
 
+        /* 搜索框动态滚动占位文字轨道 */
         .placeholder-track {
             position: absolute; top: 0; left: 0; width: 100%;
             display: flex; flex-direction: column;
@@ -431,6 +446,7 @@
             text-shadow: none; 
         }
 
+        /* 当输入框获得焦点或已输入内容时，隐藏滚动占位文字 */
         .search:focus ~ .placeholder-track,
         .search:not(:placeholder-shown) ~ .placeholder-track {
             opacity: 0;
@@ -452,6 +468,7 @@
         .search-clear:hover { color: var(--text-primary); }
         .search-clear.visible { display: flex; }
 
+        /* 随滚动动态收缩展开的“返回顶部”按钮 */
         .back-to-top-btn {
             width: 0;
             height: 44px;
@@ -514,6 +531,7 @@
         ========================================================= */
         .modules { 
             display: grid; 
+            /* 响应式网格布局：自动填满列宽，最小宽度 380px */
             grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); 
             gap: 44px; 
             align-items: stretch; 
@@ -532,6 +550,7 @@
             border-radius: var(--radius-card); 
             box-shadow: var(--shadow-glass-ui); 
             overflow: hidden; 
+            /* 现代渲染优化属性：只渲染当前视口可见区域的卡片，极大提升超长列表的滚动性能 */
             content-visibility: auto; 
             contain-intrinsic-size: 0 180px; 
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -555,6 +574,7 @@
             background: transparent; overflow: hidden; 
             box-shadow: 0 6px 16px rgba(0,0,0,0.12); 
             border: none; 
+            /* 解决 WebKit/Safari 圆角在变换时的毛刺与溢出 Bug */
             -webkit-mask-image: -webkit-radial-gradient(white, black);
             mask-image: radial-gradient(white, black);
             -webkit-transform: translateZ(0);
@@ -652,6 +672,7 @@
             background: var(--primary-hover); transform: translateY(-1px); 
         }
         
+        /* 虚拟滚动交叉观察哨兵元素 (Intersection Sentinel) */
         .sentinel { height: 20px; margin: 10px 0; }
         .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 15px; font-weight: 300; grid-column: 1 / -1; width: 100%; }
         .empty-icon { 
@@ -663,6 +684,7 @@
         }
         .empty-error { margin-top: 8px; color: var(--text-tertiary); font-size: 13px; }
         
+        /* 骨架屏加载动画 (Skeleton Pulse) */
         .loading-card { 
             height: 180px; 
             width: auto; 
@@ -690,7 +712,7 @@
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
         /* =========================================================
-           11. 响应式适配 (Responsive Media Queries)
+           11. 移动端响应式适配 (Responsive Media Queries)
         ========================================================= */
         @media (max-width: 600px) {
             body { padding-left: 12px; padding-right: 12px; }
@@ -799,30 +821,37 @@
             著作权归资源作者所有
         </footer>
     </div>
+    
     <div id="toast" class="toast">已复制模块链接</div>
 
     <script>
         /* =========================================================
-           Configuration & Cache
+           全局配置与缓存控制 (Configuration & Cache)
         ========================================================= */
+        // 缓存版本号：更新此版本号将立即废除旧本地缓存，触发全量重新拉取
         const CACHE_VERSION = "20260829_1541"; 
         
         const CONFIG = {
+            // 各大开源模块仓库及 GitHub API 树结构端点
             FMZ_TREE_API: "https://api.github.com/repos/fmz200/wool_scripts/git/trees/main?recursive=1",
             REPO_README_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/README.md",
             REPO_README_BACKUP: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/README.md",
             ZIRAWELL_README_URL: "https://raw.githubusercontent.com/zirawell/R-Store/main/README.md",
             ZIRAWELL_TREE_API: "https://api.github.com/repos/zirawell/R-Store/git/trees/main?recursive=1",
+            // 图标资源库
             ICONS_JSON_URL: "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/icons-all.json",
             LUESTR_TREE_API: "https://api.github.com/repos/luestr/IconResource/git/trees/main?recursive=1",
-            CONCURRENCY: 8,
-            PAGE_SIZE: 30,
+            
+            CONCURRENCY: 8,       // 异步并发请求池大小
+            PAGE_SIZE: 30,        // 每次翻页渲染的卡片数量
             CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`, 
             CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`,
-            CACHE_EXPIRE: 3600 * 6 * 1000
+            CACHE_EXPIRE: 3600 * 6 * 1000 // 缓存过期时间：6 小时
         };
 
+        // 中英文别名映射词典（用于智能匹配应用图标）
         const APP_ALIASES = {
+            "私库": ["github"], "🅲🅻🅴🅰🅽🅴🆁": ["github"], "证书": ["github"], "解密": ["github"], "🅳🅴🆅": ["github"], "红果": ["tiktok"], "流媒体": ["netflix"],
             "苹果": ["apple"], "apple": ["apple"], "谷歌": ["google"], "微软": ["microsoft"],
             "油管": ["youtube"], "youtube": ["youtube"], "电报": ["telegram"], "推特": ["twitter", "x"],
             "奈飞": ["netflix"], "网飞": ["netflix"], "迪士尼": ["disney"], "cmcc": ["中国移动"],
@@ -838,6 +867,7 @@
             "夸克": ["quark"], "12306": ["12306"], "高德地图": ["amap"]
         };
 
+        // 地区/国旗代号过滤集合（防止应用图标误匹配到国旗节点图标）
         const FLAG_CODES = new Set([
             "cn", "us", "hk", "tw", "jp", "kr", "sg", "uk", "gb", "de", "fr", "ca",
             "ru", "au", "mo", "vn", "th", "ph", "my", "in", "id", "br", "cl", "ar",
@@ -847,13 +877,14 @@
             "united_states", "united_kingdom", "germany", "france", "russia", "australia"
         ]);
 
+        // UI 基础内联矢量图标 (SVG)
         const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
         const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
         const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>`;
         const REFRESH_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>`;
 
+        // DOM 元素引用
         const searchWrapperEl = document.querySelector('.search-wrapper');
-
         const modulesContainer = document.getElementById("modules");
         const searchInput = document.getElementById("search");
         const searchClear = document.getElementById("searchClear");
@@ -874,23 +905,23 @@
         const ptrIcon = document.getElementById("ptrIcon");
         const ptrText = document.getElementById("ptrText");
 
-        let allModules = [];
-        let filteredModules = [];
-        let currentlyRendered = 0;
-        let searchTimer = null;
-        let remoteIconsMap = {};
-        
-        let isPageLoading = true;
+        // 全局状态变量
+        let allModules = [];            // 存储所有解析完成的模块列表
+        let filteredModules = [];       // 存储当前经过搜索/过滤后的模块列表
+        let currentlyRendered = 0;      // 当前已挂载到 DOM 上的卡片总数
+        let searchTimer = null;         // 搜索防抖定时器
+        let remoteIconsMap = {};        // 远程图标映射哈希表 (name -> iconUrl)
+        let isPageLoading = true;       // 页面是否处于初始拉取/加载状态
 
         /* =========================================================
-           Pinned Modules Priority Helper
-           精准排除 ddgksf2013.top，锁定我仓库的 Script-Hub、Sub-Store、BoxJs
+           置顶模块权重计算函数 (Pinned Modules Priority Helper)
+           精准置顶来自自身仓库的 Script-Hub、Sub-Store、BoxJs 三大基础设施模块
         ========================================================= */
         function getPinnedRank(item) {
             if (!item) return 9999;
             const rawURL = (item.rawURL || "").toLowerCase();
 
-            // 1. 严格排除 ddgksf2013.top 来源的任何模块
+            // 严格排除第三方镜像域名的干扰
             if (rawURL.includes("ddgksf2013.top")) {
                 return 9999;
             }
@@ -898,7 +929,7 @@
             const name = (item.name || "").toLowerCase().replace(/[\s_\-.]/g, "");
             const isFromMyRepo = Boolean(item.fromMyRepo || rawURL.includes("lowertop"));
 
-            // 仅对提取自我仓库的模块应用前三位最高优先级置顶
+            // 仅对提取自自己主仓库的模块应用前三名最高置顶优先级
             if (isFromMyRepo) {
                 if (name.includes("scripthub") || rawURL.includes("script-hub") || rawURL.includes("scripthub")) return 1;
                 if (name.includes("substore") || rawURL.includes("sub-store") || rawURL.includes("substore")) return 2;
@@ -908,11 +939,17 @@
             return 9999;
         }
 
+        /**
+         * 对模块数组按照置顶权重进行升序排序
+         */
         function sortPinnedModules(list) {
             if (!Array.isArray(list)) return [];
             return [...list].sort((a, b) => getPinnedRank(a) - getPinnedRank(b));
         }
 
+        /**
+         * 监听滚动，处理搜索栏吸顶态与返回顶部按钮显隐
+         */
         function updateSearchLayer() {
             if (!searchWrapperEl) return;
             const stickyTop = parseFloat(window.getComputedStyle(searchWrapperEl).top) || 0;
@@ -922,6 +959,7 @@
                 searchWrapperEl.classList.remove('is-sticky');
             }
 
+            // 滚动超过 160px 时展开“返回顶部”按钮
             if (window.scrollY > 160) {
                 backToTopBtn.classList.add('visible');
             } else {
@@ -931,6 +969,7 @@
         
         window.addEventListener('scroll', updateSearchLayer, { passive: true });
 
+        // 返回顶部点击事件：平滑滚动至顶部
         backToTopBtn.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
@@ -938,6 +977,10 @@
             });
         });
         
+        /**
+         * 动态层叠上下文优化算法 (Z-Index Layering)
+         * 解决毛玻璃卡片在三维阴影投影与 hover 缩放时，后方卡片可能被下方卡片边缘遮挡的层叠 Bug
+         */
         function updateCardLayerOrder() {
             const cards = modulesContainer.querySelectorAll('.module-card');
             if (!cards.length) return;
@@ -947,6 +990,7 @@
                 cardOffsets.push({ card: cards[i], top: cards[i].offsetTop });
             }
 
+            // 按纵向 top 偏移量进行行分组
             const rowsMap = new Map();
             cardOffsets.forEach(({ card, top }) => {
                 let foundKey = Array.from(rowsMap.keys()).find(k => Math.abs(k - top) < 12);
@@ -959,6 +1003,7 @@
 
             const sortedRows = Array.from(rowsMap.entries()).sort((a, b) => a[0] - b[0]);
 
+            // 上层行赋予更高的 z-index 基数，同一行内左侧高于右侧
             sortedRows.forEach(([_, rowCards], rowIndex) => {
                 const rowBaseZ = (rowIndex + 1) * 1000;
                 rowCards.forEach((card, colIndex) => {
@@ -969,6 +1014,7 @@
             updateSearchLayer();
         }
 
+        // 窗口尺寸变化时防抖重新计算卡片层级
         let resizeTimer = null;
         window.addEventListener("resize", () => {
             clearTimeout(resizeTimer);
@@ -976,7 +1022,8 @@
         });
 
         /* =========================================================
-           Pull-to-Refresh Gesture
+           移动端下拉刷新手势算法 (Pull-to-Refresh Gesture Engine)
+           包含触控阻尼计算、回弹贝塞尔曲线与缓存强制清空重建
         ========================================================= */
         let touchStartX = 0;
         let touchStartY = 0;
@@ -985,9 +1032,12 @@
         let isPullLocked = false; 
         let pullRafId = null;
 
-        const MIN_DRAG_DEADZONE = 30; 
-        const PULL_TRIGGER_DIFF = 280; 
+        const MIN_DRAG_DEADZONE = 30;  // 触发下拉识别的死区（防止水平滑动误触）
+        const PULL_TRIGGER_DIFF = 280; // 触发刷新所需的临界滑动距离
 
+        /**
+         * 强制刷新并深度清空所有缓存
+         */
         async function triggerForceReload() {
             if (isRefreshing) return;
             isRefreshing = true;
@@ -998,6 +1048,7 @@
             ptrIcon.querySelector("svg")?.classList.add("spin-anim");
             ptrText.textContent = "正在强制刷新本站...";
 
+            // 清理 localStorage 中的所有业务缓存
             try {
                 Object.keys(localStorage).forEach(key => {
                     if (key.startsWith("sr_") || key.includes("cache") || key.includes("module")) {
@@ -1008,6 +1059,7 @@
                 localStorage.removeItem(CONFIG.CACHE_TIME_KEY);
             } catch (e) {}
 
+            // 清理 ServiceWorker / Cache API 缓存
             if ('caches' in window) {
                 try {
                     const cacheKeys = await caches.keys();
@@ -1015,12 +1067,14 @@
                 } catch (e) {}
             }
 
+            // 带时间戳硬重载
             setTimeout(() => {
                 const base = window.location.href.split('#')[0].split('?')[0];
                 window.location.replace(base + '?_force_ts=' + Date.now());
             }, 300);
         }
 
+        // 触摸开始：仅当页面处于绝对顶部时激活下拉监听
         window.addEventListener('touchstart', (e) => {
             if (isRefreshing || isPageLoading) {
                 isPulling = false;
@@ -1039,6 +1093,7 @@
             }
         }, { passive: true });
 
+        // 触摸移动：执行阻尼对数计算，平滑推拉页面
         window.addEventListener('touchmove', (e) => {
             if (!isPulling || isRefreshing || isPageLoading || window.scrollY > 0) {
                 isPulling = false;
@@ -1050,6 +1105,7 @@
             const diffX = currentX - touchStartX;
             const diffY = currentY - touchStartY;
 
+            // 水平滑动判断：如果横向偏移大于纵向，锁定并放弃下拉识别
             if (!isPullLocked) {
                 if (Math.abs(diffX) > Math.abs(diffY) || diffY <= 0) {
                     isPulling = false;
@@ -1064,6 +1120,7 @@
             if (isPullLocked && diffY > MIN_DRAG_DEADZONE) {
                 const effectiveDiff = diffY - MIN_DRAG_DEADZONE;
                 
+                // 阻尼非线性曲线：Math.pow(diff, 0.65)
                 const containerShift = Math.min(Math.pow(effectiveDiff, 0.65) * 1.3, 48);
                 const indicatorShift = Math.min(containerShift * 0.42, 18);
                 const progress = Math.min(effectiveDiff / (PULL_TRIGGER_DIFF - MIN_DRAG_DEADZONE), 1);
@@ -1074,6 +1131,7 @@
                     pullRefreshIndicator.style.opacity = Math.min(progress * 1.2, 1);
                     pullRefreshIndicator.style.transform = `translate3d(-50%, ${indicatorShift}px, 0)`;
 
+                    // 达到触发临界点，箭头旋转 180°
                     if (diffY >= PULL_TRIGGER_DIFF) {
                         ptrIcon.classList.add("rotate");
                         ptrText.textContent = "松开将立即强制刷新本站";
@@ -1087,6 +1145,7 @@
             }
         }, { passive: false });
 
+        // 触摸结束：松开判定
         window.addEventListener('touchend', (e) => {
             if (!isPulling || isRefreshing || isPageLoading) return;
             isPulling = false;
@@ -1097,6 +1156,7 @@
             const diffY = currentY - touchStartY;
 
             if (diffY >= PULL_TRIGGER_DIFF && window.scrollY <= 0) {
+                // 触发刷新：弹簧吸附
                 pageContainer.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)';
                 pageContainer.style.transform = `translate3d(0, 38px, 0)`;
                 
@@ -1106,6 +1166,7 @@
                 
                 triggerForceReload();
             } else {
+                // 未达到触发距离：弹性复位
                 const reboundBezier = 'transform 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
                 pageContainer.style.transition = reboundBezier;
                 pageContainer.style.transform = 'translate3d(0, 0, 0)';
@@ -1117,6 +1178,9 @@
             }
         }, { passive: true });
 
+        /**
+         * 动态启用/禁用搜索输入框及其占位符状态
+         */
         function setSearchState(enabled) {
             const mainP = document.getElementById("mainPlaceholder");
             const mainPClone = document.getElementById("mainPlaceholderClone");
@@ -1137,7 +1201,11 @@
             }
         }
 
+        /* =========================================================
+           搜索栏公告文字垂直轮播跑马灯
+        ========================================================= */
         if (noticeTrack) {
+            // 克隆第一项追加到末尾，实现无缝平滑衔接滚动
             const firstItemClone = noticeTrack.children[0].cloneNode(true);
             firstItemClone.id = "mainPlaceholderClone";
             noticeTrack.appendChild(firstItemClone);
@@ -1152,18 +1220,20 @@
             }
 
             function nextNotice() {
+                // 用户正在输入或有文本时暂停轮播
                 if (document.activeElement === searchInput || searchInput.value.length > 0) return;
                 if (isAnimating) return;
                 isAnimating = true;
                 noticeIndex++;
                 updateNoticePosition();
 
+                // 滚动至克隆节点后瞬间跳回首项
                 if (noticeIndex === originalCount) {
                     setTimeout(() => {
                         noticeTrack.style.transition = 'none';
                         noticeIndex = 0;
                         noticeTrack.style.transform = `translateY(0)`;
-                        void noticeTrack.offsetHeight;
+                        void noticeTrack.offsetHeight; // 强制触发 DOM 重绘 (Reflow)
                         isAnimating = false;
                     }, 450); 
                 } else {
@@ -1174,6 +1244,10 @@
             setInterval(nextNotice, 3800);
         }
 
+        /* =========================================================
+           主题管理系统 (Theme Engine)
+           支持：浅色 (light) -> 深色 (dark) -> 自动跟随系统 (auto) 三态循环切换
+        ========================================================= */
         const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
         refreshCacheBtn.innerHTML = REFRESH_ICON;
 
@@ -1194,6 +1268,7 @@
             const currentTheme = getEffectiveTheme(mode);
             document.documentElement.setAttribute("data-theme", currentTheme);
             
+            // 同步修改移动端浏览器地址栏/顶部安全区背景色
             const themeColor = currentTheme === "dark" ? "#14161a" : "#ffffff";
             const themeColorMeta = document.querySelector('meta[name="theme-color"]');
             if (themeColorMeta) {
@@ -1206,6 +1281,7 @@
                 statusBarMeta.setAttribute("content", "black-translucent");
             }
 
+            // 更新主题切换按钮的图标与提示
             if (mode === "light") {
                 themeToggleBtn.innerHTML = SUN_ICON;
                 themeToggleBtn.setAttribute("title", "当前：浅色模式（点击切换深色）");
@@ -1218,10 +1294,12 @@
             }
         }
 
+        // 监听操作系统深浅色变化事件
         mediaQueryDark.addEventListener("change", () => {
             if (getThemeMode() === "auto") updateThemeUI();
         });
 
+        // 点击切换主题
         themeToggleBtn.addEventListener("click", () => {
             const currentMode = getThemeMode();
             let nextMode, toastText;
@@ -1240,6 +1318,7 @@
             showToast(toastText);
         });
         
+        // 点击强制拉取按钮
         refreshCacheBtn.addEventListener("click", async () => {
             if (statusDot.classList.contains("loading") || isPageLoading) {
                 showToast("正在获取最新资源，请稍后...");
@@ -1265,20 +1344,35 @@
 
         updateThemeUI();
 
+        /* =========================================================
+           字符串与文本安全清洗工具 (Sanitization Helpers)
+        ========================================================= */
+        /**
+         * HTML 实体字符转义（防止 XSS 注入）
+         */
         function escapeHTML(value) {
             return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
 
+        /**
+         * 清理连续换行符、制表符与冗余空格
+         */
         function cleanText(value) {
             return String(value ?? "").replace(/\\n/g, " ").replace(/\\r/g, "").replace(/\\t/g, " ").replace(/\s+/g, " ").trim();
         }
 
+        /**
+         * 弹出全局浮层提示 (Toast)
+         */
         function showToast(text) {
             toast.textContent = text;
             toast.classList.add("show");
             setTimeout(() => { toast.classList.remove("show"); }, 2000);
         }
 
+        /**
+         * 跨环境剪贴板复制工具（兼顾现代 API 与 iOS/旧浏览器降级方案）
+         */
         async function copyToClipboard(text) {
             try {
                 if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1299,6 +1393,9 @@
             return success;
         }
 
+        /**
+         * 从 URL 中提取主域名作为作者/仓库备用标识
+         */
         function getDomainPrimaryName(rawURL) {
             if (!rawURL) return "";
             try {
@@ -1322,6 +1419,9 @@
             }
         }
 
+        /**
+         * 从文件 URL 中提取模块文件名（去除 .sgmodule / .srmodule 后缀）
+         */
         function getModuleNameFromURL(rawURL) {
             if (!rawURL) return "";
             try {
@@ -1335,6 +1435,9 @@
             }
         }
 
+        /**
+         * 模块名称后备回退解析器
+         */
         function resolveFallbackName(fallbackName, rawURL) {
             if (fallbackName && fallbackName !== "未命名模块" && fallbackName.trim()) {
                 return fallbackName.trim();
@@ -1342,6 +1445,9 @@
             return getModuleNameFromURL(rawURL) || "未命名模块";
         }
 
+        /**
+         * 判断给定名称或路径是否属于国旗/节点图标
+         */
         function isFlagKey(key, url = "") {
             if (!key && !url) return false;
             const k = (key || "").toLowerCase().trim();
@@ -1354,6 +1460,9 @@
             return false;
         }
 
+        /**
+         * 检测模块内容或描述是否已失效 (404 Not Found)
+         */
         function isInvalidOr404(text) {
             if (!text) return false;
             const t = String(text);
@@ -1363,11 +1472,18 @@
                    /(?:已失效|此模块已失效|资源已失效|链接已失效|文件已删除|文件不存在|404\s*失效)/i.test(t);
         }
 
+        /* =========================================================
+           网络请求与 API 调度引擎 (Fetch Engine)
+        ========================================================= */
+        /**
+         * 带超时控制与 GitHub 速率限制拦截的 Fetch 封装
+         */
         async function fetchWithTimeout(url, options = {}, timeoutMs = 6000) {
             const controller = new AbortController();
             const timer = setTimeout(() => controller.abort(), timeoutMs);
             try {
                 const response = await fetch(url, { ...options, signal: controller.signal });
+                // 拦截 GitHub API 403/429 速率限制
                 if (url.includes("api.github.com") && (response.status === 403 || response.status === 429)) {
                     throw new Error("GitHub_API_Rate_Limit");
                 }
@@ -1377,6 +1493,9 @@
             }
         }
 
+        /**
+         * 抓取模块原始内容（优先使用 HTTP Range 请求前 2KB 头部信息，极大加快拉取速度并节省流量）
+         */
         async function fetchRawText(url, isPartial = true) {
             if (isPartial) {
                 try {
@@ -1393,6 +1512,9 @@
             throw new Error(`无法获取资源: ${url}`);
         }
 
+        /**
+         * 拉取 luestr/IconResource 仓库树并构建图标字典
+         */
         async function loadLuestrIcons() {
             try {
                 const res = await fetchWithTimeout(CONFIG.LUESTR_TREE_API, { cache: "no-store" }, 6000);
@@ -1419,6 +1541,9 @@
             }
         }
 
+        /**
+         * 拉取 fmz200 聚合图标 JSON 库
+         */
         async function loadRemoteIcons() {
             try {
                 const response = await fetchWithTimeout(CONFIG.ICONS_JSON_URL, { cache: "no-store" }, 6000);
@@ -1469,6 +1594,9 @@
             await loadLuestrIcons();
         }
 
+        /**
+         * 在图标字典中进行精确与去除数字后缀的模糊查询
+         */
         function findIconInMap(key) {
             if (!key) return "";
             const lowerKey = key.toLowerCase().trim();
@@ -1493,11 +1621,15 @@
             return "";
         }
 
+        /**
+         * 模块名称智能图标匹配算法（包含核心应用特殊匹配、关键词净化、别名词典匹配）
+         */
         function getMatchedIcon(name) {
             if (!name) return "";
             const lowerName = name.trim().toLowerCase();
             if (!lowerName) return "";
 
+            // 1. 核心应用直接匹配
             if (lowerName.includes("youtube") || lowerName.includes("油管") || lowerName.includes("ytb")) {
                 const ytIcon = findIconInMap("youtube");
                 if (ytIcon && !isFlagKey("youtube", ytIcon)) return ytIcon;
@@ -1511,6 +1643,7 @@
             let matched = findIconInMap(lowerName);
             if (matched && !isFlagKey(lowerName, matched)) return matched;
 
+            // 2. 净化模块后缀（去除“去广告”、“破解”、“签到”等噪音词后再匹配）
             const cleanName = lowerName
                 .replace(/(去广告|净化|移除|破解|签到|脚本|模块|解锁|自动|净化版|修复|增强|vip|pro|lite|hd|edge|plus|v\d+)/g, "")
                 .replace(/[-_.\s]/g, "")
@@ -1521,6 +1654,7 @@
                 if (matched && !isFlagKey(cleanName, matched)) return matched;
             }
 
+            // 3. 中文别名映射查找
             for (const [cnKeyword, enKeys] of Object.entries(APP_ALIASES)) {
                 if (lowerName.includes(cnKeyword.toLowerCase())) {
                     for (const key of enKeys) {
@@ -1530,6 +1664,7 @@
                 }
             }
 
+            // 4. 包含关系模糊匹配
             for (const [iconName, iconUrl] of Object.entries(remoteIconsMap)) {
                 if (!iconName || iconName.length < 3 || isFlagKey(iconName, iconUrl)) continue;
 
@@ -1544,11 +1679,15 @@
             return "";
         }
 
+        /**
+         * 规范化并转换各种格式的模块链接为标准的 Raw 直链
+         */
         function normalizeRawURL(url) {
             if (!url) return "";
             let value = url.trim().replace(/^<|>$/g, "").replace(/&amp;/g, "&");
             value = value.replace(/\\([#_~`*])/g, "$1");
 
+            // 提取带有 url= 参数或 install?module= 封装的真实链接
             if (value.includes("url=")) {
                 const match = value.match(/[?&]url=([^&]+)/i) || value.match(/url=([^&]+)/i);
                 if (match) {
@@ -1564,6 +1703,7 @@
 
             value = value.replace(/#/g, "%23").replace(/\s+/g, "%20");
 
+            // 将 github.com/blob/ 链接转换为 raw.githubusercontent.com 直链
             try {
                 const parsed = new URL(value);
                 if (parsed.hostname === "raw.githubusercontent.com") return parsed.href;
@@ -1578,6 +1718,9 @@
             } catch { return value; }
         }
 
+        /**
+         * 从 Markdown 文件中通过正则解析提取所有模块链接与层级标题
+         */
         function parseRepositoryModules(markdown) {
             if (!markdown) return [];
             const result = [];
@@ -1588,6 +1731,7 @@
                 const line = rawLine.trim();
                 if (!line) continue;
 
+                // 提取 Markdown 标题作为备用模块名
                 const headingMatch = line.match(/^(?:#{1,6}|\*|-|\+)\s*(?:\[([^\]]+)\]|`([^`]+)`|([^\n(#*]+))/);
                 if (headingMatch) {
                     const rawTitle = (headingMatch[1] || headingMatch[2] || headingMatch[3] || "").trim();
@@ -1604,6 +1748,7 @@
                     } catch (e) { break; }
                 }
 
+                // 正则捕获 .sgmodule / .srmodule / .module 结尾的链接
                 const rawRegex = /(https?:\/\/[^\s)\]"'<>]+?\.(?:sgmodule|srmodule|module)(?:[^\s)\]"'<>]*)?)/ig;
                 let match;
                 while ((match = rawRegex.exec(decodedLine)) !== null) {
@@ -1618,6 +1763,7 @@
                 }
             }
 
+            // URL 去重
             const seen = new Set();
             return result.filter(item => {
                 const key = item.rawURL.toLowerCase();
@@ -1627,6 +1773,9 @@
             });
         }
 
+        /**
+         * 拉取 fmz200 仓库模块列表
+         */
         async function fetchFMZModules() {
             const modules = [];
             try {
@@ -1650,6 +1799,9 @@
             return modules;
         }
 
+        /**
+         * 拉取 zirawell/R-Store 仓库模块列表
+         */
         async function fetchZirawellModules() {
             const modules = [];
             try {
@@ -1716,6 +1868,10 @@
             return { name: "作者信息识别失败", url: "", username: "" };
         }
 
+        /* =========================================================
+           模块元数据解析器 (Metadata Parser)
+           解析模块前 100 行内定义的 #!name、#!desc、#!icon 等标准元数据
+        ========================================================= */
         function parseModuleMetadata(text, fallbackName, rawURL = "") {
             const metadata = {};
             const lines = text.split(/\r?\n/);
@@ -1724,12 +1880,14 @@
                 const line = lines[i].trim();
                 if (!line) continue;
 
+                // 匹配 #!name=xxx, #!desc=xxx, #!icon=xxx
                 if (line.startsWith("#!")) {
                     const match = line.match(/^#!\s*([a-zA-Z0-9_-]+)\s*=\s*(.*)$/i);
                     if (match) metadata[match[1].trim().toLowerCase()] = cleanText(match[2]);
                     continue;
                 }
 
+                // 兼容注释格式：# @name: xxx 或 // 规则名称: xxx
                 const commentMatch = line.match(/^(?:#|\/\/)\s*@?(?:name|规则名称|模块名称)\s*[:=]\s*(.+)$/i);
                 if (commentMatch && !metadata.name) {
                     metadata.name = cleanText(commentMatch[1]);
@@ -1747,6 +1905,9 @@
             };
         }
 
+        /**
+         * 生成模块描述（无描述时提取注释文本或生成通用描述）
+         */
         function generateDescription(metadata, rawText) {
             if (metadata.description) return metadata.description;
             const lines = rawText.split(/\r?\n/);
@@ -1763,6 +1924,9 @@
             return `${metadata.name}，请自行判断该模块的作用和有效性。`;
         }
 
+        /**
+         * 首字母占位应用图标生成器（返回 Data-URI 格式的高清矢量 SVG）
+         */
         function createIOSAppIcon(name) {
             const cleanName = (name || "").trim();
             const char = Array.from(cleanName)[0] || "模";
@@ -1782,6 +1946,7 @@
             } catch { return ""; }
         }
 
+        // 生成 Shadowrocket 一键安装唤醒 Scheme 链接
         function createInstallURL(rawURL) { 
             return "shadowrocket://install?module=" + encodeURIComponent(rawURL); 
         }
@@ -1790,6 +1955,9 @@
             return githubInfo ? `https://github.com/${encodeURIComponent(githubInfo.owner)}.png?size=64` : "";
         }
 
+        /**
+         * 单个模块数据的拉取与结构化封装
+         */
         async function fetchModule(item) {
             const githubInfo = parseGitHubRawURL(item.rawURL);
             const sourceInfo = getSourceRepoInfo(item.rawURL, githubInfo);
@@ -1804,6 +1972,7 @@
 
                 if (description && description.includes("已合并至")) return null;
                 
+                // 多级图标查找匹配
                 let icon = resolveIconURL(metadata.icon, item.rawURL);
                 if (!icon && metadata.declaredName) {
                     const matchedNameIcon = getMatchedIcon(metadata.declaredName);
@@ -1824,6 +1993,7 @@
                     ? `https://github.com/${encodeURIComponent(urlAuthor.username)}.png?size=64`
                     : avatarUrl;
 
+                // 预构建小写检索字符串，加速后续过滤
                 const _searchKeywords = [metadata.name, description, urlAuthor.name, sourceInfo.name].join(" ").toLowerCase();
 
                 return {
@@ -1841,6 +2011,7 @@
                     _searchKeywords
                 };
             } catch (error) {
+                // 网络异常或拉取失败时的降级方案
                 const resolvedName = resolveFallbackName(item.name, item.rawURL);
                 const fallbackDescription = `${resolvedName || "该模块"}，请自行判断该模块的作用和有效性。`;
                 if (fallbackDescription.includes("已合并至")) return null;
@@ -1865,6 +2036,10 @@
             }
         }
 
+        /**
+         * 异步工作线程并发池 (Worker Pool)
+         * 控制并发数为 CONFIG.CONCURRENCY (8)，边拉取边回调流式渲染首屏
+         */
         async function processModulesStream(items, onItemLoaded) {
             const results = new Array(items.length);
             let currentIndex = 0;
@@ -1894,6 +2069,9 @@
             return `<span class="author">${avatarHTML}${escapeHTML(author.name || "作者信息识别失败")}</span>`;
         }
 
+        /**
+         * 渲染单个模块卡片 DOM 节点
+         */
         function createModuleCard(module, index = 0) {
             const card = document.createElement("article");
             card.className = "module-card glass-element";
@@ -1926,7 +2104,7 @@
                 <div class="module-description">${escapeHTML(module.description)}</div>
                 <div class="card-bottom">
                     <div class="source">
-                        <div class="source-icon">🚀</div>
+                        <div class="source-icon">📍</div>
                         <div class="source-text">
                             <a href="${escapeHTML(sourceURL)}" target="_blank" rel="noopener">
                                 <span>${escapeHTML(sourceName)}</span>
@@ -1939,6 +2117,8 @@
                     </div>
                 </div>
             `;
+            
+            // 复制链接点击事件
             const copyBtn = card.querySelector(".copy-btn");
             if (copyBtn) {
                 copyBtn.addEventListener("click", async (e) => {
@@ -1948,11 +2128,16 @@
                     showToast(success ? "已复制模块 Raw 直链" : "复制失败，请手动复制");
                 });
             }
+            
+            // 图标加载失败时自动回退为默认首字母矢量图标
             const image = card.querySelector(".module-icon img");
             if (image) image.addEventListener("error", () => { image.src = fallbackIcon; }, { once: true });
             return card;
         }
 
+        /**
+         * 分批挂载渲染下一页模块卡片（使用 DocumentFragment 减少重排）
+         */
         function appendNextBatch() {
             if (currentlyRendered >= filteredModules.length) return;
             const fragment = document.createDocumentFragment();
@@ -1966,6 +2151,9 @@
             requestAnimationFrame(updateCardLayerOrder);
         }
 
+        /**
+         * 重新设置并渲染过滤后的列表
+         */
         function renderFilteredList(list) {
             filteredModules = sortPinnedModules(list);
             currentlyRendered = 0;
@@ -1981,6 +2169,9 @@
             appendNextBatch();
         }
 
+        /* =========================================================
+           交叉观察器（IntersectionObserver）实现无限触底加载
+        ========================================================= */
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 appendNextBatch();
@@ -1988,6 +2179,9 @@
         }, { rootMargin: "300px" });
         observer.observe(sentinel);
 
+        /* =========================================================
+           搜索输入与键盘事件处理
+        ========================================================= */
         function filterModules() {
             const keyword = searchInput.value.trim().toLowerCase();
             if (searchInput.value.length > 0) {
@@ -2006,11 +2200,13 @@
             renderFilteredList(result);
         }
 
+        // 搜索框防抖输入监听
         searchInput.addEventListener("input", () => {
             clearTimeout(searchTimer);
             searchTimer = setTimeout(filterModules, 120);
         });
 
+        // 清空搜索
         searchClear.addEventListener("click", (e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -2019,6 +2215,7 @@
             searchInput.focus();
         });
 
+        // 全局键盘快捷键：按 '/' 键快速聚焦搜索，按 'Escape' 退出并清空搜索
         window.addEventListener("keydown", (e) => {
             if (e.key === "/" && document.activeElement !== searchInput) {
                 if (searchInput.disabled) return;
@@ -2032,8 +2229,13 @@
             }
         });
 
+        /* =========================================================
+           数据引导加载核心 (Bootstrap & Cache Sync)
+        ========================================================= */
         async function loadModules() {
             isPageLoading = true;
+            
+            // 清除旧版本或废弃的 localStorage 缓存键
             try {
                 Object.keys(localStorage).forEach(key => {
                     if ((key.startsWith("sr_modules_data_") || key.startsWith("sr_modules_time_")) && 
@@ -2059,6 +2261,7 @@
             const now = Date.now();
             let hasCache = false;
 
+            // 1. 优先读取并挂载本地缓存（秒开体验）
             if (cachedData) {
                 try {
                     allModules = sortPinnedModules(JSON.parse(cachedData));
@@ -2071,6 +2274,7 @@
                     hasCache = true;
                     setSearchState(true);
                     
+                    // 判断缓存是否在有效期内
                     const isExpired = !cachedTime || (now - Number(cachedTime) > CONFIG.CACHE_EXPIRE);
                     if (!isExpired) {
                         statusText.textContent = "已同步";
@@ -2089,6 +2293,7 @@
                 }
             }
 
+            // 2. 缓存失效或无缓存时，执行全量网络拉取与解析
             try {
                 if (!hasCache) {
                     setSearchState(false);
@@ -2097,6 +2302,7 @@
                     setBtnLoading(true); 
                 }
 
+                // 读取主仓库 README (含主备用地址容灾)
                 let repoMarkdown = "";
                 try {
                     repoMarkdown = await fetchRawText(CONFIG.REPO_README_URL, false);
@@ -2108,15 +2314,17 @@
                     } catch (e2) {}
                 }
 
+                // 并行拉取各开源仓库模块及远程图标库
                 const [fmzModules, zirawellModules] = await Promise.all([
                     fetchFMZModules(),
                     fetchZirawellModules(),
                     loadRemoteIcons()
                 ]);
 
-                // 显式标记来自自身仓库的模块
+                // 显式标记来自自己主仓库的模块
                 const localModules = parseRepositoryModules(repoMarkdown).map(m => ({ ...m, fromMyRepo: true }));
 
+                // 聚合去重所有模块源
                 const seenURLs = new Set();
                 let sourceModules = [...localModules, ...fmzModules, ...zirawellModules].filter(item => {
                     if (!item.rawURL || !/\.(?:sgmodule|srmodule|module)(?:$|[?#%])/i.test(item.rawURL) || seenURLs.has(item.rawURL.toLowerCase())) return false;
@@ -2126,12 +2334,13 @@
 
                 if (!sourceModules.length) throw new Error("未解析到有效模块信息");
 
-                // 预排序源队列，确保置顶模块在首屏流式解析中优先请求与展示
+                // 对模块队列预排序，保证置顶核心模块在无缓存的首屏流式加载中率先展示
                 sourceModules = sortPinnedModules(sourceModules);
 
                 let loadedCount = 0;
                 let isFirstStream = true;
 
+                // 启动并发池流式拉取
                 const results = await processModulesStream(sourceModules, (moduleData) => {
                     if (!moduleData) return;
                     loadedCount++;
@@ -2150,6 +2359,7 @@
                     }
                 });
 
+                // 全部拉取完毕，最终排序并写入缓存
                 allModules = sortPinnedModules(results.filter(Boolean));
                 setSearchState(true);
 
@@ -2196,6 +2406,7 @@
             }
         }
 
+        // 页面脚本入口点启动
         loadModules();
     </script>
 </body>
