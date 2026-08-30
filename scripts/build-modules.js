@@ -488,7 +488,7 @@ function generateDescription(metadata, rawText) {
         }
     }
     if (comments.length) return comments.slice(0, 2).join(" ");
-    return `${metadata.name}，请自行判断该模块的作用和有效性。`;
+    return `${metadata.name} 模块信息获取失败，请自行判断该模块的作用和有效性。`;
 }
 
 function resolveIconURL(icon, rawURL) {
