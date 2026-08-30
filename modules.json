@@ -668,7 +668,7 @@
   {
     "name": "ScriptHub.Rocket",
     "rawURL": "https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule",
-    "description": "ScriptHub.Rocket，请自行判断该模块的作用和有效性。",
+    "description": "ScriptHub.Rocket 模块信息获取失败，请自行判断该模块的作用和有效性。",
     "author": {
       "name": "ddgksf2013",
       "url": "https://ddgksf2013.top",
@@ -681,7 +681,7 @@
     "installURL": "shadowrocket://install?module=https%3A%2F%2Fddgksf2013.top%2Fmodule%2FScriptHub.Rocket.sgmodule",
     "isDubious": false,
     "fromMyRepo": true,
-    "_searchKeywords": "scripthub.rocket scripthub.rocket，请自行判断该模块的作用和有效性。 ddgksf2013 ddgksf2013.top"
+    "_searchKeywords": "scripthub.rocket scripthub.rocket 模块信息获取失败，请自行判断该模块的作用和有效性。 ddgksf2013 ddgksf2013.top"
   },
   {
     "name": "流媒体解锁测试",
