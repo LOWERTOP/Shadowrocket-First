@@ -27,7 +27,7 @@ jobs:
       - name: 设置 Node.js 环境
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22 # 已将废弃的 Node 20 升级为最新的 LTS 版本 (Node 22)
 
       - name: 抓取并构建 modules.json
         env:
