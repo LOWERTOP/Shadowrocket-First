@@ -532,6 +532,64 @@ function resolveIconURL(icon, rawURL) {
     } catch { return ""; }
 }
 
+function extractIconKeyFromPath(iconStr) {
+    if (!iconStr) return "";
+    try {
+        const clean = iconStr.split(/[?#]/)[0].trim();
+        const fileName = clean.split("/").pop() || "";
+        return fileName.replace(/\.(?:png|jpg|jpeg|svg|webp)$/i, "").trim().toLowerCase();
+    } catch {
+        return "";
+    }
+}
+
+function resolveModuleIcon(metadata, rawURL) {
+    let rawIcon = metadata.icon ? metadata.icon.trim() : "";
+
+    // 1. 若自带图标声明，提取文件名在已扫描的可靠图标库 (remoteIconsMap) 中校验对齐
+    if (rawIcon) {
+        const key = extractIconKeyFromPath(rawIcon);
+        if (key) {
+            const matchedVerifiedIcon = findIconInMap(key);
+            if (matchedVerifiedIcon) return matchedVerifiedIcon;
+        }
+
+        // 针对 R-Store 常见路径错误 (master 分支 / 相对路径层级错位) 进行修复
+        let fixedIcon = rawIcon;
+        if (fixedIcon.includes("zirawell/R-Store")) {
+            fixedIcon = fixedIcon
+                .replace("/master/", "/main/")
+                .replace("/Rule/Res/Icon/", "/Res/Icon/")
+                .replace("/Icon/", "/Res/Icon/");
+        }
+
+        const resolved = resolveIconURL(fixedIcon, rawURL);
+        // 如果不是错位的相对路径，允许作为候选
+        if (resolved && !resolved.includes("/Rule/Res/Icon/")) {
+            return resolved;
+        }
+    }
+
+    // 2. 自带图标无效或未声明时，按模块名称智能回退
+    if (metadata.declaredName) {
+        const matched = getMatchedIcon(metadata.declaredName);
+        if (matched) return matched;
+    }
+
+    const fileName = getModuleNameFromURL(rawURL);
+    if (fileName) {
+        const matched = getMatchedIcon(fileName);
+        if (matched) return matched;
+    }
+
+    if (metadata.name) {
+        const matched = getMatchedIcon(metadata.name);
+        if (matched) return matched;
+    }
+
+    return "";
+}
+
 function createInstallURL(rawURL) { 
     return "shadowrocket://install?module=" + encodeURIComponent(rawURL); 
 }
@@ -571,20 +629,7 @@ async function fetchModule(item) {
 
         if (description && description.includes("已合并至")) return null;
         
-        let icon = resolveIconURL(metadata.icon, item.rawURL);
-        if (!icon && metadata.declaredName) {
-            const matchedNameIcon = getMatchedIcon(metadata.declaredName);
-            if (matchedNameIcon) icon = resolveIconURL(matchedNameIcon, item.rawURL);
-        }
-        if (!icon) {
-            const fileName = getModuleNameFromURL(item.rawURL) || item.name;
-            const matchedFileIcon = getMatchedIcon(fileName);
-            if (matchedFileIcon) icon = resolveIconURL(matchedFileIcon, item.rawURL);
-        }
-        if (!icon && metadata.name) {
-            const fallbackMatched = getMatchedIcon(metadata.name);
-            if (fallbackMatched) icon = resolveIconURL(fallbackMatched, item.rawURL);
-        }
+        const icon = resolveModuleIcon(metadata, item.rawURL);
 
         const isDubious = isInvalidOr404(rawText) || isInvalidOr404(description);
         let authorAvatar = urlAuthor.username
