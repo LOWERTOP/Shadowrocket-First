@@ -30,6 +30,9 @@
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowMods.png">
 
     <style>
+        /* =========================================================
+           1. 浅色主题设计令牌 (Light Theme Tokens - 默认)
+        ========================================================= */
         :root, [data-theme="light"] {
             --bg-overscroll: #ffffff;
             --bg-page-base: #ffffff;
@@ -120,6 +123,9 @@
             --toast-text: #FFFFFF;
         }
 
+        /* =========================================================
+           2. 暗色主题设计令牌 (Dark Theme Tokens)
+        ========================================================= */
         [data-theme="dark"] {
             --bg-overscroll: #14161a;
             --bg-page-base: #14161a;
@@ -539,27 +545,44 @@
             text-shadow: var(--text-shadow-lg); 
         }
         
-        .module-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 6px; color: var(--text-secondary); font-size: 13px; font-weight: 300; }
+        .module-meta { 
+            display: flex; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 8px; 
+            margin-top: 6px; 
+            color: var(--text-secondary); 
+            font-size: 13px; 
+            font-weight: 300; 
+        }
         .meta-separator { opacity: .4; }
         
-        .status-pill {
-            display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px;
-            border-radius: var(--radius-pill); font-size: 11.5px; font-weight: 500;
-            background: var(--bg-surface); color: var(--text-secondary);
-            border: none; box-shadow: none; 
+        /* 统一的作者与仓库展示样式 */
+        .author, .source-link { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 6px; 
+            color: var(--text-secondary); 
+            font-size: 13px;
+            font-weight: 400; 
+            transition: color 0.2s ease; 
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; 
         }
-        .status-badge-dubious {
-            background: rgba(160, 110, 140, 0.15);
-            color: #a37295; 
+        .author:hover, .source-link:hover { 
+            color: var(--primary); 
+            text-decoration: underline;
         }
-        [data-theme="dark"] .status-badge-dubious {
-            background: rgba(160, 110, 140, 0.22);
-            color: #d19bbd; 
+        .author-avatar { 
+            width: 18px; 
+            height: 18px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            box-shadow: none; 
+            flex-shrink: 0;
         }
-
-        .author { display: inline-flex; align-items: center; gap: 6px; color: var(--text-secondary); font-weight: 400; transition: color 0.2s ease; }
-        .author:hover { color: var(--primary); }
-        .author-avatar { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; box-shadow: none; }
         
         .module-description { 
             margin-top: 16px; 
@@ -579,22 +602,46 @@
             box-shadow: none; 
             flex-shrink: 0;
         }
-        .source { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1; color: var(--text-tertiary); font-size: 13px; font-weight: 400; }
-        .source-icon { 
-            display: inline-flex; align-items: center; justify-content: center; 
-            width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; 
-            background: transparent; border: 1px solid var(--border-subtle); box-shadow: none;
-            font-size: 18px; 
-            filter: var(--content-shadow-sm); 
-            -webkit-mask-image: -webkit-radial-gradient(white, black);
-            mask-image: radial-gradient(white, black);
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+
+        .card-status {
+            display: flex;
+            align-items: center;
+            min-width: 0;
+            flex: 1;
         }
-        .source-text { min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .source-text a { color: var(--text-tertiary); transition: color 0.2s ease; display: inline-block; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .source-text a:hover { color: var(--primary); text-decoration: underline; }
         
+        /* 状态标签样式：低明度、无投影、弱化视觉规范 */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            padding: 0 20px;
+            border-radius: 22px;
+            font-size: 14px;
+            font-weight: 400;
+            white-space: nowrap;
+            background: var(--bg-surface);
+            color: var(--text-tertiary);
+            border: 1px solid var(--border-subtle);
+            box-shadow: none;
+            text-shadow: none;
+            cursor: default;
+            user-select: none;
+        }
+        .status-badge-dubious {
+            background: rgba(160, 110, 140, 0.15);
+            color: #a37295; 
+            border-color: rgba(160, 110, 140, 0.25);
+            text-shadow: none;
+        }
+        [data-theme="dark"] .status-badge-dubious {
+            background: rgba(160, 110, 140, 0.22);
+            color: #d19bbd; 
+            border-color: rgba(160, 110, 140, 0.35);
+            text-shadow: none;
+        }
+
         .action-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
         
         .button { 
@@ -665,8 +712,9 @@
             .search-shortcut { display: none; }
         }
         @media (max-width: 420px) {
-            .card-bottom { flex-direction: column; align-items: stretch; }
-            .source { width: 100%; }
+            .card-bottom { flex-direction: column; align-items: stretch; gap: 12px; }
+            .card-status { width: 100%; }
+            .card-status .status-pill { width: 100%; }
             .action-buttons { width: 100%; justify-content: flex-end; }
         }
     </style>
@@ -759,14 +807,17 @@
     <div id="toast" class="toast">已复制模块链接</div>
 
     <script>
-        const CACHE_VERSION = "2026_README_V1"; 
+        /* =========================================================
+           全局配置与静态 JSON 缓存控制
+        ========================================================= */
+        const CACHE_VERSION = "2026_V2_STATIC"; 
         
         const CONFIG = {
-            DATA_JSON_URL: "./modules.json",
+            DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
             PAGE_SIZE: 30,
             CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`, 
             CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`,
-            CACHE_EXPIRE: 3600 * 2 * 1000
+            CACHE_EXPIRE: 3600 * 2 * 1000 
         };
 
         const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
@@ -860,6 +911,9 @@
             resizeTimer = setTimeout(updateCardLayerOrder, 150);
         });
 
+        /* =========================================================
+           移动端下拉刷新手势
+        ========================================================= */
         let touchStartX = 0, touchStartY = 0, isPulling = false, isRefreshing = false, isPullLocked = false, pullRafId = null;
         const MIN_DRAG_DEADZONE = 30;
         const PULL_TRIGGER_DIFF = 280;
@@ -1046,6 +1100,9 @@
             setInterval(nextNotice, 3800);
         }
 
+        /* =========================================================
+           主题管理系统
+        ========================================================= */
         const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
         refreshCacheBtn.innerHTML = REFRESH_ICON;
 
@@ -1120,6 +1177,9 @@
 
         updateThemeUI();
 
+        /* =========================================================
+           工具函数与 DOM 渲染
+        ========================================================= */
         function escapeHTML(value) {
             return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
@@ -1180,8 +1240,10 @@
             const sourceName = module.sourceName || "开源仓库";
             const sourceURL = module.sourceURL || "#";
 
-            const statusTextVal = module.isDubious ? "自动获取信息失败" : "已获取至最新版本";
+            const statusTextVal = module.isDubious ? "信息获取失败" : "资源获取成功";
             const statusClass = module.isDubious ? "status-badge-dubious" : "";
+
+            const sourceLinkHTML = `<a class="source-link" href="${escapeHTML(sourceURL)}" target="_blank" rel="noopener" title="${escapeHTML(sourceName)}">${escapeHTML(sourceName)}</a>`;
 
             card.innerHTML = `
                 <div class="card-header">
@@ -1192,20 +1254,15 @@
                         <h2 class="module-name">${escapeHTML(module.name)}</h2>
                         <div class="module-meta">
                             ${authorHTML}
-                            <span class="meta-separator">·</span>
-                            <span class="status-pill ${statusClass}">${escapeHTML(statusTextVal)}</span>
+                            <span class="meta-separator">/</span>
+                            ${sourceLinkHTML}
                         </div>
                     </div>
                 </div>
                 <div class="module-description">${escapeHTML(module.description)}</div>
                 <div class="card-bottom">
-                    <div class="source">
-                        <div class="source-icon">📍</div>
-                        <div class="source-text">
-                            <a href="${escapeHTML(sourceURL)}" target="_blank" rel="noopener">
-                                <span>${escapeHTML(sourceName)}</span>
-                            </a>
-                        </div>
+                    <div class="card-status">
+                        <span class="status-pill ${statusClass}">${escapeHTML(statusTextVal)}</span>
                     </div>
                     <div class="action-buttons">
                         <button class="button button-secondary copy-btn" data-url="${escapeHTML(module.rawURL)}">复制链接</button>
@@ -1307,6 +1364,9 @@
             }
         });
 
+        /* =========================================================
+           数据加载入口 (直接读取 modules.json)
+        ========================================================= */
         async function loadModules(forceRefresh = false) {
             isPageLoading = true;
             const svgIcon = refreshCacheBtn.querySelector("svg");
