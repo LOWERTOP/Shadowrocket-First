@@ -22,7 +22,7 @@
 
 # [Shadow Store 模块中心](#shadow-store-模块中心)
 
-> [模块中心](https://github.com/LOWERTOP/Store) 是一个集 **模块索引**、**模块检索**、**一键安装**、**一键复制** 等功能于一体的模块资源平台，目前收录模块已超过千款。网页支持发送快捷方式至桌面，并可正常显示应用图标
+> [模块中心](https://github.com/LOWERTOP/ShadowStore) 是一个集 **模块索引**、**模块检索**、**一键安装**、**一键复制** 等功能于一体的模块资源平台，目前收录模块已超过千款。网页支持发送快捷方式至桌面，并可正常显示应用图标
 > 
 > 相关资源均直接引用自原始开源仓库。特别鸣谢 **[奶思](https://github.com/fmz200)**、**[zirawell](https://github.com/zirawell)**、**[iab0x00](https://github.com/iab0x00)** 等开源作者的分享与持续维护
 > 
