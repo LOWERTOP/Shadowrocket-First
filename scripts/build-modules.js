@@ -184,6 +184,32 @@ async function loadLuestrIcons() {
     }
 }
 
+async function loadZirawellIcons() {
+    try {
+        const res = await fetchWithTimeout(CONFIG.ZIRAWELL_TREE_API, {}, 8000);
+        if (res.ok) {
+            const data = await res.json();
+            if (data && Array.isArray(data.tree)) {
+                for (const item of data.tree) {
+                    const pathName = item.path || "";
+                    if (item.type === "blob" && /^Res\/Icon\//i.test(pathName) && /\.(?:png|jpg|jpeg|svg|webp)$/i.test(pathName)) {
+                        const fileName = pathName.split("/").pop().replace(/\.(?:png|jpg|jpeg|svg|webp)$/i, "");
+                        const url = `https://raw.githubusercontent.com/zirawell/R-Store/main/${pathName}`;
+                        if (!isFlagKey(fileName, url)) {
+                            const cleanName = fileName.trim().toLowerCase();
+                            if (cleanName.length >= 2 && !remoteIconsMap[cleanName]) {
+                                remoteIconsMap[cleanName] = url;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } catch (e) {
+        console.warn("⚠️ Zirawell 图标库拉取跳过:", e.message);
+    }
+}
+
 async function loadRemoteIcons() {
     try {
         const response = await fetchWithTimeout(CONFIG.ICONS_JSON_URL, {}, 8000);
@@ -231,7 +257,10 @@ async function loadRemoteIcons() {
     } catch (e) {
         console.warn("⚠️ JSON 图标库加载异常:", e.message);
     }
-    await loadLuestrIcons();
+    await Promise.all([
+        loadLuestrIcons(),
+        loadZirawellIcons()
+    ]);
 }
 
 function findIconInMap(key) {
