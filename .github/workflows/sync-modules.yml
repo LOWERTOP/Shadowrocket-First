@@ -17,7 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # 授予向 README 分支提交 modules.json 的权限
-
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true' # 强制使用 Node 24 消除官方 Action 的弃用警告
+      
     steps:
       - name: 检出 README 分支代码
         uses: actions/checkout@v4
