@@ -546,7 +546,6 @@ function extractIconKeyFromPath(iconStr) {
 function resolveModuleIcon(metadata, rawURL) {
     let rawIcon = metadata.icon ? metadata.icon.trim() : "";
 
-    // 1. 若自带图标声明，提取文件名在已扫描的可靠图标库 (remoteIconsMap) 中校验对齐
     if (rawIcon) {
         const key = extractIconKeyFromPath(rawIcon);
         if (key) {
@@ -554,7 +553,6 @@ function resolveModuleIcon(metadata, rawURL) {
             if (matchedVerifiedIcon) return matchedVerifiedIcon;
         }
 
-        // 针对 R-Store 常见路径错误 (master 分支 / 相对路径层级错位) 进行修复
         let fixedIcon = rawIcon;
         if (fixedIcon.includes("zirawell/R-Store")) {
             fixedIcon = fixedIcon
@@ -564,13 +562,11 @@ function resolveModuleIcon(metadata, rawURL) {
         }
 
         const resolved = resolveIconURL(fixedIcon, rawURL);
-        // 如果不是错位的相对路径，允许作为候选
         if (resolved && !resolved.includes("/Rule/Res/Icon/")) {
             return resolved;
         }
     }
 
-    // 2. 自带图标无效或未声明时，按模块名称智能回退
     if (metadata.declaredName) {
         const matched = getMatchedIcon(metadata.declaredName);
         if (matched) return matched;
@@ -713,7 +709,7 @@ async function main() {
     const localModules = parseRepositoryModules(repoMarkdown).map(m => ({ ...m, fromMyRepo: true }));
 
     const seenURLs = new Set();
-    let sourceModules = [...localModules, ...fmzModules, ...zirawellModules].filter(item => {
+    let sourceModules = [...localModules, ...zirawellModules, ...fmzModules].filter(item => {
         if (!item.rawURL || !/\.(?:sgmodule|srmodule|module)(?:$|[?#%])/i.test(item.rawURL) || seenURLs.has(item.rawURL.toLowerCase())) return false;
         seenURLs.add(item.rawURL.toLowerCase());
         return true;
