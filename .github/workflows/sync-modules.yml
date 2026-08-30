@@ -22,12 +22,12 @@ jobs:
       
     steps:
       - name: 检出 README 分支代码
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: README
 
       - name: 设置 Node.js 环境
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22 # 已将废弃的 Node 20 升级为最新的 LTS 版本 (Node 22)
 
