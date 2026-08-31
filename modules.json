@@ -288,9 +288,9 @@
     "_searchKeywords": "🆃🅾🅿🅼🅾🅳🆂 证书模块 需要以编辑参数的方式启用并填写完整 lowertop shadowrocket-first"
   },
   {
-    "name": "🆃🅾🅿🅼🅾🅳🆂 主机名反解密",
+    "name": "🆃🅾🅿🅼🅾🅳🆂 排除解密模块",
     "rawURL": "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Anti-MITM.sgmodule",
-    "description": "放置于模块列表最下方并以编辑参数的方式添加所需主机名",
+    "description": "放置于模块列表最下方并以编辑参数的方式添加需要排除解密的主机名。本模块所有功能均包含在本仓【证书模块】内",
     "author": {
       "name": "LOWERTOP",
       "url": "https://github.com/LOWERTOP",
@@ -303,7 +303,7 @@
     "installURL": "shadowrocket://install?module=https%3A%2F%2Fraw.githubusercontent.com%2FLOWERTOP%2FShadowrocket-First%2Fmain%2FAnti-MITM.sgmodule",
     "isDubious": false,
     "fromMyRepo": true,
-    "_searchKeywords": "🆃🅾🅿🅼🅾🅳🆂 主机名反解密 放置于模块列表最下方并以编辑参数的方式添加所需主机名 lowertop shadowrocket-first"
+    "_searchKeywords": "🆃🅾🅿🅼🅾🅳🆂 排除解密模块 放置于模块列表最下方并以编辑参数的方式添加需要排除解密的主机名。本模块所有功能均包含在本仓【证书模块】内 lowertop shadowrocket-first"
   },
   {
     "name": "🅳🅴🆅🆃🅾🅾🅻",
