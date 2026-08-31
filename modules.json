@@ -74,7 +74,7 @@
   {
     "name": "🆃🅾🅿🅼🅾🅳🆂 红果短剧",
     "rawURL": "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/HongGuo.module",
-    "description": "红果短剧部分去广告及放行规则",
+    "description": "红果短剧去除部分广告。模块仅为自用，不承诺完全去除相应服务的广告",
     "author": {
       "name": "LOWERTOP",
       "url": "https://github.com/LOWERTOP",
@@ -87,12 +87,12 @@
     "installURL": "shadowrocket://install?module=https%3A%2F%2Fraw.githubusercontent.com%2FLOWERTOP%2FShadowrocket-First%2Fmain%2FHongGuo.module",
     "isDubious": false,
     "fromMyRepo": true,
-    "_searchKeywords": "🆃🅾🅿🅼🅾🅳🆂 红果短剧 红果短剧部分去广告及放行规则 lowertop shadowrocket-first"
+    "_searchKeywords": "🆃🅾🅿🅼🅾🅳🆂 红果短剧 红果短剧去除部分广告。模块仅为自用，不承诺完全去除相应服务的广告 lowertop shadowrocket-first"
   },
   {
     "name": "🅲🅻🅴🅰🅽🅴🆁",
     "rawURL": "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Cleaner.module",
-    "description": "红果短剧、包子漫画网页、知乎网页及小蚁摄像机等去广告",
+    "description": "红果短剧、包子漫画网页、知乎网页及小蚁摄像机等去广告。模块仅为自用，不承诺完全去除相应服务的广告",
     "author": {
       "name": "LOWERTOP",
       "url": "https://github.com/LOWERTOP",
@@ -105,7 +105,7 @@
     "installURL": "shadowrocket://install?module=https%3A%2F%2Fraw.githubusercontent.com%2FLOWERTOP%2FShadowrocket-First%2Fmain%2FCleaner.module",
     "isDubious": false,
     "fromMyRepo": true,
-    "_searchKeywords": "🅲🅻🅴🅰🅽🅴🆁 红果短剧、包子漫画网页、知乎网页及小蚁摄像机等去广告 lowertop shadowrocket-first"
+    "_searchKeywords": "🅲🅻🅴🅰🅽🅴🆁 红果短剧、包子漫画网页、知乎网页及小蚁摄像机等去广告。模块仅为自用，不承诺完全去除相应服务的广告 lowertop shadowrocket-first"
   },
   {
     "name": "🆃🅾🅿🅼🅾🅳🆂 米家3D打印增强",
