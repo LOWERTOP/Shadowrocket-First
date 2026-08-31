@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#ffffff">
+    
+    <title>站点迁移通知 - ShadowStore</title>
+
+    <script>
+        (function() {
+            let theme = "light";
+            try {
+                const saved = localStorage.getItem("sr_theme_override");
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                theme = (saved === "dark" || saved === "light") ? saved : (prefersDark ? "dark" : "light");
+            } catch (e) {
+                const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+                theme = prefersDark ? "dark" : "light";
+            }
+            document.documentElement.setAttribute("data-theme", theme);
+            const themeColor = theme === 'dark' ? '#14161a' : '#ffffff';
+            const themeMeta = document.querySelector('meta[name="theme-color"]');
+            if (themeMeta) {
+                themeMeta.setAttribute('content', themeColor);
+            }
+            document.documentElement.style.backgroundColor = themeColor;
+        })();
+    </script>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23768a9e%22 stroke=%22rgba(255,255,255,0.6)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
+
+    <style>
+        /* =========================================================
+            1. 浅色主题设计令牌 (Light Theme Tokens)
+        ========================================================= */
+        :root, [data-theme="light"] {
+            --bg-overscroll: #ffffff;
+            --bg-page-base: #ffffff;
+            --bg-page-grad: radial-gradient(circle at 50% 0%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
+            
+            --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
+            --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
+            
+            --glass-border-t: rgba(255, 255, 255, 0.85);
+            --glass-border-r: rgba(255, 255, 255, 0.6);
+            --glass-border-b: rgba(255, 255, 255, 0.05);
+            --glass-border-l: rgba(255, 255, 255, 0.1);
+
+            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
+
+            --content-shadow-lg: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
+            --text-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.18);
+            --content-shadow-sm: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+            --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+            --shadow-glass-ui: 
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
+                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
+                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
+                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
+                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
+                -1px 4px 6px rgba(0, 0, 0, 0.15),        
+                -8px 18px 22px -3px rgba(0, 0, 0, 0.12), 
+                -25px 45px 55px -5px rgba(0, 0, 0, 0.22); 
+
+            --shadow-glass-ui-hover: 
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),     
+                -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
+                -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
+                -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
+                -2.2px 14px 10px -4px rgba(255, 255, 255, 0.18),
+                -1.5px 6px 8px rgba(0, 0, 0, 0.15),
+                -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
+                -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
+
+            --text-primary: #4a4f59;
+            --text-secondary: #7e8596;
+            --text-tertiary: #a1a9ba;
+
+            --primary: #768a9e; 
+            --primary-hover: #62768a;
+            --primary-soft: rgba(118, 138, 158, 0.15);
+            
+            --bg-surface: #e6eaf0;
+            --border-subtle: #d6dbe3;
+
+            --accent-mint: #8eaeb8;  
+            --accent-mint-soft: rgba(142, 174, 184, 0.2);
+            --accent-orange: #c4af9d; 
+            --accent-orange-soft: rgba(196, 175, 157, 0.2);
+
+            --radius-card: 44px;
+            --radius-pill: 9999px;
+            --toast-bg: #4a4f59;
+            --toast-text: #FFFFFF;
+        }
+
+        /* =========================================================
+            2. 暗色主题设计令牌 (Dark Theme Tokens)
+        ========================================================= */
+        [data-theme="dark"] {
+            --bg-overscroll: #14161a;
+            --bg-page-base: #14161a;
+            --bg-page-grad: none;
+            
+            --glass-bg: none;
+            --glass-bg-hover: none;
+            --glass-border-t: transparent;
+            --glass-border-r: transparent;
+            --glass-border-b: transparent;
+            --glass-border-l: transparent;
+
+            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+
+            --content-shadow-lg: none;
+            --text-shadow-lg: none;
+            --content-shadow-sm: none;
+            --text-shadow-sm: none;
+
+            --shadow-glass-ui: 
+                0 6px 20px rgba(0, 0, 0, 0.4),
+                0 2px 6px rgba(0, 0, 0, 0.25);
+
+            --shadow-glass-ui-hover: 
+                0 8px 24px rgba(0, 0, 0, 0.5),
+                0 3px 8px rgba(0, 0, 0, 0.3);
+
+            --text-primary: #dce1e8;
+            --text-secondary: #939aa8;
+            --text-tertiary: #6b7280;
+
+            --primary: #758b9f;
+            --primary-hover: #8da1b5;
+            --primary-soft: rgba(117, 139, 159, 0.2);
+            --bg-surface: #1d2026;
+            --border-subtle: #2b3038;
+
+            --accent-mint: #8bb7c4;
+            --accent-mint-soft: rgba(139, 183, 196, 0.2);
+            --accent-orange: #c4a991;
+            --accent-orange-soft: rgba(196, 169, 145, 0.2);
+
+            --toast-bg: #dce1e8;
+            --toast-text: #14161a;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        html { 
+            margin: 0; padding: 0;
+            background-color: var(--bg-overscroll);
+            background-image: var(--bg-page-grad);
+            background-attachment: fixed;
+            min-height: 100%;
+            transition: background-color 0.4s ease;
+        }
+        
+        body { 
+            margin: 0; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: max(16px, env(safe-area-inset-top)) clamp(16px, 2.5vw, 40px) max(24px, env(safe-area-inset-bottom)); 
+            background: transparent;
+            color: var(--text-primary); 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; 
+            -webkit-font-smoothing: antialiased; 
+            text-rendering: optimizeLegibility; 
+            transition: color 0.4s ease; 
+        }
+
+        button, input { font: inherit; }
+        a { color: inherit; text-decoration: none; }
+        
+        .container { 
+            width: 100%; 
+            max-width: 580px; 
+            margin: auto; 
+            position: relative; 
+        }
+
+        .glass-element {
+            background-color: transparent;
+            background-image: var(--noise-pattern), var(--glass-bg);
+            backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            border-top: 1px solid var(--glass-border-t);
+            border-left: 1px solid var(--glass-border-l);
+            border-right: 1px solid var(--glass-border-r);
+            border-bottom: 1px solid var(--glass-border-b);
+        }
+
+        [data-theme="dark"] .glass-element {
+            background-color: var(--bg-surface);
+            background-image: var(--noise-pattern);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 24px;
+        }
+
+        .theme-toggle { 
+            display: inline-flex; align-items: center; justify-content: center; 
+            width: 44px; height: 44px; padding: 0; margin: 0; 
+            border-radius: 50%; 
+            color: var(--text-secondary); cursor: pointer; 
+            box-shadow: var(--shadow-glass-ui); 
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .theme-toggle:hover { 
+            background-image: var(--noise-pattern), var(--glass-bg-hover);
+            color: var(--text-primary); transform: translateY(-1px); 
+            box-shadow: var(--shadow-glass-ui-hover); 
+        }
+        [data-theme="dark"] .theme-toggle:hover {
+            background-image: var(--noise-pattern);
+            background-color: var(--border-subtle); 
+        }
+        .theme-toggle:active { transform: scale(0.92); }
+        .theme-toggle svg { 
+            display: block; width: 20px; height: 20px; pointer-events: none; stroke-width: 2; 
+        }
+
+        .module-card { 
+            position: relative; 
+            padding: 36px 32px; 
+            border-radius: var(--radius-card); 
+            box-shadow: var(--shadow-glass-ui); 
+            overflow: hidden; 
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-image 0.4s ease;
+            -webkit-transform: translateZ(0); transform: translateZ(0); 
+        }
+
+        .module-card:hover { 
+            transform: translateY(-2px);
+            background-image: var(--noise-pattern), var(--glass-bg-hover);
+            box-shadow: var(--shadow-glass-ui-hover); 
+        }
+        [data-theme="dark"] .module-card:hover {
+            background-image: var(--noise-pattern);
+            background-color: var(--bg-surface); 
+        }
+
+        .card-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 16px; 
+        }
+        
+        .module-icon { 
+            width: 52px; height: 52px; flex: 0 0 52px; border-radius: 50%; 
+            background: var(--bg-surface); 
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12); 
+            border: 1px solid var(--border-subtle);
+        }
+        
+        .card-main { min-width: 0; flex: 1; }
+        .module-name { 
+            margin: 0; font-size: 22px; line-height: 1.3; font-weight: 500;
+            letter-spacing: -0.3px; color: var(--text-primary); word-break: break-word; 
+            text-shadow: var(--text-shadow-lg); 
+        }
+        
+        .tag-pill-badge {
+            display: inline-flex; align-items: center; height: 20px; padding: 0 8px;
+            border-radius: var(--radius-pill); background: var(--bg-surface);
+            color: var(--text-secondary); font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .module-description { 
+            margin-top: 22px; 
+            color: var(--text-secondary); 
+            font-size: 15.5px; 
+            line-height: 1.7; 
+            font-weight: 300; 
+            word-break: break-word; 
+            text-shadow: var(--text-shadow-sm); 
+        }
+
+        .migration-highlight {
+            display: block;
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: 18px;
+            background: var(--primary-soft);
+            color: var(--primary);
+            font-weight: 500;
+            word-break: break-all;
+            font-size: 14.5px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .card-bottom { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 12px; 
+            margin-top: 28px; 
+            padding-top: 24px; 
+            border-top: 1px solid var(--border-subtle); 
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            padding: 0 18px;
+            border-radius: 22px;
+            font-size: 13.5px;
+            font-weight: 400;
+            white-space: nowrap;
+            background: var(--bg-surface);
+            color: var(--text-tertiary);
+            border: 1px solid var(--border-subtle);
+            cursor: default;
+            user-select: none;
+        }
+
+        .action-buttons { display: flex; align-items: center; gap: 8px; }
+        
+        .button { 
+            display: inline-flex; align-items: center; justify-content: center; 
+            height: 44px; padding: 0 20px; border: 0; border-radius: 22px; 
+            font-size: 14px; font-weight: 500; white-space: nowrap; cursor: pointer; 
+            text-decoration: none; transition: all 0.2s ease; 
+        }
+        .button:active { transform: scale(0.96); }
+        
+        .button-secondary { 
+            background: var(--bg-surface); color: var(--text-primary); 
+            border: 1px solid var(--border-subtle);
+            text-shadow: var(--text-shadow-sm); 
+        }
+        .button-secondary:hover { background: var(--border-subtle); }
+        
+        .button-primary { 
+            background: var(--primary); color: #FFFFFF; 
+            box-shadow: 0 4px 12px var(--primary-soft); 
+            text-shadow: var(--text-shadow-sm); 
+        }
+        .button-primary:hover { 
+            background: var(--primary-hover); transform: translateY(-1px); 
+        }
+        
+        .footer { 
+            margin-top: auto;
+            padding: 24px 0 8px; 
+            color: var(--text-tertiary); 
+            text-align: center; 
+            font-size: 12.5px; 
+            font-weight: 300; 
+        }
+        
+        .toast { 
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); 
+            z-index: 999999; 
+            padding: 12px 24px; border-radius: var(--radius-pill); 
+            background: var(--toast-bg); color: var(--toast-text); 
+            font-size: 14px; font-weight: 400; box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+            opacity: 0; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
+            pointer-events: none; 
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+        @media (max-width: 480px) {
+            .module-card { padding: 26px 20px; border-radius: 36px; }
+            .card-bottom { flex-direction: column; align-items: stretch; gap: 12px; }
+            .status-pill { width: 100%; }
+            .action-buttons { width: 100%; justify-content: stretch; gap: 8px; }
+            .action-buttons .button { flex: 1; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
+        </div>
+
+        <main>
+            <article class="module-card glass-element">
+                <div class="card-header">
+                    <div class="module-icon" aria-hidden="true">🚀</div>
+                    <div class="card-main">
+                        <h1 class="module-name">迁移通知</h1>
+                        <span class="tag-pill-badge">ShadowStore</span>
+                    </div>
+                </div>
+
+                <div class="module-description">
+                    本站已经迁移至新域名，本页面将在不久后移除。请及时更新并保存您的浏览器书签以防失联。
+                    <span class="migration-highlight" id="targetUrlText">https://shadowstore.dpdns.org/</span>
+                </div>
+
+                <div class="card-bottom">
+                    <div class="card-status">
+                        <span class="status-pill">旧版页面即将停用</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="copyBtn" class="button button-secondary" type="button">复制新地址</button>
+                        <a id="targetBtn" class="button button-primary" href="https://shadowstore.dpdns.org/">立即前往</a>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <footer class="footer">
+            ShadowStore
+        </footer>
+    </div>
+    
+    <div id="toast" class="toast">已复制新站点地址</div>
+
+    <script>
+        const TARGET_URL = "https://shadowstore.dpdns.org/";
+
+        const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
+        const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+        const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>`;
+
+        const themeToggleBtn = document.getElementById("themeToggle");
+        const copyBtn = document.getElementById("copyBtn");
+        const toast = document.getElementById("toast");
+        let toastTimer = null;
+
+        function showToast(text) {
+            clearTimeout(toastTimer);
+            toast.textContent = text;
+            toast.classList.add("show");
+            toastTimer = setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2000);
+        }
+
+        async function copyToClipboard(text) {
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(text);
+                    return true;
+                }
+            } catch (e) {}
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            let success = false;
+            try { success = document.execCommand("copy"); } catch (e) {}
+            document.body.removeChild(textArea);
+            return success;
+        }
+
+        copyBtn.addEventListener("click", async () => {
+            const success = await copyToClipboard(TARGET_URL);
+            showToast(success ? "已复制新站点地址" : "复制失败，请手动长按复制");
+        });
+
+        /* =========================================================
+            主题系统 (智能反色切换)
+        ========================================================= */
+        const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+        function getThemeMode() {
+            try {
+                const saved = localStorage.getItem("sr_theme_override");
+                if (saved === "dark" || saved === "light" || saved === "auto") return saved;
+            } catch (e) {}
+            return "auto"; 
+        }
+
+        function getEffectiveTheme(mode) {
+            if (mode === "dark" || mode === "light") return mode;
+            if (mode === "auto") return mediaQueryDark.matches ? "dark" : "light";
+            return "light";
+        }
+
+        function updateThemeUI() {
+            const mode = getThemeMode();
+            const currentTheme = getEffectiveTheme(mode);
+            document.documentElement.setAttribute("data-theme", currentTheme);
+            
+            const themeColor = currentTheme === "dark" ? "#14161a" : "#ffffff";
+            const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+            if (themeColorMeta) {
+                themeColorMeta.setAttribute("content", themeColor);
+            }
+            document.documentElement.style.backgroundColor = themeColor;
+
+            if (mode === "light") {
+                themeToggleBtn.innerHTML = SUN_ICON;
+                const desc = "当前：浅色模式（点击切换深色）";
+                themeToggleBtn.setAttribute("title", desc);
+                themeToggleBtn.setAttribute("aria-label", desc);
+            } else if (mode === "dark") {
+                themeToggleBtn.innerHTML = MOON_ICON;
+                const desc = "当前：深色模式（点击切换自动跟随）";
+                themeToggleBtn.setAttribute("title", desc);
+                themeToggleBtn.setAttribute("aria-label", desc);
+            } else {
+                themeToggleBtn.innerHTML = SYSTEM_ICON;
+                const desc = "当前：自动跟随系统（点击切换反色模式）";
+                themeToggleBtn.setAttribute("title", desc);
+                themeToggleBtn.setAttribute("aria-label", desc);
+            }
+        }
+
+        mediaQueryDark.addEventListener("change", () => {
+            if (getThemeMode() === "auto") updateThemeUI();
+        });
+
+        themeToggleBtn.addEventListener("click", () => {
+            const currentMode = getThemeMode();
+            const isSystemDark = mediaQueryDark.matches;
+            let nextMode, toastText;
+
+            if (currentMode === "auto") {
+                if (isSystemDark) {
+                    nextMode = "light";
+                    toastText = "已切换为浅色模式";
+                } else {
+                    nextMode = "dark";
+                    toastText = "已切换为深色模式";
+                }
+            } else if (currentMode === "light") {
+                if (isSystemDark) {
+                    nextMode = "dark";
+                    toastText = "已切换为深色模式";
+                } else {
+                    nextMode = "auto";
+                    toastText = "已切换为自动跟随系统";
+                }
+            } else {
+                if (isSystemDark) {
+                    nextMode = "auto";
+                    toastText = "已切换为自动跟随系统";
+                } else {
+                    nextMode = "light";
+                    toastText = "已切换为浅色模式";
+                }
+            }
+
+            try {
+                localStorage.setItem("sr_theme_override", nextMode);
+            } catch (e) {}
+            updateThemeUI();
+            showToast(toastText);
+        });
+
+        updateThemeUI();
+    </script>
+</body>
+</html>
