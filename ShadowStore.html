@@ -4,18 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#ffffff">
     
-    <title>ShadowStore</title>
+    <title>站点迁移通知 - ShadowStore</title>
 
     <script>
         (function() {
-            const saved = localStorage.getItem("sr_theme_override");
-            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            const theme = saved === "dark" || saved === "light" ? saved : (saved === "auto" ? (prefersDark ? "dark" : "light") : "light");
+            let theme = "light";
+            try {
+                const saved = localStorage.getItem("sr_theme_override");
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                theme = (saved === "dark" || saved === "light") ? saved : (prefersDark ? "dark" : "light");
+            } catch (e) {
+                const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+                theme = prefersDark ? "dark" : "light";
+            }
             document.documentElement.setAttribute("data-theme", theme);
             const themeColor = theme === 'dark' ? '#14161a' : '#ffffff';
             const themeMeta = document.querySelector('meta[name="theme-color"]');
@@ -27,11 +33,10 @@
     </script>
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23768a9e%22 stroke=%22rgba(255,255,255,0.6)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowMods.png">
 
     <style>
         /* =========================================================
-           1. 浅色主题设计令牌 (Light Theme Tokens - 默认)
+            1. 浅色主题设计令牌 (Light Theme Tokens)
         ========================================================= */
         :root, [data-theme="light"] {
             --bg-overscroll: #ffffff;
@@ -56,7 +61,7 @@
             --shadow-glass-ui: 
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),      
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
                 -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
                 -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
                 -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
@@ -68,7 +73,7 @@
             --shadow-glass-ui-hover: 
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),      
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),     
                 -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
                 -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
                 -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
@@ -76,30 +81,6 @@
                 -1.5px 6px 8px rgba(0, 0, 0, 0.15),
                 -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
                 -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
-
-            --shadow-search: 
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),      
-                -1.7px 4.7px 3px -2px rgba(255, 255, 255, 0.22),
-                -0.9px 5.3px 4px -2.3px rgba(255, 255, 255, 0.20),
-                -2.3px 6.7px 5px -2.7px rgba(255, 255, 255, 0.17),
-                -1.2px 8px 6px -2.7px rgba(255, 255, 255, 0.11),
-                -0.7px 2.7px 4px rgba(0, 0, 0, 0.10),        
-                -5.3px 12px 14.7px -2px rgba(0, 0, 0, 0.08), 
-                -16.7px 30px 36.7px -3.3px rgba(0, 0, 0, 0.15); 
-
-            --shadow-search-hover: 
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),      
-                -2px 5.7px 3.3px -2px rgba(255, 255, 255, 0.22),
-                -1.1px 6.3px 4.7px -2.3px rgba(255, 255, 255, 0.20),
-                -2.8px 8px 6px -2.7px rgba(255, 255, 255, 0.17),
-                -1.5px 9.3px 6.7px -2.7px rgba(255, 255, 255, 0.12),
-                -1px 4px 5.3px rgba(0, 0, 0, 0.10),
-                -6.7px 13.3px 16.7px -2px rgba(0, 0, 0, 0.08),
-                -20px 33.3px 40px -4px rgba(0, 0, 0, 0.17);
 
             --text-primary: #4a4f59;
             --text-secondary: #7e8596;
@@ -124,7 +105,7 @@
         }
 
         /* =========================================================
-           2. 暗色主题设计令牌 (Dark Theme Tokens)
+            2. 暗色主题设计令牌 (Dark Theme Tokens)
         ========================================================= */
         [data-theme="dark"] {
             --bg-overscroll: #14161a;
@@ -153,14 +134,6 @@
                 0 8px 24px rgba(0, 0, 0, 0.5),
                 0 3px 8px rgba(0, 0, 0, 0.3);
 
-            --shadow-search: 
-                0 4px 13.3px rgba(0, 0, 0, 0.27),
-                0 1.3px 4px rgba(0, 0, 0, 0.17);
-
-            --shadow-search-hover: 
-                0 5.3px 16px rgba(0, 0, 0, 0.33),
-                0 2px 5.3px rgba(0, 0, 0, 0.20);
-
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
             --text-tertiary: #6b7280;
@@ -183,20 +156,20 @@
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         html { 
-            margin: 0; padding: 0; overflow-y: scroll; scrollbar-gutter: stable; 
+            margin: 0; padding: 0;
             background-color: var(--bg-overscroll);
             background-image: var(--bg-page-grad);
             background-attachment: fixed;
             min-height: 100%;
-            overscroll-behavior-y: none;
-            -webkit-overscroll-behavior-y: none;
             transition: background-color 0.4s ease;
         }
         
         body { 
             margin: 0; 
             min-height: 100vh;
-            padding: max(16px, env(safe-area-inset-top)) clamp(16px, 2.5vw, 40px) max(36px, env(safe-area-inset-bottom)); 
+            display: flex;
+            flex-direction: column;
+            padding: max(16px, env(safe-area-inset-top)) clamp(16px, 2.5vw, 40px) max(24px, env(safe-area-inset-bottom)); 
             background: transparent;
             color: var(--text-primary); 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; 
@@ -210,12 +183,9 @@
         
         .container { 
             width: 100%; 
-            max-width: clamp(1080px, 95vw, 2560px); 
-            margin: 0 auto; 
+            max-width: 580px; 
+            margin: auto; 
             position: relative; 
-            will-change: transform;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
         }
 
         .glass-element {
@@ -223,7 +193,6 @@
             background-image: var(--noise-pattern), var(--glass-bg);
             backdrop-filter: blur(32px) saturate(120%) brightness(102%);
             -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
-            border: none;
             border-top: 1px solid var(--glass-border-t);
             border-left: 1px solid var(--glass-border-l);
             border-right: 1px solid var(--glass-border-r);
@@ -238,68 +207,11 @@
             border: 1px solid var(--border-subtle);
         }
 
-        .pull-refresh-indicator {
-            position: fixed;
-            top: max(8px, env(safe-area-inset-top));
-            left: 50%;
-            transform: translate3d(-50%, -60px, 0);
-            z-index: 999999;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-            height: 32px;
-            padding: 0 14px;
-            border-radius: var(--radius-pill);
-            box-shadow: var(--shadow-glass-ui);
-            color: var(--text-secondary);
-            font-size: 12.5px;
-            font-weight: 400;
-            pointer-events: none;
-            opacity: 0;
-            will-change: transform, opacity;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 24px;
         }
-        .ptr-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 14px;
-            height: 14px;
-            color: var(--primary);
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .ptr-icon svg { width: 100%; height: 100%; }
-        .ptr-icon.rotate { transform: rotate(180deg); }
-
-        .header { padding: 24px 0 18px; }
-        .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-        .brand-wrapper { display: flex; align-items: center; gap: 10px; }
-
-        .title { 
-            margin: 0; font-size: 26px; line-height: 1.2; font-weight: 300;
-            letter-spacing: -0.6px; display: flex; align-items: center; gap: 10px; 
-            text-shadow: none; 
-        }
-        .title a { transition: opacity 0.2s ease; }
-        .title a:hover { opacity: 0.85; }
-
-        .tag-pill-badge {
-            display: inline-flex; align-items: center; height: 22px; padding: 0 10px;
-            border-radius: var(--radius-pill); background: var(--bg-surface);
-            color: var(--text-secondary); font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
-            border: none; box-shadow: none; 
-            text-shadow: none; 
-        }
-
-        .subtitle { 
-            margin-top: 8px; color: var(--text-secondary); font-size: 14px; 
-            line-height: 1.5; font-weight: 300; 
-            text-shadow: none; 
-        }
-        
-        .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
         .theme-toggle { 
             display: inline-flex; align-items: center; justify-content: center; 
@@ -319,197 +231,17 @@
             background-color: var(--border-subtle); 
         }
         .theme-toggle:active { transform: scale(0.92); }
-        .theme-toggle.active { 
-            color: var(--primary); background-color: var(--primary-soft); 
-        }
-        
         .theme-toggle svg { 
             display: block; width: 20px; height: 20px; pointer-events: none; stroke-width: 2; 
-            filter: none; 
-        }
-        
-        @keyframes spinNode { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .spin-anim { 
-            animation: spinNode 1s linear infinite; 
-            transform-origin: 50% 50%; 
-            transform-box: view-box; 
-        }
-
-        .search-wrapper { 
-            position: sticky; 
-            top: 0; 
-            top: env(safe-area-inset-top, 0px); 
-            z-index: 999999; 
-            padding: 8px 0 12px; margin-bottom: 12px; 
-            background: transparent; 
-            display: flex;
-            align-items: center;
-            width: 100%;
-            -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); 
-        }
-        .search-wrapper.is-sticky { z-index: 999999; }
-
-        .search-box-inner {
-            position: relative; flex: 1 1 auto; min-width: 0; height: 44px; display: flex; align-items: center; gap: 8px; 
-            border-radius: 22px; 
-            box-shadow: var(--shadow-search); 
-            padding: 6px; cursor: text;
-            -webkit-transform: translateZ(0); transform: translateZ(0);
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-
-        .search-box-inner:focus-within {
-            background-image: var(--noise-pattern), var(--glass-bg-hover);
-            border-color: rgba(255,255,255,0.8); 
-            box-shadow: var(--shadow-search-hover); 
-        }
-        
-        [data-theme="dark"] .search-box-inner:focus-within {
-            background-image: var(--noise-pattern);
-            background-color: var(--border-subtle);
-            border-color: var(--text-tertiary); 
-            box-shadow: var(--shadow-search-hover);
-        }
-        
-        .search-icon { 
-            width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%;
-            background: transparent; box-shadow: none; border: 1px solid var(--border-subtle);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px; pointer-events: none; color: var(--primary); 
-            filter: none; 
-        }
-        
-        .input-wrapper {
-            position: relative; flex: 1; min-width: 0;
-            height: 32px; overflow: hidden; 
-            display: block;
-        }
-
-        .search { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            display: block; line-height: 32px;
-            padding: 0; margin: 0; border: 0; outline: none; background: transparent;
-            color: var(--text-primary); font-size: 15px; font-weight: 400; vertical-align: middle;
-            -webkit-appearance: none; appearance: none; border-radius: 0;
-            z-index: 2;
-            text-shadow: none; 
-        }
-        
-        .search::placeholder { color: transparent; }
-        .search:disabled { cursor: not-allowed; }
-
-        .placeholder-track {
-            position: absolute; top: 0; left: 0; width: 100%;
-            display: flex; flex-direction: column;
-            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-            z-index: 1; pointer-events: none;
-        }
-        
-        .placeholder-item {
-            height: 32px; line-height: 32px;
-            color: var(--text-tertiary); font-size: 15px; font-weight: 300;
-            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-            text-shadow: none; 
-        }
-
-        .search:focus ~ .placeholder-track,
-        .search:not(:placeholder-shown) ~ .placeholder-track {
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-        
-        .search:not(:focus):placeholder-shown ~ .placeholder-track {
-            opacity: 1;
-            transition: opacity 0.3s ease 0.1s;
-        }
-
-        .search-shortcut, .search-clear { 
-            width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            background: transparent; border: none; box-shadow: none;
-            font-size: 12px; font-weight: 600; transition: all 0.2s ease; 
-        }
-        .search-shortcut { color: var(--text-tertiary); pointer-events: none; }
-        .search-clear { display: none; color: var(--primary); cursor: pointer; padding: 0; }
-        .search-clear:hover { color: var(--text-primary); }
-        .search-clear.visible { display: flex; }
-
-        .back-to-top-btn {
-            width: 0;
-            height: 44px;
-            padding: 0;
-            margin-left: 0;
-            border-color: transparent !important;
-            box-shadow: none;
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.6);
-            pointer-events: none;
-            overflow: hidden;
-            flex-shrink: 0;
-            transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        margin-left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        visibility 0.35s ease,
-                        box-shadow 0.35s ease,
-                        border-color 0.35s ease;
-        }
-        .back-to-top-btn.visible {
-            width: 44px;
-            margin-left: 10px;
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-            pointer-events: auto;
-            box-shadow: var(--shadow-search);
-            border-top-color: var(--glass-border-t) !important;
-            border-left-color: var(--glass-border-l) !important;
-            border-right-color: var(--glass-border-r) !important;
-            border-bottom-color: var(--glass-border-b) !important;
-        }
-        [data-theme="dark"] .back-to-top-btn.visible {
-            border-color: var(--border-subtle) !important;
-        }
-        .back-to-top-btn.visible:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-search-hover);
-        }
-        .back-to-top-btn.visible:active { transform: scale(0.92); }
-
-        .status { 
-            display: flex; align-items: center; justify-content: space-between; 
-            min-height: 22px; margin: 0 6px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
-            text-shadow: none; 
-        }
-        .status-left { display: flex; align-items: center; gap: 8px; }
-        .status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint-soft); }
-        .status-dot.loading { background: var(--accent-orange); box-shadow: 0 0 0 3px var(--accent-orange-soft); animation: statusPulse 1.2s infinite; }
-        .status-dot.error { background: #c8a3ab; box-shadow: 0 0 0 3px rgba(200, 163, 171, 0.2); }
-        @keyframes statusPulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
-        
-        .modules { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); 
-            gap: 44px; 
-            align-items: stretch; 
-            padding-bottom: 24px; 
         }
 
         .module-card { 
             position: relative; 
-            padding: 28px; 
-            width: auto;
-            height: 100%;
-            min-width: 0;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
+            padding: 36px 32px; 
             border-radius: var(--radius-card); 
             box-shadow: var(--shadow-glass-ui); 
             overflow: hidden; 
-            content-visibility: auto; 
-            contain-intrinsic-size: 0 180px; 
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-image 0.4s ease;
             -webkit-transform: translateZ(0); transform: translateZ(0); 
         }
 
@@ -523,126 +255,86 @@
             background-color: var(--bg-surface); 
         }
 
-        .card-header { display: flex; align-items: center; gap: 20px; }
+        .card-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 16px; 
+        }
         
         .module-icon { 
-            width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; 
-            background: transparent; overflow: hidden; 
+            width: 52px; height: 52px; flex: 0 0 52px; border-radius: 50%; 
+            background: var(--bg-surface); 
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px;
             box-shadow: 0 6px 16px rgba(0,0,0,0.12); 
-            border: none; 
-            -webkit-mask-image: -webkit-radial-gradient(white, black);
-            mask-image: radial-gradient(white, black);
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            will-change: transform;
+            border: 1px solid var(--border-subtle);
         }
-        .module-icon img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         
         .card-main { min-width: 0; flex: 1; }
         .module-name { 
-            margin: 0; font-size: 20px; line-height: 1.3; font-weight: 400;
-            letter-spacing: -0.2px; color: var(--text-primary); word-break: break-word; 
+            margin: 0; font-size: 22px; line-height: 1.3; font-weight: 500;
+            letter-spacing: -0.3px; color: var(--text-primary); word-break: break-word; 
             text-shadow: var(--text-shadow-lg); 
         }
         
-        .module-meta { 
-            display: flex; 
-            align-items: center; 
-            flex-wrap: wrap; 
-            gap: 8px; 
-            margin-top: 6px; 
-            color: var(--text-secondary); 
-            font-size: 13px; 
-            font-weight: 300; 
+        .tag-pill-badge {
+            display: inline-flex; align-items: center; height: 20px; padding: 0 8px;
+            border-radius: var(--radius-pill); background: var(--bg-surface);
+            color: var(--text-secondary); font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+            margin-top: 4px;
         }
-        .meta-separator { opacity: .4; }
-        
-        /* 统一的作者与仓库展示样式 */
-        .author, .source-link { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 6px; 
-            color: var(--text-secondary); 
-            font-size: 13px;
-            font-weight: 400; 
-            transition: color 0.2s ease; 
-            max-width: 180px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap; 
-        }
-        .author:hover, .source-link:hover { 
-            color: var(--primary); 
-            text-decoration: underline;
-        }
-        .author-avatar { 
-            width: 18px; 
-            height: 18px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            box-shadow: none; 
-            flex-shrink: 0;
-        }
-        
+
         .module-description { 
-            margin-top: 16px; 
+            margin-top: 22px; 
             color: var(--text-secondary); 
-            font-size: 14.5px; 
-            line-height: 1.6; 
+            font-size: 15.5px; 
+            line-height: 1.7; 
             font-weight: 300; 
             word-break: break-word; 
             text-shadow: var(--text-shadow-sm); 
-            flex: 1 1 auto;
-        }
-        
-        .card-bottom { 
-            display: flex; align-items: center; justify-content: space-between; gap: 12px; 
-            margin-top: 24px; padding-top: 24px; 
-            border-top: 1px solid var(--border-subtle); 
-            box-shadow: none; 
-            flex-shrink: 0;
         }
 
-        .card-status {
-            display: flex;
-            align-items: center;
-            min-width: 0;
-            flex: 1;
+        .migration-highlight {
+            display: block;
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: 18px;
+            background: var(--primary-soft);
+            color: var(--primary);
+            font-weight: 500;
+            word-break: break-all;
+            font-size: 14.5px;
+            border: 1px solid var(--border-subtle);
         }
-        
-        /* 状态标签样式：低明度、无投影、弱化视觉规范 */
+
+        .card-bottom { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 12px; 
+            margin-top: 28px; 
+            padding-top: 24px; 
+            border-top: 1px solid var(--border-subtle); 
+        }
+
         .status-pill {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             height: 44px;
-            padding: 0 20px;
+            padding: 0 18px;
             border-radius: 22px;
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 400;
             white-space: nowrap;
             background: var(--bg-surface);
             color: var(--text-tertiary);
             border: 1px solid var(--border-subtle);
-            box-shadow: none;
-            text-shadow: none;
             cursor: default;
             user-select: none;
         }
-        .status-badge-dubious {
-            background: rgba(160, 110, 140, 0.15);
-            color: #a37295; 
-            border-color: rgba(160, 110, 140, 0.25);
-            text-shadow: none;
-        }
-        [data-theme="dark"] .status-badge-dubious {
-            background: rgba(160, 110, 140, 0.22);
-            color: #d19bbd; 
-            border-color: rgba(160, 110, 140, 0.35);
-            text-shadow: none;
-        }
 
-        .action-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .action-buttons { display: flex; align-items: center; gap: 8px; }
         
         .button { 
             display: inline-flex; align-items: center; justify-content: center; 
@@ -654,42 +346,28 @@
         
         .button-secondary { 
             background: var(--bg-surface); color: var(--text-primary); 
-            border: 1px solid var(--border-subtle); box-shadow: none; 
+            border: 1px solid var(--border-subtle);
             text-shadow: var(--text-shadow-sm); 
         }
         .button-secondary:hover { background: var(--border-subtle); }
         
         .button-primary { 
             background: var(--primary); color: #FFFFFF; 
-            border: none; box-shadow: 0 4px 12px var(--primary-soft); 
+            box-shadow: 0 4px 12px var(--primary-soft); 
             text-shadow: var(--text-shadow-sm); 
         }
         .button-primary:hover { 
             background: var(--primary-hover); transform: translateY(-1px); 
         }
         
-        .sentinel { height: 20px; margin: 10px 0; }
-        .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 15px; font-weight: 300; grid-column: 1 / -1; width: 100%; }
-        .empty-icon { 
-            width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 50%;
-            border: 1px solid var(--border-subtle); background: var(--bg-surface);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 24px; opacity: 1; 
-            filter: none; 
+        .footer { 
+            margin-top: auto;
+            padding: 24px 0 8px; 
+            color: var(--text-tertiary); 
+            text-align: center; 
+            font-size: 12.5px; 
+            font-weight: 300; 
         }
-        .empty-error { margin-top: 8px; color: var(--text-tertiary); font-size: 13px; }
-        
-        .loading-card { 
-            height: 180px; 
-            width: auto; 
-            min-width: 0;
-            border-radius: var(--radius-card); 
-            box-shadow: var(--shadow-glass-ui); 
-            animation: skeletonPulse 1.4s infinite; 
-        }
-        @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
-        
-        .footer { padding: 36px 0 16px; color: var(--text-tertiary); text-align: center; font-size: 12.5px; line-height: 1.6; font-weight: 300; }
         
         .toast { 
             position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); 
@@ -698,496 +376,79 @@
             background: var(--toast-bg); color: var(--toast-text); 
             font-size: 14px; font-weight: 400; box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
             opacity: 0; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
-            pointer-events: none; border: none; 
+            pointer-events: none; 
         }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-        @media (max-width: 600px) {
-            body { padding-left: 12px; padding-right: 12px; }
-            .title { font-size: 22px; }
-            .modules { grid-template-columns: 1fr; gap: 44px; }
-            .module-card { padding: 22px; border-radius: 42px; }
-            .module-description { flex: none; }
-            .card-bottom { margin-top: 20px; padding-top: 20px; }
-            .search-shortcut { display: none; }
-        }
-        @media (max-width: 420px) {
+        @media (max-width: 480px) {
+            .module-card { padding: 26px 20px; border-radius: 36px; }
             .card-bottom { flex-direction: column; align-items: stretch; gap: 12px; }
-            .card-status { width: 100%; }
-            .card-status .status-pill { width: 100%; }
-            .action-buttons { width: 100%; justify-content: flex-end; }
+            .status-pill { width: 100%; }
+            .action-buttons { width: 100%; justify-content: stretch; gap: 8px; }
+            .action-buttons .button { flex: 1; }
         }
     </style>
 </head>
 
 <body>
-    <div id="pullRefreshIndicator" class="pull-refresh-indicator glass-element">
-        <span id="ptrIcon" class="ptr-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-        </span>
-        <span id="ptrText">继续下拉将强制刷新本站</span>
-    </div>
+    <div class="container">
+        <div class="top-bar">
+            <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
+        </div>
 
-    <div id="pageContainer" class="container">
-        <header class="header">
-            <div class="header-top">
-                <div class="brand-wrapper">
-                    <h1 class="title">
-                        <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener">模块中心</a>
+        <main>
+            <article class="module-card glass-element">
+                <div class="card-header">
+                    <div class="module-icon" aria-hidden="true">🚀</div>
+                    <div class="card-main">
+                        <h1 class="module-name">迁移通知</h1>
                         <span class="tag-pill-badge">ShadowStore</span>
-                    </h1>
-                </div>
-                <div class="theme-controls">
-                    <button id="refreshCacheBtn" class="theme-toggle glass-element" aria-label="强制刷新缓存" title="强制拉取最新数据"></button>
-                    <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
-                    <a id="githubStarBtn" class="theme-toggle glass-element" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
-                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="subtitle">
-                开源社区资源聚合检索平台
-            </div>
-        </header>
-
-        <div class="search-wrapper">
-            <label for="search" class="search-box-inner glass-element">
-                <div class="search-icon">🔍</div>
-                
-                <div class="input-wrapper">
-                    <input id="search" class="search" type="text" inputmode="search" placeholder=" " autocomplete="off" spellcheck="false" disabled>
-                    
-                    <div id="placeholderTrack" class="placeholder-track">
-                        <div id="mainPlaceholder" class="placeholder-item">请在加载完成后执行搜索...</div>
-                        <div class="placeholder-item">📣 相关资源均来源于开源社区</div>
-                        <div class="placeholder-item">📣 所有权利责任归原作者所有</div>
-                        <div class="placeholder-item">📣 静态加速已就绪，秒速检索</div>
                     </div>
                 </div>
 
-                <span class="search-shortcut">/</span>
-                <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
-            </label>
+                <div class="module-description">
+                    本站已经迁移至新域名，本页面将在不久后移除。请及时更新并保存您的浏览器书签以防失联。
+                    <span class="migration-highlight" id="targetUrlText">https://shadowstore.dpdns.org/</span>
+                </div>
 
-            <button id="backToTopBtn" class="theme-toggle glass-element back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="19" x2="12" y2="5"></line>
-                    <polyline points="5 12 12 5 19 12"></polyline>
-                </svg>
-            </button>
-        </div>
-
-        <div class="status">
-            <div class="status-left">
-                <span id="statusDot" class="status-dot loading"></span>
-                <span id="statusText">正在获取最新资源，请稍后...</span>
-            </div>
-            <div id="countText"></div>
-        </div>
-
-        <main id="modules" class="modules">
-            <div class="loading-card glass-element"></div>
-            <div class="loading-card glass-element"></div>
-            <div class="loading-card glass-element"></div>
+                <div class="card-bottom">
+                    <div class="card-status">
+                        <span class="status-pill">旧版页面即将停用</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="copyBtn" class="button button-secondary" type="button">复制新地址</button>
+                        <a id="targetBtn" class="button button-primary" href="https://shadowstore.dpdns.org/">立即前往</a>
+                    </div>
+                </div>
+            </article>
         </main>
-        
-        <div id="sentinel" class="sentinel"></div>
 
         <footer class="footer">
-            鸣谢所有开源社区作者<br>
-            著作权归资源作者所有
+            ShadowStore
         </footer>
     </div>
     
-    <div id="toast" class="toast">已复制模块链接</div>
+    <div id="toast" class="toast">已复制新站点地址</div>
 
     <script>
-        /* =========================================================
-           全局配置与静态 JSON 缓存控制
-        ========================================================= */
-        const CACHE_VERSION = "2026_V2_STATIC"; 
-        
-        const CONFIG = {
-            DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
-            PAGE_SIZE: 30,
-            CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`, 
-            CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`,
-            CACHE_EXPIRE: 3600 * 2 * 1000 
-        };
+        const TARGET_URL = "https://shadowstore.dpdns.org/";
 
         const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
         const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
         const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>`;
-        const REFRESH_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>`;
 
-        const searchWrapperEl = document.querySelector('.search-wrapper');
-        const modulesContainer = document.getElementById("modules");
-        const searchInput = document.getElementById("search");
-        const searchClear = document.getElementById("searchClear");
-        const searchShortcut = document.querySelector(".search-shortcut");
-        const statusText = document.getElementById("statusText");
-        const statusDot = document.getElementById("statusDot");
-        const countText = document.getElementById("countText");
-        const toast = document.getElementById("toast");
-        const sentinel = document.getElementById("sentinel");
-        const noticeTrack = document.getElementById("placeholderTrack");
-        
         const themeToggleBtn = document.getElementById("themeToggle");
-        const refreshCacheBtn = document.getElementById("refreshCacheBtn");
-        const backToTopBtn = document.getElementById("backToTopBtn");
-
-        const pageContainer = document.getElementById("pageContainer");
-        const pullRefreshIndicator = document.getElementById("pullRefreshIndicator");
-        const ptrIcon = document.getElementById("ptrIcon");
-        const ptrText = document.getElementById("ptrText");
-
-        let allModules = [];
-        let filteredModules = [];
-        let currentlyRendered = 0;
-        let searchTimer = null;
-        let isPageLoading = true;
-
-        function updateSearchLayer() {
-            if (!searchWrapperEl) return;
-            const stickyTop = parseFloat(window.getComputedStyle(searchWrapperEl).top) || 0;
-            if (searchWrapperEl.getBoundingClientRect().top <= stickyTop + 1) {
-                searchWrapperEl.classList.add('is-sticky');
-            } else {
-                searchWrapperEl.classList.remove('is-sticky');
-            }
-
-            if (window.scrollY > 160) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        }
-        
-        window.addEventListener('scroll', updateSearchLayer, { passive: true });
-
-        backToTopBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-        
-        function updateCardLayerOrder() {
-            const cards = modulesContainer.querySelectorAll('.module-card');
-            if (!cards.length) return;
-
-            const cardOffsets = [];
-            for (let i = 0; i < cards.length; i++) {
-                cardOffsets.push({ card: cards[i], top: cards[i].offsetTop });
-            }
-
-            const rowsMap = new Map();
-            cardOffsets.forEach(({ card, top }) => {
-                let foundKey = Array.from(rowsMap.keys()).find(k => Math.abs(k - top) < 12);
-                if (foundKey === undefined) {
-                    foundKey = top;
-                    rowsMap.set(foundKey, []);
-                }
-                rowsMap.get(foundKey).push(card);
-            });
-
-            const sortedRows = Array.from(rowsMap.entries()).sort((a, b) => a[0] - b[0]);
-
-            sortedRows.forEach(([_, rowCards], rowIndex) => {
-                const rowBaseZ = (rowIndex + 1) * 1000;
-                rowCards.forEach((card, colIndex) => {
-                    card.style.zIndex = rowBaseZ + (rowCards.length - colIndex);
-                });
-            });
-            
-            updateSearchLayer();
-        }
-
-        let resizeTimer = null;
-        window.addEventListener("resize", () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(updateCardLayerOrder, 150);
-        });
-
-        /* =========================================================
-           移动端下拉刷新手势
-        ========================================================= */
-        let touchStartX = 0, touchStartY = 0, isPulling = false, isRefreshing = false, isPullLocked = false, pullRafId = null;
-        const MIN_DRAG_DEADZONE = 30;
-        const PULL_TRIGGER_DIFF = 280;
-
-        async function triggerForceReload() {
-            if (isRefreshing) return;
-            isRefreshing = true;
-            isPageLoading = true;
-
-            ptrIcon.innerHTML = REFRESH_ICON;
-            ptrIcon.classList.remove("rotate");
-            ptrIcon.querySelector("svg")?.classList.add("spin-anim");
-            ptrText.textContent = "正在强制刷新本站...";
-
-            try {
-                localStorage.removeItem(CONFIG.CACHE_KEY);
-                localStorage.removeItem(CONFIG.CACHE_TIME_KEY);
-            } catch (e) {}
-
-            await loadModules(true);
-            
-            setTimeout(() => {
-                const reboundBezier = 'transform 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
-                pageContainer.style.transition = reboundBezier;
-                pageContainer.style.transform = 'translate3d(0, 0, 0)';
-
-                pullRefreshIndicator.style.transition = `${reboundBezier}, opacity 0.25s ease`;
-                pullRefreshIndicator.style.opacity = '0';
-                pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
-                ptrIcon.classList.remove("rotate");
-                isRefreshing = false;
-            }, 500);
-        }
-
-        window.addEventListener('touchstart', (e) => {
-            if (isRefreshing || isPageLoading) {
-                isPulling = false;
-                return;
-            }
-            if (window.scrollY <= 0 && document.documentElement.scrollTop <= 0) {
-                touchStartX = e.touches[0].clientX;
-                touchStartY = e.touches[0].clientY;
-                isPulling = true;
-                isPullLocked = false;
-                
-                pageContainer.style.transition = 'none';
-                pullRefreshIndicator.style.transition = 'none';
-            } else {
-                isPulling = false;
-            }
-        }, { passive: true });
-
-        window.addEventListener('touchmove', (e) => {
-            if (!isPulling || isRefreshing || isPageLoading || window.scrollY > 0) {
-                isPulling = false;
-                return;
-            }
-
-            const currentX = e.touches[0].clientX;
-            const currentY = e.touches[0].clientY;
-            const diffX = currentX - touchStartX;
-            const diffY = currentY - touchStartY;
-
-            if (!isPullLocked) {
-                if (Math.abs(diffX) > Math.abs(diffY) || diffY <= 0) {
-                    isPulling = false;
-                    isPullLocked = true;
-                    return;
-                }
-                if (diffY > MIN_DRAG_DEADZONE) {
-                    isPullLocked = true;
-                }
-            }
-
-            if (isPullLocked && diffY > MIN_DRAG_DEADZONE) {
-                const effectiveDiff = diffY - MIN_DRAG_DEADZONE;
-                const containerShift = Math.min(Math.pow(effectiveDiff, 0.65) * 1.3, 48);
-                const indicatorShift = Math.min(containerShift * 0.42, 18);
-                const progress = Math.min(effectiveDiff / (PULL_TRIGGER_DIFF - MIN_DRAG_DEADZONE), 1);
-
-                if (pullRafId) cancelAnimationFrame(pullRafId);
-                pullRafId = requestAnimationFrame(() => {
-                    pageContainer.style.transform = `translate3d(0, ${containerShift}px, 0)`;
-                    pullRefreshIndicator.style.opacity = Math.min(progress * 1.2, 1);
-                    pullRefreshIndicator.style.transform = `translate3d(-50%, ${indicatorShift}px, 0)`;
-
-                    if (diffY >= PULL_TRIGGER_DIFF) {
-                        ptrIcon.classList.add("rotate");
-                        ptrText.textContent = "松开将立即强制刷新本站";
-                    } else {
-                        ptrIcon.classList.remove("rotate");
-                        ptrText.textContent = "继续下拉将强制刷新本站";
-                    }
-                });
-
-                if (e.cancelable) e.preventDefault();
-            }
-        }, { passive: false });
-
-        window.addEventListener('touchend', (e) => {
-            if (!isPulling || isRefreshing || isPageLoading) return;
-            isPulling = false;
-            isPullLocked = false;
-            if (pullRafId) cancelAnimationFrame(pullRafId);
-
-            const currentY = e.changedTouches[0].clientY;
-            const diffY = currentY - touchStartY;
-
-            if (diffY >= PULL_TRIGGER_DIFF && window.scrollY <= 0) {
-                pageContainer.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)';
-                pageContainer.style.transform = `translate3d(0, 38px, 0)`;
-                
-                pullRefreshIndicator.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.25s ease';
-                pullRefreshIndicator.style.transform = `translate3d(-50%, 16px, 0)`;
-                pullRefreshIndicator.style.opacity = '1';
-                
-                triggerForceReload();
-            } else {
-                const reboundBezier = 'transform 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
-                pageContainer.style.transition = reboundBezier;
-                pageContainer.style.transform = 'translate3d(0, 0, 0)';
-
-                pullRefreshIndicator.style.transition = `${reboundBezier}, opacity 0.25s ease`;
-                pullRefreshIndicator.style.opacity = '0';
-                pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
-                ptrIcon.classList.remove("rotate");
-            }
-        }, { passive: true });
-
-        function setSearchState(enabled) {
-            const mainP = document.getElementById("mainPlaceholder");
-            const mainPClone = document.getElementById("mainPlaceholderClone");
-            
-            if (enabled) {
-                searchInput.disabled = false;
-                const text = "输入关键字快捷搜索...";
-                if (mainP) mainP.textContent = text;
-                if (mainPClone) mainPClone.textContent = text;
-                if (searchShortcut) searchShortcut.style.opacity = "1";
-            } else {
-                searchInput.disabled = true;
-                const text = "请在加载完成后执行搜索...";
-                if (mainP) mainP.textContent = text;
-                if (mainPClone) mainPClone.textContent = text;
-                if (searchShortcut) searchShortcut.style.opacity = "0.35";
-                searchClear.classList.remove("visible");
-            }
-        }
-
-        if (noticeTrack) {
-            const firstItemClone = noticeTrack.children[0].cloneNode(true);
-            firstItemClone.id = "mainPlaceholderClone";
-            noticeTrack.appendChild(firstItemClone);
-
-            let noticeIndex = 0;
-            const originalCount = noticeTrack.children.length - 1; 
-            let isAnimating = false;
-
-            function updateNoticePosition() {
-                noticeTrack.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
-                noticeTrack.style.transform = `translateY(-${noticeIndex * 32}px)`;
-            }
-
-            function nextNotice() {
-                if (document.activeElement === searchInput || searchInput.value.length > 0) return;
-                if (isAnimating) return;
-                isAnimating = true;
-                noticeIndex++;
-                updateNoticePosition();
-
-                if (noticeIndex === originalCount) {
-                    setTimeout(() => {
-                        noticeTrack.style.transition = 'none';
-                        noticeIndex = 0;
-                        noticeTrack.style.transform = `translateY(0)`;
-                        void noticeTrack.offsetHeight;
-                        isAnimating = false;
-                    }, 450); 
-                } else {
-                    setTimeout(() => { isAnimating = false; }, 450);
-                }
-            }
-
-            setInterval(nextNotice, 3800);
-        }
-
-        /* =========================================================
-           主题管理系统
-        ========================================================= */
-        const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
-        refreshCacheBtn.innerHTML = REFRESH_ICON;
-
-        function getThemeMode() {
-            const saved = localStorage.getItem("sr_theme_override");
-            if (saved === "dark" || saved === "light" || saved === "auto") return saved;
-            return "light";
-        }
-
-        function getEffectiveTheme(mode) {
-            if (mode === "dark" || mode === "light") return mode;
-            if (mode === "auto") return mediaQueryDark.matches ? "dark" : "light";
-            return "light";
-        }
-
-        function updateThemeUI() {
-            const mode = getThemeMode();
-            const currentTheme = getEffectiveTheme(mode);
-            document.documentElement.setAttribute("data-theme", currentTheme);
-            
-            const themeColor = currentTheme === "dark" ? "#14161a" : "#ffffff";
-            const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-            if (themeColorMeta) {
-                themeColorMeta.setAttribute("content", themeColor);
-            }
-            document.documentElement.style.backgroundColor = themeColor;
-
-            if (mode === "light") {
-                themeToggleBtn.innerHTML = SUN_ICON;
-                themeToggleBtn.setAttribute("title", "当前：浅色模式（点击切换深色）");
-            } else if (mode === "dark") {
-                themeToggleBtn.innerHTML = MOON_ICON;
-                themeToggleBtn.setAttribute("title", "当前：深色模式（点击切换自动跟随）");
-            } else {
-                themeToggleBtn.innerHTML = SYSTEM_ICON;
-                themeToggleBtn.setAttribute("title", "当前：自动跟随系统（点击切换浅色）");
-            }
-        }
-
-        mediaQueryDark.addEventListener("change", () => {
-            if (getThemeMode() === "auto") updateThemeUI();
-        });
-
-        themeToggleBtn.addEventListener("click", () => {
-            const currentMode = getThemeMode();
-            let nextMode, toastText;
-            if (currentMode === "light") {
-                nextMode = "dark";
-                toastText = "已切换为深色模式";
-            } else if (currentMode === "dark") {
-                nextMode = "auto";
-                toastText = "已切换为自动跟随系统";
-            } else {
-                nextMode = "light";
-                toastText = "已切换为浅色模式";
-            }
-            localStorage.setItem("sr_theme_override", nextMode);
-            updateThemeUI();
-            showToast(toastText);
-        });
-        
-        refreshCacheBtn.addEventListener("click", async () => {
-            if (statusDot.classList.contains("loading") || isPageLoading) {
-                showToast("正在获取最新资源，请稍后...");
-                return;
-            }
-            
-            showToast("正在拉取最新数据...");
-            await loadModules(true);
-            showToast("模块数据已刷新");
-        });
-
-        updateThemeUI();
-
-        /* =========================================================
-           工具函数与 DOM 渲染
-        ========================================================= */
-        function escapeHTML(value) {
-            return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-        }
+        const copyBtn = document.getElementById("copyBtn");
+        const toast = document.getElementById("toast");
+        let toastTimer = null;
 
         function showToast(text) {
+            clearTimeout(toastTimer);
             toast.textContent = text;
             toast.classList.add("show");
-            setTimeout(() => { toast.classList.remove("show"); }, 2000);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2000);
         }
 
         async function copyToClipboard(text) {
@@ -1210,253 +471,103 @@
             return success;
         }
 
-        function createIOSAppIcon(name) {
-            const cleanName = (name || "").trim();
-            const char = Array.from(cleanName)[0] || "模";
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><circle cx="128" cy="128" r="128" fill="#768a9e"/><text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
-            return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
-        }
-
-        function renderAuthor(module) {
-            const author = module.author || {};
-            const avatar = module.authorAvatar;
-            const avatarHTML = avatar ? `<img class="author-avatar" src="${escapeHTML(avatar)}" loading="lazy" alt="" onerror="this.style.display='none';">` : "";
-            const authorURL = author.url || (author.username ? `https://github.com/${encodeURIComponent(author.username)}` : "");
-            if (authorURL) {
-                return `<a class="author" href="${escapeHTML(authorURL)}" target="_blank" rel="noopener">${avatarHTML}${escapeHTML(author.name || author.username)}</a>`;
-            }
-            return `<span class="author">${avatarHTML}${escapeHTML(author.name || "作者信息识别失败")}</span>`;
-        }
-
-        function createModuleCard(module, index = 0) {
-            const card = document.createElement("article");
-            card.className = "module-card glass-element";
-            card.style.zIndex = Math.max(1, 1000 - index);
-
-            const fallbackIcon = createIOSAppIcon(module.name);
-            const icon = module.icon || fallbackIcon;
-            const authorHTML = renderAuthor(module);
-            
-            const sourceName = module.sourceName || "开源仓库";
-            const sourceURL = module.sourceURL || "#";
-
-            const statusTextVal = module.isDubious ? "信息获取失败" : "资源获取成功";
-            const statusClass = module.isDubious ? "status-badge-dubious" : "";
-
-            const sourceLinkHTML = `<a class="source-link" href="${escapeHTML(sourceURL)}" target="_blank" rel="noopener" title="${escapeHTML(sourceName)}">${escapeHTML(sourceName)}</a>`;
-
-            card.innerHTML = `
-                <div class="card-header">
-                    <div class="module-icon">
-                        <img src="${escapeHTML(icon)}" alt="" loading="lazy">
-                    </div>
-                    <div class="card-main">
-                        <h2 class="module-name">${escapeHTML(module.name)}</h2>
-                        <div class="module-meta">
-                            ${authorHTML}
-                            <span class="meta-separator">/</span>
-                            ${sourceLinkHTML}
-                        </div>
-                    </div>
-                </div>
-                <div class="module-description">${escapeHTML(module.description)}</div>
-                <div class="card-bottom">
-                    <div class="card-status">
-                        <span class="status-pill ${statusClass}">${escapeHTML(statusTextVal)}</span>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="button button-secondary copy-btn" data-url="${escapeHTML(module.rawURL)}">复制链接</button>
-                        <a class="button button-primary" href="${escapeHTML(module.installURL)}">安装</a>
-                    </div>
-                </div>
-            `;
-            
-            const copyBtn = card.querySelector(".copy-btn");
-            if (copyBtn) {
-                copyBtn.addEventListener("click", async (e) => {
-                    e.preventDefault();
-                    const url = copyBtn.getAttribute("data-url");
-                    const success = await copyToClipboard(url);
-                    showToast(success ? "已复制模块 Raw 直链" : "复制失败，请手动复制");
-                });
-            }
-            
-            const image = card.querySelector(".module-icon img");
-            if (image) image.addEventListener("error", () => { image.src = fallbackIcon; }, { once: true });
-            return card;
-        }
-
-        function appendNextBatch() {
-            if (currentlyRendered >= filteredModules.length) return;
-            const fragment = document.createDocumentFragment();
-            const nextBatch = filteredModules.slice(currentlyRendered, currentlyRendered + CONFIG.PAGE_SIZE);
-            for (let i = 0; i < nextBatch.length; i++) {
-                const module = nextBatch[i];
-                if (module) fragment.appendChild(createModuleCard(module, currentlyRendered + i));
-            }
-            modulesContainer.appendChild(fragment);
-            currentlyRendered += nextBatch.length;
-            requestAnimationFrame(updateCardLayerOrder);
-        }
-
-        function renderFilteredList(list) {
-            filteredModules = list;
-            currentlyRendered = 0;
-            modulesContainer.innerHTML = "";
-
-            if (!filteredModules.length) {
-                modulesContainer.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div>没有找到匹配的模块</div>`;
-                countText.textContent = "0 个模块";
-                return;
-            }
-
-            countText.textContent = `${filteredModules.length} 个模块`;
-            appendNextBatch();
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                appendNextBatch();
-            }
-        }, { rootMargin: "300px" });
-        observer.observe(sentinel);
-
-        function filterModules() {
-            const keyword = searchInput.value.trim().toLowerCase();
-            if (searchInput.value.length > 0) {
-                searchClear.classList.add("visible");
-                if (searchShortcut) searchShortcut.style.display = "none";
-            } else {
-                searchClear.classList.remove("visible");
-                if (searchShortcut) searchShortcut.style.display = "";
-            }
-
-            let result = allModules;
-            if (keyword) {
-                result = result.filter(m => m._searchKeywords && m._searchKeywords.includes(keyword));
-            }
-
-            renderFilteredList(result);
-        }
-
-        searchInput.addEventListener("input", () => {
-            clearTimeout(searchTimer);
-            searchTimer = setTimeout(filterModules, 120);
-        });
-
-        searchClear.addEventListener("click", (e) => {
-            e.preventDefault();
-            searchInput.value = "";
-            filterModules();
-            searchInput.focus();
-        });
-
-        window.addEventListener("keydown", (e) => {
-            if (e.key === "/" && document.activeElement !== searchInput) {
-                if (searchInput.disabled) return;
-                e.preventDefault();
-                searchInput.focus();
-                searchInput.select();
-            } else if (e.key === "Escape" && document.activeElement === searchInput) {
-                searchInput.value = "";
-                searchInput.blur();
-                filterModules();
-            }
+        copyBtn.addEventListener("click", async () => {
+            const success = await copyToClipboard(TARGET_URL);
+            showToast(success ? "已复制新站点地址" : "复制失败，请手动长按复制");
         });
 
         /* =========================================================
-           数据加载入口 (直接读取 modules.json)
+            主题系统 (智能反色切换)
         ========================================================= */
-        async function loadModules(forceRefresh = false) {
-            isPageLoading = true;
-            const svgIcon = refreshCacheBtn.querySelector("svg");
-            
-            const setBtnLoading = (isLoading) => {
-                if (isLoading) {
-                    refreshCacheBtn.classList.add("active");
-                    if (svgIcon) svgIcon.classList.add("spin-anim");
-                } else {
-                    refreshCacheBtn.classList.remove("active");
-                    if (svgIcon) svgIcon.classList.remove("spin-anim");
-                }
-            };
+        const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-            const cachedData = localStorage.getItem(CONFIG.CACHE_KEY);
-            const cachedTime = localStorage.getItem(CONFIG.CACHE_TIME_KEY);
-            const now = Date.now();
-            let hasCache = false;
-
-            if (!forceRefresh && cachedData) {
-                try {
-                    allModules = JSON.parse(cachedData);
-                    renderFilteredList(allModules);
-                    hasCache = true;
-                    setSearchState(true);
-                    
-                    const isExpired = !cachedTime || (now - Number(cachedTime) > CONFIG.CACHE_EXPIRE);
-                    if (!isExpired) {
-                        statusText.textContent = "已同步";
-                        statusDot.className = "status-dot";
-                        setBtnLoading(false);
-                        isPageLoading = false;
-                        return;
-                    }
-                } catch (e) {
-                    hasCache = false;
-                }
-            }
-
-            if (!hasCache) {
-                setSearchState(false);
-                statusText.textContent = "正在拉取最新静态资源索引...";
-                statusDot.className = "status-dot loading";
-                setBtnLoading(true);
-            }
-
+        function getThemeMode() {
             try {
-                const fetchUrl = `${CONFIG.DATA_JSON_URL}?_t=${Date.now()}`;
-                const response = await fetch(fetchUrl, { cache: "no-store" });
-                
-                if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
-                
-                const data = await response.json();
-                if (!Array.isArray(data) || !data.length) throw new Error("获取到的模块列表为空");
+                const saved = localStorage.getItem("sr_theme_override");
+                if (saved === "dark" || saved === "light" || saved === "auto") return saved;
+            } catch (e) {}
+            return "auto"; 
+        }
 
-                allModules = data;
-                renderFilteredList(allModules);
-                setSearchState(true);
+        function getEffectiveTheme(mode) {
+            if (mode === "dark" || mode === "light") return mode;
+            if (mode === "auto") return mediaQueryDark.matches ? "dark" : "light";
+            return "light";
+        }
 
-                try {
-                    localStorage.setItem(CONFIG.CACHE_KEY, JSON.stringify(allModules));
-                    localStorage.setItem(CONFIG.CACHE_TIME_KEY, String(Date.now()));
-                } catch (e) {}
+        function updateThemeUI() {
+            const mode = getThemeMode();
+            const currentTheme = getEffectiveTheme(mode);
+            document.documentElement.setAttribute("data-theme", currentTheme);
+            
+            const themeColor = currentTheme === "dark" ? "#14161a" : "#ffffff";
+            const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+            if (themeColorMeta) {
+                themeColorMeta.setAttribute("content", themeColor);
+            }
+            document.documentElement.style.backgroundColor = themeColor;
 
-                statusText.textContent = "已同步";
-                statusDot.className = "status-dot";
-            } catch (error) {
-                console.error("加载 modules.json 失败:", error);
-                if (!hasCache) {
-                    setSearchState(false);
-                    statusText.textContent = "同步失败";
-                    statusDot.className = "status-dot error";
-                    countText.textContent = "";
-                    modulesContainer.innerHTML = `
-                        <div class="empty">
-                            <div class="empty-icon">⚠️</div>
-                            无法读取静态索引数据
-                            <div class="empty-error">${escapeHTML(error.message)}</div>
-                        </div>`;
-                } else {
-                    statusText.textContent = "在线同步异常，当前展示缓存数据";
-                    statusDot.className = "status-dot error";
-                }
-            } finally {
-                setBtnLoading(false);
-                isPageLoading = false;
+            if (mode === "light") {
+                themeToggleBtn.innerHTML = SUN_ICON;
+                const desc = "当前：浅色模式（点击切换深色）";
+                themeToggleBtn.setAttribute("title", desc);
+                themeToggleBtn.setAttribute("aria-label", desc);
+            } else if (mode === "dark") {
+                themeToggleBtn.innerHTML = MOON_ICON;
+                const desc = "当前：深色模式（点击切换自动跟随）";
+                themeToggleBtn.setAttribute("title", desc);
+                themeToggleBtn.setAttribute("aria-label", desc);
+            } else {
+                themeToggleBtn.innerHTML = SYSTEM_ICON;
+                const desc = "当前：自动跟随系统（点击切换反色模式）";
+                themeToggleBtn.setAttribute("title", desc);
+                themeToggleBtn.setAttribute("aria-label", desc);
             }
         }
 
-        loadModules();
+        mediaQueryDark.addEventListener("change", () => {
+            if (getThemeMode() === "auto") updateThemeUI();
+        });
+
+        themeToggleBtn.addEventListener("click", () => {
+            const currentMode = getThemeMode();
+            const isSystemDark = mediaQueryDark.matches;
+            let nextMode, toastText;
+
+            if (currentMode === "auto") {
+                if (isSystemDark) {
+                    nextMode = "light";
+                    toastText = "已切换为浅色模式";
+                } else {
+                    nextMode = "dark";
+                    toastText = "已切换为深色模式";
+                }
+            } else if (currentMode === "light") {
+                if (isSystemDark) {
+                    nextMode = "dark";
+                    toastText = "已切换为深色模式";
+                } else {
+                    nextMode = "auto";
+                    toastText = "已切换为自动跟随系统";
+                }
+            } else {
+                if (isSystemDark) {
+                    nextMode = "auto";
+                    toastText = "已切换为自动跟随系统";
+                } else {
+                    nextMode = "light";
+                    toastText = "已切换为浅色模式";
+                }
+            }
+
+            try {
+                localStorage.setItem("sr_theme_override", nextMode);
+            } catch (e) {}
+            updateThemeUI();
+            showToast(toastText);
+        });
+
+        updateThemeUI();
     </script>
 </body>
 </html>
