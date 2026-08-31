@@ -9,7 +9,7 @@
 > > 本仓中的所有数据均收集自互联网公开信息，不代表我们支持或使用这些服务。请通过合法的互联网出入口信道访问或使用，并确保在使用过程中符合当地法律法规。若您是相关索引的原作者或权利人，且不希望内容被引用，可点击 [此处](https://github.com/LOWERTOP/Shadowrocket-First/issues/new?title=%E6%9D%83%E5%88%A9%E8%A6%81%E6%B1%82&body=%E8%A6%81%E6%B1%82%E7%AE%80%E8%BF%B0%EF%BC%9A&labels=invalid) 要求剔除
 
 #### [项目目录](#项目目录)
-> * **[Shadow Store 模块中心](#shadow-store-模块中心)**
+> * **[Shadow Store 模块中心](#shadowstore-模块中心)**
 > * **[Shadowrocket 本仓文件](#shadowrocket-本仓文件)**
 > * **[Shadowrocket 社区文件](#shadowrocket-社区文件)**
 > * **[Shadowrocket 配色文件](#shadowrocket-配色文件)**
@@ -20,9 +20,9 @@
 
 ------
 
-# [Shadow Store 模块中心](#shadow-store-模块中心)
+# [ShadowStore 模块中心](#shadowstore-模块中心)
 
-> [模块中心](https://github.com/LOWERTOP/ShadowStore) 是一个集 **模块索引**、**模块检索**、**一键安装**、**一键复制** 等功能于一体的模块资源平台，目前收录模块已超过千款。网页支持发送快捷方式至桌面，并可正常显示应用图标
+> [ShadowStore 模块中心](https://github.com/LOWERTOP/ShadowStore) 是一个集 **模块索引**、**模块检索**、**一键安装**、**一键复制** 等功能于一体的模块资源平台，目前收录模块已超过千款。网页支持发送快捷方式至桌面，并可正常显示应用图标
 > 
 > 相关资源均直接引用自原始开源仓库。特别鸣谢 **[奶思](https://github.com/fmz200)**、**[zirawell](https://github.com/zirawell)**、**[iab0x00](https://github.com/iab0x00)** 等开源作者的分享与持续维护
 > 
