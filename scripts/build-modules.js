@@ -31,8 +31,7 @@ const APP_ALIASES = {
     "腾讯": ["tencent"], "美团": ["meituan"], "拼多多": ["pdd", "pinduoduo"],
     "闲鱼": ["xianyu"], "咸鱼": ["xianyu"], "饿了么": ["eleme"], "爱奇艺": ["iqiyi"],
     "优酷": ["youku"], "淘宝": ["taobao"], "豆瓣": ["douban"], "贴吧": ["tieba"],
-    "夸克": ["quark"], "12306": ["12306"], "高德地图": ["amap"], "分流": ["shadowrocket"], "规则": ["shadowrocket"],
-    "配色": ["shadowrocket"], "主题": ["shadowrocket"]
+    "夸克": ["quark"], "12306": ["12306"], "高德地图": ["amap"]
 };
 
 const FLAG_CODES = new Set([
@@ -88,12 +87,6 @@ function normalizeRawURL(url) {
             try { value = decodeURIComponent(match[1]); } catch(e) {}
         }
     }
-    if (value.includes("theme/add/")) {
-        const match = value.match(/theme\/add\/([^&]+)/i);
-        if (match) {
-            try { value = decodeURIComponent(match[1]); } catch(e) {}
-        }
-    }
 
     value = value.replace(/#/g, "%23").replace(/\s+/g, "%20");
 
@@ -118,34 +111,17 @@ function getModuleNameFromURL(rawURL) {
         const parts = cleanURL.split("/").filter(Boolean);
         const last = parts.pop() || "";
         let decoded = decodeURIComponent(last);
-        return decoded.replace(/\.(?:sgmodule|srmodule|module|theme|srtheme|list|conf|snippet|plugin|stoverride|js|json)$/i, "").trim();
+        return decoded.replace(/\.(?:sgmodule|srmodule|module)$/i, "").trim();
     } catch {
         return "";
     }
 }
 
-function detectCategory(rawURL, name = "", heading = "") {
-    if (!rawURL) return "more";
-    const clean = String(rawURL).split(/[?#]/)[0].toLowerCase();
-    const context = `${name} ${heading}`.toLowerCase();
-
-    if (/\.(?:theme|srtheme)$/i.test(clean) || context.includes("配色") || context.includes("主题") || clean.includes("theme")) {
-        return "more";
-    }
-    if (/\.(?:sgmodule|srmodule|module)$/i.test(clean)) {
-        return "module";
-    }
-    if (/\.conf$/i.test(clean)) {
-        return "config";
-    }
-    return "more";
-}
-
 function resolveFallbackName(fallbackName, rawURL) {
-    if (fallbackName && fallbackName !== "未命名模块" && fallbackName !== "未命名资源" && fallbackName.trim()) {
+    if (fallbackName && fallbackName !== "未命名模块" && fallbackName.trim()) {
         return fallbackName.trim();
     }
-    return getModuleNameFromURL(rawURL) || "未命名资源";
+    return getModuleNameFromURL(rawURL) || "未命名模块";
 }
 
 async function fetchWithTimeout(url, options = {}, timeoutMs = 8000) {
@@ -330,7 +306,7 @@ function getMatchedIcon(name) {
     if (matched && !isFlagKey(lowerName, matched)) return matched;
 
     const cleanName = lowerName
-        .replace(/(去广告|净化|移除|破解|签到|脚本|模块|解锁|自动|净化版|修复|增强|vip|pro|lite|hd|edge|plus|v\d+|规则|分流|配置|配色|主题)/g, "")
+        .replace(/(去广告|净化|移除|破解|签到|脚本|模块|解锁|自动|净化版|修复|增强|vip|pro|lite|hd|edge|plus|v\d+)/g, "")
         .replace(/[-_.\s]/g, "")
         .trim();
 
@@ -360,9 +336,6 @@ function getMatchedIcon(name) {
     return "";
 }
 
-/**
- * 解析 Markdown 文件中的全量资源（模块、配置、规则集、配色主题等）
- */
 function parseRepositoryModules(markdown) {
     if (!markdown) return [];
     const result = [];
@@ -376,7 +349,7 @@ function parseRepositoryModules(markdown) {
         const headingMatch = line.match(/^(?:#{1,6}|\*|-|\+)\s*(?:\[([^\]]+)\]|`([^`]+)`|([^\n(#*]+))/);
         if (headingMatch) {
             const rawTitle = (headingMatch[1] || headingMatch[2] || headingMatch[3] || "").trim();
-            const cleanTitle = cleanText(rawTitle.replace(/[*`_#]/g, "").replace(/^[🚀📁📦🎨🔧📄🔗\s]+/, ""));
+            const cleanTitle = cleanText(rawTitle.replace(/[*`_#]/g, "").replace(/^[🚀📁📦\s]+/, ""));
             if (cleanTitle && cleanTitle.length >= 2) currentHeading = cleanTitle;
         }
 
@@ -389,40 +362,16 @@ function parseRepositoryModules(markdown) {
             } catch (e) { break; }
         }
 
-        // 1. 匹配 Markdown 格式链接：[资源名称](URL)
-        const mdLinkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
-        let mdMatch;
-        while ((mdMatch = mdLinkRegex.exec(decodedLine)) !== null) {
-            const linkTitle = cleanText(mdMatch[1]);
-            let linkURL = normalizeRawURL(mdMatch[2]);
-            if (!linkURL) continue;
-
-            const isValidExt = /\.(?:sgmodule|srmodule|module|theme|srtheme|conf|list|snippet|plugin|stoverride|js)(?:$|[?#%])/i.test(linkURL);
-            const isThemeLink = linkURL.includes("theme/add/") || linkTitle.includes("配色") || linkTitle.includes("主题") || currentHeading.includes("配色") || currentHeading.includes("主题");
-
-            if (isValidExt || isThemeLink) {
-                const category = detectCategory(linkURL, linkTitle, currentHeading);
-                result.push({
-                    name: linkTitle || getModuleNameFromURL(linkURL) || currentHeading || "未命名资源",
-                    rawURL: linkURL,
-                    category
-                });
-            }
-        }
-
-        // 2. 匹配原生 URL 直链
-        const rawRegex = /(https?:\/\/[^\s)\]"'<>]+?\.(?:sgmodule|srmodule|module|theme|srtheme|conf|list|snippet|plugin|stoverride|js)(?:[^\s)\]"'<>]*)?)/ig;
+        const rawRegex = /(https?:\/\/[^\s)\]"'<>]+?\.(?:sgmodule|srmodule|module)(?:[^\s)\]"'<>]*)?)/ig;
         let match;
         while ((match = rawRegex.exec(decodedLine)) !== null) {
             let rawURL = match[1].replace(/[),\]"'<>]+$/g, "");
             rawURL = normalizeRawURL(rawURL);
-            if (!rawURL) continue;
+            if (!rawURL || !/\.(?:sgmodule|srmodule|module)(?:$|[?#%])/i.test(rawURL)) continue;
 
-            const category = detectCategory(rawURL, "", currentHeading);
             result.push({
-                name: getModuleNameFromURL(rawURL) || currentHeading || "未命名资源",
-                rawURL,
-                category
+                name: getModuleNameFromURL(rawURL) || currentHeading || "未命名模块",
+                rawURL
             });
         }
     }
@@ -448,7 +397,7 @@ async function fetchFMZModules() {
                     if (item.type === "blob" && pathName.startsWith("Shadowrocket/module/") && /\.(?:sgmodule|srmodule|module)$/i.test(pathName)) {
                         const fileName = pathName.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
                         const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/fmz200/wool_scripts/main/${pathName}`);
-                        modules.push({ name: fileName, rawURL, category: "module" });
+                        modules.push({ name: fileName, rawURL });
                     }
                 }
             }
@@ -477,7 +426,7 @@ async function fetchZirawellModules() {
                     if (item.type === "blob" && pathName.startsWith("Rule/Surge/") && /\.(?:sgmodule|srmodule|module)$/i.test(pathName)) {
                         const fileName = pathName.split("/").pop().replace(/\.(?:sgmodule|srmodule|module)$/i, "");
                         const rawURL = normalizeRawURL(`https://raw.githubusercontent.com/zirawell/R-Store/main/${pathName}`);
-                        modules.push({ name: fileName, rawURL, category: "module" });
+                        modules.push({ name: fileName, rawURL });
                     }
                 }
             }
@@ -538,14 +487,9 @@ function parseModuleMetadata(text, fallbackName, rawURL = "") {
             continue;
         }
 
-        const commentMatch = line.match(/^(?:#|\/\/)\s*@?(?:name|title|规则名称|模块名称|配色名称|主题名称|名称)\s*[:=]\s*(.+)$/i);
+        const commentMatch = line.match(/^(?:#|\/\/)\s*@?(?:name|规则名称|模块名称)\s*[:=]\s*(.+)$/i);
         if (commentMatch && !metadata.name) {
             metadata.name = cleanText(commentMatch[1]);
-        }
-
-        const descMatch = line.match(/^(?:#|\/\/)\s*@?(?:desc|description|说明|描述|备注)\s*[:=]\s*(.+)$/i);
-        if (descMatch && !metadata.desc) {
-            metadata.desc = cleanText(descMatch[1]);
         }
     }
 
@@ -560,7 +504,7 @@ function parseModuleMetadata(text, fallbackName, rawURL = "") {
     };
 }
 
-function generateDescription(metadata, rawText, category = "module", rawURL = "") {
+function generateDescription(metadata, rawText) {
     if (metadata.description) return metadata.description;
     const lines = rawText.split(/\r?\n/);
     const comments = [];
@@ -573,13 +517,6 @@ function generateDescription(metadata, rawText, category = "module", rawURL = ""
         }
     }
     if (comments.length) return comments.slice(0, 2).join(" ");
-
-    const clean = String(rawURL).toLowerCase();
-    const isTheme = /\.(?:theme|srtheme)$/i.test(clean) || metadata.name.includes("配色") || metadata.name.includes("主题");
-    
-    if (isTheme) return `${metadata.name} 专属外观配色方案，一键导入打造个性化界面。`;
-    if (category === "config") return `${metadata.name} 配置文件，开箱即用。`;
-    if (category === "more") return `${metadata.name} 规则/资源文件，可在 Shadowrocket 中配置使用。`;
     return `${metadata.name} 模块信息获取失败，请自行判断该模块的作用和有效性。`;
 }
 
@@ -649,20 +586,8 @@ function resolveModuleIcon(metadata, rawURL) {
     return "";
 }
 
-function createInstallURL(rawURL, category, name = "") { 
-    const clean = String(rawURL).toLowerCase();
-    const isTheme = /\.(?:theme|srtheme)$/i.test(clean) || name.includes("配色") || name.includes("主题");
-    
-    if (isTheme) {
-        return "shadowrocket://theme/add/" + encodeURIComponent(rawURL);
-    }
-    if (category === "config") {
-        return "shadowrocket://config/add/" + encodeURIComponent(rawURL);
-    }
-    if (category === "module") {
-        return "shadowrocket://install?module=" + encodeURIComponent(rawURL); 
-    }
-    return rawURL;
+function createInstallURL(rawURL) { 
+    return "shadowrocket://install?module=" + encodeURIComponent(rawURL); 
 }
 
 function getPinnedRank(item) {
@@ -677,7 +602,6 @@ function getPinnedRank(item) {
         if (name.includes("scripthub") || rawURL.includes("script-hub") || rawURL.includes("scripthub")) return 1;
         if (name.includes("substore") || rawURL.includes("sub-store") || rawURL.includes("substore")) return 2;
         if (name.includes("boxjs") || rawURL.includes("boxjs") || name.includes("box.js")) return 3;
-        return 10;
     }
     return 9999;
 }
@@ -693,26 +617,25 @@ async function fetchModule(item) {
     const urlAuthor = getAuthorFromURL(item.rawURL, githubInfo);
     const avatarUrl = githubInfo ? `https://github.com/${encodeURIComponent(githubInfo.owner)}.png?size=64` : "";
     const fromMyRepo = item.fromMyRepo || false;
-    const category = item.category || detectCategory(item.rawURL, item.name);
 
     try {
         const rawText = await fetchRawText(item.rawURL, true);
         const metadata = parseModuleMetadata(rawText, item.name, item.rawURL);
-        const description = generateDescription(metadata, rawText, category, item.rawURL);
+        const description = generateDescription(metadata, rawText);
 
         if (description && description.includes("已合并至")) return null;
         
         const icon = resolveModuleIcon(metadata, item.rawURL);
+
         const isDubious = isInvalidOr404(rawText) || isInvalidOr404(description);
         let authorAvatar = urlAuthor.username
             ? `https://github.com/${encodeURIComponent(urlAuthor.username)}.png?size=64`
             : avatarUrl;
 
-        const _searchKeywords = [metadata.name, description, urlAuthor.name, sourceInfo.name, category].join(" ").toLowerCase();
+        const _searchKeywords = [metadata.name, description, urlAuthor.name, sourceInfo.name].join(" ").toLowerCase();
 
         return {
             name: metadata.name,
-            category,
             rawURL: item.rawURL,
             description,
             author: urlAuthor,
@@ -720,22 +643,21 @@ async function fetchModule(item) {
             icon,
             sourceName: sourceInfo.name,
             sourceURL: sourceInfo.url,
-            installURL: createInstallURL(item.rawURL, category, metadata.name),
+            installURL: createInstallURL(item.rawURL),
             isDubious,
             fromMyRepo,
             _searchKeywords
         };
     } catch (error) {
         const resolvedName = resolveFallbackName(item.name, item.rawURL);
-        const fallbackDescription = `${resolvedName || "该资源"} 信息获取失败，请自行判断其有效性。`;
+        const fallbackDescription = `${resolvedName || "该模块"} 模块信息获取失败，请自行判断该模块的作用和有效性。`;
         if (fallbackDescription.includes("已合并至")) return null;
 
         const fallbackIconUrl = getMatchedIcon(resolvedName) ? resolveIconURL(getMatchedIcon(resolvedName), item.rawURL) : "";
-        const _searchKeywords = [resolvedName, fallbackDescription, urlAuthor.name, sourceInfo.name, category].join(" ").toLowerCase();
+        const _searchKeywords = [resolvedName, fallbackDescription, urlAuthor.name, sourceInfo.name].join(" ").toLowerCase();
 
         return {
             name: resolvedName,
-            category,
             rawURL: item.rawURL,
             description: fallbackDescription,
             author: urlAuthor,
@@ -743,7 +665,7 @@ async function fetchModule(item) {
             icon: fallbackIconUrl,
             sourceName: sourceInfo.name,
             sourceURL: sourceInfo.url,
-            installURL: createInstallURL(item.rawURL, category, resolvedName),
+            installURL: createInstallURL(item.rawURL),
             isDubious: true,
             fromMyRepo,
             _searchKeywords
@@ -788,12 +710,12 @@ async function main() {
 
     const seenURLs = new Set();
     let sourceModules = [...localModules, ...zirawellModules, ...fmzModules].filter(item => {
-        if (!item.rawURL || seenURLs.has(item.rawURL.toLowerCase())) return false;
+        if (!item.rawURL || !/\.(?:sgmodule|srmodule|module)(?:$|[?#%])/i.test(item.rawURL) || seenURLs.has(item.rawURL.toLowerCase())) return false;
         seenURLs.add(item.rawURL.toLowerCase());
         return true;
     });
 
-    console.log(`📦 共发现 ${sourceModules.length} 个各类资源（含配色与规则），开始并发处理...`);
+    console.log(`📦 共发现 ${sourceModules.length} 个独立模块，开始并发处理...`);
     sourceModules = sortPinnedModules(sourceModules);
 
     const finalModules = await processModulesPool(sourceModules);
@@ -802,7 +724,7 @@ async function main() {
     const outputPath = path.join(__dirname, '..', 'modules.json');
     fs.writeFileSync(outputPath, JSON.stringify(sortedResult, null, 2), 'utf-8');
     
-    console.log(`✅ 构建完成！共输出 ${sortedResult.length} 个资源至 ${outputPath}`);
+    console.log(`✅ 构建完成！共输出 ${sortedResult.length} 个模块至 ${outputPath}`);
 }
 
 main().catch(err => {
