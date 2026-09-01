@@ -897,7 +897,6 @@
 
         @media (max-width: 860px) {
             body { 
-                /* 适配 62px 高度 + 16px 间隙 + 安全区 */
                 padding-bottom: max(126px, calc(env(safe-area-inset-bottom) + 106px)); 
             }
             .modules { 
@@ -935,6 +934,21 @@
             .action-buttons { width: 100%; justify-content: flex-end; }
             .control-bar.is-single-column .tab-bar { padding: 5px; gap: 3px; }
             .control-bar.is-single-column .tab-item { font-size: 13.5px; padding: 0 4px; border-radius: 26px; }
+        }
+
+        /* =========================================================
+            7. PWA 独立运行模式适配 (display-mode: standalone)
+        ========================================================= */
+        @media (display-mode: standalone) {
+            .control-bar.is-single-column .tab-bar-wrapper {
+                bottom: 16px !important;
+            }
+            body {
+                padding-bottom: 98px !important;
+            }
+            .toast {
+                bottom: 88px !important;
+            }
         }
     </style>
 </head>
