@@ -206,7 +206,7 @@
         body { 
             margin: 0; 
             min-height: 100vh;
-            padding: max(16px, env(safe-area-inset-top)) clamp(16px, 2.5vw, 40px) max(36px, env(safe-area-inset-bottom)); 
+            padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(36px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); 
             background: transparent;
             color: var(--text-primary); 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; 
@@ -852,15 +852,15 @@
             pointer-events: auto;
         }
 
-        /* 悬浮底栏外层容器：高度始终等于卡片圆角直径 */
+        /* 悬浮底栏外层容器：底部距离固定 16px 并融合安全区，左右边距 16px */
         .control-bar.is-single-column .tab-bar-wrapper {
             position: fixed;
             left: 0;
             right: 0;
-            bottom: max(16px, calc(env(safe-area-inset-bottom) + 6px));
+            bottom: max(16px, calc(env(safe-area-inset-bottom) + 16px));
             width: 100%;
-            height: calc(var(--radius-card) * 2);
-            padding: 0 clamp(16px, 2.5vw, 40px);
+            height: 62px;
+            padding: 0 max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
             margin: 0;
             display: flex;
             align-items: center;
@@ -869,27 +869,27 @@
             z-index: 999999;
         }
 
-        /* 标签页主体：宽度始终等于卡片宽度，高度与圆角直径一致 */
+        /* 标签页主体：宽度等于卡片宽度，高度 62px，圆角半径 31px（圆直径 62px） */
         .control-bar.is-single-column .tab-bar {
             pointer-events: auto;
             width: 100%;
             max-width: var(--card-width, 100%);
-            height: calc(var(--radius-card) * 2);
+            height: 62px;
             padding: 6px;
-            border-radius: var(--radius-card);
-            gap: 6px;
+            border-radius: 31px;
+            gap: 5px;
             box-shadow: var(--shadow-glass-ui);
         }
 
-        /* 内部按钮：撑满高度并自适应圆角 */
+        /* 内部按钮：高度撑满（50px），自适应内缩圆角 25px */
         .control-bar.is-single-column .tab-item {
             height: 100%;
             min-height: 0;
             line-height: normal;
-            border-radius: calc(var(--radius-card) - 6px);
-            font-size: 15px;
+            border-radius: 25px;
+            font-size: 14.5px;
             font-weight: 500;
-            padding: 0 12px;
+            padding: 0 10px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -897,14 +897,14 @@
 
         @media (max-width: 860px) {
             body { 
-                /* 适配增高后的底栏高度与底部安全间距 */
-                padding-bottom: max(140px, calc(env(safe-area-inset-bottom) + 120px)); 
+                /* 适配 62px 高度 + 16px 间隙 + 安全区 */
+                padding-bottom: max(126px, calc(env(safe-area-inset-bottom) + 106px)); 
             }
             .modules { 
                 grid-template-columns: 1fr; 
             }
             .toast {
-                bottom: max(120px, calc(env(safe-area-inset-bottom) + 104px));
+                bottom: max(106px, calc(env(safe-area-inset-bottom) + 92px));
             }
         }
 
@@ -913,13 +913,13 @@
                 --radius-card: 42px;
             }
             body { 
-                padding-left: 12px; 
-                padding-right: 12px; 
+                padding-left: max(16px, env(safe-area-inset-left)); 
+                padding-right: max(16px, env(safe-area-inset-right)); 
             }
             .control-bar.is-single-column .tab-bar-wrapper { 
-                bottom: max(14px, calc(env(safe-area-inset-bottom) + 4px));
-                padding-left: 12px; 
-                padding-right: 12px; 
+                bottom: max(16px, calc(env(safe-area-inset-bottom) + 16px));
+                padding-left: max(16px, env(safe-area-inset-left)); 
+                padding-right: max(16px, env(safe-area-inset-right)); 
             }
             .title { font-size: 22px; }
             .module-card { padding: 22px; border-radius: var(--radius-card); }
@@ -934,7 +934,7 @@
             .card-status .status-pill { width: 100%; }
             .action-buttons { width: 100%; justify-content: flex-end; }
             .control-bar.is-single-column .tab-bar { padding: 5px; gap: 3px; }
-            .control-bar.is-single-column .tab-item { font-size: 13.5px; padding: 0 4px; border-radius: calc(var(--radius-card) - 5px); }
+            .control-bar.is-single-column .tab-item { font-size: 13.5px; padding: 0 4px; border-radius: 26px; }
         }
     </style>
 </head>
@@ -973,6 +973,7 @@
             </div>
         </header>
 
+        <!-- 搜索与分类控制栏 -->
         <div id="controlBar" class="control-bar">
             <nav class="tab-bar-wrapper" aria-label="资源分类导航">
                 <div class="tab-bar glass-element" role="tablist">
