@@ -865,8 +865,7 @@
             pointer-events: auto;
         }
 
-        /* 悬浮底栏外层固定容器：
-           触控条厚度 5px，触控条距底 8px，对称间距 8px -> 距底 21px (calc(34px - 13px)) */
+        /* 悬浮底栏外层固定容器 */
         .control-bar.is-single-column .tab-bar-wrapper {
             position: fixed;
             left: 0;
@@ -883,8 +882,7 @@
             z-index: 999999;
         }
 
-        /* 标签页主体：宽度 100% 自动与主卡片等宽，高度 62px，左右半圆直径 62px (border-radius: 31px)
-           内边距设定为 5px，与多列模式下的内部偏移绝对值完全保持一致 */
+        /* 标签页主体 */
         .control-bar.is-single-column .tab-bar {
             pointer-events: auto;
             width: 100%;
@@ -896,7 +894,7 @@
             box-shadow: var(--shadow-glass-ui);
         }
 
-        /* 内部按钮：高度撑满自适应，内缩圆角 26px (31px - 5px) */
+        /* 内部按钮 */
         .control-bar.is-single-column .tab-item {
             height: 100%;
             min-height: 0;
@@ -1039,7 +1037,7 @@
         /* =========================================================
             1. 全局配置与预置资源数据集
         ========================================================= */
-        const CACHE_VERSION = "202609010842"; 
+        const CACHE_VERSION = "202609011430"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -1184,7 +1182,8 @@
                 return {
                     ...item,
                     category: item.category || "more",
-                    _searchText: searchTokens
+                    _searchText: searchTokens,
+                    _domElement: null
                 };
             });
         }
@@ -1238,7 +1237,8 @@
                     isRepoCard: Boolean(m.isRepoCard),
                     statusBadge: m.statusBadge || "",
                     primaryBtnText: m.primaryBtnText || "",
-                    _searchText: searchTokens
+                    _searchText: searchTokens,
+                    _domElement: null
                 };
             });
         }
@@ -1387,7 +1387,8 @@
         function renderAuthor(module) {
             const author = module.author || {};
             const avatar = module.authorAvatar;
-            const avatarHTML = avatar ? `<img class="author-avatar" src="${escapeHTML(avatar)}" loading="lazy" referrerpolicy="no-referrer" alt="">` : "";
+            // 优化：去除 loading="lazy"，增加 decoding="async"，消除头像渲染延迟闪烁
+            const avatarHTML = avatar ? `<img class="author-avatar" src="${escapeHTML(avatar)}" decoding="async" referrerpolicy="no-referrer" alt="">` : "";
             const authorURL = author.url;
             if (authorURL) {
                 return `<a class="author" href="${escapeHTML(authorURL)}" target="_blank" rel="noopener">${avatarHTML}${escapeHTML(author.name || author.username)}</a>`;
@@ -1396,6 +1397,11 @@
         }
 
         function createModuleCard(module) {
+            // 核心优化：若该模块已有缓存的 DOM 节点，直接返回复用，彻底避免重绘与重新加载图片
+            if (module._domElement) {
+                return module._domElement;
+            }
+
             const card = document.createElement("article");
             card.className = "module-card glass-element";
 
@@ -1425,10 +1431,11 @@
                 ? `<a class="button button-primary" href="${escapeHTML(module.installURL)}" ${primaryTarget} aria-label="${escapeHTML(primaryText)} ${escapeHTML(module.name)}">${escapeHTML(primaryText)}</a>` 
                 : "";
 
+            // 优化：图标去除 loading="lazy"，增加 decoding="async"，使图片在 DOM 插入后立即绘制
             card.innerHTML = `
                 <div class="card-header">
                     <div class="module-icon">
-                        <img src="${escapeHTML(icon)}" alt="${escapeHTML(module.name)}" loading="lazy" referrerpolicy="no-referrer">
+                        <img src="${escapeHTML(icon)}" alt="${escapeHTML(module.name)}" decoding="async" referrerpolicy="no-referrer">
                     </div>
                     <div class="card-main">
                         <h2 class="module-name">${escapeHTML(module.name)}</h2>
@@ -1480,6 +1487,8 @@
                 avatarImg.addEventListener("error", () => { avatarImg.remove(); }, { once: true });
             }
 
+            // 缓存 DOM 节点
+            module._domElement = card;
             return card;
         }
 
