@@ -213,7 +213,6 @@
             min-height: 100vh;
             padding-top: max(16px, env(safe-area-inset-top));
             padding-right: 16px;
-            /* 底部避让：62px 底栏 + 21px 悬浮间距 + 安全余量 */
             padding-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
             padding-left: 16px;
             background: transparent;
@@ -879,24 +878,25 @@
             z-index: 999999;
         }
 
-        /* 标签页主体：宽度 100% 自动与主卡片等宽，高度 62px，左右半圆直径 62px (border-radius: 31px) */
+        /* 标签页主体：宽度 100% 自动与主卡片等宽，高度 62px，左右半圆直径 62px (border-radius: 31px)
+           内边距设定为 5px，与多列模式下的内部偏移绝对值完全保持一致 */
         .control-bar.is-single-column .tab-bar {
             pointer-events: auto;
             width: 100% !important;
             max-width: clamp(1080px, 95vw, 2560px) !important;
             height: 62px !important;
-            padding: 6px !important;
+            padding: 5px !important;
             border-radius: 31px !important;
             gap: 4px;
             box-shadow: var(--shadow-glass-ui);
         }
 
-        /* 内部按钮：高度撑满自适应，内缩圆角 25px */
+        /* 内部按钮：高度撑满自适应，内缩圆角 26px (31px - 5px) */
         .control-bar.is-single-column .tab-item {
             height: 100% !important;
             min-height: 0;
             line-height: normal;
-            border-radius: 25px !important;
+            border-radius: 26px !important;
             font-size: 14.5px;
             font-weight: 500;
             padding: 0 10px;
@@ -928,10 +928,10 @@
                 padding-left: 16px !important; 
                 padding-right: 16px !important; 
             }
-            .control-bar.is-single-column .tab-bar-wrapper {
+            .control-bar.is-single-column .tab-bar-wrapper { 
                 bottom: max(16px, calc(env(safe-area-inset-bottom) - 13px)) !important;
                 padding-left: 16px !important;
-                padding-right: 16px !important;
+                padding-right: 16px !important; 
             }
             .title { font-size: 22px; }
             .module-card { padding: 22px; border-radius: var(--radius-card); }
