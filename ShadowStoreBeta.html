@@ -136,6 +136,11 @@
             --toast-text: #FFFFFF;
 
             --card-width: 380px;
+
+            /* 触控条与底部动力学布局设计令牌 */
+            --bottom-offset: max(16px, calc(env(safe-area-inset-bottom) - 13px));
+            --safe-pad-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
+            --toast-bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px));
         }
 
         /* =========================================================
@@ -213,7 +218,7 @@
             min-height: 100vh;
             padding-top: max(16px, env(safe-area-inset-top));
             padding-right: 16px;
-            padding-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
+            padding-bottom: var(--safe-pad-bottom);
             padding-left: 16px;
             background: transparent;
             color: var(--text-primary); 
@@ -231,7 +236,7 @@
             max-width: clamp(1080px, 95vw, 2560px); 
             margin: 0 auto; 
             position: relative; 
-            top: 0;
+            top: 0; 
         }
 
         .glass-element {
@@ -818,7 +823,7 @@
         
         .toast { 
             position: fixed; 
-            bottom: 30px; 
+            bottom: var(--toast-bottom); 
             left: 50%; 
             transform: translateX(-50%) translateY(100px); 
             z-index: 999999; 
@@ -866,10 +871,10 @@
             position: fixed;
             left: 0;
             right: 0;
-            bottom: max(16px, calc(env(safe-area-inset-bottom) - 13px)) !important;
+            bottom: var(--bottom-offset);
             width: 100%;
-            height: 62px !important;
-            padding: 0 16px !important;
+            height: 62px;
+            padding: 0 16px;
             margin: 0;
             display: flex;
             align-items: center;
@@ -882,21 +887,21 @@
            内边距设定为 5px，与多列模式下的内部偏移绝对值完全保持一致 */
         .control-bar.is-single-column .tab-bar {
             pointer-events: auto;
-            width: 100% !important;
-            max-width: clamp(1080px, 95vw, 2560px) !important;
-            height: 62px !important;
-            padding: 5px !important;
-            border-radius: 31px !important;
+            width: 100%;
+            max-width: clamp(1080px, 95vw, 2560px);
+            height: 62px;
+            padding: 5px;
+            border-radius: 31px;
             gap: 4px;
             box-shadow: var(--shadow-glass-ui);
         }
 
         /* 内部按钮：高度撑满自适应，内缩圆角 26px (31px - 5px) */
         .control-bar.is-single-column .tab-item {
-            height: 100% !important;
+            height: 100%;
             min-height: 0;
             line-height: normal;
-            border-radius: 26px !important;
+            border-radius: 26px;
             font-size: 14.5px;
             font-weight: 500;
             padding: 0 10px;
@@ -907,31 +912,14 @@
 
         /* 单列及移动端断点 */
         @media (max-width: 860px) {
-            body { 
-                padding-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px)) !important; 
-                padding-left: 16px !important;
-                padding-right: 16px !important;
-            }
             .modules { 
                 grid-template-columns: 1fr; 
-            }
-            .toast {
-                bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px)) !important;
             }
         }
 
         @media (max-width: 600px) {
             :root {
                 --radius-card: 42px;
-            }
-            body { 
-                padding-left: 16px !important; 
-                padding-right: 16px !important; 
-            }
-            .control-bar.is-single-column .tab-bar-wrapper { 
-                bottom: max(16px, calc(env(safe-area-inset-bottom) - 13px)) !important;
-                padding-left: 16px !important;
-                padding-right: 16px !important; 
             }
             .title { font-size: 22px; }
             .module-card { padding: 22px; border-radius: var(--radius-card); }
@@ -945,33 +933,8 @@
             .card-status { width: 100%; }
             .card-status .status-pill { width: 100%; }
             .action-buttons { width: 100%; justify-content: flex-end; }
-            .control-bar.is-single-column .tab-bar { padding: 5px !important; gap: 2px; }
-            .control-bar.is-single-column .tab-item { font-size: 13px; padding: 0 4px; border-radius: 26px !important; }
-        }
-
-        /* =========================================================
-            7. PWA 独立运行模式适配 (CSS + JS 兜底)
-        ========================================================= */
-        @media (display-mode: standalone), (display-mode: fullscreen) {
-            .control-bar.is-single-column .tab-bar-wrapper {
-                bottom: max(16px, calc(env(safe-area-inset-bottom) - 13px)) !important;
-            }
-            body {
-                padding-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px)) !important;
-            }
-            .toast {
-                bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px)) !important;
-            }
-        }
-
-        html.is-pwa .control-bar.is-single-column .tab-bar-wrapper {
-            bottom: max(16px, calc(env(safe-area-inset-bottom) - 13px)) !important;
-        }
-        html.is-pwa body {
-            padding-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px)) !important;
-        }
-        html.is-pwa .toast {
-            bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px)) !important;
+            .control-bar.is-single-column .tab-bar { padding: 5px; gap: 2px; }
+            .control-bar.is-single-column .tab-item { font-size: 13px; padding: 0 4px; border-radius: 26px; }
         }
     </style>
 </head>
@@ -1324,7 +1287,6 @@
             if (!backToTopBtn) return;
             const shouldShow = window.scrollY > 160;
             if (shouldShow === backToTopVisible) return;
-            backToTopVisible = shouldShow;
             backToTopBtn.classList.toggle("visible", shouldShow);
         }
         
