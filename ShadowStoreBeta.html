@@ -675,7 +675,7 @@
             align-items: center; 
             gap: 6px; 
             color: var(--text-secondary); 
-            font-size: 13px;
+            font-size: 13px; 
             font-weight: 400; 
             transition: color 0.2s ease; 
             max-width: 180px;
@@ -971,7 +971,6 @@
             </div>
         </header>
 
-        <!-- 搜索与分类控制栏 -->
         <div id="controlBar" class="control-bar">
             <nav class="tab-bar-wrapper" aria-label="资源分类导航">
                 <div class="tab-bar glass-element" role="tablist">
@@ -1037,7 +1036,7 @@
         /* =========================================================
             1. 全局配置与预置资源数据集
         ========================================================= */
-        const CACHE_VERSION = "202609011430"; 
+        const CACHE_VERSION = "202609011619"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -1280,13 +1279,15 @@
         }
 
         /* =========================================================
-            3. UI 交互与吸顶控制
+            3. UI 交互与吸顶控制 (精准联动与返回顶部)
         ========================================================= */
         let backToTopVisible = false;
         function updateSearchLayer() {
             if (!backToTopBtn) return;
-            const shouldShow = window.scrollY > 160;
+            const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+            const shouldShow = scrollY > 160;
             if (shouldShow === backToTopVisible) return;
+            backToTopVisible = shouldShow;
             backToTopBtn.classList.toggle("visible", shouldShow);
         }
         
@@ -1305,7 +1306,7 @@
         }
 
         /* =========================================================
-            4. 层叠控制、卡片宽度感知与单列布局识别
+            4. 层叠控制、卡片宽度感知与动力学阴影层叠系统
         ========================================================= */
         function getGridColumns() {
             const style = window.getComputedStyle(modulesContainer);
@@ -1335,8 +1336,15 @@
             }
         }
 
+        /**
+         * 精准动力学层级运算：
+         * 阴影投射方向为向左（-X）和向下（+Y）。
+         * 因此：行号越靠下（r 越大）z-index 越高；列号越靠左（c 越小）z-index 越高。
+         * 公式：(r + 1) * 100 + (cols - c)
+         * 确保所有阴影永远被其下方和左方的卡片主体自然覆盖在图层之下，绝不遮挡卡片正面。
+         */
         function updateCardLayerOrder() {
-            const cards = modulesContainer.querySelectorAll(".module-card");
+            const cards = modulesContainer.querySelectorAll(".module-card, .loading-card");
             const count = cards.length;
             if (!count) return;
             
@@ -1344,32 +1352,19 @@
             for (let i = 0; i < count; i++) {
                 const r = Math.floor(i / cols);
                 const c = i % cols;
-                cards[i].style.zIndex = (r + 1) * 100 - c;
+                cards[i].style.zIndex = (r + 1) * 100 + (cols - c);
             }
         }
 
         let resizeTimer = null;
-        let lastCardWidth = 0;
-        let lastColumns = 0;
 
         function scheduleCardLayerUpdate() {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                const columns = getGridColumns();
-                const firstCard = modulesContainer.querySelector(".module-card, .loading-card");
-                const cardWidth = firstCard?.offsetWidth || 0;
-
-                if (cardWidth === lastCardWidth && columns === lastColumns) {
-                    return;
-                }
-
-                lastCardWidth = cardWidth;
-                lastColumns = columns;
-
                 updateCardWidth();
                 updateCardLayerOrder();
                 updateControlBarLayout();
-            }, 60);
+            }, 40);
         }
 
         window.addEventListener("resize", scheduleCardLayerUpdate);
@@ -1381,13 +1376,9 @@
             gridResizeObserver.observe(modulesContainer);
         }
 
-        updateCardWidth();
-        updateControlBarLayout();
-
         function renderAuthor(module) {
             const author = module.author || {};
             const avatar = module.authorAvatar;
-            // 优化：去除 loading="lazy"，增加 decoding="async"，消除头像渲染延迟闪烁
             const avatarHTML = avatar ? `<img class="author-avatar" src="${escapeHTML(avatar)}" decoding="async" referrerpolicy="no-referrer" alt="">` : "";
             const authorURL = author.url;
             if (authorURL) {
@@ -1397,7 +1388,6 @@
         }
 
         function createModuleCard(module) {
-            // 核心优化：若该模块已有缓存的 DOM 节点，直接返回复用，彻底避免重绘与重新加载图片
             if (module._domElement) {
                 return module._domElement;
             }
@@ -1431,7 +1421,6 @@
                 ? `<a class="button button-primary" href="${escapeHTML(module.installURL)}" ${primaryTarget} aria-label="${escapeHTML(primaryText)} ${escapeHTML(module.name)}">${escapeHTML(primaryText)}</a>` 
                 : "";
 
-            // 优化：图标去除 loading="lazy"，增加 decoding="async"，使图片在 DOM 插入后立即绘制
             card.innerHTML = `
                 <div class="card-header">
                     <div class="module-icon">
@@ -1487,7 +1476,6 @@
                 avatarImg.addEventListener("error", () => { avatarImg.remove(); }, { once: true });
             }
 
-            // 缓存 DOM 节点
             module._domElement = card;
             return card;
         }
@@ -1507,7 +1495,10 @@
             state.currentlyRendered += nextBatch.length;
             
             sentinel.style.display = state.currentlyRendered >= state.filteredModules.length ? "none" : "block";
-            scheduleCardLayerUpdate();
+            
+            // 即时更新层叠与尺寸
+            updateCardWidth();
+            updateCardLayerOrder();
             updateSearchLayer();
         }
 
@@ -2013,6 +2004,10 @@
             }
         }
 
+        // 初始化启动
+        updateCardWidth();
+        updateControlBarLayout();
+        updateSearchLayer();
         cleanOldCaches();
         loadModules();
     </script>
