@@ -138,7 +138,7 @@
             --card-width: 380px;
 
             /* 触控条与底部动力学布局设计令牌 */
-            --bottom-offset: max(16px, calc(env(safe-area-inset-bottom) - 13px));
+            --bottom-offset: calc(env(safe-area-inset-bottom) + 8px);
             --safe-pad-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
             --toast-bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px));
         }
@@ -865,8 +865,8 @@
             pointer-events: auto;
         }
 
-        /* 悬浮底栏外层固定容器：
-           触控条厚度 5px，触控条距底 8px，对称间距 8px -> 距底 21px (calc(34px - 13px)) */
+        /* 悬浮底栏：
+           距屏幕底部 8px，并自动叠加 iOS 安全区 */
         .control-bar.is-single-column .tab-bar-wrapper {
             position: fixed;
             left: 0;
