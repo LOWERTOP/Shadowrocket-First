@@ -1,6 +1,6 @@
 /**
  * ShadowStore 数据聚合构建引擎
- * 针对 README 默认分支设计，负责拉取各开源仓库、解析元数据、匹配图标并生成 modules.json
+ * 针对 README 默认分支设计，负责拉取各开源仓库、解析元数据、智能识别“更多资源”与前置模块并生成 modules.json
  */
 
 const fs = require('fs');
@@ -385,6 +385,128 @@ function parseRepositoryModules(markdown) {
     });
 }
 
+/**
+ * 智能自动识别 README.md 中的“模块收集” -> “更多资源”段落，并生成卡片数据
+ */
+function parseMoreResourcesFromReadme(markdown) {
+    if (!markdown) return [];
+    
+    // 定位“更多资源”段落（从“更多资源”标题开始，到下一个同级/更高级标题或分割线为止）
+    const sectionMatch = markdown.match(/(?:^|\n)#{1,6}\s*更多资源[^\n]*\n([\s\S]*?)(?=(?:\n#{1,3}\s+[^\n]+|\n---|$))/i);
+    if (!sectionMatch || !sectionMatch[1]) return [];
+    
+    const lines = sectionMatch[1].split(/\r?\n/);
+    const resources = [];
+    
+    for (const rawLine of lines) {
+        const line = rawLine.trim();
+        if (!line || (!line.startsWith("*") && !line.startsWith("-") && !line.startsWith("+") && !/^\d+\./.test(line))) {
+            continue;
+        }
+        
+        // 提取行内所有 Markdown 链接: [文本](URL)
+        const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+        const links = [];
+        let match;
+        while ((match = linkRegex.exec(line)) !== null) {
+            links.push({
+                text: match[1].trim(),
+                url: match[2].trim(),
+                full: match[0]
+            });
+        }
+        
+        if (links.length === 0) continue;
+        
+        let preModuleLink = null;
+        let mainLink = null;
+        
+        // 区分前置模块链接与主仓库/资源链接
+        for (const l of links) {
+            const isModuleUrl = /\.(?:sgmodule|srmodule|module)(?:$|[?#%])/i.test(l.url) || l.url.includes("install?module=");
+            const isPreText = /前置|转换器|插件中心专用|必须安装|依赖/i.test(l.text);
+            
+            if (isModuleUrl || isPreText) {
+                preModuleLink = l;
+            } else {
+                mainLink = l;
+            }
+        }
+        
+        if (!mainLink && links.length > 0) {
+            mainLink = links[links.length - 1];
+            if (preModuleLink === mainLink) preModuleLink = null;
+        }
+        if (!mainLink) continue;
+        
+        // 提取说明描述：保留原意并清理 Markdown 链接标记
+        let desc = line.replace(/^[\*\-\+\d\.\s]+/, "").trim();
+        if (mainLink) {
+            desc = desc.replace(mainLink.full, "").trim();
+        }
+        if (preModuleLink) {
+            desc = desc.replace(preModuleLink.full, `「${preModuleLink.text}」`).trim();
+        }
+        desc = desc.replace(/[·•\s]+$/, "").trim();
+        
+        // 提取名称与作者
+        const cleanMainText = mainLink.text.replace(/^[🚀📁📦\s]+/, "").replace(/^社区资源/i, "").trim();
+        const authorMatch = desc.match(/^([A-Za-z0-9_\-\u4e00-\u9fa5]+(?:\s+[A-Za-z0-9_\-\u4e00-\u9fa5]+)?)\s*(?:创建|维护|原创|提供|精选)/i);
+        const detectedAuthor = authorMatch ? authorMatch[1].trim() : (cleanMainText || "社区作者");
+        
+        const cardName = cleanMainText ? `${cleanMainText} 资源仓库` : `${detectedAuthor} 资源`;
+        
+        const mainURL = normalizeRawURL(mainLink.url);
+        const ghInfo = parseGitHubRawURL(mainURL);
+        const sourceInfo = getSourceRepoInfo(mainURL, ghInfo);
+        const authorInfo = getAuthorFromURL(mainURL, ghInfo);
+        
+        if (!authorInfo.name || authorInfo.name === "作者信息识别失败") {
+            authorInfo.name = detectedAuthor;
+        }
+        
+        const isGithub = Boolean(ghInfo);
+        const authorAvatar = isGithub ? `https://github.com/${encodeURIComponent(ghInfo.owner)}.png?size=64` : "";
+        
+        // 解析前置模块安装链接
+        let preInstallURL = "";
+        if (preModuleLink) {
+            const rawMod = normalizeRawURL(preModuleLink.url);
+            preInstallURL = createInstallURL(rawMod);
+        }
+        
+        // 图标自适应
+        let icon = "";
+        if (isGithub) {
+            icon = `https://github.com/${encodeURIComponent(ghInfo.owner)}.png?size=128`;
+        } else {
+            icon = getMatchedIcon(detectedAuthor) || getMatchedIcon(cardName);
+        }
+        
+        resources.push({
+            name: cardName,
+            category: "more",
+            description: desc,
+            icon: icon,
+            author: authorInfo,
+            authorAvatar: authorAvatar,
+            sourceName: sourceInfo.name,
+            sourceURL: sourceInfo.url,
+            rawURL: mainURL,
+            installURL: mainURL,
+            preInstallURL: preInstallURL,
+            secondaryBtnText: preInstallURL ? "安装前置" : "复制链接",
+            isDubious: false,
+            isRepoCard: true,
+            statusBadge: "社区资源仓库",
+            primaryBtnText: isGithub ? "访问仓库" : "访问网站",
+            _searchKeywords: [cardName, desc, detectedAuthor, sourceInfo.name, "社区资源", "仓库"].join(" ").toLowerCase()
+        });
+    }
+    
+    return resources;
+}
+
 async function fetchFMZModules() {
     const modules = [];
     try {
@@ -707,6 +829,7 @@ async function main() {
     ]);
 
     const localModules = parseRepositoryModules(repoMarkdown).map(m => ({ ...m, fromMyRepo: true }));
+    const moreResourcesCards = parseMoreResourcesFromReadme(repoMarkdown);
 
     const seenURLs = new Set();
     let sourceModules = [...localModules, ...zirawellModules, ...fmzModules].filter(item => {
@@ -715,16 +838,19 @@ async function main() {
         return true;
     });
 
-    console.log(`📦 共发现 ${sourceModules.length} 个独立模块，开始并发处理...`);
+    console.log(`📦 共发现 ${sourceModules.length} 个独立模块及 ${moreResourcesCards.length} 个扩展资源仓库，开始并发处理...`);
     sourceModules = sortPinnedModules(sourceModules);
 
     const finalModules = await processModulesPool(sourceModules);
     const sortedResult = sortPinnedModules(finalModules);
 
+    // 将更多资源卡片合并到结果集中
+    const combinedResult = [...sortedResult, ...moreResourcesCards];
+
     const outputPath = path.join(__dirname, '..', 'modules.json');
-    fs.writeFileSync(outputPath, JSON.stringify(sortedResult, null, 2), 'utf-8');
+    fs.writeFileSync(outputPath, JSON.stringify(combinedResult, null, 2), 'utf-8');
     
-    console.log(`✅ 构建完成！共输出 ${sortedResult.length} 个模块至 ${outputPath}`);
+    console.log(`✅ 构建完成！共输出 ${combinedResult.length} 个资源项至 ${outputPath}`);
 }
 
 main().catch(err => {
