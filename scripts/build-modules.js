@@ -18,12 +18,12 @@ const CONFIG = {
 };
 
 const APP_ALIASES = {
-    "私库": ["github"], "🅲🅻🅴🅰🅽🅴🆁": ["github"], "证书": ["github"], "解密": ["github"], "🅳🅴🆅": ["github"], "红果": ["tiktok"], "流媒体": ["netflix"], "影视": ["netflix"], "大师兄": ["netflix"],
+    "私库": ["github"], "🅲🅻🅴🅰🅽🅴🆁": ["github"], "证书": ["github"], "解密": ["github"], "🅳🅴🆅": ["github"], "红果": ["play"], "流媒体": ["netflix"], "影视": ["netflix"], "大师兄": ["netflix"], "talkatone": ["talkatone"],
     "苹果": ["apple"], "apple": ["apple"], "谷歌": ["google"], "微软": ["microsoft"],
     "油管": ["youtube"], "youtube": ["youtube"], "电报": ["telegram"], "推特": ["twitter", "x"],
     "奈飞": ["netflix"], "网飞": ["netflix"], "迪士尼": ["disney"], "cmcc": ["中国移动"],
     "小米": ["xiaomi", "mi"], "米家": ["xiaomi", "mihome", "mi"], "call": ["googlevoice"],
-    "xiaomi": ["xiaomi", "mi"], "mihome": ["xiaomi", "mihome"], "ali": ["alibaba"], "阿里": ["alibaba"],
+    "xiaomi": ["xiaomi", "mi"], "mihome": ["xiaomi", "mihome"], "ali": ["alibaba"], "阿里": ["alibaba"], "阿里系": ["alibaba"],
     "京东": ["jd", "jingdong"], "哔哩哔哩": ["bilibili", "b站", "bili"], "b站": ["bilibili"], "bili": ["bilibili"],
     "微信": ["weixin", "wechat"], "微博": ["weibo"], "知乎": ["zhihu"], "script": ["script-hub"],
     "小红书": ["xhs", "xiaohongshu", "rednot", "redbook"], "rednot": ["xhs", "xiaohongshu", "rednot", "redbook"], "抖音": ["douyin", "tiktok"], "快手": ["kuaishou"],
