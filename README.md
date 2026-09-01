@@ -22,9 +22,9 @@
 
 # [ShadowStore 模块中心](#shadowstore-模块中心)
 
-> [ShadowStore 模块中心](https://github.com/LOWERTOP/ShadowStore) 是一个集 **模块索引**、**模块检索**、**一键安装**、**一键复制** 等功能于一体的模块资源平台，目前收录模块已超过千款。网页支持发送快捷方式至桌面，并可正常显示应用图标
+> [ShadowStore](https://github.com/LOWERTOP/ShadowStore) 是一个专为 Shadowrocket 打造的开放资源平台，提供 **资源索引**、**资源检索**、**一键安装**、**一键复制** 等功能，集中收录和整理公开资源。目前已收录超过 1000 款模块及其他多种资源，支持添加网页快捷方式至桌面，并提供应用图标显示，为 Shadowrocket 用户提供更加便捷的资源发现与使用体验
 > 
-> 相关资源均直接引用自原始开源仓库。特别鸣谢 **[奶思](https://github.com/fmz200)**、**[zirawell](https://github.com/zirawell)**、**[iab0x00](https://github.com/iab0x00)** 等开源作者的分享与持续维护
+> 相关资源均直接引用自原始开源仓库。特别鸣谢 **[奶思](https://github.com/fmz200)**、**[zirawell](https://github.com/zirawell)**、**[iab0x00](https://github.com/iab0x00)** 等开源作者
 > 
 > [![访问页面 模块中心](https://img.shields.io/static/v1?label=访问页面&message=模块中心&color=grey&logo=safari&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://shadowstore.dpdns.org/ "访问相应地址")
 
