@@ -29,6 +29,11 @@
                 themeMeta.setAttribute('content', themeColor);
             }
             document.documentElement.style.backgroundColor = themeColor;
+
+            // PWA 模式精准侦测
+            if (window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches) {
+                document.documentElement.classList.add('is-pwa');
+            }
         })();
     </script>
 
@@ -206,7 +211,11 @@
         body { 
             margin: 0; 
             min-height: 100vh;
-            padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(36px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); 
+            /* 左右边距严格保持 16px */
+            padding-top: max(16px, env(safe-area-inset-top));
+            padding-right: 16px;
+            padding-bottom: 98px;
+            padding-left: 16px;
             background: transparent;
             color: var(--text-primary); 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; 
@@ -579,7 +588,7 @@
 
         .status { 
             display: flex; align-items: center; justify-content: space-between; 
-            min-height: 22px; margin: 0 6px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
+            min-height: 22px; margin: 0 4px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
             text-shadow: none; 
         }
         .status-left { display: flex; align-items: center; gap: 8px; }
@@ -823,7 +832,7 @@
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
         /* =========================================================
-            6. 单列布局与响应式适配 (iOS / 移动端 规范底栏)
+            6. 单列布局与底栏完全重构规范
         ========================================================= */
         .control-bar.is-single-column {
             display: block;
@@ -852,15 +861,15 @@
             pointer-events: auto;
         }
 
-        /* 悬浮底栏外层容器：底部距离固定 16px 并融合安全区，左右边距 16px */
+        /* 悬浮底栏外层固定容器：严格距屏幕物理底部 16px，左右内边距 16px */
         .control-bar.is-single-column .tab-bar-wrapper {
             position: fixed;
             left: 0;
             right: 0;
-            bottom: max(16px, calc(env(safe-area-inset-bottom) + 16px));
+            bottom: 16px !important;
             width: 100%;
-            height: 62px;
-            padding: 0 max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
+            height: 62px !important;
+            padding: 0 16px !important;
             margin: 0;
             display: flex;
             align-items: center;
@@ -869,24 +878,24 @@
             z-index: 999999;
         }
 
-        /* 标签页主体：宽度等于卡片宽度，高度 62px，圆角半径 31px（圆直径 62px） */
+        /* 标签页主体：宽度 100% 自动与主卡片等宽，高度 62px，左右半圆直径 62px (border-radius: 31px) */
         .control-bar.is-single-column .tab-bar {
             pointer-events: auto;
-            width: 100%;
-            max-width: var(--card-width, 100%);
-            height: 62px;
-            padding: 6px;
-            border-radius: 31px;
-            gap: 5px;
+            width: 100% !important;
+            max-width: clamp(1080px, 95vw, 2560px) !important;
+            height: 62px !important;
+            padding: 6px !important;
+            border-radius: 31px !important;
+            gap: 4px;
             box-shadow: var(--shadow-glass-ui);
         }
 
-        /* 内部按钮：高度撑满（50px），自适应内缩圆角 25px */
+        /* 内部按钮：高度撑满自适应，内缩圆角 25px */
         .control-bar.is-single-column .tab-item {
-            height: 100%;
+            height: 100% !important;
             min-height: 0;
             line-height: normal;
-            border-radius: 25px;
+            border-radius: 25px !important;
             font-size: 14.5px;
             font-weight: 500;
             padding: 0 10px;
@@ -895,15 +904,18 @@
             justify-content: center;
         }
 
+        /* 单列及移动端断点 */
         @media (max-width: 860px) {
             body { 
-                padding-bottom: max(126px, calc(env(safe-area-inset-bottom) + 106px)); 
+                padding-bottom: 98px !important; 
+                padding-left: 16px !important;
+                padding-right: 16px !important;
             }
             .modules { 
                 grid-template-columns: 1fr; 
             }
             .toast {
-                bottom: max(106px, calc(env(safe-area-inset-bottom) + 92px));
+                bottom: 88px !important;
             }
         }
 
@@ -912,13 +924,8 @@
                 --radius-card: 42px;
             }
             body { 
-                padding-left: max(16px, env(safe-area-inset-left)); 
-                padding-right: max(16px, env(safe-area-inset-right)); 
-            }
-            .control-bar.is-single-column .tab-bar-wrapper { 
-                bottom: max(16px, calc(env(safe-area-inset-bottom) + 16px));
-                padding-left: max(16px, env(safe-area-inset-left)); 
-                padding-right: max(16px, env(safe-area-inset-right)); 
+                padding-left: 16px !important; 
+                padding-right: 16px !important; 
             }
             .title { font-size: 22px; }
             .module-card { padding: 22px; border-radius: var(--radius-card); }
@@ -932,14 +939,14 @@
             .card-status { width: 100%; }
             .card-status .status-pill { width: 100%; }
             .action-buttons { width: 100%; justify-content: flex-end; }
-            .control-bar.is-single-column .tab-bar { padding: 5px; gap: 3px; }
-            .control-bar.is-single-column .tab-item { font-size: 13.5px; padding: 0 4px; border-radius: 26px; }
+            .control-bar.is-single-column .tab-bar { padding: 5px !important; gap: 2px; }
+            .control-bar.is-single-column .tab-item { font-size: 13px; padding: 0 4px; border-radius: 26px !important; }
         }
 
         /* =========================================================
-            7. PWA 独立运行模式适配 (display-mode: standalone)
+            7. PWA 独立运行模式适配 (CSS + JS 兜底)
         ========================================================= */
-        @media (display-mode: standalone) {
+        @media (display-mode: standalone), (display-mode: fullscreen) {
             .control-bar.is-single-column .tab-bar-wrapper {
                 bottom: 16px !important;
             }
@@ -949,6 +956,16 @@
             .toast {
                 bottom: 88px !important;
             }
+        }
+
+        html.is-pwa .control-bar.is-single-column .tab-bar-wrapper {
+            bottom: 16px !important;
+        }
+        html.is-pwa body {
+            padding-bottom: 98px !important;
+        }
+        html.is-pwa .toast {
+            bottom: 88px !important;
         }
     </style>
 </head>
@@ -1396,9 +1413,9 @@
             gridResizeObserver.observe(modulesContainer);
         }
 
-        requestAnimationFrame(() => {
-            updateControlBarLayout();
-        });
+        // 立即执行一次布局同步
+        updateCardWidth();
+        updateControlBarLayout();
 
         function renderAuthor(module) {
             const author = module.author || {};
