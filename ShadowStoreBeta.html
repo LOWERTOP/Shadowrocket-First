@@ -213,7 +213,7 @@
             --text-secondary: #939aa8;
             --text-tertiary: #6b7280;
 
-            --primary: #0891b2;
+            --primary: #0891b2; 
             --primary-hover: #06b6d4;
             --primary-soft: rgba(6, 182, 212, 0.2);
 
@@ -435,7 +435,11 @@
                 transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 background-color 0.3s ease,
+                border-color 0.35s ease,
                 color 0.2s ease;
+        }
+        .theme-controls .theme-toggle {
+            border-color: rgba(255, 255, 255, 0.8);
         }
         .theme-toggle:hover { 
             background-image: var(--noise-pattern), var(--glass-bg-hover);
@@ -497,7 +501,10 @@
             border-radius: 22px;
             box-shadow: var(--shadow-search);
             overflow: hidden;
-            transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            border-color: rgba(255, 255, 255, 0.8);
+            transition: 
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s ease;
         }
 
         .tab-indicator {
@@ -634,6 +641,7 @@
             box-shadow: var(--shadow-search); 
             padding: 6px; 
             cursor: text;
+            border-color: rgba(255, 255, 255, 0.8);
             -webkit-transform: translateZ(0); 
             transform: translateZ(0);
             transition: 
@@ -644,14 +652,14 @@
 
         .search-box-inner:focus-within {
             background-image: var(--noise-pattern), var(--glass-bg-hover);
-            border-color: rgba(255,255,255,0.8); 
+            border-color: rgba(255, 255, 255, 0.8); 
             box-shadow: var(--shadow-search-hover); 
         }
         
         [data-theme="dark"] .search-box-inner:focus-within {
             background-image: var(--noise-pattern);
             background-color: var(--border-subtle);
-            border-color: var(--text-tertiary); 
+            border-color: var(--border-subtle); 
             box-shadow: var(--shadow-search-hover);
         }
         
@@ -1009,8 +1017,11 @@
         @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
 
         [data-theme="dark"] .module-card,
-        [data-theme="dark"] .loading-card {
-            border-color: var(--text-tertiary);
+        [data-theme="dark"] .loading-card,
+        [data-theme="dark"] .theme-controls .theme-toggle,
+        [data-theme="dark"] .tab-bar,
+        [data-theme="dark"] .search-box-inner {
+            border-color: var(--border-subtle);
         }
         
         .footer { 
@@ -1411,7 +1422,7 @@
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        const CACHE_VERSION = "202609021935"; 
+        const CACHE_VERSION = "202609022148"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
