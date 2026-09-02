@@ -28,7 +28,8 @@
             if (themeMeta) {
                 themeMeta.setAttribute('content', themeColor);
             }
-            document.documentElement.style.backgroundColor = themeColor;
+            // 浅色模式同步使用渐变底色 #dce1e8，防止回弹与视口差露出白底
+            document.documentElement.style.backgroundColor = theme === 'dark' ? '#14161a' : '#dce1e8';
 
             // 智能识别浏览器语言环境：中文（简/繁/港/台/新）默认为中文，其余语言默认为英文
             try {
@@ -70,8 +71,9 @@
         :root, [data-theme="light"] {
             --layout-gap: 44px;
 
-            --bg-overscroll: #ffffff;
-            --bg-page-base: #ffffff;
+            /* 兜底色调整为渐变终点色，杜绝边缘露白 */
+            --bg-overscroll: #dce1e8;
+            --bg-page-base: #dce1e8;
             --bg-page-grad: radial-gradient(circle at 50% 0%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
             
             --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
@@ -137,7 +139,7 @@
                 -6.7px 13.3px 16.7px -2px rgba(0, 0, 0, 0.08),
                 -20px 33.3px 40px -4px rgba(0, 0, 0, 0.17);
 
-            /* 标签栏下沉到底部时专用的无暗色阴影、保留高光光斑令牌 */
+            /* 标签栏下沉到底部时专用：仅保留内高光与外反射光斑，隐藏暗色投影 */
             --shadow-tab-bottom: 
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
@@ -257,6 +259,8 @@
             background-color: var(--bg-overscroll);
             background-image: var(--bg-page-grad);
             background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
             min-height: 100%;
             overscroll-behavior-y: none;
             -webkit-overscroll-behavior-y: none;
@@ -265,7 +269,7 @@
         
         body { 
             margin: 0; 
-            min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
             padding-top: max(16px, env(safe-area-inset-top));
@@ -2345,7 +2349,8 @@
             if (themeColorMeta) {
                 themeColorMeta.setAttribute("content", themeColor);
             }
-            document.documentElement.style.backgroundColor = themeColor;
+            // 浅色模式下采用渐变终点底色 #dce1e8，深色采用 #14161a
+            document.documentElement.style.backgroundColor = currentTheme === "dark" ? "#14161a" : "#dce1e8";
 
             const isZh = state.currentLang === "zh";
             if (mode === "light") {
