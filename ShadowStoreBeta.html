@@ -236,17 +236,29 @@
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
-        /* 彻底移除背景图层、伪元素及渐变，仅保留全局统一的纯色底色 */
+        /* 根元素拥有无限上下底色空间，并根据内容高度动态受控 */
         html { 
             margin: 0; 
             padding: 0; 
-            overflow-y: scroll; 
             scrollbar-gutter: stable; 
             background: var(--bg-page-base);
             min-height: 100%;
+            transition: background-color 0.4s ease; 
+        }
+
+        /* 状态A：内容超出视口时，启用标准自然滚动 */
+        html:not(.no-scroll) {
+            overflow-y: scroll;
+            overscroll-behavior-y: auto;
+            -webkit-overscroll-behavior-y: auto;
+        }
+
+        /* 状态B：内容不足视口时，禁用物理滚轴并锁死原生越界回弹，但保留下拉刷新手势响应 */
+        html.no-scroll {
+            overflow-y: hidden;
             overscroll-behavior-y: none;
             -webkit-overscroll-behavior-y: none;
-            transition: background-color 0.4s ease; 
+            touch-action: pan-x pinch-zoom;
         }
         
         body { 
@@ -1648,7 +1660,24 @@
         let lastCardWidthVal = 0;
 
         /* =========================================================
-            2. 安全转义与多语言格式化
+            2. 动态视口高度与滚动锁联动引擎
+        ========================================================= */
+        function checkScrollLock() {
+            const root = document.documentElement;
+            // 预留 3px 阈值，避免在移动端软键盘/设备像素比取整时的抖动
+            const contentH = root.scrollHeight;
+            const viewportH = window.innerHeight;
+            const isOverflowing = contentH > viewportH + 3;
+
+            if (isOverflowing) {
+                root.classList.remove("no-scroll");
+            } else {
+                root.classList.add("no-scroll");
+            }
+        }
+
+        /* =========================================================
+            3. 安全转义与多语言格式化
         ========================================================= */
         function escapeHTML(value) {
             return String(value ?? "")
@@ -1806,7 +1835,7 @@
         }
 
         /* =========================================================
-            3. UI 交互与吸顶控制
+            4. UI 交互与吸顶控制
         ========================================================= */
         let backToTopVisible = false;
         function updateSearchLayer() {
@@ -1833,7 +1862,7 @@
         }
 
         /* =========================================================
-            4. 层叠控制、防形变与动画锁物理滑块
+            5. 层叠控制、防形变与动画锁物理滑块
         ========================================================= */
         function updateTabIndicator(animated = true) {
             const activeTab = document.querySelector(".tab-item.active");
@@ -1917,6 +1946,7 @@
                 updateCardWidth();
                 updateCardLayerOrder();
                 updateControlBarLayout();
+                checkScrollLock();
             }, 40);
         }
 
@@ -1934,6 +1964,7 @@
                 document.documentElement.classList.remove("is-resizing");
                 updateControlBarLayout();
                 updateTabIndicator(false);
+                checkScrollLock();
             }, 120);
         }, { passive: true });
 
@@ -2079,6 +2110,7 @@
         function appendNextBatch() {
             if (state.currentlyRendered >= state.filteredModules.length) {
                 sentinel.style.display = "none";
+                checkScrollLock();
                 return;
             }
             const fragment = document.createDocumentFragment();
@@ -2095,6 +2127,7 @@
             updateCardWidth();
             updateCardLayerOrder();
             updateSearchLayer();
+            checkScrollLock();
         }
 
         function renderFilteredList(list) {
@@ -2110,6 +2143,7 @@
                 modulesContainer.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div>${escapeHTML(langObj.emptyText(currentLabel))}</div>`;
                 countText.textContent = langObj.countText(0, currentLabel);
                 scheduleCardLayerUpdate();
+                checkScrollLock();
                 return;
             }
 
@@ -2125,7 +2159,7 @@
         observer.observe(sentinel);
 
         /* =========================================================
-            5. 分类标签切换与搜索联动
+            6. 分类标签切换与搜索联动
         ========================================================= */
         function filterModules() {
             const keyword = searchInput.value.trim().normalize("NFKC").toLowerCase();
@@ -2276,7 +2310,7 @@
         }
 
         /* =========================================================
-            6. 主题与语言双引擎系统
+            7. 主题与语言双引擎系统
         ========================================================= */
         const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -2447,7 +2481,7 @@
         updateThemeUI();
 
         /* =========================================================
-            7. 移动端下拉刷新手势
+            8. 移动端下拉刷新手势与滚动锁完美联动
         ========================================================= */
         let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
         const MIN_DRAG_DEADZONE = 30;
@@ -2475,6 +2509,7 @@
                 ptrIcon.classList.remove("rotate");
                 state.isPullRefreshing = false;
                 pageContainer.style.willChange = "auto";
+                checkScrollLock();
             }, 500);
         }
 
@@ -2501,7 +2536,9 @@
                 isPulling = false;
                 return;
             }
-            if (window.scrollY <= 0 && document.documentElement.scrollTop <= 0) {
+            // 无论当前是否为 no-scroll 锁定状态，只要处于最顶端就允许捕获下拉手势
+            const isAtTop = (window.scrollY || document.documentElement.scrollTop || 0) <= 0;
+            if (isAtTop) {
                 touchStartX = e.touches[0].clientX;
                 touchStartY = e.touches[0].clientY;
                 isPulling = true;
@@ -2516,8 +2553,11 @@
         }, { passive: true });
 
         window.addEventListener('touchmove', (e) => {
-            if (!isPulling || state.isPullRefreshing || state.isDataLoading || window.scrollY > 0) {
-                isPulling = false;
+            if (!isPulling || state.isPullRefreshing || state.isDataLoading) {
+                // 处于短页面锁定时，彻底屏蔽一切无关的多余上下滚动干扰
+                if (document.documentElement.classList.contains("no-scroll") && e.cancelable) {
+                    e.preventDefault();
+                }
                 return;
             }
 
@@ -2533,7 +2573,11 @@
                     return;
                 }
 
+                // 向上滑动时不触发下拉手势，并在锁定时直接拦截向上越界晃动
                 if (diffY <= 0) {
+                    if (document.documentElement.classList.contains("no-scroll") && e.cancelable) {
+                        e.preventDefault();
+                    }
                     return;
                 }
 
@@ -2565,6 +2609,8 @@
                 });
 
                 if (e.cancelable) e.preventDefault();
+            } else if (document.documentElement.classList.contains("no-scroll") && e.cancelable) {
+                e.preventDefault();
             }
         }, { passive: false });
 
@@ -2576,8 +2622,9 @@
 
             const currentY = e.changedTouches[0].clientY;
             const diffY = currentY - touchStartY;
+            const isAtTop = (window.scrollY || document.documentElement.scrollTop || 0) <= 0;
 
-            if (diffY >= PULL_TRIGGER_DIFF && window.scrollY <= 0) {
+            if (diffY >= PULL_TRIGGER_DIFF && isAtTop) {
                 pageContainer.style.transition = 'top 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)';
                 pageContainer.style.top = '38px';
                 
@@ -2594,7 +2641,7 @@
         window.addEventListener('touchcancel', resetPullState, { passive: true });
 
         /* =========================================================
-            8. 核心数据同步引擎
+            9. 核心数据同步引擎
         ========================================================= */
         function cleanOldCaches() {
             try {
@@ -2709,6 +2756,7 @@
                 return false;
             } finally {
                 state.isDataLoading = false;
+                checkScrollLock();
             }
         }
 
