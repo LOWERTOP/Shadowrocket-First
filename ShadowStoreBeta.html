@@ -818,6 +818,21 @@
             text-shadow: var(--text-shadow-sm); 
             flex: 1 1 auto;
         }
+
+        /* 卡片描述内部超链接样式（继承正文字色，通过下划线呈现链接属性） */
+        .module-description a {
+            color: inherit;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            word-break: break-all;
+            transition: color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .module-description a:hover {
+            color: var(--text-primary);
+            opacity: 0.85;
+        }
         
         .card-bottom { 
             display: flex; align-items: center; justify-content: space-between; gap: 12px; 
@@ -1354,7 +1369,7 @@
         /* =========================================================
             1. 全局配置与预置资源数据集
         ========================================================= */
-        const CACHE_VERSION = "202609021040"; 
+        const CACHE_VERSION = "202609021100"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -1464,6 +1479,29 @@
                 .replace(/>/g, "&gt;")
                 .replace(/"/g, "&quot;")
                 .replace(/'/g, "&#039;");
+        }
+
+        // 自动将描述中的 URL 转换为安全超链接
+        function linkifyDescription(text) {
+            if (!text) return "暂无描述";
+            const safeText = escapeHTML(text);
+
+            // 匹配 http/https 链接，支持 query 参数及已转义的 &amp;
+            const urlPattern = /https?:\/\/(?:[a-zA-Z0-9\-._~:/?#[\]@!$&'()*+,;=]|&amp;)+/g;
+
+            return safeText.replace(urlPattern, (matched) => {
+                // 智能剥离末尾误匹配的中英文标点（如：。，！？）】等）
+                let cleanUrl = matched;
+                const trailingPunctuationRegex = /([.,;!?()\[\]{}'"]|&amp;lt;|&amp;gt;|&amp;quot;|&#039;|[，。！？；：（）【】《》、])+$/;
+                let trailingPunct = "";
+                const matchPunct = cleanUrl.match(trailingPunctuationRegex);
+                if (matchPunct) {
+                    trailingPunct = matchPunct[0];
+                    cleanUrl = cleanUrl.slice(0, -trailingPunct.length);
+                }
+
+                return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer">${cleanUrl}</a>${trailingPunct}`;
+            });
         }
 
         // 默认强制 HTTPS，规避现代浏览器的 Mixed Content 警告与图片拦截
@@ -1748,7 +1786,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="module-description">${escapeHTML(module.description)}</div>
+                <div class="module-description">${linkifyDescription(module.description)}</div>
                 <div class="card-bottom">
                     <div class="card-status">
                         <span class="status-pill ${statusClass}">${escapeHTML(statusTextVal)}</span>
