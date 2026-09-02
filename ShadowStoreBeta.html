@@ -137,6 +137,16 @@
                 -6.7px 13.3px 16.7px -2px rgba(0, 0, 0, 0.08),
                 -20px 33.3px 40px -4px rgba(0, 0, 0, 0.17);
 
+            /* 标签栏下沉到底部时专用的无暗色阴影、保留高光光斑令牌 */
+            --shadow-tab-bottom: 
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
+                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
+                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
+                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
+                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17);
+
             --text-primary: #4a4f59;
             --text-secondary: #7e8596;
             --text-tertiary: #a1a9ba;
@@ -204,6 +214,8 @@
             --shadow-search-hover: 
                 0 5.3px 16px rgba(0, 0, 0, 0.33),
                 0 2px 5.3px rgba(0, 0, 0, 0.20);
+
+            --shadow-tab-bottom: none;
 
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
@@ -451,7 +463,6 @@
             gap: var(--layout-gap, 44px);
             align-items: center;
             width: 100%;
-            overflow: visible;
             margin-bottom: 16px;
             padding: 4px 0;
         }
@@ -1096,31 +1107,29 @@
 
         .control-bar.is-single-column .tab-bar-wrapper {
             position: fixed;
-            left: 16px;
-            right: 16px;
+            left: 0;
+            right: 0;
             bottom: var(--bottom-offset);
-            width: auto;
+            width: 100%;
             height: 62px;
-            padding: 0;
+            padding: 0 16px;
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             pointer-events: none;
             z-index: 999999;
-            overflow: visible;
         }
 
         .control-bar.is-single-column .tab-bar {
-            position: relative;
             pointer-events: auto;
             width: 100%;
-            max-width: none;
+            max-width: clamp(1080px, 95vw, 2560px);
             height: 62px;
             padding: 5px;
             border-radius: 31px;
             gap: 4px;
-            box-shadow: var(--shadow-search);
+            box-shadow: var(--shadow-tab-bottom);
             overflow: hidden;
         }
 
@@ -1423,11 +1432,11 @@
         /* =========================================================
             1. 全局多语言字典与系统配置
         ========================================================= */
-        const CACHE_VERSION = "202609021654"; 
+        const CACHE_VERSION = "202609021322"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
-            PAGE_SIZE: 16, // 精炼首屏初始渲染量，杜绝切换标签时的主线程瞬间拥堵
+            PAGE_SIZE: 16,
             CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`, 
             CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`,
             CACHE_MAX_AGE: 6 * 60 * 60 * 1000 
@@ -1880,7 +1889,6 @@
             const activeTab = document.querySelector(".tab-item.active");
             if (!activeTab || !tabIndicator) return;
 
-            // 核心防截断机制：如果用户正在切换标签，禁止任何无动画重算掐断飞跃过程
             if (!animated && isTabAnimating) {
                 return;
             }
@@ -1894,7 +1902,6 @@
             const left = activeTab.offsetLeft;
             const width = activeTab.offsetWidth;
 
-            // 宽度未变时不重新触发 DOM 样式变动
             if (Math.abs(tabIndicator.offsetWidth - width) > 1) {
                 tabIndicator.style.width = `${width}px`;
             }
@@ -1919,7 +1926,6 @@
             bar.classList.toggle("is-single-column", columns === 1);
         }
 
-        // 优化：仅在宽度发生实质变化（>1px）时才修改根变量，杜绝切换标签时全页面样式缓存被瞬间清空
         function updateCardWidth() {
             const firstCard = modulesContainer.querySelector('.module-card, .loading-card');
             let newWidth = 0;
@@ -1964,13 +1970,12 @@
             }, 40);
         }
 
-        // 监听视口缩放与全屏/拖出动作，拖拽拆窗期间彻底关停滑块过渡，杜绝拉伸畸变
         let resizeDebounceTimer = null;
         window.addEventListener("resize", () => {
             document.documentElement.classList.add("is-resizing");
             clearTimeout(resizeDebounceTimer);
             
-            isTabAnimating = false; // 窗口变动时解除动画保护，保证秒级贴合
+            isTabAnimating = false;
             updateControlBarLayout();
             updateTabIndicator(false);
             scheduleCardLayerUpdate();
@@ -1982,7 +1987,6 @@
             }, 120);
         }, { passive: true });
 
-        // 精准观察标签栏本身尺寸变动
         if (typeof ResizeObserver !== "undefined") {
             if (modulesContainer) {
                 const gridResizeObserver = new ResizeObserver(() => {
@@ -2195,17 +2199,14 @@
                     t.setAttribute("aria-selected", isActive ? "true" : "false");
                 });
 
-                // 启动动画保护锁，确保跨标签飞掠全程不被 DOM 尺寸变动掐断
                 isTabAnimating = true;
                 clearTimeout(tabAnimTimer);
                 tabAnimTimer = setTimeout(() => {
                     isTabAnimating = false;
                 }, 460);
 
-                // 1. GPU 纯合成层启动物理滑块平滑飞掠，立即执行
                 updateTabIndicator(true);
 
-                // 2. 将卡片列表 DOM 更新精准切到滑块越过中间标签后（160ms）执行，飞跃过程主线程 100% 空闲，彻底告别丢帧
                 clearTimeout(tabSwitchContentTimer);
                 tabSwitchContentTimer = setTimeout(() => {
                     filterModules();
@@ -2464,7 +2465,6 @@
                 ptrText.textContent = dict.ptrContinue;
             }
 
-            // 重构当前语言的数据集与缓存节点映射
             const staticItems = normalizeStaticResources(lang);
             const dynamicItems = normalizeModules(state.rawNetworkData);
             state.allModules = [...staticItems, ...dynamicItems];
@@ -2753,7 +2753,6 @@
             }
         }
 
-        // 初始化启动
         updateLanguageUI();
         updateCardWidth();
         updateControlBarLayout();
