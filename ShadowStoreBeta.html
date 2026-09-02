@@ -72,7 +72,7 @@
 
             --bg-overscroll: #ffffff;
             --bg-page-base: #ffffff;
-            --bg-page-grad: none;
+            --bg-page-grad: radial-gradient(circle at 50% 0%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
             
             --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
             --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
@@ -136,16 +136,6 @@
                 -1px 4px 5.3px rgba(0, 0, 0, 0.10),
                 -6.7px 13.3px 16.7px -2px rgba(0, 0, 0, 0.08),
                 -20px 33.3px 40px -4px rgba(0, 0, 0, 0.17);
-
-            /* 标签栏下沉到底部时专用：仅保留内高光与外反射光斑，隐藏暗色投影 */
-            --shadow-tab-bottom: 
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
-                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
-                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
-                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
-                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17);
 
             --text-primary: #4a4f59;
             --text-secondary: #7e8596;
@@ -215,8 +205,6 @@
                 0 5.3px 16px rgba(0, 0, 0, 0.33),
                 0 2px 5.3px rgba(0, 0, 0, 0.20);
 
-            --shadow-tab-bottom: none;
-
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
             --text-tertiary: #6b7280;
@@ -254,7 +242,9 @@
         
         html { 
             margin: 0; padding: 0; overflow-y: scroll; scrollbar-gutter: stable; 
-            background-color: var(--bg-page-base);
+            background-color: var(--bg-overscroll);
+            background-image: var(--bg-page-grad);
+            background-attachment: fixed;
             min-height: 100%;
             overscroll-behavior-y: none;
             -webkit-overscroll-behavior-y: none;
@@ -263,7 +253,7 @@
         
         body { 
             margin: 0; 
-            min-height: 100dvh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             padding-top: max(16px, env(safe-area-inset-top));
@@ -493,6 +483,7 @@
             transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* 纯 GPU 合成层驱动的物理滑块：仅平移变换过渡，彻底免疫 DOM 布局回流 */
         .tab-indicator {
             position: absolute;
             top: 5px;
@@ -513,6 +504,7 @@
             border-radius: 26px;
         }
 
+        /* 标签项统一使用细字体 (400) */
         .tab-item {
             position: relative;
             isolation: isolate;
@@ -593,6 +585,7 @@
             opacity: 1;
         }
 
+        /* 选中状态保持细字体，明确不加粗 */
         .tab-item.active {
             color: #FFFFFF !important;
             background: transparent !important;
@@ -816,6 +809,17 @@
             mask-image: radial-gradient(white, black);
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+        }
+        .module-icon:hover {
+            transform: scale(1.06);
+            opacity: 0.92;
+        }
+        .module-icon:active {
+            transform: scale(0.95);
         }
         .module-icon img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         
@@ -878,69 +882,15 @@
         }
         
         .card-bottom { 
-            display: flex; align-items: center; justify-content: space-between; gap: 12px; 
-            margin-top: 24px; padding-top: 24px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: flex-end; 
+            gap: 12px; 
+            margin-top: 24px; 
+            padding-top: 24px; 
             border-top: 1px solid var(--border-subtle); 
             box-shadow: none; 
             flex-shrink: 0;
-        }
-
-        .card-status {
-            display: flex;
-            align-items: center;
-            min-width: 0;
-            flex: 1;
-        }
-        
-        .status-pill {
-            display: inline-flex;
-            align-items: center;
-            height: 44px;
-            padding: 0;
-            border-radius: 0;
-            font-size: 13.5px;
-            font-weight: 400;
-            white-space: nowrap;
-            background: transparent !important;
-            color: var(--text-tertiary);
-            border: none !important;
-            box-shadow: none !important;
-            text-shadow: none;
-            cursor: default;
-            user-select: none;
-        }
-        .status-badge-pinned {
-            background: transparent !important;
-            color: var(--text-tertiary);
-            border: none !important;
-            box-shadow: none !important;
-            font-weight: 400;
-            padding: 0;
-            text-shadow: none;
-        }
-        [data-theme="dark"] .status-badge-pinned {
-            background: transparent !important;
-            color: var(--text-tertiary);
-            border: none !important;
-            text-shadow: none;
-        }
-
-        .status-badge-dubious {
-            height: 44px;
-            padding: 0;
-            border-radius: 0;
-            background: transparent !important;
-            color: #a37295; 
-            border: none !important;
-            box-shadow: none !important;
-            text-shadow: none;
-        }
-        [data-theme="dark"] .status-badge-dubious {
-            background: transparent !important;
-            color: #d19bbd; 
-            border: none !important;
-            box-shadow: none !important;
-            text-shadow: none;
         }
 
         .action-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
@@ -1124,10 +1074,11 @@
             padding: 5px;
             border-radius: 31px;
             gap: 4px;
-            box-shadow: var(--shadow-tab-bottom);
+            box-shadow: var(--shadow-glass-ui);
             overflow: hidden;
         }
 
+        /* 移动单列布局同步使用细字体 (400) */
         .control-bar.is-single-column .tab-item {
             height: 100%;
             min-height: 0;
@@ -1236,6 +1187,16 @@
                 box-shadow: var(--primary-gradient-shadow) !important;
             }
 
+            .module-icon,
+            .module-icon:hover,
+            .module-icon:active,
+            .module-icon:focus {
+                transform: none !important;
+                opacity: 1 !important;
+                transition: none !important;
+                -webkit-tap-highlight-color: transparent !important;
+            }
+
             .theme-toggle:hover,
             .theme-toggle:active {
                 transform: none !important;
@@ -1285,6 +1246,14 @@
         html.is-mobile .button-primary:focus-visible {
             box-shadow: var(--primary-gradient-shadow) !important;
         }
+        html.is-mobile .module-icon,
+        html.is-mobile .module-icon:hover,
+        html.is-mobile .module-icon:active,
+        html.is-mobile .module-icon:focus {
+            transform: none !important;
+            opacity: 1 !important;
+            transition: none !important;
+        }
 
         @media (max-width: 600px) {
             :root {
@@ -1305,8 +1274,6 @@
 
         @media (max-width: 420px) {
             .card-bottom { flex-direction: column; align-items: stretch; gap: 12px; }
-            .card-status { width: 100%; }
-            .card-status .status-pill { width: auto; height: auto; }
             .action-buttons { width: 100%; justify-content: flex-end; }
             .control-bar.is-single-column .tab-bar { padding: 5px; gap: 2px; }
             .control-bar.is-single-column .tab-item { font-size: 13px; padding: 0 4px; border-radius: 26px; }
@@ -1426,11 +1393,11 @@
         /* =========================================================
             1. 全局多语言字典与系统配置
         ========================================================= */
-        const CACHE_VERSION = "202609021322"; 
+        const CACHE_VERSION = "202609021920"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
-            PAGE_SIZE: 16,
+            PAGE_SIZE: 16, 
             CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`, 
             CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`,
             CACHE_MAX_AGE: 6 * 60 * 60 * 1000 
@@ -1473,8 +1440,7 @@
                 btnInstallConfig: "安装配置",
                 btnViewManual: "查阅手册",
                 btnVisitRepo: "访问仓库",
-                statusSuccess: "资源获取成功",
-                statusFailed: "信息获取失败",
+                openLinkAria: "在新窗口打开资源直链",
                 toastCopiedUrl: "已复制资源直链",
                 toastCopiedRepo: "已复制仓库链接",
                 toastCopiedConfig: "已复制配置直链",
@@ -1527,8 +1493,7 @@
                 btnInstallConfig: "Install Config",
                 btnViewManual: "View Manual",
                 btnVisitRepo: "Visit Repo",
-                statusSuccess: "Ready to use",
-                statusFailed: "Failed to load info",
+                openLinkAria: "Open direct link in new tab",
                 toastCopiedUrl: "Direct link copied",
                 toastCopiedRepo: "Repository link copied",
                 toastCopiedConfig: "Config link copied",
@@ -1554,13 +1519,11 @@
                     zh: {
                         name: "懒人配置",
                         description: "懒人配置是开箱即用的配置文件，设有常用的分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，是除默认配置外首推的配置文件。",
-                        statusBadge: "推荐配置文件",
                         primaryBtnText: "安装配置"
                     },
                     en: {
                         name: "Lazy Config",
                         description: "Out-of-the-box configuration with popular routing groups, well-balanced proxy rules, and detailed comments. Highly recommended.",
-                        statusBadge: "Recommended",
                         primaryBtnText: "Install Config"
                     }
                 },
@@ -1580,13 +1543,11 @@
                     zh: {
                         name: "使用手册",
                         description: "Shadowrocket 使用手册与进阶配置指南，系统收录了协议配置、规则分流、解密等全方位软件设置说明与知识词条。",
-                        statusBadge: "软件使用手册",
                         primaryBtnText: "查阅手册"
                     },
                     en: {
                         name: "User Manual",
                         description: "Comprehensive guide and reference manual for Shadowrocket, covering protocols, routing rules, decryption, and advanced setups.",
-                        statusBadge: "User Manual",
                         primaryBtnText: "View Manual"
                     }
                 },
@@ -1606,13 +1567,11 @@
                     zh: {
                         name: "配色与配置仓库",
                         description: "Shadowrocket 精选模块、规则、配色方案的聚合类型资源仓库，汇聚了众多开源社区优质资源，也是本站的核心数据处理仓库。",
-                        statusBadge: "核心资源仓库",
                         primaryBtnText: "访问仓库"
                     },
                     en: {
                         name: "Theme & Config Repo",
                         description: "Curated community repository for modules, rules, and color themes, also serving as the core data processing hub.",
-                        statusBadge: "Core Repo",
                         primaryBtnText: "Visit Repo"
                     }
                 },
@@ -1721,96 +1680,98 @@
         }
 
         function normalizeStaticResources(lang = state.currentLang) {
-            return STATIC_RESOURCES_DATA.map(item => {
-                const localized = item.i18n[lang] || item.i18n.zh;
-                const searchTokens = [
-                    localized.name,
-                    localized.description,
-                    item.author.name,
-                    item.sourceName,
-                    item.category,
-                    "shadowrocket",
-                    "手册", "manual",
-                    "教程", "guide",
-                    "仓库", "repo",
-                    "文档", "docs",
-                    "配置", "config"
-                ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
+            return STATIC_RESOURCES_DATA
+                .filter(item => !item.isDubious)
+                .map(item => {
+                    const localized = item.i18n[lang] || item.i18n.zh;
+                    const searchTokens = [
+                        localized.name,
+                        localized.description,
+                        item.author.name,
+                        item.sourceName,
+                        item.category,
+                        "shadowrocket",
+                        "手册", "manual",
+                        "教程", "guide",
+                        "仓库", "repo",
+                        "文档", "docs",
+                        "配置", "config"
+                    ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
 
-                return {
-                    name: localized.name,
-                    category: item.category || "more",
-                    description: localized.description,
-                    icon: item.icon,
-                    author: item.author,
-                    authorAvatar: item.authorAvatar,
-                    sourceName: item.sourceName,
-                    sourceURL: item.sourceURL,
-                    rawURL: item.rawURL,
-                    installURL: item.installURL,
-                    isDubious: item.isDubious,
-                    isRepoCard: item.isRepoCard,
-                    statusBadge: localized.statusBadge,
-                    primaryBtnText: localized.primaryBtnText,
-                    _searchText: searchTokens,
-                    _domElement: null
-                };
-            });
+                    return {
+                        name: localized.name,
+                        category: item.category || "more",
+                        description: localized.description,
+                        icon: item.icon,
+                        author: item.author,
+                        authorAvatar: item.authorAvatar,
+                        sourceName: item.sourceName,
+                        sourceURL: item.sourceURL,
+                        rawURL: item.rawURL,
+                        installURL: item.installURL,
+                        isDubious: false,
+                        isRepoCard: item.isRepoCard,
+                        primaryBtnText: localized.primaryBtnText,
+                        _searchText: searchTokens,
+                        _domElement: null
+                    };
+                });
         }
 
         function normalizeModules(data) {
             if (!Array.isArray(data)) return [];
-            return data.filter(item => item && typeof item === "object").map(m => {
-                const rawURL = safeURL(m.rawURL || m.url || "");
-                const authorName = m.author?.name || m.author?.username || "";
-                const authorURL = safeURL(m.author?.url || (m.author?.username ? `https://github.com/${m.author.username}` : ""));
-                const authorAvatar = safeURL(m.authorAvatar || m.author?.avatar || "");
-                const sourceName = m.sourceName || "开源仓库";
-                const sourceURL = safeURL(m.sourceURL || "");
-                
-                const customInstall = safeInstallURL(m.installURL || "");
-                const fallbackInstall = rawURL ? `shadowrocket://install?url=${encodeURIComponent(rawURL)}` : "";
-                const installURL = customInstall || fallbackInstall;
-                
-                let category = "module";
-                if (m.category) {
-                    const c = String(m.category).toLowerCase();
-                    if (c.includes("config") || c.includes("配置")) category = "config";
-                    else if (c.includes("manual") || c.includes("手册") || c.includes("文档")) category = "manual";
-                    else if (c.includes("more") || c.includes("更多") || c.includes("工具")) category = "more";
-                }
+            return data
+                .filter(item => item && typeof item === "object" && !item.isDubious)
+                .map(m => {
+                    const rawURL = safeURL(m.rawURL || m.url || "");
+                    const authorName = m.author?.name || m.author?.username || "";
+                    const authorURL = safeURL(m.author?.url || (m.author?.username ? `https://github.com/${m.author.username}` : ""));
+                    const authorAvatar = safeURL(m.authorAvatar || m.author?.avatar || "");
+                    const sourceName = m.sourceName || "开源仓库";
+                    const sourceURL = safeURL(m.sourceURL || "");
+                    
+                    const customInstall = safeInstallURL(m.installURL || "");
+                    const fallbackInstall = rawURL ? `shadowrocket://install?url=${encodeURIComponent(rawURL)}` : "";
+                    const installURL = customInstall || fallbackInstall;
+                    
+                    let category = "module";
+                    if (m.category) {
+                        const c = String(m.category).toLowerCase();
+                        if (c.includes("config") || c.includes("配置")) category = "config";
+                        else if (c.includes("manual") || c.includes("手册") || c.includes("文档")) category = "manual";
+                        else if (c.includes("more") || c.includes("更多") || c.includes("工具")) category = "more";
+                    }
 
-                const searchTokens = [
-                    m.name,
-                    m.description,
-                    authorName,
-                    m.author?.username,
-                    sourceName,
-                    category,
-                    m._searchKeywords
-                ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
+                    const searchTokens = [
+                        m.name,
+                        m.description,
+                        authorName,
+                        m.author?.username,
+                        sourceName,
+                        category,
+                        m._searchKeywords
+                    ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
 
-                return {
-                    name: m.name || "未命名模块",
-                    category: category,
-                    description: m.description || "",
-                    icon: safeURL(m.icon || ""),
-                    author: { name: authorName, url: authorURL, username: m.author?.username || "" },
-                    authorAvatar,
-                    sourceName,
-                    sourceURL,
-                    rawURL,
-                    installURL,
-                    preInstallURL: safeInstallURL(m.preInstallURL || ""),
-                    secondaryBtnText: m.secondaryBtnText || "",
-                    isDubious: Boolean(m.isDubious),
-                    isRepoCard: Boolean(m.isRepoCard),
-                    statusBadge: m.statusBadge || "",
-                    primaryBtnText: m.primaryBtnText || "",
-                    _searchText: searchTokens,
-                    _domElement: null
-                };
-            });
+                    return {
+                        name: m.name || "未命名模块",
+                        category: category,
+                        description: m.description || "",
+                        icon: safeURL(m.icon || ""),
+                        author: { name: authorName, url: authorURL, username: m.author?.username || "" },
+                        authorAvatar,
+                        sourceName,
+                        sourceURL,
+                        rawURL,
+                        installURL,
+                        preInstallURL: safeInstallURL(m.preInstallURL || ""),
+                        secondaryBtnText: m.secondaryBtnText || "",
+                        isDubious: false,
+                        isRepoCard: Boolean(m.isRepoCard),
+                        primaryBtnText: m.primaryBtnText || "",
+                        _searchText: searchTokens,
+                        _domElement: null
+                    };
+                });
         }
 
         function showToast(text) {
@@ -2024,8 +1985,22 @@
             const authorHTML = renderAuthor(module);
             
             const isRepo = Boolean(module.isRepoCard);
-            const statusTextVal = module.statusBadge || (module.isDubious ? langObj.statusFailed : langObj.statusSuccess);
-            const statusClass = module.statusBadge ? "status-badge-pinned" : (module.isDubious ? "status-badge-dubious" : "");
+
+            const directOpenURL = module.rawURL || module.sourceURL || "";
+            let iconHTML = "";
+            if (directOpenURL) {
+                iconHTML = `
+                    <a class="module-icon" href="${escapeHTML(directOpenURL)}" target="_blank" rel="noopener noreferrer" title="${escapeHTML(langObj.openLinkAria || '在新窗口打开资源直链')}" aria-label="${escapeHTML(langObj.openLinkAria || '在新窗口打开资源直链')}">
+                        <img src="${escapeHTML(icon)}" alt="${escapeHTML(module.name)}" decoding="async" referrerpolicy="no-referrer">
+                    </a>
+                `;
+            } else {
+                iconHTML = `
+                    <div class="module-icon" style="cursor: default;">
+                        <img src="${escapeHTML(icon)}" alt="${escapeHTML(module.name)}" decoding="async" referrerpolicy="no-referrer">
+                    </div>
+                `;
+            }
 
             const sourceLinkHTML = module.sourceURL
                 ? `<a class="source-link" href="${escapeHTML(module.sourceURL)}" target="_blank" rel="noopener" title="${escapeHTML(module.sourceName)}">${escapeHTML(module.sourceName)}</a>`
@@ -2054,9 +2029,7 @@
 
             card.innerHTML = `
                 <div class="card-header">
-                    <div class="module-icon">
-                        <img src="${escapeHTML(icon)}" alt="${escapeHTML(module.name)}" decoding="async" referrerpolicy="no-referrer">
-                    </div>
+                    ${iconHTML}
                     <div class="card-main">
                         <h2 class="module-name">${escapeHTML(module.name)}</h2>
                         <div class="module-meta">
@@ -2068,9 +2041,6 @@
                 </div>
                 <div class="module-description">${descriptionText}</div>
                 <div class="card-bottom">
-                    <div class="card-status">
-                        <span class="status-pill ${statusClass}">${escapeHTML(statusTextVal)}</span>
-                    </div>
                     <div class="action-buttons">
                         ${secondaryBtnHTML}
                         ${installBtnHTML}
@@ -2747,6 +2717,7 @@
             }
         }
 
+        // 初始化启动
         updateLanguageUI();
         updateCardWidth();
         updateControlBarLayout();
