@@ -96,7 +96,6 @@
                 -8px 18px 22px -3px rgba(0, 0, 0, 0.12), 
                 -25px 45px 55px -5px rgba(0, 0, 0, 0.22); 
 
-            /* 底栏专用：隐藏下方黑色阴影，保留白色光晕与内高光 */
             --shadow-tab-bar-bottom: 
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
@@ -793,10 +792,12 @@
             border-radius: var(--radius-card); 
             box-shadow: var(--shadow-glass-ui); 
             overflow: hidden; 
+            border-color: rgba(255, 255, 255, 0.8);
             transition: 
                 transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                background-image 0.4s ease;
+                background-image 0.4s ease,
+                border-color 0.35s ease;
             -webkit-transform: translateZ(0); transform: translateZ(0); 
         }
 
@@ -1002,9 +1003,15 @@
             min-width: 0;
             border-radius: var(--radius-card); 
             box-shadow: var(--shadow-glass-ui); 
+            border-color: rgba(255, 255, 255, 0.8);
             animation: skeletonPulse 1.4s infinite; 
         }
         @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
+
+        [data-theme="dark"] .module-card,
+        [data-theme="dark"] .loading-card {
+            border-color: var(--text-tertiary);
+        }
         
         .footer { 
             margin-top: auto;
@@ -1404,7 +1411,7 @@
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        const CACHE_VERSION = "202609022127"; 
+        const CACHE_VERSION = "202609021935"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
