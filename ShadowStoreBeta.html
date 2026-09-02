@@ -130,7 +130,6 @@
             --primary-hover: #0e7490;
             --primary-soft: rgba(6, 182, 212, 0.15);
 
-            /* 标题渐变主色设计令牌（渐变基础投影下调70%） */
             --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
             --primary-gradient-hover: linear-gradient(135deg, #0891b2 0%, #2563eb 50%, #7c3aed 100%);
             --primary-gradient-shadow: 0 4px 14px rgba(59, 130, 246, 0.08);
@@ -148,7 +147,6 @@
 
             --card-width: 380px;
 
-            /* 触控条与底部动力学布局设计令牌 */
             --bottom-offset: max(16px, calc(env(safe-area-inset-bottom) - 14px));
             --safe-pad-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
             --toast-bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px));
@@ -200,7 +198,6 @@
             --primary-hover: #06b6d4;
             --primary-soft: rgba(6, 182, 212, 0.2);
 
-            /* 暗色渐变主色设计令牌（渐变基础投影下调70%） */
             --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
             --primary-gradient-hover: linear-gradient(135deg, #22d3ee 0%, #60a5fa 50%, #a78bfa 100%);
             --primary-gradient-shadow: 0 4px 16px rgba(59, 130, 246, 0.11);
@@ -214,7 +211,6 @@
             --accent-orange-soft: rgba(196, 169, 145, 0.2);
         }
 
-        /* 主题瞬间切换防闪烁遮罩 */
         html.theme-transitioning,
         html.theme-transitioning *,
         html.theme-transitioning *::before,
@@ -322,9 +318,6 @@
         .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
         .brand-wrapper { display: flex; align-items: center; gap: 10px; }
 
-        /* =========================================================
-            标题与角标徽章设计
-        ========================================================= */
         .title { 
             margin: 0; font-size: 26px; line-height: 1.2;
             letter-spacing: -0.6px; 
@@ -341,7 +334,6 @@
         }
         .title a:hover { opacity: 0.88; }
 
-        /* 将 Shadow 改为社区资源胶囊的字体色 */
         .title-shadow {
             font-weight: 300;
             color: #0891b2;
@@ -361,7 +353,6 @@
             margin-left: 1px;
         }
 
-        /* 向上提升胶囊本体高度的二分之一（-50%） */
         .tag-pill-badge {
             display: inline-flex; 
             align-items: center; 
@@ -445,7 +436,7 @@
         }
 
         /* =========================================================
-            4. 分类标签页 (桌面端与通用样式)
+            4. 分类标签页
         ========================================================= */
         .tab-bar-wrapper {
             width: 100%;
@@ -473,7 +464,6 @@
                 box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* 标签栏按钮基础结构 */
         .tab-item {
             position: relative;
             isolation: isolate;
@@ -500,14 +490,12 @@
             transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, box-shadow 0.25s ease;
         }
 
-        /* 标签栏非激活项：完全无胶囊背景、无边框 */
         .tab-item:not(.active) {
             background: transparent !important;
             color: var(--text-secondary);
             box-shadow: none !important;
         }
 
-        /* 标签栏非激活项与主卡片次要按钮的纯漫射光晕层：亮度降低70%（保留30%） */
         .tab-item:not(.active)::before,
         .button-secondary::before {
             content: "";
@@ -528,7 +516,6 @@
             filter: blur(10px);
         }
 
-        /* 滑过与预点击态：文字颜色采用大标题胶囊中的字体色 */
         .tab-item:not(.active):hover,
         .tab-item:not(.active):active,
         .tab-item:not(.active):focus-visible {
@@ -550,7 +537,6 @@
             opacity: 1;
         }
 
-        /* 标签栏主按钮（激活项） */
         .tab-item.active {
             color: #FFFFFF !important;
             background: var(--primary-gradient) !important;
@@ -748,7 +734,6 @@
             -webkit-transform: translateZ(0); transform: translateZ(0); 
         }
 
-        /* 仅在桌面端精密指针设备且屏幕充足时启用主卡片悬浮提升效果 */
         @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
             .module-card:hover { 
                 z-index: 50000 !important;
@@ -849,7 +834,6 @@
             flex: 1;
         }
         
-        /* 状态展示项：全统一为纯文字展示，移除所有胶囊外廓与边框 */
         .status-pill {
             display: inline-flex;
             align-items: center;
@@ -883,7 +867,6 @@
             text-shadow: none;
         }
 
-        /* 纯文字展示 */
         .status-badge-dubious {
             height: 44px;
             padding: 0;
@@ -952,7 +935,6 @@
             color: #22d3ee;
         }
         
-        /* 主要按钮（安装、查阅、访问等）：光晕亮度降低70%（保留30%） */
         .button-primary { 
             background: var(--primary-gradient); 
             color: #FFFFFF; 
@@ -991,7 +973,6 @@
             font-size: 24px; opacity: 1; 
             filter: none; 
         }
-        .empty-error { margin-top: 8px; color: var(--text-tertiary); font-size: 13px; }
         
         .loading-card { 
             height: 180px; 
@@ -1002,7 +983,6 @@
         }
         @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
         
-        /* 相对底部边缘保持固定间距（粘性贴底） */
         .footer { 
             margin-top: auto;
             padding: 36px 0 20px; 
@@ -1013,9 +993,6 @@
             font-weight: 300; 
         }
         
-        /* =========================================================
-            提示浮窗（统一为卡片同款毛玻璃与微拟物投影风格）
-        ========================================================= */
         .toast { 
             position: fixed; 
             bottom: var(--toast-bottom); 
@@ -1120,14 +1097,13 @@
         }
 
         /* =========================================================
-            7. 移动与触控设备：禁用所有预点击动画与动效交互 (双重兜底)
+            7. 移动与触控设备性能约束
         ========================================================= */
         @media (hover: none), (pointer: coarse), (max-width: 860px) {
             .modules { 
                 grid-template-columns: 1fr; 
             }
 
-            /* 禁用主卡片及其阴影的预点击图层跳动、位移与弹起变化 */
             .module-card,
             .module-card:hover,
             .module-card:active,
@@ -1148,7 +1124,6 @@
                 background-color: var(--bg-surface) !important;
             }
 
-            /* 禁用标签栏与次要按钮的漫射光晕 (::before) */
             .tab-item:not(.active)::before,
             .button-secondary::before,
             .tab-item:not(.active):hover::before,
@@ -1162,7 +1137,6 @@
                 transition: none !important;
             }
 
-            /* 禁用非激活标签页预点击颜色跳动 */
             .tab-item:not(.active):hover,
             .tab-item:not(.active):active,
             .tab-item:not(.active):focus-visible {
@@ -1171,7 +1145,6 @@
                 box-shadow: none !important;
             }
 
-            /* 禁用次要按钮的微缩放与预点击跳变 */
             .button-secondary,
             .button-secondary:hover,
             .button-secondary:active,
@@ -1188,7 +1161,6 @@
                 color: #22d3ee !important;
             }
 
-            /* 禁用主要操作按钮的多重扩散漫射光晕 */
             .button-primary,
             .button-primary:hover,
             .button-primary:active,
@@ -1203,7 +1175,6 @@
                 box-shadow: var(--primary-gradient-shadow) !important;
             }
 
-            /* 禁用圆形控制按钮（主题切换、GitHub Star、回到顶部）的悬浮位移与缩放 */
             .theme-toggle:hover,
             .theme-toggle:active {
                 transform: none !important;
@@ -1219,7 +1190,6 @@
                 box-shadow: var(--shadow-search) !important;
             }
 
-            /* 禁用文字链接与搜索清空按钮的悬停反馈 */
             .title a:hover {
                 opacity: 1 !important;
             }
@@ -1233,7 +1203,6 @@
             }
         }
 
-        /* 移动端 class 强力兜底约束 */
         html.is-mobile .tab-item:not(.active)::before,
         html.is-mobile .button-secondary::before,
         html.is-mobile .tab-item:not(.active):hover::before,
@@ -1391,7 +1360,8 @@
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
             PAGE_SIZE: 30,
             CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`, 
-            CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`
+            CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`,
+            CACHE_MAX_AGE: 6 * 60 * 60 * 1000 // 6 小时缓存有效期 (毫秒)
         };
 
         const STATIC_RESOURCES = [
@@ -1496,7 +1466,8 @@
                 .replace(/'/g, "&#039;");
         }
 
-        function safeURL(value, allowed = ["https:", "http:"]) {
+        // 默认强制 HTTPS，规避现代浏览器的 Mixed Content 警告与图片拦截
+        function safeURL(value, allowed = ["https:"]) {
             if (!value || typeof value !== "string") return "";
             const trimmed = value.trim();
             try {
@@ -1539,12 +1510,12 @@
         function normalizeModules(data) {
             if (!Array.isArray(data)) return [];
             return data.filter(item => item && typeof item === "object").map(m => {
-                const rawURL = safeURL(m.rawURL || m.url || "", ["https:", "http:"]);
+                const rawURL = safeURL(m.rawURL || m.url || "");
                 const authorName = m.author?.name || m.author?.username || "";
-                const authorURL = safeURL(m.author?.url || (m.author?.username ? `https://github.com/${m.author.username}` : ""), ["https:", "http:"]);
-                const authorAvatar = safeURL(m.authorAvatar || m.author?.avatar || "", ["https:", "http:"]);
+                const authorURL = safeURL(m.author?.url || (m.author?.username ? `https://github.com/${m.author.username}` : ""));
+                const authorAvatar = safeURL(m.authorAvatar || m.author?.avatar || "");
                 const sourceName = m.sourceName || "开源仓库";
-                const sourceURL = safeURL(m.sourceURL || "", ["https:", "http:"]);
+                const sourceURL = safeURL(m.sourceURL || "");
                 
                 const customInstall = safeInstallURL(m.installURL || "");
                 const fallbackInstall = rawURL ? `shadowrocket://install?url=${encodeURIComponent(rawURL)}` : "";
@@ -1572,7 +1543,7 @@
                     name: m.name || "未命名模块",
                     category: category,
                     description: m.description || "暂无描述",
-                    icon: safeURL(m.icon || "", ["https:", "http:"]),
+                    icon: safeURL(m.icon || ""),
                     author: { name: authorName, url: authorURL, username: m.author?.username || "" },
                     authorAvatar,
                     sourceName,
@@ -1655,7 +1626,7 @@
         }
 
         /* =========================================================
-            4. 层叠控制、卡片宽度感知与动力学阴影层叠系统
+            4. 层叠控制与宽度感知
         ========================================================= */
         function getGridColumns() {
             const style = window.getComputedStyle(modulesContainer);
@@ -2074,7 +2045,6 @@
         });
 
         themeToggleBtn.addEventListener("click", () => {
-            // 防闪烁保护：暂停过渡动画避免多层 box-shadow 补间闪黑
             document.documentElement.classList.add("theme-transitioning");
 
             const currentMode = getThemeMode();
@@ -2113,7 +2083,6 @@
             updateThemeUI();
             showToast(toastText);
 
-            // 强制重新计算后恢复正常过渡动效
             window.requestAnimationFrame(() => {
                 void document.documentElement.offsetWidth;
                 window.requestAnimationFrame(() => {
@@ -2125,7 +2094,7 @@
         updateThemeUI();
 
         /* =========================================================
-            7. 移动端下拉刷新手势
+            7. 移动端下拉刷新手势 (已优化判定死锁与向上滑动行为)
         ========================================================= */
         let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
         const MIN_DRAG_DEADZONE = 30;
@@ -2203,12 +2172,18 @@
             const diffX = currentX - touchStartX;
             const diffY = currentY - touchStartY;
 
+            // 触摸状态判定：水平移动即刻放弃；向上微移仅直接返回，不锁定终止下拉
             if (!isPullLocked) {
-                if (Math.abs(diffX) > Math.abs(diffY) || diffY <= 0) {
+                if (Math.abs(diffX) > Math.abs(diffY)) {
                     isPulling = false;
                     isPullLocked = true;
                     return;
                 }
+
+                if (diffY <= 0) {
+                    return;
+                }
+
                 if (diffY > MIN_DRAG_DEADZONE) {
                     isPullLocked = true;
                 }
@@ -2265,7 +2240,7 @@
         window.addEventListener('touchcancel', resetPullState, { passive: true });
 
         /* =========================================================
-            8. 核心数据同步引擎
+            8. 核心数据同步引擎 (6 小时 TTL 缓存 + SWR 静默同步机制)
         ========================================================= */
         function cleanOldCaches() {
             try {
@@ -2285,14 +2260,17 @@
         async function loadModules(forceRefresh = false) {
             state.isDataLoading = true;
             let cachedData = null;
+            let cachedTime = 0;
             const staticItems = normalizeStaticResources();
 
             try {
                 cachedData = localStorage.getItem(CONFIG.CACHE_KEY);
+                cachedTime = Number(localStorage.getItem(CONFIG.CACHE_TIME_KEY) || 0);
             } catch (e) {
                 console.warn("读取本地缓存失败:", e);
             }
 
+            const isCacheFresh = !forceRefresh && cachedData && cachedTime && (Date.now() - cachedTime < CONFIG.CACHE_MAX_AGE);
             let hasRenderedCache = false;
 
             if (!forceRefresh && cachedData) {
@@ -2305,6 +2283,16 @@
                             filterModules();
                             setSearchState(true);
                             hasRenderedCache = true;
+
+                            // 缓存尚在 6 小时有效期内：直接就绪返回，杜绝多余的在线请求
+                            if (isCacheFresh) {
+                                statusText.textContent = "已就绪";
+                                statusDot.className = "status-dot";
+                                state.isDataLoading = false;
+                                return true;
+                            }
+
+                            // 缓存已过期但存在：立即展示旧数据 (SWR)，并在后台转入在线核验更新
                             statusText.textContent = "正在后台检查最新资源...";
                             statusDot.className = "status-dot loading";
                         }
