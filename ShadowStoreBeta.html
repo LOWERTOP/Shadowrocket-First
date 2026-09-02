@@ -7,7 +7,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#f0f2f5">
     
     <title>ShadowStore</title>
 
@@ -70,7 +70,7 @@
         :root, [data-theme="light"] {
             --layout-gap: 44px;
 
-            --bg-page-base: #f0f2f5;
+            --bg-page-solid: #f0f2f5;
             
             --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
             --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
@@ -169,7 +169,7 @@
             2. 暗色主题设计令牌 (Dark Theme Tokens)
         ========================================================= */
         [data-theme="dark"] {
-            --bg-page-base: #14161a;
+            --bg-page-solid: #14161a;
             
             --glass-bg: none;
             --glass-bg-hover: none;
@@ -229,19 +229,19 @@
             transition: none !important;
         }
 
-        /* 窗口缩放与拖拽拆分时，彻底禁用标签滑块过渡，杜绝形变撕裂 */
         html.is-resizing .tab-indicator {
             transition: none !important;
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
-        /* 根元素拥有无限上下底色空间，并根据内容高度动态受控 */
+        /* 根元素完全只使用单色实底，杜绝任何渐变/伪元素/图案图层切断问题 */
         html { 
             margin: 0; 
             padding: 0; 
             scrollbar-gutter: stable; 
-            background: var(--bg-page-base);
+            background-color: var(--bg-page-solid);
+            background-image: none !important;
             min-height: 100%;
             transition: background-color 0.4s ease; 
         }
@@ -271,7 +271,8 @@
             padding-right: 16px;
             padding-bottom: var(--safe-pad-bottom);
             padding-left: 16px;
-            background: transparent;
+            background-color: transparent;
+            background-image: none !important;
             color: var(--text-primary); 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; 
             -webkit-font-smoothing: antialiased; 
@@ -1400,7 +1401,7 @@
         /* =========================================================
             1. 全局多语言字典与系统配置
         ========================================================= */
-        const CACHE_VERSION = "202609021322"; 
+        const CACHE_VERSION = "202609021935"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -2481,7 +2482,7 @@
         updateThemeUI();
 
         /* =========================================================
-            8. 移动端下拉刷新手势与滚动锁完美联动
+            8. 移动端下拉刷新手势与滚动锁联动
         ========================================================= */
         let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
         const MIN_DRAG_DEADZONE = 30;
@@ -2536,7 +2537,6 @@
                 isPulling = false;
                 return;
             }
-            // 无论当前是否为 no-scroll 锁定状态，只要处于最顶端就允许捕获下拉手势
             const isAtTop = (window.scrollY || document.documentElement.scrollTop || 0) <= 0;
             if (isAtTop) {
                 touchStartX = e.touches[0].clientX;
@@ -2554,7 +2554,6 @@
 
         window.addEventListener('touchmove', (e) => {
             if (!isPulling || state.isPullRefreshing || state.isDataLoading) {
-                // 处于短页面锁定时，彻底屏蔽一切无关的多余上下滚动干扰
                 if (document.documentElement.classList.contains("no-scroll") && e.cancelable) {
                     e.preventDefault();
                 }
@@ -2573,7 +2572,6 @@
                     return;
                 }
 
-                // 向上滑动时不触发下拉手势，并在锁定时直接拦截向上越界晃动
                 if (diffY <= 0) {
                     if (document.documentElement.classList.contains("no-scroll") && e.cancelable) {
                         e.preventDefault();
