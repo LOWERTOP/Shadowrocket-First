@@ -163,10 +163,6 @@
             --bottom-offset: max(16px, calc(env(safe-area-inset-bottom) - 14px));
             --safe-pad-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
             --toast-bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px));
-
-            /* 专门用于标签栏的 filter 阴影（浅色） */
-            --tab-filter-shadow: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.18))
-                drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
         }
 
         /* =========================================================
@@ -226,10 +222,6 @@
             --accent-mint-soft: rgba(139, 183, 196, 0.2);
             --accent-orange: #c4a991;
             --accent-orange-soft: rgba(196, 169, 145, 0.2);
-
-            /* 专门用于标签栏的 filter 阴影（暗色） */
-            --tab-filter-shadow: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.6))
-                drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
         }
 
         html.theme-transitioning,
@@ -1293,7 +1285,7 @@
         }
 
         /* =========================================================
-            6. 单列布局与底栏 — 保留位置，用 filter 阴影替代 box-shadow
+            6. 单列布局与底栏 — 保留位置，用 filter 阴影补充 box-shadow
         ========================================================= */
         .control-bar.is-single-column {
             display: block;
@@ -1322,12 +1314,12 @@
             pointer-events: auto;
         }
 
-        /* 底部标签栏固定：保持原始 bottom 值，不额外偏移 */
         .control-bar.is-single-column .tab-bar-wrapper {
             position: fixed;
             left: 0;
             right: 0;
             bottom: var(--bottom-offset);
+            /* 位置不变 */
             width: 100%;
             height: 62px;
             padding: 0 16px;
@@ -1338,7 +1330,6 @@
             pointer-events: none;
             z-index: 999999;
             overflow: visible;
-            /* 确保容器不裁剪任何内容 */
         }
 
         .control-bar.is-single-column .tab-bar {
@@ -1350,16 +1341,20 @@
             border-radius: 31px;
             gap: 4px;
 
-            /* 核心修复：用 filter 阴影替代 box-shadow，此阴影不会被 Safari 底栏裁剪 */
-            box-shadow: none !important;
-            filter: var(--tab-filter-shadow);
-            overflow: visible !important;
-            /* 确保阴影可见 */
-            background-clip: padding-box;
-            /* 创建合成层，优化渲染 */
+            /* 保留原始 box-shadow 作为主阴影 */
+            box-shadow: var(--shadow-glass-ui);
+            /* 额外增加 filter 阴影作为后备，防止被 Safari 裁剪 */
+            filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.18)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08));
+            /* 启用 GPU 合成层，提升渲染一致性 */
             transform: translateZ(0);
-            -webkit-transform: translateZ(0);
             will-change: filter, transform;
+            overflow: visible !important;
+            background-clip: padding-box;
+        }
+
+        /* 暗色模式下调整 filter 阴影颜色 */
+        [data-theme="dark"] .control-bar.is-single-column .tab-bar {
+            filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.5)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
         }
 
         .control-bar.is-single-column .tab-item {
@@ -1387,8 +1382,6 @@
             box-shadow: none !important;
             font-weight: 400 !important;
         }
-
-        /* 暗色下 filter 阴影自动适配，无需额外样式 */
 
         /* =========================================================
             7. 移动与触控设备性能约束
@@ -1695,7 +1688,7 @@
         /* =========================================================
             1. 全局多语言字典与系统配置
         ========================================================= */
-        const CACHE_VERSION = "202609021322";
+        const CACHE_VERSION = "202609021612";
 
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json",
