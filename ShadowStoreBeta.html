@@ -37,7 +37,7 @@
         })();
     </script>
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23768a9e%22 stroke=%22rgba(255,255,255,0.6)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%2306b6d4%22/><stop offset=%2250%25%22 stop-color=%22%233b82f6%22/><stop offset=%22100%25%22 stop-color=%22%238b5cf6%22/></linearGradient></defs><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22url(%23g)%22 stroke=%22rgba(255,255,255,0.6)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowStore.png">
 
     <style>
@@ -118,9 +118,14 @@
             --text-secondary: #7e8596;
             --text-tertiary: #a1a9ba;
 
-            --primary: #768a9e; 
-            --primary-hover: #62768a;
-            --primary-soft: rgba(118, 138, 158, 0.15);
+            --primary: #0891b2; 
+            --primary-hover: #0e7490;
+            --primary-soft: rgba(6, 182, 212, 0.15);
+
+            /* 标题渐变主色设计令牌 */
+            --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+            --primary-gradient-hover: linear-gradient(135deg, #0891b2 0%, #2563eb 50%, #7c3aed 100%);
+            --primary-gradient-shadow: 0 4px 14px rgba(59, 130, 246, 0.28);
             
             --bg-surface: #e6eaf0;
             --border-subtle: #d6dbe3;
@@ -185,9 +190,15 @@
             --text-secondary: #939aa8;
             --text-tertiary: #6b7280;
 
-            --primary: #758b9f;
-            --primary-hover: #8da1b5;
-            --primary-soft: rgba(117, 139, 159, 0.2);
+            --primary: #0891b2;
+            --primary-hover: #06b6d4;
+            --primary-soft: rgba(6, 182, 212, 0.2);
+
+            /* 暗色渐变主色设计令牌 */
+            --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+            --primary-gradient-hover: linear-gradient(135deg, #22d3ee 0%, #60a5fa 50%, #a78bfa 100%);
+            --primary-gradient-shadow: 0 4px 16px rgba(59, 130, 246, 0.38);
+
             --bg-surface: #1d2026;
             --border-subtle: #2b3038;
 
@@ -200,7 +211,10 @@
             --toast-text: #14161a;
         }
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent !important; 
+        }
         
         html { 
             margin: 0; padding: 0; overflow-y: scroll; scrollbar-gutter: stable; 
@@ -228,7 +242,14 @@
             transition: color 0.4s ease; 
         }
 
-        button, input { font: inherit; }
+        button, input { 
+            font: inherit; 
+            outline: none !important;
+            -webkit-tap-highlight-color: transparent !important;
+        }
+        button:focus, button:active, a:focus, a:active {
+            outline: none !important;
+        }
         a { color: inherit; text-decoration: none; }
         
         .container { 
@@ -295,20 +316,49 @@
         .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
         .brand-wrapper { display: flex; align-items: center; gap: 10px; }
 
+        /* =========================================================
+            标题与标签徽章增强设计
+        ========================================================= */
         .title { 
-            margin: 0; font-size: 26px; line-height: 1.2; font-weight: 300;
+            margin: 0; font-size: 26px; line-height: 1.2;
             letter-spacing: -0.6px; display: flex; align-items: center; gap: 10px; 
             text-shadow: none; 
         }
-        .title a { transition: opacity 0.2s ease; }
-        .title a:hover { opacity: 0.85; }
+        .title a { 
+            display: inline-flex; 
+            align-items: center; 
+            text-decoration: none; 
+            transition: opacity 0.2s ease; 
+        }
+        .title a:hover { opacity: 0.88; }
+
+        .title-shadow {
+            font-weight: 300;
+            color: var(--text-primary);
+        }
+
+        .title-store {
+            font-weight: 750;
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-left: 1px;
+        }
 
         .tag-pill-badge {
             display: inline-flex; align-items: center; height: 22px; padding: 0 10px;
-            border-radius: var(--radius-pill); background: var(--bg-surface);
-            color: var(--text-secondary); font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+            border-radius: var(--radius-pill); 
+            background: rgba(6, 182, 212, 0.12);
+            color: #0891b2; 
+            font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
             border: none; box-shadow: none; 
             text-shadow: none; 
+        }
+
+        [data-theme="dark"] .tag-pill-badge {
+            background: rgba(6, 182, 212, 0.18);
+            color: #22d3ee;
         }
 
         .subtitle { 
@@ -368,7 +418,7 @@
         }
 
         /* =========================================================
-            4. 分类标签页 (桌面端)
+            4. 分类标签页 (桌面端与通用样式)
         ========================================================= */
         .tab-bar-wrapper {
             width: 100%;
@@ -390,29 +440,26 @@
             padding: 5px;
             border-radius: 22px;
             box-shadow: var(--shadow-search);
+            overflow: hidden; /* 漫射范围受标签栏边界严格约束 */
             transition: 
                 width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
                 box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* 标签栏按钮基础结构 */
         .tab-item {
+            position: relative;
             flex: 1 1 0;
             min-width: 0;
             height: 34px;
             line-height: 34px;
-            border: none;
-            outline: none;
-            background: transparent;
-            color: var(--text-secondary);
+            border: none !important;
+            outline: none !important;
             padding: 0 8px;
             border-radius: 17px;
             font-size: 13.5px;
             font-weight: 500;
             cursor: pointer;
-            transition: 
-                color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             white-space: nowrap;
             user-select: none;
             -webkit-user-select: none;
@@ -420,19 +467,52 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            overflow: hidden;
+            overflow: visible;
             text-overflow: ellipsis;
+            transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .tab-item:hover {
+        /* 标签栏非激活项：完全无胶囊背景、无边框 */
+        .tab-item:not(.active) {
+            background: transparent !important;
+            color: var(--text-secondary);
+            box-shadow: none !important;
+        }
+
+        /* 标签栏非激活项滑过与预点击态：使用多层纯渐变漫射光晕，无胶囊轮廓与裁剪 */
+        .tab-item:not(.active):hover,
+        .tab-item:not(.active):active,
+        .tab-item:not(.active):focus,
+        .tab-item:not(.active):focus-visible {
             color: var(--text-primary);
-            background: var(--primary-soft);
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: 
+                0 0 16px 4px rgba(6, 182, 212, 0.28),
+                0 0 28px 8px rgba(59, 130, 246, 0.22),
+                0 0 42px 12px rgba(139, 92, 246, 0.16) !important;
         }
 
+        [data-theme="dark"] .tab-item:not(.active):hover,
+        [data-theme="dark"] .tab-item:not(.active):active,
+        [data-theme="dark"] .tab-item:not(.active):focus,
+        [data-theme="dark"] .tab-item:not(.active):focus-visible {
+            color: var(--text-primary);
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: 
+                0 0 18px 4px rgba(34, 211, 238, 0.36),
+                0 0 32px 8px rgba(59, 130, 246, 0.26),
+                0 0 46px 14px rgba(167, 139, 250, 0.20) !important;
+        }
+
+        /* 标签栏主按钮（激活项）：三色渐变胶囊、柔和投影，保持原设计完全不变 */
         .tab-item.active {
-            color: #FFFFFF;
-            background: var(--primary);
-            box-shadow: 0 4px 12px var(--primary-soft);
+            color: #FFFFFF !important;
+            background: var(--primary-gradient) !important;
+            box-shadow: var(--primary-gradient-shadow) !important;
             font-weight: 600;
         }
 
@@ -626,15 +706,41 @@
             -webkit-transform: translateZ(0); transform: translateZ(0); 
         }
 
-        .module-card:hover { 
-            z-index: 50000 !important;
-            transform: translateY(-2px);
-            background-image: var(--noise-pattern), var(--glass-bg-hover);
-            box-shadow: var(--shadow-glass-ui-hover); 
+        /* 仅在桌面端精密指针设备且屏幕充足时启用主卡片悬浮提升效果 */
+        @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
+            .module-card:hover { 
+                z-index: 50000 !important;
+                transform: translateY(-2px);
+                background-image: var(--noise-pattern), var(--glass-bg-hover);
+                box-shadow: var(--shadow-glass-ui-hover); 
+            }
+            [data-theme="dark"] .module-card:hover {
+                background-image: var(--noise-pattern);
+                background-color: var(--bg-surface); 
+            }
         }
-        [data-theme="dark"] .module-card:hover {
-            background-image: var(--noise-pattern);
-            background-color: var(--bg-surface); 
+
+        /* 移动/触控设备：彻底禁用主卡片及其阴影的预点击图层跳动、位移与弹起变化 */
+        @media (hover: none), (pointer: coarse), (max-width: 860px) {
+            .module-card,
+            .module-card:hover,
+            .module-card:active,
+            .module-card:focus,
+            .module-card:focus-within {
+                transform: none !important;
+                box-shadow: var(--shadow-glass-ui) !important;
+                transition: none !important;
+            }
+            [data-theme="dark"] .module-card,
+            [data-theme="dark"] .module-card:hover,
+            [data-theme="dark"] .module-card:active,
+            [data-theme="dark"] .module-card:focus,
+            [data-theme="dark"] .module-card:focus-within {
+                transform: none !important;
+                box-shadow: var(--shadow-glass-ui) !important;
+                background-image: var(--noise-pattern) !important;
+                background-color: var(--bg-surface) !important;
+            }
         }
 
         .card-header { display: flex; align-items: center; gap: 20px; }
@@ -724,47 +830,52 @@
             flex: 1;
         }
         
+        /* 移除“资源获取成功”及核心资源等胶囊外形，仅保留纯文字展示 */
         .status-pill {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             height: 44px;
-            padding: 0 20px;
-            border-radius: 22px;
-            font-size: 14px;
+            padding: 0;
+            border-radius: 0;
+            font-size: 13.5px;
             font-weight: 400;
             white-space: nowrap;
-            background: var(--bg-surface);
+            background: transparent !important;
             color: var(--text-tertiary);
-            border: 1px solid var(--border-subtle);
-            box-shadow: none;
+            border: none !important;
+            box-shadow: none !important;
             text-shadow: none;
             cursor: default;
             user-select: none;
         }
-        .status-badge-dubious {
-            background: rgba(160, 110, 140, 0.15);
-            color: #a37295; 
-            border-color: rgba(160, 110, 140, 0.25);
-            text-shadow: none;
-        }
-        [data-theme="dark"] .status-badge-dubious {
-            background: rgba(160, 110, 140, 0.22);
-            color: #d19bbd; 
-            border-color: rgba(160, 110, 140, 0.35);
-            text-shadow: none;
-        }
         .status-badge-pinned {
-            background: var(--primary-soft);
-            color: var(--primary);
-            border-color: rgba(118, 138, 158, 0.35);
-            font-weight: 500;
+            background: transparent !important;
+            color: var(--text-tertiary);
+            border: none !important;
+            box-shadow: none !important;
+            font-weight: 400;
+            padding: 0;
             text-shadow: none;
         }
         [data-theme="dark"] .status-badge-pinned {
-            background: var(--primary-soft);
-            color: #8da1b5;
-            border-color: rgba(117, 139, 159, 0.4);
+            background: transparent !important;
+            color: var(--text-tertiary);
+            border: none !important;
+            text-shadow: none;
+        }
+        .status-badge-dubious {
+            height: 32px;
+            padding: 0 14px;
+            border-radius: 16px;
+            background: rgba(160, 110, 140, 0.15) !important;
+            color: #a37295; 
+            border: 1px solid rgba(160, 110, 140, 0.25) !important;
+            text-shadow: none;
+        }
+        [data-theme="dark"] .status-badge-dubious {
+            background: rgba(160, 110, 140, 0.22) !important;
+            color: #d19bbd; 
+            border-color: rgba(160, 110, 140, 0.35) !important;
             text-shadow: none;
         }
 
@@ -775,28 +886,96 @@
             height: 44px; padding: 0 20px; border: 0; border-radius: 22px; 
             font-size: 14px; font-weight: 500; white-space: nowrap; cursor: pointer; 
             text-decoration: none; 
+            outline: none !important;
+            -webkit-tap-highlight-color: transparent !important;
+            transition: 
+                color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        
+        /* 主卡片次要按钮（复制链接、安装前置）：效果与标签栏非激活项一致，彻底消除伪元素裁切与方形方框 */
+        .button-secondary { 
+            position: relative;
+            background: transparent !important; 
+            color: #0891b2; 
+            border: none !important; 
+            outline: none !important;
+            box-shadow: none !important; 
+            text-shadow: none; 
+            padding: 0 16px;
+            overflow: visible;
             transition: 
                 transform 0.2s ease,
-                background-color 0.2s ease,
-                color 0.2s ease,
-                box-shadow 0.2s ease; 
+                color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .button:active { transform: scale(0.96); }
-        
-        .button-secondary { 
-            background: var(--bg-surface); color: var(--text-primary); 
-            border: 1px solid var(--border-subtle); box-shadow: none; 
-            text-shadow: var(--text-shadow-sm); 
+        .button-secondary:active { 
+            transform: scale(0.96); 
         }
-        .button-secondary:hover { background: var(--border-subtle); }
+        [data-theme="dark"] .button-secondary {
+            color: #22d3ee;
+        }
         
+        /* 次要按钮预点击态：无胶囊轮廓与裁剪方框，仅文字与纯粹的多层高透明漫射光晕 */
+        .button-secondary:hover,
+        .button-secondary:active,
+        .button-secondary:focus,
+        .button-secondary:focus-visible { 
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            color: #0891b2;
+            box-shadow: 
+                0 0 16px 4px rgba(6, 182, 212, 0.28),
+                0 0 28px 8px rgba(59, 130, 246, 0.22),
+                0 0 42px 12px rgba(139, 92, 246, 0.16) !important;
+        }
+        [data-theme="dark"] .button-secondary:hover,
+        [data-theme="dark"] .button-secondary:active,
+        [data-theme="dark"] .button-secondary:focus,
+        [data-theme="dark"] .button-secondary:focus-visible {
+            color: #22d3ee;
+            border: none !important;
+            outline: none !important;
+            box-shadow: 
+                0 0 18px 4px rgba(34, 211, 238, 0.36),
+                0 0 32px 8px rgba(59, 130, 246, 0.26),
+                0 0 46px 14px rgba(167, 139, 250, 0.20) !important;
+        }
+        
+        /* 主要按钮（安装、查阅、访问等）：无果冻位移，基础渐变漫射光晕 */
         .button-primary { 
-            background: var(--primary); color: #FFFFFF; 
-            border: none; box-shadow: 0 4px 12px var(--primary-soft); 
+            background: var(--primary-gradient); 
+            color: #FFFFFF; 
+            border: none; 
+            outline: none !important;
+            box-shadow: var(--primary-gradient-shadow); 
             text-shadow: var(--text-shadow-sm); 
+            transform: none !important; 
         }
-        .button-primary:hover { 
-            background: var(--primary-hover); transform: translateY(-1px); 
+        .button-primary:hover,
+        .button-primary:active,
+        .button-primary:focus,
+        .button-primary:focus-visible { 
+            background: var(--primary-gradient); 
+            transform: none !important;
+            outline: none !important;
+            box-shadow: 
+                0 0 20px 4px rgba(59, 130, 246, 0.38),
+                0 0 30px 8px rgba(6, 182, 212, 0.28),
+                0 0 40px 10px rgba(139, 92, 246, 0.22);
+        }
+        [data-theme="dark"] .button-primary:hover,
+        [data-theme="dark"] .button-primary:active,
+        [data-theme="dark"] .button-primary:focus,
+        [data-theme="dark"] .button-primary:focus-visible {
+            background: var(--primary-gradient);
+            transform: none !important;
+            outline: none !important;
+            box-shadow: 
+                0 0 22px 5px rgba(59, 130, 246, 0.48),
+                0 0 34px 8px rgba(34, 211, 238, 0.38),
+                0 0 44px 12px rgba(167, 139, 250, 0.30);
         }
         
         .sentinel { height: 20px; margin: 10px 0; }
@@ -865,7 +1044,6 @@
             pointer-events: auto;
         }
 
-        /* 悬浮底栏外层固定容器 */
         .control-bar.is-single-column .tab-bar-wrapper {
             position: fixed;
             left: 0;
@@ -882,7 +1060,6 @@
             z-index: 999999;
         }
 
-        /* 标签页主体 */
         .control-bar.is-single-column .tab-bar {
             pointer-events: auto;
             width: 100%;
@@ -892,9 +1069,9 @@
             border-radius: 31px;
             gap: 4px;
             box-shadow: var(--shadow-glass-ui);
+            overflow: hidden;
         }
 
-        /* 内部按钮 */
         .control-bar.is-single-column .tab-item {
             height: 100%;
             min-height: 0;
@@ -908,7 +1085,22 @@
             justify-content: center;
         }
 
-        /* 单列及移动端断点 */
+        /* 移动设备下单列布局的次要按钮保持纯文本透明效果 */
+        .control-bar.is-single-column .tab-item:not(.active) {
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        /* 移动设备下的标签页主按钮（激活项）：保持与正常模式完全一致的主题渐变胶囊与高亮投影 */
+        .control-bar.is-single-column .tab-item.active {
+            color: #FFFFFF !important;
+            background: var(--primary-gradient) !important;
+            box-shadow: var(--primary-gradient-shadow) !important;
+            font-weight: 600;
+        }
+
         @media (max-width: 860px) {
             .modules { 
                 grid-template-columns: 1fr; 
@@ -929,7 +1121,7 @@
         @media (max-width: 420px) {
             .card-bottom { flex-direction: column; align-items: stretch; gap: 12px; }
             .card-status { width: 100%; }
-            .card-status .status-pill { width: 100%; }
+            .card-status .status-pill { width: auto; height: auto; }
             .action-buttons { width: 100%; justify-content: flex-end; }
             .control-bar.is-single-column .tab-bar { padding: 5px; gap: 2px; }
             .control-bar.is-single-column .tab-item { font-size: 13px; padding: 0 4px; border-radius: 26px; }
@@ -953,13 +1145,15 @@
             <div class="header-top">
                 <div class="brand-wrapper">
                     <h1 class="title">
-                        <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener">ShadowStore</a>
+                        <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener[span_0](start_span)"[span_0](end_span)>
+                            <span class="title-shadow">Shadow</span><span class="title-store">/Store</span>
+                        </a>
                         <span class="tag-pill-badge">社区资源</span>
                     </h1>
                 </div>
                 <div class="theme-controls">
                     <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
-                    <a id="githubStarBtn" class="theme-toggle glass-element" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
+                    <a id="githubStarBtn" class="theme-toggle glass-element" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star[span_1](start_span)"[span_1](end_span)>
                         <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                         </svg>
@@ -967,7 +1161,7 @@
                 </div>
             </div>
             <div class="subtitle">
-                Shadowrocket 开源社区资源聚合检索平台
+                Shadowrocket 开源社区资源聚合检索平台[span_2](start_span)[span_2](end_span)
             </div>
         </header>
 
@@ -1036,7 +1230,7 @@
         /* =========================================================
             1. 全局配置与预置资源数据集
         ========================================================= */
-        const CACHE_VERSION = "202609011619"; 
+        const CACHE_VERSION = "202609011706"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -1049,7 +1243,7 @@
             {
                 name: "懒人配置",
                 category: "config",
-                description: "懒人配置是开箱即用的配置文件，设有常用的分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，相当于内置了一部使用手册，是除默认配置外首推的配置文件。",
+                description: "懒人配置是开箱即用的配置文件，设有常用的分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，是除默认配置外首推的配置文件。",
                 icon: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Shadowrocket.png",
                 author: { name: "LOWERTOP", url: "https://github.com/LOWERTOP", username: "LOWERTOP" },
                 authorAvatar: "https://github.com/LOWERTOP.png?size=64",
@@ -1274,12 +1468,12 @@
         function createIOSAppIcon(name) {
             const cleanName = (name || "").trim().replace(/^[\[\(\{#_\-\s【（〔［]+/, "");
             const char = Array.from(cleanName)[0] || "模";
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><circle cx="128" cy="128" r="128" fill="#768a9e"/><text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#06b6d4"/><stop offset="50%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="128" cy="128" r="128" fill="url(#g)"/><text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
             return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
         }
 
         /* =========================================================
-            3. UI 交互与吸顶控制 (精准联动与返回顶部)
+            3. UI 交互与吸顶控制
         ========================================================= */
         let backToTopVisible = false;
         function updateSearchLayer() {
@@ -1287,7 +1481,6 @@
             const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
             const shouldShow = scrollY > 160;
             if (shouldShow === backToTopVisible) return;
-            backToTopVisible = shouldShow;
             backToTopBtn.classList.toggle("visible", shouldShow);
         }
         
@@ -1336,13 +1529,6 @@
             }
         }
 
-        /**
-         * 精准动力学层级运算：
-         * 阴影投射方向为向左（-X）和向下（+Y）。
-         * 因此：行号越靠下（r 越大）z-index 越高；列号越靠左（c 越小）z-index 越高。
-         * 公式：(r + 1) * 100 + (cols - c)
-         * 确保所有阴影永远被其下方和左方的卡片主体自然覆盖在图层之下，绝不遮挡卡片正面。
-         */
         function updateCardLayerOrder() {
             const cards = modulesContainer.querySelectorAll(".module-card, .loading-card");
             const count = cards.length;
@@ -1496,7 +1682,6 @@
             
             sentinel.style.display = state.currentlyRendered >= state.filteredModules.length ? "none" : "block";
             
-            // 即时更新层叠与尺寸
             updateCardWidth();
             updateCardLayerOrder();
             updateSearchLayer();
