@@ -72,10 +72,11 @@
             --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
             --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
             
-            --glass-border-t: rgba(255, 255, 255, 0.85);
-            --glass-border-r: rgba(255, 255, 255, 0.6);
-            --glass-border-b: rgba(255, 255, 255, 0.05);
-            --glass-border-l: rgba(255, 255, 255, 0.1);
+            /* 浅色模式全向常驻细高光边框 */
+            --glass-border-t: rgba(255, 255, 255, 0.8);
+            --glass-border-r: rgba(255, 255, 255, 0.8);
+            --glass-border-b: rgba(255, 255, 255, 0.8);
+            --glass-border-l: rgba(255, 255, 255, 0.8);
 
             --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
 
@@ -1404,7 +1405,7 @@
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        const CACHE_VERSION = "202609022127"; 
+        const CACHE_VERSION = "202609022229"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -2529,7 +2530,6 @@
                 isPulling = false;
                 return;
             }
-            // 排除表单元素、链接、按钮以及卡片主体，保证卡片区域滑动的完全畅通与原生惯性
             if (e.target.closest("input, button, a, textarea, select, label, .module-card")) {
                 isPulling = false;
                 return;
@@ -2557,21 +2557,18 @@
             const diffY = currentY - touchStartY;
 
             if (!isPullLocked) {
-                // 横向滑动判定，交还原生控制
                 if (Math.abs(diffX) > Math.abs(diffY)) {
                     isPulling = false;
                     isPullLocked = true;
                     return;
                 }
 
-                // 手指上滑（浏览下方内容），立即退出手势锁定，保障原生滚动
                 if (diffY <= 0) {
                     isPulling = false;
                     isPullLocked = true;
                     return;
                 }
 
-                // 下拉位移超过死区，锁定为刷新交互
                 if (diffY > MIN_DRAG_DEADZONE) {
                     isPullLocked = true;
                     pageContainer.style.willChange = "top";
