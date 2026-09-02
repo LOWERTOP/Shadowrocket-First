@@ -23,7 +23,7 @@
                 theme = prefersDark ? "dark" : "light";
             }
             document.documentElement.setAttribute("data-theme", theme);
-            const themeColor = theme === 'dark' ? '#14161a' : '#ffffff';
+            const themeColor = theme === 'dark' ? '#14161a' : '#f0f2f5';
             const themeMeta = document.querySelector('meta[name="theme-color"]');
             if (themeMeta) {
                 themeMeta.setAttribute('content', themeColor);
@@ -70,10 +70,7 @@
         :root, [data-theme="light"] {
             --layout-gap: 44px;
 
-            /* 兜底色设为渐变终点色，杜绝超出视口边界时的硬断层露白 */
-            --bg-overscroll: #dce1e8;
-            --bg-page-base: #ffffff;
-            --bg-page-grad: radial-gradient(circle at 50% 0%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
+            --bg-page-base: #f0f2f5;
             
             --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
             --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
@@ -172,9 +169,7 @@
             2. 暗色主题设计令牌 (Dark Theme Tokens)
         ========================================================= */
         [data-theme="dark"] {
-            --bg-overscroll: #14161a;
             --bg-page-base: #14161a;
-            --bg-page-grad: none;
             
             --glass-bg: none;
             --glass-bg-hover: none;
@@ -241,34 +236,17 @@
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
-        /* 根元素只保留底层过渡与兜底色，移除拉伸渐变 */
+        /* 彻底移除背景图层、伪元素及渐变，仅保留全局统一的纯色底色 */
         html { 
             margin: 0; 
             padding: 0; 
             overflow-y: scroll; 
             scrollbar-gutter: stable; 
-            background-color: var(--bg-overscroll);
+            background: var(--bg-page-base);
             min-height: 100%;
             overscroll-behavior-y: none;
             -webkit-overscroll-behavior-y: none;
             transition: background-color 0.4s ease; 
-        }
-
-        /* 视口全屏伪元素层：向外延展覆盖 Safari 弹性拉伸与多窗口边缘，保持绝对统一的渐变基准 */
-        html::before {
-            content: "";
-            position: fixed;
-            top: -30dvh;
-            left: -15vw;
-            width: 130vw;
-            height: 160dvh;
-            background-image: var(--bg-page-grad);
-            background-repeat: no-repeat;
-            background-position: center 30dvh;
-            background-size: 100vw 100dvh;
-            pointer-events: none;
-            z-index: -1;
-            transform: translate3d(0, 0, 0);
         }
         
         body { 
@@ -301,7 +279,6 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            min-height: calc(100dvh - max(16px, env(safe-area-inset-top)) - var(--safe-pad-bottom));
         }
 
         .glass-element {
@@ -783,7 +760,7 @@
             gap: var(--layout-gap, 44px); 
             align-items: stretch; 
             padding-bottom: 24px; 
-            min-height: 260px; 
+            min-height: 0; 
         }
 
         .module-card { 
@@ -1129,7 +1106,7 @@
         @media (hover: none), (pointer: coarse), (max-width: 860px) {
             .modules { 
                 grid-template-columns: 1fr; 
-                min-height: 260px;
+                min-height: 0;
                 align-items: start;
             }
 
@@ -1411,7 +1388,7 @@
         /* =========================================================
             1. 全局多语言字典与系统配置
         ========================================================= */
-        const CACHE_VERSION = "202609021926"; 
+        const CACHE_VERSION = "202609021322"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -2322,7 +2299,7 @@
             const currentTheme = getEffectiveTheme(mode);
             document.documentElement.setAttribute("data-theme", currentTheme);
             
-            const themeColor = currentTheme === "dark" ? "#14161a" : "#ffffff";
+            const themeColor = currentTheme === "dark" ? "#14161a" : "#f0f2f5";
             const themeColorMeta = document.querySelector('meta[name="theme-color"]');
             if (themeColorMeta) {
                 themeColorMeta.setAttribute("content", themeColor);
