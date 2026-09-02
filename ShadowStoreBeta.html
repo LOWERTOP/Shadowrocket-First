@@ -238,6 +238,8 @@
         body { 
             margin: 0; 
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             padding-top: max(16px, env(safe-area-inset-top));
             padding-right: 16px;
             padding-bottom: var(--safe-pad-bottom);
@@ -259,6 +261,9 @@
             margin: 0 auto; 
             position: relative; 
             top: 0; 
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .glass-element {
@@ -336,6 +341,7 @@
         }
         .title a:hover { opacity: 0.88; }
 
+        /* 将 Shadow 改为社区资源胶囊的字体色 */
         .title-shadow {
             font-weight: 300;
             color: #0891b2;
@@ -355,7 +361,7 @@
             margin-left: 1px;
         }
 
-        /* 适当下移角标：底部高度在视觉上贴近小写文字上缘 */
+        /* 向上提升胶囊本体高度的二分之一（-50%） */
         .tag-pill-badge {
             display: inline-flex; 
             align-items: center; 
@@ -372,7 +378,7 @@
             border: none; 
             box-shadow: none; 
             text-shadow: none;
-            transform: translateY(3px); 
+            transform: translateY(calc(3px - 20%)); 
             user-select: none;
             -webkit-user-select: none;
             white-space: nowrap;
@@ -996,7 +1002,16 @@
         }
         @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
         
-        .footer { padding: 36px 0 16px; color: var(--text-tertiary); text-align: center; font-size: 12.5px; line-height: 1.6; font-weight: 300; }
+        /* 相对底部边缘保持固定间距（粘性贴底） */
+        .footer { 
+            margin-top: auto;
+            padding: 36px 0 20px; 
+            color: var(--text-tertiary); 
+            text-align: center; 
+            font-size: 12.5px; 
+            line-height: 1.6; 
+            font-weight: 300; 
+        }
         
         /* =========================================================
             提示浮窗（统一为卡片同款毛玻璃与微拟物投影风格）
@@ -1250,7 +1265,7 @@
                 height: 15px; 
                 font-size: 9px; 
                 padding: 0 5px; 
-                transform: translateY(2px); 
+                transform: translateY(calc(2px - 50%)); 
             }
             .module-card { padding: 22px; border-radius: var(--radius-card); }
             .module-description { flex: none; }
@@ -1370,7 +1385,7 @@
         /* =========================================================
             1. 全局配置与预置资源数据集
         ========================================================= */
-        const CACHE_VERSION = "202609021007"; 
+        const CACHE_VERSION = "202609021020"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
