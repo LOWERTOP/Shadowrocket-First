@@ -137,13 +137,6 @@
                 -6.7px 13.3px 16.7px -2px rgba(0, 0, 0, 0.08),
                 -20px 33.3px 40px -4px rgba(0, 0, 0, 0.17);
 
-            /* 移动端吸底栏专用向上柔和阴影：彻底杜绝向下穿透视口导致的硬切断 */
-            --shadow-bottom-bar: 
-                inset 0.5px 0.5px 2px rgba(255, 255, 255, 0.8),
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.04),
-                0 -4px 16px rgba(0, 0, 0, 0.08),
-                0 -1px 3px rgba(0, 0, 0, 0.04);
-
             --text-primary: #4a4f59;
             --text-secondary: #7e8596;
             --text-tertiary: #a1a9ba;
@@ -212,10 +205,6 @@
                 0 5.3px 16px rgba(0, 0, 0, 0.33),
                 0 2px 5.3px rgba(0, 0, 0, 0.20);
 
-            --shadow-bottom-bar: 
-                0 -4px 20px rgba(0, 0, 0, 0.5),
-                0 -1px 4px rgba(0, 0, 0, 0.3);
-
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
             --text-tertiary: #6b7280;
@@ -244,7 +233,6 @@
             transition: none !important;
         }
 
-        /* 窗口缩放与拖拽拆分时，彻底禁用标签滑块过渡，杜绝形变撕裂 */
         html.is-resizing .tab-indicator {
             transition: none !important;
         }
@@ -490,11 +478,10 @@
             padding: 5px;
             border-radius: 22px;
             box-shadow: var(--shadow-search);
-            overflow: hidden;
+            overflow: visible;
             transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* 纯 GPU 合成层驱动的物理滑块：仅平移变换过渡，彻底免疫 DOM 布局回流 */
         .tab-indicator {
             position: absolute;
             top: 5px;
@@ -515,7 +502,6 @@
             border-radius: 26px;
         }
 
-        /* 标签项统一使用细字体 (400) */
         .tab-item {
             position: relative;
             isolation: isolate;
@@ -596,7 +582,6 @@
             opacity: 1;
         }
 
-        /* 选中状态保持细字体，明确不加粗 */
         .tab-item.active {
             color: #FFFFFF !important;
             background: transparent !important;
@@ -1032,7 +1017,7 @@
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
         /* =========================================================
-            6. 单列布局与底栏完全重构规范
+            6. 单列布局与底栏完全重构规范 (防 Safari 阴影裁剪与断裂)
         ========================================================= */
         .control-bar.is-single-column {
             display: block;
@@ -1061,26 +1046,31 @@
             pointer-events: auto;
         }
 
+        /* 解决 Safari 底栏截断关键 1：包裹层留出充分的向上空间，解除高度硬锁 */
         .control-bar.is-single-column .tab-bar-wrapper {
             position: fixed;
             left: 0;
             right: 0;
             bottom: var(--bottom-offset);
             width: 100%;
-            height: 62px;
-            padding: 0 16px;
+            height: auto;
+            padding: 24px 16px 8px 16px;
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             pointer-events: none;
             z-index: 999999;
-            /* 强制开启 GPU 独立合成图层，防止 iOS Safari 动态视口重绘时裁切阴影 */
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+            /* 建立独立硬件合成图层，确保视口滚动形变时不会被父级剪裁 */
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
             will-change: transform;
         }
 
+        /* 解决 Safari 底栏截断关键 2：
+           恢复完整的深层拟态阴影，彻底移除 overflow: hidden，让阴影向四周完整扩散；
+           配合向上 3D 偏移与微上扬环境光，使整个胶囊在半透明 Safari 底栏上方悬浮。
+        */
         .control-bar.is-single-column .tab-bar {
             pointer-events: auto;
             width: 100%;
@@ -1089,16 +1079,23 @@
             padding: 5px;
             border-radius: 31px;
             gap: 4px;
-            /* 替换为吸底专属的纯向上柔和阴影，解决底层半透明横切断裂 */
-            box-shadow: var(--shadow-bottom-bar);
-            border-top: 1px solid rgba(255, 255, 255, 0.85);
-            overflow: hidden;
+            overflow: visible !important; /* 核心：绝不剪裁外阴影 */
+            box-shadow: 
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
+                0 4px 12px rgba(0, 0, 0, 0.06),
+                0 12px 28px -4px rgba(0, 0, 0, 0.16),
+                0 24px 48px -6px rgba(0, 0, 0, 0.18);
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
         }
 
         [data-theme="dark"] .control-bar.is-single-column .tab-bar {
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 
+                0 4px 16px rgba(0, 0, 0, 0.4),
+                0 14px 36px -4px rgba(0, 0, 0, 0.6),
+                0 28px 56px -6px rgba(0, 0, 0, 0.75);
         }
 
         /* 移动单列布局同步使用细字体 (400) */
