@@ -70,7 +70,8 @@
         :root, [data-theme="light"] {
             --layout-gap: 44px;
 
-            --bg-overscroll: #ffffff;
+            /* 兜底色设为渐变终点色，杜绝超出视口边界时的硬断层露白 */
+            --bg-overscroll: #dce1e8;
             --bg-page-base: #ffffff;
             --bg-page-grad: radial-gradient(circle at 50% 0%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
             
@@ -240,20 +241,40 @@
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
+        /* 根元素只保留底层过渡与兜底色，移除拉伸渐变 */
         html { 
-            margin: 0; padding: 0; overflow-y: scroll; scrollbar-gutter: stable; 
+            margin: 0; 
+            padding: 0; 
+            overflow-y: scroll; 
+            scrollbar-gutter: stable; 
             background-color: var(--bg-overscroll);
-            background-image: var(--bg-page-grad);
-            background-attachment: fixed;
             min-height: 100%;
             overscroll-behavior-y: none;
             -webkit-overscroll-behavior-y: none;
             transition: background-color 0.4s ease; 
         }
+
+        /* 视口全屏伪元素层：向外延展覆盖 Safari 弹性拉伸与多窗口边缘，保持绝对统一的渐变基准 */
+        html::before {
+            content: "";
+            position: fixed;
+            top: -30dvh;
+            left: -15vw;
+            width: 130vw;
+            height: 160dvh;
+            background-image: var(--bg-page-grad);
+            background-repeat: no-repeat;
+            background-position: center 30dvh;
+            background-size: 100vw 100dvh;
+            pointer-events: none;
+            z-index: -1;
+            transform: translate3d(0, 0, 0);
+        }
         
         body { 
             margin: 0; 
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
             padding-top: max(16px, env(safe-area-inset-top));
@@ -280,6 +301,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            min-height: calc(100dvh - max(16px, env(safe-area-inset-top)) - var(--safe-pad-bottom));
         }
 
         .glass-element {
@@ -456,7 +478,7 @@
         }
 
         /* =========================================================
-            4. 分类标签页 (细字体、无变形、纯 GPU 合成滑块版)
+            4. 分类标签页
         ========================================================= */
         .tab-bar-wrapper {
             width: 100%;
@@ -483,7 +505,6 @@
             transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* 纯 GPU 合成层驱动的物理滑块：仅平移变换过渡，彻底免疫 DOM 布局回流 */
         .tab-indicator {
             position: absolute;
             top: 5px;
@@ -504,7 +525,6 @@
             border-radius: 26px;
         }
 
-        /* 标签项统一使用细字体 (400) */
         .tab-item {
             position: relative;
             isolation: isolate;
@@ -585,7 +605,6 @@
             opacity: 1;
         }
 
-        /* 选中状态保持细字体，明确不加粗 */
         .tab-item.active {
             color: #FFFFFF !important;
             background: transparent !important;
@@ -764,7 +783,7 @@
             gap: var(--layout-gap, 44px); 
             align-items: stretch; 
             padding-bottom: 24px; 
-            min-height: 0; 
+            min-height: 260px; 
         }
 
         .module-card { 
@@ -1078,7 +1097,6 @@
             overflow: hidden;
         }
 
-        /* 移动单列布局同步使用细字体 (400) */
         .control-bar.is-single-column .tab-item {
             height: 100%;
             min-height: 0;
@@ -1111,7 +1129,7 @@
         @media (hover: none), (pointer: coarse), (max-width: 860px) {
             .modules { 
                 grid-template-columns: 1fr; 
-                min-height: 0;
+                min-height: 260px;
                 align-items: start;
             }
 
@@ -1393,7 +1411,7 @@
         /* =========================================================
             1. 全局多语言字典与系统配置
         ========================================================= */
-        const CACHE_VERSION = "202609021920"; 
+        const CACHE_VERSION = "202609021926"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
