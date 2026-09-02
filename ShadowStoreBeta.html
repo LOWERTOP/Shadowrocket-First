@@ -451,6 +451,7 @@
             gap: var(--layout-gap, 44px);
             align-items: center;
             width: 100%;
+            overflow: visible;
             margin-bottom: 16px;
             padding: 4px 0;
         }
@@ -1093,35 +1094,33 @@
             pointer-events: auto;
         }
 
-        /* 修复核心：将容器尺寸扩展为视口全高，图层合成边界直通屏幕底边缘，消除 Safari 底部截断 */
         .control-bar.is-single-column .tab-bar-wrapper {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            padding: 0 16px var(--bottom-offset);
+            left: 16px;
+            right: 16px;
+            bottom: var(--bottom-offset);
+            width: auto;
+            height: 62px;
+            padding: 0;
             margin: 0;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
             pointer-events: none;
             z-index: 999999;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+            overflow: visible;
         }
 
         .control-bar.is-single-column .tab-bar {
+            position: relative;
             pointer-events: auto;
             width: 100%;
-            max-width: clamp(1080px, 95vw, 2560px);
+            max-width: none;
             height: 62px;
             padding: 5px;
             border-radius: 31px;
             gap: 4px;
-            box-shadow: var(--shadow-glass-ui);
+            box-shadow: var(--shadow-search);
             overflow: hidden;
         }
 
@@ -1424,7 +1423,7 @@
         /* =========================================================
             1. 全局多语言字典与系统配置
         ========================================================= */
-        const CACHE_VERSION = "202609021322"; 
+        const CACHE_VERSION = "202609021654"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
