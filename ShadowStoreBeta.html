@@ -233,11 +233,6 @@
             transition: none !important;
         }
 
-        /* 窗口缩放与拖拽拆分时，彻底禁用标签滑块过渡，杜绝形变撕裂 */
-        html.is-resizing .tab-indicator {
-            transition: none !important;
-        }
-
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         html { 
@@ -456,7 +451,7 @@
         }
 
         /* =========================================================
-            4. 分类标签页 (细字体、无变形、纯 GPU 合成滑块版)
+            4. 分类标签页 (完全解耦、独立 Q 弹果冻物理动效版)
         ========================================================= */
         .tab-bar-wrapper {
             width: 100%;
@@ -483,28 +478,7 @@
             transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* 纯 GPU 合成层驱动的物理滑块：仅平移变换过渡，彻底免疫 DOM 布局回流 */
-        .tab-indicator {
-            position: absolute;
-            top: 5px;
-            bottom: 5px;
-            left: 0;
-            width: 0;
-            border-radius: 17px;
-            background: var(--primary-gradient);
-            box-shadow: var(--primary-gradient-shadow);
-            pointer-events: none;
-            z-index: 1;
-            will-change: transform;
-            transform: translate3d(0, 0, 0);
-            transition: transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1);
-        }
-
-        .control-bar.is-single-column .tab-indicator {
-            border-radius: 26px;
-        }
-
-        /* 标签项统一使用细字体 (400) */
+        /* 标签按钮：细字体规范 (400)，彻底不加粗 */
         .tab-item {
             position: relative;
             isolation: isolate;
@@ -518,7 +492,7 @@
             padding: 0 8px;
             border-radius: 17px;
             font-size: 13.5px;
-            font-weight: 400;
+            font-weight: 400 !important;
             cursor: pointer;
             white-space: nowrap;
             user-select: none;
@@ -529,19 +503,64 @@
             text-align: center;
             overflow: visible;
             text-overflow: ellipsis;
+            color: var(--text-secondary);
+            background: transparent !important;
             transition: 
-                color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
+                color 0.22s ease, 
+                transform 0.16s cubic-bezier(0.2, 0.9, 0.3, 1);
         }
 
         .tab-item:active {
-            transform: scale(0.92);
+            transform: scale(0.93);
         }
 
-        .tab-item:not(.active) {
-            background: transparent !important;
-            color: var(--text-secondary);
-            box-shadow: none !important;
+        /* 各标签独立的 Q 弹背景承载层：完全剥离其他标签的影响 */
+        .tab-item::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 17px;
+            background: var(--primary-gradient);
+            box-shadow: var(--primary-gradient-shadow);
+            z-index: -1;
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+            transition: opacity 0.22s ease, transform 0.22s ease;
+        }
+
+        .control-bar.is-single-column .tab-item::after {
+            border-radius: 26px;
+        }
+
+        /* Q 弹弹性过冲与果冻膨胀动效 */
+        @keyframes tabQPop {
+            0% {
+                opacity: 0.3;
+                transform: scale(0.82);
+            }
+            58% {
+                opacity: 1;
+                transform: scale(1.06); /* Q 弹向外微微鼓起 */
+            }
+            82% {
+                transform: scale(0.97); /* 弹性收缩归位 */
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .tab-item.active {
+            color: #FFFFFF !important;
+            font-weight: 400 !important;
+        }
+
+        .tab-item.active::after {
+            opacity: 1;
+            transform: scale(1);
+            animation: tabQPop 0.44s cubic-bezier(0.34, 1.56, 0.64, 1) both;
         }
 
         .tab-item:not(.active)::before,
@@ -555,7 +574,7 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: -1;
+            z-index: -2;
         }
 
         [data-theme="dark"] .tab-item:not(.active)::before,
@@ -565,32 +584,18 @@
         }
 
         .tab-item:not(.active):hover,
-        .tab-item:not(.active):active,
         .tab-item:not(.active):focus-visible {
             color: #0891b2;
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
         }
 
         [data-theme="dark"] .tab-item:not(.active):hover,
-        [data-theme="dark"] .tab-item:not(.active):active,
         [data-theme="dark"] .tab-item:not(.active):focus-visible {
             color: #22d3ee;
         }
 
         .tab-item:not(.active):hover::before,
-        .tab-item:not(.active):active::before,
         .tab-item:not(.active):focus-visible::before {
             opacity: 1;
-        }
-
-        /* 选中状态保持细字体，明确不加粗 */
-        .tab-item.active {
-            color: #FFFFFF !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            font-weight: 400 !important;
         }
 
         /* =========================================================
@@ -764,7 +769,7 @@
             gap: var(--layout-gap, 44px); 
             align-items: stretch; 
             padding-bottom: 24px; 
-            min-height: 380px; /* 维持骨架基底高度，防止列表清空时高度塌陷导致滚动条抖动 */
+            min-height: 380px; 
         }
 
         .module-card { 
@@ -1072,7 +1077,7 @@
             opacity: 0; 
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
             pointer-events: none; 
-            text-shadow: none;
+            text-shadow: none; 
         }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
@@ -1134,31 +1139,17 @@
             overflow: hidden;
         }
 
-        /* 移动单列布局同步使用细字体 (400) */
         .control-bar.is-single-column .tab-item {
             height: 100%;
             min-height: 0;
             line-height: normal;
             border-radius: 26px;
             font-size: 14.5px;
-            font-weight: 400;
+            font-weight: 400 !important;
             padding: 0 10px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .control-bar.is-single-column .tab-item:not(.active) {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-        }
-
-        .control-bar.is-single-column .tab-item.active {
-            color: #FFFFFF !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            font-weight: 400 !important;
         }
 
         /* =========================================================
@@ -1367,7 +1358,6 @@
         <div id="controlBar" class="control-bar">
             <nav class="tab-bar-wrapper" aria-label="资源分类导航">
                 <div class="tab-bar glass-element" role="tablist">
-                    <div id="tabIndicator" class="tab-indicator"></div>
                     <button class="tab-item active" role="tab" aria-selected="true" data-tab="module">模块资源</button>
                     <button class="tab-item" role="tab" aria-selected="false" data-tab="config">配置文件</button>
                     <button class="tab-item" role="tab" aria-selected="false" data-tab="manual">使用手册</button>
@@ -1430,11 +1420,11 @@
         /* =========================================================
             1. 全局多语言字典与系统配置
         ========================================================= */
-        const CACHE_VERSION = "202609021230"; 
+        const CACHE_VERSION = "202609021130"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
-            PAGE_SIZE: 16, // 精炼首屏初始渲染量，杜绝切换标签时的主线程瞬间拥堵
+            PAGE_SIZE: 30, 
             CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`, 
             CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`,
             CACHE_MAX_AGE: 6 * 60 * 60 * 1000 
@@ -1643,8 +1633,6 @@
         const themeToggleBtn = document.getElementById("themeToggle");
         const backToTopBtn = document.getElementById("backToTopBtn");
         const tabItems = document.querySelectorAll(".tab-item");
-        const tabIndicator = document.getElementById("tabIndicator");
-        const tabBarEl = document.querySelector(".tab-bar");
 
         const controlBarEl = document.getElementById("controlBar");
         const searchWrapperEl = document.querySelector('.search-wrapper');
@@ -1692,9 +1680,6 @@
 
         let searchTimer = null;
         let toastTimer = null;
-        let isTabAnimating = false;
-        let tabAnimTimer = null;
-        let tabSwitchContentTimer = null;
         let lastCardWidthVal = 0;
 
         /* =========================================================
@@ -1900,38 +1885,8 @@
         }
 
         /* =========================================================
-            4. 层叠控制、防形变与动画锁物理滑块
+            4. 层叠控制与宽度自适应
         ========================================================= */
-        function updateTabIndicator(animated = true) {
-            const activeTab = document.querySelector(".tab-item.active");
-            if (!activeTab || !tabIndicator) return;
-
-            // 核心防截断机制：如果用户正在切换标签，禁止任何无动画重算掐断飞跃过程
-            if (!animated && isTabAnimating) {
-                return;
-            }
-
-            if (!animated) {
-                tabIndicator.style.transition = 'none';
-            } else {
-                tabIndicator.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1)';
-            }
-
-            const left = activeTab.offsetLeft;
-            const width = activeTab.offsetWidth;
-
-            // 宽度未变时不重新触发 DOM 样式变动
-            if (Math.abs(tabIndicator.offsetWidth - width) > 1) {
-                tabIndicator.style.width = `${width}px`;
-            }
-            tabIndicator.style.transform = `translate3d(${left}px, 0, 0)`;
-
-            if (!animated) {
-                void tabIndicator.offsetWidth;
-                tabIndicator.style.transition = '';
-            }
-        }
-
         function getGridColumns() {
             const style = window.getComputedStyle(modulesContainer);
             const template = style.getPropertyValue("grid-template-columns");
@@ -1945,7 +1900,6 @@
             bar.classList.toggle("is-single-column", columns === 1);
         }
 
-        // 优化：仅在宽度发生实质变化（>1px）时才修改根变量，杜绝切换标签时全页面样式缓存被瞬间清空
         function updateCardWidth() {
             const firstCard = modulesContainer.querySelector('.module-card, .loading-card');
             let newWidth = 0;
@@ -1990,40 +1944,13 @@
             }, 40);
         }
 
-        // 监听视口缩放与全屏/拖出动作，拖拽拆窗期间彻底关停滑块过渡，杜绝拉伸畸变
-        let resizeDebounceTimer = null;
-        window.addEventListener("resize", () => {
-            document.documentElement.classList.add("is-resizing");
-            clearTimeout(resizeDebounceTimer);
-            
-            isTabAnimating = false; // 窗口变动时解除动画保护，保证秒级贴合
-            updateControlBarLayout();
-            updateTabIndicator(false);
-            scheduleCardLayerUpdate();
-            
-            resizeDebounceTimer = setTimeout(() => {
-                document.documentElement.classList.remove("is-resizing");
-                updateControlBarLayout();
-                updateTabIndicator(false);
-            }, 120);
-        }, { passive: true });
+        window.addEventListener("resize", scheduleCardLayerUpdate, { passive: true });
 
-        // 精准观察标签栏本身尺寸变动
-        if (typeof ResizeObserver !== "undefined") {
-            if (modulesContainer) {
-                const gridResizeObserver = new ResizeObserver(() => {
-                    scheduleCardLayerUpdate();
-                });
-                gridResizeObserver.observe(modulesContainer);
-            }
-            if (tabBarEl) {
-                const tabBarObserver = new ResizeObserver(() => {
-                    if (!isTabAnimating) {
-                        updateTabIndicator(false);
-                    }
-                });
-                tabBarObserver.observe(tabBarEl);
-            }
+        if (typeof ResizeObserver !== "undefined" && modulesContainer) {
+            const gridResizeObserver = new ResizeObserver(() => {
+                scheduleCardLayerUpdate();
+            });
+            gridResizeObserver.observe(modulesContainer);
         }
 
         function renderAuthor(module) {
@@ -2186,7 +2113,7 @@
         observer.observe(sentinel);
 
         /* =========================================================
-            5. 分类标签切换与搜索联动
+            5. 分类标签切换与搜索联动 (完全解耦交互)
         ========================================================= */
         function filterModules() {
             const keyword = searchInput.value.trim().normalize("NFKC").toLowerCase();
@@ -2213,30 +2140,19 @@
                 if (state.activeTab === targetTab) return;
 
                 state.activeTab = targetTab;
+                
+                // 1. 各标签互相切换独立触发 Q 弹效果，中间标签不受任何影响
                 tabItems.forEach(t => {
                     const isActive = t === tab;
                     t.classList.toggle("active", isActive);
                     t.setAttribute("aria-selected", isActive ? "true" : "false");
                 });
 
-                // 启动动画保护锁，确保跨标签飞掠全程不被 DOM 尺寸变动掐断
-                isTabAnimating = true;
-                clearTimeout(tabAnimTimer);
-                tabAnimTimer = setTimeout(() => {
-                    isTabAnimating = false;
-                }, 460);
-
-                // 1. GPU 纯合成层启动物理滑块平滑飞掠，立即执行
-                updateTabIndicator(true);
-
-                // 2. 将卡片列表 DOM 更新精准切到滑块越过中间标签后（160ms）执行，飞跃过程主线程 100% 空闲，彻底告别丢帧
-                clearTimeout(tabSwitchContentTimer);
-                tabSwitchContentTimer = setTimeout(() => {
-                    filterModules();
-                    if (window.scrollY > 0) {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                    }
-                }, 160);
+                // 2. 异步执行数据过滤，剥离密集计算对按钮动画的微小占用
+                filterModules();
+                if (window.scrollY > 0) {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                }
             });
         });
 
@@ -2495,8 +2411,6 @@
 
             state.allModules.forEach(m => { m._domElement = null; });
             filterModules();
-
-            requestAnimationFrame(() => updateTabIndicator(false));
         }
 
         langToggleBtn.addEventListener("click", () => {
@@ -2781,7 +2695,6 @@
         updateLanguageUI();
         updateCardWidth();
         updateControlBarLayout();
-        updateTabIndicator(false);
         updateSearchLayer();
         cleanOldCaches();
         loadModules();
