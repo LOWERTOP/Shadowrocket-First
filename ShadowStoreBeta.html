@@ -30,7 +30,6 @@
             }
             document.documentElement.style.backgroundColor = themeColor;
 
-            // 智能识别浏览器语言环境：中文（简/繁/港/台/新）默认为中文，其余语言默认为英文
             try {
                 const savedLang = localStorage.getItem("sr_lang_override");
                 let lang = "zh";
@@ -45,7 +44,6 @@
                 document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
             } catch (e) {}
 
-            // 移动设备环境与触控特征识别标记
             const isMobileDevice = ('ontouchstart' in window) || 
                                    (navigator.maxTouchPoints > 0) || 
                                    (window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches);
@@ -53,7 +51,6 @@
                 document.documentElement.classList.add('is-mobile');
             }
 
-            // PWA 独立运行模式标记
             if (window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches) {
                 document.documentElement.classList.add('is-pwa');
             }
@@ -98,6 +95,16 @@
                 -1px 4px 6px rgba(0, 0, 0, 0.15),        
                 -8px 18px 22px -3px rgba(0, 0, 0, 0.12), 
                 -25px 45px 55px -5px rgba(0, 0, 0, 0.22); 
+
+            /* 底栏专用：隐藏下方黑色阴影，保留白色光晕与内高光 */
+            --shadow-tab-bar-bottom: 
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
+                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
+                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
+                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
+                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17);
 
             --shadow-glass-ui-hover: 
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
@@ -189,6 +196,8 @@
                 0 6px 20px rgba(0, 0, 0, 0.4),
                 0 2px 6px rgba(0, 0, 0, 0.25);
 
+            --shadow-tab-bar-bottom: none;
+
             --shadow-glass-ui-hover: 
                 0 8px 24px rgba(0, 0, 0, 0.5),
                 0 3px 8px rgba(0, 0, 0, 0.3);
@@ -235,7 +244,6 @@
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
-        /* 根元素完全只使用单色实底，杜绝任何渐变/伪元素/图案图层切断问题 */
         html { 
             margin: 0; 
             padding: 0; 
@@ -246,14 +254,12 @@
             transition: background-color 0.4s ease; 
         }
 
-        /* 状态A：内容超出视口时，启用标准自然滚动 */
         html:not(.no-scroll) {
             overflow-y: scroll;
             overscroll-behavior-y: auto;
             -webkit-overscroll-behavior-y: auto;
         }
 
-        /* 状态B：内容不足视口时，禁用物理滚轴并锁死原生越界回弹，但保留下拉刷新手势响应 */
         html.no-scroll {
             overflow-y: hidden;
             overscroll-behavior-y: none;
@@ -1083,7 +1089,7 @@
             padding: 5px;
             border-radius: 31px;
             gap: 4px;
-            box-shadow: var(--shadow-glass-ui);
+            box-shadow: var(--shadow-tab-bar-bottom);
             overflow: hidden;
         }
 
@@ -1398,10 +1404,7 @@
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        /* =========================================================
-            1. 全局多语言字典与系统配置
-        ========================================================= */
-        const CACHE_VERSION = "202609021935"; 
+        const CACHE_VERSION = "202609022127"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -1660,12 +1663,8 @@
         let tabSwitchContentTimer = null;
         let lastCardWidthVal = 0;
 
-        /* =========================================================
-            2. 动态视口高度与滚动锁联动引擎
-        ========================================================= */
         function checkScrollLock() {
             const root = document.documentElement;
-            // 预留 3px 阈值，避免在移动端软键盘/设备像素比取整时的抖动
             const contentH = root.scrollHeight;
             const viewportH = window.innerHeight;
             const isOverflowing = contentH > viewportH + 3;
@@ -1677,9 +1676,6 @@
             }
         }
 
-        /* =========================================================
-            3. 安全转义与多语言格式化
-        ========================================================= */
         function escapeHTML(value) {
             return String(value ?? "")
                 .replace(/&/g, "&amp;")
@@ -1835,9 +1831,6 @@
             return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
         }
 
-        /* =========================================================
-            4. UI 交互与吸顶控制
-        ========================================================= */
         let backToTopVisible = false;
         function updateSearchLayer() {
             if (!backToTopBtn) return;
@@ -1862,9 +1855,6 @@
             });
         }
 
-        /* =========================================================
-            5. 层叠控制、防形变与动画锁物理滑块
-        ========================================================= */
         function updateTabIndicator(animated = true) {
             const activeTab = document.querySelector(".tab-item.active");
             if (!activeTab || !tabIndicator) return;
@@ -2159,9 +2149,6 @@
         }, { rootMargin: "300px" });
         observer.observe(sentinel);
 
-        /* =========================================================
-            6. 分类标签切换与搜索联动
-        ========================================================= */
         function filterModules() {
             const keyword = searchInput.value.trim().normalize("NFKC").toLowerCase();
             if (searchInput.value.length > 0) {
@@ -2310,9 +2297,6 @@
             });
         }
 
-        /* =========================================================
-            7. 主题与语言双引擎系统
-        ========================================================= */
         const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
 
         function getThemeMode() {
@@ -2481,9 +2465,6 @@
 
         updateThemeUI();
 
-        /* =========================================================
-            8. 移动端下拉刷新手势与滚动锁联动
-        ========================================================= */
         let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
         const MIN_DRAG_DEADZONE = 30;
         const PULL_TRIGGER_DIFF = 150; 
@@ -2638,9 +2619,6 @@
 
         window.addEventListener('touchcancel', resetPullState, { passive: true });
 
-        /* =========================================================
-            9. 核心数据同步引擎
-        ========================================================= */
         function cleanOldCaches() {
             try {
                 const keysToRemove = [];
@@ -2758,7 +2736,6 @@
             }
         }
 
-        // 初始化启动
         updateLanguageUI();
         updateCardWidth();
         updateControlBarLayout();
