@@ -96,6 +96,7 @@
                 -8px 18px 22px -3px rgba(0, 0, 0, 0.12), 
                 -25px 45px 55px -5px rgba(0, 0, 0, 0.22); 
 
+            /* 底栏专用：隐藏下方黑色阴影，保留白色光晕与内高光 */
             --shadow-tab-bar-bottom: 
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
                 inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
@@ -213,7 +214,7 @@
             --text-secondary: #939aa8;
             --text-tertiary: #6b7280;
 
-            --primary: #0891b2; 
+            --primary: #0891b2;
             --primary-hover: #06b6d4;
             --primary-soft: rgba(6, 182, 212, 0.2);
 
@@ -435,11 +436,7 @@
                 transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 background-color 0.3s ease,
-                border-color 0.35s ease,
                 color 0.2s ease;
-        }
-        .theme-controls .theme-toggle {
-            border-color: rgba(255, 255, 255, 0.8);
         }
         .theme-toggle:hover { 
             background-image: var(--noise-pattern), var(--glass-bg-hover);
@@ -501,10 +498,7 @@
             border-radius: 22px;
             box-shadow: var(--shadow-search);
             overflow: hidden;
-            border-color: rgba(255, 255, 255, 0.8);
-            transition: 
-                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.35s ease;
+            transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .tab-indicator {
@@ -641,7 +635,6 @@
             box-shadow: var(--shadow-search); 
             padding: 6px; 
             cursor: text;
-            border-color: rgba(255, 255, 255, 0.8);
             -webkit-transform: translateZ(0); 
             transform: translateZ(0);
             transition: 
@@ -652,14 +645,14 @@
 
         .search-box-inner:focus-within {
             background-image: var(--noise-pattern), var(--glass-bg-hover);
-            border-color: rgba(255, 255, 255, 0.8); 
+            border-color: rgba(255,255,255,0.8); 
             box-shadow: var(--shadow-search-hover); 
         }
         
         [data-theme="dark"] .search-box-inner:focus-within {
             background-image: var(--noise-pattern);
             background-color: var(--border-subtle);
-            border-color: var(--border-subtle); 
+            border-color: var(--text-tertiary); 
             box-shadow: var(--shadow-search-hover);
         }
         
@@ -800,12 +793,10 @@
             border-radius: var(--radius-card); 
             box-shadow: var(--shadow-glass-ui); 
             overflow: hidden; 
-            border-color: rgba(255, 255, 255, 0.8);
             transition: 
                 transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                background-image 0.4s ease,
-                border-color 0.35s ease;
+                background-image 0.4s ease;
             -webkit-transform: translateZ(0); transform: translateZ(0); 
         }
 
@@ -1011,18 +1002,9 @@
             min-width: 0;
             border-radius: var(--radius-card); 
             box-shadow: var(--shadow-glass-ui); 
-            border-color: rgba(255, 255, 255, 0.8);
             animation: skeletonPulse 1.4s infinite; 
         }
         @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
-
-        [data-theme="dark"] .module-card,
-        [data-theme="dark"] .loading-card,
-        [data-theme="dark"] .theme-controls .theme-toggle,
-        [data-theme="dark"] .tab-bar,
-        [data-theme="dark"] .search-box-inner {
-            border-color: var(--border-subtle);
-        }
         
         .footer { 
             margin-top: auto;
@@ -1422,7 +1404,7 @@
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        const CACHE_VERSION = "202609022148"; 
+        const CACHE_VERSION = "202609022127"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -2483,7 +2465,11 @@
 
         updateThemeUI();
 
+        /* =========================================================
+            8. 移动端下拉刷新手势处理（优化防冲突与原生惯性滚动）
+        ========================================================= */
         let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
+        let hasPulledContainer = false;
         const MIN_DRAG_DEADZONE = 30;
         const PULL_TRIGGER_DIFF = 150; 
 
@@ -2509,6 +2495,7 @@
                 ptrIcon.classList.remove("rotate");
                 state.isPullRefreshing = false;
                 pageContainer.style.willChange = "auto";
+                hasPulledContainer = false;
                 checkScrollLock();
             }, 500);
         }
@@ -2517,14 +2504,24 @@
             isPulling = false;
             isPullLocked = false;
             if (pullRafId) cancelAnimationFrame(pullRafId);
-            const reboundBezier = 'top 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
-            pageContainer.style.transition = reboundBezier;
-            pageContainer.style.top = '0';
-            pullRefreshIndicator.style.transition = `${reboundBezier}, opacity 0.25s ease`;
-            pullRefreshIndicator.style.opacity = '0';
-            pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
+
+            if (hasPulledContainer) {
+                const reboundBezier = 'top 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
+                pageContainer.style.transition = reboundBezier;
+                pageContainer.style.top = '0';
+                pullRefreshIndicator.style.transition = `${reboundBezier}, opacity 0.25s ease`;
+                pullRefreshIndicator.style.opacity = '0';
+                pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
+            } else {
+                pageContainer.style.transition = 'none';
+                pageContainer.style.top = '0';
+                pullRefreshIndicator.style.transition = 'none';
+                pullRefreshIndicator.style.opacity = '0';
+            }
+            
             ptrIcon.classList.remove("rotate");
             pageContainer.style.willChange = "auto";
+            hasPulledContainer = false;
         }
 
         window.addEventListener('touchstart', (e) => {
@@ -2532,7 +2529,8 @@
                 isPulling = false;
                 return;
             }
-            if (e.target.closest("input, button, a, textarea, select, label")) {
+            // 排除表单元素、链接、按钮以及卡片主体，保证卡片区域滑动的完全畅通与原生惯性
+            if (e.target.closest("input, button, a, textarea, select, label, .module-card")) {
                 isPulling = false;
                 return;
             }
@@ -2542,10 +2540,7 @@
                 touchStartY = e.touches[0].clientY;
                 isPulling = true;
                 isPullLocked = false;
-                
-                pageContainer.style.willChange = "top";
-                pageContainer.style.transition = 'none';
-                pullRefreshIndicator.style.transition = 'none';
+                hasPulledContainer = false;
             } else {
                 isPulling = false;
             }
@@ -2553,9 +2548,6 @@
 
         window.addEventListener('touchmove', (e) => {
             if (!isPulling || state.isPullRefreshing || state.isDataLoading) {
-                if (document.documentElement.classList.contains("no-scroll") && e.cancelable) {
-                    e.preventDefault();
-                }
                 return;
             }
 
@@ -2565,25 +2557,31 @@
             const diffY = currentY - touchStartY;
 
             if (!isPullLocked) {
+                // 横向滑动判定，交还原生控制
                 if (Math.abs(diffX) > Math.abs(diffY)) {
                     isPulling = false;
                     isPullLocked = true;
                     return;
                 }
 
+                // 手指上滑（浏览下方内容），立即退出手势锁定，保障原生滚动
                 if (diffY <= 0) {
-                    if (document.documentElement.classList.contains("no-scroll") && e.cancelable) {
-                        e.preventDefault();
-                    }
+                    isPulling = false;
+                    isPullLocked = true;
                     return;
                 }
 
+                // 下拉位移超过死区，锁定为刷新交互
                 if (diffY > MIN_DRAG_DEADZONE) {
                     isPullLocked = true;
+                    pageContainer.style.willChange = "top";
+                    pageContainer.style.transition = 'none';
+                    pullRefreshIndicator.style.transition = 'none';
                 }
             }
 
             if (isPullLocked && diffY > MIN_DRAG_DEADZONE) {
+                hasPulledContainer = true;
                 const effectiveDiff = diffY - MIN_DRAG_DEADZONE;
                 const containerShift = Math.min(Math.pow(effectiveDiff, 0.65) * 1.3, 48);
                 const indicatorShift = Math.min(containerShift * 0.42, 18);
@@ -2606,13 +2604,14 @@
                 });
 
                 if (e.cancelable) e.preventDefault();
-            } else if (document.documentElement.classList.contains("no-scroll") && e.cancelable) {
-                e.preventDefault();
             }
         }, { passive: false });
 
         window.addEventListener('touchend', (e) => {
-            if (!isPulling || state.isPullRefreshing || state.isDataLoading) return;
+            if (!isPulling || state.isPullRefreshing || state.isDataLoading) {
+                isPulling = false;
+                return;
+            }
             isPulling = false;
             isPullLocked = false;
             if (pullRafId) cancelAnimationFrame(pullRafId);
@@ -2621,7 +2620,7 @@
             const diffY = currentY - touchStartY;
             const isAtTop = (window.scrollY || document.documentElement.scrollTop || 0) <= 0;
 
-            if (diffY >= PULL_TRIGGER_DIFF && isAtTop) {
+            if (hasPulledContainer && diffY >= PULL_TRIGGER_DIFF && isAtTop) {
                 pageContainer.style.transition = 'top 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)';
                 pageContainer.style.top = '38px';
                 
