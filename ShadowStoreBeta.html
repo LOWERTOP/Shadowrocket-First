@@ -70,10 +70,9 @@
         :root, [data-theme="light"] {
             --layout-gap: 44px;
 
-            /* 双向过卷基准色：顶白底灰，彻底告别单边漏色 */
-            --bg-overscroll-top: #ffffff;
-            --bg-overscroll-bottom: #dce1e8;
-            --bg-page-grad: radial-gradient(circle at 50% 0%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
+            --bg-overscroll: #ffffff;
+            --bg-page-base: #ffffff;
+            --bg-page-grad: none;
             
             --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
             --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
@@ -182,8 +181,8 @@
             2. 暗色主题设计令牌 (Dark Theme Tokens)
         ========================================================= */
         [data-theme="dark"] {
-            --bg-overscroll-top: #14161a;
-            --bg-overscroll-bottom: #14161a;
+            --bg-overscroll: #14161a;
+            --bg-page-base: #14161a;
             --bg-page-grad: none;
             
             --glass-bg: none;
@@ -255,10 +254,7 @@
         
         html { 
             margin: 0; padding: 0; overflow-y: scroll; scrollbar-gutter: stable; 
-            background-color: var(--bg-overscroll-top);
-            /* 上半部纯白、下半部冷灰，精准支持双向橡胶过卷采样 */
-            background-image: linear-gradient(180deg, var(--bg-overscroll-top) 0%, var(--bg-overscroll-top) 50%, var(--bg-overscroll-bottom) 50%, var(--bg-overscroll-bottom) 100%);
-            background-repeat: no-repeat;
+            background-color: var(--bg-page-base);
             min-height: 100%;
             overscroll-behavior-y: none;
             -webkit-overscroll-behavior-y: none;
@@ -270,7 +266,6 @@
             min-height: 100dvh;
             display: flex;
             flex-direction: column;
-            position: relative;
             padding-top: max(16px, env(safe-area-inset-top));
             padding-right: 16px;
             padding-bottom: var(--safe-pad-bottom);
@@ -281,25 +276,6 @@
             -webkit-font-smoothing: antialiased; 
             text-rendering: optimizeLegibility; 
             transition: color 0.4s ease; 
-        }
-
-        /* GPU 加速的独立背景层：外延 1px，彻底杜绝滚动及视口缩放时的亚像素撕裂漏底 */
-        body::before {
-            content: "";
-            position: fixed;
-            top: -1px;
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            z-index: -1;
-            background-image: var(--bg-page-grad);
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            pointer-events: none;
-        }
-
-        [data-theme="dark"] body::before {
-            display: none;
         }
 
         button, input { font: inherit; }
@@ -2363,7 +2339,6 @@
             if (themeColorMeta) {
                 themeColorMeta.setAttribute("content", themeColor);
             }
-            // 保持根元素顶层采样基色与顶部栏 #ffffff 同步
             document.documentElement.style.backgroundColor = themeColor;
 
             const isZh = state.currentLang === "zh";
