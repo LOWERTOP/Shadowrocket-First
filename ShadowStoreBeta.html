@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#ffffff">
-    
+
     <title>ShadowStore</title>
 
     <script>
@@ -30,30 +30,27 @@
             }
             document.documentElement.style.backgroundColor = themeColor;
 
-            // 智能识别浏览器语言环境：中文（简/繁/港/台/新）默认为中文，其余语言默认为英文
             try {
                 const savedLang = localStorage.getItem("sr_lang_override");
                 let lang = "zh";
                 if (savedLang === "en" || savedLang === "zh") {
                     lang = savedLang;
                 } else {
-                    const primary = (navigator.languages && navigator.languages.length 
-                        ? navigator.languages[0] 
-                        : (navigator.language || navigator.userLanguage || "")).toLowerCase();
+                    const primary = (navigator.languages && navigator.languages.length ?
+                        navigator.languages[0] :
+                        (navigator.language || navigator.userLanguage || "")).toLowerCase();
                     lang = primary.startsWith("zh") ? "zh" : "en";
                 }
                 document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
             } catch (e) {}
 
-            // 移动设备环境与触控特征识别标记
-            const isMobileDevice = ('ontouchstart' in window) || 
-                                   (navigator.maxTouchPoints > 0) || 
-                                   (window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches);
+            const isMobileDevice = ('ontouchstart' in window) ||
+                (navigator.maxTouchPoints > 0) ||
+                (window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches);
             if (isMobileDevice) {
                 document.documentElement.classList.add('is-mobile');
             }
 
-            // PWA 独立运行模式标记
             if (window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches) {
                 document.documentElement.classList.add('is-pwa');
             }
@@ -67,16 +64,17 @@
         /* =========================================================
             1. 浅色主题设计令牌 (Light Theme Tokens)
         ========================================================= */
-        :root, [data-theme="light"] {
+        :root,
+        [data-theme="light"] {
             --layout-gap: 44px;
 
             --bg-overscroll: #ffffff;
             --bg-page-base: #ffffff;
             --bg-page-grad: radial-gradient(circle at 50% 0%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
-            
+
             --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
             --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
-            
+
             --glass-border-t: rgba(255, 255, 255, 0.85);
             --glass-border-r: rgba(255, 255, 255, 0.6);
             --glass-border-b: rgba(255, 255, 255, 0.05);
@@ -89,22 +87,22 @@
             --content-shadow-sm: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
             --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.15);
 
-            --shadow-glass-ui: 
+            --shadow-glass-ui:
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65),
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),
                 -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
                 -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
                 -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
                 -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
-                -1px 4px 6px rgba(0, 0, 0, 0.15),        
-                -8px 18px 22px -3px rgba(0, 0, 0, 0.12), 
-                -25px 45px 55px -5px rgba(0, 0, 0, 0.22); 
+                -1px 4px 6px rgba(0, 0, 0, 0.15),
+                -8px 18px 22px -3px rgba(0, 0, 0, 0.12),
+                -25px 45px 55px -5px rgba(0, 0, 0, 0.22);
 
-            --shadow-glass-ui-hover: 
+            --shadow-glass-ui-hover:
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),     
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75),
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),
                 -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
                 -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
                 -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
@@ -113,22 +111,22 @@
                 -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
                 -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
 
-            --shadow-search: 
+            --shadow-search:
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65),
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),
                 -1.7px 4.7px 3px -2px rgba(255, 255, 255, 0.22),
                 -0.9px 5.3px 4px -2.3px rgba(255, 255, 255, 0.20),
                 -2.3px 6.7px 5px -2.7px rgba(255, 255, 255, 0.17),
                 -1.2px 8px 6px -2.7px rgba(255, 255, 255, 0.11),
-                -0.7px 2.7px 4px rgba(0, 0, 0, 0.10),        
-                -5.3px 12px 14.7px -2px rgba(0, 0, 0, 0.08), 
-                -16.7px 30px 36.7px -3.3px rgba(0, 0, 0, 0.15); 
+                -0.7px 2.7px 4px rgba(0, 0, 0, 0.10),
+                -5.3px 12px 14.7px -2px rgba(0, 0, 0, 0.08),
+                -16.7px 30px 36.7px -3.3px rgba(0, 0, 0, 0.15);
 
-            --shadow-search-hover: 
+            --shadow-search-hover:
                 inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),     
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75),
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),
                 -2px 5.7px 3.3px -2px rgba(255, 255, 255, 0.22),
                 -1.1px 6.3px 4.7px -2.3px rgba(255, 255, 255, 0.20),
                 -2.8px 8px 6px -2.7px rgba(255, 255, 255, 0.17),
@@ -141,20 +139,20 @@
             --text-secondary: #7e8596;
             --text-tertiary: #a1a9ba;
 
-            --primary: #0891b2; 
+            --primary: #0891b2;
             --primary-hover: #0e7490;
             --primary-soft: rgba(6, 182, 212, 0.15);
 
             --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
             --primary-gradient-hover: linear-gradient(135deg, #0891b2 0%, #2563eb 50%, #7c3aed 100%);
             --primary-gradient-shadow: 0 4px 14px rgba(59, 130, 246, 0.08);
-            
+
             --bg-surface: #e6eaf0;
             --border-subtle: #d6dbe3;
 
-            --accent-mint: #8eaeb8;  
+            --accent-mint: #8eaeb8;
             --accent-mint-soft: rgba(142, 174, 184, 0.2);
-            --accent-orange: #c4af9d; 
+            --accent-orange: #c4af9d;
             --accent-orange-soft: rgba(196, 175, 157, 0.2);
 
             --radius-card: 44px;
@@ -174,7 +172,7 @@
             --bg-overscroll: #14161a;
             --bg-page-base: #14161a;
             --bg-page-grad: none;
-            
+
             --glass-bg: none;
             --glass-bg-hover: none;
             --glass-border-t: transparent;
@@ -189,19 +187,19 @@
             --content-shadow-sm: none;
             --text-shadow-sm: none;
 
-            --shadow-glass-ui: 
+            --shadow-glass-ui:
                 0 6px 20px rgba(0, 0, 0, 0.4),
                 0 2px 6px rgba(0, 0, 0, 0.25);
 
-            --shadow-glass-ui-hover: 
+            --shadow-glass-ui-hover:
                 0 8px 24px rgba(0, 0, 0, 0.5),
                 0 3px 8px rgba(0, 0, 0, 0.3);
 
-            --shadow-search: 
+            --shadow-search:
                 0 4px 13.3px rgba(0, 0, 0, 0.27),
                 0 1.3px 4px rgba(0, 0, 0, 0.17);
 
-            --shadow-search-hover: 
+            --shadow-search-hover:
                 0 5.3px 16px rgba(0, 0, 0, 0.33),
                 0 2px 5.3px rgba(0, 0, 0, 0.20);
 
@@ -237,21 +235,27 @@
             transition: none !important;
         }
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        
-        html { 
-            margin: 0; padding: 0; overflow-y: scroll; scrollbar-gutter: stable; 
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            margin: 0;
+            padding: 0;
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
             background-color: var(--bg-overscroll);
             background-image: var(--bg-page-grad);
             background-attachment: fixed;
             min-height: 100%;
             overscroll-behavior-y: none;
             -webkit-overscroll-behavior-y: none;
-            transition: background-color 0.4s ease; 
+            transition: background-color 0.4s ease;
         }
-        
-        body { 
-            margin: 0; 
+
+        body {
+            margin: 0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -260,22 +264,28 @@
             padding-bottom: var(--safe-pad-bottom);
             padding-left: 16px;
             background: transparent;
-            color: var(--text-primary); 
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; 
-            -webkit-font-smoothing: antialiased; 
-            text-rendering: optimizeLegibility; 
-            transition: color 0.4s ease; 
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            transition: color 0.4s ease;
         }
 
-        button, input { font: inherit; }
-        a { color: inherit; text-decoration: none; }
-        
-        .container { 
-            width: 100%; 
-            max-width: clamp(1080px, 95vw, 2560px); 
-            margin: 0 auto; 
-            position: relative; 
-            top: 0; 
+        button,
+        input {
+            font: inherit;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: clamp(1080px, 95vw, 2560px);
+            margin: 0 auto;
+            position: relative;
+            top: 0;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -330,28 +340,48 @@
             color: var(--primary);
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .ptr-icon svg { width: 100%; height: 100%; }
-        .ptr-icon.rotate { transform: rotate(180deg); }
+        .ptr-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+        .ptr-icon.rotate {
+            transform: rotate(180deg);
+        }
 
-        .header { padding: 24px 0 18px; }
-        .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-        .brand-wrapper { display: flex; align-items: center; gap: 10px; }
+        .header {
+            padding: 24px 0 18px;
+        }
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-        .title { 
-            margin: 0; font-size: 26px; line-height: 1.2;
-            letter-spacing: -0.6px; 
-            display: inline-flex; 
+        .title {
+            margin: 0;
+            font-size: 26px;
+            line-height: 1.2;
+            letter-spacing: -0.6px;
+            display: inline-flex;
             align-items: flex-start;
-            gap: 2px; 
-            text-shadow: none; 
+            gap: 2px;
+            text-shadow: none;
         }
-        .title a { 
-            display: inline-flex; 
-            align-items: baseline; 
-            text-decoration: none; 
-            transition: opacity 0.2s ease; 
+        .title a {
+            display: inline-flex;
+            align-items: baseline;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
         }
-        .title a:hover { opacity: 0.88; }
+        .title a:hover {
+            opacity: 0.88;
+        }
 
         .title-shadow {
             font-weight: 300;
@@ -373,22 +403,22 @@
         }
 
         .tag-pill-badge {
-            display: inline-flex; 
-            align-items: center; 
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            height: 17px; 
+            height: 17px;
             padding: 0 6px;
-            border-radius: var(--radius-pill); 
+            border-radius: var(--radius-pill);
             background: rgba(6, 182, 212, 0.12);
-            color: #0891b2; 
-            font-size: 10px; 
-            font-weight: 600; 
+            color: #0891b2;
+            font-size: 10px;
+            font-weight: 600;
             letter-spacing: 0.3px;
             line-height: 1;
-            border: none; 
-            box-shadow: none; 
+            border: none;
+            box-shadow: none;
             text-shadow: none;
-            transform: translateY(calc(3px - 20%)); 
+            transform: translateY(calc(3px - 20%));
             user-select: none;
             -webkit-user-select: none;
             white-space: nowrap;
@@ -399,43 +429,65 @@
             color: #22d3ee;
         }
 
-        .subtitle { 
-            margin-top: 8px; color: var(--text-secondary); font-size: 14px; 
-            line-height: 1.5; font-weight: 300; 
-            text-shadow: none; 
+        .subtitle {
+            margin-top: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.5;
+            font-weight: 300;
+            text-shadow: none;
         }
-        
-        .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
-        .theme-toggle { 
-            display: inline-flex; align-items: center; justify-content: center; 
-            width: 44px; height: 44px; padding: 0; margin: 0; 
-            border-radius: 50%; 
-            color: var(--text-secondary); cursor: pointer; 
-            box-shadow: var(--shadow-glass-ui); 
-            transition: 
+        .theme-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            margin: 0;
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            box-shadow: var(--shadow-glass-ui);
+            transition:
                 transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                 background-color 0.3s ease,
                 color 0.2s ease;
         }
-        .theme-toggle:hover { 
+        .theme-toggle:hover {
             background-image: var(--noise-pattern), var(--glass-bg-hover);
-            color: var(--text-primary); transform: translateY(-1px); 
-            box-shadow: var(--shadow-glass-ui-hover); 
+            color: var(--text-primary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-glass-ui-hover);
         }
         [data-theme="dark"] .theme-toggle:hover {
             background-image: var(--noise-pattern);
-            background-color: var(--border-subtle); 
+            background-color: var(--border-subtle);
         }
-        .theme-toggle:active { transform: scale(0.92); }
-        .theme-toggle.active { 
-            color: var(--primary); background-color: var(--primary-soft); 
+        .theme-toggle:active {
+            transform: scale(0.92);
         }
-        
-        .theme-toggle svg { 
-            display: block; width: 20px; height: 20px; pointer-events: none; stroke-width: 2; 
-            filter: none; 
+        .theme-toggle.active {
+            color: var(--primary);
+            background-color: var(--primary-soft);
+        }
+
+        .theme-toggle svg {
+            display: block;
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            stroke-width: 2;
+            filter: none;
         }
 
         /* =========================================================
@@ -478,7 +530,7 @@
             padding: 5px;
             border-radius: 22px;
             box-shadow: var(--shadow-search);
-            overflow: visible;
+            overflow: hidden;
             transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -526,8 +578,8 @@
             text-align: center;
             overflow: visible;
             text-overflow: ellipsis;
-            transition: 
-                color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+            transition:
+                color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
                 transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
         }
 
@@ -592,33 +644,33 @@
         /* =========================================================
             5. 搜索框区域
         ========================================================= */
-        .search-wrapper { 
+        .search-wrapper {
             position: relative;
             height: 44px;
             min-width: 0;
-            padding: 0; 
-            margin: 0; 
-            background: transparent; 
+            padding: 0;
+            margin: 0;
+            background: transparent;
             display: flex;
             align-items: center;
             width: 100%;
         }
 
         .search-box-inner {
-            position: relative; 
-            flex: 1 1 auto; 
-            min-width: 0; 
-            height: 44px; 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-            border-radius: 22px; 
-            box-shadow: var(--shadow-search); 
-            padding: 6px; 
+            position: relative;
+            flex: 1 1 auto;
+            min-width: 0;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 22px;
+            box-shadow: var(--shadow-search);
+            padding: 6px;
             cursor: text;
-            -webkit-transform: translateZ(0); 
+            -webkit-transform: translateZ(0);
             transform: translateZ(0);
-            transition: 
+            transition:
                 box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
                 border-color 0.35s ease,
                 background-color 0.35s ease;
@@ -626,79 +678,141 @@
 
         .search-box-inner:focus-within {
             background-image: var(--noise-pattern), var(--glass-bg-hover);
-            border-color: rgba(255,255,255,0.8); 
-            box-shadow: var(--shadow-search-hover); 
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow-search-hover);
         }
-        
+
         [data-theme="dark"] .search-box-inner:focus-within {
             background-image: var(--noise-pattern);
             background-color: var(--border-subtle);
-            border-color: var(--text-tertiary); 
+            border-color: var(--text-tertiary);
             box-shadow: var(--shadow-search-hover);
         }
-        
-        .search-icon { 
-            width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%;
-            background: transparent; box-shadow: none; border: 1px solid var(--border-subtle);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px; pointer-events: none; color: var(--primary); 
-            filter: none; 
+
+        .search-icon {
+            width: 32px;
+            height: 32px;
+            flex: 0 0 32px;
+            border-radius: 50%;
+            background: transparent;
+            box-shadow: none;
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            pointer-events: none;
+            color: var(--primary);
+            filter: none;
         }
-        
+
         .input-wrapper {
-            position: relative; flex: 1; min-width: 0;
-            height: 32px; overflow: hidden; 
+            position: relative;
+            flex: 1;
+            min-width: 0;
+            height: 32px;
+            overflow: hidden;
             display: block;
         }
 
-        .search { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            display: block; line-height: 32px;
-            padding: 0; margin: 0; border: 0; outline: none; background: transparent;
-            color: var(--text-primary); font-size: 15px; font-weight: 400; vertical-align: middle;
-            -webkit-appearance: none; appearance: none; border-radius: 0;
+        .search {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            line-height: 32px;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            outline: none;
+            background: transparent;
+            color: var(--text-primary);
+            font-size: 15px;
+            font-weight: 400;
+            vertical-align: middle;
+            -webkit-appearance: none;
+            appearance: none;
+            border-radius: 0;
             z-index: 2;
-            text-shadow: none; 
+            text-shadow: none;
         }
-        
-        .search::placeholder { color: transparent; }
-        .search:disabled { cursor: not-allowed; }
+
+        .search::placeholder {
+            color: transparent;
+        }
+        .search:disabled {
+            cursor: not-allowed;
+        }
 
         .placeholder-track {
-            position: absolute; top: 0; left: 0; width: 100%;
-            display: flex; flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
             transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-            z-index: 1; pointer-events: none;
-        }
-        
-        .placeholder-item {
-            height: 32px; line-height: 32px;
-            color: var(--text-tertiary); font-size: 15px; font-weight: 300;
-            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-            text-shadow: none; 
+            z-index: 1;
+            pointer-events: none;
         }
 
-        .search:focus ~ .placeholder-track,
-        .search:not(:placeholder-shown) ~ .placeholder-track {
+        .placeholder-item {
+            height: 32px;
+            line-height: 32px;
+            color: var(--text-tertiary);
+            font-size: 15px;
+            font-weight: 300;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-shadow: none;
+        }
+
+        .search:focus~.placeholder-track,
+        .search:not(:placeholder-shown)~.placeholder-track {
             opacity: 0;
             transition: opacity 0.2s ease;
         }
-        
-        .search:not(:focus):placeholder-shown ~ .placeholder-track {
+
+        .search:not(:focus):placeholder-shown~.placeholder-track {
             opacity: 1;
             transition: opacity 0.3s ease 0.1s;
         }
 
-        .search-shortcut, .search-clear { 
-            width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            background: transparent; border: none; box-shadow: none;
-            font-size: 12px; font-weight: 600; 
-            transition: color 0.2s ease, opacity 0.2s ease; 
+        .search-shortcut,
+        .search-clear {
+            width: 32px;
+            height: 32px;
+            flex: 0 0 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: color 0.2s ease, opacity 0.2s ease;
         }
-        .search-shortcut { color: var(--text-tertiary); pointer-events: none; }
-        .search-clear { display: none; color: var(--primary); cursor: pointer; padding: 0; }
-        .search-clear:hover { color: var(--text-primary); }
-        .search-clear.visible { display: flex; }
+        .search-shortcut {
+            color: var(--text-tertiary);
+            pointer-events: none;
+        }
+        .search-clear {
+            display: none;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0;
+        }
+        .search-clear:hover {
+            color: var(--text-primary);
+        }
+        .search-clear.visible {
+            display: flex;
+        }
 
         .back-to-top-btn {
             width: 0;
@@ -714,12 +828,12 @@
             overflow: hidden;
             flex-shrink: 0;
             transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        margin-left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        visibility 0.35s ease,
-                        box-shadow 0.35s ease,
-                        border-color 0.35s ease;
+                margin-left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
         }
         .back-to-top-btn.visible {
             width: 44px;
@@ -741,188 +855,313 @@
             transform: translateY(-1px);
             box-shadow: var(--shadow-search-hover);
         }
-        .back-to-top-btn.visible:active { transform: scale(0.92); }
-
-        .status { 
-            display: flex; align-items: center; justify-content: space-between; 
-            min-height: 22px; margin: 0 4px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
-            text-shadow: none; 
-        }
-        .status-left { display: flex; align-items: center; gap: 8px; }
-        .status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint-soft); }
-        .status-dot.loading { background: var(--accent-orange); box-shadow: 0 0 0 3px var(--accent-orange-soft); animation: statusPulse 1.2s infinite; }
-        .status-dot.error { background: #c8a3ab; box-shadow: 0 0 0 3px rgba(200, 163, 171, 0.2); }
-        @keyframes statusPulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
-        
-        .modules { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); 
-            gap: var(--layout-gap, 44px); 
-            align-items: stretch; 
-            padding-bottom: 24px; 
-            min-height: 0; 
+        .back-to-top-btn.visible:active {
+            transform: scale(0.92);
         }
 
-        .module-card { 
-            position: relative; 
-            padding: 28px; 
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 22px;
+            margin: 0 4px 14px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 400;
+            text-shadow: none;
+        }
+        .status-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            flex: 0 0 8px;
+            border-radius: 50%;
+            background: var(--accent-mint);
+            box-shadow: 0 0 0 3px var(--accent-mint-soft);
+        }
+        .status-dot.loading {
+            background: var(--accent-orange);
+            box-shadow: 0 0 0 3px var(--accent-orange-soft);
+            animation: statusPulse 1.2s infinite;
+        }
+        .status-dot.error {
+            background: #c8a3ab;
+            box-shadow: 0 0 0 3px rgba(200, 163, 171, 0.2);
+        }
+        @keyframes statusPulse {
+            0%,
+            100% {
+                opacity: .4;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+            gap: var(--layout-gap, 44px);
+            align-items: stretch;
+            padding-bottom: 24px;
+            min-height: 0;
+        }
+
+        .module-card {
+            position: relative;
+            padding: 28px;
             height: auto;
             min-height: 0;
             min-width: 0;
             display: flex;
             flex-direction: column;
-            border-radius: var(--radius-card); 
-            box-shadow: var(--shadow-glass-ui); 
-            overflow: hidden; 
-            transition: 
-                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-glass-ui);
+            overflow: hidden;
+            transition:
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                 background-image 0.4s ease;
-            -webkit-transform: translateZ(0); transform: translateZ(0); 
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
         @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
-            .module-card:hover { 
+            .module-card:hover {
                 z-index: 50000 !important;
                 transform: translateY(-2px);
                 background-image: var(--noise-pattern), var(--glass-bg-hover);
-                box-shadow: var(--shadow-glass-ui-hover); 
+                box-shadow: var(--shadow-glass-ui-hover);
             }
             [data-theme="dark"] .module-card:hover {
                 background-image: var(--noise-pattern);
-                background-color: var(--bg-surface); 
+                background-color: var(--bg-surface);
             }
         }
 
-        .card-header { display: flex; align-items: center; gap: 20px; }
-        
-        .module-icon { 
-            width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; 
-            background: transparent; overflow: hidden; 
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12); 
-            border: none; 
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .module-icon {
+            width: 48px;
+            height: 48px;
+            flex: 0 0 48px;
+            border-radius: 50%;
+            background: transparent;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            border: none;
             -webkit-mask-image: -webkit-radial-gradient(white, black);
             mask-image: radial-gradient(white, black);
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
+        }
+        .module-icon img {
             display: block;
-            text-decoration: none;
-            cursor: pointer;
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
-        .module-icon:hover {
-            transform: scale(1.06);
-            opacity: 0.92;
+
+        .card-main {
+            min-width: 0;
+            flex: 1;
         }
-        .module-icon:active {
-            transform: scale(0.95);
+        .module-name {
+            margin: 0;
+            font-size: 20px;
+            line-height: 1.3;
+            font-weight: 400;
+            letter-spacing: -0.2px;
+            color: var(--text-primary);
+            word-break: break-word;
+            text-shadow: var(--text-shadow-lg);
         }
-        .module-icon img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-        
-        .card-main { min-width: 0; flex: 1; }
-        .module-name { 
-            margin: 0; font-size: 20px; line-height: 1.3; font-weight: 400;
-            letter-spacing: -0.2px; color: var(--text-primary); word-break: break-word; 
-            text-shadow: var(--text-shadow-lg); 
+
+        .module-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 300;
         }
-        
-        .module-meta { 
-            display: flex; 
-            align-items: center; 
-            flex-wrap: wrap; 
-            gap: 8px; 
-            margin-top: 6px; 
-            color: var(--text-secondary); 
-            font-size: 13px; 
-            font-weight: 300; 
+        .meta-separator {
+            opacity: .4;
         }
-        .meta-separator { opacity: .4; }
-        
-        .author, .source-link { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 6px; 
-            color: var(--text-secondary); 
-            font-size: 13px; 
-            font-weight: 400; 
-            transition: color 0.2s ease; 
+
+        .author,
+        .source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 400;
+            transition: color 0.2s ease;
             max-width: 180px;
             overflow: hidden;
             text-overflow: ellipsis;
-            white-space: nowrap; 
+            white-space: nowrap;
         }
-        .author:hover, .source-link:hover:not(.source-link-static) { 
-            color: var(--primary); 
+        .author:hover,
+        .source-link:hover:not(.source-link-static) {
+            color: var(--primary);
             text-decoration: underline;
         }
-        .source-link-static { cursor: default; }
-        
-        .author-avatar { 
-            width: 18px; 
-            height: 18px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            box-shadow: none; 
-            flex-shrink: 0;
+        .source-link-static {
+            cursor: default;
         }
-        
-        .module-description { 
-            margin-top: 16px; 
-            color: var(--text-secondary); 
-            font-size: 14.5px; 
-            line-height: 1.6; 
-            font-weight: 300; 
-            word-break: break-word; 
-            text-shadow: var(--text-shadow-sm); 
-            flex: 1 1 auto;
-        }
-        
-        .card-bottom { 
-            display: flex; 
-            align-items: center; 
-            justify-content: flex-end; 
-            gap: 12px; 
-            margin-top: 24px; 
-            padding-top: 24px; 
-            border-top: 1px solid var(--border-subtle); 
-            box-shadow: none; 
+
+        .author-avatar {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: none;
             flex-shrink: 0;
         }
 
-        .action-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-        
-        .button { 
-            display: inline-flex; align-items: center; justify-content: center; 
-            height: 44px; padding: 0 20px; border: 0; border-radius: 22px; 
-            font-size: 14px; font-weight: 500; white-space: nowrap; cursor: pointer; 
-            text-decoration: none; 
-            transition: 
-                color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
+        .module-description {
+            margin-top: 16px;
+            color: var(--text-secondary);
+            font-size: 14.5px;
+            line-height: 1.6;
+            font-weight: 300;
+            word-break: break-word;
+            text-shadow: var(--text-shadow-sm);
+            flex: 1 1 auto;
         }
-        
-        .button-secondary { 
+
+        .card-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-subtle);
+            box-shadow: none;
+            flex-shrink: 0;
+        }
+
+        .card-status {
+            display: flex;
+            align-items: center;
+            min-width: 0;
+            flex: 1;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            height: 44px;
+            padding: 0;
+            border-radius: 0;
+            font-size: 13.5px;
+            font-weight: 400;
+            white-space: nowrap;
+            background: transparent !important;
+            color: var(--text-tertiary);
+            border: none !important;
+            box-shadow: none !important;
+            text-shadow: none;
+            cursor: default;
+            user-select: none;
+        }
+        .status-badge-pinned {
+            background: transparent !important;
+            color: var(--text-tertiary);
+            border: none !important;
+            box-shadow: none !important;
+            font-weight: 400;
+            padding: 0;
+            text-shadow: none;
+        }
+        [data-theme="dark"] .status-badge-pinned {
+            background: transparent !important;
+            color: var(--text-tertiary);
+            border: none !important;
+            text-shadow: none;
+        }
+
+        .status-badge-dubious {
+            height: 44px;
+            padding: 0;
+            border-radius: 0;
+            background: transparent !important;
+            color: #a37295;
+            border: none !important;
+            box-shadow: none !important;
+            text-shadow: none;
+        }
+        [data-theme="dark"] .status-badge-dubious {
+            background: transparent !important;
+            color: #d19bbd;
+            border: none !important;
+            box-shadow: none !important;
+            text-shadow: none;
+        }
+
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            padding: 0 20px;
+            border: 0;
+            border-radius: 22px;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            cursor: pointer;
+            text-decoration: none;
+            transition:
+                color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .button-secondary {
             position: relative;
             isolation: isolate;
-            background: transparent !important; 
-            color: #0891b2; 
-            border: none !important; 
-            box-shadow: none !important; 
-            text-shadow: none; 
+            background: transparent !important;
+            color: #0891b2;
+            border: none !important;
+            box-shadow: none !important;
+            text-shadow: none;
             padding: 0 16px;
             overflow: visible;
-            transition: 
+            transition:
                 transform 0.2s ease,
                 color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .button-secondary:active { transform: scale(0.96); }
+        .button-secondary:active {
+            transform: scale(0.96);
+        }
         [data-theme="dark"] .button-secondary {
             color: #22d3ee;
         }
-        
+
         .button-secondary:hover,
         .button-secondary:active,
-        .button-secondary:focus-visible { 
+        .button-secondary:focus-visible {
             background: transparent !important;
             border: none !important;
             box-shadow: none !important;
@@ -938,21 +1177,21 @@
         [data-theme="dark"] .button-secondary:focus-visible {
             color: #22d3ee;
         }
-        
-        .button-primary { 
-            background: var(--primary-gradient); 
-            color: #FFFFFF; 
-            border: none; 
-            box-shadow: var(--primary-gradient-shadow); 
-            text-shadow: var(--text-shadow-sm); 
-            transform: none !important; 
+
+        .button-primary {
+            background: var(--primary-gradient);
+            color: #FFFFFF;
+            border: none;
+            box-shadow: var(--primary-gradient-shadow);
+            text-shadow: var(--text-shadow-sm);
+            transform: none !important;
         }
         .button-primary:hover,
         .button-primary:active,
-        .button-primary:focus-visible { 
-            background: var(--primary-gradient); 
+        .button-primary:focus-visible {
+            background: var(--primary-gradient);
             transform: none !important;
-            box-shadow: 
+            box-shadow:
                 0 0 20px 4px rgba(59, 130, 246, 0.17),
                 0 0 30px 8px rgba(6, 182, 212, 0.13),
                 0 0 40px 10px rgba(139, 92, 246, 0.10);
@@ -962,62 +1201,91 @@
         [data-theme="dark"] .button-primary:focus-visible {
             background: var(--primary-gradient);
             transform: none !important;
-            box-shadow: 
+            box-shadow:
                 0 0 22px 5px rgba(59, 130, 246, 0.22),
                 0 0 34px 8px rgba(34, 211, 238, 0.17),
                 0 0 44px 12px rgba(167, 139, 250, 0.14);
         }
-        
-        .sentinel { height: 20px; margin: 10px 0; }
-        .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 15px; font-weight: 300; grid-column: 1 / -1; width: 100%; }
-        .empty-icon { 
-            width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 50%;
-            border: 1px solid var(--border-subtle); background: var(--bg-surface);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 24px; opacity: 1; 
-            filter: none; 
+
+        .sentinel {
+            height: 20px;
+            margin: 10px 0;
         }
-        
-        .loading-card { 
-            height: 180px; 
+        .empty {
+            padding: 60px 20px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 15px;
+            font-weight: 300;
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+        .empty-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            opacity: 1;
+            filter: none;
+        }
+
+        .loading-card {
+            height: 180px;
             min-width: 0;
-            border-radius: var(--radius-card); 
-            box-shadow: var(--shadow-glass-ui); 
-            animation: skeletonPulse 1.4s infinite; 
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-glass-ui);
+            animation: skeletonPulse 1.4s infinite;
         }
-        @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
-        
-        .footer { 
+        @keyframes skeletonPulse {
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.85;
+            }
+        }
+
+        .footer {
             margin-top: auto;
-            padding: 36px 0 20px; 
-            color: var(--text-tertiary); 
-            text-align: center; 
-            font-size: 12.5px; 
-            line-height: 1.6; 
-            font-weight: 300; 
+            padding: 36px 0 20px;
+            color: var(--text-tertiary);
+            text-align: center;
+            font-size: 12.5px;
+            line-height: 1.6;
+            font-weight: 300;
         }
-        
-        .toast { 
-            position: fixed; 
-            bottom: var(--toast-bottom); 
-            left: 50%; 
-            transform: translateX(-50%) translateY(100px); 
-            z-index: 999999; 
-            padding: 12px 26px; 
-            border-radius: var(--radius-pill); 
-            color: var(--text-primary); 
-            font-size: 13.5px; 
-            font-weight: 450; 
-            box-shadow: var(--shadow-glass-ui); 
-            opacity: 0; 
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
-            pointer-events: none; 
+
+        .toast {
+            position: fixed;
+            bottom: var(--toast-bottom);
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            z-index: 999999;
+            padding: 12px 26px;
+            border-radius: var(--radius-pill);
+            color: var(--text-primary);
+            font-size: 13.5px;
+            font-weight: 450;
+            box-shadow: var(--shadow-glass-ui);
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+            pointer-events: none;
             text-shadow: none;
         }
-        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
 
         /* =========================================================
-            6. 单列布局与底栏完全重构规范 (防 Safari 阴影裁剪与断裂)
+            6. 单列布局与底栏完全重构规范 —— 修复 Safari 阴影截断
         ========================================================= */
         .control-bar.is-single-column {
             display: block;
@@ -1046,31 +1314,27 @@
             pointer-events: auto;
         }
 
-        /* 解决 Safari 底栏截断关键 1：包裹层留出充分的向上空间，解除高度硬锁 */
+        /* ---------- 核心修复：为底部固定标签栏增加内边距，让阴影有足够空间显示 ---------- */
         .control-bar.is-single-column .tab-bar-wrapper {
             position: fixed;
             left: 0;
             right: 0;
-            bottom: var(--bottom-offset);
+            /* 上移 18px 为阴影留出空间，同时保持安全区适配 */
+            bottom: calc(var(--bottom-offset) - 18px);
             width: 100%;
-            height: auto;
-            padding: 24px 16px 8px 16px;
+            height: 62px;
+            padding: 0 16px 18px 16px;
+            /* 底部内边距 = 阴影预留空间 */
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             pointer-events: none;
             z-index: 999999;
-            /* 建立独立硬件合成图层，确保视口滚动形变时不会被父级剪裁 */
-            -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-            will-change: transform;
+            /* 允许阴影溢出到 padding 区域 */
+            overflow: visible;
         }
 
-        /* 解决 Safari 底栏截断关键 2：
-           恢复完整的深层拟态阴影，彻底移除 overflow: hidden，让阴影向四周完整扩散；
-           配合向上 3D 偏移与微上扬环境光，使整个胶囊在半透明 Safari 底栏上方悬浮。
-        */
         .control-bar.is-single-column .tab-bar {
             pointer-events: auto;
             width: 100%;
@@ -1079,26 +1343,13 @@
             padding: 5px;
             border-radius: 31px;
             gap: 4px;
-            overflow: visible !important; /* 核心：绝不剪裁外阴影 */
-            box-shadow: 
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
-                0 4px 12px rgba(0, 0, 0, 0.06),
-                0 12px 28px -4px rgba(0, 0, 0, 0.16),
-                0 24px 48px -6px rgba(0, 0, 0, 0.18);
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+            box-shadow: var(--shadow-glass-ui);
+            /* 确保阴影不被父容器裁剪，同时保持圆角与阴影一致性 */
+            overflow: visible;
+            /* 让阴影可以绘制在 padding 区域 */
+            background-clip: padding-box;
         }
 
-        [data-theme="dark"] .control-bar.is-single-column .tab-bar {
-            box-shadow: 
-                0 4px 16px rgba(0, 0, 0, 0.4),
-                0 14px 36px -4px rgba(0, 0, 0, 0.6),
-                0 28px 56px -6px rgba(0, 0, 0, 0.75);
-        }
-
-        /* 移动单列布局同步使用细字体 (400) */
         .control-bar.is-single-column .tab-item {
             height: 100%;
             min-height: 0;
@@ -1125,12 +1376,21 @@
             font-weight: 400 !important;
         }
 
+        /* 暗色模式下额外补偿，确保阴影边界不被裁剪 */
+        [data-theme="dark"] .control-bar.is-single-column .tab-bar-wrapper {
+            /* 暗色下阴影较浅，同样预留空间 */
+            bottom: calc(var(--bottom-offset) - 18px);
+            padding-bottom: 18px;
+        }
+
         /* =========================================================
             7. 移动与触控设备性能约束
         ========================================================= */
-        @media (hover: none), (pointer: coarse), (max-width: 860px) {
-            .modules { 
-                grid-template-columns: 1fr; 
+        @media (hover: none),
+        (pointer: coarse),
+        (max-width: 860px) {
+            .modules {
+                grid-template-columns: 1fr;
                 min-height: 0;
                 align-items: start;
             }
@@ -1207,16 +1467,6 @@
                 box-shadow: var(--primary-gradient-shadow) !important;
             }
 
-            .module-icon,
-            .module-icon:hover,
-            .module-icon:active,
-            .module-icon:focus {
-                transform: none !important;
-                opacity: 1 !important;
-                transition: none !important;
-                -webkit-tap-highlight-color: transparent !important;
-            }
-
             .theme-toggle:hover,
             .theme-toggle:active {
                 transform: none !important;
@@ -1266,37 +1516,62 @@
         html.is-mobile .button-primary:focus-visible {
             box-shadow: var(--primary-gradient-shadow) !important;
         }
-        html.is-mobile .module-icon,
-        html.is-mobile .module-icon:hover,
-        html.is-mobile .module-icon:active,
-        html.is-mobile .module-icon:focus {
-            transform: none !important;
-            opacity: 1 !important;
-            transition: none !important;
-        }
 
         @media (max-width: 600px) {
             :root {
                 --radius-card: 42px;
             }
-            .title { font-size: 22px; }
-            .tag-pill-badge { 
-                height: 15px; 
-                font-size: 9px; 
-                padding: 0 5px; 
-                transform: translateY(calc(2px - 50%)); 
+            .title {
+                font-size: 22px;
             }
-            .module-card { padding: 22px; border-radius: var(--radius-card); }
-            .module-description { flex: none; }
-            .card-bottom { margin-top: 20px; padding-top: 20px; }
-            .search-shortcut { display: none; }
+            .tag-pill-badge {
+                height: 15px;
+                font-size: 9px;
+                padding: 0 5px;
+                transform: translateY(calc(2px - 50%));
+            }
+            .module-card {
+                padding: 22px;
+                border-radius: var(--radius-card);
+            }
+            .module-description {
+                flex: none;
+            }
+            .card-bottom {
+                margin-top: 20px;
+                padding-top: 20px;
+            }
+            .search-shortcut {
+                display: none;
+            }
         }
 
         @media (max-width: 420px) {
-            .card-bottom { flex-direction: column; align-items: stretch; gap: 12px; }
-            .action-buttons { width: 100%; justify-content: flex-end; }
-            .control-bar.is-single-column .tab-bar { padding: 5px; gap: 2px; }
-            .control-bar.is-single-column .tab-item { font-size: 13px; padding: 0 4px; border-radius: 26px; }
+            .card-bottom {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            .card-status {
+                width: 100%;
+            }
+            .card-status .status-pill {
+                width: auto;
+                height: auto;
+            }
+            .action-buttons {
+                width: 100%;
+                justify-content: flex-end;
+            }
+            .control-bar.is-single-column .tab-bar {
+                padding: 5px;
+                gap: 2px;
+            }
+            .control-bar.is-single-column .tab-item {
+                font-size: 13px;
+                padding: 0 4px;
+                border-radius: 26px;
+            }
         }
     </style>
 </head>
@@ -1361,10 +1636,10 @@
             <div class="search-wrapper">
                 <div class="search-box-inner glass-element" role="search">
                     <div class="search-icon" aria-hidden="true">🔍</div>
-                    
+
                     <div class="input-wrapper">
                         <input id="search" class="search" type="text" inputmode="search" placeholder=" " autocomplete="off" spellcheck="false" aria-label="搜索模块" disabled>
-                        
+
                         <div id="placeholderTrack" class="placeholder-track">
                             <div id="mainPlaceholder" class="placeholder-item">请在加载完成后执行搜索...</div>
                             <div class="placeholder-item notice-item-1">相关资源均来源于开源社区</div>
@@ -1398,7 +1673,7 @@
             <div class="loading-card glass-element"></div>
             <div class="loading-card glass-element"></div>
         </main>
-        
+
         <div id="sentinel" class="sentinel"></div>
 
         <footer id="footerText" class="footer">
@@ -1406,21 +1681,21 @@
             著作权归资源作者所有
         </footer>
     </div>
-    
+
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
         /* =========================================================
             1. 全局多语言字典与系统配置
         ========================================================= */
-        const CACHE_VERSION = "202609021322"; 
-        
+        const CACHE_VERSION = "202609021322";
+
         const CONFIG = {
-            DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
-            PAGE_SIZE: 16, 
-            CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`, 
+            DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json",
+            PAGE_SIZE: 16,
+            CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`,
             CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`,
-            CACHE_MAX_AGE: 6 * 60 * 60 * 1000 
+            CACHE_MAX_AGE: 6 * 60 * 60 * 1000
         };
 
         const I18N = {
@@ -1460,7 +1735,8 @@
                 btnInstallConfig: "安装配置",
                 btnViewManual: "查阅手册",
                 btnVisitRepo: "访问仓库",
-                openLinkAria: "在新窗口打开资源直链",
+                statusSuccess: "资源获取成功",
+                statusFailed: "信息获取失败",
                 toastCopiedUrl: "已复制资源直链",
                 toastCopiedRepo: "已复制仓库链接",
                 toastCopiedConfig: "已复制配置直链",
@@ -1513,7 +1789,8 @@
                 btnInstallConfig: "Install Config",
                 btnViewManual: "View Manual",
                 btnVisitRepo: "Visit Repo",
-                openLinkAria: "Open direct link in new tab",
+                statusSuccess: "Ready to use",
+                statusFailed: "Failed to load info",
                 toastCopiedUrl: "Direct link copied",
                 toastCopiedRepo: "Repository link copied",
                 toastCopiedConfig: "Config link copied",
@@ -1532,84 +1809,89 @@
             }
         };
 
-        const STATIC_RESOURCES_DATA = [
-            {
-                category: "config",
-                i18n: {
-                    zh: {
-                        name: "懒人配置",
-                        description: "懒人配置是开箱即用的配置文件，设有常用的分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，是除默认配置外首推的配置文件。",
-                        primaryBtnText: "安装配置"
-                    },
-                    en: {
-                        name: "Lazy Config",
-                        description: "Out-of-the-box configuration with popular routing groups, well-balanced proxy rules, and detailed comments. Highly recommended.",
-                        primaryBtnText: "Install Config"
-                    }
+        const STATIC_RESOURCES_DATA = [{
+            category: "config",
+            i18n: {
+                zh: {
+                    name: "懒人配置",
+                    description: "懒人配置是开箱即用的配置文件，设有常用的分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，是除默认配置外首推的配置文件。",
+                    statusBadge: "推荐配置文件",
+                    primaryBtnText: "安装配置"
                 },
-                icon: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Shadowrocket.png",
-                author: { name: "LOWERTOP", url: "https://github.com/LOWERTOP", username: "LOWERTOP" },
-                authorAvatar: "https://github.com/LOWERTOP.png?size=64",
-                sourceName: "Shadowrocket",
-                sourceURL: "https://github.com/LOWERTOP/Shadowrocket",
-                rawURL: "https://lowertop.github.io/Shadowrocket/lazy_group.conf",
-                installURL: "shadowrocket://config/add/https://lowertop.github.io/Shadowrocket/lazy_group.conf",
-                isDubious: false,
-                isRepoCard: false
+                en: {
+                    name: "Lazy Config",
+                    description: "Out-of-the-box configuration with popular routing groups, well-balanced proxy rules, and detailed comments. Highly recommended.",
+                    statusBadge: "Recommended",
+                    primaryBtnText: "Install Config"
+                }
             },
-            {
-                category: "manual",
-                i18n: {
-                    zh: {
-                        name: "使用手册",
-                        description: "Shadowrocket 使用手册与进阶配置指南，系统收录了协议配置、规则分流、解密等全方位软件设置说明与知识词条。",
-                        primaryBtnText: "查阅手册"
-                    },
-                    en: {
-                        name: "User Manual",
-                        description: "Comprehensive guide and reference manual for Shadowrocket, covering protocols, routing rules, decryption, and advanced setups.",
-                        primaryBtnText: "View Manual"
-                    }
+            icon: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Shadowrocket.png",
+            author: { name: "LOWERTOP", url: "https://github.com/LOWERTOP", username: "LOWERTOP" },
+            authorAvatar: "https://github.com/LOWERTOP.png?size=64",
+            sourceName: "Shadowrocket",
+            sourceURL: "https://github.com/LOWERTOP/Shadowrocket",
+            rawURL: "https://lowertop.github.io/Shadowrocket/lazy_group.conf",
+            installURL: "shadowrocket://config/add/https://lowertop.github.io/Shadowrocket/lazy_group.conf",
+            isDubious: false,
+            isRepoCard: false
+        }, {
+            category: "manual",
+            i18n: {
+                zh: {
+                    name: "使用手册",
+                    description: "Shadowrocket 使用手册与进阶配置指南，系统收录了协议配置、规则分流、解密等全方位软件设置说明与知识词条。",
+                    statusBadge: "软件使用手册",
+                    primaryBtnText: "查阅手册"
                 },
-                icon: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Shadowrocket.png",
-                author: { name: "LOWERTOP", url: "https://github.com/LOWERTOP", username: "LOWERTOP" },
-                authorAvatar: "https://github.com/LOWERTOP.png?size=64",
-                sourceName: "Shadowrocket",
-                sourceURL: "https://github.com/LOWERTOP/Shadowrocket",
-                rawURL: "https://github.com/LOWERTOP/Shadowrocket",
-                installURL: "https://github.com/LOWERTOP/Shadowrocket",
-                isDubious: false,
-                isRepoCard: true
+                en: {
+                    name: "User Manual",
+                    description: "Comprehensive guide and reference manual for Shadowrocket, covering protocols, routing rules, decryption, and advanced setups.",
+                    statusBadge: "User Manual",
+                    primaryBtnText: "View Manual"
+                }
             },
-            {
-                category: "more",
-                i18n: {
-                    zh: {
-                        name: "配色与配置仓库",
-                        description: "Shadowrocket 精选模块、规则、配色方案的聚合类型资源仓库，汇聚了众多开源社区优质资源，也是本站的核心数据处理仓库。",
-                        primaryBtnText: "访问仓库"
-                    },
-                    en: {
-                        name: "Theme & Config Repo",
-                        description: "Curated community repository for modules, rules, and color themes, also serving as the core data processing hub.",
-                        primaryBtnText: "Visit Repo"
-                    }
+            icon: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Shadowrocket.png",
+            author: { name: "LOWERTOP", url: "https://github.com/LOWERTOP", username: "LOWERTOP" },
+            authorAvatar: "https://github.com/LOWERTOP.png?size=64",
+            sourceName: "Shadowrocket",
+            sourceURL: "https://github.com/LOWERTOP/Shadowrocket",
+            rawURL: "https://github.com/LOWERTOP/Shadowrocket",
+            installURL: "https://github.com/LOWERTOP/Shadowrocket",
+            isDubious: false,
+            isRepoCard: true
+        }, {
+            category: "more",
+            i18n: {
+                zh: {
+                    name: "配色与配置仓库",
+                    description: "Shadowrocket 精选模块、规则、配色方案的聚合类型资源仓库，汇聚了众多开源社区优质资源，也是本站的核心数据处理仓库。",
+                    statusBadge: "核心资源仓库",
+                    primaryBtnText: "访问仓库"
                 },
-                icon: "https://avatars.githubusercontent.com/u/16624731?v=4",
-                author: { name: "LOWERTOP", url: "https://github.com/LOWERTOP", username: "LOWERTOP" },
-                authorAvatar: "https://github.com/LOWERTOP.png?size=64",
-                sourceName: "Shadowrocket-First",
-                sourceURL: "https://github.com/LOWERTOP/Shadowrocket-First",
-                rawURL: "https://github.com/LOWERTOP/Shadowrocket-First",
-                installURL: "https://github.com/LOWERTOP/Shadowrocket-First",
-                isDubious: false,
-                isRepoCard: true
-            }
-        ];
+                en: {
+                    name: "Theme & Config Repo",
+                    description: "Curated community repository for modules, rules, and color themes, also serving as the core data processing hub.",
+                    statusBadge: "Core Repo",
+                    primaryBtnText: "Visit Repo"
+                }
+            },
+            icon: "https://avatars.githubusercontent.com/u/16624731?v=4",
+            author: { name: "LOWERTOP", url: "https://github.com/LOWERTOP", username: "LOWERTOP" },
+            authorAvatar: "https://github.com/LOWERTOP.png?size=64",
+            sourceName: "Shadowrocket-First",
+            sourceURL: "https://github.com/LOWERTOP/Shadowrocket-First",
+            rawURL: "https://github.com/LOWERTOP/Shadowrocket-First",
+            installURL: "https://github.com/LOWERTOP/Shadowrocket-First",
+            isDubious: false,
+            isRepoCard: true
+        }];
 
-        const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
-        const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
-        const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>`;
+        const SYSTEM_ICON =
+            `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
+        const MOON_ICON =
+            `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+        const SUN_ICON =
+            `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>`;
 
         const tagPillBadge = document.getElementById("tagPillBadge");
         const subtitleEl = document.getElementById("subtitle");
@@ -1646,9 +1928,9 @@
                 if (saved === "en" || saved === "zh") return saved;
             } catch (e) {}
 
-            const primary = (navigator.languages && navigator.languages.length 
-                ? navigator.languages[0] 
-                : (navigator.language || navigator.userLanguage || "")).toLowerCase();
+            const primary = (navigator.languages && navigator.languages.length ?
+                navigator.languages[0] :
+                (navigator.language || navigator.userLanguage || "")).toLowerCase();
 
             return primary.startsWith("zh") ? "zh" : "en";
         }
@@ -1700,98 +1982,97 @@
         }
 
         function normalizeStaticResources(lang = state.currentLang) {
-            return STATIC_RESOURCES_DATA
-                .filter(item => !item.isDubious)
-                .map(item => {
-                    const localized = item.i18n[lang] || item.i18n.zh;
-                    const searchTokens = [
-                        localized.name,
-                        localized.description,
-                        item.author.name,
-                        item.sourceName,
-                        item.category,
-                        "shadowrocket",
-                        "手册", "manual",
-                        "教程", "guide",
-                        "仓库", "repo",
-                        "文档", "docs",
-                        "配置", "config"
-                    ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
+            return STATIC_RESOURCES_DATA.map(item => {
+                const localized = item.i18n[lang] || item.i18n.zh;
+                const searchTokens = [
+                    localized.name,
+                    localized.description,
+                    item.author.name,
+                    item.sourceName,
+                    item.category,
+                    "shadowrocket",
+                    "手册", "manual",
+                    "教程", "guide",
+                    "仓库", "repo",
+                    "文档", "docs",
+                    "配置", "config"
+                ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
 
-                    return {
-                        name: localized.name,
-                        category: item.category || "more",
-                        description: localized.description,
-                        icon: item.icon,
-                        author: item.author,
-                        authorAvatar: item.authorAvatar,
-                        sourceName: item.sourceName,
-                        sourceURL: item.sourceURL,
-                        rawURL: item.rawURL,
-                        installURL: item.installURL,
-                        isDubious: false,
-                        isRepoCard: item.isRepoCard,
-                        primaryBtnText: localized.primaryBtnText,
-                        _searchText: searchTokens,
-                        _domElement: null
-                    };
-                });
+                return {
+                    name: localized.name,
+                    category: item.category || "more",
+                    description: localized.description,
+                    icon: item.icon,
+                    author: item.author,
+                    authorAvatar: item.authorAvatar,
+                    sourceName: item.sourceName,
+                    sourceURL: item.sourceURL,
+                    rawURL: item.rawURL,
+                    installURL: item.installURL,
+                    isDubious: item.isDubious,
+                    isRepoCard: item.isRepoCard,
+                    statusBadge: localized.statusBadge,
+                    primaryBtnText: localized.primaryBtnText,
+                    _searchText: searchTokens,
+                    _domElement: null
+                };
+            });
         }
 
         function normalizeModules(data) {
             if (!Array.isArray(data)) return [];
-            return data
-                .filter(item => item && typeof item === "object" && !item.isDubious)
-                .map(m => {
-                    const rawURL = safeURL(m.rawURL || m.url || "");
-                    const authorName = m.author?.name || m.author?.username || "";
-                    const authorURL = safeURL(m.author?.url || (m.author?.username ? `https://github.com/${m.author.username}` : ""));
-                    const authorAvatar = safeURL(m.authorAvatar || m.author?.avatar || "");
-                    const sourceName = m.sourceName || "开源仓库";
-                    const sourceURL = safeURL(m.sourceURL || "");
-                    
-                    const customInstall = safeInstallURL(m.installURL || "");
-                    const fallbackInstall = rawURL ? `shadowrocket://install?url=${encodeURIComponent(rawURL)}` : "";
-                    const installURL = customInstall || fallbackInstall;
-                    
-                    let category = "module";
-                    if (m.category) {
-                        const c = String(m.category).toLowerCase();
-                        if (c.includes("config") || c.includes("配置")) category = "config";
-                        else if (c.includes("manual") || c.includes("手册") || c.includes("文档")) category = "manual";
-                        else if (c.includes("more") || c.includes("更多") || c.includes("工具")) category = "more";
-                    }
+            return data.filter(item => item && typeof item === "object").map(m => {
+                const rawURL = safeURL(m.rawURL || m.url || "");
+                const authorName = m.author?.name || m.author?.username || "";
+                const authorURL = safeURL(m.author?.url || (m.author?.username ? `https://github.com/${m.author
+                    .username}` : ""));
+                const authorAvatar = safeURL(m.authorAvatar || m.author?.avatar || "");
+                const sourceName = m.sourceName || "开源仓库";
+                const sourceURL = safeURL(m.sourceURL || "");
 
-                    const searchTokens = [
-                        m.name,
-                        m.description,
-                        authorName,
-                        m.author?.username,
-                        sourceName,
-                        category,
-                        m._searchKeywords
-                    ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
+                const customInstall = safeInstallURL(m.installURL || "");
+                const fallbackInstall = rawURL ? `shadowrocket://install?url=${encodeURIComponent(rawURL)}` : "";
+                const installURL = customInstall || fallbackInstall;
 
-                    return {
-                        name: m.name || "未命名模块",
-                        category: category,
-                        description: m.description || "",
-                        icon: safeURL(m.icon || ""),
-                        author: { name: authorName, url: authorURL, username: m.author?.username || "" },
-                        authorAvatar,
-                        sourceName,
-                        sourceURL,
-                        rawURL,
-                        installURL,
-                        preInstallURL: safeInstallURL(m.preInstallURL || ""),
-                        secondaryBtnText: m.secondaryBtnText || "",
-                        isDubious: false,
-                        isRepoCard: Boolean(m.isRepoCard),
-                        primaryBtnText: m.primaryBtnText || "",
-                        _searchText: searchTokens,
-                        _domElement: null
-                    };
-                });
+                let category = "module";
+                if (m.category) {
+                    const c = String(m.category).toLowerCase();
+                    if (c.includes("config") || c.includes("配置")) category = "config";
+                    else if (c.includes("manual") || c.includes("手册") || c.includes("文档")) category = "manual";
+                    else if (c.includes("more") || c.includes("更多") || c.includes("工具")) category = "more";
+                }
+
+                const searchTokens = [
+                    m.name,
+                    m.description,
+                    authorName,
+                    m.author?.username,
+                    sourceName,
+                    category,
+                    m._searchKeywords
+                ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
+
+                return {
+                    name: m.name || "未命名模块",
+                    category: category,
+                    description: m.description || "",
+                    icon: safeURL(m.icon || ""),
+                    author: { name: authorName, url: authorURL, username: m.author?.username || "" },
+                    authorAvatar,
+                    sourceName,
+                    sourceURL,
+                    rawURL,
+                    installURL,
+                    preInstallURL: safeInstallURL(m.preInstallURL || ""),
+                    secondaryBtnText: m.secondaryBtnText || "",
+                    isDubious: Boolean(m.isDubious),
+                    isRepoCard: Boolean(m.isRepoCard),
+                    statusBadge: m.statusBadge || "",
+                    primaryBtnText: m.primaryBtnText || "",
+                    _searchText: searchTokens,
+                    _domElement: null
+                };
+            });
         }
 
         function showToast(text) {
@@ -1826,7 +2107,8 @@
         function createIOSAppIcon(name) {
             const cleanName = (name || "").trim().replace(/^[\[\(\{#_\-\s【（〔［]+/, "");
             const char = Array.from(cleanName)[0] || (state.currentLang === "en" ? "M" : "模");
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#06b6d4"/><stop offset="50%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="128" cy="128" r="128" fill="url(#g)"/><text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
+            const svg =
+                `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#06b6d4"/><stop offset="50%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="128" cy="128" r="128" fill="url(#g)"/><text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
             return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
         }
 
@@ -1834,6 +2116,7 @@
             3. UI 交互与吸顶控制
         ========================================================= */
         let backToTopVisible = false;
+
         function updateSearchLayer() {
             if (!backToTopBtn) return;
             const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
@@ -1842,7 +2125,7 @@
             backToTopVisible = shouldShow;
             backToTopBtn.classList.toggle("visible", shouldShow);
         }
-        
+
         window.addEventListener('scroll', updateSearchLayer, { passive: true });
 
         backToTopBtn.addEventListener("click", () => {
@@ -1922,7 +2205,7 @@
             const cards = modulesContainer.querySelectorAll(".module-card, .loading-card");
             const count = cards.length;
             if (!count) return;
-            
+
             const cols = getGridColumns() || 1;
             for (let i = 0; i < count; i++) {
                 const r = Math.floor(i / cols);
@@ -1935,6 +2218,7 @@
         }
 
         let resizeTimer = null;
+
         function scheduleCardLayerUpdate() {
             clearTimeout(resizeTimer);
             updateControlBarLayout();
@@ -1949,12 +2233,12 @@
         window.addEventListener("resize", () => {
             document.documentElement.classList.add("is-resizing");
             clearTimeout(resizeDebounceTimer);
-            
+
             isTabAnimating = false;
             updateControlBarLayout();
             updateTabIndicator(false);
             scheduleCardLayerUpdate();
-            
+
             resizeDebounceTimer = setTimeout(() => {
                 document.documentElement.classList.remove("is-resizing");
                 updateControlBarLayout();
@@ -1982,7 +2266,9 @@
         function renderAuthor(module) {
             const author = module.author || {};
             const avatar = module.authorAvatar;
-            const avatarHTML = avatar ? `<img class="author-avatar" src="${escapeHTML(avatar)}" decoding="async" referrerpolicy="no-referrer" alt="">` : "";
+            const avatarHTML = avatar ?
+                `<img class="author-avatar" src="${escapeHTML(avatar)}" decoding="async" referrerpolicy="no-referrer" alt="">` :
+                "";
             const authorURL = author.url;
             const authorName = author.name || author.username || I18N[state.currentLang].authorUnknown;
             if (authorURL) {
@@ -2003,35 +2289,24 @@
             const fallbackIcon = createIOSAppIcon(module.name);
             const icon = module.icon || fallbackIcon;
             const authorHTML = renderAuthor(module);
-            
+
             const isRepo = Boolean(module.isRepoCard);
+            const statusTextVal = module.statusBadge || (module.isDubious ? langObj.statusFailed : langObj.statusSuccess);
+            const statusClass = module.statusBadge ? "status-badge-pinned" : (module.isDubious ? "status-badge-dubious" :
+            "");
 
-            const directOpenURL = module.rawURL || module.sourceURL || "";
-            let iconHTML = "";
-            if (directOpenURL) {
-                iconHTML = `
-                    <a class="module-icon" href="${escapeHTML(directOpenURL)}" target="_blank" rel="noopener noreferrer" title="${escapeHTML(langObj.openLinkAria || '在新窗口打开资源直链')}" aria-label="${escapeHTML(langObj.openLinkAria || '在新窗口打开资源直链')}">
-                        <img src="${escapeHTML(icon)}" alt="${escapeHTML(module.name)}" decoding="async" referrerpolicy="no-referrer">
-                    </a>
-                `;
-            } else {
-                iconHTML = `
-                    <div class="module-icon" style="cursor: default;">
-                        <img src="${escapeHTML(icon)}" alt="${escapeHTML(module.name)}" decoding="async" referrerpolicy="no-referrer">
-                    </div>
-                `;
-            }
-
-            const sourceLinkHTML = module.sourceURL
-                ? `<a class="source-link" href="${escapeHTML(module.sourceURL)}" target="_blank" rel="noopener" title="${escapeHTML(module.sourceName)}">${escapeHTML(module.sourceName)}</a>`
-                : `<span class="source-link source-link-static">${escapeHTML(module.sourceName)}</span>`;
+            const sourceLinkHTML = module.sourceURL ?
+                `<a class="source-link" href="${escapeHTML(module.sourceURL)}" target="_blank" rel="noopener" title="${escapeHTML(module.sourceName)}">${escapeHTML(module.sourceName)}</a>` :
+                `<span class="source-link source-link-static">${escapeHTML(module.sourceName)}</span>`;
 
             let secondaryBtnHTML = "";
             if (module.preInstallURL) {
                 const preText = module.secondaryBtnText || langObj.btnPreInstall;
-                secondaryBtnHTML = `<a class="button button-secondary" href="${escapeHTML(module.preInstallURL)}" aria-label="${escapeHTML(preText)} ${escapeHTML(module.name)}">${escapeHTML(preText)}</a>`;
+                secondaryBtnHTML =
+                    `<a class="button button-secondary" href="${escapeHTML(module.preInstallURL)}" aria-label="${escapeHTML(preText)} ${escapeHTML(module.name)}">${escapeHTML(preText)}</a>`;
             } else if (module.rawURL) {
-                secondaryBtnHTML = `<button class="button button-secondary copy-btn" data-url="${escapeHTML(module.rawURL)}" aria-label="${langObj.btnCopyLink} ${escapeHTML(module.name)}">${langObj.btnCopyLink}</button>`;
+                secondaryBtnHTML =
+                    `<button class="button button-secondary copy-btn" data-url="${escapeHTML(module.rawURL)}" aria-label="${langObj.btnCopyLink} ${escapeHTML(module.name)}">${langObj.btnCopyLink}</button>`;
             }
 
             let defaultPrimaryText = langObj.btnInstallModule;
@@ -2041,15 +2316,17 @@
 
             const primaryText = module.primaryBtnText || defaultPrimaryText;
             const primaryTarget = isRepo ? `target="_blank" rel="noopener"` : "";
-            const installBtnHTML = module.installURL 
-                ? `<a class="button button-primary" href="${escapeHTML(module.installURL)}" ${primaryTarget} aria-label="${escapeHTML(primaryText)} ${escapeHTML(module.name)}">${escapeHTML(primaryText)}</a>` 
-                : "";
+            const installBtnHTML = module.installURL ?
+                `<a class="button button-primary" href="${escapeHTML(module.installURL)}" ${primaryTarget} aria-label="${escapeHTML(primaryText)} ${escapeHTML(module.name)}">${escapeHTML(primaryText)}</a>` :
+                "";
 
             const descriptionText = module.description ? escapeHTML(module.description) : langObj.noDesc;
 
             card.innerHTML = `
                 <div class="card-header">
-                    ${iconHTML}
+                    <div class="module-icon">
+                        <img src="${escapeHTML(icon)}" alt="${escapeHTML(module.name)}" decoding="async" referrerpolicy="no-referrer">
+                    </div>
                     <div class="card-main">
                         <h2 class="module-name">${escapeHTML(module.name)}</h2>
                         <div class="module-meta">
@@ -2061,13 +2338,16 @@
                 </div>
                 <div class="module-description">${descriptionText}</div>
                 <div class="card-bottom">
+                    <div class="card-status">
+                        <span class="status-pill ${statusClass}">${escapeHTML(statusTextVal)}</span>
+                    </div>
                     <div class="action-buttons">
                         ${secondaryBtnHTML}
                         ${installBtnHTML}
                     </div>
                 </div>
             `;
-            
+
             const copyBtn = card.querySelector(".copy-btn");
             if (copyBtn) {
                 copyBtn.addEventListener("click", async (e) => {
@@ -2086,7 +2366,7 @@
                     showToast(success ? toastMessage : langObj.toastCopyFailed);
                 });
             }
-            
+
             const iconImg = card.querySelector(".module-icon img");
             if (iconImg) {
                 iconImg.addEventListener("error", () => { iconImg.src = fallbackIcon; }, { once: true });
@@ -2107,16 +2387,17 @@
                 return;
             }
             const fragment = document.createDocumentFragment();
-            const nextBatch = state.filteredModules.slice(state.currentlyRendered, state.currentlyRendered + CONFIG.PAGE_SIZE);
+            const nextBatch = state.filteredModules.slice(state.currentlyRendered, state.currentlyRendered + CONFIG
+            .PAGE_SIZE);
             for (let i = 0; i < nextBatch.length; i++) {
                 const module = nextBatch[i];
                 if (module) fragment.appendChild(createModuleCard(module));
             }
             modulesContainer.appendChild(fragment);
             state.currentlyRendered += nextBatch.length;
-            
+
             sentinel.style.display = state.currentlyRendered >= state.filteredModules.length ? "none" : "block";
-            
+
             updateCardWidth();
             updateCardLayerOrder();
             updateSearchLayer();
@@ -2132,7 +2413,8 @@
 
             if (!state.filteredModules.length) {
                 sentinel.style.display = "none";
-                modulesContainer.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div>${escapeHTML(langObj.emptyText(currentLabel))}</div>`;
+                modulesContainer.innerHTML =
+                    `<div class="empty"><div class="empty-icon">🔍</div>${escapeHTML(langObj.emptyText(currentLabel))}</div>`;
                 countText.textContent = langObj.countText(0, currentLabel);
                 scheduleCardLayerUpdate();
                 return;
@@ -2249,7 +2531,7 @@
             noticeTrack.appendChild(firstItemClone);
 
             let noticeIndex = 0;
-            const originalCount = noticeTrack.children.length - 1; 
+            const originalCount = noticeTrack.children.length - 1;
             let isAnimating = false;
 
             function updateNoticePosition() {
@@ -2271,7 +2553,7 @@
                         noticeTrack.style.transform = `translateY(0)`;
                         void noticeTrack.offsetHeight;
                         isAnimating = false;
-                    }, 450); 
+                    }, 450);
                 } else {
                     setTimeout(() => { isAnimating = false; }, 450);
                 }
@@ -2310,7 +2592,7 @@
                 const saved = localStorage.getItem("sr_theme_override");
                 if (saved === "dark" || saved === "light" || saved === "auto") return saved;
             } catch (e) {}
-            return "auto"; 
+            return "auto";
         }
 
         function getEffectiveTheme(mode) {
@@ -2323,7 +2605,7 @@
             const mode = getThemeMode();
             const currentTheme = getEffectiveTheme(mode);
             document.documentElement.setAttribute("data-theme", currentTheme);
-            
+
             const themeColor = currentTheme === "dark" ? "#14161a" : "#ffffff";
             const themeColorMeta = document.querySelector('meta[name="theme-color"]');
             if (themeColorMeta) {
@@ -2385,7 +2667,7 @@
                     nextMode = "auto";
                     toastText = langObj.themeAutoToast;
                 }
-            } else { 
+            } else {
                 if (isSystemDark) {
                     nextMode = "auto";
                     toastText = langObj.themeAutoToast;
@@ -2474,9 +2756,13 @@
         /* =========================================================
             7. 移动端下拉刷新手势
         ========================================================= */
-        let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
+        let touchStartX = 0,
+            touchStartY = 0,
+            isPulling = false,
+            isPullLocked = false,
+            pullRafId = null;
         const MIN_DRAG_DEADZONE = 30;
-        const PULL_TRIGGER_DIFF = 150; 
+        const PULL_TRIGGER_DIFF = 150;
 
         async function triggerForceReload() {
             if (state.isPullRefreshing || state.isDataLoading) return;
@@ -2488,7 +2774,7 @@
 
             const success = await loadModules(true);
             showToast(success ? langObj.toastDataRefreshed : langObj.toastSyncFailed);
-            
+
             setTimeout(() => {
                 const reboundBezier = 'top 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
                 pageContainer.style.transition = reboundBezier;
@@ -2531,7 +2817,7 @@
                 touchStartY = e.touches[0].clientY;
                 isPulling = true;
                 isPullLocked = false;
-                
+
                 pageContainer.style.willChange = "top";
                 pageContainer.style.transition = 'none';
                 pullRefreshIndicator.style.transition = 'none';
@@ -2605,11 +2891,11 @@
             if (diffY >= PULL_TRIGGER_DIFF && window.scrollY <= 0) {
                 pageContainer.style.transition = 'top 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)';
                 pageContainer.style.top = '38px';
-                
+
                 pullRefreshIndicator.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.25s ease';
                 pullRefreshIndicator.style.transform = `translate3d(-50%, 16px, 0)`;
                 pullRefreshIndicator.style.opacity = '1';
-                
+
                 triggerForceReload();
             } else {
                 resetPullState();
@@ -2650,7 +2936,8 @@
                 console.warn("读取本地缓存失败:", e);
             }
 
-            const isCacheFresh = !forceRefresh && cachedData && cachedTime && (Date.now() - cachedTime < CONFIG.CACHE_MAX_AGE);
+            const isCacheFresh = !forceRefresh && cachedData && cachedTime && (Date.now() - cachedTime < CONFIG
+            .CACHE_MAX_AGE);
             let hasRenderedCache = false;
 
             if (!forceRefresh && cachedData) {
@@ -2695,9 +2982,9 @@
             try {
                 const fetchUrl = forceRefresh ? `${CONFIG.DATA_JSON_URL}?_t=${Date.now()}` : CONFIG.DATA_JSON_URL;
                 const response = await fetch(fetchUrl, { cache: forceRefresh ? "no-store" : "default" });
-                
+
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                
+
                 const data = await response.json();
                 if (!Array.isArray(data) || !data.length) throw new Error("资源列表为空");
 
@@ -2720,7 +3007,7 @@
                 return true;
             } catch (error) {
                 console.error("加载 modules.json 失败:", error);
-                
+
                 if (hasRenderedCache || state.allModules.length > staticItems.length) {
                     state.statusKey = "statusErrorCache";
                     statusText.textContent = langObj.statusErrorCache;
@@ -2747,4 +3034,5 @@
         loadModules();
     </script>
 </body>
+
 </html>
