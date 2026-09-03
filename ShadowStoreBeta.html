@@ -1110,7 +1110,6 @@
 </head>
 
 <body>
-    <!-- 物理折射滤镜 -->
     <svg style="position: fixed; width: 0; height: 0; pointer-events: none;" aria-hidden="true">
         <filter id="liquid_glass_filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
             <feTurbulence type="fractalNoise" baseFrequency="0.04 0.04" numOctaves="1" result="noise" />
@@ -1189,7 +1188,6 @@
         </header>
 
         <div id="controlBar" class="control-bar">
-            <!-- 标签栏与底栏模式返回顶部按钮 -->
             <nav class="tab-bar-wrapper" aria-label="资源分类导航">
                 <div class="tab-bar liquid_glass-wrapper" role="tablist">
                     <div class="liquid_glass-outer"></div>
@@ -1217,21 +1215,7 @@
                 </button>
             </nav>
 
-            <!-- 搜索框区域与宽屏模式返回顶部按钮 -->
             <div class="search-wrapper">
-                <button id="searchBackToTopBtn" class="theme-toggle liquid_glass-wrapper search-back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
-                    <div class="liquid_glass-outer"></div>
-                    <div class="liquid_glass-cover"></div>
-                    <div class="liquid_glass-reflect"></div>
-                    <div class="liquid_glass-sharp"></div>
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <polyline points="5 12 12 5 19 12"></polyline>
-                        </svg>
-                    </div>
-                </button>
-
                 <div class="search-box-inner liquid_glass-wrapper" role="search">
                     <div class="liquid_glass-outer"></div>
                     <div class="liquid_glass-cover"></div>
@@ -1254,6 +1238,19 @@
                         <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
                     </div>
                 </div>
+
+                <button id="searchBackToTopBtn" class="theme-toggle liquid_glass-wrapper search-back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
+                    <div class="liquid_glass-outer"></div>
+                    <div class="liquid_glass-cover"></div>
+                    <div class="liquid_glass-reflect"></div>
+                    <div class="liquid_glass-sharp"></div>
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <polyline points="5 12 12 5 19 12"></polyline>
+                        </svg>
+                    </div>
+                </button>
             </div>
         </div>
 
@@ -1288,7 +1285,7 @@
     </div>
 
     <script>
-        const CACHE_VERSION = "202609031048"; 
+        const CACHE_VERSION = "202609031053"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
