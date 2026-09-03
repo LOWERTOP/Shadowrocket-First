@@ -204,7 +204,7 @@
         }
 
         /* =========================================================
-            2. Liquid Glass 图层系统 (6px 适度折射边)[cite: 2]
+            2. Liquid Glass 图层系统 (6px 适度折射边)
         ========================================================= */
         .liquid_glass-wrapper {
             position: relative;
@@ -232,7 +232,8 @@
         }
 
         .theme-toggle .liquid_glass-outer,
-        .back-to-top-btn .liquid_glass-outer {
+        .back-to-top-btn .liquid_glass-outer,
+        .search-back-to-top-btn .liquid_glass-outer {
             mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="50%" fill="white"/></svg>'),
                         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="calc(50% - 4.5px)" fill="white"/></svg>');
             -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="50%" fill="white"/></svg>'),
@@ -405,7 +406,8 @@
         [data-theme="dark"] .theme-toggle:hover { color: #ffffff; }
 
         .theme-toggle .icon,
-        .back-to-top-btn .icon {
+        .back-to-top-btn .icon,
+        .search-back-to-top-btn .icon {
             position: relative;
             z-index: 10 !important;
             display: flex !important;
@@ -418,7 +420,8 @@
         }
 
         .theme-toggle svg,
-        .back-to-top-btn svg { 
+        .back-to-top-btn svg,
+        .search-back-to-top-btn svg { 
             display: block; 
             width: 20px; 
             height: 20px; 
@@ -427,11 +430,12 @@
             stroke-width: 2; 
         }
 
-        /* 搜索 + 分类控制栏 */
+        /* 搜索 + 分类控制栏 (固定在最顶层隔离渲染) */
         .control-bar {
             position: sticky;
             top: max(12px, env(safe-area-inset-top, 0px));
             z-index: 999990;
+            isolation: isolate;
             display: grid;
             grid-template-columns: var(--card-width, 380px) minmax(0, 1fr);
             gap: var(--layout-gap, 44px);
@@ -442,7 +446,7 @@
         }
 
         /* =========================================================
-            3. 分类标签栏与渐变指示器[cite: 1]
+            3. 分类标签栏与渐变指示器
         ========================================================= */
         .tab-bar-wrapper {
             width: 100%;
@@ -571,12 +575,12 @@
             font-weight: 400 !important;
         }
 
-        /* 默认多列宽屏模式下隐藏返回按钮 */
+        /* 默认多列宽屏模式下隐藏底部单列栏返回按钮 */
         .control-bar:not(.is-single-column) .back-to-top-btn {
             display: none !important;
         }
 
-        /* 单列底栏模式下的返回按钮 */
+        /* 单列底栏模式下的返回按钮 (62px) */
         .control-bar.is-single-column .back-to-top-btn {
             position: relative;
             display: inline-flex !important;
@@ -597,6 +601,8 @@
             border: none;
             background: transparent;
             color: var(--text-secondary);
+            isolation: isolate;
+            will-change: width, transform, opacity;
             transition: width 0.44s cubic-bezier(0.34, 1.32, 0.64, 1),
                         opacity 0.3s ease,
                         transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1),
@@ -620,9 +626,11 @@
         [data-theme="dark"] .control-bar.is-single-column .back-to-top-btn { color: #a6b0c2; }
         [data-theme="dark"] .control-bar.is-single-column .back-to-top-btn:hover { color: #ffffff; }
 
-        /* 搜索框区域 */
+        /* 宽屏搜索框区域及其专属返回按钮 (44px, 放置右侧) */
         .search-wrapper { 
             position: relative;
+            z-index: 10;
+            isolation: isolate;
             height: 44px;
             min-width: 0;
             padding: 0; 
@@ -631,6 +639,63 @@
             display: flex;
             align-items: center;
             width: 100%;
+            gap: 0px;
+            transition: gap 0.44s cubic-bezier(0.34, 1.32, 0.64, 1);
+        }
+
+        .search-back-to-top-btn {
+            position: relative;
+            z-index: 10;
+            isolation: isolate;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 0;
+            height: 44px; /* 与搜索框等高 */
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.65);
+            pointer-events: none;
+            overflow: hidden;
+            flex-shrink: 0;
+            --border-radius: 22px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            will-change: width, transform, opacity;
+            transition: width 0.44s cubic-bezier(0.34, 1.32, 0.64, 1),
+                        opacity 0.3s ease,
+                        transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1),
+                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        visibility 0.44s ease;
+        }
+
+        .search-back-to-top-btn.visible {
+            width: 44px; /* 宽屏下展开后的正圆尺寸 */
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        .search-wrapper:has(.search-back-to-top-btn.visible) {
+            gap: 10px;
+        }
+
+        .search-back-to-top-btn:hover {
+            color: var(--text-primary);
+            box-shadow: var(--liquid-outer-shadow-hover) !important;
+        }
+        .search-back-to-top-btn:active { transform: scale(0.92); }
+        [data-theme="dark"] .search-back-to-top-btn { color: #a6b0c2; }
+        [data-theme="dark"] .search-back-to-top-btn:hover { color: #ffffff; }
+
+        /* 在单列模式下彻底禁用搜索框专属返回按钮 */
+        .control-bar.is-single-column .search-back-to-top-btn {
+            display: none !important;
         }
 
         .search-box-inner {
@@ -719,8 +784,10 @@
         .status-dot.error { background: #c8a3ab; box-shadow: 0 0 0 3px rgba(200, 163, 171, 0.2); }
         @keyframes statusPulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
         
-        /* 列表与卡片网格 */
+        /* 列表与卡片网格 (层级固定在低位，避免穿透吸顶栏) */
         .modules { 
+            position: relative;
+            z-index: 1;
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); 
             gap: var(--layout-gap, 44px); 
@@ -750,7 +817,7 @@
 
         @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
             .module-card:hover { 
-                z-index: 50000 !important;
+                z-index: 2 !important;
                 transform: translateY(-2px);
                 box-shadow: var(--liquid-outer-shadow-hover) !important;
             }
@@ -776,7 +843,6 @@
         
         .card-main { min-width: 0; flex: 1; }
 
-        /* 主卡片标题：18号加粗且单行自适应省略[cite: 1] */
         .module-name { 
             margin: 0; 
             font-size: clamp(15px, 1.6vw, 18px); 
@@ -839,7 +905,6 @@
             flex: 1 1 auto;
         }
         
-        /* 移除下方分割横线并保持 48px 的舒适物理间距 */
         .card-bottom { 
             display: flex; 
             align-items: center; 
@@ -861,7 +926,6 @@
             transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         
-        /* 次级按钮 */
         .button-secondary { 
             position: relative;
             isolation: isolate;
@@ -892,7 +956,6 @@
             color: #22d3ee;
         }
         
-        /* 主按钮（完全保留渐变色背景与悬浮光晕动效）[cite: 1] */
         .button-primary { 
             background: var(--primary-gradient); 
             color: #FFFFFF; 
@@ -960,7 +1023,7 @@
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
         /* =========================================================
-            4. 单列布局与底栏完全重构规范[cite: 1]
+            4. 单列布局与底栏完全重构规范
         ========================================================= */
         .control-bar.is-single-column {
             display: block;
@@ -1136,7 +1199,7 @@
         </header>
 
         <div id="controlBar" class="control-bar">
-            <!-- 标签栏与平滑联动指示条的返回顶部按钮[cite: 1] -->
+            <!-- 标签栏与底栏模式返回顶部按钮 -->
             <nav class="tab-bar-wrapper" aria-label="资源分类导航">
                 <div class="tab-bar liquid_glass-wrapper" role="tablist">
                     <div class="liquid_glass-outer"></div>
@@ -1164,6 +1227,7 @@
                 </button>
             </nav>
 
+            <!-- 搜索框区域（返回按钮置于右侧） -->
             <div class="search-wrapper">
                 <div class="search-box-inner liquid_glass-wrapper" role="search">
                     <div class="liquid_glass-outer"></div>
@@ -1187,6 +1251,19 @@
                         <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
                     </div>
                 </div>
+
+                <button id="searchBackToTopBtn" class="theme-toggle liquid_glass-wrapper search-back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
+                    <div class="liquid_glass-outer"></div>
+                    <div class="liquid_glass-cover"></div>
+                    <div class="liquid_glass-reflect"></div>
+                    <div class="liquid_glass-sharp"></div>
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <polyline points="5 12 12 5 19 12"></polyline>
+                        </svg>
+                    </div>
+                </button>
             </div>
         </div>
 
@@ -1221,7 +1298,7 @@
     </div>
 
     <script>
-        const CACHE_VERSION = "202609022229"; 
+        const CACHE_VERSION = "202609031031"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -1426,6 +1503,7 @@
         const themeToggleBtn = document.getElementById("themeToggle");
         const themeIconContainer = document.getElementById("themeIconContainer");
         const backToTopBtn = document.getElementById("backToTopBtn");
+        const searchBackToTopBtn = document.getElementById("searchBackToTopBtn");
         const tabItems = document.querySelectorAll(".tab-item");
         const tabIndicator = document.getElementById("tabIndicator");
         const tabBarEl = document.querySelector(".tab-bar");
@@ -1654,9 +1732,16 @@
         }
 
         function updateSearchLayer() {
-            if (!backToTopBtn) return;
             const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
             const shouldShow = scrollY > 160;
+
+            // 宽屏模式下更新搜索框旁的返回顶部按钮状态
+            if (searchBackToTopBtn) {
+                searchBackToTopBtn.classList.toggle("visible", shouldShow);
+            }
+
+            // 单列底栏模式下的返回按钮状态
+            if (!backToTopBtn) return;
             if (shouldShow === backToTopVisible) return;
             backToTopVisible = shouldShow;
             backToTopBtn.classList.toggle("visible", shouldShow);
@@ -1669,6 +1754,12 @@
         backToTopBtn.addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
+
+        if (searchBackToTopBtn) {
+            searchBackToTopBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        }
 
         if (searchBoxInner) {
             searchBoxInner.addEventListener("click", (e) => {
@@ -2183,6 +2274,12 @@
             searchClear.setAttribute("title", dict.searchClearTitle);
             backToTopBtn.setAttribute("title", dict.backToTopTitle);
             backToTopBtn.setAttribute("aria-label", dict.backToTopTitle);
+
+            if (searchBackToTopBtn) {
+                searchBackToTopBtn.setAttribute("title", dict.backToTopTitle);
+                searchBackToTopBtn.setAttribute("aria-label", dict.backToTopTitle);
+            }
+
             searchInput.setAttribute("aria-label", dict.searchInputAria);
 
             const notice1 = document.querySelector(".notice-item-1");
