@@ -185,25 +185,20 @@
             --text-shadow-sm: none;
 
             --shadow-glass-ui: 
-                inset -2px -2px 6px 0px rgba(0, 0, 0, 0.4),
                 0 6px 20px rgba(0, 0, 0, 0.4),
                 0 2px 6px rgba(0, 0, 0, 0.25);
 
-            --shadow-tab-bar-bottom: 
-                inset -2px -2px 6px 0px rgba(0, 0, 0, 0.4);
+            --shadow-tab-bar-bottom: none;
 
             --shadow-glass-ui-hover: 
-                inset -2px -2px 7px 0px rgba(0, 0, 0, 0.5),
                 0 8px 24px rgba(0, 0, 0, 0.5),
                 0 3px 8px rgba(0, 0, 0, 0.3);
 
             --shadow-search: 
-                inset -2px -2px 5px 0px rgba(0, 0, 0, 0.35),
                 0 4px 13.3px rgba(0, 0, 0, 0.27),
                 0 1.3px 4px rgba(0, 0, 0, 0.17);
 
             --shadow-search-hover: 
-                inset -2px -2px 6px 0px rgba(0, 0, 0, 0.4),
                 0 5.3px 16px rgba(0, 0, 0, 0.33),
                 0 2px 5.3px rgba(0, 0, 0, 0.20);
 
@@ -1436,29 +1431,44 @@
             pointer-events: none;
         }
 
-        /* 触控滑动时的左侧大号悬浮气泡字母提示（样式与右上角圆形按钮相同，取消渐变色） */
+        /* 触控滑动时的左侧大号悬浮气泡字母提示（效果和动画对齐返回顶部按钮） */
         .alphabet-popup-bubble {
             position: absolute;
             right: 36px;
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             color: var(--text-primary);
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--shadow-glass-ui-hover);
+            border: 1px solid transparent;
+            box-shadow: none;
             opacity: 0;
+            visibility: hidden;
             pointer-events: none;
-            transform: translate3d(12px, -50%, 0) scale(0.75);
-            transition: opacity 0.1s ease, transform 0.1s ease;
+            transform: translateY(-50%) scale(0.6);
+            transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        visibility 0.35s ease,
+                        box-shadow 0.35s ease,
+                        border-color 0.35s ease;
             z-index: 100;
         }
         .alphabet-popup-bubble.visible {
             opacity: 1;
-            transform: translate3d(0, -50%, 0) scale(1);
+            visibility: visible;
+            transform: translateY(-50%) scale(1);
+            box-shadow: var(--shadow-search);
+            border-top-color: var(--glass-border-t);
+            border-left-color: var(--glass-border-l);
+            border-right-color: var(--glass-border-r);
+            border-bottom-color: var(--glass-border-b);
+        }
+        [data-theme="dark"] .alphabet-popup-bubble.visible {
+            border-color: var(--border-subtle);
         }
 
         /* =========================================================
@@ -1771,7 +1781,7 @@
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        const CACHE_VERSION = "202609031343"; 
+        const CACHE_VERSION = "202609031350"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
