@@ -62,7 +62,7 @@
 
     <style>
         /* =========================================================
-            1. 浅色主题设计令牌 (Light Theme Tokens)
+            1. 浅色主题设计令牌 (Light Theme Tokens)[cite: 1]
         ========================================================= */
         :root, [data-theme="light"] {
             --layout-gap: 44px;
@@ -159,13 +159,18 @@
             --radius-pill: 9999px;
             --card-width: 380px;
 
+            /* 统一交互参数 */
+            --control-hover-scale: 1.05;
+            --control-active-scale: 0.92;
+            --control-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
             --bottom-offset: max(16px, calc(env(safe-area-inset-bottom) - 14px));
             --safe-pad-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
             --toast-bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px));
         }
 
         /* =========================================================
-            2. 暗色主题设计令牌 (Dark Theme Tokens)
+            2. 暗色主题设计令牌 (Dark Theme Tokens)[cite: 1]
         ========================================================= */
         [data-theme="dark"] {
             --bg-page-solid: #14161a;
@@ -315,6 +320,34 @@
             border: 1px solid var(--border-subtle);
         }
 
+        /* 统一交互玻璃控件：所有相近的玻璃按钮共用材质反馈 */
+        .glass-control {
+            border-radius: 50%;
+            box-shadow: var(--shadow-glass-ui);
+            transition:
+                transform 0.3s var(--control-ease),
+                box-shadow 0.3s var(--control-ease),
+                background-color 0.3s ease,
+                background-image 0.3s ease,
+                border-color 0.3s ease,
+                color 0.2s ease;
+            -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+        }
+
+        .glass-control:hover {
+            transform: scale(var(--control-hover-scale));
+            box-shadow: var(--shadow-glass-ui-hover);
+        }
+
+        .glass-control:active {
+            transform: scale(var(--control-active-scale));
+        }
+
+        [data-theme="dark"] .glass-control:hover {
+            background-image: var(--noise-pattern);
+            background-color: var(--border-subtle);
+        }
+
         .pull-refresh-indicator {
             position: fixed;
             top: max(8px, env(safe-area-inset-top));
@@ -348,15 +381,14 @@
         .ptr-icon svg { width: 100%; height: 100%; }
         .ptr-icon.rotate { transform: rotate(180deg); }
 
-        .header { 
-            padding: 24px 0 18px; 
+        .header {
+            padding: 24px 0 18px;
             max-height: 160px;
-            overflow: hidden;
-            transition: max-height 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                        padding 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                        margin 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                        opacity 0.15s ease,
-                        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: visible;
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition: max-height 0.2s ease, padding 0.2s ease, margin 0.2s ease, opacity 0.2s ease;
+            will-change: max-height, padding, opacity;
         }
 
         body.is-list-view .header {
@@ -364,9 +396,12 @@
             padding-top: 0 !important;
             padding-bottom: 0 !important;
             margin: 0 !important;
-            opacity: 0 !important;
-            transform: translateY(-24px) scale(0.96);
+            opacity: 0;
+            transform: translate3d(0, -10px, 0);
             pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            white-space: nowrap;
         }
 
         .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
@@ -442,28 +477,22 @@
         
         .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
-        .theme-toggle { 
-            display: inline-flex; align-items: center; justify-content: center; 
-            width: 44px; height: 44px; padding: 0; margin: 0; 
-            border-radius: 50%; 
-            color: var(--text-secondary); cursor: pointer; 
-            box-shadow: var(--shadow-glass-ui); 
-            transition: 
-                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.3s ease,
-                color 0.2s ease;
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            margin: 0;
+            color: var(--text-secondary);
+            cursor: pointer;
         }
-        .theme-toggle:hover { 
+
+        .theme-toggle:hover {
             background-image: var(--noise-pattern), var(--glass-bg-hover);
-            color: var(--text-primary); transform: translateY(-1px); 
-            box-shadow: var(--shadow-glass-ui-hover); 
+            color: var(--text-primary);
         }
-        [data-theme="dark"] .theme-toggle:hover {
-            background-image: var(--noise-pattern);
-            background-color: var(--border-subtle); 
-        }
-        .theme-toggle:active { transform: scale(0.92); }
         .theme-toggle.active { 
             color: var(--primary); background-color: var(--primary-soft); 
         }
@@ -474,12 +503,12 @@
         }
 
         /* =========================================================
-            3. 搜索 + 分类控制栏 (宽屏吸顶)
+            3. 搜索 + 分类控制栏 (宽屏吸顶)[cite: 1]
         ========================================================= */
         .control-bar {
             position: sticky;
             top: max(12px, env(safe-area-inset-top, 0px));
-            z-index: 999990;
+            z-index: 999999;
             display: grid;
             grid-template-columns: var(--card-width, 380px) minmax(0, 1fr);
             gap: var(--layout-gap, 44px);
@@ -491,7 +520,7 @@
         }
 
         /* =========================================================
-            4. 分类标签页
+            4. 分类标签页与统一的悬停动效复用
         ========================================================= */
         .tab-bar-wrapper {
             width: 100%;
@@ -500,7 +529,7 @@
             display: flex;
             align-items: center;
             position: relative;
-            z-index: 999990;
+            z-index: 999999;
         }
 
         .tab-bar {
@@ -538,43 +567,15 @@
             border-radius: 26px;
         }
 
-        .tab-item {
+        /* 统一合并分类标签、副按钮、列表行的发光特效与动效 */
+        .tab-item,
+        .button-secondary {
             position: relative;
             isolation: isolate;
             z-index: 2;
-            flex: 1 1 0;
-            min-width: 0;
-            height: 34px;
-            line-height: 34px;
-            border: none !important;
-            outline: none;
-            padding: 0 8px;
-            border-radius: 17px;
-            font-size: 13.5px;
-            font-weight: 400;
             cursor: pointer;
-            white-space: nowrap;
             user-select: none;
             -webkit-user-select: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: visible;
-            text-overflow: ellipsis;
-            transition: 
-                color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
-        }
-
-        .tab-item:active {
-            transform: scale(0.92);
-        }
-
-        .tab-item:not(.active) {
-            background: transparent !important;
-            color: var(--text-secondary);
-            box-shadow: none !important;
         }
 
         .tab-item:not(.active)::before,
@@ -597,6 +598,48 @@
             filter: blur(10px);
         }
 
+        .tab-item:not(.active):hover::before,
+        .tab-item:not(.active):active::before,
+        .tab-item:not(.active):focus-visible::before,
+        .button-secondary:hover::before,
+        .button-secondary:active::before,
+        .button-secondary:focus-visible::before {
+            opacity: 1;
+        }
+
+        .tab-item {
+            flex: 1 1 0;
+            min-width: 0;
+            height: 34px;
+            line-height: 34px;
+            border: none !important;
+            outline: none;
+            padding: 0 8px;
+            border-radius: 17px;
+            font-size: 13.5px;
+            font-weight: 400;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: visible;
+            text-overflow: ellipsis;
+            transition: color 0.2s ease, background-color 0.2s ease;
+            content-visibility: auto;
+            contain-intrinsic-size: 50px;
+        }
+
+        .tab-item:active {
+            transform: scale(0.92);
+        }
+
+        .tab-item:not(.active) {
+            background: transparent !important;
+            color: var(--text-secondary);
+            box-shadow: none !important;
+        }
+
         .tab-item:not(.active):hover,
         .tab-item:not(.active):active,
         .tab-item:not(.active):focus-visible {
@@ -610,12 +653,6 @@
         [data-theme="dark"] .tab-item:not(.active):active,
         [data-theme="dark"] .tab-item:not(.active):focus-visible {
             color: #22d3ee;
-        }
-
-        .tab-item:not(.active):hover::before,
-        .tab-item:not(.active):active::before,
-        .tab-item:not(.active):focus-visible::before {
-            opacity: 1;
         }
 
         .tab-item.active {
@@ -675,25 +712,36 @@
             box-shadow: var(--shadow-search-hover);
         }
         
-        .search-icon, .list-toggle-icon { 
-            width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%;
-            background: transparent; box-shadow: none; border: 1px solid var(--border-subtle);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px; color: var(--primary); 
-            filter: none; 
+        .search-icon, .list-toggle-icon {
+            width: 32px;
+            height: 32px;
+            flex: 0 0 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--primary);
+            filter: none;
             user-select: none;
             -webkit-user-select: none;
             line-height: 1;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            box-shadow: none !important;
         }
 
-        .search-icon { pointer-events: none; }
-        
+        .search-icon {
+            pointer-events: none;
+        }
+
         .list-toggle-icon {
             cursor: pointer;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
             outline: none;
             padding: 0;
-            border-style: solid;
+            appearance: none;
+            -webkit-appearance: none;
+            transition: color 0.2s ease;
         }
         .list-toggle-icon svg {
             display: block;
@@ -701,17 +749,13 @@
             height: 15px;
             pointer-events: none;
         }
-        .list-toggle-icon:hover {
-            border-color: var(--primary);
-            background-color: var(--primary-soft);
-            transform: scale(1.05);
-        }
-        .list-toggle-icon:active {
-            transform: scale(0.92);
-        }
+        .list-toggle-icon:hover,
+        .list-toggle-icon:active,
         .list-toggle-icon.active {
-            border-color: var(--primary);
-            background-color: var(--primary-soft);
+            background: transparent !important;
+            background-image: none !important;
+            border-color: var(--border-subtle) !important;
+            box-shadow: none !important;
         }
         
         .input-wrapper {
@@ -785,8 +829,8 @@
                         opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
                         transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
                         visibility 0.35s ease,
-                        box-shadow 0.35s ease,
-                        border-color 0.35s ease;
+                        box-shadow 0.3s var(--control-ease),
+                        border-color 0.3s var(--control-ease);
         }
         .back-to-top-btn.visible {
             width: 44px;
@@ -795,7 +839,7 @@
             visibility: visible;
             transform: scale(1);
             pointer-events: auto;
-            box-shadow: var(--shadow-search);
+            box-shadow: var(--shadow-glass-ui);
             border-top-color: var(--glass-border-t) !important;
             border-left-color: var(--glass-border-l) !important;
             border-right-color: var(--glass-border-r) !important;
@@ -805,10 +849,13 @@
             border-color: var(--border-subtle) !important;
         }
         .back-to-top-btn.visible:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-search-hover);
+            transform: scale(var(--control-hover-scale));
+            box-shadow: var(--shadow-glass-ui-hover);
         }
-        .back-to-top-btn.visible:active { transform: scale(0.92); }
+
+        .back-to-top-btn.visible:active {
+            transform: scale(var(--control-active-scale));
+        }
 
         .status { 
             display: flex; align-items: center; justify-content: space-between; 
@@ -829,7 +876,8 @@
             align-items: stretch; 
             padding-bottom: 24px; 
             min-height: 0; 
-            transition: opacity 0.15s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.16s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity;
         }
 
         @keyframes cardFadeIn {
@@ -998,8 +1046,6 @@
         }
         
         .button-secondary { 
-            position: relative;
-            isolation: isolate;
             background: transparent !important; 
             color: #0891b2; 
             border: none !important; 
@@ -1023,11 +1069,6 @@
             border: none !important;
             box-shadow: none !important;
             color: #0891b2;
-        }
-        .button-secondary:hover::before,
-        .button-secondary:active::before,
-        .button-secondary:focus-visible::before {
-            opacity: 1;
         }
         [data-theme="dark"] .button-secondary:hover,
         [data-theme="dark"] .button-secondary:active,
@@ -1120,7 +1161,7 @@
             display: block;
             position: sticky;
             top: max(12px, env(safe-area-inset-top, 0px));
-            z-index: 999990;
+            z-index: 999999;
             width: 100%;
             margin-bottom: 16px;
             padding: 4px 0;
@@ -1134,7 +1175,7 @@
             height: 44px;
             padding: 0;
             margin: 0;
-            z-index: 999995;
+            z-index: 999999;
             pointer-events: none;
         }
 
@@ -1198,30 +1239,32 @@
         }
 
         /* =========================================================
-            7. 全局首字母字母表搜索视图 (上下边缘固定为大约3个搜索框高度：100px)
+            7. 全局首字母字母表搜索视图
         ========================================================= */
         .alphabet-view-container {
             position: fixed;
             top: 100px;
             bottom: 100px;
-            display: none;
+            display: flex;
             opacity: 0;
-            transform: translateY(4px);
+            visibility: hidden;
+            transform: none;
             pointer-events: none;
             z-index: 999980;
-            transition: opacity 0.1s ease,
-                        transform 0.1s ease;
+            transition: opacity 0.2s ease, visibility 0s linear 0.2s;
             will-change: opacity, transform;
+            contain: layout style paint;
         }
 
         body.is-list-view .alphabet-view-container {
-            display: flex;
             pointer-events: auto;
         }
 
         body.is-list-view .alphabet-view-container.is-visible {
             opacity: 1;
-            transform: translateY(0);
+            visibility: visible;
+            transform: none;
+            transition-delay: 0s;
         }
 
         body.is-list-view .status,
@@ -1229,9 +1272,11 @@
         body.is-list-view .sentinel,
         body.is-list-view .footer {
             opacity: 0 !important;
+            transform: none !important;
             pointer-events: none !important;
             visibility: hidden;
-            transition: opacity 0.15s ease, visibility 0.15s;
+            transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+            will-change: opacity, transform;
         }
 
         .alphabet-content-box {
@@ -1241,6 +1286,27 @@
             display: flex;
             padding: 0;
             margin: 0;
+        }
+
+        .alphabet-content-box::before,
+        .alphabet-content-box::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 28px;
+            height: 24px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .alphabet-content-box::before {
+            top: 0;
+            background: linear-gradient(to bottom, var(--bg-page-solid), transparent);
+        }
+
+        .alphabet-content-box::after {
+            bottom: 0;
+            background: linear-gradient(to top, var(--bg-page-solid), transparent);
         }
 
         .alphabet-scroll-area {
@@ -1254,9 +1320,10 @@
             padding-bottom: 24px;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 24px, rgba(0,0,0,1) calc(100% - 24px), transparent 100%);
-            mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 24px, rgba(0,0,0,1) calc(100% - 24px), transparent 100%);
+            overscroll-behavior: contain;
+            contain: layout paint;
         }
+
         .alphabet-scroll-area::-webkit-scrollbar {
             display: none;
             width: 0 !important;
@@ -1286,8 +1353,6 @@
         }
 
         .alphabet-item-row {
-            position: relative;
-            isolation: isolate;
             display: flex;
             align-items: center;
             gap: 14px;
@@ -1296,29 +1361,10 @@
             background: transparent !important;
             border: none !important;
             box-shadow: none !important;
-            cursor: pointer;
             text-decoration: none;
-            transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        .alphabet-item-row::before {
-            content: "";
-            position: absolute;
-            inset: -4px -8px;
-            border-radius: 9999px;
-            background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.14) 0%, rgba(59, 130, 246, 0.10) 42%, rgba(139, 92, 246, 0.05) 68%, transparent 82%);
-            filter: blur(8px);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: -1;
-        }
-
-        [data-theme="dark"] .alphabet-item-row::before {
-            background: radial-gradient(ellipse at center, rgba(34, 211, 238, 0.17) 0%, rgba(59, 130, 246, 0.13) 42%, rgba(167, 139, 250, 0.08) 68%, transparent 82%);
-            filter: blur(10px);
+            transition: color 0.2s ease, background-color 0.2s ease;
+            content-visibility: auto;
+            contain-intrinsic-size: 50px;
         }
 
         .alphabet-item-row:hover,
@@ -1333,12 +1379,6 @@
         [data-theme="dark"] .alphabet-item-row:active,
         [data-theme="dark"] .alphabet-item-row:focus-visible {
             color: #22d3ee;
-        }
-
-        .alphabet-item-row:hover::before,
-        .alphabet-item-row:active::before,
-        .alphabet-item-row:focus-visible::before {
-            opacity: 1;
         }
 
         .alphabet-item-icon {
@@ -1386,63 +1426,73 @@
 
         .alphabet-fast-index {
             position: absolute;
-            right: -8px;
+            right: 0;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: stretch;
             justify-content: center;
             gap: 0px;
             user-select: none;
             -webkit-user-select: none;
             touch-action: none;
             z-index: 10;
-            padding: 6px 14px 6px 18px;
+            padding: 6px 0;
             background: transparent;
         }
 
         .alphabet-fast-char {
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 24px;
+            justify-content: flex-end;
+            width: 52px;
             height: 14.5px;
+            padding: 0 0 0 28px;
             font-size: 10.5px;
             font-weight: 600;
             color: var(--text-tertiary);
             cursor: pointer;
-            transition: color 0.15s ease, transform 0.15s ease;
+            border: 0;
+            outline: 0;
+            border-radius: 0;
+            background: transparent !important;
+            box-shadow: none !important;
+            text-shadow: none;
+            transition: font-size 0.12s ease, color 0.12s ease, font-weight 0.12s ease;
+            will-change: font-size, color;
+        }
+        .alphabet-fast-char.is-highlighted {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+        [data-theme="dark"] .alphabet-fast-char.is-highlighted {
+            color: var(--primary);
+            background: transparent !important;
+            border: 0 !important;
         }
 
-        @media (orientation: portrait) {
-            .alphabet-fast-index {
-                padding: 4px 14px 4px 20px;
-                right: -10px;
-            }
-            .alphabet-fast-char {
-                height: 13px;
-                font-size: 10px;
-            }
-        }
-        .alphabet-fast-char:hover,
-        .alphabet-fast-char.active {
-            color: var(--primary);
-            transform: scale(1.3);
-            font-weight: 700;
-        }
         .alphabet-fast-char.disabled {
             opacity: 0.22;
             cursor: default;
             pointer-events: none;
         }
 
-        /* 触控滑动时的左侧大号悬浮气泡字母提示（样式与返回顶部按钮一致） */
+        /* 触控滑动时的左侧大号悬浮气泡字母提示（样式与返回顶部按钮完全一致） */
         .alphabet-popup-bubble {
             position: absolute;
-            right: 36px;
+            left: -54px;
+            right: auto;
+            top: 50%;
             width: 44px;
             height: 44px;
+            padding: 0;
             border-radius: 50%;
             color: var(--text-primary);
             font-size: 20px;
@@ -1450,31 +1500,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid transparent;
-            box-shadow: none;
+            background-color: transparent;
+            background-image: var(--noise-pattern), var(--glass-bg);
+            backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            border-top: 1px solid var(--glass-border-t);
+            border-left: 1px solid var(--glass-border-l);
+            border-right: 1px solid var(--glass-border-r);
+            border-bottom: 1px solid var(--glass-border-b);
+            box-shadow: var(--shadow-glass-ui);
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
             transform: translateY(-50%) scale(0.6);
-            transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        visibility 0.35s ease,
-                        box-shadow 0.35s ease,
-                        border-color 0.35s ease;
-            z-index: 100;
+            transition: opacity 0.2s var(--control-ease), transform 0.2s var(--control-ease);
+            z-index: 1000000;
         }
         .alphabet-popup-bubble.visible {
             opacity: 1;
             visibility: visible;
             transform: translateY(-50%) scale(1);
-            box-shadow: var(--shadow-search);
-            border-top-color: var(--glass-border-t);
-            border-left-color: var(--glass-border-l);
-            border-right-color: var(--glass-border-r);
-            border-bottom-color: var(--glass-border-b);
         }
-        [data-theme="dark"] .alphabet-popup-bubble.visible {
-            border-color: var(--border-subtle);
+        [data-theme="dark"] .alphabet-popup-bubble {
+            background-image: var(--noise-pattern);
+            background-color: var(--bg-surface);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: 1px solid var(--border-subtle);
         }
 
         /* =========================================================
@@ -1510,12 +1562,10 @@
 
             .tab-item:not(.active)::before,
             .button-secondary::before,
-            .alphabet-item-row::before,
             .tab-item:not(.active):hover::before,
             .tab-item:not(.active):active::before,
             .button-secondary:hover::before,
             .button-secondary:active::before,
-            .alphabet-item-row:hover::before,
             .alphabet-item-row:active::before {
                 display: none !important;
                 opacity: 0 !important;
@@ -1578,9 +1628,12 @@
                 -webkit-tap-highlight-color: transparent !important;
             }
 
+            .glass-control:hover,
+            .glass-control:active {
+                transform: none !important;
+            }
             .theme-toggle:hover,
             .theme-toggle:active {
-                transform: none !important;
                 box-shadow: var(--shadow-glass-ui) !important;
                 color: var(--text-secondary) !important;
             }
@@ -1589,8 +1642,8 @@
             }
             .back-to-top-btn.visible:hover,
             .back-to-top-btn.visible:active {
-                transform: scale(1) !important;
-                box-shadow: var(--shadow-search) !important;
+                transform: none !important;
+                box-shadow: var(--shadow-glass-ui) !important;
             }
 
             .title a:hover {
@@ -1608,22 +1661,21 @@
 
         html.is-mobile .tab-item:not(.active)::before,
         html.is-mobile .button-secondary::before,
-        html.is-mobile .alphabet-item-row::before,
         html.is-mobile .tab-item:not(.active):hover::before,
         html.is-mobile .tab-item:not(.active):active::before,
         html.is-mobile .button-secondary:hover::before,
-        html.is-mobile .button-secondary:active::before,
-        html.is-mobile .alphabet-item-row:hover::before,
-        html.is-mobile .alphabet-item-row:active::before {
+        html.is-mobile .button-secondary:active::before {
             display: none !important;
             opacity: 0 !important;
         }
-        html.is-mobile .button-secondary:active,
-        html.is-mobile .theme-toggle:hover,
-        html.is-mobile .theme-toggle:active,
-        html.is-mobile .back-to-top-btn.visible:hover,
-        html.is-mobile .back-to-top-btn.visible:active {
+        html.is-mobile .glass-control:hover,
+        html.is-mobile .glass-control:active {
             transform: none !important;
+        }
+        html.is-mobile .alphabet-fast-char:hover,
+        html.is-mobile .alphabet-fast-char.active {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
         }
         html.is-mobile .button-primary:hover,
         html.is-mobile .button-primary:active,
@@ -1688,13 +1740,13 @@
                     </h1>
                 </div>
                 <div class="theme-controls">
-                    <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
-                    <a id="githubStarBtn" class="theme-toggle glass-element" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
+                    <button id="themeToggle" class="theme-toggle glass-element glass-control" aria-label="切换主题模式"></button>
+                    <a id="githubStarBtn" class="theme-toggle glass-element glass-control" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
                         <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                         </svg>
                     </a>
-                    <button id="langToggle" class="theme-toggle glass-element" aria-label="切换语言" title="切换语言">
+                    <button id="langToggle" class="theme-toggle glass-element glass-control" aria-label="切换语言" title="切换语言">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="m5 8 6 6"/>
                             <path d="m4 14 6-6 2-3"/>
@@ -1740,7 +1792,7 @@
                     <button id="listToggleBtn" class="list-toggle-icon" type="button" aria-label="首字母资源列表" title="首字母资源列表">📋</button>
                 </div>
 
-                <button id="backToTopBtn" class="theme-toggle glass-element back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
+                <button id="backToTopBtn" class="theme-toggle glass-element glass-control back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="12" y1="5" x2="12" y2="19"></line>
                         <polyline points="5 12 12 5 19 12"></polyline>
@@ -2053,6 +2105,7 @@
         let tabAnimTimer = null;
         let tabSwitchContentTimer = null;
         let lastCardWidthVal = 0;
+        let alphabetRenderKey = "";
 
         function checkScrollLock() {
             const root = document.documentElement;
@@ -2093,6 +2146,12 @@
 
         function safeInstallURL(value) {
             return safeURL(value, ["shadowrocket:", "https:"]);
+        }
+
+        // 统一图片加载失败时的降级处理
+        function bindImageError(img, fallbackSrc) {
+            if (!img) return;
+            img.addEventListener("error", () => { img.src = fallbackSrc; }, { once: true });
         }
 
         function normalizeStaticResources(lang = state.currentLang) {
@@ -2244,13 +2303,7 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-        if (searchBoxInner) {
-            searchBoxInner.addEventListener("click", (e) => {
-                if (e.target !== listToggleBtn && !searchInput.disabled) {
-                    searchInput.focus();
-                }
-            });
-        }
+
 
         function updateTabIndicator(animated = true) {
             const activeTab = document.querySelector(".tab-item.active");
@@ -2471,6 +2524,13 @@
 
         function renderAlphabetList() {
             if (!alphabetScrollArea || !alphabetFastIndex) return;
+
+            const renderKey = `${state.currentLang}|${state.allModules.length}|${state.allModules.map(m => `${m.id}|${m.name}|${m.category || ""}|${m.icon || ""}`).join("¦")}`;
+            if (renderKey === alphabetRenderKey && alphabetScrollArea.children.length) {
+                updateAlphabetPosition();
+                return;
+            }
+            alphabetRenderKey = renderKey;
             alphabetScrollArea.innerHTML = "";
             alphabetFastIndex.innerHTML = "";
 
@@ -2520,6 +2580,7 @@
                     groups[letter].forEach(mod => {
                         const row = document.createElement("div");
                         row.className = "alphabet-item-row";
+                        row.dataset.moduleId = mod.id;
                         row.setAttribute("role", "button");
                         row.setAttribute("tabindex", "0");
                         
@@ -2542,15 +2603,7 @@
                             <span class="alphabet-item-type">${escapeHTML(catName)}</span>
                         `;
 
-                        row.addEventListener("click", (e) => {
-                            e.preventDefault();
-                            focusSingleResource(mod);
-                        });
-
-                        const img = row.querySelector("img");
-                        if (img) {
-                            img.addEventListener("error", () => { img.src = fallbackIcon; }, { once: true });
-                        }
+                        bindImageError(row.querySelector("img"), fallbackIcon);
 
                         listEl.appendChild(row);
                     });
@@ -2563,6 +2616,15 @@
             alphabetScrollArea.appendChild(fragment);
             updateAlphabetPosition();
         }
+
+        alphabetScrollArea.addEventListener("click", (e) => {
+            const row = e.target.closest(".alphabet-item-row");
+            if (!row || !alphabetScrollArea.contains(row)) return;
+            e.preventDefault();
+            const moduleId = row.dataset.moduleId;
+            const mod = state.allModules.find(item => String(item.id) === String(moduleId));
+            if (mod) focusSingleResource(mod);
+        });
 
         function scrollToAlphabetLetter(letter) {
             const targetEl = document.getElementById(`alphabet-group-${letter}`);
@@ -2582,8 +2644,8 @@
                 const letter = charEl.dataset.letter;
                 if (letter) {
                     scrollToAlphabetLetter(letter);
-                    document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
-                    charEl.classList.add("active");
+                    document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("is-highlighted"));
+                    charEl.classList.add("is-highlighted");
 
                     if (alphabetPopupBubble) {
                         alphabetPopupBubble.textContent = letter;
@@ -2616,7 +2678,7 @@
             if (isTouchingIndex) {
                 isTouchingIndex = false;
                 if (alphabetPopupBubble) alphabetPopupBubble.classList.remove("visible");
-                document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
+                document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("is-highlighted"));
             }
         });
 
@@ -2635,7 +2697,7 @@
             if (isTouchingIndex) {
                 isTouchingIndex = false;
                 if (alphabetPopupBubble) alphabetPopupBubble.classList.remove("visible");
-                document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
+                document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("is-highlighted"));
             }
         });
 
@@ -2661,23 +2723,29 @@
 
             if (enable) {
                 state.focusedModuleId = null;
-                window.scrollTo({ top: 0, behavior: "smooth" });
+                window.scrollTo({ top: 0, behavior: "auto" });
                 document.body.classList.add("is-list-view");
                 updateRightActionButton();
-                
+                checkScrollLock();
+
                 renderAlphabetList();
                 updateAlphabetPosition();
-                alphabetViewContainer.classList.add("is-visible");
-                checkScrollLock();
+
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        if (state.isListView) alphabetViewContainer.classList.add("is-visible");
+                    });
+                });
             } else {
                 alphabetViewContainer.classList.remove("is-visible");
                 setTimeout(() => {
+                    if (state.isListView) return;
                     document.body.classList.remove("is-list-view");
                     updateRightActionButton();
-                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    window.scrollTo({ top: 0, behavior: "auto" });
                     checkScrollLock();
                     scheduleCardLayerUpdate();
-                }, 100);
+                }, 200);
             }
         }
 
@@ -2692,9 +2760,10 @@
             setListViewMode(false);
         });
 
-        searchInput.addEventListener("focus", () => {
-            if (searchInput.value.trim().length === 0 && !state.focusedModuleId) {
-                setListViewMode(true);
+        searchBoxInner.addEventListener("click", (e) => {
+            if (e.target.closest("#listToggleBtn")) return;
+            if (!searchInput.disabled) {
+                listToggleBtn.click();
             }
         });
 
@@ -2854,15 +2923,8 @@
                 });
             }
             
-            const iconImg = card.querySelector(".module-icon img");
-            if (iconImg) {
-                iconImg.addEventListener("error", () => { iconImg.src = fallbackIcon; }, { once: true });
-            }
-
-            const avatarImg = card.querySelector(".author-avatar");
-            if (avatarImg) {
-                avatarImg.addEventListener("error", () => { avatarImg.remove(); }, { once: true });
-            }
+            bindImageError(card.querySelector(".module-icon img"), fallbackIcon);
+            bindImageError(card.querySelector(".author-avatar"), null); // avatar removal on error handled via custom callback if needed
 
             module._domElement = card;
             return card;
@@ -3237,6 +3299,7 @@
 
         updateThemeUI();
 
+        const PULL_REBOUND = 'top 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
         let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
         let hasPulledContainer = false;
         const MIN_DRAG_DEADZONE = 30;
@@ -3254,11 +3317,10 @@
             showToast(success ? langObj.toastDataRefreshed : langObj.toastSyncFailed);
             
             setTimeout(() => {
-                const reboundBezier = 'top 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
-                pageContainer.style.transition = reboundBezier;
+                pageContainer.style.transition = PULL_REBOUND;
                 pageContainer.style.top = '0';
 
-                pullRefreshIndicator.style.transition = `${reboundBezier}, opacity 0.25s ease`;
+                pullRefreshIndicator.style.transition = `${PULL_REBOUND}, opacity 0.25s ease`;
                 pullRefreshIndicator.style.opacity = '0';
                 pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
                 ptrIcon.classList.remove("rotate");
@@ -3275,10 +3337,9 @@
             if (pullRafId) cancelAnimationFrame(pullRafId);
 
             if (hasPulledContainer) {
-                const reboundBezier = 'top 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
-                pageContainer.style.transition = reboundBezier;
+                pageContainer.style.transition = PULL_REBOUND;
                 pageContainer.style.top = '0';
-                pullRefreshIndicator.style.transition = `${reboundBezier}, opacity 0.25s ease`;
+                pullRefreshIndicator.style.transition = `${PULL_REBOUND}, opacity 0.25s ease`;
                 pullRefreshIndicator.style.opacity = '0';
                 pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
             } else {
