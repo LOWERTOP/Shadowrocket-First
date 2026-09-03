@@ -62,86 +62,11 @@
 
     <style>
         /* =========================================================
-            1. 浅色主题设计令牌 (Light Theme Tokens)
+            1. 全局设计令牌与液体玻璃基础变量
         ========================================================= */
         :root, [data-theme="light"] {
             --layout-gap: 44px;
-
             --bg-page-solid: #f0f2f5;
-            
-            --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
-            --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
-            
-            /* 浅色模式全向常驻细高光边框 */
-            --glass-border-t: rgba(255, 255, 255, 0.8);
-            --glass-border-r: rgba(255, 255, 255, 0.8);
-            --glass-border-b: rgba(255, 255, 255, 0.8);
-            --glass-border-l: rgba(255, 255, 255, 0.8);
-
-            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
-
-            --content-shadow-lg: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
-            --text-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.18);
-            --content-shadow-sm: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
-            --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.15);
-
-            --shadow-glass-ui: 
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
-                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
-                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
-                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
-                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
-                -1px 4px 6px rgba(0, 0, 0, 0.15),        
-                -8px 18px 22px -3px rgba(0, 0, 0, 0.12), 
-                -25px 45px 55px -5px rgba(0, 0, 0, 0.22); 
-
-            /* 底栏专用：隐藏下方黑色阴影，保留白色光晕与内高光 */
-            --shadow-tab-bar-bottom: 
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
-                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
-                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
-                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
-                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17);
-
-            --shadow-glass-ui-hover: 
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),     
-                -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
-                -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
-                -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
-                -2.2px 14px 10px -4px rgba(255, 255, 255, 0.18),
-                -1.5px 6px 8px rgba(0, 0, 0, 0.15),
-                -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
-                -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
-
-            --shadow-search: 
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
-                -1.7px 4.7px 3px -2px rgba(255, 255, 255, 0.22),
-                -0.9px 5.3px 4px -2.3px rgba(255, 255, 255, 0.20),
-                -2.3px 6.7px 5px -2.7px rgba(255, 255, 255, 0.17),
-                -1.2px 8px 6px -2.7px rgba(255, 255, 255, 0.11),
-                -0.7px 2.7px 4px rgba(0, 0, 0, 0.10),        
-                -5.3px 12px 14.7px -2px rgba(0, 0, 0, 0.08), 
-                -16.7px 30px 36.7px -3.3px rgba(0, 0, 0, 0.15); 
-
-            --shadow-search-hover: 
-                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
-                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
-                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),     
-                -2px 5.7px 3.3px -2px rgba(255, 255, 255, 0.22),
-                -1.1px 6.3px 4.7px -2.3px rgba(255, 255, 255, 0.20),
-                -2.8px 8px 6px -2.7px rgba(255, 255, 255, 0.17),
-                -1.5px 9.3px 6.7px -2.7px rgba(255, 255, 255, 0.12),
-                -1px 4px 5.3px rgba(0, 0, 0, 0.10),
-                -6.7px 13.3px 16.7px -2px rgba(0, 0, 0, 0.08),
-                -20px 33.3px 40px -4px rgba(0, 0, 0, 0.17);
 
             --text-primary: #4a4f59;
             --text-secondary: #7e8596;
@@ -153,7 +78,7 @@
 
             --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
             --primary-gradient-hover: linear-gradient(135deg, #0891b2 0%, #2563eb 50%, #7c3aed 100%);
-            --primary-gradient-shadow: 0 4px 14px rgba(59, 130, 246, 0.08);
+            --primary-gradient-shadow: 0 4px 14px rgba(59, 130, 246, 0.16);
             
             --bg-surface: #e6eaf0;
             --border-subtle: #d6dbe3;
@@ -163,53 +88,23 @@
             --accent-orange: #c4af9d; 
             --accent-orange-soft: rgba(196, 175, 157, 0.2);
 
-            --radius-card: 44px;
+            --radius-card: 32px;
             --radius-pill: 9999px;
-
             --card-width: 380px;
+
+            /* 液体玻璃默认参数 (txt 规格) */
+            --border-radius: 22px;
+            --liquid-cover-bg: rgba(255, 255, 255, 0.38);
+            --liquid-sharp-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.65), inset -1px -1px 0px 0px rgba(255, 255, 255, 0.5);
+            --liquid-reflect-shadow: inset 2px 2px 6px 2px rgba(255, 255, 255, 0.35), inset -2px -2px 4px -1px rgba(0, 0, 0, 0.04);
 
             --bottom-offset: max(16px, calc(env(safe-area-inset-bottom) - 14px));
             --safe-pad-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
             --toast-bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px));
         }
 
-        /* =========================================================
-            2. 暗色主题设计令牌 (Dark Theme Tokens)
-        ========================================================= */
         [data-theme="dark"] {
             --bg-page-solid: #14161a;
-            
-            --glass-bg: none;
-            --glass-bg-hover: none;
-            --glass-border-t: transparent;
-            --glass-border-r: transparent;
-            --glass-border-b: transparent;
-            --glass-border-l: transparent;
-
-            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
-
-            --content-shadow-lg: none;
-            --text-shadow-lg: none;
-            --content-shadow-sm: none;
-            --text-shadow-sm: none;
-
-            --shadow-glass-ui: 
-                0 6px 20px rgba(0, 0, 0, 0.4),
-                0 2px 6px rgba(0, 0, 0, 0.25);
-
-            --shadow-tab-bar-bottom: none;
-
-            --shadow-glass-ui-hover: 
-                0 8px 24px rgba(0, 0, 0, 0.5),
-                0 3px 8px rgba(0, 0, 0, 0.3);
-
-            --shadow-search: 
-                0 4px 13.3px rgba(0, 0, 0, 0.27),
-                0 1.3px 4px rgba(0, 0, 0, 0.17);
-
-            --shadow-search-hover: 
-                0 5.3px 16px rgba(0, 0, 0, 0.33),
-                0 2px 5.3px rgba(0, 0, 0, 0.20);
 
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
@@ -221,7 +116,7 @@
 
             --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
             --primary-gradient-hover: linear-gradient(135deg, #22d3ee 0%, #60a5fa 50%, #a78bfa 100%);
-            --primary-gradient-shadow: 0 4px 16px rgba(59, 130, 246, 0.11);
+            --primary-gradient-shadow: 0 4px 16px rgba(59, 130, 246, 0.22);
 
             --bg-surface: #1d2026;
             --border-subtle: #2b3038;
@@ -230,27 +125,21 @@
             --accent-mint-soft: rgba(139, 183, 196, 0.2);
             --accent-orange: #c4a991;
             --accent-orange-soft: rgba(196, 169, 145, 0.2);
-        }
 
-        html.theme-transitioning,
-        html.theme-transitioning *,
-        html.theme-transitioning *::before,
-        html.theme-transitioning *::after {
-            transition: none !important;
-        }
-
-        html.is-resizing .tab-indicator {
-            transition: none !important;
+            /* 暗色下液体玻璃参数 */
+            --liquid-cover-bg: rgba(29, 32, 38, 0.65);
+            --liquid-sharp-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.18), inset -1px -1px 0px 0px rgba(0, 0, 0, 0.6);
+            --liquid-reflect-shadow: inset 2px 2px 6px 2px rgba(255, 255, 255, 0.08), inset -2px -2px 4px -1px rgba(0, 0, 0, 0.4);
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        p { margin: 0; }
         
         html { 
             margin: 0; 
             padding: 0; 
             scrollbar-gutter: stable; 
             background-color: var(--bg-page-solid);
-            background-image: none !important;
             min-height: 100%;
             transition: background-color 0.4s ease; 
         }
@@ -279,7 +168,6 @@
             padding-bottom: var(--safe-pad-bottom);
             padding-left: 16px;
             background-color: transparent;
-            background-image: none !important;
             color: var(--text-primary); 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; 
             -webkit-font-smoothing: antialiased; 
@@ -301,25 +189,69 @@
             flex-direction: column;
         }
 
-        .glass-element {
-            background-color: transparent;
-            background-image: var(--noise-pattern), var(--glass-bg);
-            backdrop-filter: blur(32px) saturate(120%) brightness(102%);
-            -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
-            border-top: 1px solid var(--glass-border-t);
-            border-left: 1px solid var(--glass-border-l);
-            border-right: 1px solid var(--glass-border-r);
-            border-bottom: 1px solid var(--glass-border-b);
+        /* =========================================================
+            2. txt 文件专属 Liquid Glass 核心图层系统
+        ========================================================= */
+        .liquid_glass-wrapper {
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
         }
 
-        [data-theme="dark"] .glass-element {
-            background-color: var(--bg-surface);
-            background-image: var(--noise-pattern);
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border: 1px solid var(--border-subtle);
+        .liquid_glass-outer {
+            backdrop-filter: url(#liquid_glass_filter);
+            -webkit-backdrop-filter: url(#liquid_glass_filter);
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            border-radius: var(--border-radius);
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="0" y="0" width="100%" height="100%" rx="0" ry="0" fill="white"/></svg>'),
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="4" y="4" width="calc(100% - 8px)" height="calc(100% - 8px)" rx="18" ry="18" fill="white"/></svg>');
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="0" y="0" width="100%" height="100%" rx="0" ry="0" fill="white"/></svg>'),
+                                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="4" y="4" width="calc(100% - 8px)" height="calc(100% - 8px)" rx="18" ry="18" fill="white"/></svg>');
+            mask-composite: exclude;
+            -webkit-mask-composite: destination-out;
+            pointer-events: none;
         }
 
+        .liquid_glass-cover {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            border-radius: var(--border-radius);
+            background: var(--liquid-cover-bg);
+            pointer-events: none;
+        }
+
+        .liquid_glass-reflect {
+            position: absolute;
+            inset: 1px;
+            z-index: 2;
+            box-shadow: var(--liquid-reflect-shadow);
+            border-radius: var(--border-radius);
+            pointer-events: none;
+        }
+
+        .liquid_glass-sharp {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            box-shadow: var(--liquid-sharp-shadow);
+            border-radius: var(--border-radius);
+            pointer-events: none;
+        }
+
+        .liquid-content-layer {
+            position: relative;
+            z-index: 4;
+            width: 100%;
+        }
+
+        /* 下拉刷新提示条 */
         .pull-refresh-indicator {
             position: fixed;
             top: max(8px, env(safe-area-inset-top));
@@ -329,17 +261,16 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 7px;
-            height: 32px;
-            padding: 0 14px;
+            height: 34px;
+            padding: 0 16px;
             border-radius: var(--radius-pill);
-            box-shadow: var(--shadow-glass-ui);
             color: var(--text-secondary);
             font-size: 12.5px;
             font-weight: 400;
             pointer-events: none;
             opacity: 0;
             will-change: transform, opacity;
+            --border-radius: var(--radius-pill);
         }
         .ptr-icon {
             display: inline-flex;
@@ -353,6 +284,7 @@
         .ptr-icon svg { width: 100%; height: 100%; }
         .ptr-icon.rotate { transform: rotate(180deg); }
 
+        /* 页头设计 */
         .header { padding: 24px 0 18px; }
         .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
         .brand-wrapper { display: flex; align-items: center; gap: 10px; }
@@ -363,7 +295,6 @@
             display: inline-flex; 
             align-items: flex-start;
             gap: 2px; 
-            text-shadow: none; 
         }
         .title a { 
             display: inline-flex; 
@@ -379,9 +310,7 @@
             transition: color 0.4s ease;
         }
 
-        [data-theme="dark"] .title-shadow {
-            color: #22d3ee;
-        }
+        [data-theme="dark"] .title-shadow { color: #22d3ee; }
 
         .title-store {
             font-weight: 750;
@@ -405,9 +334,6 @@
             font-weight: 600; 
             letter-spacing: 0.3px;
             line-height: 1;
-            border: none; 
-            box-shadow: none; 
-            text-shadow: none;
             transform: translateY(calc(3px - 20%)); 
             user-select: none;
             -webkit-user-select: none;
@@ -422,45 +348,57 @@
         .subtitle { 
             margin-top: 8px; color: var(--text-secondary); font-size: 14px; 
             line-height: 1.5; font-weight: 300; 
-            text-shadow: none; 
         }
         
         .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
+        /* =========================================================
+            3. 右上角功能按钮（居中精准修正）
+        ========================================================= */
         .theme-toggle { 
-            display: inline-flex; align-items: center; justify-content: center; 
-            width: 44px; height: 44px; padding: 0; margin: 0; 
-            border-radius: 50%; 
-            color: var(--text-secondary); cursor: pointer; 
-            box-shadow: var(--shadow-glass-ui); 
-            transition: 
-                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.3s ease,
-                color 0.2s ease;
+            position: relative;
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 44px; 
+            height: 44px; 
+            padding: 0; 
+            margin: 0; 
+            border: none;
+            cursor: pointer; 
+            color: var(--text-secondary);
+            --border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+            overflow: hidden;
+            vertical-align: middle;
         }
         .theme-toggle:hover { 
-            background-image: var(--noise-pattern), var(--glass-bg-hover);
             color: var(--text-primary); transform: translateY(-1px); 
-            box-shadow: var(--shadow-glass-ui-hover); 
-        }
-        [data-theme="dark"] .theme-toggle:hover {
-            background-image: var(--noise-pattern);
-            background-color: var(--border-subtle); 
         }
         .theme-toggle:active { transform: scale(0.92); }
-        .theme-toggle.active { 
-            color: var(--primary); background-color: var(--primary-soft); 
-        }
-        
-        .theme-toggle svg { 
-            display: block; width: 20px; height: 20px; pointer-events: none; stroke-width: 2; 
-            filter: none; 
+
+        .theme-toggle .icon {
+            position: relative;
+            z-index: 4;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            height: 100% !important;
+            line-height: 0;
+            pointer-events: none;
         }
 
-        /* =========================================================
-            3. 搜索 + 分类控制栏 (宽屏吸顶)
-        ========================================================= */
+        .theme-toggle svg { 
+            display: block; 
+            width: 20px; 
+            height: 20px; 
+            flex-shrink: 0;
+            pointer-events: none; 
+            stroke-width: 2; 
+        }
+
+        /* 搜索 + 分类控制栏 */
         .control-bar {
             position: sticky;
             top: max(12px, env(safe-area-inset-top, 0px));
@@ -474,9 +412,7 @@
             padding: 4px 0;
         }
 
-        /* =========================================================
-            4. 分类标签页
-        ========================================================= */
+        /* 分类标签栏 */
         .tab-bar-wrapper {
             width: 100%;
             min-width: 0;
@@ -496,10 +432,8 @@
             justify-content: space-between;
             gap: 4px;
             padding: 5px;
-            border-radius: 22px;
-            box-shadow: var(--shadow-search);
+            --border-radius: 22px;
             overflow: hidden;
-            transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .tab-indicator {
@@ -546,19 +480,14 @@
             text-align: center;
             overflow: visible;
             text-overflow: ellipsis;
-            transition: 
-                color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
+            transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
         }
 
-        .tab-item:active {
-            transform: scale(0.92);
-        }
+        .tab-item:active { transform: scale(0.92); }
 
         .tab-item:not(.active) {
             background: transparent !important;
             color: var(--text-secondary);
-            box-shadow: none !important;
         }
 
         .tab-item:not(.active)::before,
@@ -585,9 +514,6 @@
         .tab-item:not(.active):active,
         .tab-item:not(.active):focus-visible {
             color: #0891b2;
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
         }
 
         [data-theme="dark"] .tab-item:not(.active):hover,
@@ -605,13 +531,10 @@
         .tab-item.active {
             color: #FFFFFF !important;
             background: transparent !important;
-            box-shadow: none !important;
             font-weight: 400 !important;
         }
 
-        /* =========================================================
-            5. 搜索框区域
-        ========================================================= */
+        /* 搜索框区域 */
         .search-wrapper { 
             position: relative;
             height: 44px;
@@ -632,37 +555,15 @@
             display: flex; 
             align-items: center; 
             gap: 8px; 
-            border-radius: 22px; 
-            box-shadow: var(--shadow-search); 
+            --border-radius: 22px; 
             padding: 6px; 
             cursor: text;
-            -webkit-transform: translateZ(0); 
-            transform: translateZ(0);
-            transition: 
-                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.35s ease,
-                background-color 0.35s ease;
-        }
-
-        .search-box-inner:focus-within {
-            background-image: var(--noise-pattern), var(--glass-bg-hover);
-            border-color: rgba(255,255,255,0.8); 
-            box-shadow: var(--shadow-search-hover); 
-        }
-        
-        [data-theme="dark"] .search-box-inner:focus-within {
-            background-image: var(--noise-pattern);
-            background-color: var(--border-subtle);
-            border-color: var(--text-tertiary); 
-            box-shadow: var(--shadow-search-hover);
         }
         
         .search-icon { 
             width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%;
-            background: transparent; box-shadow: none; border: 1px solid var(--border-subtle);
             display: flex; align-items: center; justify-content: center;
             font-size: 14px; pointer-events: none; color: var(--primary); 
-            filter: none; 
         }
         
         .input-wrapper {
@@ -676,9 +577,8 @@
             display: block; line-height: 32px;
             padding: 0; margin: 0; border: 0; outline: none; background: transparent;
             color: var(--text-primary); font-size: 15px; font-weight: 400; vertical-align: middle;
-            -webkit-appearance: none; appearance: none; border-radius: 0;
+            -webkit-appearance: none; appearance: none;
             z-index: 2;
-            text-shadow: none; 
         }
         
         .search::placeholder { color: transparent; }
@@ -695,7 +595,6 @@
             height: 32px; line-height: 32px;
             color: var(--text-tertiary); font-size: 15px; font-weight: 300;
             overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-            text-shadow: none; 
         }
 
         .search:focus ~ .placeholder-track,
@@ -711,7 +610,7 @@
 
         .search-shortcut, .search-clear { 
             width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            background: transparent; border: none; box-shadow: none;
+            background: transparent; border: none;
             font-size: 12px; font-weight: 600; 
             transition: color 0.2s ease, opacity 0.2s ease; 
         }
@@ -725,21 +624,18 @@
             height: 44px;
             padding: 0;
             margin-left: 0;
-            border-color: transparent !important;
-            box-shadow: none;
             opacity: 0;
             visibility: hidden;
             transform: scale(0.6);
             pointer-events: none;
             overflow: hidden;
             flex-shrink: 0;
+            --border-radius: 50%;
             transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
                         margin-left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
                         opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
                         transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        visibility 0.35s ease,
-                        box-shadow 0.35s ease,
-                        border-color 0.35s ease;
+                        visibility 0.35s ease;
         }
         .back-to-top-btn.visible {
             width: 44px;
@@ -748,25 +644,13 @@
             visibility: visible;
             transform: scale(1);
             pointer-events: auto;
-            box-shadow: var(--shadow-search);
-            border-top-color: var(--glass-border-t) !important;
-            border-left-color: var(--glass-border-l) !important;
-            border-right-color: var(--glass-border-r) !important;
-            border-bottom-color: var(--glass-border-b) !important;
         }
-        [data-theme="dark"] .back-to-top-btn.visible {
-            border-color: var(--border-subtle) !important;
-        }
-        .back-to-top-btn.visible:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-search-hover);
-        }
+        .back-to-top-btn.visible:hover { transform: translateY(-1px); }
         .back-to-top-btn.visible:active { transform: scale(0.92); }
 
         .status { 
             display: flex; align-items: center; justify-content: space-between; 
             min-height: 22px; margin: 0 4px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
-            text-shadow: none; 
         }
         .status-left { display: flex; align-items: center; gap: 8px; }
         .status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint-soft); }
@@ -774,6 +658,7 @@
         .status-dot.error { background: #c8a3ab; box-shadow: 0 0 0 3px rgba(200, 163, 171, 0.2); }
         @keyframes statusPulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
         
+        /* 列表与卡片网格 */
         .modules { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); 
@@ -783,6 +668,7 @@
             min-height: 0; 
         }
 
+        /* 主/次卡片 (txt 规范液体玻璃层) */
         .module-card { 
             position: relative; 
             padding: 28px; 
@@ -791,26 +677,14 @@
             min-width: 0;
             display: flex;
             flex-direction: column;
-            border-radius: var(--radius-card); 
-            box-shadow: var(--shadow-glass-ui); 
-            overflow: hidden; 
-            transition: 
-                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-                background-image 0.4s ease;
-            -webkit-transform: translateZ(0); transform: translateZ(0); 
+            --border-radius: var(--radius-card); 
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
             .module-card:hover { 
                 z-index: 50000 !important;
                 transform: translateY(-2px);
-                background-image: var(--noise-pattern), var(--glass-bg-hover);
-                box-shadow: var(--shadow-glass-ui-hover); 
-            }
-            [data-theme="dark"] .module-card:hover {
-                background-image: var(--noise-pattern);
-                background-color: var(--bg-surface); 
             }
         }
 
@@ -820,11 +694,6 @@
             width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; 
             background: transparent; overflow: hidden; 
             box-shadow: 0 6px 16px rgba(0,0,0,0.12); 
-            border: none; 
-            -webkit-mask-image: -webkit-radial-gradient(white, black);
-            mask-image: radial-gradient(white, black);
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
             display: block;
             text-decoration: none;
             cursor: pointer;
@@ -834,16 +703,13 @@
             transform: scale(1.06);
             opacity: 0.92;
         }
-        .module-icon:active {
-            transform: scale(0.95);
-        }
+        .module-icon:active { transform: scale(0.95); }
         .module-icon img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         
         .card-main { min-width: 0; flex: 1; }
         .module-name { 
             margin: 0; font-size: 20px; line-height: 1.3; font-weight: 400;
             letter-spacing: -0.2px; color: var(--text-primary); word-break: break-word; 
-            text-shadow: var(--text-shadow-lg); 
         }
         
         .module-meta { 
@@ -882,7 +748,6 @@
             height: 18px; 
             border-radius: 50%; 
             object-fit: cover; 
-            box-shadow: none; 
             flex-shrink: 0;
         }
         
@@ -893,7 +758,6 @@
             line-height: 1.6; 
             font-weight: 300; 
             word-break: break-word; 
-            text-shadow: var(--text-shadow-sm); 
             flex: 1 1 auto;
         }
         
@@ -905,7 +769,6 @@
             margin-top: 24px; 
             padding-top: 24px; 
             border-top: 1px solid var(--border-subtle); 
-            box-shadow: none; 
             flex-shrink: 0;
         }
 
@@ -916,36 +779,27 @@
             height: 44px; padding: 0 20px; border: 0; border-radius: 22px; 
             font-size: 14px; font-weight: 500; white-space: nowrap; cursor: pointer; 
             text-decoration: none; 
-            transition: 
-                color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
+            transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         
+        /* 次级按钮（带微光光晕） */
         .button-secondary { 
             position: relative;
             isolation: isolate;
             background: transparent !important; 
             color: #0891b2; 
             border: none !important; 
-            box-shadow: none !important; 
-            text-shadow: none; 
             padding: 0 16px;
             overflow: visible;
-            transition: 
-                transform 0.2s ease,
-                color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.2s ease, color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .button-secondary:active { transform: scale(0.96); }
-        [data-theme="dark"] .button-secondary {
-            color: #22d3ee;
-        }
+        [data-theme="dark"] .button-secondary { color: #22d3ee; }
         
         .button-secondary:hover,
         .button-secondary:active,
         .button-secondary:focus-visible { 
             background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
             color: #0891b2;
         }
         .button-secondary:hover::before,
@@ -959,13 +813,14 @@
             color: #22d3ee;
         }
         
+        /* 主按钮（完全保留渐变色背景与悬浮光晕动效） */
         .button-primary { 
             background: var(--primary-gradient); 
             color: #FFFFFF; 
             border: none; 
             box-shadow: var(--primary-gradient-shadow); 
-            text-shadow: var(--text-shadow-sm); 
             transform: none !important; 
+            transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .button-primary:hover,
         .button-primary:active,
@@ -973,9 +828,9 @@
             background: var(--primary-gradient); 
             transform: none !important;
             box-shadow: 
-                0 0 20px 4px rgba(59, 130, 246, 0.17),
-                0 0 30px 8px rgba(6, 182, 212, 0.13),
-                0 0 40px 10px rgba(139, 92, 246, 0.10);
+                0 0 20px 4px rgba(59, 130, 246, 0.22),
+                0 0 30px 8px rgba(6, 182, 212, 0.16),
+                0 0 40px 10px rgba(139, 92, 246, 0.12);
         }
         [data-theme="dark"] .button-primary:hover,
         [data-theme="dark"] .button-primary:active,
@@ -983,9 +838,9 @@
             background: var(--primary-gradient);
             transform: none !important;
             box-shadow: 
-                0 0 22px 5px rgba(59, 130, 246, 0.22),
-                0 0 34px 8px rgba(34, 211, 238, 0.17),
-                0 0 44px 12px rgba(167, 139, 250, 0.14);
+                0 0 22px 5px rgba(59, 130, 246, 0.28),
+                0 0 34px 8px rgba(34, 211, 238, 0.20),
+                0 0 44px 12px rgba(167, 139, 250, 0.16);
         }
         
         .sentinel { height: 20px; margin: 10px 0; }
@@ -994,15 +849,13 @@
             width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 50%;
             border: 1px solid var(--border-subtle); background: var(--bg-surface);
             display: flex; align-items: center; justify-content: center;
-            font-size: 24px; opacity: 1; 
-            filter: none; 
+            font-size: 24px;
         }
         
         .loading-card { 
             height: 180px; 
             min-width: 0;
-            border-radius: var(--radius-card); 
-            box-shadow: var(--shadow-glass-ui); 
+            --border-radius: var(--radius-card); 
             animation: skeletonPulse 1.4s infinite; 
         }
         @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
@@ -1024,21 +877,17 @@
             transform: translateX(-50%) translateY(100px); 
             z-index: 999999; 
             padding: 12px 26px; 
-            border-radius: var(--radius-pill); 
+            --border-radius: var(--radius-pill); 
             color: var(--text-primary); 
             font-size: 13.5px; 
             font-weight: 450; 
-            box-shadow: var(--shadow-glass-ui); 
             opacity: 0; 
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
             pointer-events: none; 
-            text-shadow: none;
         }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-        /* =========================================================
-            6. 单列布局与底栏完全重构规范
-        ========================================================= */
+        /* 单列布局与底栏适配规范 */
         .control-bar.is-single-column {
             display: block;
             position: sticky;
@@ -1088,9 +937,8 @@
             max-width: clamp(1080px, 95vw, 2560px);
             height: 62px;
             padding: 5px;
-            border-radius: 31px;
+            --border-radius: 31px;
             gap: 4px;
-            box-shadow: var(--shadow-tab-bar-bottom);
             overflow: hidden;
         }
 
@@ -1107,181 +955,18 @@
             justify-content: center;
         }
 
-        .control-bar.is-single-column .tab-item:not(.active) {
-            background: transparent !important;
-            border: none !important;
-            box-shadow: none !important;
-        }
-
-        .control-bar.is-single-column .tab-item.active {
-            color: #FFFFFF !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            font-weight: 400 !important;
-        }
-
-        /* =========================================================
-            7. 移动与触控设备性能约束
-        ========================================================= */
+        /* 移动端与小屏幕适配 */
         @media (hover: none), (pointer: coarse), (max-width: 860px) {
-            .modules { 
-                grid-template-columns: 1fr; 
-                min-height: 0;
-                align-items: start;
-            }
-
-            .module-card,
-            .module-card:hover,
-            .module-card:active,
-            .module-card:focus,
-            .module-card:focus-within {
-                height: auto !important;
-                transform: none !important;
-                box-shadow: var(--shadow-glass-ui) !important;
-                transition: none !important;
-            }
-            [data-theme="dark"] .module-card,
-            [data-theme="dark"] .module-card:hover,
-            [data-theme="dark"] .module-card:active,
-            [data-theme="dark"] .module-card:focus,
-            [data-theme="dark"] .module-card:focus-within {
-                transform: none !important;
-                box-shadow: var(--shadow-glass-ui) !important;
-                background-image: var(--noise-pattern) !important;
-                background-color: var(--bg-surface) !important;
-            }
-
-            .tab-item:not(.active)::before,
-            .button-secondary::before,
-            .tab-item:not(.active):hover::before,
-            .tab-item:not(.active):active::before,
-            .tab-item:not(.active):focus-visible::before,
-            .button-secondary:hover::before,
-            .button-secondary:active::before,
-            .button-secondary:focus-visible::before {
-                display: none !important;
-                opacity: 0 !important;
-                transition: none !important;
-            }
-
-            .tab-item:not(.active):hover,
-            .tab-item:not(.active):active,
-            .tab-item:not(.active):focus-visible {
-                color: var(--text-secondary) !important;
-                background: transparent !important;
-                box-shadow: none !important;
-            }
-
-            .button-secondary,
-            .button-secondary:hover,
-            .button-secondary:active,
-            .button-secondary:focus-visible {
-                transform: none !important;
-                box-shadow: none !important;
-                background: transparent !important;
-                color: #0891b2 !important;
-            }
-            [data-theme="dark"] .button-secondary,
-            [data-theme="dark"] .button-secondary:hover,
-            [data-theme="dark"] .button-secondary:active,
-            [data-theme="dark"] .button-secondary:focus-visible {
-                color: #22d3ee !important;
-            }
-
-            .button-primary,
-            .button-primary:hover,
-            .button-primary:active,
-            .button-primary:focus-visible {
-                transform: none !important;
-                box-shadow: var(--primary-gradient-shadow) !important;
-                background: var(--primary-gradient) !important;
-            }
-            [data-theme="dark"] .button-primary:hover,
-            [data-theme="dark"] .button-primary:active,
-            [data-theme="dark"] .button-primary:focus-visible {
-                box-shadow: var(--primary-gradient-shadow) !important;
-            }
-
-            .module-icon,
-            .module-icon:hover,
-            .module-icon:active,
-            .module-icon:focus {
-                transform: none !important;
-                opacity: 1 !important;
-                transition: none !important;
-                -webkit-tap-highlight-color: transparent !important;
-            }
-
-            .theme-toggle:hover,
-            .theme-toggle:active {
-                transform: none !important;
-                box-shadow: var(--shadow-glass-ui) !important;
-                color: var(--text-secondary) !important;
-            }
-            .theme-toggle.active {
-                color: var(--primary) !important;
-            }
-            .back-to-top-btn.visible:hover,
-            .back-to-top-btn.visible:active {
-                transform: scale(1) !important;
-                box-shadow: var(--shadow-search) !important;
-            }
-
-            .title a:hover {
-                opacity: 1 !important;
-            }
-            .author:hover,
-            .source-link:hover:not(.source-link-static) {
-                color: var(--text-secondary) !important;
-                text-decoration: none !important;
-            }
-            .search-clear:hover {
-                color: var(--primary) !important;
-            }
-        }
-
-        html.is-mobile .tab-item:not(.active)::before,
-        html.is-mobile .button-secondary::before,
-        html.is-mobile .tab-item:not(.active):hover::before,
-        html.is-mobile .tab-item:not(.active):active::before,
-        html.is-mobile .button-secondary:hover::before,
-        html.is-mobile .button-secondary:active::before {
-            display: none !important;
-            opacity: 0 !important;
-        }
-        html.is-mobile .button-secondary:active,
-        html.is-mobile .theme-toggle:hover,
-        html.is-mobile .theme-toggle:active,
-        html.is-mobile .back-to-top-btn.visible:hover,
-        html.is-mobile .back-to-top-btn.visible:active {
-            transform: none !important;
-        }
-        html.is-mobile .button-primary:hover,
-        html.is-mobile .button-primary:active,
-        html.is-mobile .button-primary:focus-visible {
-            box-shadow: var(--primary-gradient-shadow) !important;
-        }
-        html.is-mobile .module-icon,
-        html.is-mobile .module-icon:hover,
-        html.is-mobile .module-icon:active,
-        html.is-mobile .module-icon:focus {
-            transform: none !important;
-            opacity: 1 !important;
-            transition: none !important;
+            .modules { grid-template-columns: 1fr; }
+            .module-card:hover { transform: none !important; }
+            .button-primary:hover { box-shadow: var(--primary-gradient-shadow) !important; }
         }
 
         @media (max-width: 600px) {
-            :root {
-                --radius-card: 42px;
-            }
+            :root { --radius-card: 28px; }
             .title { font-size: 22px; }
-            .tag-pill-badge { 
-                height: 15px; 
-                font-size: 9px; 
-                padding: 0 5px; 
-                transform: translateY(calc(2px - 50%)); 
-            }
-            .module-card { padding: 22px; border-radius: var(--radius-card); }
+            .tag-pill-badge { height: 15px; font-size: 9px; padding: 0 5px; transform: translateY(calc(2px - 50%)); }
+            .module-card { padding: 22px; }
             .module-description { flex: none; }
             .card-bottom { margin-top: 20px; padding-top: 20px; }
             .search-shortcut { display: none; }
@@ -1297,14 +982,28 @@
 </head>
 
 <body>
-    <div id="pullRefreshIndicator" class="pull-refresh-indicator glass-element">
-        <span id="ptrIcon" class="ptr-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 5 19 12"></polyline>
-            </svg>
-        </span>
-        <span id="ptrText">继续下拉将强制刷新本站</span>
+    <!-- 注入真实物理光线折射流体的 SVG 滤镜定义 (对应 txt 中的 backdrop-filter: url(#liquid_glass_filter)) -->
+    <svg style="position: fixed; width: 0; height: 0; pointer-events: none;" aria-hidden="true">
+        <filter id="liquid_glass_filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04 0.04" numOctaves="1" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="9" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+
+    <div id="pullRefreshIndicator" class="pull-refresh-indicator liquid_glass-wrapper">
+        <div class="liquid_glass-outer"></div>
+        <div class="liquid_glass-cover"></div>
+        <div class="liquid_glass-reflect"></div>
+        <div class="liquid_glass-sharp"></div>
+        <div class="liquid-content-layer" style="display: flex; align-items: center; gap: 7px;">
+            <span id="ptrIcon" class="ptr-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <polyline points="19 12 12 5 19 12"></polyline>
+                </svg>
+            </span>
+            <span id="ptrText">继续下拉将强制刷新本站</span>
+        </div>
     </div>
 
     <div id="pageContainer" class="container">
@@ -1318,22 +1017,42 @@
                         <span id="tagPillBadge" class="tag-pill-badge">社区资源</span>
                     </h1>
                 </div>
+                
+                <!-- 右上角功能按钮（替换为液体玻璃拟态，统一采用 txt 的 .icon 居中图层规范） -->
                 <div class="theme-controls">
-                    <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
-                    <a id="githubStarBtn" class="theme-toggle glass-element" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
-                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
+                    <button id="themeToggle" class="theme-toggle liquid_glass-wrapper" aria-label="切换主题模式">
+                        <div class="liquid_glass-outer"></div>
+                        <div class="liquid_glass-cover"></div>
+                        <div class="liquid_glass-reflect"></div>
+                        <div class="liquid_glass-sharp"></div>
+                        <div class="icon" id="themeIconContainer"></div>
+                    </button>
+                    <a id="githubStarBtn" class="theme-toggle liquid_glass-wrapper" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
+                        <div class="liquid_glass-outer"></div>
+                        <div class="liquid_glass-cover"></div>
+                        <div class="liquid_glass-reflect"></div>
+                        <div class="liquid_glass-sharp"></div>
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                            </svg>
+                        </div>
                     </a>
-                    <button id="langToggle" class="theme-toggle glass-element" aria-label="切换语言" title="切换语言">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m5 8 6 6"/>
-                            <path d="m4 14 6-6 2-3"/>
-                            <path d="M2 5h12"/>
-                            <path d="M7 2h1"/>
-                            <path d="m22 22-5-10-5 10"/>
-                            <path d="M14 18h6"/>
-                        </svg>
+                    <button id="langToggle" class="theme-toggle liquid_glass-wrapper" aria-label="切换语言" title="切换语言">
+                        <div class="liquid_glass-outer"></div>
+                        <div class="liquid_glass-cover"></div>
+                        <div class="liquid_glass-reflect"></div>
+                        <div class="liquid_glass-sharp"></div>
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m5 8 6 6"/>
+                                <path d="m4 14 6-6 2-3"/>
+                                <path d="M2 5h12"/>
+                                <path d="M7 2h1"/>
+                                <path d="m22 22-5-10-5 10"/>
+                                <path d="M14 18h6"/>
+                            </svg>
+                        </div>
                     </button>
                 </div>
             </div>
@@ -1343,8 +1062,13 @@
         </header>
 
         <div id="controlBar" class="control-bar">
+            <!-- 标签栏 -->
             <nav class="tab-bar-wrapper" aria-label="资源分类导航">
-                <div class="tab-bar glass-element" role="tablist">
+                <div class="tab-bar liquid_glass-wrapper" role="tablist">
+                    <div class="liquid_glass-outer"></div>
+                    <div class="liquid_glass-cover"></div>
+                    <div class="liquid_glass-reflect"></div>
+                    <div class="liquid_glass-sharp"></div>
                     <div id="tabIndicator" class="tab-indicator"></div>
                     <button class="tab-item active" role="tab" aria-selected="true" data-tab="module">模块资源</button>
                     <button class="tab-item" role="tab" aria-selected="false" data-tab="config">配置文件</button>
@@ -1353,29 +1077,42 @@
                 </div>
             </nav>
 
+            <!-- 搜索框 -->
             <div class="search-wrapper">
-                <div class="search-box-inner glass-element" role="search">
-                    <div class="search-icon" aria-hidden="true">🔍</div>
-                    
-                    <div class="input-wrapper">
-                        <input id="search" class="search" type="text" inputmode="search" placeholder=" " autocomplete="off" spellcheck="false" aria-label="搜索模块" disabled>
-                        
-                        <div id="placeholderTrack" class="placeholder-track">
-                            <div id="mainPlaceholder" class="placeholder-item">请在加载完成后执行搜索...</div>
-                            <div class="placeholder-item notice-item-1">相关资源均来源于开源社区</div>
-                            <div class="placeholder-item notice-item-2">所有权利责任归原作者所有</div>
-                        </div>
-                    </div>
+                <div class="search-box-inner liquid_glass-wrapper" role="search">
+                    <div class="liquid_glass-outer"></div>
+                    <div class="liquid_glass-cover"></div>
+                    <div class="liquid_glass-reflect"></div>
+                    <div class="liquid_glass-sharp"></div>
 
-                    <span class="search-shortcut">/</span>
-                    <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
+                    <div class="liquid-content-layer" style="display: flex; align-items: center; width: 100%; gap: 8px;">
+                        <div class="search-icon" aria-hidden="true">🔍</div>
+                        <div class="input-wrapper">
+                            <input id="search" class="search" type="text" inputmode="search" placeholder=" " autocomplete="off" spellcheck="false" aria-label="搜索模块" disabled>
+                            
+                            <div id="placeholderTrack" class="placeholder-track">
+                                <div id="mainPlaceholder" class="placeholder-item">请在加载完成后执行搜索...</div>
+                                <div class="placeholder-item notice-item-1">相关资源均来源于开源社区</div>
+                                <div class="placeholder-item notice-item-2">所有权利责任归原作者所有</div>
+                            </div>
+                        </div>
+
+                        <span class="search-shortcut">/</span>
+                        <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
+                    </div>
                 </div>
 
-                <button id="backToTopBtn" class="theme-toggle glass-element back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <polyline points="5 12 12 5 19 12"></polyline>
-                    </svg>
+                <button id="backToTopBtn" class="theme-toggle liquid_glass-wrapper back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
+                    <div class="liquid_glass-outer"></div>
+                    <div class="liquid_glass-cover"></div>
+                    <div class="liquid_glass-reflect"></div>
+                    <div class="liquid_glass-sharp"></div>
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <polyline points="5 12 12 5 19 12"></polyline>
+                        </svg>
+                    </div>
                 </button>
             </div>
         </div>
@@ -1388,10 +1125,11 @@
             <div id="countText"></div>
         </div>
 
+        <!-- 主/次卡片列表容器 -->
         <main id="modules" class="modules">
-            <div class="loading-card glass-element"></div>
-            <div class="loading-card glass-element"></div>
-            <div class="loading-card glass-element"></div>
+            <div class="loading-card liquid_glass-wrapper"><div class="liquid_glass-outer"></div><div class="liquid_glass-cover"></div><div class="liquid_glass-reflect"></div><div class="liquid_glass-sharp"></div></div>
+            <div class="loading-card liquid_glass-wrapper"><div class="liquid_glass-outer"></div><div class="liquid_glass-cover"></div><div class="liquid_glass-reflect"></div><div class="liquid_glass-sharp"></div></div>
+            <div class="loading-card liquid_glass-wrapper"><div class="liquid_glass-outer"></div><div class="liquid_glass-cover"></div><div class="liquid_glass-reflect"></div><div class="liquid_glass-sharp"></div></div>
         </main>
         
         <div id="sentinel" class="sentinel"></div>
@@ -1402,7 +1140,13 @@
         </footer>
     </div>
     
-    <div id="toast" class="toast glass-element">已复制资源链接</div>
+    <div id="toast" class="toast liquid_glass-wrapper">
+        <div class="liquid_glass-outer"></div>
+        <div class="liquid_glass-cover"></div>
+        <div class="liquid_glass-reflect"></div>
+        <div class="liquid_glass-sharp"></div>
+        <div class="liquid-content-layer" id="toastContent">已复制资源链接</div>
+    </div>
 
     <script>
         const CACHE_VERSION = "202609022229"; 
@@ -1608,13 +1352,13 @@
         const footerText = document.getElementById("footerText");
         const langToggleBtn = document.getElementById("langToggle");
         const themeToggleBtn = document.getElementById("themeToggle");
+        const themeIconContainer = document.getElementById("themeIconContainer");
         const backToTopBtn = document.getElementById("backToTopBtn");
         const tabItems = document.querySelectorAll(".tab-item");
         const tabIndicator = document.getElementById("tabIndicator");
         const tabBarEl = document.querySelector(".tab-bar");
 
         const controlBarEl = document.getElementById("controlBar");
-        const searchWrapperEl = document.querySelector('.search-wrapper');
         const searchBoxInner = document.querySelector('.search-box-inner');
         const modulesContainer = document.getElementById("modules");
         const searchInput = document.getElementById("search");
@@ -1624,6 +1368,7 @@
         const statusDot = document.getElementById("statusDot");
         const countText = document.getElementById("countText");
         const toast = document.getElementById("toast");
+        const toastContent = document.getElementById("toastContent");
         const sentinel = document.getElementById("sentinel");
         const noticeTrack = document.getElementById("placeholderTrack");
 
@@ -1637,11 +1382,9 @@
                 const saved = localStorage.getItem("sr_lang_override");
                 if (saved === "en" || saved === "zh") return saved;
             } catch (e) {}
-
             const primary = (navigator.languages && navigator.languages.length 
                 ? navigator.languages[0] 
                 : (navigator.language || navigator.userLanguage || "")).toLowerCase();
-
             return primary.startsWith("zh") ? "zh" : "en";
         }
 
@@ -1669,7 +1412,6 @@
             const contentH = root.scrollHeight;
             const viewportH = window.innerHeight;
             const isOverflowing = contentH > viewportH + 3;
-
             if (isOverflowing) {
                 root.classList.remove("no-scroll");
             } else {
@@ -1712,12 +1454,7 @@
                         item.author.name,
                         item.sourceName,
                         item.category,
-                        "shadowrocket",
-                        "手册", "manual",
-                        "教程", "guide",
-                        "仓库", "repo",
-                        "文档", "docs",
-                        "配置", "config"
+                        "shadowrocket", "手册", "manual", "教程", "guide", "仓库", "repo", "文档", "docs", "配置", "config"
                     ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
 
                     return {
@@ -1765,13 +1502,7 @@
                     }
 
                     const searchTokens = [
-                        m.name,
-                        m.description,
-                        authorName,
-                        m.author?.username,
-                        sourceName,
-                        category,
-                        m._searchKeywords
+                        m.name, m.description, authorName, m.author?.username, sourceName, category, m._searchKeywords
                     ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
 
                     return {
@@ -1798,7 +1529,7 @@
 
         function showToast(text) {
             clearTimeout(toastTimer);
-            toast.textContent = text;
+            toastContent.textContent = text;
             toast.classList.add("show");
             toastTimer = setTimeout(() => {
                 toast.classList.remove("show");
@@ -1860,9 +1591,7 @@
             const activeTab = document.querySelector(".tab-item.active");
             if (!activeTab || !tabIndicator) return;
 
-            if (!animated && isTabAnimating) {
-                return;
-            }
+            if (!animated && isTabAnimating) return;
 
             if (!animated) {
                 tabIndicator.style.transition = 'none';
@@ -1914,68 +1643,20 @@
             }
         }
 
-        function updateCardLayerOrder() {
-            const cards = modulesContainer.querySelectorAll(".module-card, .loading-card");
-            const count = cards.length;
-            if (!count) return;
-            
-            const cols = getGridColumns() || 1;
-            for (let i = 0; i < count; i++) {
-                const r = Math.floor(i / cols);
-                const c = i % cols;
-                const z = String((r + 1) * 100 + (cols - c));
-                if (cards[i].style.zIndex !== z) {
-                    cards[i].style.zIndex = z;
-                }
-            }
-        }
-
-        let resizeTimer = null;
-        function scheduleCardLayerUpdate() {
-            clearTimeout(resizeTimer);
-            updateControlBarLayout();
-            resizeTimer = setTimeout(() => {
-                updateCardWidth();
-                updateCardLayerOrder();
-                updateControlBarLayout();
-                checkScrollLock();
-            }, 40);
-        }
-
         let resizeDebounceTimer = null;
         window.addEventListener("resize", () => {
-            document.documentElement.classList.add("is-resizing");
             clearTimeout(resizeDebounceTimer);
-            
             isTabAnimating = false;
             updateControlBarLayout();
             updateTabIndicator(false);
-            scheduleCardLayerUpdate();
             
             resizeDebounceTimer = setTimeout(() => {
-                document.documentElement.classList.remove("is-resizing");
+                updateCardWidth();
                 updateControlBarLayout();
                 updateTabIndicator(false);
                 checkScrollLock();
-            }, 120);
+            }, 80);
         }, { passive: true });
-
-        if (typeof ResizeObserver !== "undefined") {
-            if (modulesContainer) {
-                const gridResizeObserver = new ResizeObserver(() => {
-                    scheduleCardLayerUpdate();
-                });
-                gridResizeObserver.observe(modulesContainer);
-            }
-            if (tabBarEl) {
-                const tabBarObserver = new ResizeObserver(() => {
-                    if (!isTabAnimating) {
-                        updateTabIndicator(false);
-                    }
-                });
-                tabBarObserver.observe(tabBarEl);
-            }
-        }
 
         function renderAuthor(module) {
             const author = module.author || {};
@@ -1989,6 +1670,7 @@
             return `<span class="author">${avatarHTML}${escapeHTML(authorName)}</span>`;
         }
 
+        /* 生成嵌入液体玻璃结构的卡片 */
         function createModuleCard(module) {
             if (module._domElement) {
                 return module._domElement;
@@ -1996,12 +1678,11 @@
 
             const langObj = I18N[state.currentLang];
             const card = document.createElement("article");
-            card.className = "module-card glass-element";
+            card.className = "module-card liquid_glass-wrapper";
 
             const fallbackIcon = createIOSAppIcon(module.name);
             const icon = module.icon || fallbackIcon;
             const authorHTML = renderAuthor(module);
-            
             const isRepo = Boolean(module.isRepoCard);
 
             const directOpenURL = module.rawURL || module.sourceURL || "";
@@ -2046,22 +1727,28 @@
             const descriptionText = module.description ? escapeHTML(module.description) : langObj.noDesc;
 
             card.innerHTML = `
-                <div class="card-header">
-                    ${iconHTML}
-                    <div class="card-main">
-                        <h2 class="module-name">${escapeHTML(module.name)}</h2>
-                        <div class="module-meta">
-                            ${authorHTML}
-                            <span class="meta-separator">/</span>
-                            ${sourceLinkHTML}
+                <div class="liquid_glass-outer"></div>
+                <div class="liquid_glass-cover"></div>
+                <div class="liquid_glass-reflect"></div>
+                <div class="liquid_glass-sharp"></div>
+                <div class="liquid-content-layer" style="display: flex; flex-direction: column; height: 100%;">
+                    <div class="card-header">
+                        ${iconHTML}
+                        <div class="card-main">
+                            <h2 class="module-name">${escapeHTML(module.name)}</h2>
+                            <div class="module-meta">
+                                ${authorHTML}
+                                <span class="meta-separator">/</span>
+                                ${sourceLinkHTML}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="module-description">${descriptionText}</div>
-                <div class="card-bottom">
-                    <div class="action-buttons">
-                        ${secondaryBtnHTML}
-                        ${installBtnHTML}
+                    <div class="module-description">${descriptionText}</div>
+                    <div class="card-bottom">
+                        <div class="action-buttons">
+                            ${secondaryBtnHTML}
+                            ${installBtnHTML}
+                        </div>
                     </div>
                 </div>
             `;
@@ -2117,7 +1804,6 @@
             sentinel.style.display = state.currentlyRendered >= state.filteredModules.length ? "none" : "block";
             
             updateCardWidth();
-            updateCardLayerOrder();
             updateSearchLayer();
             checkScrollLock();
         }
@@ -2134,7 +1820,6 @@
                 sentinel.style.display = "none";
                 modulesContainer.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div>${escapeHTML(langObj.emptyText(currentLabel))}</div>`;
                 countText.textContent = langObj.countText(0, currentLabel);
-                scheduleCardLayerUpdate();
                 checkScrollLock();
                 return;
             }
@@ -2161,7 +1846,6 @@
             }
 
             let result = state.allModules.filter(m => (m.category || "module") === state.activeTab);
-
             if (keyword) {
                 result = result.filter(m => m._searchText && m._searchText.includes(keyword));
             }
@@ -2183,9 +1867,7 @@
 
                 isTabAnimating = true;
                 clearTimeout(tabAnimTimer);
-                tabAnimTimer = setTimeout(() => {
-                    isTabAnimating = false;
-                }, 460);
+                tabAnimTimer = setTimeout(() => { isTabAnimating = false; }, 460);
 
                 updateTabIndicator(true);
 
@@ -2288,13 +1970,9 @@
             }
 
             startNoticeLoop();
-
             document.addEventListener("visibilitychange", () => {
-                if (document.hidden) {
-                    stopNoticeLoop();
-                } else {
-                    startNoticeLoop();
-                }
+                if (document.hidden) stopNoticeLoop();
+                else startNoticeLoop();
             });
         }
 
@@ -2328,17 +2006,17 @@
 
             const isZh = state.currentLang === "zh";
             if (mode === "light") {
-                themeToggleBtn.innerHTML = SUN_ICON;
+                themeIconContainer.innerHTML = SUN_ICON;
                 const desc = isZh ? "当前：浅色模式（点击切换深色）" : "Current: Light mode (Click for Dark)";
                 themeToggleBtn.setAttribute("title", desc);
                 themeToggleBtn.setAttribute("aria-label", desc);
             } else if (mode === "dark") {
-                themeToggleBtn.innerHTML = MOON_ICON;
+                themeIconContainer.innerHTML = MOON_ICON;
                 const desc = isZh ? "当前：深色模式（点击切换自动跟随）" : "Current: Dark mode (Click for Auto)";
                 themeToggleBtn.setAttribute("title", desc);
                 themeToggleBtn.setAttribute("aria-label", desc);
             } else {
-                themeToggleBtn.innerHTML = SYSTEM_ICON;
+                themeIconContainer.innerHTML = SYSTEM_ICON;
                 const desc = isZh ? "当前：自动跟随系统（点击切换反色模式）" : "Current: Auto System (Click to switch)";
                 themeToggleBtn.setAttribute("title", desc);
                 themeToggleBtn.setAttribute("aria-label", desc);
@@ -2347,18 +2025,11 @@
 
         mediaQueryDark.addEventListener("change", () => {
             if (getThemeMode() === "auto") {
-                document.documentElement.classList.add("theme-transitioning");
                 updateThemeUI();
-                window.requestAnimationFrame(() => {
-                    void document.documentElement.offsetWidth;
-                    document.documentElement.classList.remove("theme-transitioning");
-                });
             }
         });
 
         themeToggleBtn.addEventListener("click", () => {
-            document.documentElement.classList.add("theme-transitioning");
-
             const currentMode = getThemeMode();
             const isSystemDark = mediaQueryDark.matches;
             let nextMode, toastText;
@@ -2395,13 +2066,6 @@
             } catch (e) {}
             updateThemeUI();
             showToast(toastText);
-
-            window.requestAnimationFrame(() => {
-                void document.documentElement.offsetWidth;
-                window.requestAnimationFrame(() => {
-                    document.documentElement.classList.remove("theme-transitioning");
-                });
-            });
         });
 
         function updateLanguageUI() {
@@ -2466,9 +2130,7 @@
 
         updateThemeUI();
 
-        /* =========================================================
-            8. 移动端下拉刷新手势处理（优化防冲突与原生惯性滚动）
-        ========================================================= */
+        /* 下拉手势 */
         let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
         let hasPulledContainer = false;
         const MIN_DRAG_DEADZONE = 30;
@@ -2495,7 +2157,6 @@
                 pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
                 ptrIcon.classList.remove("rotate");
                 state.isPullRefreshing = false;
-                pageContainer.style.willChange = "auto";
                 hasPulledContainer = false;
                 checkScrollLock();
             }, 500);
@@ -2521,19 +2182,12 @@
             }
             
             ptrIcon.classList.remove("rotate");
-            pageContainer.style.willChange = "auto";
             hasPulledContainer = false;
         }
 
         window.addEventListener('touchstart', (e) => {
-            if (state.isPullRefreshing || state.isDataLoading) {
-                isPulling = false;
-                return;
-            }
-            if (e.target.closest("input, button, a, textarea, select, label, .module-card")) {
-                isPulling = false;
-                return;
-            }
+            if (state.isPullRefreshing || state.isDataLoading) return;
+            if (e.target.closest("input, button, a, textarea, select, label, .module-card")) return;
             const isAtTop = (window.scrollY || document.documentElement.scrollTop || 0) <= 0;
             if (isAtTop) {
                 touchStartX = e.touches[0].clientX;
@@ -2541,15 +2195,11 @@
                 isPulling = true;
                 isPullLocked = false;
                 hasPulledContainer = false;
-            } else {
-                isPulling = false;
             }
         }, { passive: true });
 
         window.addEventListener('touchmove', (e) => {
-            if (!isPulling || state.isPullRefreshing || state.isDataLoading) {
-                return;
-            }
+            if (!isPulling || state.isPullRefreshing || state.isDataLoading) return;
 
             const currentX = e.touches[0].clientX;
             const currentY = e.touches[0].clientY;
@@ -2557,21 +2207,13 @@
             const diffY = currentY - touchStartY;
 
             if (!isPullLocked) {
-                if (Math.abs(diffX) > Math.abs(diffY)) {
+                if (Math.abs(diffX) > Math.abs(diffY) || diffY <= 0) {
                     isPulling = false;
                     isPullLocked = true;
                     return;
                 }
-
-                if (diffY <= 0) {
-                    isPulling = false;
-                    isPullLocked = true;
-                    return;
-                }
-
                 if (diffY > MIN_DRAG_DEADZONE) {
                     isPullLocked = true;
-                    pageContainer.style.willChange = "top";
                     pageContainer.style.transition = 'none';
                     pullRefreshIndicator.style.transition = 'none';
                 }
@@ -2605,10 +2247,7 @@
         }, { passive: false });
 
         window.addEventListener('touchend', (e) => {
-            if (!isPulling || state.isPullRefreshing || state.isDataLoading) {
-                isPulling = false;
-                return;
-            }
+            if (!isPulling || state.isPullRefreshing || state.isDataLoading) return;
             isPulling = false;
             isPullLocked = false;
             if (pullRafId) cancelAnimationFrame(pullRafId);
@@ -2620,11 +2259,9 @@
             if (hasPulledContainer && diffY >= PULL_TRIGGER_DIFF && isAtTop) {
                 pageContainer.style.transition = 'top 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)';
                 pageContainer.style.top = '38px';
-                
                 pullRefreshIndicator.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.25s ease';
                 pullRefreshIndicator.style.transform = `translate3d(-50%, 16px, 0)`;
                 pullRefreshIndicator.style.opacity = '1';
-                
                 triggerForceReload();
             } else {
                 resetPullState();
@@ -2658,9 +2295,7 @@
             try {
                 cachedData = localStorage.getItem(CONFIG.CACHE_KEY);
                 cachedTime = Number(localStorage.getItem(CONFIG.CACHE_TIME_KEY) || 0);
-            } catch (e) {
-                console.warn("读取本地缓存失败:", e);
-            }
+            } catch (e) {}
 
             const isCacheFresh = !forceRefresh && cachedData && cachedTime && (Date.now() - cachedTime < CONFIG.CACHE_MAX_AGE);
             let hasRenderedCache = false;
@@ -2707,7 +2342,6 @@
             try {
                 const fetchUrl = forceRefresh ? `${CONFIG.DATA_JSON_URL}?_t=${Date.now()}` : CONFIG.DATA_JSON_URL;
                 const response = await fetch(fetchUrl, { cache: forceRefresh ? "no-store" : "default" });
-                
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 
                 const data = await response.json();
@@ -2731,8 +2365,6 @@
                 statusDot.className = "status-dot";
                 return true;
             } catch (error) {
-                console.error("加载 modules.json 失败:", error);
-                
                 if (hasRenderedCache || state.allModules.length > staticItems.length) {
                     state.statusKey = "statusErrorCache";
                     statusText.textContent = langObj.statusErrorCache;
