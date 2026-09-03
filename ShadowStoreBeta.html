@@ -58,15 +58,97 @@
     </script>
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%2306b6d4%22/><stop offset=%2250%25%22 stop-color=%22%233b82f6%22/><stop offset=%22100%25%22 stop-color=%22%238b5cf6%22/></linearGradient></defs><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22url(%23g)%22 stroke=%22rgba(255,255,255,0.6)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/Shadowrocket.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowStore.png">
 
     <style>
         /* =========================================================
-            1. 全局设计令牌与统一阴影体系
+            1. 浅色主题设计令牌 (Light Theme Tokens)
         ========================================================= */
         :root, [data-theme="light"] {
             --layout-gap: 44px;
             --bg-page-solid: #f0f2f5;
+            
+            --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
+            --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
+            
+            --glass-border-t: rgba(255, 255, 255, 0.85);
+            --glass-border-r: rgba(255, 255, 255, 0.75);
+            --glass-border-b: rgba(255, 255, 255, 0.6);
+            --glass-border-l: rgba(255, 255, 255, 0.85);
+
+            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
+
+            --content-shadow-lg: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
+            --text-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.18);
+            --content-shadow-sm: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+            --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+            --shadow-glass-ui: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 0.9),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.5),
+                inset 3px 3px 10px 2px rgba(255, 255, 255, 0.45),
+                inset -3px -3px 8px -1px rgba(0, 0, 0, 0.08),
+                inset 0 12px 24px -6px rgba(255, 255, 255, 0.7), 
+                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
+                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
+                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
+                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
+                -1px 4px 6px rgba(0, 0, 0, 0.15),        
+                -8px 18px 22px -3px rgba(0, 0, 0, 0.12), 
+                -25px 45px 55px -5px rgba(0, 0, 0, 0.22); 
+
+            --shadow-tab-bar-bottom: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 0.9),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.5),
+                inset 3px 3px 10px 2px rgba(255, 255, 255, 0.45),
+                inset -3px -3px 8px -1px rgba(0, 0, 0, 0.08),
+                inset 0 12px 24px -6px rgba(255, 255, 255, 0.7), 
+                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
+                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
+                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
+                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17);
+
+            --shadow-glass-ui-hover: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 1.0),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.6),
+                inset 3.5px 3.5px 12px 3px rgba(255, 255, 255, 0.55),
+                inset -3px -3px 9px -1px rgba(0, 0, 0, 0.1),
+                inset 0 14px 26px -6px rgba(255, 255, 255, 0.8), 
+                -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
+                -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
+                -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
+                -2.2px 14px 10px -4px rgba(255, 255, 255, 0.18),
+                -1.5px 6px 8px rgba(0, 0, 0, 0.15),
+                -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
+                -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
+
+            --shadow-search: 
+                inset 1.2px 1.2px 0px 0px rgba(255, 255, 255, 0.85),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.45),
+                inset 2.5px 2.5px 8px 1.5px rgba(255, 255, 255, 0.38),
+                inset -2.5px -2.5px 6px -1px rgba(0, 0, 0, 0.07),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
+                -1.7px 4.7px 3px -2px rgba(255, 255, 255, 0.22),
+                -0.9px 5.3px 4px -2.3px rgba(255, 255, 255, 0.20),
+                -2.3px 6.7px 5px -2.7px rgba(255, 255, 255, 0.17),
+                -1.2px 8px 6px -2.7px rgba(255, 255, 255, 0.11),
+                -0.7px 2.7px 4px rgba(0, 0, 0, 0.10),        
+                -5.3px 12px 14.7px -2px rgba(0, 0, 0, 0.08), 
+                -16.7px 30px 36.7px -3.3px rgba(0, 0, 0, 0.15); 
+
+            --shadow-search-hover: 
+                inset 1.2px 1.2px 0px 0px rgba(255, 255, 255, 0.95),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.55),
+                inset 3px 3px 9px 2px rgba(255, 255, 255, 0.45),
+                inset -2.5px -2.5px 7px -1px rgba(0, 0, 0, 0.09),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
+                -2px 5.7px 3.3px -2px rgba(255, 255, 255, 0.22),
+                -1.1px 6.3px 4.7px -2.3px rgba(255, 255, 255, 0.20),
+                -2.8px 8px 6px -2.7px rgba(255, 255, 255, 0.17),
+                -1.5px 9.3px 6.7px -2.7px rgba(255, 255, 255, 0.12),
+                -1px 4px 5.3px rgba(0, 0, 0, 0.10),
+                -6.7px 13.3px 16.7px -2px rgba(0, 0, 0, 0.08),
+                -20px 33.3px 40px -4px rgba(0, 0, 0, 0.17);
 
             --text-primary: #4a4f59;
             --text-secondary: #7e8596;
@@ -78,7 +160,7 @@
 
             --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
             --primary-gradient-hover: linear-gradient(135deg, #0891b2 0%, #2563eb 50%, #7c3aed 100%);
-            --primary-gradient-shadow: 0 4px 14px rgba(59, 130, 246, 0.16);
+            --primary-gradient-shadow: 0 4px 14px rgba(59, 130, 246, 0.08);
             
             --bg-surface: #e6eaf0;
             --border-subtle: #d6dbe3;
@@ -88,31 +170,72 @@
             --accent-orange: #c4af9d; 
             --accent-orange-soft: rgba(196, 175, 157, 0.2);
 
-            --radius-card: 32px;
+            --radius-card: 44px;
             --radius-pill: 9999px;
             --card-width: 380px;
-
-            /* 统一立体外阴影令牌 */
-            --liquid-outer-shadow: 
-                0 8px 24px -4px rgba(0, 0, 0, 0.12),
-                0 2px 8px -1px rgba(0, 0, 0, 0.06);
-            --liquid-outer-shadow-hover: 
-                0 12px 30px -4px rgba(0, 0, 0, 0.16),
-                0 4px 12px -2px rgba(0, 0, 0, 0.08);
-
-            /* 液体玻璃默认参数 */
-            --border-radius: 22px;
-            --liquid-cover-bg: rgba(255, 255, 255, 0.40);
-            --liquid-sharp-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.7), inset -1px -1px 0px 0px rgba(255, 255, 255, 0.55);
-            --liquid-reflect-shadow: inset 2px 2px 7px 1.5px rgba(255, 255, 255, 0.38), inset -2px -2px 6px 1px rgba(0, 0, 0, 0.04);
 
             --bottom-offset: max(16px, calc(env(safe-area-inset-bottom) - 14px));
             --safe-pad-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
             --toast-bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px));
         }
 
+        /* =========================================================
+            2. 暗色主题设计令牌 (Dark Theme Tokens)
+        ========================================================= */
         [data-theme="dark"] {
             --bg-page-solid: #14161a;
+            
+            --glass-bg: none;
+            --glass-bg-hover: none;
+            --glass-border-t: transparent;
+            --glass-border-r: transparent;
+            --glass-border-b: transparent;
+            --glass-border-l: transparent;
+
+            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+
+            --content-shadow-lg: none;
+            --text-shadow-lg: none;
+            --content-shadow-sm: none;
+            --text-shadow-sm: none;
+
+            --shadow-glass-ui: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 0.22),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.08),
+                inset 3px 3px 8px 1px rgba(255, 255, 255, 0.1),
+                inset -2px -2px 6px 0px rgba(0, 0, 0, 0.4),
+                0 6px 20px rgba(0, 0, 0, 0.4),
+                0 2px 6px rgba(0, 0, 0, 0.25);
+
+            --shadow-tab-bar-bottom: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 0.22),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.08),
+                inset 3px 3px 8px 1px rgba(255, 255, 255, 0.1),
+                inset -2px -2px 6px 0px rgba(0, 0, 0, 0.4);
+
+            --shadow-glass-ui-hover: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 0.3),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.12),
+                inset 3.5px 3.5px 10px 2px rgba(255, 255, 255, 0.14),
+                inset -2px -2px 7px 0px rgba(0, 0, 0, 0.5),
+                0 8px 24px rgba(0, 0, 0, 0.5),
+                0 3px 8px rgba(0, 0, 0, 0.3);
+
+            --shadow-search: 
+                inset 1.2px 1.2px 0px 0px rgba(255, 255, 255, 0.2),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.07),
+                inset 2.5px 2.5px 7px 1px rgba(255, 255, 255, 0.08),
+                inset -2px -2px 5px 0px rgba(0, 0, 0, 0.35),
+                0 4px 13.3px rgba(0, 0, 0, 0.27),
+                0 1.3px 4px rgba(0, 0, 0, 0.17);
+
+            --shadow-search-hover: 
+                inset 1.2px 1.2px 0px 0px rgba(255, 255, 255, 0.26),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.1),
+                inset 3px 3px 8px 1.5px rgba(255, 255, 255, 0.11),
+                inset -2px -2px 6px 0px rgba(0, 0, 0, 0.4),
+                0 5.3px 16px rgba(0, 0, 0, 0.33),
+                0 2px 5.3px rgba(0, 0, 0, 0.20);
 
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
@@ -124,7 +247,7 @@
 
             --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
             --primary-gradient-hover: linear-gradient(135deg, #22d3ee 0%, #60a5fa 50%, #a78bfa 100%);
-            --primary-gradient-shadow: 0 4px 16px rgba(59, 130, 246, 0.22);
+            --primary-gradient-shadow: 0 4px 16px rgba(59, 130, 246, 0.11);
 
             --bg-surface: #1d2026;
             --border-subtle: #2b3038;
@@ -133,27 +256,27 @@
             --accent-mint-soft: rgba(139, 183, 196, 0.2);
             --accent-orange: #c4a991;
             --accent-orange-soft: rgba(196, 169, 145, 0.2);
+        }
 
-            --liquid-outer-shadow: 
-                0 10px 28px -4px rgba(0, 0, 0, 0.55),
-                0 3px 10px -2px rgba(0, 0, 0, 0.40);
-            --liquid-outer-shadow-hover: 
-                0 16px 36px -4px rgba(0, 0, 0, 0.70),
-                0 6px 14px -2px rgba(0, 0, 0, 0.50);
+        html.theme-transitioning,
+        html.theme-transitioning *,
+        html.theme-transitioning *::before,
+        html.theme-transitioning *::after {
+            transition: none !important;
+        }
 
-            --liquid-cover-bg: rgba(26, 29, 35, 0.68);
-            --liquid-sharp-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.2), inset -1px -1px 0px 0px rgba(0, 0, 0, 0.65);
-            --liquid-reflect-shadow: inset 2px 2px 7px 1.5px rgba(255, 255, 255, 0.1), inset -2px -2px 6px 1px rgba(0, 0, 0, 0.45);
+        html.is-resizing .tab-indicator {
+            transition: none !important;
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        p { margin: 0; }
         
         html { 
             margin: 0; 
             padding: 0; 
             scrollbar-gutter: stable; 
             background-color: var(--bg-page-solid);
+            background-image: none !important;
             min-height: 100%;
             transition: background-color 0.4s ease; 
         }
@@ -182,11 +305,17 @@
             padding-bottom: var(--safe-pad-bottom);
             padding-left: 16px;
             background-color: transparent;
+            background-image: none !important;
             color: var(--text-primary); 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; 
             -webkit-font-smoothing: antialiased; 
             text-rendering: optimizeLegibility; 
-            transition: color 0.4s ease; 
+            transition: color 0.4s ease, padding-top 0.35s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+
+        /* 激活列表视图时，页面顶部 padding 缩进并使 header 优雅折叠收起，令控制栏平滑上浮置顶 */
+        body.is-list-view {
+            padding-top: max(8px, env(safe-area-inset-top));
         }
 
         button, input { font: inherit; }
@@ -203,79 +332,25 @@
             flex-direction: column;
         }
 
-        /* =========================================================
-            2. Liquid Glass 图层系统 (6px 适度折射边)
-        ========================================================= */
-        .liquid_glass-wrapper {
-            position: relative;
-            display: flex;
-            overflow: hidden;
-            border-radius: var(--border-radius);
-            box-shadow: var(--liquid-outer-shadow) !important;
-            transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        .glass-element {
+            background-color: transparent;
+            background-image: var(--noise-pattern), var(--glass-bg);
+            backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            border-top: 1px solid var(--glass-border-t);
+            border-left: 1px solid var(--glass-border-l);
+            border-right: 1px solid var(--glass-border-r);
+            border-bottom: 1px solid var(--glass-border-b);
         }
 
-        .liquid_glass-outer {
-            backdrop-filter: url(#liquid_glass_filter);
-            -webkit-backdrop-filter: url(#liquid_glass_filter);
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            border-radius: var(--border-radius);
-            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="0" y="0" width="100%" height="100%" rx="0" ry="0" fill="white"/></svg>'),
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="6" y="6" width="calc(100% - 12px)" height="calc(100% - 12px)" rx="18" ry="18" fill="white"/></svg>');
-            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="0" y="0" width="100%" height="100%" rx="0" ry="0" fill="white"/></svg>'),
-                                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="6" y="6" width="calc(100% - 12px)" height="calc(100% - 12px)" rx="18" ry="18" fill="white"/></svg>');
-            mask-composite: exclude;
-            -webkit-mask-composite: destination-out;
-            pointer-events: none;
+        [data-theme="dark"] .glass-element {
+            background-color: var(--bg-surface);
+            background-image: var(--noise-pattern);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: 1px solid var(--border-subtle);
         }
 
-        .theme-toggle .liquid_glass-outer,
-        .back-to-top-btn .liquid_glass-outer,
-        .search-back-to-top-btn .liquid_glass-outer {
-            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="50%" fill="white"/></svg>'),
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="calc(50% - 4.5px)" fill="white"/></svg>');
-            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="50%" fill="white"/></svg>'),
-                                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="calc(50% - 4.5px)" fill="white"/></svg>');
-        }
-
-        .liquid_glass-cover {
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            border-radius: var(--border-radius);
-            background: var(--liquid-cover-bg);
-            pointer-events: none;
-        }
-
-        .liquid_glass-reflect {
-            position: absolute;
-            inset: 1px;
-            z-index: 2;
-            box-shadow: var(--liquid-reflect-shadow);
-            border-radius: var(--border-radius);
-            pointer-events: none;
-        }
-
-        .liquid_glass-sharp {
-            position: absolute;
-            inset: 0;
-            z-index: 3;
-            box-shadow: var(--liquid-sharp-shadow);
-            border-radius: var(--border-radius);
-            pointer-events: none;
-        }
-
-        .liquid-content-layer {
-            position: relative;
-            z-index: 4;
-            width: 100%;
-        }
-
-        /* 下拉刷新指示器 */
         .pull-refresh-indicator {
             position: fixed;
             top: max(8px, env(safe-area-inset-top));
@@ -285,16 +360,17 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            height: 34px;
-            padding: 0 16px;
+            gap: 7px;
+            height: 32px;
+            padding: 0 14px;
             border-radius: var(--radius-pill);
+            box-shadow: var(--shadow-glass-ui);
             color: var(--text-secondary);
             font-size: 12.5px;
             font-weight: 400;
             pointer-events: none;
             opacity: 0;
             will-change: transform, opacity;
-            --border-radius: var(--radius-pill);
         }
         .ptr-icon {
             display: inline-flex;
@@ -308,8 +384,28 @@
         .ptr-icon svg { width: 100%; height: 100%; }
         .ptr-icon.rotate { transform: rotate(180deg); }
 
-        /* 页头设计 */
-        .header { padding: 24px 0 18px; }
+        .header { 
+            padding: 24px 0 18px; 
+            max-height: 160px;
+            overflow: hidden;
+            transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                        padding 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                        margin 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.28s ease,
+                        transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* 列表视图折叠 header 并上浮 */
+        body.is-list-view .header {
+            max-height: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            opacity: 0 !important;
+            transform: translateY(-24px) scale(0.96);
+            pointer-events: none;
+        }
+
         .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
         .brand-wrapper { display: flex; align-items: center; gap: 10px; }
 
@@ -319,6 +415,7 @@
             display: inline-flex; 
             align-items: flex-start;
             gap: 2px; 
+            text-shadow: none; 
         }
         .title a { 
             display: inline-flex; 
@@ -334,7 +431,9 @@
             transition: color 0.4s ease;
         }
 
-        [data-theme="dark"] .title-shadow { color: #22d3ee; }
+        [data-theme="dark"] .title-shadow {
+            color: #22d3ee;
+        }
 
         .title-store {
             font-weight: 750;
@@ -358,6 +457,9 @@
             font-weight: 600; 
             letter-spacing: 0.3px;
             line-height: 1;
+            border: none; 
+            box-shadow: none; 
+            text-shadow: none;
             transform: translateY(calc(3px - 20%)); 
             user-select: none;
             -webkit-user-select: none;
@@ -372,65 +474,45 @@
         .subtitle { 
             margin-top: 8px; color: var(--text-secondary); font-size: 14px; 
             line-height: 1.5; font-weight: 300; 
+            text-shadow: none; 
         }
         
         .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
-        /* 右上角功能按钮 */
         .theme-toggle { 
-            position: relative;
-            display: inline-flex !important; 
-            align-items: center !important; 
-            justify-content: center !important; 
-            width: 44px; 
-            height: 44px; 
-            padding: 0; 
-            margin: 0; 
-            border: none;
-            cursor: pointer; 
-            color: var(--text-secondary);
-            --border-radius: 50%;
-            overflow: hidden;
-            vertical-align: middle;
-            background: transparent;
-            isolation: isolate;
+            display: inline-flex; align-items: center; justify-content: center; 
+            width: 44px; height: 44px; padding: 0; margin: 0; 
+            border-radius: 50%; 
+            color: var(--text-secondary); cursor: pointer; 
+            box-shadow: var(--shadow-glass-ui); 
+            transition: 
+                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.3s ease,
+                color 0.2s ease;
         }
         .theme-toggle:hover { 
-            color: var(--text-primary); 
-            transform: translateY(-1px);
-            box-shadow: var(--liquid-outer-shadow-hover) !important;
+            background-image: var(--noise-pattern), var(--glass-bg-hover);
+            color: var(--text-primary); transform: translateY(-1px); 
+            box-shadow: var(--shadow-glass-ui-hover); 
+        }
+        [data-theme="dark"] .theme-toggle:hover {
+            background-image: var(--noise-pattern);
+            background-color: var(--border-subtle); 
         }
         .theme-toggle:active { transform: scale(0.92); }
-
-        [data-theme="dark"] .theme-toggle { color: #a6b0c2; }
-        [data-theme="dark"] .theme-toggle:hover { color: #ffffff; }
-
-        .theme-toggle .icon,
-        .back-to-top-btn .icon,
-        .search-back-to-top-btn .icon {
-            position: relative;
-            z-index: 10 !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            width: 100% !important;
-            height: 100% !important;
-            line-height: 0;
-            pointer-events: none;
+        .theme-toggle.active { 
+            color: var(--primary); background-color: var(--primary-soft); 
+        }
+        
+        .theme-toggle svg { 
+            display: block; width: 20px; height: 20px; pointer-events: none; stroke-width: 2; 
+            filter: none; 
         }
 
-        .theme-toggle svg,
-        .back-to-top-btn svg,
-        .search-back-to-top-btn svg { 
-            display: block; 
-            width: 20px; 
-            height: 20px; 
-            flex-shrink: 0;
-            pointer-events: none; 
-            stroke-width: 2; 
-        }
-
-        /* 搜索 + 分类控制栏 */
+        /* =========================================================
+            3. 搜索 + 分类控制栏 (宽屏吸顶)
+        ========================================================= */
         .control-bar {
             position: sticky;
             top: max(12px, env(safe-area-inset-top, 0px));
@@ -442,10 +524,11 @@
             width: 100%;
             margin-bottom: 16px;
             padding: 4px 0;
+            transition: top 0.35s cubic-bezier(0.16, 1, 0.3, 1), margin-bottom 0.35s ease;
         }
 
         /* =========================================================
-            3. 分类标签栏与渐变指示器
+            4. 分类标签页
         ========================================================= */
         .tab-bar-wrapper {
             width: 100%;
@@ -455,13 +538,10 @@
             align-items: center;
             position: relative;
             z-index: 999990;
-            gap: 10px;
         }
 
         .tab-bar {
             position: relative;
-            flex: 1 1 auto;
-            min-width: 0;
             width: 100%;
             height: 44px;
             display: flex;
@@ -469,9 +549,10 @@
             justify-content: space-between;
             gap: 4px;
             padding: 5px;
-            --border-radius: 22px;
+            border-radius: 22px;
+            box-shadow: var(--shadow-search);
             overflow: hidden;
-            transition: max-width 0.44s cubic-bezier(0.34, 1.32, 0.64, 1);
+            transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .tab-indicator {
@@ -485,10 +566,9 @@
             box-shadow: var(--primary-gradient-shadow);
             pointer-events: none;
             z-index: 1;
-            will-change: transform, width;
+            will-change: transform;
             transform: translate3d(0, 0, 0);
-            transition: transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1), 
-                        width 0.44s cubic-bezier(0.34, 1.32, 0.64, 1);
+            transition: transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1);
         }
 
         .control-bar.is-single-column .tab-indicator {
@@ -519,15 +599,19 @@
             text-align: center;
             overflow: visible;
             text-overflow: ellipsis;
-            transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
-                        transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
+            transition: 
+                color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
         }
 
-        .tab-item:active { transform: scale(0.92); }
+        .tab-item:active {
+            transform: scale(0.92);
+        }
 
         .tab-item:not(.active) {
             background: transparent !important;
             color: var(--text-secondary);
+            box-shadow: none !important;
         }
 
         .tab-item:not(.active)::before,
@@ -554,6 +638,9 @@
         .tab-item:not(.active):active,
         .tab-item:not(.active):focus-visible {
             color: #0891b2;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
         }
 
         [data-theme="dark"] .tab-item:not(.active):hover,
@@ -571,59 +658,13 @@
         .tab-item.active {
             color: #FFFFFF !important;
             background: transparent !important;
+            box-shadow: none !important;
             font-weight: 400 !important;
         }
 
-        /* 默认多列宽屏模式下隐藏底部单列栏返回按钮 */
-        .control-bar:not(.is-single-column) .back-to-top-btn {
-            display: none !important;
-        }
-
-        /* 单列底栏模式下的返回按钮 (62px) */
-        .control-bar.is-single-column .back-to-top-btn {
-            position: relative;
-            display: inline-flex !important;
-            align-items: center;
-            justify-content: center;
-            width: 0;
-            height: 62px;
-            padding: 0;
-            margin: 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.65);
-            pointer-events: none;
-            overflow: hidden;
-            flex-shrink: 0;
-            --border-radius: 31px;
-            cursor: pointer;
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            transition: width 0.44s cubic-bezier(0.34, 1.32, 0.64, 1),
-                        opacity 0.3s ease,
-                        transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1),
-                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        visibility 0.44s ease;
-        }
-
-        .control-bar.is-single-column .back-to-top-btn.visible {
-            width: 62px;
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-            pointer-events: auto;
-        }
-
-        .control-bar.is-single-column .back-to-top-btn:hover { 
-            color: var(--text-primary);
-            box-shadow: var(--liquid-outer-shadow-hover) !important;
-        }
-        .control-bar.is-single-column .back-to-top-btn:active { transform: scale(0.92); }
-        [data-theme="dark"] .control-bar.is-single-column .back-to-top-btn { color: #a6b0c2; }
-        [data-theme="dark"] .control-bar.is-single-column .back-to-top-btn:hover { color: #ffffff; }
-
-        /* 宽屏搜索框区域及其专属返回按钮 (44px) */
+        /* =========================================================
+            5. 搜索框区域
+        ========================================================= */
         .search-wrapper { 
             position: relative;
             height: 44px;
@@ -634,60 +675,6 @@
             display: flex;
             align-items: center;
             width: 100%;
-            gap: 0px;
-            transition: gap 0.44s cubic-bezier(0.34, 1.32, 0.64, 1);
-        }
-
-        .search-back-to-top-btn {
-            position: relative;
-            display: inline-flex !important;
-            align-items: center;
-            justify-content: center;
-            width: 0;
-            height: 44px; /* 尺寸与搜索框一致 */
-            padding: 0;
-            margin: 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.65);
-            pointer-events: none;
-            overflow: hidden;
-            flex-shrink: 0;
-            --border-radius: 22px;
-            cursor: pointer;
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            transition: width 0.44s cubic-bezier(0.34, 1.32, 0.64, 1),
-                        opacity 0.3s ease,
-                        transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1),
-                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        visibility 0.44s ease;
-        }
-
-        .search-back-to-top-btn.visible {
-            width: 44px; /* 宽屏下展开后的正圆尺寸 */
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-            pointer-events: auto;
-        }
-
-        .search-wrapper:has(.search-back-to-top-btn.visible) {
-            gap: 10px;
-        }
-
-        .search-back-to-top-btn:hover {
-            color: var(--text-primary);
-            box-shadow: var(--liquid-outer-shadow-hover) !important;
-        }
-        .search-back-to-top-btn:active { transform: scale(0.92); }
-        [data-theme="dark"] .search-back-to-top-btn { color: #a6b0c2; }
-        [data-theme="dark"] .search-back-to-top-btn:hover { color: #ffffff; }
-
-        /* 在单列模式下彻底禁用搜索框专属返回按钮，避免影响竖屏模式 */
-        .control-bar.is-single-column .search-back-to-top-btn {
-            display: none !important;
         }
 
         .search-box-inner {
@@ -698,19 +685,63 @@
             display: flex; 
             align-items: center; 
             gap: 8px; 
-            --border-radius: 22px; 
+            border-radius: 22px; 
+            box-shadow: var(--shadow-search); 
             padding: 6px; 
             cursor: text;
+            -webkit-transform: translateZ(0); 
+            transform: translateZ(0);
+            transition: 
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s ease,
+                background-color 0.35s ease;
         }
 
-        .search-box-inner:focus-within {
-            box-shadow: var(--liquid-outer-shadow-hover) !important;
+        .search-box-inner:focus-within,
+        body.is-list-view .search-box-inner {
+            background-image: var(--noise-pattern), var(--glass-bg-hover);
+            border-color: rgba(255,255,255,0.85); 
+            box-shadow: var(--shadow-search-hover); 
         }
         
-        .search-icon { 
+        [data-theme="dark"] .search-box-inner:focus-within,
+        [data-theme="dark"] body.is-list-view .search-box-inner {
+            background-image: var(--noise-pattern);
+            background-color: var(--border-subtle);
+            border-color: var(--text-tertiary); 
+            box-shadow: var(--shadow-search-hover);
+        }
+        
+        .search-icon, .list-toggle-icon { 
             width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%;
+            background: transparent; box-shadow: none; border: 1px solid var(--border-subtle);
             display: flex; align-items: center; justify-content: center;
-            font-size: 14px; pointer-events: none; color: var(--primary); 
+            font-size: 14px; color: var(--primary); 
+            filter: none; 
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .search-icon { pointer-events: none; }
+        
+        .list-toggle-icon {
+            cursor: pointer;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease;
+            outline: none;
+            padding: 0;
+            border-style: solid;
+        }
+        .list-toggle-icon:hover {
+            border-color: var(--primary);
+            background-color: var(--primary-soft);
+            transform: scale(1.05);
+        }
+        .list-toggle-icon:active {
+            transform: scale(0.92);
+        }
+        .list-toggle-icon.active {
+            border-color: var(--primary);
+            background-color: var(--primary-soft);
         }
         
         .input-wrapper {
@@ -724,8 +755,9 @@
             display: block; line-height: 32px;
             padding: 0; margin: 0; border: 0; outline: none; background: transparent;
             color: var(--text-primary); font-size: 15px; font-weight: 400; vertical-align: middle;
-            -webkit-appearance: none; appearance: none;
+            -webkit-appearance: none; appearance: none; border-radius: 0;
             z-index: 2;
+            text-shadow: none; 
         }
         
         .search::placeholder { color: transparent; }
@@ -742,10 +774,12 @@
             height: 32px; line-height: 32px;
             color: var(--text-tertiary); font-size: 15px; font-weight: 300;
             overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+            text-shadow: none; 
         }
 
         .search:focus ~ .placeholder-track,
-        .search:not(:placeholder-shown) ~ .placeholder-track {
+        .search:not(:placeholder-shown) ~ .placeholder-track,
+        body.is-list-view .placeholder-track {
             opacity: 0;
             transition: opacity 0.2s ease;
         }
@@ -757,7 +791,7 @@
 
         .search-shortcut, .search-clear { 
             width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            background: transparent; border: none;
+            background: transparent; border: none; box-shadow: none;
             font-size: 12px; font-weight: 600; 
             transition: color 0.2s ease, opacity 0.2s ease; 
         }
@@ -766,9 +800,54 @@
         .search-clear:hover { color: var(--text-primary); }
         .search-clear.visible { display: flex; }
 
+        .back-to-top-btn {
+            width: 0;
+            height: 44px;
+            padding: 0;
+            margin-left: 0;
+            border-color: transparent !important;
+            box-shadow: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.6);
+            pointer-events: none;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        margin-left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        visibility 0.35s ease,
+                        box-shadow 0.35s ease,
+                        border-color 0.35s ease;
+        }
+        .back-to-top-btn.visible {
+            width: 44px;
+            margin-left: 10px;
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            pointer-events: auto;
+            box-shadow: var(--shadow-search);
+            border-top-color: var(--glass-border-t) !important;
+            border-left-color: var(--glass-border-l) !important;
+            border-right-color: var(--glass-border-r) !important;
+            border-bottom-color: var(--glass-border-b) !important;
+        }
+        [data-theme="dark"] .back-to-top-btn.visible {
+            border-color: var(--border-subtle) !important;
+        }
+        .back-to-top-btn.visible:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-search-hover);
+        }
+        .back-to-top-btn.visible:active { transform: scale(0.92); }
+
         .status { 
             display: flex; align-items: center; justify-content: space-between; 
             min-height: 22px; margin: 0 4px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
+            text-shadow: none; 
+            transition: opacity 0.3s ease;
         }
         .status-left { display: flex; align-items: center; gap: 8px; }
         .status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint-soft); }
@@ -776,7 +855,6 @@
         .status-dot.error { background: #c8a3ab; box-shadow: 0 0 0 3px rgba(200, 163, 171, 0.2); }
         @keyframes statusPulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
         
-        /* 列表与卡片网格 */
         .modules { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); 
@@ -784,9 +862,9 @@
             align-items: stretch; 
             padding-bottom: 24px; 
             min-height: 0; 
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* 主/次卡片与骨架屏卡片 */
         .module-card { 
             position: relative; 
             padding: 28px; 
@@ -795,21 +873,26 @@
             min-width: 0;
             display: flex;
             flex-direction: column;
-            --border-radius: var(--radius-card); 
-        }
-
-        .loading-card { 
-            height: 180px; 
-            min-width: 0;
-            --border-radius: var(--radius-card); 
-            animation: skeletonPulse 1.4s infinite; 
+            border-radius: var(--radius-card); 
+            box-shadow: var(--shadow-glass-ui); 
+            overflow: hidden; 
+            transition: 
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-image 0.4s ease;
+            -webkit-transform: translateZ(0); transform: translateZ(0); 
         }
 
         @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
             .module-card:hover { 
                 z-index: 50000 !important;
                 transform: translateY(-2px);
-                box-shadow: var(--liquid-outer-shadow-hover) !important;
+                background-image: var(--noise-pattern), var(--glass-bg-hover);
+                box-shadow: var(--shadow-glass-ui-hover); 
+            }
+            [data-theme="dark"] .module-card:hover {
+                background-image: var(--noise-pattern);
+                background-color: var(--bg-surface); 
             }
         }
 
@@ -819,6 +902,11 @@
             width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; 
             background: transparent; overflow: hidden; 
             box-shadow: 0 6px 16px rgba(0,0,0,0.12); 
+            border: none; 
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+            mask-image: radial-gradient(white, black);
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
             display: block;
             text-decoration: none;
             cursor: pointer;
@@ -828,22 +916,16 @@
             transform: scale(1.06);
             opacity: 0.92;
         }
-        .module-icon:active { transform: scale(0.95); }
+        .module-icon:active {
+            transform: scale(0.95);
+        }
         .module-icon img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         
         .card-main { min-width: 0; flex: 1; }
-
         .module-name { 
-            margin: 0; 
-            font-size: clamp(15px, 1.6vw, 18px); 
-            line-height: 1.35; 
-            font-weight: 700;
-            letter-spacing: -0.2px; 
-            color: var(--text-primary); 
-            white-space: nowrap; 
-            overflow: hidden; 
-            text-overflow: ellipsis; 
-            width: 100%;
+            margin: 0; font-size: 20px; line-height: 1.3; font-weight: 400;
+            letter-spacing: -0.2px; color: var(--text-primary); word-break: break-word; 
+            text-shadow: var(--text-shadow-lg); 
         }
         
         .module-meta { 
@@ -882,6 +964,7 @@
             height: 18px; 
             border-radius: 50%; 
             object-fit: cover; 
+            box-shadow: none; 
             flex-shrink: 0;
         }
         
@@ -892,6 +975,7 @@
             line-height: 1.6; 
             font-weight: 300; 
             word-break: break-word; 
+            text-shadow: var(--text-shadow-sm); 
             flex: 1 1 auto;
         }
         
@@ -900,9 +984,10 @@
             align-items: center; 
             justify-content: flex-end; 
             gap: 12px; 
-            margin-top: 48px; 
-            padding-top: 0; 
-            border-top: none; 
+            margin-top: 24px; 
+            padding-top: 24px; 
+            border-top: 1px solid var(--border-subtle); 
+            box-shadow: none; 
             flex-shrink: 0;
         }
 
@@ -913,7 +998,9 @@
             height: 44px; padding: 0 20px; border: 0; border-radius: 22px; 
             font-size: 14px; font-weight: 500; white-space: nowrap; cursor: pointer; 
             text-decoration: none; 
-            transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
+            transition: 
+                color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         
         .button-secondary { 
@@ -922,18 +1009,26 @@
             background: transparent !important; 
             color: #0891b2; 
             border: none !important; 
+            box-shadow: none !important; 
+            text-shadow: none; 
             padding: 0 16px;
             overflow: visible;
-            transition: transform 0.2s ease, color 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
+            transition: 
+                transform 0.2s ease,
+                color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .button-secondary:active { transform: scale(0.96); }
-        [data-theme="dark"] .button-secondary { color: #22d3ee; }
+        [data-theme="dark"] .button-secondary {
+            color: #22d3ee;
+        }
         
         .button-secondary:hover,
         .button-secondary:active,
         .button-secondary:focus-visible { 
-            background: transparent !important; 
-            color: #0891b2; 
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            color: #0891b2;
         }
         .button-secondary:hover::before,
         .button-secondary:active::before,
@@ -951,8 +1046,8 @@
             color: #FFFFFF; 
             border: none; 
             box-shadow: var(--primary-gradient-shadow); 
+            text-shadow: var(--text-shadow-sm); 
             transform: none !important; 
-            transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .button-primary:hover,
         .button-primary:active,
@@ -960,9 +1055,9 @@
             background: var(--primary-gradient); 
             transform: none !important;
             box-shadow: 
-                0 0 20px 4px rgba(59, 130, 246, 0.22),
-                0 0 30px 8px rgba(6, 182, 212, 0.16),
-                0 0 40px 10px rgba(139, 92, 246, 0.12);
+                0 0 20px 4px rgba(59, 130, 246, 0.17),
+                0 0 30px 8px rgba(6, 182, 212, 0.13),
+                0 0 40px 10px rgba(139, 92, 246, 0.10);
         }
         [data-theme="dark"] .button-primary:hover,
         [data-theme="dark"] .button-primary:active,
@@ -970,9 +1065,9 @@
             background: var(--primary-gradient);
             transform: none !important;
             box-shadow: 
-                0 0 22px 5px rgba(59, 130, 246, 0.28),
-                0 0 34px 8px rgba(34, 211, 238, 0.20),
-                0 0 44px 12px rgba(167, 139, 250, 0.16);
+                0 0 22px 5px rgba(59, 130, 246, 0.22),
+                0 0 34px 8px rgba(34, 211, 238, 0.17),
+                0 0 44px 12px rgba(167, 139, 250, 0.14);
         }
         
         .sentinel { height: 20px; margin: 10px 0; }
@@ -981,8 +1076,18 @@
             width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 50%;
             border: 1px solid var(--border-subtle); background: var(--bg-surface);
             display: flex; align-items: center; justify-content: center;
-            font-size: 24px;
+            font-size: 24px; opacity: 1; 
+            filter: none; 
         }
+        
+        .loading-card { 
+            height: 180px; 
+            min-width: 0;
+            border-radius: var(--radius-card); 
+            box-shadow: var(--shadow-glass-ui); 
+            animation: skeletonPulse 1.4s infinite; 
+        }
+        @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
         
         .footer { 
             margin-top: auto;
@@ -992,9 +1097,9 @@
             font-size: 12.5px; 
             line-height: 1.6; 
             font-weight: 300; 
+            transition: opacity 0.3s ease;
         }
         
-        /* 浮动提示 */
         .toast { 
             position: fixed; 
             bottom: var(--toast-bottom); 
@@ -1002,18 +1107,20 @@
             transform: translateX(-50%) translateY(100px); 
             z-index: 999999; 
             padding: 12px 26px; 
-            --border-radius: var(--radius-pill); 
+            border-radius: var(--radius-pill); 
             color: var(--text-primary); 
             font-size: 13.5px; 
             font-weight: 450; 
+            box-shadow: var(--shadow-glass-ui); 
             opacity: 0; 
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
             pointer-events: none; 
+            text-shadow: none;
         }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
         /* =========================================================
-            4. 单列布局与底栏完全重构规范
+            6. 单列布局与底栏规范
         ========================================================= */
         .control-bar.is-single-column {
             display: block;
@@ -1037,7 +1144,8 @@
             pointer-events: none;
         }
 
-        .control-bar.is-single-column .search-box-inner {
+        .control-bar.is-single-column .search-box-inner,
+        .control-bar.is-single-column .back-to-top-btn {
             pointer-events: auto;
         }
 
@@ -1055,17 +1163,17 @@
             justify-content: center;
             pointer-events: none;
             z-index: 999999;
-            max-width: clamp(1080px, 95vw, 2560px);
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .control-bar.is-single-column .tab-bar {
             pointer-events: auto;
+            width: 100%;
+            max-width: clamp(1080px, 95vw, 2560px);
             height: 62px;
             padding: 5px;
-            --border-radius: 31px;
+            border-radius: 31px;
             gap: 4px;
+            box-shadow: var(--shadow-tab-bar-bottom);
             overflow: hidden;
         }
 
@@ -1082,21 +1190,369 @@
             justify-content: center;
         }
 
-        /* 移动端与小屏幕适配 */
+        .control-bar.is-single-column .tab-item:not(.active) {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .control-bar.is-single-column .tab-item.active {
+            color: #FFFFFF !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            font-weight: 400 !important;
+        }
+
+        /* =========================================================
+            7. 全局首字母字母表搜索视图 (Alphabetical List View)
+        ========================================================= */
+        .alphabet-view-container {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 68px;
+            bottom: var(--safe-pad-bottom);
+            display: none;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 999980;
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), top 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body.is-list-view .alphabet-view-container {
+            display: flex;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        body.is-list-view .status,
+        body.is-list-view .modules,
+        body.is-list-view .sentinel,
+        body.is-list-view .footer {
+            opacity: 0 !important;
+            pointer-events: none !important;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s;
+        }
+
+        .alphabet-content-box {
+            position: relative;
+            width: 100%;
+            max-width: clamp(1080px, 95vw, 2560px);
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            padding: 0 16px;
+        }
+
+        .alphabet-scroll-area {
+            flex: 1;
+            height: 100%;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            padding-right: 32px;
+            padding-bottom: 24px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .alphabet-scroll-area::-webkit-scrollbar {
+            display: none;
+            width: 0 !important;
+            height: 0 !important;
+        }
+
+        .alphabet-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .alphabet-letter-header {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--primary);
+            padding: 10px 0 6px 4px;
+            letter-spacing: 0.5px;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .alphabet-item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .alphabet-item-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 9px 8px;
+            border-radius: 12px;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.15s ease, transform 0.15s ease;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .alphabet-item-row:hover {
+            background-color: var(--primary-soft) !important;
+            transform: translateX(4px);
+        }
+        .alphabet-item-row:active {
+            transform: scale(0.985);
+            background-color: var(--primary-soft) !important;
+        }
+
+        .alphabet-item-icon {
+            width: 32px;
+            height: 32px;
+            flex: 0 0 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .alphabet-item-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .alphabet-item-name {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-primary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 1;
+        }
+
+        .alphabet-item-type {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--text-tertiary);
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: var(--bg-surface);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .alphabet-fast-index {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: none;
+            z-index: 10;
+            padding: 8px 4px;
+            border-radius: 16px;
+            background: transparent;
+        }
+
+        .alphabet-fast-char {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 16px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            transition: color 0.15s ease, transform 0.15s ease;
+        }
+        .alphabet-fast-char:hover,
+        .alphabet-fast-char.active {
+            color: var(--primary);
+            transform: scale(1.3);
+            font-weight: 700;
+        }
+        .alphabet-fast-char.disabled {
+            opacity: 0.22;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        /* =========================================================
+            8. 移动与触控设备约束
+        ========================================================= */
         @media (hover: none), (pointer: coarse), (max-width: 860px) {
-            .modules { grid-template-columns: 1fr; }
-            .module-card:hover { transform: none !important; }
-            .button-primary:hover { box-shadow: var(--primary-gradient-shadow) !important; }
+            .modules { 
+                grid-template-columns: 1fr; 
+                min-height: 0;
+                align-items: start;
+            }
+
+            .module-card,
+            .module-card:hover,
+            .module-card:active,
+            .module-card:focus,
+            .module-card:focus-within {
+                height: auto !important;
+                transform: none !important;
+                box-shadow: var(--shadow-glass-ui) !important;
+                transition: none !important;
+            }
+            [data-theme="dark"] .module-card,
+            [data-theme="dark"] .module-card:hover,
+            [data-theme="dark"] .module-card:active,
+            [data-theme="dark"] .module-card:focus,
+            [data-theme="dark"] .module-card:focus-within {
+                transform: none !important;
+                box-shadow: var(--shadow-glass-ui) !important;
+                background-image: var(--noise-pattern) !important;
+                background-color: var(--bg-surface) !important;
+            }
+
+            .tab-item:not(.active)::before,
+            .button-secondary::before,
+            .tab-item:not(.active):hover::before,
+            .tab-item:not(.active):active::before,
+            .tab-item:not(.active):focus-visible::before,
+            .button-secondary:hover::before,
+            .button-secondary:active::before,
+            .button-secondary:focus-visible::before {
+                display: none !important;
+                opacity: 0 !important;
+                transition: none !important;
+            }
+
+            .tab-item:not(.active):hover,
+            .tab-item:not(.active):active,
+            .tab-item:not(.active):focus-visible {
+                color: var(--text-secondary) !important;
+                background: transparent !important;
+                box-shadow: none !important;
+            }
+
+            .button-secondary,
+            .button-secondary:hover,
+            .button-secondary:active,
+            .button-secondary:focus-visible {
+                transform: none !important;
+                box-shadow: none !important;
+                background: transparent !important;
+                color: #0891b2 !important;
+            }
+            [data-theme="dark"] .button-secondary,
+            [data-theme="dark"] .button-secondary:hover,
+            [data-theme="dark"] .button-secondary:active,
+            [data-theme="dark"] .button-secondary:focus-visible {
+                color: #22d3ee !important;
+            }
+
+            .button-primary,
+            .button-primary:hover,
+            .button-primary:active,
+            .button-primary:focus-visible {
+                transform: none !important;
+                box-shadow: var(--primary-gradient-shadow) !important;
+                background: var(--primary-gradient) !important;
+            }
+            [data-theme="dark"] .button-primary:hover,
+            [data-theme="dark"] .button-primary:active,
+            [data-theme="dark"] .button-primary:focus-visible {
+                box-shadow: var(--primary-gradient-shadow) !important;
+            }
+
+            .module-icon,
+            .module-icon:hover,
+            .module-icon:active,
+            .module-icon:focus {
+                transform: none !important;
+                opacity: 1 !important;
+                transition: none !important;
+                -webkit-tap-highlight-color: transparent !important;
+            }
+
+            .theme-toggle:hover,
+            .theme-toggle:active {
+                transform: none !important;
+                box-shadow: var(--shadow-glass-ui) !important;
+                color: var(--text-secondary) !important;
+            }
+            .theme-toggle.active {
+                color: var(--primary) !important;
+            }
+            .back-to-top-btn.visible:hover,
+            .back-to-top-btn.visible:active {
+                transform: scale(1) !important;
+                box-shadow: var(--shadow-search) !important;
+            }
+
+            .title a:hover {
+                opacity: 1 !important;
+            }
+            .author:hover,
+            .source-link:hover:not(.source-link-static) {
+                color: var(--text-secondary) !important;
+                text-decoration: none !important;
+            }
+            .search-clear:hover {
+                color: var(--primary) !important;
+            }
+        }
+
+        html.is-mobile .tab-item:not(.active)::before,
+        html.is-mobile .button-secondary::before,
+        html.is-mobile .tab-item:not(.active):hover::before,
+        html.is-mobile .tab-item:not(.active):active::before,
+        html.is-mobile .button-secondary:hover::before,
+        html.is-mobile .button-secondary:active::before {
+            display: none !important;
+            opacity: 0 !important;
+        }
+        html.is-mobile .button-secondary:active,
+        html.is-mobile .theme-toggle:hover,
+        html.is-mobile .theme-toggle:active,
+        html.is-mobile .back-to-top-btn.visible:hover,
+        html.is-mobile .back-to-top-btn.visible:active {
+            transform: none !important;
+        }
+        html.is-mobile .button-primary:hover,
+        html.is-mobile .button-primary:active,
+        html.is-mobile .button-primary:focus-visible {
+            box-shadow: var(--primary-gradient-shadow) !important;
+        }
+        html.is-mobile .module-icon,
+        html.is-mobile .module-icon:hover,
+        html.is-mobile .module-icon:active,
+        html.is-mobile .module-icon:focus {
+            transform: none !important;
+            opacity: 1 !important;
+            transition: none !important;
         }
 
         @media (max-width: 600px) {
-            :root { --radius-card: 28px; }
+            :root {
+                --radius-card: 42px;
+            }
             .title { font-size: 22px; }
-            .tag-pill-badge { height: 15px; font-size: 9px; padding: 0 5px; transform: translateY(calc(2px - 50%)); }
-            .module-card { padding: 22px; }
-            .module-name { font-size: 18px; }
+            .tag-pill-badge { 
+                height: 15px; 
+                font-size: 9px; 
+                padding: 0 5px; 
+                transform: translateY(calc(2px - 50%)); 
+            }
+            .module-card { padding: 22px; border-radius: var(--radius-card); }
             .module-description { flex: none; }
-            .card-bottom { margin-top: 36px; padding-top: 0; }
+            .card-bottom { margin-top: 20px; padding-top: 20px; }
             .search-shortcut { display: none; }
         }
 
@@ -1110,27 +1566,14 @@
 </head>
 
 <body>
-    <svg style="position: fixed; width: 0; height: 0; pointer-events: none;" aria-hidden="true">
-        <filter id="liquid_glass_filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
-            <feTurbulence type="fractalNoise" baseFrequency="0.04 0.04" numOctaves="1" result="noise" />
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G" />
-        </filter>
-    </svg>
-
-    <div id="pullRefreshIndicator" class="pull-refresh-indicator liquid_glass-wrapper">
-        <div class="liquid_glass-outer"></div>
-        <div class="liquid_glass-cover"></div>
-        <div class="liquid_glass-reflect"></div>
-        <div class="liquid_glass-sharp"></div>
-        <div class="liquid-content-layer" style="display: flex; align-items: center; gap: 7px;">
-            <span id="ptrIcon" class="ptr-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                    <polyline points="19 12 12 5 19 12"></polyline>
-                </svg>
-            </span>
-            <span id="ptrText">继续下拉将强制刷新本站</span>
-        </div>
+    <div id="pullRefreshIndicator" class="pull-refresh-indicator glass-element">
+        <span id="ptrIcon" class="ptr-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 5 19 12"></polyline>
+            </svg>
+        </span>
+        <span id="ptrText">继续下拉将强制刷新本站</span>
     </div>
 
     <div id="pageContainer" class="container">
@@ -1144,41 +1587,22 @@
                         <span id="tagPillBadge" class="tag-pill-badge">社区资源</span>
                     </h1>
                 </div>
-                
                 <div class="theme-controls">
-                    <button id="themeToggle" class="theme-toggle liquid_glass-wrapper" aria-label="切换主题模式">
-                        <div class="liquid_glass-outer"></div>
-                        <div class="liquid_glass-cover"></div>
-                        <div class="liquid_glass-reflect"></div>
-                        <div class="liquid_glass-sharp"></div>
-                        <div class="icon" id="themeIconContainer"></div>
-                    </button>
-                    <a id="githubStarBtn" class="theme-toggle liquid_glass-wrapper" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
-                        <div class="liquid_glass-outer"></div>
-                        <div class="liquid_glass-cover"></div>
-                        <div class="liquid_glass-reflect"></div>
-                        <div class="liquid_glass-sharp"></div>
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                            </svg>
-                        </div>
+                    <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
+                    <a id="githubStarBtn" class="theme-toggle glass-element" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
                     </a>
-                    <button id="langToggle" class="theme-toggle liquid_glass-wrapper" aria-label="切换语言" title="切换语言">
-                        <div class="liquid_glass-outer"></div>
-                        <div class="liquid_glass-cover"></div>
-                        <div class="liquid_glass-reflect"></div>
-                        <div class="liquid_glass-sharp"></div>
-                        <div class="icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="m5 8 6 6"/>
-                                <path d="m4 14 6-6 2-3"/>
-                                <path d="M2 5h12"/>
-                                <path d="M7 2h1"/>
-                                <path d="m22 22-5-10-5 10"/>
-                                <path d="M14 18h6"/>
-                            </svg>
-                        </div>
+                    <button id="langToggle" class="theme-toggle glass-element" aria-label="切换语言" title="切换语言">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m5 8 6 6"/>
+                            <path d="m4 14 6-6 2-3"/>
+                            <path d="M2 5h12"/>
+                            <path d="M7 2h1"/>
+                            <path d="m22 22-5-10-5 10"/>
+                            <path d="M14 18h6"/>
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -1189,67 +1613,39 @@
 
         <div id="controlBar" class="control-bar">
             <nav class="tab-bar-wrapper" aria-label="资源分类导航">
-                <div class="tab-bar liquid_glass-wrapper" role="tablist">
-                    <div class="liquid_glass-outer"></div>
-                    <div class="liquid_glass-cover"></div>
-                    <div class="liquid_glass-reflect"></div>
-                    <div class="liquid_glass-sharp"></div>
+                <div class="tab-bar glass-element" role="tablist">
                     <div id="tabIndicator" class="tab-indicator"></div>
                     <button class="tab-item active" role="tab" aria-selected="true" data-tab="module">模块资源</button>
                     <button class="tab-item" role="tab" aria-selected="false" data-tab="config">配置文件</button>
                     <button class="tab-item" role="tab" aria-selected="false" data-tab="manual">使用手册</button>
                     <button class="tab-item" role="tab" aria-selected="false" data-tab="more">更多资源</button>
                 </div>
-
-                <button id="backToTopBtn" class="theme-toggle liquid_glass-wrapper back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
-                    <div class="liquid_glass-outer"></div>
-                    <div class="liquid_glass-cover"></div>
-                    <div class="liquid_glass-reflect"></div>
-                    <div class="liquid_glass-sharp"></div>
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <polyline points="5 12 12 5 19 12"></polyline>
-                        </svg>
-                    </div>
-                </button>
             </nav>
 
             <div class="search-wrapper">
-                <div class="search-box-inner liquid_glass-wrapper" role="search">
-                    <div class="liquid_glass-outer"></div>
-                    <div class="liquid_glass-cover"></div>
-                    <div class="liquid_glass-reflect"></div>
-                    <div class="liquid_glass-sharp"></div>
-
-                    <div class="liquid-content-layer" style="display: flex; align-items: center; width: 100%; gap: 8px;">
-                        <div class="search-icon" aria-hidden="true">🔍</div>
-                        <div class="input-wrapper">
-                            <input id="search" class="search" type="text" inputmode="search" placeholder=" " autocomplete="off" spellcheck="false" aria-label="搜索模块" disabled>
-                            
-                            <div id="placeholderTrack" class="placeholder-track">
-                                <div id="mainPlaceholder" class="placeholder-item">请在加载完成后执行搜索...</div>
-                                <div class="placeholder-item notice-item-1">相关资源均来源于开源社区</div>
-                                <div class="placeholder-item notice-item-2">所有权利责任归原作者所有</div>
-                            </div>
+                <div class="search-box-inner glass-element" role="search">
+                    <div class="search-icon" aria-hidden="true">🔍</div>
+                    
+                    <div class="input-wrapper">
+                        <input id="search" class="search" type="text" inputmode="search" placeholder=" " autocomplete="off" spellcheck="false" aria-label="搜索模块" disabled>
+                        
+                        <div id="placeholderTrack" class="placeholder-track">
+                            <div id="mainPlaceholder" class="placeholder-item">请在加载完成后执行搜索...</div>
+                            <div class="placeholder-item notice-item-1">相关资源均来源于开源社区</div>
+                            <div class="placeholder-item notice-item-2">所有权利责任归原作者所有</div>
                         </div>
-
-                        <span class="search-shortcut">/</span>
-                        <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
                     </div>
+
+                    <button id="listToggleBtn" class="list-toggle-icon" type="button" aria-label="切换首字母资源列表" title="首字母资源列表">📋</button>
+                    <span class="search-shortcut">/</span>
+                    <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
                 </div>
 
-                <button id="searchBackToTopBtn" class="theme-toggle liquid_glass-wrapper search-back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
-                    <div class="liquid_glass-outer"></div>
-                    <div class="liquid_glass-cover"></div>
-                    <div class="liquid_glass-reflect"></div>
-                    <div class="liquid_glass-sharp"></div>
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <polyline points="5 12 12 5 19 12"></polyline>
-                        </svg>
-                    </div>
+                <button id="backToTopBtn" class="theme-toggle glass-element back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="5 12 12 5 19 12"></polyline>
+                    </svg>
                 </button>
             </div>
         </div>
@@ -1263,9 +1659,9 @@
         </div>
 
         <main id="modules" class="modules">
-            <div class="loading-card liquid_glass-wrapper"><div class="liquid_glass-outer"></div><div class="liquid_glass-cover"></div><div class="liquid_glass-reflect"></div><div class="liquid_glass-sharp"></div></div>
-            <div class="loading-card liquid_glass-wrapper"><div class="liquid_glass-outer"></div><div class="liquid_glass-cover"></div><div class="liquid_glass-reflect"></div><div class="liquid_glass-sharp"></div></div>
-            <div class="loading-card liquid_glass-wrapper"><div class="liquid_glass-outer"></div><div class="liquid_glass-cover"></div><div class="liquid_glass-reflect"></div><div class="liquid_glass-sharp"></div></div>
+            <div class="loading-card glass-element"></div>
+            <div class="loading-card glass-element"></div>
+            <div class="loading-card glass-element"></div>
         </main>
         
         <div id="sentinel" class="sentinel"></div>
@@ -1275,17 +1671,23 @@
             著作权归资源作者所有
         </footer>
     </div>
-    
-    <div id="toast" class="toast liquid_glass-wrapper">
-        <div class="liquid_glass-outer"></div>
-        <div class="liquid_glass-cover"></div>
-        <div class="liquid_glass-reflect"></div>
-        <div class="liquid_glass-sharp"></div>
-        <div class="liquid-content-layer" id="toastContent">已复制资源链接</div>
+
+    <!-- 首字母列表展示区与动态定位条 -->
+    <div id="alphabetViewContainer" class="alphabet-view-container">
+        <div class="alphabet-content-box">
+            <div id="alphabetScrollArea" class="alphabet-scroll-area">
+                <!-- 动态渲染按 A-Z 分组的单列列表 -->
+            </div>
+            <div id="alphabetFastIndex" class="alphabet-fast-index" aria-label="字母快速定位导航">
+                <!-- 动态渲染 A-Z 快速定位字母 -->
+            </div>
+        </div>
     </div>
+    
+    <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        const CACHE_VERSION = "202609031053"; 
+        const CACHE_VERSION = "202609022229"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -1488,24 +1890,23 @@
         const footerText = document.getElementById("footerText");
         const langToggleBtn = document.getElementById("langToggle");
         const themeToggleBtn = document.getElementById("themeToggle");
-        const themeIconContainer = document.getElementById("themeIconContainer");
         const backToTopBtn = document.getElementById("backToTopBtn");
-        const searchBackToTopBtn = document.getElementById("searchBackToTopBtn");
         const tabItems = document.querySelectorAll(".tab-item");
         const tabIndicator = document.getElementById("tabIndicator");
         const tabBarEl = document.querySelector(".tab-bar");
 
         const controlBarEl = document.getElementById("controlBar");
+        const searchWrapperEl = document.querySelector('.search-wrapper');
         const searchBoxInner = document.querySelector('.search-box-inner');
         const modulesContainer = document.getElementById("modules");
         const searchInput = document.getElementById("search");
         const searchClear = document.getElementById("searchClear");
         const searchShortcut = document.querySelector(".search-shortcut");
+        const listToggleBtn = document.getElementById("listToggleBtn");
         const statusText = document.getElementById("statusText");
         const statusDot = document.getElementById("statusDot");
         const countText = document.getElementById("countText");
         const toast = document.getElementById("toast");
-        const toastContent = document.getElementById("toastContent");
         const sentinel = document.getElementById("sentinel");
         const noticeTrack = document.getElementById("placeholderTrack");
 
@@ -1514,14 +1915,20 @@
         const ptrIcon = document.getElementById("ptrIcon");
         const ptrText = document.getElementById("ptrText");
 
+        const alphabetViewContainer = document.getElementById("alphabetViewContainer");
+        const alphabetScrollArea = document.getElementById("alphabetScrollArea");
+        const alphabetFastIndex = document.getElementById("alphabetFastIndex");
+
         function getInitialLang() {
             try {
                 const saved = localStorage.getItem("sr_lang_override");
                 if (saved === "en" || saved === "zh") return saved;
             } catch (e) {}
+
             const primary = (navigator.languages && navigator.languages.length 
                 ? navigator.languages[0] 
                 : (navigator.language || navigator.userLanguage || "")).toLowerCase();
+
             return primary.startsWith("zh") ? "zh" : "en";
         }
 
@@ -1533,6 +1940,7 @@
             currentlyRendered: 0,
             isDataLoading: false,
             isPullRefreshing: false,
+            isListView: false,
             activeTab: "module",
             statusKey: "statusSyncing"
         };
@@ -1546,9 +1954,14 @@
 
         function checkScrollLock() {
             const root = document.documentElement;
+            if (state.isListView) {
+                root.classList.add("no-scroll");
+                return;
+            }
             const contentH = root.scrollHeight;
             const viewportH = window.innerHeight;
             const isOverflowing = contentH > viewportH + 3;
+
             if (isOverflowing) {
                 root.classList.remove("no-scroll");
             } else {
@@ -1591,7 +2004,12 @@
                         item.author.name,
                         item.sourceName,
                         item.category,
-                        "shadowrocket", "手册", "manual", "教程", "guide", "仓库", "repo", "文档", "docs", "配置", "config"
+                        "shadowrocket",
+                        "手册", "manual",
+                        "教程", "guide",
+                        "仓库", "repo",
+                        "文档", "docs",
+                        "配置", "config"
                     ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
 
                     return {
@@ -1639,7 +2057,13 @@
                     }
 
                     const searchTokens = [
-                        m.name, m.description, authorName, m.author?.username, sourceName, category, m._searchKeywords
+                        m.name,
+                        m.description,
+                        authorName,
+                        m.author?.username,
+                        sourceName,
+                        category,
+                        m._searchKeywords
                     ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
 
                     return {
@@ -1666,7 +2090,7 @@
 
         function showToast(text) {
             clearTimeout(toastTimer);
-            toastContent.textContent = text;
+            toast.textContent = text;
             toast.classList.add("show");
             toastTimer = setTimeout(() => {
                 toast.classList.remove("show");
@@ -1701,39 +2125,13 @@
         }
 
         let backToTopVisible = false;
-        let indicatorRafId = null;
-
-        function animateIndicatorSmooth(duration = 460) {
-            if (indicatorRafId) cancelAnimationFrame(indicatorRafId);
-            const startTime = performance.now();
-            function step(now) {
-                updateTabIndicator(true);
-                if (now - startTime < duration) {
-                    indicatorRafId = requestAnimationFrame(step);
-                } else {
-                    updateTabIndicator(true);
-                    indicatorRafId = null;
-                }
-            }
-            indicatorRafId = requestAnimationFrame(step);
-        }
-
         function updateSearchLayer() {
-            const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
-            const shouldShow = scrollY > 160;
-
-            // 宽屏模式下更新搜索框旁的返回顶部按钮状态
-            if (searchBackToTopBtn) {
-                searchBackToTopBtn.classList.toggle("visible", shouldShow);
-            }
-
-            // 单列底栏模式下的返回按钮状态
             if (!backToTopBtn) return;
+            const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+            const shouldShow = scrollY > 160 && !state.isListView;
             if (shouldShow === backToTopVisible) return;
             backToTopVisible = shouldShow;
             backToTopBtn.classList.toggle("visible", shouldShow);
-
-            animateIndicatorSmooth(460);
         }
         
         window.addEventListener('scroll', updateSearchLayer, { passive: true });
@@ -1742,15 +2140,9 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-        if (searchBackToTopBtn) {
-            searchBackToTopBtn.addEventListener("click", () => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
-        }
-
         if (searchBoxInner) {
             searchBoxInner.addEventListener("click", (e) => {
-                if (e.target !== searchClear && !searchInput.disabled) {
+                if (e.target !== searchClear && e.target !== listToggleBtn && !searchInput.disabled) {
                     searchInput.focus();
                 }
             });
@@ -1760,16 +2152,22 @@
             const activeTab = document.querySelector(".tab-item.active");
             if (!activeTab || !tabIndicator) return;
 
+            if (!animated && isTabAnimating) {
+                return;
+            }
+
             if (!animated) {
                 tabIndicator.style.transition = 'none';
             } else {
-                tabIndicator.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.32, 0.64, 1)';
+                tabIndicator.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1)';
             }
 
             const left = activeTab.offsetLeft;
             const width = activeTab.offsetWidth;
 
-            tabIndicator.style.width = `${width}px`;
+            if (Math.abs(tabIndicator.offsetWidth - width) > 1) {
+                tabIndicator.style.width = `${width}px`;
+            }
             tabIndicator.style.transform = `translate3d(${left}px, 0, 0)`;
 
             if (!animated) {
@@ -1808,27 +2206,319 @@
             }
         }
 
+        function updateCardLayerOrder() {
+            const cards = modulesContainer.querySelectorAll(".module-card, .loading-card");
+            const count = cards.length;
+            if (!count) return;
+            
+            const cols = getGridColumns() || 1;
+            for (let i = 0; i < count; i++) {
+                const r = Math.floor(i / cols);
+                const c = i % cols;
+                const z = String((r + 1) * 100 + (cols - c));
+                if (cards[i].style.zIndex !== z) {
+                    cards[i].style.zIndex = z;
+                }
+            }
+        }
+
+        let resizeTimer = null;
+        function scheduleCardLayerUpdate() {
+            clearTimeout(resizeTimer);
+            updateControlBarLayout();
+            resizeTimer = setTimeout(() => {
+                updateCardWidth();
+                updateCardLayerOrder();
+                updateControlBarLayout();
+                checkScrollLock();
+            }, 40);
+        }
+
         let resizeDebounceTimer = null;
         window.addEventListener("resize", () => {
+            document.documentElement.classList.add("is-resizing");
             clearTimeout(resizeDebounceTimer);
+            
             isTabAnimating = false;
             updateControlBarLayout();
             updateTabIndicator(false);
+            scheduleCardLayerUpdate();
+            updateAlphabetPosition();
             
             resizeDebounceTimer = setTimeout(() => {
-                updateCardWidth();
+                document.documentElement.classList.remove("is-resizing");
                 updateControlBarLayout();
                 updateTabIndicator(false);
                 checkScrollLock();
-            }, 80);
+            }, 120);
         }, { passive: true });
 
-        if (window.ResizeObserver && tabBarEl) {
-            const ro = new ResizeObserver(() => {
-                updateTabIndicator(true);
-            });
-            ro.observe(tabBarEl);
+        if (typeof ResizeObserver !== "undefined") {
+            if (modulesContainer) {
+                const gridResizeObserver = new ResizeObserver(() => {
+                    scheduleCardLayerUpdate();
+                });
+                gridResizeObserver.observe(modulesContainer);
+            }
+            if (tabBarEl) {
+                const tabBarObserver = new ResizeObserver(() => {
+                    if (!isTabAnimating) {
+                        updateTabIndicator(false);
+                    }
+                });
+                tabBarObserver.observe(tabBarEl);
+            }
         }
+
+        /* =========================================================
+            首字母列表与快速选择功能实现
+        ========================================================= */
+        function getItemInitialLetter(name) {
+            const clean = (name || "").trim().replace(/^[\[\(\{#_\-\s【（〔［]+/, "");
+            const first = clean.charAt(0);
+            if (!first) return "#";
+            if (/^[A-Za-z]$/.test(first)) return first.toUpperCase();
+            
+            if (/^[\u4e00-\u9fa5]$/.test(first)) {
+                try {
+                    const py = first.localeCompare("z", "zh-Hans-CN-u-co-pinyin");
+                    const zhLetters = [
+                        { l: "A", c: "啊" }, { l: "B", c: "芭" }, { l: "C", c: "擦" }, { l: "D", c: "搭" },
+                        { l: "E", c: "蛾" }, { l: "F", c: "发" }, { l: "G", c: "噶" }, { l: "H", c: "哈" },
+                        { l: "J", c: "击" }, { l: "K", c: "喀" }, { l: "L", c: "垃" }, { l: "M", c: "妈" },
+                        { l: "N", c: "拿" }, { l: "O", c: "哦" }, { l: "P", c: "啪" }, { l: "Q", c: "期" },
+                        { l: "R", c: "然" }, { l: "S", c: "撒" }, { l: "T", c: "塌" }, { l: "W", c: "挖" },
+                        { l: "X", c: "昔" }, { l: "Y", c: "压" }, { l: "Z", c: "匝" }
+                    ];
+                    for (let i = zhLetters.length - 1; i >= 0; i--) {
+                        if (first.localeCompare(zhLetters[i].c, "zh-Hans-CN-u-co-pinyin") >= 0) {
+                            return zhLetters[i].l;
+                        }
+                    }
+                } catch (e) {}
+            }
+            return "#";
+        }
+
+        function renderAlphabetList() {
+            if (!alphabetScrollArea || !alphabetFastIndex) return;
+            alphabetScrollArea.innerHTML = "";
+            alphabetFastIndex.innerHTML = "";
+
+            const keyword = searchInput.value.trim().normalize("NFKC").toLowerCase();
+            let sourceList = state.allModules;
+            if (keyword) {
+                sourceList = sourceList.filter(m => m._searchText && m._searchText.includes(keyword));
+            }
+
+            const sorted = [...sourceList].sort((a, b) => {
+                const letterA = getItemInitialLetter(a.name);
+                const letterB = getItemInitialLetter(b.name);
+                if (letterA === "#" && letterB !== "#") return 1;
+                if (letterA !== "#" && letterB === "#") return -1;
+                if (letterA !== letterB) return letterA.localeCompare(letterB);
+                return a.name.localeCompare(b.name, "zh-Hans-CN");
+            });
+
+            const groups = {};
+            sorted.forEach(item => {
+                const l = getItemInitialLetter(item.name);
+                if (!groups[l]) groups[l] = [];
+                groups[l].push(item);
+            });
+
+            const alphabetAll = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","#"];
+            const fragment = document.createDocumentFragment();
+
+            alphabetAll.forEach(letter => {
+                const charEl = document.createElement("div");
+                charEl.className = "alphabet-fast-char";
+                charEl.textContent = letter;
+                charEl.dataset.letter = letter;
+                if (!groups[letter] || groups[letter].length === 0) {
+                    charEl.classList.add("disabled");
+                }
+                alphabetFastIndex.appendChild(charEl);
+
+                if (groups[letter] && groups[letter].length > 0) {
+                    const groupContainer = document.createElement("div");
+                    groupContainer.className = "alphabet-group";
+                    groupContainer.id = `alphabet-group-${letter}`;
+
+                    const headerEl = document.createElement("div");
+                    headerEl.className = "alphabet-letter-header";
+                    headerEl.textContent = letter;
+                    groupContainer.appendChild(headerEl);
+
+                    const listEl = document.createElement("div");
+                    listEl.className = "alphabet-item-list";
+
+                    groups[letter].forEach(mod => {
+                        const row = document.createElement("a");
+                        row.className = "alphabet-item-row";
+                        const targetUrl = mod.installURL || mod.rawURL || mod.sourceURL || "#";
+                        row.href = targetUrl;
+                        if (mod.isRepoCard || !mod.installURL) {
+                            row.target = "_blank";
+                            row.rel = "noopener noreferrer";
+                        }
+                        
+                        const fallbackIcon = createIOSAppIcon(mod.name);
+                        const iconSrc = mod.icon || fallbackIcon;
+
+                        let catName = "模块";
+                        if (mod.category === "config") catName = "配置";
+                        else if (mod.category === "manual") catName = "手册";
+                        else if (mod.category === "more") catName = "仓库";
+                        if (state.currentLang === "en") {
+                            catName = mod.category ? mod.category.charAt(0).toUpperCase() + mod.category.slice(1) : "Module";
+                        }
+
+                        row.innerHTML = `
+                            <div class="alphabet-item-icon">
+                                <img src="${escapeHTML(iconSrc)}" alt="" decoding="async">
+                            </div>
+                            <span class="alphabet-item-name">${escapeHTML(mod.name)}</span>
+                            <span class="alphabet-item-type">${escapeHTML(catName)}</span>
+                        `;
+
+                        const img = row.querySelector("img");
+                        if (img) {
+                            img.addEventListener("error", () => { img.src = fallbackIcon; }, { once: true });
+                        }
+
+                        listEl.appendChild(row);
+                    });
+
+                    groupContainer.appendChild(listEl);
+                    fragment.appendChild(groupContainer);
+                }
+            });
+
+            alphabetScrollArea.appendChild(fragment);
+            updateAlphabetPosition();
+        }
+
+        function scrollToAlphabetLetter(letter) {
+            const targetEl = document.getElementById(`alphabet-group-${letter}`);
+            if (targetEl && alphabetScrollArea) {
+                const targetOffset = targetEl.offsetTop;
+                alphabetScrollArea.scrollTo({
+                    top: targetOffset - 6,
+                    behavior: "smooth"
+                });
+            }
+        }
+
+        let isTouchingIndex = false;
+        function handleFastIndexEvent(e) {
+            e.preventDefault();
+            const touch = e.touches ? e.touches[0] : e;
+            const target = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (target && target.classList.contains("alphabet-fast-char") && !target.classList.contains("disabled")) {
+                const letter = target.dataset.letter;
+                if (letter) {
+                    scrollToAlphabetLetter(letter);
+                    document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
+                    target.classList.add("active");
+                }
+            }
+        }
+
+        alphabetFastIndex.addEventListener("touchstart", (e) => {
+            isTouchingIndex = true;
+            handleFastIndexEvent(e);
+        }, { passive: false });
+
+        alphabetFastIndex.addEventListener("touchmove", (e) => {
+            if (isTouchingIndex) {
+                handleFastIndexEvent(e);
+            }
+        }, { passive: false });
+
+        window.addEventListener("touchend", () => {
+            isTouchingIndex = false;
+            document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
+        });
+
+        alphabetFastIndex.addEventListener("mousedown", (e) => {
+            isTouchingIndex = true;
+            handleFastIndexEvent(e);
+        });
+        window.addEventListener("mouseup", () => {
+            isTouchingIndex = false;
+            document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
+        });
+
+        // 动态适配搜索框与底部标签栏之间的区域，并避开软键盘遮挡
+        function updateAlphabetPosition() {
+            if (!alphabetViewContainer) return;
+
+            const searchRect = searchWrapperEl.getBoundingClientRect();
+            const topGap = Math.max(searchRect.bottom + 8, 54);
+            alphabetViewContainer.style.top = `${topGap}px`;
+
+            let bottomThreshold = 90;
+            const isSingleCol = controlBarEl.classList.contains("is-single-column");
+            if (isSingleCol) {
+                const bottomNav = document.querySelector(".tab-bar-wrapper");
+                if (bottomNav) {
+                    const navRect = bottomNav.getBoundingClientRect();
+                    bottomThreshold = window.innerHeight - navRect.top + 8;
+                }
+            }
+
+            if (window.visualViewport) {
+                const keyboardOverlap = window.innerHeight - (window.visualViewport.offsetTop + window.visualViewport.height);
+                if (keyboardOverlap > 0) {
+                    bottomThreshold = Math.max(bottomThreshold, keyboardOverlap + 12);
+                }
+            }
+
+            alphabetViewContainer.style.bottom = `${bottomThreshold}px`;
+        }
+
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', updateAlphabetPosition);
+            window.visualViewport.addEventListener('scroll', updateAlphabetPosition);
+        }
+
+        function setListViewMode(enable) {
+            if (state.isListView === enable) return;
+            state.isListView = enable;
+
+            if (enable) {
+                // 丝滑滚动并上浮到顶部吸顶状态
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                document.body.classList.add("is-list-view");
+                listToggleBtn.classList.add("active");
+                renderAlphabetList();
+                // 稍作延时确保 header 折叠动画计算到精确的最终 top 值
+                setTimeout(updateAlphabetPosition, 60);
+                setTimeout(updateAlphabetPosition, 380);
+                checkScrollLock();
+            } else {
+                document.body.classList.remove("is-list-view");
+                listToggleBtn.classList.remove("active");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                checkScrollLock();
+                scheduleCardLayerUpdate();
+            }
+        }
+
+        // 点击搜索输入框自动上浮至吸顶状态并显示首字母列表
+        searchInput.addEventListener("focus", () => {
+            setListViewMode(true);
+        });
+
+        // 点击搜索框右侧列表 Emoji 图标切换
+        listToggleBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            setListViewMode(!state.isListView);
+            if (state.isListView) {
+                searchInput.focus();
+            }
+        });
 
         function renderAuthor(module) {
             const author = module.author || {};
@@ -1849,11 +2539,12 @@
 
             const langObj = I18N[state.currentLang];
             const card = document.createElement("article");
-            card.className = "module-card liquid_glass-wrapper";
+            card.className = "module-card glass-element";
 
             const fallbackIcon = createIOSAppIcon(module.name);
             const icon = module.icon || fallbackIcon;
             const authorHTML = renderAuthor(module);
+            
             const isRepo = Boolean(module.isRepoCard);
 
             const directOpenURL = module.rawURL || module.sourceURL || "";
@@ -1898,28 +2589,22 @@
             const descriptionText = module.description ? escapeHTML(module.description) : langObj.noDesc;
 
             card.innerHTML = `
-                <div class="liquid_glass-outer"></div>
-                <div class="liquid_glass-cover"></div>
-                <div class="liquid_glass-reflect"></div>
-                <div class="liquid_glass-sharp"></div>
-                <div class="liquid-content-layer" style="display: flex; flex-direction: column; height: 100%;">
-                    <div class="card-header">
-                        ${iconHTML}
-                        <div class="card-main">
-                            <h2 class="module-name">${escapeHTML(module.name)}</h2>
-                            <div class="module-meta">
-                                ${authorHTML}
-                                <span class="meta-separator">/</span>
-                                ${sourceLinkHTML}
-                            </div>
+                <div class="card-header">
+                    ${iconHTML}
+                    <div class="card-main">
+                        <h2 class="module-name">${escapeHTML(module.name)}</h2>
+                        <div class="module-meta">
+                            ${authorHTML}
+                            <span class="meta-separator">/</span>
+                            ${sourceLinkHTML}
                         </div>
                     </div>
-                    <div class="module-description">${descriptionText}</div>
-                    <div class="card-bottom">
-                        <div class="action-buttons">
-                            ${secondaryBtnHTML}
-                            ${installBtnHTML}
-                        </div>
+                </div>
+                <div class="module-description">${descriptionText}</div>
+                <div class="card-bottom">
+                    <div class="action-buttons">
+                        ${secondaryBtnHTML}
+                        ${installBtnHTML}
                     </div>
                 </div>
             `;
@@ -1975,6 +2660,7 @@
             sentinel.style.display = state.currentlyRendered >= state.filteredModules.length ? "none" : "block";
             
             updateCardWidth();
+            updateCardLayerOrder();
             updateSearchLayer();
             checkScrollLock();
         }
@@ -1991,6 +2677,7 @@
                 sentinel.style.display = "none";
                 modulesContainer.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div>${escapeHTML(langObj.emptyText(currentLabel))}</div>`;
                 countText.textContent = langObj.countText(0, currentLabel);
+                scheduleCardLayerUpdate();
                 checkScrollLock();
                 return;
             }
@@ -2000,7 +2687,7 @@
         }
 
         const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !state.isDataLoading) {
+            if (entries[0].isIntersecting && !state.isDataLoading && !state.isListView) {
                 appendNextBatch();
             }
         }, { rootMargin: "300px" });
@@ -2017,11 +2704,15 @@
             }
 
             let result = state.allModules.filter(m => (m.category || "module") === state.activeTab);
+
             if (keyword) {
                 result = result.filter(m => m._searchText && m._searchText.includes(keyword));
             }
 
             renderFilteredList(result);
+            if (state.isListView) {
+                renderAlphabetList();
+            }
         }
 
         tabItems.forEach(tab => {
@@ -2038,7 +2729,9 @@
 
                 isTabAnimating = true;
                 clearTimeout(tabAnimTimer);
-                tabAnimTimer = setTimeout(() => { isTabAnimating = false; }, 460);
+                tabAnimTimer = setTimeout(() => {
+                    isTabAnimating = false;
+                }, 460);
 
                 updateTabIndicator(true);
 
@@ -2060,8 +2753,8 @@
         searchClear.addEventListener("click", (e) => {
             e.preventDefault();
             searchInput.value = "";
+            setListViewMode(false);
             filterModules();
-            if (window.innerWidth > 768) searchInput.focus();
         });
 
         window.addEventListener("keydown", (e) => {
@@ -2070,9 +2763,10 @@
                 e.preventDefault();
                 searchInput.focus();
                 searchInput.select();
-            } else if (e.key === "Escape" && document.activeElement === searchInput) {
+            } else if (e.key === "Escape") {
                 searchInput.value = "";
                 searchInput.blur();
+                setListViewMode(false);
                 filterModules();
             }
         });
@@ -2109,7 +2803,7 @@
             }
 
             function nextNotice() {
-                if (document.activeElement === searchInput || searchInput.value.length > 0) return;
+                if (document.activeElement === searchInput || searchInput.value.length > 0 || state.isListView) return;
                 if (isAnimating) return;
                 isAnimating = true;
                 noticeIndex++;
@@ -2141,9 +2835,13 @@
             }
 
             startNoticeLoop();
+
             document.addEventListener("visibilitychange", () => {
-                if (document.hidden) stopNoticeLoop();
-                else startNoticeLoop();
+                if (document.hidden) {
+                    stopNoticeLoop();
+                } else {
+                    startNoticeLoop();
+                }
             });
         }
 
@@ -2177,17 +2875,17 @@
 
             const isZh = state.currentLang === "zh";
             if (mode === "light") {
-                themeIconContainer.innerHTML = SUN_ICON;
+                themeToggleBtn.innerHTML = SUN_ICON;
                 const desc = isZh ? "当前：浅色模式（点击切换深色）" : "Current: Light mode (Click for Dark)";
                 themeToggleBtn.setAttribute("title", desc);
                 themeToggleBtn.setAttribute("aria-label", desc);
             } else if (mode === "dark") {
-                themeIconContainer.innerHTML = MOON_ICON;
+                themeToggleBtn.innerHTML = MOON_ICON;
                 const desc = isZh ? "当前：深色模式（点击切换自动跟随）" : "Current: Dark mode (Click for Auto)";
                 themeToggleBtn.setAttribute("title", desc);
                 themeToggleBtn.setAttribute("aria-label", desc);
             } else {
-                themeIconContainer.innerHTML = SYSTEM_ICON;
+                themeToggleBtn.innerHTML = SYSTEM_ICON;
                 const desc = isZh ? "当前：自动跟随系统（点击切换反色模式）" : "Current: Auto System (Click to switch)";
                 themeToggleBtn.setAttribute("title", desc);
                 themeToggleBtn.setAttribute("aria-label", desc);
@@ -2196,11 +2894,18 @@
 
         mediaQueryDark.addEventListener("change", () => {
             if (getThemeMode() === "auto") {
+                document.documentElement.classList.add("theme-transitioning");
                 updateThemeUI();
+                window.requestAnimationFrame(() => {
+                    void document.documentElement.offsetWidth;
+                    document.documentElement.classList.remove("theme-transitioning");
+                });
             }
         });
 
         themeToggleBtn.addEventListener("click", () => {
+            document.documentElement.classList.add("theme-transitioning");
+
             const currentMode = getThemeMode();
             const isSystemDark = mediaQueryDark.matches;
             let nextMode, toastText;
@@ -2237,6 +2942,13 @@
             } catch (e) {}
             updateThemeUI();
             showToast(toastText);
+
+            window.requestAnimationFrame(() => {
+                void document.documentElement.offsetWidth;
+                window.requestAnimationFrame(() => {
+                    document.documentElement.classList.remove("theme-transitioning");
+                });
+            });
         });
 
         function updateLanguageUI() {
@@ -2261,12 +2973,6 @@
             searchClear.setAttribute("title", dict.searchClearTitle);
             backToTopBtn.setAttribute("title", dict.backToTopTitle);
             backToTopBtn.setAttribute("aria-label", dict.backToTopTitle);
-
-            if (searchBackToTopBtn) {
-                searchBackToTopBtn.setAttribute("title", dict.backToTopTitle);
-                searchBackToTopBtn.setAttribute("aria-label", dict.backToTopTitle);
-            }
-
             searchInput.setAttribute("aria-label", dict.searchInputAria);
 
             const notice1 = document.querySelector(".notice-item-1");
@@ -2307,7 +3013,9 @@
 
         updateThemeUI();
 
-        /* 下拉手势 */
+        /* =========================================================
+            移动端下拉刷新手势处理
+        ========================================================= */
         let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
         let hasPulledContainer = false;
         const MIN_DRAG_DEADZONE = 30;
@@ -2334,6 +3042,7 @@
                 pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
                 ptrIcon.classList.remove("rotate");
                 state.isPullRefreshing = false;
+                pageContainer.style.willChange = "auto";
                 hasPulledContainer = false;
                 checkScrollLock();
             }, 500);
@@ -2359,12 +3068,19 @@
             }
             
             ptrIcon.classList.remove("rotate");
+            pageContainer.style.willChange = "auto";
             hasPulledContainer = false;
         }
 
         window.addEventListener('touchstart', (e) => {
-            if (state.isPullRefreshing || state.isDataLoading) return;
-            if (e.target.closest("input, button, a, textarea, select, label, .module-card")) return;
+            if (state.isPullRefreshing || state.isDataLoading || state.isListView) {
+                isPulling = false;
+                return;
+            }
+            if (e.target.closest("input, button, a, textarea, select, label, .module-card, .alphabet-view-container")) {
+                isPulling = false;
+                return;
+            }
             const isAtTop = (window.scrollY || document.documentElement.scrollTop || 0) <= 0;
             if (isAtTop) {
                 touchStartX = e.touches[0].clientX;
@@ -2372,11 +3088,15 @@
                 isPulling = true;
                 isPullLocked = false;
                 hasPulledContainer = false;
+            } else {
+                isPulling = false;
             }
         }, { passive: true });
 
         window.addEventListener('touchmove', (e) => {
-            if (!isPulling || state.isPullRefreshing || state.isDataLoading) return;
+            if (!isPulling || state.isPullRefreshing || state.isDataLoading || state.isListView) {
+                return;
+            }
 
             const currentX = e.touches[0].clientX;
             const currentY = e.touches[0].clientY;
@@ -2384,13 +3104,21 @@
             const diffY = currentY - touchStartY;
 
             if (!isPullLocked) {
-                if (Math.abs(diffX) > Math.abs(diffY) || diffY <= 0) {
+                if (Math.abs(diffX) > Math.abs(diffY)) {
                     isPulling = false;
                     isPullLocked = true;
                     return;
                 }
+
+                if (diffY <= 0) {
+                    isPulling = false;
+                    isPullLocked = true;
+                    return;
+                }
+
                 if (diffY > MIN_DRAG_DEADZONE) {
                     isPullLocked = true;
+                    pageContainer.style.willChange = "top";
                     pageContainer.style.transition = 'none';
                     pullRefreshIndicator.style.transition = 'none';
                 }
@@ -2424,7 +3152,10 @@
         }, { passive: false });
 
         window.addEventListener('touchend', (e) => {
-            if (!isPulling || state.isPullRefreshing || state.isDataLoading) return;
+            if (!isPulling || state.isPullRefreshing || state.isDataLoading || state.isListView) {
+                isPulling = false;
+                return;
+            }
             isPulling = false;
             isPullLocked = false;
             if (pullRafId) cancelAnimationFrame(pullRafId);
@@ -2436,9 +3167,11 @@
             if (hasPulledContainer && diffY >= PULL_TRIGGER_DIFF && isAtTop) {
                 pageContainer.style.transition = 'top 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)';
                 pageContainer.style.top = '38px';
+                
                 pullRefreshIndicator.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.25s ease';
                 pullRefreshIndicator.style.transform = `translate3d(-50%, 16px, 0)`;
                 pullRefreshIndicator.style.opacity = '1';
+                
                 triggerForceReload();
             } else {
                 resetPullState();
@@ -2472,7 +3205,9 @@
             try {
                 cachedData = localStorage.getItem(CONFIG.CACHE_KEY);
                 cachedTime = Number(localStorage.getItem(CONFIG.CACHE_TIME_KEY) || 0);
-            } catch (e) {}
+            } catch (e) {
+                console.warn("读取本地缓存失败:", e);
+            }
 
             const isCacheFresh = !forceRefresh && cachedData && cachedTime && (Date.now() - cachedTime < CONFIG.CACHE_MAX_AGE);
             let hasRenderedCache = false;
@@ -2519,6 +3254,7 @@
             try {
                 const fetchUrl = forceRefresh ? `${CONFIG.DATA_JSON_URL}?_t=${Date.now()}` : CONFIG.DATA_JSON_URL;
                 const response = await fetch(fetchUrl, { cache: forceRefresh ? "no-store" : "default" });
+                
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 
                 const data = await response.json();
@@ -2542,6 +3278,8 @@
                 statusDot.className = "status-dot";
                 return true;
             } catch (error) {
+                console.error("加载 modules.json 失败:", error);
+                
                 if (hasRenderedCache || state.allModules.length > staticItems.length) {
                     state.statusKey = "statusErrorCache";
                     statusText.textContent = langObj.statusErrorCache;
