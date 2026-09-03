@@ -313,7 +313,6 @@
             transition: color 0.4s ease, padding-top 0.35s cubic-bezier(0.16, 1, 0.3, 1); 
         }
 
-        /* 激活列表视图时，页面顶部 padding 缩进并使 header 优雅折叠收起，令控制栏平滑上浮置顶 */
         body.is-list-view {
             padding-top: max(8px, env(safe-area-inset-top));
         }
@@ -388,14 +387,13 @@
             padding: 24px 0 18px; 
             max-height: 160px;
             overflow: hidden;
-            transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-                        padding 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-                        margin 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-                        opacity 0.28s ease,
-                        transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        margin 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.25s ease,
+                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* 列表视图折叠 header 并上浮 */
         body.is-list-view .header {
             max-height: 0 !important;
             padding-top: 0 !important;
@@ -720,16 +718,23 @@
             filter: none; 
             user-select: none;
             -webkit-user-select: none;
+            line-height: 1;
         }
 
         .search-icon { pointer-events: none; }
         
         .list-toggle-icon {
             cursor: pointer;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
             outline: none;
             padding: 0;
             border-style: solid;
+        }
+        .list-toggle-icon svg {
+            display: block;
+            width: 15px;
+            height: 15px;
+            pointer-events: none;
         }
         .list-toggle-icon:hover {
             border-color: var(--primary);
@@ -789,16 +794,13 @@
             transition: opacity 0.3s ease 0.1s;
         }
 
-        .search-shortcut, .search-clear { 
+        .search-shortcut { 
             width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
             background: transparent; border: none; box-shadow: none;
             font-size: 12px; font-weight: 600; 
+            color: var(--text-tertiary); pointer-events: none;
             transition: color 0.2s ease, opacity 0.2s ease; 
         }
-        .search-shortcut { color: var(--text-tertiary); pointer-events: none; }
-        .search-clear { display: none; color: var(--primary); cursor: pointer; padding: 0; }
-        .search-clear:hover { color: var(--text-primary); }
-        .search-clear.visible { display: flex; }
 
         .back-to-top-btn {
             width: 0;
@@ -881,6 +883,19 @@
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 background-image 0.4s ease;
             -webkit-transform: translateZ(0); transform: translateZ(0); 
+        }
+
+        @keyframes targetCardPulse {
+            0% { transform: scale(0.96); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .module-card.single-focused {
+            animation: targetCardPulse 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            grid-column: 1;
+            justify-self: start;
+            max-width: var(--card-width, 380px);
+            margin: 0;
+            width: 100%;
         }
 
         @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
@@ -1204,25 +1219,30 @@
         }
 
         /* =========================================================
-            7. 全局首字母字母表搜索视图 (Alphabetical List View)
+            7. 全局首字母字母表搜索视图 (动态对齐 + 渐隐加载)
         ========================================================= */
         .alphabet-view-container {
             position: fixed;
-            left: 0;
-            right: 0;
             top: 68px;
             bottom: var(--safe-pad-bottom);
             display: none;
             opacity: 0;
+            transform: translateY(6px);
             pointer-events: none;
             z-index: 999980;
-            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), top 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
         }
 
         body.is-list-view .alphabet-view-container {
             display: flex;
-            opacity: 1;
             pointer-events: auto;
+        }
+
+        body.is-list-view .alphabet-view-container.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         body.is-list-view .status,
@@ -1238,11 +1258,10 @@
         .alphabet-content-box {
             position: relative;
             width: 100%;
-            max-width: clamp(1080px, 95vw, 2560px);
-            margin: 0 auto;
             height: 100%;
             display: flex;
-            padding: 0 16px;
+            padding: 0;
+            margin: 0;
         }
 
         .alphabet-scroll-area {
@@ -1251,7 +1270,8 @@
             overflow-y: scroll;
             overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
-            padding-right: 32px;
+            padding-left: 0;
+            padding-right: 28px;
             padding-bottom: 24px;
             scrollbar-width: none;
             -ms-overflow-style: none;
@@ -1272,7 +1292,7 @@
             font-size: 13.5px;
             font-weight: 700;
             color: var(--primary);
-            padding: 10px 0 6px 4px;
+            padding: 10px 0 6px 0;
             letter-spacing: 0.5px;
             user-select: none;
             -webkit-user-select: none;
@@ -1288,7 +1308,7 @@
             display: flex;
             align-items: center;
             gap: 14px;
-            padding: 9px 8px;
+            padding: 9px 0;
             border-radius: 12px;
             background: transparent !important;
             border: none !important;
@@ -1348,7 +1368,7 @@
 
         .alphabet-fast-index {
             position: absolute;
-            right: 12px;
+            right: 0;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
@@ -1360,8 +1380,7 @@
             -webkit-user-select: none;
             touch-action: none;
             z-index: 10;
-            padding: 8px 4px;
-            border-radius: 16px;
+            padding: 8px 0;
             background: transparent;
         }
 
@@ -1636,9 +1655,8 @@
                         </div>
                     </div>
 
-                    <button id="listToggleBtn" class="list-toggle-icon" type="button" aria-label="切换首字母资源列表" title="首字母资源列表">📋</button>
                     <span class="search-shortcut">/</span>
-                    <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
+                    <button id="listToggleBtn" class="list-toggle-icon" type="button" aria-label="首字母资源列表" title="首字母资源列表">📋</button>
                 </div>
 
                 <button id="backToTopBtn" class="theme-toggle glass-element back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
@@ -1687,7 +1705,7 @@
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        const CACHE_VERSION = "202609022229"; 
+        const CACHE_VERSION = "202609031220"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -1884,6 +1902,7 @@
         const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
         const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
         const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>`;
+        const CLOSE_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
 
         const tagPillBadge = document.getElementById("tagPillBadge");
         const subtitleEl = document.getElementById("subtitle");
@@ -1900,7 +1919,6 @@
         const searchBoxInner = document.querySelector('.search-box-inner');
         const modulesContainer = document.getElementById("modules");
         const searchInput = document.getElementById("search");
-        const searchClear = document.getElementById("searchClear");
         const searchShortcut = document.querySelector(".search-shortcut");
         const listToggleBtn = document.getElementById("listToggleBtn");
         const statusText = document.getElementById("statusText");
@@ -1941,6 +1959,7 @@
             isDataLoading: false,
             isPullRefreshing: false,
             isListView: false,
+            focusedModuleId: null,
             activeTab: "module",
             statusKey: "statusSyncing"
         };
@@ -1996,7 +2015,7 @@
         function normalizeStaticResources(lang = state.currentLang) {
             return STATIC_RESOURCES_DATA
                 .filter(item => !item.isDubious)
-                .map(item => {
+                .map((item, idx) => {
                     const localized = item.i18n[lang] || item.i18n.zh;
                     const searchTokens = [
                         localized.name,
@@ -2013,6 +2032,7 @@
                     ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
 
                     return {
+                        id: `static_${item.category}_${idx}`,
                         name: localized.name,
                         category: item.category || "more",
                         description: localized.description,
@@ -2036,7 +2056,7 @@
             if (!Array.isArray(data)) return [];
             return data
                 .filter(item => item && typeof item === "object" && !item.isDubious)
-                .map(m => {
+                .map((m, idx) => {
                     const rawURL = safeURL(m.rawURL || m.url || "");
                     const authorName = m.author?.name || m.author?.username || "";
                     const authorURL = safeURL(m.author?.url || (m.author?.username ? `https://github.com/${m.author.username}` : ""));
@@ -2067,6 +2087,7 @@
                     ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
 
                     return {
+                        id: `mod_${category}_${idx}_${encodeURIComponent(m.name || '')}`,
                         name: m.name || "未命名模块",
                         category: category,
                         description: m.description || "",
@@ -2142,7 +2163,7 @@
 
         if (searchBoxInner) {
             searchBoxInner.addEventListener("click", (e) => {
-                if (e.target !== searchClear && e.target !== listToggleBtn && !searchInput.disabled) {
+                if (e.target !== listToggleBtn && !searchInput.disabled) {
                     searchInput.focus();
                 }
             });
@@ -2268,6 +2289,14 @@
                 });
                 tabBarObserver.observe(tabBarEl);
             }
+            if (searchBoxInner) {
+                const searchBoxObserver = new ResizeObserver(() => {
+                    if (state.isListView) {
+                        updateAlphabetPosition();
+                    }
+                });
+                searchBoxObserver.observe(searchBoxInner);
+            }
         }
 
         /* =========================================================
@@ -2300,17 +2329,71 @@
             return "#";
         }
 
+        // 统一更新按钮状态图标（📋 或 ✕）
+        function updateRightActionButton() {
+            const hasText = searchInput.value.length > 0;
+            const shouldShowClose = state.isListView || hasText || state.focusedModuleId;
+
+            if (shouldShowClose) {
+                listToggleBtn.innerHTML = CLOSE_SVG;
+                listToggleBtn.classList.add("active");
+                listToggleBtn.setAttribute("title", I18N[state.currentLang].searchClearTitle);
+                listToggleBtn.setAttribute("aria-label", I18N[state.currentLang].searchClearTitle);
+                if (searchShortcut) searchShortcut.style.display = "none";
+            } else {
+                listToggleBtn.textContent = "📋";
+                listToggleBtn.classList.remove("active");
+                listToggleBtn.setAttribute("title", "首字母资源列表");
+                listToggleBtn.setAttribute("aria-label", "首字母资源列表");
+                if (searchShortcut) searchShortcut.style.display = "";
+            }
+        }
+
+        // 单资源聚焦展示
+        function focusSingleResource(mod) {
+            state.focusedModuleId = mod.id;
+            setListViewMode(false);
+
+            searchInput.value = mod.name;
+            updateRightActionButton();
+
+            if (state.activeTab !== mod.category) {
+                state.activeTab = mod.category;
+                tabItems.forEach(t => {
+                    const isActive = t.getAttribute("data-tab") === mod.category;
+                    t.classList.toggle("active", isActive);
+                    t.setAttribute("aria-selected", isActive ? "true" : "false");
+                });
+                updateTabIndicator(true);
+            }
+
+            state.filteredModules = [mod];
+            state.currentlyRendered = 1;
+            modulesContainer.innerHTML = "";
+            sentinel.style.display = "none";
+
+            mod._domElement = null;
+            const singleCard = createModuleCard(mod);
+            singleCard.classList.add("single-focused");
+            modulesContainer.appendChild(singleCard);
+
+            const langObj = I18N[state.currentLang];
+            const currentLabel = langObj.countLabel[mod.category] || langObj.countLabel.more;
+            countText.textContent = langObj.countText(1, currentLabel);
+            statusText.textContent = `已定位：${mod.name}`;
+            statusDot.className = "status-dot";
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            scheduleCardLayerUpdate();
+            checkScrollLock();
+        }
+
         function renderAlphabetList() {
             if (!alphabetScrollArea || !alphabetFastIndex) return;
             alphabetScrollArea.innerHTML = "";
             alphabetFastIndex.innerHTML = "";
 
-            const keyword = searchInput.value.trim().normalize("NFKC").toLowerCase();
             let sourceList = state.allModules;
-            if (keyword) {
-                sourceList = sourceList.filter(m => m._searchText && m._searchText.includes(keyword));
-            }
-
             const sorted = [...sourceList].sort((a, b) => {
                 const letterA = getItemInitialLetter(a.name);
                 const letterB = getItemInitialLetter(b.name);
@@ -2354,14 +2437,10 @@
                     listEl.className = "alphabet-item-list";
 
                     groups[letter].forEach(mod => {
-                        const row = document.createElement("a");
+                        const row = document.createElement("div");
                         row.className = "alphabet-item-row";
-                        const targetUrl = mod.installURL || mod.rawURL || mod.sourceURL || "#";
-                        row.href = targetUrl;
-                        if (mod.isRepoCard || !mod.installURL) {
-                            row.target = "_blank";
-                            row.rel = "noopener noreferrer";
-                        }
+                        row.setAttribute("role", "button");
+                        row.setAttribute("tabindex", "0");
                         
                         const fallbackIcon = createIOSAppIcon(mod.name);
                         const iconSrc = mod.icon || fallbackIcon;
@@ -2381,6 +2460,11 @@
                             <span class="alphabet-item-name">${escapeHTML(mod.name)}</span>
                             <span class="alphabet-item-type">${escapeHTML(catName)}</span>
                         `;
+
+                        row.addEventListener("click", (e) => {
+                            e.preventDefault();
+                            focusSingleResource(mod);
+                        });
 
                         const img = row.querySelector("img");
                         if (img) {
@@ -2450,13 +2534,15 @@
             document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
         });
 
-        // 动态适配搜索框与底部标签栏之间的区域，并避开软键盘遮挡
         function updateAlphabetPosition() {
-            if (!alphabetViewContainer) return;
+            if (!alphabetViewContainer || !searchBoxInner) return;
 
-            const searchRect = searchWrapperEl.getBoundingClientRect();
+            const searchRect = searchBoxInner.getBoundingClientRect();
             const topGap = Math.max(searchRect.bottom + 8, 54);
+            
             alphabetViewContainer.style.top = `${topGap}px`;
+            alphabetViewContainer.style.left = `${searchRect.left}px`;
+            alphabetViewContainer.style.width = `${searchRect.width}px`;
 
             let bottomThreshold = 90;
             const isSingleCol = controlBarEl.classList.contains("is-single-column");
@@ -2483,39 +2569,59 @@
             window.visualViewport.addEventListener('scroll', updateAlphabetPosition);
         }
 
+        let listAnimationTimer = null;
         function setListViewMode(enable) {
             if (state.isListView === enable) return;
             state.isListView = enable;
+            clearTimeout(listAnimationTimer);
 
             if (enable) {
-                // 丝滑滚动并上浮到顶部吸顶状态
+                state.focusedModuleId = null;
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 document.body.classList.add("is-list-view");
-                listToggleBtn.classList.add("active");
-                renderAlphabetList();
-                // 稍作延时确保 header 折叠动画计算到精确的最终 top 值
-                setTimeout(updateAlphabetPosition, 60);
-                setTimeout(updateAlphabetPosition, 380);
-                checkScrollLock();
+                updateRightActionButton();
+                
+                listAnimationTimer = setTimeout(() => {
+                    renderAlphabetList();
+                    updateAlphabetPosition();
+                    alphabetViewContainer.classList.add("is-visible");
+                    checkScrollLock();
+                }, 350);
             } else {
-                document.body.classList.remove("is-list-view");
-                listToggleBtn.classList.remove("active");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-                checkScrollLock();
-                scheduleCardLayerUpdate();
+                alphabetViewContainer.classList.remove("is-visible");
+                listAnimationTimer = setTimeout(() => {
+                    document.body.classList.remove("is-list-view");
+                    updateRightActionButton();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    checkScrollLock();
+                    scheduleCardLayerUpdate();
+                }, 200);
             }
         }
 
-        // 点击搜索输入框自动上浮至吸顶状态并显示首字母列表
+        // 点击搜索框仅在无输入内容时展开首字母列表
         searchInput.addEventListener("focus", () => {
-            setListViewMode(true);
+            if (searchInput.value.trim().length === 0 && !state.focusedModuleId) {
+                setListViewMode(true);
+            }
         });
 
-        // 点击搜索框右侧列表 Emoji 图标切换
+        // 统一右侧按钮交互：如果是清空/关闭状态则清空并恢复默认，否则切换列表
         listToggleBtn.addEventListener("click", (e) => {
             e.stopPropagation();
-            setListViewMode(!state.isListView);
-            if (state.isListView) {
+            const hasText = searchInput.value.length > 0;
+
+            if (state.isListView || hasText || state.focusedModuleId) {
+                state.focusedModuleId = null;
+                searchInput.value = "";
+                setListViewMode(false);
+                filterModules();
+                if (state.statusKey && I18N[state.currentLang][state.statusKey]) {
+                    statusText.textContent = I18N[state.currentLang][state.statusKey];
+                }
+                updateRightActionButton();
+            } else {
+                setListViewMode(true);
                 searchInput.focus();
             }
         });
@@ -2540,6 +2646,7 @@
             const langObj = I18N[state.currentLang];
             const card = document.createElement("article");
             card.className = "module-card glass-element";
+            card.dataset.moduleId = module.id;
 
             const fallbackIcon = createIOSAppIcon(module.name);
             const icon = module.icon || fallbackIcon;
@@ -2643,6 +2750,7 @@
         }
 
         function appendNextBatch() {
+            if (state.focusedModuleId) return;
             if (state.currentlyRendered >= state.filteredModules.length) {
                 sentinel.style.display = "none";
                 checkScrollLock();
@@ -2687,7 +2795,7 @@
         }
 
         const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !state.isDataLoading && !state.isListView) {
+            if (entries[0].isIntersecting && !state.isDataLoading && !state.isListView && !state.focusedModuleId) {
                 appendNextBatch();
             }
         }, { rootMargin: "300px" });
@@ -2695,13 +2803,7 @@
 
         function filterModules() {
             const keyword = searchInput.value.trim().normalize("NFKC").toLowerCase();
-            if (searchInput.value.length > 0) {
-                searchClear.classList.add("visible");
-                if (searchShortcut) searchShortcut.style.display = "none";
-            } else {
-                searchClear.classList.remove("visible");
-                if (searchShortcut) searchShortcut.style.display = "";
-            }
+            updateRightActionButton();
 
             let result = state.allModules.filter(m => (m.category || "module") === state.activeTab);
 
@@ -2710,15 +2812,16 @@
             }
 
             renderFilteredList(result);
-            if (state.isListView) {
-                renderAlphabetList();
-            }
         }
 
         tabItems.forEach(tab => {
             tab.addEventListener("click", () => {
                 const targetTab = tab.getAttribute("data-tab");
-                if (state.activeTab === targetTab) return;
+                if (state.activeTab === targetTab && !state.focusedModuleId) return;
+
+                state.focusedModuleId = null;
+                searchInput.value = "";
+                updateRightActionButton();
 
                 state.activeTab = targetTab;
                 tabItems.forEach(t => {
@@ -2745,16 +2848,14 @@
             });
         });
 
+        // 键入内容时，自动退出首字母列表并以普通卡片渲染搜索结果
         searchInput.addEventListener("input", () => {
+            state.focusedModuleId = null;
+            if (state.isListView) {
+                setListViewMode(false);
+            }
             clearTimeout(searchTimer);
             searchTimer = setTimeout(filterModules, 120);
-        });
-
-        searchClear.addEventListener("click", (e) => {
-            e.preventDefault();
-            searchInput.value = "";
-            setListViewMode(false);
-            filterModules();
         });
 
         window.addEventListener("keydown", (e) => {
@@ -2764,10 +2865,12 @@
                 searchInput.focus();
                 searchInput.select();
             } else if (e.key === "Escape") {
+                state.focusedModuleId = null;
                 searchInput.value = "";
                 searchInput.blur();
                 setListViewMode(false);
                 filterModules();
+                updateRightActionButton();
             }
         });
 
@@ -2784,7 +2887,7 @@
 
             if (!enabled) {
                 searchInput.value = "";
-                searchClear.classList.remove("visible");
+                updateRightActionButton();
             }
         }
 
@@ -2803,7 +2906,7 @@
             }
 
             function nextNotice() {
-                if (document.activeElement === searchInput || searchInput.value.length > 0 || state.isListView) return;
+                if (document.activeElement === searchInput || searchInput.value.length > 0 || state.isListView || state.focusedModuleId) return;
                 if (isAnimating) return;
                 isAnimating = true;
                 noticeIndex++;
@@ -2970,7 +3073,6 @@
             langToggleBtn.setAttribute("title", dict.langBtnTitle);
             langToggleBtn.setAttribute("aria-label", dict.langBtnTitle);
 
-            searchClear.setAttribute("title", dict.searchClearTitle);
             backToTopBtn.setAttribute("title", dict.backToTopTitle);
             backToTopBtn.setAttribute("aria-label", dict.backToTopTitle);
             searchInput.setAttribute("aria-label", dict.searchInputAria);
@@ -2982,8 +3084,9 @@
 
             setSearchState(!searchInput.disabled);
             updateThemeUI();
+            updateRightActionButton();
 
-            if (state.statusKey && dict[state.statusKey]) {
+            if (!state.focusedModuleId && state.statusKey && dict[state.statusKey]) {
                 statusText.textContent = dict[state.statusKey];
             }
 
