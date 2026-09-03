@@ -938,8 +938,16 @@
         
         .card-main { min-width: 0; flex: 1; }
         .module-name { 
-            margin: 0; font-size: 20px; line-height: 1.3; font-weight: 400;
-            letter-spacing: -0.2px; color: var(--text-primary); word-break: break-word; 
+            margin: 0; 
+            font-size: 18px; 
+            line-height: 1.3; 
+            font-weight: 700;
+            letter-spacing: -0.2px; 
+            color: var(--text-primary); 
+            word-break: break-word; 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             text-shadow: var(--text-shadow-lg); 
         }
         
@@ -1000,8 +1008,8 @@
             justify-content: flex-end; 
             gap: 12px; 
             margin-top: 24px; 
-            padding-top: 24px; 
-            border-top: 1px solid var(--border-subtle); 
+            padding-top: 0; 
+            border-top: none; 
             box-shadow: none; 
             flex-shrink: 0;
         }
@@ -1609,7 +1617,7 @@
             }
             .module-card { padding: 22px; border-radius: var(--radius-card); }
             .module-description { flex: none; }
-            .card-bottom { margin-top: 20px; padding-top: 20px; }
+            .card-bottom { margin-top: 20px; padding-top: 0; }
             .search-shortcut { display: none; }
         }
 
@@ -1744,7 +1752,7 @@
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        const CACHE_VERSION = "202609031326"; 
+        const CACHE_VERSION = "202609031337"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -2601,7 +2609,6 @@
 
             const searchRect = searchBoxInner.getBoundingClientRect();
             
-            // 上下边缘距离屏幕固定为大约3个搜索框的高度（100px），水平方向与搜索框左侧及宽度对齐
             alphabetViewContainer.style.top = `100px`;
             alphabetViewContainer.style.bottom = `100px`;
             alphabetViewContainer.style.left = `${searchRect.left}px`;
@@ -2639,7 +2646,6 @@
             }
         }
 
-        // 点击页面空白处取消显示列表
         document.addEventListener("click", (e) => {
             if (!state.isListView) return;
             if (e.target.closest("#alphabetViewContainer") || 
@@ -2688,8 +2694,31 @@
             return `<span class="author">${avatarHTML}${escapeHTML(authorName)}</span>`;
         }
 
+        function autoFitModuleName(nameElement) {
+            if (!nameElement) return;
+            nameElement.style.fontSize = '18px';
+            nameElement.style.letterSpacing = '-0.2px';
+            
+            if (nameElement.scrollWidth > nameElement.clientWidth) {
+                nameElement.style.fontSize = '16px';
+                nameElement.style.letterSpacing = '-0.4px';
+            }
+            if (nameElement.scrollWidth > nameElement.clientWidth) {
+                nameElement.style.fontSize = '14.5px';
+                nameElement.style.letterSpacing = '-0.6px';
+            }
+            if (nameElement.scrollWidth > nameElement.clientWidth) {
+                nameElement.style.fontSize = '13px';
+                nameElement.style.letterSpacing = '-0.8px';
+            }
+        }
+
         function createModuleCard(module) {
             if (module._domElement) {
+                requestAnimationFrame(() => {
+                    const nameEl = module._domElement.querySelector('.module-name');
+                    autoFitModuleName(nameEl);
+                });
                 return module._domElement;
             }
 
@@ -2766,6 +2795,11 @@
                 </div>
             `;
             
+            const nameEl = card.querySelector(".module-name");
+            requestAnimationFrame(() => {
+                autoFitModuleName(nameEl);
+            });
+
             const copyBtn = card.querySelector(".copy-btn");
             if (copyBtn) {
                 copyBtn.addEventListener("click", async (e) => {
