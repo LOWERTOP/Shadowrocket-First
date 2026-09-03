@@ -351,12 +351,13 @@
         .header { 
             padding: 24px 0 18px; 
             max-height: 160px;
-            overflow: hidden;
-            transition: max-height 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                        padding 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                        margin 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-                        opacity 0.15s ease,
-                        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            /* Do not clip the top-right control shadows. */
+            overflow: visible;
+            transition: max-height 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+                        padding 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+                        margin 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+                        opacity 0.14s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.16s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         body.is-list-view .header {
@@ -1214,8 +1215,8 @@
             transform: translateY(4px);
             pointer-events: none;
             z-index: 999980;
-            transition: opacity 0.1s ease,
-                        transform 0.1s ease;
+            transition: opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
             will-change: opacity, transform;
         }
 
@@ -1236,7 +1237,8 @@
             opacity: 0 !important;
             pointer-events: none !important;
             visibility: hidden;
-            transition: opacity 0.15s ease, visibility 0.15s;
+            transition: opacity 0.12s cubic-bezier(0.22, 1, 0.36, 1),
+                        visibility 0.12s linear;
         }
 
         .alphabet-content-box {
@@ -1362,28 +1364,31 @@
 
         .alphabet-fast-index {
             position: absolute;
-            right: -8px;
+            right: -16px;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: stretch;
             justify-content: center;
             gap: 0px;
             user-select: none;
             -webkit-user-select: none;
             touch-action: none;
             z-index: 10;
-            padding: 6px 14px 6px 18px;
+            /* Extend the hit area through the last 16px of the viewport. */
+            width: 56px;
+            padding: 6px 0;
             background: transparent;
         }
 
         .alphabet-fast-char {
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 24px;
+            justify-content: flex-end;
+            width: 56px;
             height: 14.5px;
+            padding-right: 4px;
             font-size: 10.5px;
             font-weight: 600;
             color: var(--text-tertiary);
@@ -1393,11 +1398,14 @@
 
         @media (orientation: portrait) {
             .alphabet-fast-index {
-                padding: 4px 14px 4px 20px;
-                right: -10px;
+                right: -16px;
+                width: 56px;
+                padding: 4px 0;
             }
             .alphabet-fast-char {
+                width: 56px;
                 height: 13px;
+                padding-right: 4px;
                 font-size: 10px;
             }
         }
@@ -2634,29 +2642,50 @@
             window.visualViewport.addEventListener('scroll', updateAlphabetPosition);
         }
 
+        const LIST_VIEW_MAIN_FADE_MS = 120;
+        const LIST_VIEW_FADE_MS = 200;
+        let listViewTransitionTimer = null;
+
         function setListViewMode(enable) {
             if (state.isListView === enable) return;
             state.isListView = enable;
+
+            clearTimeout(listViewTransitionTimer);
 
             if (enable) {
                 state.focusedModuleId = null;
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 document.body.classList.add("is-list-view");
                 updateRightActionButton();
-                
+
+                // Render hidden first; reveal only after the main interface fades.
                 renderAlphabetList();
                 updateAlphabetPosition();
-                alphabetViewContainer.classList.add("is-visible");
+                alphabetViewContainer.classList.remove("is-visible");
+
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        if (!state.isListView) return;
+                        listViewTransitionTimer = setTimeout(() => {
+                            if (!state.isListView) return;
+                            alphabetViewContainer.classList.add("is-visible");
+                        }, LIST_VIEW_MAIN_FADE_MS);
+                    });
+                });
+
                 checkScrollLock();
             } else {
+                // Keep list mode alive until its full 200ms fade-out finishes.
                 alphabetViewContainer.classList.remove("is-visible");
-                setTimeout(() => {
+
+                listViewTransitionTimer = setTimeout(() => {
+                    if (state.isListView) return;
                     document.body.classList.remove("is-list-view");
                     updateRightActionButton();
                     window.scrollTo({ top: 0, behavior: "smooth" });
                     checkScrollLock();
                     scheduleCardLayerUpdate();
-                }, 100);
+                }, LIST_VIEW_FADE_MS);
             }
         }
 
