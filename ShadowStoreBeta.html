@@ -19,7 +19,7 @@
                 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                 theme = (saved === "dark" || saved === "light") ? saved : (prefersDark ? "dark" : "light");
             } catch (e) {
-                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
                 theme = prefersDark ? "dark" : "light";
             }
             document.documentElement.setAttribute("data-theme", theme);
@@ -62,7 +62,7 @@
 
     <style>
         /* =========================================================
-            1. 浅色主题设计令牌 (Light Theme Tokens)[cite: 1]
+            1. 浅色主题设计令牌 (Light Theme Tokens)
         ========================================================= */
         :root, [data-theme="light"] {
             --layout-gap: 44px;
@@ -84,8 +84,11 @@
             --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.15);
 
             --shadow-glass-ui: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 0.9),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.5),
                 inset 3px 3px 10px 2px rgba(255, 255, 255, 0.45),
                 inset -3px -3px 8px -1px rgba(0, 0, 0, 0.08),
+                inset 0 12px 24px -6px rgba(255, 255, 255, 0.7), 
                 -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
                 -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
                 -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
@@ -95,16 +98,22 @@
                 -25px 45px 55px -5px rgba(0, 0, 0, 0.22); 
 
             --shadow-tab-bar-bottom: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 0.9),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.5),
                 inset 3px 3px 10px 2px rgba(255, 255, 255, 0.45),
                 inset -3px -3px 8px -1px rgba(0, 0, 0, 0.08),
+                inset 0 12px 24px -6px rgba(255, 255, 255, 0.7), 
                 -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
                 -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
                 -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
                 -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17);
 
             --shadow-glass-ui-hover: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 1.0),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.6),
                 inset 3.5px 3.5px 12px 3px rgba(255, 255, 255, 0.55),
                 inset -3px -3px 9px -1px rgba(0, 0, 0, 0.1),
+                inset 0 14px 26px -6px rgba(255, 255, 255, 0.8), 
                 -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
                 -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
                 -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
@@ -114,8 +123,11 @@
                 -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
 
             --shadow-search: 
+                inset 1.2px 1.2px 0px 0px rgba(255, 255, 255, 0.85),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.45),
                 inset 2.5px 2.5px 8px 1.5px rgba(255, 255, 255, 0.38),
                 inset -2.5px -2.5px 6px -1px rgba(0, 0, 0, 0.07),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
                 -1.7px 4.7px 3px -2px rgba(255, 255, 255, 0.22),
                 -0.9px 5.3px 4px -2.3px rgba(255, 255, 255, 0.20),
                 -2.3px 6.7px 5px -2.7px rgba(255, 255, 255, 0.17),
@@ -125,8 +137,11 @@
                 -16.7px 30px 36.7px -3.3px rgba(0, 0, 0, 0.15); 
 
             --shadow-search-hover: 
+                inset 1.2px 1.2px 0px 0px rgba(255, 255, 255, 0.95),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.55),
                 inset 3px 3px 9px 2px rgba(255, 255, 255, 0.45),
                 inset -2.5px -2.5px 7px -1px rgba(0, 0, 0, 0.09),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
                 -2px 5.7px 3.3px -2px rgba(255, 255, 255, 0.22),
                 -1.1px 6.3px 4.7px -2.3px rgba(255, 255, 255, 0.20),
                 -2.8px 8px 6px -2.7px rgba(255, 255, 255, 0.17),
@@ -159,18 +174,13 @@
             --radius-pill: 9999px;
             --card-width: 380px;
 
-            /* 统一交互参数 */
-            --control-hover-scale: 1.05;
-            --control-active-scale: 0.92;
-            --control-ease: cubic-bezier(0.16, 1, 0.3, 1);
-
             --bottom-offset: max(16px, calc(env(safe-area-inset-bottom) - 14px));
             --safe-pad-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
             --toast-bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px));
         }
 
         /* =========================================================
-            2. 暗色主题设计令牌 (Dark Theme Tokens)[cite: 1]
+            2. 暗色主题设计令牌 (Dark Theme Tokens)
         ========================================================= */
         [data-theme="dark"] {
             --bg-page-solid: #14161a;
@@ -190,20 +200,40 @@
             --text-shadow-sm: none;
 
             --shadow-glass-ui: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 0.22),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.08),
+                inset 3px 3px 8px 1px rgba(255, 255, 255, 0.1),
+                inset -2px -2px 6px 0px rgba(0, 0, 0, 0.4),
                 0 6px 20px rgba(0, 0, 0, 0.4),
                 0 2px 6px rgba(0, 0, 0, 0.25);
 
-            --shadow-tab-bar-bottom: none;
+            --shadow-tab-bar-bottom: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 0.22),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.08),
+                inset 3px 3px 8px 1px rgba(255, 255, 255, 0.1),
+                inset -2px -2px 6px 0px rgba(0, 0, 0, 0.4);
 
             --shadow-glass-ui-hover: 
+                inset 1.5px 1.5px 0px 0px rgba(255, 255, 255, 0.3),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.12),
+                inset 3.5px 3.5px 10px 2px rgba(255, 255, 255, 0.14),
+                inset -2px -2px 7px 0px rgba(0, 0, 0, 0.5),
                 0 8px 24px rgba(0, 0, 0, 0.5),
                 0 3px 8px rgba(0, 0, 0, 0.3);
 
             --shadow-search: 
+                inset 1.2px 1.2px 0px 0px rgba(255, 255, 255, 0.2),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.07),
+                inset 2.5px 2.5px 7px 1px rgba(255, 255, 255, 0.08),
+                inset -2px -2px 5px 0px rgba(0, 0, 0, 0.35),
                 0 4px 13.3px rgba(0, 0, 0, 0.27),
                 0 1.3px 4px rgba(0, 0, 0, 0.17);
 
             --shadow-search-hover: 
+                inset 1.2px 1.2px 0px 0px rgba(255, 255, 255, 0.26),
+                inset -1px -1px 0px 0px rgba(255, 255, 255, 0.1),
+                inset 3px 3px 8px 1.5px rgba(255, 255, 255, 0.11),
+                inset -2px -2px 6px 0px rgba(0, 0, 0, 0.4),
                 0 5.3px 16px rgba(0, 0, 0, 0.33),
                 0 2px 5.3px rgba(0, 0, 0, 0.20);
 
@@ -320,34 +350,6 @@
             border: 1px solid var(--border-subtle);
         }
 
-        /* 统一交互玻璃控件：所有相近的玻璃按钮共用材质反馈 */
-        .glass-control {
-            border-radius: 50%;
-            box-shadow: var(--shadow-glass-ui);
-            transition:
-                transform 0.3s var(--control-ease),
-                box-shadow 0.3s var(--control-ease),
-                background-color 0.3s ease,
-                background-image 0.3s ease,
-                border-color 0.3s ease,
-                color 0.2s ease;
-            -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
-        }
-
-        .glass-control:hover {
-            transform: scale(var(--control-hover-scale));
-            box-shadow: var(--shadow-glass-ui-hover);
-        }
-
-        .glass-control:active {
-            transform: scale(var(--control-active-scale));
-        }
-
-        [data-theme="dark"] .glass-control:hover {
-            background-image: var(--noise-pattern);
-            background-color: var(--border-subtle);
-        }
-
         .pull-refresh-indicator {
             position: fixed;
             top: max(8px, env(safe-area-inset-top));
@@ -381,14 +383,15 @@
         .ptr-icon svg { width: 100%; height: 100%; }
         .ptr-icon.rotate { transform: rotate(180deg); }
 
-        .header {
-            padding: 24px 0 18px;
+        .header { 
+            padding: 24px 0 18px; 
             max-height: 160px;
-            overflow: visible;
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            transition: max-height 0.2s ease, padding 0.2s ease, margin 0.2s ease, opacity 0.2s ease;
-            will-change: max-height, padding, opacity;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        margin 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.25s ease,
+                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         body.is-list-view .header {
@@ -396,12 +399,9 @@
             padding-top: 0 !important;
             padding-bottom: 0 !important;
             margin: 0 !important;
-            opacity: 0;
-            transform: translate3d(0, -10px, 0);
+            opacity: 0 !important;
+            transform: translateY(-24px) scale(0.96);
             pointer-events: none;
-            user-select: none;
-            -webkit-user-select: none;
-            white-space: nowrap;
         }
 
         .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
@@ -477,22 +477,28 @@
         
         .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
-        .theme-toggle {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            padding: 0;
-            margin: 0;
-            color: var(--text-secondary);
-            cursor: pointer;
+        .theme-toggle { 
+            display: inline-flex; align-items: center; justify-content: center; 
+            width: 44px; height: 44px; padding: 0; margin: 0; 
+            border-radius: 50%; 
+            color: var(--text-secondary); cursor: pointer; 
+            box-shadow: var(--shadow-glass-ui); 
+            transition: 
+                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.3s ease,
+                color 0.2s ease;
         }
-
-        .theme-toggle:hover {
+        .theme-toggle:hover { 
             background-image: var(--noise-pattern), var(--glass-bg-hover);
-            color: var(--text-primary);
+            color: var(--text-primary); transform: translateY(-1px); 
+            box-shadow: var(--shadow-glass-ui-hover); 
         }
+        [data-theme="dark"] .theme-toggle:hover {
+            background-image: var(--noise-pattern);
+            background-color: var(--border-subtle); 
+        }
+        .theme-toggle:active { transform: scale(0.92); }
         .theme-toggle.active { 
             color: var(--primary); background-color: var(--primary-soft); 
         }
@@ -503,12 +509,12 @@
         }
 
         /* =========================================================
-            3. 搜索 + 分类控制栏 (宽屏吸顶)[cite: 1]
+            3. 搜索 + 分类控制栏 (宽屏吸顶)
         ========================================================= */
         .control-bar {
             position: sticky;
             top: max(12px, env(safe-area-inset-top, 0px));
-            z-index: 999999;
+            z-index: 999990;
             display: grid;
             grid-template-columns: var(--card-width, 380px) minmax(0, 1fr);
             gap: var(--layout-gap, 44px);
@@ -520,7 +526,7 @@
         }
 
         /* =========================================================
-            4. 分类标签页与统一的悬停动效复用
+            4. 分类标签页
         ========================================================= */
         .tab-bar-wrapper {
             width: 100%;
@@ -529,7 +535,7 @@
             display: flex;
             align-items: center;
             position: relative;
-            z-index: 999999;
+            z-index: 999990;
         }
 
         .tab-bar {
@@ -567,15 +573,43 @@
             border-radius: 26px;
         }
 
-        /* 统一合并分类标签、副按钮、列表行的发光特效与动效 */
-        .tab-item,
-        .button-secondary {
+        .tab-item {
             position: relative;
             isolation: isolate;
             z-index: 2;
+            flex: 1 1 0;
+            min-width: 0;
+            height: 34px;
+            line-height: 34px;
+            border: none !important;
+            outline: none;
+            padding: 0 8px;
+            border-radius: 17px;
+            font-size: 13.5px;
+            font-weight: 400;
             cursor: pointer;
+            white-space: nowrap;
             user-select: none;
             -webkit-user-select: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: visible;
+            text-overflow: ellipsis;
+            transition: 
+                color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+
+        .tab-item:active {
+            transform: scale(0.92);
+        }
+
+        .tab-item:not(.active) {
+            background: transparent !important;
+            color: var(--text-secondary);
+            box-shadow: none !important;
         }
 
         .tab-item:not(.active)::before,
@@ -598,48 +632,6 @@
             filter: blur(10px);
         }
 
-        .tab-item:not(.active):hover::before,
-        .tab-item:not(.active):active::before,
-        .tab-item:not(.active):focus-visible::before,
-        .button-secondary:hover::before,
-        .button-secondary:active::before,
-        .button-secondary:focus-visible::before {
-            opacity: 1;
-        }
-
-        .tab-item {
-            flex: 1 1 0;
-            min-width: 0;
-            height: 34px;
-            line-height: 34px;
-            border: none !important;
-            outline: none;
-            padding: 0 8px;
-            border-radius: 17px;
-            font-size: 13.5px;
-            font-weight: 400;
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: visible;
-            text-overflow: ellipsis;
-            transition: color 0.2s ease, background-color 0.2s ease;
-            content-visibility: auto;
-            contain-intrinsic-size: 50px;
-        }
-
-        .tab-item:active {
-            transform: scale(0.92);
-        }
-
-        .tab-item:not(.active) {
-            background: transparent !important;
-            color: var(--text-secondary);
-            box-shadow: none !important;
-        }
-
         .tab-item:not(.active):hover,
         .tab-item:not(.active):active,
         .tab-item:not(.active):focus-visible {
@@ -653,6 +645,12 @@
         [data-theme="dark"] .tab-item:not(.active):active,
         [data-theme="dark"] .tab-item:not(.active):focus-visible {
             color: #22d3ee;
+        }
+
+        .tab-item:not(.active):hover::before,
+        .tab-item:not(.active):active::before,
+        .tab-item:not(.active):focus-visible::before {
+            opacity: 1;
         }
 
         .tab-item.active {
@@ -712,36 +710,25 @@
             box-shadow: var(--shadow-search-hover);
         }
         
-        .search-icon, .list-toggle-icon {
-            width: 32px;
-            height: 32px;
-            flex: 0 0 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: var(--primary);
-            filter: none;
+        .search-icon, .list-toggle-icon { 
+            width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%;
+            background: transparent; box-shadow: none; border: 1px solid var(--border-subtle);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; color: var(--primary); 
+            filter: none; 
             user-select: none;
             -webkit-user-select: none;
             line-height: 1;
-            background: transparent;
-            border: 1px solid var(--border-subtle);
-            box-shadow: none !important;
         }
 
-        .search-icon {
-            pointer-events: none;
-        }
-
+        .search-icon { pointer-events: none; }
+        
         .list-toggle-icon {
             cursor: pointer;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
             outline: none;
             padding: 0;
-            appearance: none;
-            -webkit-appearance: none;
-            transition: color 0.2s ease;
+            border-style: solid;
         }
         .list-toggle-icon svg {
             display: block;
@@ -749,13 +736,17 @@
             height: 15px;
             pointer-events: none;
         }
-        .list-toggle-icon:hover,
-        .list-toggle-icon:active,
+        .list-toggle-icon:hover {
+            border-color: var(--primary);
+            background-color: var(--primary-soft);
+            transform: scale(1.05);
+        }
+        .list-toggle-icon:active {
+            transform: scale(0.92);
+        }
         .list-toggle-icon.active {
-            background: transparent !important;
-            background-image: none !important;
-            border-color: var(--border-subtle) !important;
-            box-shadow: none !important;
+            border-color: var(--primary);
+            background-color: var(--primary-soft);
         }
         
         .input-wrapper {
@@ -829,8 +820,8 @@
                         opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
                         transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
                         visibility 0.35s ease,
-                        box-shadow 0.3s var(--control-ease),
-                        border-color 0.3s var(--control-ease);
+                        box-shadow 0.35s ease,
+                        border-color 0.35s ease;
         }
         .back-to-top-btn.visible {
             width: 44px;
@@ -839,7 +830,7 @@
             visibility: visible;
             transform: scale(1);
             pointer-events: auto;
-            box-shadow: var(--shadow-glass-ui);
+            box-shadow: var(--shadow-search);
             border-top-color: var(--glass-border-t) !important;
             border-left-color: var(--glass-border-l) !important;
             border-right-color: var(--glass-border-r) !important;
@@ -849,19 +840,16 @@
             border-color: var(--border-subtle) !important;
         }
         .back-to-top-btn.visible:hover {
-            transform: scale(var(--control-hover-scale));
-            box-shadow: var(--shadow-glass-ui-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-search-hover);
         }
-
-        .back-to-top-btn.visible:active {
-            transform: scale(var(--control-active-scale));
-        }
+        .back-to-top-btn.visible:active { transform: scale(0.92); }
 
         .status { 
             display: flex; align-items: center; justify-content: space-between; 
             min-height: 22px; margin: 0 4px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
             text-shadow: none; 
-            transition: opacity 0.15s ease;
+            transition: opacity 0.3s ease;
         }
         .status-left { display: flex; align-items: center; gap: 8px; }
         .status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint-soft); }
@@ -876,13 +864,7 @@
             align-items: stretch; 
             padding-bottom: 24px; 
             min-height: 0; 
-            transition: opacity 0.16s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: opacity;
-        }
-
-        @keyframes cardFadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
+            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .module-card { 
@@ -896,7 +878,6 @@
             border-radius: var(--radius-card); 
             box-shadow: var(--shadow-glass-ui); 
             overflow: hidden; 
-            animation: cardFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             transition: 
                 transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -957,17 +938,9 @@
         
         .card-main { min-width: 0; flex: 1; }
         .module-name { 
-            margin: 0; 
-            font-size: 18px; 
-            line-height: 1.3; 
-            font-weight: 700;
-            letter-spacing: -0.2px; 
-            color: var(--text-primary); 
-            word-break: break-word; 
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-shadow: none; 
+            margin: 0; font-size: 20px; line-height: 1.3; font-weight: 400;
+            letter-spacing: -0.2px; color: var(--text-primary); word-break: break-word; 
+            text-shadow: var(--text-shadow-lg); 
         }
         
         .module-meta { 
@@ -1017,7 +990,7 @@
             line-height: 1.6; 
             font-weight: 300; 
             word-break: break-word; 
-            text-shadow: none; 
+            text-shadow: var(--text-shadow-sm); 
             flex: 1 1 auto;
         }
         
@@ -1027,8 +1000,8 @@
             justify-content: flex-end; 
             gap: 12px; 
             margin-top: 24px; 
-            padding-top: 0; 
-            border-top: none; 
+            padding-top: 24px; 
+            border-top: 1px solid var(--border-subtle); 
             box-shadow: none; 
             flex-shrink: 0;
         }
@@ -1046,6 +1019,8 @@
         }
         
         .button-secondary { 
+            position: relative;
+            isolation: isolate;
             background: transparent !important; 
             color: #0891b2; 
             border: none !important; 
@@ -1070,6 +1045,11 @@
             box-shadow: none !important;
             color: #0891b2;
         }
+        .button-secondary:hover::before,
+        .button-secondary:active::before,
+        .button-secondary:focus-visible::before {
+            opacity: 1;
+        }
         [data-theme="dark"] .button-secondary:hover,
         [data-theme="dark"] .button-secondary:active,
         [data-theme="dark"] .button-secondary:focus-visible {
@@ -1081,7 +1061,7 @@
             color: #FFFFFF; 
             border: none; 
             box-shadow: var(--primary-gradient-shadow); 
-            text-shadow: none; 
+            text-shadow: var(--text-shadow-sm); 
             transform: none !important; 
         }
         .button-primary:hover,
@@ -1106,7 +1086,7 @@
         }
         
         .sentinel { height: 20px; margin: 10px 0; }
-        .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 15px; font-weight: 300; grid-column: 1 / -1; width: 100%; animation: cardFadeIn 0.3s ease forwards; }
+        .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 15px; font-weight: 300; grid-column: 1 / -1; width: 100%; }
         .empty-icon { 
             width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 50%;
             border: 1px solid var(--border-subtle); background: var(--bg-surface);
@@ -1132,7 +1112,7 @@
             font-size: 12.5px; 
             line-height: 1.6; 
             font-weight: 300; 
-            transition: opacity 0.15s ease;
+            transition: opacity 0.3s ease;
         }
         
         .toast { 
@@ -1161,7 +1141,7 @@
             display: block;
             position: sticky;
             top: max(12px, env(safe-area-inset-top, 0px));
-            z-index: 999999;
+            z-index: 999990;
             width: 100%;
             margin-bottom: 16px;
             padding: 4px 0;
@@ -1175,7 +1155,7 @@
             height: 44px;
             padding: 0;
             margin: 0;
-            z-index: 999999;
+            z-index: 999995;
             pointer-events: none;
         }
 
@@ -1239,32 +1219,30 @@
         }
 
         /* =========================================================
-            7. 全局首字母字母表搜索视图
+            7. 全局首字母字母表搜索视图 (动态对齐 + 渐隐加载)
         ========================================================= */
         .alphabet-view-container {
             position: fixed;
-            top: 100px;
-            bottom: 100px;
-            display: flex;
+            top: 68px;
+            bottom: var(--safe-pad-bottom);
+            display: none;
             opacity: 0;
-            visibility: hidden;
-            transform: none;
+            transform: translateY(6px);
             pointer-events: none;
             z-index: 999980;
-            transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+            transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: opacity, transform;
-            contain: layout style paint;
         }
 
         body.is-list-view .alphabet-view-container {
+            display: flex;
             pointer-events: auto;
         }
 
         body.is-list-view .alphabet-view-container.is-visible {
             opacity: 1;
-            visibility: visible;
-            transform: none;
-            transition-delay: 0s;
+            transform: translateY(0);
         }
 
         body.is-list-view .status,
@@ -1272,11 +1250,9 @@
         body.is-list-view .sentinel,
         body.is-list-view .footer {
             opacity: 0 !important;
-            transform: none !important;
             pointer-events: none !important;
             visibility: hidden;
-            transition: opacity 0.2s ease, visibility 0s linear 0.2s;
-            will-change: opacity, transform;
+            transition: opacity 0.25s ease, visibility 0.25s;
         }
 
         .alphabet-content-box {
@@ -1286,27 +1262,6 @@
             display: flex;
             padding: 0;
             margin: 0;
-        }
-
-        .alphabet-content-box::before,
-        .alphabet-content-box::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 28px;
-            height: 24px;
-            z-index: 5;
-            pointer-events: none;
-        }
-
-        .alphabet-content-box::before {
-            top: 0;
-            background: linear-gradient(to bottom, var(--bg-page-solid), transparent);
-        }
-
-        .alphabet-content-box::after {
-            bottom: 0;
-            background: linear-gradient(to top, var(--bg-page-solid), transparent);
         }
 
         .alphabet-scroll-area {
@@ -1320,10 +1275,7 @@
             padding-bottom: 24px;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            overscroll-behavior: contain;
-            contain: layout paint;
         }
-
         .alphabet-scroll-area::-webkit-scrollbar {
             display: none;
             width: 0 !important;
@@ -1356,29 +1308,25 @@
             display: flex;
             align-items: center;
             gap: 14px;
-            padding: 9px 8px;
+            padding: 9px 0;
             border-radius: 12px;
             background: transparent !important;
             border: none !important;
             box-shadow: none !important;
+            cursor: pointer;
             text-decoration: none;
-            transition: color 0.2s ease, background-color 0.2s ease;
-            content-visibility: auto;
-            contain-intrinsic-size: 50px;
+            transition: background-color 0.15s ease, transform 0.15s ease;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        .alphabet-item-row:hover,
-        .alphabet-item-row:active,
-        .alphabet-item-row:focus-visible {
-            background: transparent !important;
-            transform: none !important;
-            color: #0891b2;
+        .alphabet-item-row:hover {
+            background-color: var(--primary-soft) !important;
+            transform: translateX(4px);
         }
-
-        [data-theme="dark"] .alphabet-item-row:hover,
-        [data-theme="dark"] .alphabet-item-row:active,
-        [data-theme="dark"] .alphabet-item-row:focus-visible {
-            color: #22d3ee;
+        .alphabet-item-row:active {
+            transform: scale(0.985);
+            background-color: var(--primary-soft) !important;
         }
 
         .alphabet-item-icon {
@@ -1407,12 +1355,6 @@
             flex: 1;
         }
 
-        .alphabet-item-row:hover .alphabet-item-name,
-        .alphabet-item-row:active .alphabet-item-name,
-        .alphabet-item-row:focus-visible .alphabet-item-name {
-            color: inherit;
-        }
-
         .alphabet-item-type {
             font-size: 11px;
             font-weight: 400;
@@ -1431,102 +1373,39 @@
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            align-items: stretch;
+            align-items: center;
             justify-content: center;
-            gap: 0px;
+            gap: 1px;
             user-select: none;
             -webkit-user-select: none;
             touch-action: none;
             z-index: 10;
-            padding: 6px 0;
+            padding: 8px 0;
             background: transparent;
         }
 
         .alphabet-fast-char {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            width: 52px;
-            height: 14.5px;
-            padding: 0 0 0 28px;
-            font-size: 10.5px;
+            justify-content: center;
+            width: 20px;
+            height: 16px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--text-tertiary);
             cursor: pointer;
-            border: 0;
-            outline: 0;
-            border-radius: 0;
-            background: transparent !important;
-            box-shadow: none !important;
-            text-shadow: none;
-            transition: font-size 0.12s ease, color 0.12s ease, font-weight 0.12s ease;
-            will-change: font-size, color;
+            transition: color 0.15s ease, transform 0.15s ease;
         }
-        .alphabet-fast-char.is-highlighted {
+        .alphabet-fast-char:hover,
+        .alphabet-fast-char.active {
             color: var(--primary);
-            font-size: 13px;
+            transform: scale(1.3);
             font-weight: 700;
-            background: transparent !important;
-            border: 0 !important;
-            box-shadow: none !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
         }
-        [data-theme="dark"] .alphabet-fast-char.is-highlighted {
-            color: var(--primary);
-            background: transparent !important;
-            border: 0 !important;
-        }
-
         .alphabet-fast-char.disabled {
             opacity: 0.22;
             cursor: default;
             pointer-events: none;
-        }
-
-        /* 触控滑动时的左侧大号悬浮气泡字母提示（样式与返回顶部按钮完全一致） */
-        .alphabet-popup-bubble {
-            position: absolute;
-            left: -54px;
-            right: auto;
-            top: 50%;
-            width: 44px;
-            height: 44px;
-            padding: 0;
-            border-radius: 50%;
-            color: var(--text-primary);
-            font-size: 20px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: transparent;
-            background-image: var(--noise-pattern), var(--glass-bg);
-            backdrop-filter: blur(32px) saturate(120%) brightness(102%);
-            -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
-            border-top: 1px solid var(--glass-border-t);
-            border-left: 1px solid var(--glass-border-l);
-            border-right: 1px solid var(--glass-border-r);
-            border-bottom: 1px solid var(--glass-border-b);
-            box-shadow: var(--shadow-glass-ui);
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transform: translateY(-50%) scale(0.6);
-            transition: opacity 0.2s var(--control-ease), transform 0.2s var(--control-ease);
-            z-index: 1000000;
-        }
-        .alphabet-popup-bubble.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(-50%) scale(1);
-        }
-        [data-theme="dark"] .alphabet-popup-bubble {
-            background-image: var(--noise-pattern);
-            background-color: var(--bg-surface);
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border: 1px solid var(--border-subtle);
         }
 
         /* =========================================================
@@ -1564,9 +1443,10 @@
             .button-secondary::before,
             .tab-item:not(.active):hover::before,
             .tab-item:not(.active):active::before,
+            .tab-item:not(.active):focus-visible::before,
             .button-secondary:hover::before,
             .button-secondary:active::before,
-            .alphabet-item-row:active::before {
+            .button-secondary:focus-visible::before {
                 display: none !important;
                 opacity: 0 !important;
                 transition: none !important;
@@ -1574,18 +1454,10 @@
 
             .tab-item:not(.active):hover,
             .tab-item:not(.active):active,
-            .tab-item:not(.active):focus-visible,
-            .alphabet-item-row:hover,
-            .alphabet-item-row:active,
-            .alphabet-item-row:focus-visible {
+            .tab-item:not(.active):focus-visible {
                 color: var(--text-secondary) !important;
                 background: transparent !important;
                 box-shadow: none !important;
-            }
-            .alphabet-item-row:hover,
-            .alphabet-item-row:active,
-            .alphabet-item-row:focus-visible {
-                color: var(--text-primary) !important;
             }
 
             .button-secondary,
@@ -1628,12 +1500,9 @@
                 -webkit-tap-highlight-color: transparent !important;
             }
 
-            .glass-control:hover,
-            .glass-control:active {
-                transform: none !important;
-            }
             .theme-toggle:hover,
             .theme-toggle:active {
+                transform: none !important;
                 box-shadow: var(--shadow-glass-ui) !important;
                 color: var(--text-secondary) !important;
             }
@@ -1642,8 +1511,8 @@
             }
             .back-to-top-btn.visible:hover,
             .back-to-top-btn.visible:active {
-                transform: none !important;
-                box-shadow: var(--shadow-glass-ui) !important;
+                transform: scale(1) !important;
+                box-shadow: var(--shadow-search) !important;
             }
 
             .title a:hover {
@@ -1668,14 +1537,12 @@
             display: none !important;
             opacity: 0 !important;
         }
-        html.is-mobile .glass-control:hover,
-        html.is-mobile .glass-control:active {
+        html.is-mobile .button-secondary:active,
+        html.is-mobile .theme-toggle:hover,
+        html.is-mobile .theme-toggle:active,
+        html.is-mobile .back-to-top-btn.visible:hover,
+        html.is-mobile .back-to-top-btn.visible:active {
             transform: none !important;
-        }
-        html.is-mobile .alphabet-fast-char:hover,
-        html.is-mobile .alphabet-fast-char.active {
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
         }
         html.is-mobile .button-primary:hover,
         html.is-mobile .button-primary:active,
@@ -1704,7 +1571,7 @@
             }
             .module-card { padding: 22px; border-radius: var(--radius-card); }
             .module-description { flex: none; }
-            .card-bottom { margin-top: 20px; padding-top: 0; }
+            .card-bottom { margin-top: 20px; padding-top: 20px; }
             .search-shortcut { display: none; }
         }
 
@@ -1740,13 +1607,13 @@
                     </h1>
                 </div>
                 <div class="theme-controls">
-                    <button id="themeToggle" class="theme-toggle glass-element glass-control" aria-label="切换主题模式"></button>
-                    <a id="githubStarBtn" class="theme-toggle glass-element glass-control" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
+                    <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
+                    <a id="githubStarBtn" class="theme-toggle glass-element" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
                         <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                         </svg>
                     </a>
-                    <button id="langToggle" class="theme-toggle glass-element glass-control" aria-label="切换语言" title="切换语言">
+                    <button id="langToggle" class="theme-toggle glass-element" aria-label="切换语言" title="切换语言">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="m5 8 6 6"/>
                             <path d="m4 14 6-6 2-3"/>
@@ -1792,7 +1659,7 @@
                     <button id="listToggleBtn" class="list-toggle-icon" type="button" aria-label="首字母资源列表" title="首字母资源列表">📋</button>
                 </div>
 
-                <button id="backToTopBtn" class="theme-toggle glass-element glass-control back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
+                <button id="backToTopBtn" class="theme-toggle glass-element back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="12" y1="5" x2="12" y2="19"></line>
                         <polyline points="5 12 12 5 19 12"></polyline>
@@ -1832,7 +1699,6 @@
             <div id="alphabetFastIndex" class="alphabet-fast-index" aria-label="字母快速定位导航">
                 <!-- 动态渲染 A-Z 快速定位字母 -->
             </div>
-            <div id="alphabetPopupBubble" class="alphabet-popup-bubble glass-element">A</div>
         </div>
     </div>
     
@@ -2070,7 +1936,6 @@
         const alphabetViewContainer = document.getElementById("alphabetViewContainer");
         const alphabetScrollArea = document.getElementById("alphabetScrollArea");
         const alphabetFastIndex = document.getElementById("alphabetFastIndex");
-        const alphabetPopupBubble = document.getElementById("alphabetPopupBubble");
 
         function getInitialLang() {
             try {
@@ -2105,7 +1970,6 @@
         let tabAnimTimer = null;
         let tabSwitchContentTimer = null;
         let lastCardWidthVal = 0;
-        let alphabetRenderKey = "";
 
         function checkScrollLock() {
             const root = document.documentElement;
@@ -2146,12 +2010,6 @@
 
         function safeInstallURL(value) {
             return safeURL(value, ["shadowrocket:", "https:"]);
-        }
-
-        // 统一图片加载失败时的降级处理
-        function bindImageError(img, fallbackSrc) {
-            if (!img) return;
-            img.addEventListener("error", () => { img.src = fallbackSrc; }, { once: true });
         }
 
         function normalizeStaticResources(lang = state.currentLang) {
@@ -2283,7 +2141,7 @@
         function createIOSAppIcon(name) {
             const cleanName = (name || "").trim().replace(/^[\[\(\{#_\-\s【（〔［]+/, "");
             const char = Array.from(cleanName)[0] || (state.currentLang === "en" ? "M" : "模");
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#06b6d4"/><stop offset="50%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="128" cy="128" r="128" fill="url(#g)"/><text x="128" y="100" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#06b6d4"/><stop offset="50%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="128" cy="128" r="128" fill="url(#g)"/><text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
             return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
         }
 
@@ -2303,7 +2161,13 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-
+        if (searchBoxInner) {
+            searchBoxInner.addEventListener("click", (e) => {
+                if (e.target !== listToggleBtn && !searchInput.disabled) {
+                    searchInput.focus();
+                }
+            });
+        }
 
         function updateTabIndicator(animated = true) {
             const activeTab = document.querySelector(".tab-item.active");
@@ -2465,6 +2329,7 @@
             return "#";
         }
 
+        // 统一更新按钮状态图标（📋 或 ✕）
         function updateRightActionButton() {
             const hasText = searchInput.value.length > 0;
             const shouldShowClose = state.isListView || hasText || state.focusedModuleId;
@@ -2484,6 +2349,7 @@
             }
         }
 
+        // 单资源聚焦展示
         function focusSingleResource(mod) {
             state.focusedModuleId = mod.id;
             setListViewMode(false);
@@ -2524,13 +2390,6 @@
 
         function renderAlphabetList() {
             if (!alphabetScrollArea || !alphabetFastIndex) return;
-
-            const renderKey = `${state.currentLang}|${state.allModules.length}|${state.allModules.map(m => `${m.id}|${m.name}|${m.category || ""}|${m.icon || ""}`).join("¦")}`;
-            if (renderKey === alphabetRenderKey && alphabetScrollArea.children.length) {
-                updateAlphabetPosition();
-                return;
-            }
-            alphabetRenderKey = renderKey;
             alphabetScrollArea.innerHTML = "";
             alphabetFastIndex.innerHTML = "";
 
@@ -2580,7 +2439,6 @@
                     groups[letter].forEach(mod => {
                         const row = document.createElement("div");
                         row.className = "alphabet-item-row";
-                        row.dataset.moduleId = mod.id;
                         row.setAttribute("role", "button");
                         row.setAttribute("tabindex", "0");
                         
@@ -2603,7 +2461,15 @@
                             <span class="alphabet-item-type">${escapeHTML(catName)}</span>
                         `;
 
-                        bindImageError(row.querySelector("img"), fallbackIcon);
+                        row.addEventListener("click", (e) => {
+                            e.preventDefault();
+                            focusSingleResource(mod);
+                        });
+
+                        const img = row.querySelector("img");
+                        if (img) {
+                            img.addEventListener("error", () => { img.src = fallbackIcon; }, { once: true });
+                        }
 
                         listEl.appendChild(row);
                     });
@@ -2617,99 +2483,85 @@
             updateAlphabetPosition();
         }
 
-        alphabetScrollArea.addEventListener("click", (e) => {
-            const row = e.target.closest(".alphabet-item-row");
-            if (!row || !alphabetScrollArea.contains(row)) return;
-            e.preventDefault();
-            const moduleId = row.dataset.moduleId;
-            const mod = state.allModules.find(item => String(item.id) === String(moduleId));
-            if (mod) focusSingleResource(mod);
-        });
-
         function scrollToAlphabetLetter(letter) {
             const targetEl = document.getElementById(`alphabet-group-${letter}`);
             if (targetEl && alphabetScrollArea) {
                 const targetOffset = targetEl.offsetTop;
-                alphabetScrollArea.scrollTop = targetOffset - 6;
+                alphabetScrollArea.scrollTo({
+                    top: targetOffset - 6,
+                    behavior: "smooth"
+                });
             }
         }
 
         let isTouchingIndex = false;
-
-        function updateFastIndexSelection(clientX, clientY) {
-            const target = document.elementFromPoint(clientX, clientY);
-            const charEl = target ? target.closest(".alphabet-fast-char") : null;
-            
-            if (charEl && !charEl.classList.contains("disabled")) {
-                const letter = charEl.dataset.letter;
+        function handleFastIndexEvent(e) {
+            e.preventDefault();
+            const touch = e.touches ? e.touches[0] : e;
+            const target = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (target && target.classList.contains("alphabet-fast-char") && !target.classList.contains("disabled")) {
+                const letter = target.dataset.letter;
                 if (letter) {
                     scrollToAlphabetLetter(letter);
-                    document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("is-highlighted"));
-                    charEl.classList.add("is-highlighted");
-
-                    if (alphabetPopupBubble) {
-                        alphabetPopupBubble.textContent = letter;
-                        const containerRect = alphabetViewContainer.getBoundingClientRect();
-                        let relativeY = clientY - containerRect.top;
-                        relativeY = Math.max(35, Math.min(relativeY, containerRect.height - 35));
-                        alphabetPopupBubble.style.top = `${relativeY}px`;
-                        alphabetPopupBubble.classList.add("visible");
-                    }
+                    document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
+                    target.classList.add("active");
                 }
             }
         }
 
         alphabetFastIndex.addEventListener("touchstart", (e) => {
             isTouchingIndex = true;
-            e.preventDefault();
-            const touch = e.touches[0];
-            updateFastIndexSelection(touch.clientX, touch.clientY);
+            handleFastIndexEvent(e);
         }, { passive: false });
 
         alphabetFastIndex.addEventListener("touchmove", (e) => {
             if (isTouchingIndex) {
-                e.preventDefault();
-                const touch = e.touches[0];
-                updateFastIndexSelection(touch.clientX, touch.clientY);
+                handleFastIndexEvent(e);
             }
         }, { passive: false });
 
         window.addEventListener("touchend", () => {
-            if (isTouchingIndex) {
-                isTouchingIndex = false;
-                if (alphabetPopupBubble) alphabetPopupBubble.classList.remove("visible");
-                document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("is-highlighted"));
-            }
+            isTouchingIndex = false;
+            document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
         });
 
         alphabetFastIndex.addEventListener("mousedown", (e) => {
             isTouchingIndex = true;
-            updateFastIndexSelection(e.clientX, e.clientY);
+            handleFastIndexEvent(e);
         });
-
-        window.addEventListener("mousemove", (e) => {
-            if (isTouchingIndex) {
-                updateFastIndexSelection(e.clientX, e.clientY);
-            }
-        });
-
         window.addEventListener("mouseup", () => {
-            if (isTouchingIndex) {
-                isTouchingIndex = false;
-                if (alphabetPopupBubble) alphabetPopupBubble.classList.remove("visible");
-                document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("is-highlighted"));
-            }
+            isTouchingIndex = false;
+            document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
         });
 
         function updateAlphabetPosition() {
             if (!alphabetViewContainer || !searchBoxInner) return;
 
             const searchRect = searchBoxInner.getBoundingClientRect();
+            const topGap = Math.max(searchRect.bottom + 8, 54);
             
-            alphabetViewContainer.style.top = `100px`;
-            alphabetViewContainer.style.bottom = `100px`;
+            alphabetViewContainer.style.top = `${topGap}px`;
             alphabetViewContainer.style.left = `${searchRect.left}px`;
             alphabetViewContainer.style.width = `${searchRect.width}px`;
+
+            let bottomThreshold = 90;
+            const isSingleCol = controlBarEl.classList.contains("is-single-column");
+            if (isSingleCol) {
+                const bottomNav = document.querySelector(".tab-bar-wrapper");
+                if (bottomNav) {
+                    const navRect = bottomNav.getBoundingClientRect();
+                    bottomThreshold = window.innerHeight - navRect.top + 8;
+                }
+            }
+
+            if (window.visualViewport) {
+                const keyboardOverlap = window.innerHeight - (window.visualViewport.offsetTop + window.visualViewport.height);
+                if (keyboardOverlap > 0) {
+                    bottomThreshold = Math.max(bottomThreshold, keyboardOverlap + 12);
+                }
+            }
+
+            alphabetViewContainer.style.bottom = `${bottomThreshold}px`;
         }
 
         if (window.visualViewport) {
@@ -2717,56 +2569,44 @@
             window.visualViewport.addEventListener('scroll', updateAlphabetPosition);
         }
 
+        let listAnimationTimer = null;
         function setListViewMode(enable) {
             if (state.isListView === enable) return;
             state.isListView = enable;
+            clearTimeout(listAnimationTimer);
 
             if (enable) {
                 state.focusedModuleId = null;
-                window.scrollTo({ top: 0, behavior: "auto" });
+                window.scrollTo({ top: 0, behavior: "smooth" });
                 document.body.classList.add("is-list-view");
                 updateRightActionButton();
-                checkScrollLock();
-
-                renderAlphabetList();
-                updateAlphabetPosition();
-
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        if (state.isListView) alphabetViewContainer.classList.add("is-visible");
-                    });
-                });
+                
+                listAnimationTimer = setTimeout(() => {
+                    renderAlphabetList();
+                    updateAlphabetPosition();
+                    alphabetViewContainer.classList.add("is-visible");
+                    checkScrollLock();
+                }, 350);
             } else {
                 alphabetViewContainer.classList.remove("is-visible");
-                setTimeout(() => {
-                    if (state.isListView) return;
+                listAnimationTimer = setTimeout(() => {
                     document.body.classList.remove("is-list-view");
                     updateRightActionButton();
-                    window.scrollTo({ top: 0, behavior: "auto" });
+                    window.scrollTo({ top: 0, behavior: "smooth" });
                     checkScrollLock();
                     scheduleCardLayerUpdate();
                 }, 200);
             }
         }
 
-        document.addEventListener("click", (e) => {
-            if (!state.isListView) return;
-            if (e.target.closest("#alphabetViewContainer") || 
-                e.target.closest("#controlBar") || 
-                e.target.closest("#toast") || 
-                e.target.closest("#pullRefreshIndicator")) {
-                return;
-            }
-            setListViewMode(false);
-        });
-
-        searchBoxInner.addEventListener("click", (e) => {
-            if (e.target.closest("#listToggleBtn")) return;
-            if (!searchInput.disabled) {
-                listToggleBtn.click();
+        // 点击搜索框仅在无输入内容时展开首字母列表
+        searchInput.addEventListener("focus", () => {
+            if (searchInput.value.trim().length === 0 && !state.focusedModuleId) {
+                setListViewMode(true);
             }
         });
 
+        // 统一右侧按钮交互：如果是清空/关闭状态则清空并恢复默认，否则切换列表
         listToggleBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             const hasText = searchInput.value.length > 0;
@@ -2798,31 +2638,8 @@
             return `<span class="author">${avatarHTML}${escapeHTML(authorName)}</span>`;
         }
 
-        function autoFitModuleName(nameElement) {
-            if (!nameElement) return;
-            nameElement.style.fontSize = '18px';
-            nameElement.style.letterSpacing = '-0.2px';
-            
-            if (nameElement.scrollWidth > nameElement.clientWidth) {
-                nameElement.style.fontSize = '16px';
-                nameElement.style.letterSpacing = '-0.4px';
-            }
-            if (nameElement.scrollWidth > nameElement.clientWidth) {
-                nameElement.style.fontSize = '14.5px';
-                nameElement.style.letterSpacing = '-0.6px';
-            }
-            if (nameElement.scrollWidth > nameElement.clientWidth) {
-                nameElement.style.fontSize = '13px';
-                nameElement.style.letterSpacing = '-0.8px';
-            }
-        }
-
         function createModuleCard(module) {
             if (module._domElement) {
-                requestAnimationFrame(() => {
-                    const nameEl = module._domElement.querySelector('.module-name');
-                    autoFitModuleName(nameEl);
-                });
                 return module._domElement;
             }
 
@@ -2899,11 +2716,6 @@
                 </div>
             `;
             
-            const nameEl = card.querySelector(".module-name");
-            requestAnimationFrame(() => {
-                autoFitModuleName(nameEl);
-            });
-
             const copyBtn = card.querySelector(".copy-btn");
             if (copyBtn) {
                 copyBtn.addEventListener("click", async (e) => {
@@ -2923,8 +2735,15 @@
                 });
             }
             
-            bindImageError(card.querySelector(".module-icon img"), fallbackIcon);
-            bindImageError(card.querySelector(".author-avatar"), null); // avatar removal on error handled via custom callback if needed
+            const iconImg = card.querySelector(".module-icon img");
+            if (iconImg) {
+                iconImg.addEventListener("error", () => { iconImg.src = fallbackIcon; }, { once: true });
+            }
+
+            const avatarImg = card.querySelector(".author-avatar");
+            if (avatarImg) {
+                avatarImg.addEventListener("error", () => { avatarImg.remove(); }, { once: true });
+            }
 
             module._domElement = card;
             return card;
@@ -2998,9 +2817,6 @@
         tabItems.forEach(tab => {
             tab.addEventListener("click", () => {
                 const targetTab = tab.getAttribute("data-tab");
-                if (state.isListView) {
-                    setListViewMode(false);
-                }
                 if (state.activeTab === targetTab && !state.focusedModuleId) return;
 
                 state.focusedModuleId = null;
@@ -3032,6 +2848,7 @@
             });
         });
 
+        // 键入内容时，自动退出首字母列表并以普通卡片渲染搜索结果
         searchInput.addEventListener("input", () => {
             state.focusedModuleId = null;
             if (state.isListView) {
@@ -3299,7 +3116,9 @@
 
         updateThemeUI();
 
-        const PULL_REBOUND = 'top 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
+        /* =========================================================
+            移动端下拉刷新手势处理
+        ========================================================= */
         let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
         let hasPulledContainer = false;
         const MIN_DRAG_DEADZONE = 30;
@@ -3317,10 +3136,11 @@
             showToast(success ? langObj.toastDataRefreshed : langObj.toastSyncFailed);
             
             setTimeout(() => {
-                pageContainer.style.transition = PULL_REBOUND;
+                const reboundBezier = 'top 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
+                pageContainer.style.transition = reboundBezier;
                 pageContainer.style.top = '0';
 
-                pullRefreshIndicator.style.transition = `${PULL_REBOUND}, opacity 0.25s ease`;
+                pullRefreshIndicator.style.transition = `${reboundBezier}, opacity 0.25s ease`;
                 pullRefreshIndicator.style.opacity = '0';
                 pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
                 ptrIcon.classList.remove("rotate");
@@ -3337,9 +3157,10 @@
             if (pullRafId) cancelAnimationFrame(pullRafId);
 
             if (hasPulledContainer) {
-                pageContainer.style.transition = PULL_REBOUND;
+                const reboundBezier = 'top 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
+                pageContainer.style.transition = reboundBezier;
                 pageContainer.style.top = '0';
-                pullRefreshIndicator.style.transition = `${PULL_REBOUND}, opacity 0.25s ease`;
+                pullRefreshIndicator.style.transition = `${reboundBezier}, opacity 0.25s ease`;
                 pullRefreshIndicator.style.opacity = '0';
                 pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
             } else {
