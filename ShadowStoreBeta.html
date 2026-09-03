@@ -352,11 +352,11 @@
             padding: 24px 0 18px; 
             max-height: 160px;
             overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        margin 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        opacity 0.25s ease,
-                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: max-height 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                        padding 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                        margin 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.15s ease,
+                        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         body.is-list-view .header {
@@ -814,7 +814,7 @@
             display: flex; align-items: center; justify-content: space-between; 
             min-height: 22px; margin: 0 4px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
             text-shadow: none; 
-            transition: opacity 0.3s ease;
+            transition: opacity 0.15s ease;
         }
         .status-left { display: flex; align-items: center; gap: 8px; }
         .status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--accent-mint); box-shadow: 0 0 0 3px var(--accent-mint-soft); }
@@ -829,7 +829,12 @@
             align-items: stretch; 
             padding-bottom: 24px; 
             min-height: 0; 
-            transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.15s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes cardFadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .module-card { 
@@ -843,6 +848,7 @@
             border-radius: var(--radius-card); 
             box-shadow: var(--shadow-glass-ui); 
             overflow: hidden; 
+            animation: cardFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             transition: 
                 transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -1059,7 +1065,7 @@
         }
         
         .sentinel { height: 20px; margin: 10px 0; }
-        .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 15px; font-weight: 300; grid-column: 1 / -1; width: 100%; }
+        .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 15px; font-weight: 300; grid-column: 1 / -1; width: 100%; animation: cardFadeIn 0.3s ease forwards; }
         .empty-icon { 
             width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 50%;
             border: 1px solid var(--border-subtle); background: var(--bg-surface);
@@ -1085,7 +1091,7 @@
             font-size: 12.5px; 
             line-height: 1.6; 
             font-weight: 300; 
-            transition: opacity 0.3s ease;
+            transition: opacity 0.15s ease;
         }
         
         .toast { 
@@ -1225,7 +1231,7 @@
             opacity: 0 !important;
             pointer-events: none !important;
             visibility: hidden;
-            transition: opacity 0.25s ease, visibility 0.25s;
+            transition: opacity 0.15s ease, visibility 0.15s;
         }
 
         .alphabet-content-box {
@@ -1431,7 +1437,7 @@
             pointer-events: none;
         }
 
-        /* 触控滑动时的左侧大号悬浮气泡字母提示（效果和动画对齐返回顶部按钮） */
+        /* 触控滑动时的左侧大号悬浮气泡字母提示（样式与返回顶部按钮一致） */
         .alphabet-popup-bubble {
             position: absolute;
             right: 36px;
@@ -1781,7 +1787,7 @@
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        const CACHE_VERSION = "202609031350"; 
+        const CACHE_VERSION = "20260903"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
