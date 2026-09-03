@@ -1219,19 +1219,19 @@
         }
 
         /* =========================================================
-            7. 全局首字母字母表搜索视图 (动态对齐 + 渐隐加载)
+            7. 全局首字母字母表搜索视图 (上下边缘固定为大约3个搜索框高度：100px)
         ========================================================= */
         .alphabet-view-container {
             position: fixed;
-            top: 68px;
-            bottom: var(--safe-pad-bottom);
+            top: 100px;
+            bottom: 100px;
             display: none;
             opacity: 0;
-            transform: translateY(6px);
+            transform: translateY(4px);
             pointer-events: none;
             z-index: 999980;
-            transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.1s ease,
+                        transform 0.1s ease;
             will-change: opacity, transform;
         }
 
@@ -1275,6 +1275,8 @@
             padding-bottom: 24px;
             scrollbar-width: none;
             -ms-overflow-style: none;
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 24px, rgba(0,0,0,1) calc(100% - 24px), transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 24px, rgba(0,0,0,1) calc(100% - 24px), transparent 100%);
         }
         .alphabet-scroll-area::-webkit-scrollbar {
             display: none;
@@ -1406,6 +1408,31 @@
             opacity: 0.22;
             cursor: default;
             pointer-events: none;
+        }
+
+        /* 触控滑动时的左侧大号悬浮气泡字母提示（样式与右上角圆形按钮相同，取消渐变色） */
+        .alphabet-popup-bubble {
+            position: absolute;
+            right: 36px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            color: var(--text-primary);
+            font-size: 22px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-glass-ui-hover);
+            opacity: 0;
+            pointer-events: none;
+            transform: translate3d(12px, -50%, 0) scale(0.75);
+            transition: opacity 0.1s ease, transform 0.1s ease;
+            z-index: 100;
+        }
+        .alphabet-popup-bubble.visible {
+            opacity: 1;
+            transform: translate3d(0, -50%, 0) scale(1);
         }
 
         /* =========================================================
@@ -1699,13 +1726,14 @@
             <div id="alphabetFastIndex" class="alphabet-fast-index" aria-label="字母快速定位导航">
                 <!-- 动态渲染 A-Z 快速定位字母 -->
             </div>
+            <div id="alphabetPopupBubble" class="alphabet-popup-bubble glass-element">A</div>
         </div>
     </div>
     
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        const CACHE_VERSION = "202609031220"; 
+        const CACHE_VERSION = "202609031216"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -1936,6 +1964,7 @@
         const alphabetViewContainer = document.getElementById("alphabetViewContainer");
         const alphabetScrollArea = document.getElementById("alphabetScrollArea");
         const alphabetFastIndex = document.getElementById("alphabetFastIndex");
+        const alphabetPopupBubble = document.getElementById("alphabetPopupBubble");
 
         function getInitialLang() {
             try {
@@ -2141,7 +2170,7 @@
         function createIOSAppIcon(name) {
             const cleanName = (name || "").trim().replace(/^[\[\(\{#_\-\s【（〔［]+/, "");
             const char = Array.from(cleanName)[0] || (state.currentLang === "en" ? "M" : "模");
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#06b6d4"/><stop offset="50%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="128" cy="128" r="128" fill="url(#g)"/><text x="128" y="132" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#06b6d4"/><stop offset="50%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="128" cy="128" r="128" fill="url(#g)"/><text x="128" y="100" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
             return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
         }
 
@@ -2329,7 +2358,6 @@
             return "#";
         }
 
-        // 统一更新按钮状态图标（📋 或 ✕）
         function updateRightActionButton() {
             const hasText = searchInput.value.length > 0;
             const shouldShowClose = state.isListView || hasText || state.focusedModuleId;
@@ -2349,7 +2377,6 @@
             }
         }
 
-        // 单资源聚焦展示
         function focusSingleResource(mod) {
             state.focusedModuleId = mod.id;
             setListViewMode(false);
@@ -2487,81 +2514,87 @@
             const targetEl = document.getElementById(`alphabet-group-${letter}`);
             if (targetEl && alphabetScrollArea) {
                 const targetOffset = targetEl.offsetTop;
-                alphabetScrollArea.scrollTo({
-                    top: targetOffset - 6,
-                    behavior: "smooth"
-                });
+                alphabetScrollArea.scrollTop = targetOffset - 6;
             }
         }
 
         let isTouchingIndex = false;
-        function handleFastIndexEvent(e) {
-            e.preventDefault();
-            const touch = e.touches ? e.touches[0] : e;
-            const target = document.elementFromPoint(touch.clientX, touch.clientY);
-            if (target && target.classList.contains("alphabet-fast-char") && !target.classList.contains("disabled")) {
-                const letter = target.dataset.letter;
+
+        function updateFastIndexSelection(clientX, clientY) {
+            const target = document.elementFromPoint(clientX, clientY);
+            const charEl = target ? target.closest(".alphabet-fast-char") : null;
+            
+            if (charEl && !charEl.classList.contains("disabled")) {
+                const letter = charEl.dataset.letter;
                 if (letter) {
                     scrollToAlphabetLetter(letter);
                     document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
-                    target.classList.add("active");
+                    charEl.classList.add("active");
+
+                    if (alphabetPopupBubble) {
+                        alphabetPopupBubble.textContent = letter;
+                        const containerRect = alphabetViewContainer.getBoundingClientRect();
+                        let relativeY = clientY - containerRect.top;
+                        relativeY = Math.max(35, Math.min(relativeY, containerRect.height - 35));
+                        alphabetPopupBubble.style.top = `${relativeY}px`;
+                        alphabetPopupBubble.classList.add("visible");
+                    }
                 }
             }
         }
 
         alphabetFastIndex.addEventListener("touchstart", (e) => {
             isTouchingIndex = true;
-            handleFastIndexEvent(e);
+            e.preventDefault();
+            const touch = e.touches[0];
+            updateFastIndexSelection(touch.clientX, touch.clientY);
         }, { passive: false });
 
         alphabetFastIndex.addEventListener("touchmove", (e) => {
             if (isTouchingIndex) {
-                handleFastIndexEvent(e);
+                e.preventDefault();
+                const touch = e.touches[0];
+                updateFastIndexSelection(touch.clientX, touch.clientY);
             }
         }, { passive: false });
 
         window.addEventListener("touchend", () => {
-            isTouchingIndex = false;
-            document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
+            if (isTouchingIndex) {
+                isTouchingIndex = false;
+                if (alphabetPopupBubble) alphabetPopupBubble.classList.remove("visible");
+                document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
+            }
         });
 
         alphabetFastIndex.addEventListener("mousedown", (e) => {
             isTouchingIndex = true;
-            handleFastIndexEvent(e);
+            updateFastIndexSelection(e.clientX, e.clientY);
         });
+
+        window.addEventListener("mousemove", (e) => {
+            if (isTouchingIndex) {
+                updateFastIndexSelection(e.clientX, e.clientY);
+            }
+        });
+
         window.addEventListener("mouseup", () => {
-            isTouchingIndex = false;
-            document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
+            if (isTouchingIndex) {
+                isTouchingIndex = false;
+                if (alphabetPopupBubble) alphabetPopupBubble.classList.remove("visible");
+                document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
+            }
         });
 
         function updateAlphabetPosition() {
             if (!alphabetViewContainer || !searchBoxInner) return;
 
             const searchRect = searchBoxInner.getBoundingClientRect();
-            const topGap = Math.max(searchRect.bottom + 8, 54);
             
-            alphabetViewContainer.style.top = `${topGap}px`;
+            // 上下边缘距离屏幕固定为大约3个搜索框的高度（100px），水平方向与搜索框左侧及宽度对齐[cite: 1]
+            alphabetViewContainer.style.top = `100px`;
+            alphabetViewContainer.style.bottom = `100px`;
             alphabetViewContainer.style.left = `${searchRect.left}px`;
             alphabetViewContainer.style.width = `${searchRect.width}px`;
-
-            let bottomThreshold = 90;
-            const isSingleCol = controlBarEl.classList.contains("is-single-column");
-            if (isSingleCol) {
-                const bottomNav = document.querySelector(".tab-bar-wrapper");
-                if (bottomNav) {
-                    const navRect = bottomNav.getBoundingClientRect();
-                    bottomThreshold = window.innerHeight - navRect.top + 8;
-                }
-            }
-
-            if (window.visualViewport) {
-                const keyboardOverlap = window.innerHeight - (window.visualViewport.offsetTop + window.visualViewport.height);
-                if (keyboardOverlap > 0) {
-                    bottomThreshold = Math.max(bottomThreshold, keyboardOverlap + 12);
-                }
-            }
-
-            alphabetViewContainer.style.bottom = `${bottomThreshold}px`;
         }
 
         if (window.visualViewport) {
@@ -2569,11 +2602,9 @@
             window.visualViewport.addEventListener('scroll', updateAlphabetPosition);
         }
 
-        let listAnimationTimer = null;
         function setListViewMode(enable) {
             if (state.isListView === enable) return;
             state.isListView = enable;
-            clearTimeout(listAnimationTimer);
 
             if (enable) {
                 state.focusedModuleId = null;
@@ -2581,32 +2612,40 @@
                 document.body.classList.add("is-list-view");
                 updateRightActionButton();
                 
-                listAnimationTimer = setTimeout(() => {
-                    renderAlphabetList();
-                    updateAlphabetPosition();
-                    alphabetViewContainer.classList.add("is-visible");
-                    checkScrollLock();
-                }, 350);
+                renderAlphabetList();
+                updateAlphabetPosition();
+                alphabetViewContainer.classList.add("is-visible");
+                checkScrollLock();
             } else {
                 alphabetViewContainer.classList.remove("is-visible");
-                listAnimationTimer = setTimeout(() => {
+                setTimeout(() => {
                     document.body.classList.remove("is-list-view");
                     updateRightActionButton();
                     window.scrollTo({ top: 0, behavior: "smooth" });
                     checkScrollLock();
                     scheduleCardLayerUpdate();
-                }, 200);
+                }, 100);
             }
         }
 
-        // 点击搜索框仅在无输入内容时展开首字母列表
+        // 点击页面空白处取消显示列表
+        document.addEventListener("click", (e) => {
+            if (!state.isListView) return;
+            if (e.target.closest("#alphabetViewContainer") || 
+                e.target.closest("#controlBar") || 
+                e.target.closest("#toast") || 
+                e.target.closest("#pullRefreshIndicator")) {
+                return;
+            }
+            setListViewMode(false);
+        });
+
         searchInput.addEventListener("focus", () => {
             if (searchInput.value.trim().length === 0 && !state.focusedModuleId) {
                 setListViewMode(true);
             }
         });
 
-        // 统一右侧按钮交互：如果是清空/关闭状态则清空并恢复默认，否则切换列表
         listToggleBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             const hasText = searchInput.value.length > 0;
@@ -2817,6 +2856,9 @@
         tabItems.forEach(tab => {
             tab.addEventListener("click", () => {
                 const targetTab = tab.getAttribute("data-tab");
+                if (state.isListView) {
+                    setListViewMode(false);
+                }
                 if (state.activeTab === targetTab && !state.focusedModuleId) return;
 
                 state.focusedModuleId = null;
@@ -2848,7 +2890,6 @@
             });
         });
 
-        // 键入内容时，自动退出首字母列表并以普通卡片渲染搜索结果
         searchInput.addEventListener("input", () => {
             state.focusedModuleId = null;
             if (state.isListView) {
@@ -3116,9 +3157,6 @@
 
         updateThemeUI();
 
-        /* =========================================================
-            移动端下拉刷新手势处理
-        ========================================================= */
         let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
         let hasPulledContainer = false;
         const MIN_DRAG_DEADZONE = 30;
