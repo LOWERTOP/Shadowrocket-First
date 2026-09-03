@@ -19,7 +19,7 @@
                 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                 theme = (saved === "dark" || saved === "light") ? saved : (prefersDark ? "dark" : "light");
             } catch (e) {
-                const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
                 theme = prefersDark ? "dark" : "light";
             }
             document.documentElement.setAttribute("data-theme", theme);
@@ -1370,19 +1370,19 @@
 
         .alphabet-fast-index {
             position: absolute;
-            right: 0;
+            right: -8px;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
-            gap: 1px;
+            gap: 0px;
             user-select: none;
             -webkit-user-select: none;
             touch-action: none;
             z-index: 10;
-            padding: 8px 0;
+            padding: 6px 14px 6px 18px;
             background: transparent;
         }
 
@@ -1390,13 +1390,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 20px;
-            height: 16px;
-            font-size: 11px;
+            width: 24px;
+            height: 14.5px;
+            font-size: 10.5px;
             font-weight: 600;
             color: var(--text-tertiary);
             cursor: pointer;
             transition: color 0.15s ease, transform 0.15s ease;
+        }
+
+        @media (orientation: portrait) {
+            .alphabet-fast-index {
+                padding: 4px 14px 4px 20px;
+                right: -10px;
+            }
+            .alphabet-fast-char {
+                height: 13px;
+                font-size: 10px;
+            }
         }
         .alphabet-fast-char:hover,
         .alphabet-fast-char.active {
@@ -1733,7 +1744,7 @@
     <div id="toast" class="toast glass-element">已复制资源链接</div>
 
     <script>
-        const CACHE_VERSION = "202609031216"; 
+        const CACHE_VERSION = "202609031326"; 
         
         const CONFIG = {
             DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
@@ -2590,7 +2601,7 @@
 
             const searchRect = searchBoxInner.getBoundingClientRect();
             
-            // 上下边缘距离屏幕固定为大约3个搜索框的高度（100px），水平方向与搜索框左侧及宽度对齐[cite: 1]
+            // 上下边缘距离屏幕固定为大约3个搜索框的高度（100px），水平方向与搜索框左侧及宽度对齐
             alphabetViewContainer.style.top = `100px`;
             alphabetViewContainer.style.bottom = `100px`;
             alphabetViewContainer.style.left = `${searchRect.left}px`;
