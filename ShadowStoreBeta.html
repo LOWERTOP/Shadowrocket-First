@@ -58,11 +58,11 @@
     </script>
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%2306b6d4%22/><stop offset=%2250%25%22 stop-color=%22%233b82f6%22/><stop offset=%22100%25%22 stop-color=%22%238b5cf6%22/></linearGradient></defs><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22url(%23g)%22 stroke=%22rgba(255,255,255,0.6)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowStore.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/Shadowrocket.png">
 
     <style>
         /* =========================================================
-            1. 全局设计令牌与液体玻璃基础变量
+            1. 全局设计令牌与统一阴影体系
         ========================================================= */
         :root, [data-theme="light"] {
             --layout-gap: 44px;
@@ -92,11 +92,19 @@
             --radius-pill: 9999px;
             --card-width: 380px;
 
-            /* 液体玻璃默认参数 (txt 规格) */
+            /* 统一立体外阴影令牌 */
+            --liquid-outer-shadow: 
+                0 8px 24px -4px rgba(0, 0, 0, 0.12),
+                0 2px 8px -1px rgba(0, 0, 0, 0.06);
+            --liquid-outer-shadow-hover: 
+                0 12px 30px -4px rgba(0, 0, 0, 0.16),
+                0 4px 12px -2px rgba(0, 0, 0, 0.08);
+
+            /* 液体玻璃默认参数 */
             --border-radius: 22px;
-            --liquid-cover-bg: rgba(255, 255, 255, 0.38);
-            --liquid-sharp-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.65), inset -1px -1px 0px 0px rgba(255, 255, 255, 0.5);
-            --liquid-reflect-shadow: inset 2px 2px 6px 2px rgba(255, 255, 255, 0.35), inset -2px -2px 4px -1px rgba(0, 0, 0, 0.04);
+            --liquid-cover-bg: rgba(255, 255, 255, 0.40);
+            --liquid-sharp-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.7), inset -1px -1px 0px 0px rgba(255, 255, 255, 0.55);
+            --liquid-reflect-shadow: inset 2px 2px 7px 1.5px rgba(255, 255, 255, 0.38), inset -2px -2px 6px 1px rgba(0, 0, 0, 0.04);
 
             --bottom-offset: max(16px, calc(env(safe-area-inset-bottom) - 14px));
             --safe-pad-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
@@ -126,10 +134,16 @@
             --accent-orange: #c4a991;
             --accent-orange-soft: rgba(196, 169, 145, 0.2);
 
-            /* 暗色下液体玻璃参数 */
-            --liquid-cover-bg: rgba(29, 32, 38, 0.65);
-            --liquid-sharp-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.18), inset -1px -1px 0px 0px rgba(0, 0, 0, 0.6);
-            --liquid-reflect-shadow: inset 2px 2px 6px 2px rgba(255, 255, 255, 0.08), inset -2px -2px 4px -1px rgba(0, 0, 0, 0.4);
+            --liquid-outer-shadow: 
+                0 10px 28px -4px rgba(0, 0, 0, 0.55),
+                0 3px 10px -2px rgba(0, 0, 0, 0.40);
+            --liquid-outer-shadow-hover: 
+                0 16px 36px -4px rgba(0, 0, 0, 0.70),
+                0 6px 14px -2px rgba(0, 0, 0, 0.50);
+
+            --liquid-cover-bg: rgba(26, 29, 35, 0.68);
+            --liquid-sharp-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.2), inset -1px -1px 0px 0px rgba(0, 0, 0, 0.65);
+            --liquid-reflect-shadow: inset 2px 2px 7px 1.5px rgba(255, 255, 255, 0.1), inset -2px -2px 6px 1px rgba(0, 0, 0, 0.45);
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -190,14 +204,15 @@
         }
 
         /* =========================================================
-            2. txt 文件专属 Liquid Glass 核心图层系统
+            2. Liquid Glass 图层系统 (6px 适度折射边)[cite: 2]
         ========================================================= */
         .liquid_glass-wrapper {
             position: relative;
             display: flex;
             overflow: hidden;
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+            box-shadow: var(--liquid-outer-shadow) !important;
+            transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .liquid_glass-outer {
@@ -208,12 +223,20 @@
             z-index: 0;
             border-radius: var(--border-radius);
             mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="0" y="0" width="100%" height="100%" rx="0" ry="0" fill="white"/></svg>'),
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="4" y="4" width="calc(100% - 8px)" height="calc(100% - 8px)" rx="18" ry="18" fill="white"/></svg>');
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="6" y="6" width="calc(100% - 12px)" height="calc(100% - 12px)" rx="18" ry="18" fill="white"/></svg>');
             -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="0" y="0" width="100%" height="100%" rx="0" ry="0" fill="white"/></svg>'),
-                                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="4" y="4" width="calc(100% - 8px)" height="calc(100% - 8px)" rx="18" ry="18" fill="white"/></svg>');
+                                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect x="6" y="6" width="calc(100% - 12px)" height="calc(100% - 12px)" rx="18" ry="18" fill="white"/></svg>');
             mask-composite: exclude;
             -webkit-mask-composite: destination-out;
             pointer-events: none;
+        }
+
+        .theme-toggle .liquid_glass-outer,
+        .back-to-top-btn .liquid_glass-outer {
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="50%" fill="white"/></svg>'),
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="calc(50% - 4.5px)" fill="white"/></svg>');
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="50%" fill="white"/></svg>'),
+                                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50%" cy="50%" r="calc(50% - 4.5px)" fill="white"/></svg>');
         }
 
         .liquid_glass-cover {
@@ -251,7 +274,7 @@
             width: 100%;
         }
 
-        /* 下拉刷新提示条 */
+        /* 下拉刷新指示器 */
         .pull-refresh-indicator {
             position: fixed;
             top: max(8px, env(safe-area-inset-top));
@@ -352,14 +375,12 @@
         
         .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
-        /* =========================================================
-            3. 右上角功能按钮（居中精准修正）
-        ========================================================= */
+        /* 右上角功能按钮 */
         .theme-toggle { 
             position: relative;
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
+            display: inline-flex !important; 
+            align-items: center !important; 
+            justify-content: center !important; 
             width: 44px; 
             height: 44px; 
             padding: 0; 
@@ -368,18 +389,25 @@
             cursor: pointer; 
             color: var(--text-secondary);
             --border-radius: 50%;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
             overflow: hidden;
             vertical-align: middle;
+            background: transparent;
+            isolation: isolate;
         }
         .theme-toggle:hover { 
-            color: var(--text-primary); transform: translateY(-1px); 
+            color: var(--text-primary); 
+            transform: translateY(-1px);
+            box-shadow: var(--liquid-outer-shadow-hover) !important;
         }
         .theme-toggle:active { transform: scale(0.92); }
 
-        .theme-toggle .icon {
+        [data-theme="dark"] .theme-toggle { color: #a6b0c2; }
+        [data-theme="dark"] .theme-toggle:hover { color: #ffffff; }
+
+        .theme-toggle .icon,
+        .back-to-top-btn .icon {
             position: relative;
-            z-index: 4;
+            z-index: 10 !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -389,7 +417,8 @@
             pointer-events: none;
         }
 
-        .theme-toggle svg { 
+        .theme-toggle svg,
+        .back-to-top-btn svg { 
             display: block; 
             width: 20px; 
             height: 20px; 
@@ -412,7 +441,9 @@
             padding: 4px 0;
         }
 
-        /* 分类标签栏 */
+        /* =========================================================
+            3. 分类标签栏与渐变指示器[cite: 1]
+        ========================================================= */
         .tab-bar-wrapper {
             width: 100%;
             min-width: 0;
@@ -421,10 +452,13 @@
             align-items: center;
             position: relative;
             z-index: 999990;
+            gap: 10px;
         }
 
         .tab-bar {
             position: relative;
+            flex: 1 1 auto;
+            min-width: 0;
             width: 100%;
             height: 44px;
             display: flex;
@@ -434,6 +468,7 @@
             padding: 5px;
             --border-radius: 22px;
             overflow: hidden;
+            transition: max-width 0.44s cubic-bezier(0.34, 1.32, 0.64, 1);
         }
 
         .tab-indicator {
@@ -447,9 +482,10 @@
             box-shadow: var(--primary-gradient-shadow);
             pointer-events: none;
             z-index: 1;
-            will-change: transform;
+            will-change: transform, width;
             transform: translate3d(0, 0, 0);
-            transition: transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1);
+            transition: transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1), 
+                        width 0.44s cubic-bezier(0.34, 1.32, 0.64, 1);
         }
 
         .control-bar.is-single-column .tab-indicator {
@@ -480,7 +516,8 @@
             text-align: center;
             overflow: visible;
             text-overflow: ellipsis;
-            transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
+            transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
         }
 
         .tab-item:active { transform: scale(0.92); }
@@ -534,6 +571,55 @@
             font-weight: 400 !important;
         }
 
+        /* 默认多列宽屏模式下隐藏返回按钮 */
+        .control-bar:not(.is-single-column) .back-to-top-btn {
+            display: none !important;
+        }
+
+        /* 单列底栏模式下的返回按钮 */
+        .control-bar.is-single-column .back-to-top-btn {
+            position: relative;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 0;
+            height: 62px;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.65);
+            pointer-events: none;
+            overflow: hidden;
+            flex-shrink: 0;
+            --border-radius: 31px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            transition: width 0.44s cubic-bezier(0.34, 1.32, 0.64, 1),
+                        opacity 0.3s ease,
+                        transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1),
+                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        visibility 0.44s ease;
+        }
+
+        .control-bar.is-single-column .back-to-top-btn.visible {
+            width: 62px;
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        .control-bar.is-single-column .back-to-top-btn:hover { 
+            color: var(--text-primary);
+            box-shadow: var(--liquid-outer-shadow-hover) !important;
+        }
+        .control-bar.is-single-column .back-to-top-btn:active { transform: scale(0.92); }
+        [data-theme="dark"] .control-bar.is-single-column .back-to-top-btn { color: #a6b0c2; }
+        [data-theme="dark"] .control-bar.is-single-column .back-to-top-btn:hover { color: #ffffff; }
+
         /* 搜索框区域 */
         .search-wrapper { 
             position: relative;
@@ -558,6 +644,10 @@
             --border-radius: 22px; 
             padding: 6px; 
             cursor: text;
+        }
+
+        .search-box-inner:focus-within {
+            box-shadow: var(--liquid-outer-shadow-hover) !important;
         }
         
         .search-icon { 
@@ -619,35 +709,6 @@
         .search-clear:hover { color: var(--text-primary); }
         .search-clear.visible { display: flex; }
 
-        .back-to-top-btn {
-            width: 0;
-            height: 44px;
-            padding: 0;
-            margin-left: 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.6);
-            pointer-events: none;
-            overflow: hidden;
-            flex-shrink: 0;
-            --border-radius: 50%;
-            transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        margin-left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        visibility 0.35s ease;
-        }
-        .back-to-top-btn.visible {
-            width: 44px;
-            margin-left: 10px;
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-            pointer-events: auto;
-        }
-        .back-to-top-btn.visible:hover { transform: translateY(-1px); }
-        .back-to-top-btn.visible:active { transform: scale(0.92); }
-
         .status { 
             display: flex; align-items: center; justify-content: space-between; 
             min-height: 22px; margin: 0 4px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
@@ -668,7 +729,7 @@
             min-height: 0; 
         }
 
-        /* 主/次卡片 (txt 规范液体玻璃层) */
+        /* 主/次卡片与骨架屏卡片 */
         .module-card { 
             position: relative; 
             padding: 28px; 
@@ -678,13 +739,20 @@
             display: flex;
             flex-direction: column;
             --border-radius: var(--radius-card); 
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .loading-card { 
+            height: 180px; 
+            min-width: 0;
+            --border-radius: var(--radius-card); 
+            animation: skeletonPulse 1.4s infinite; 
         }
 
         @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
             .module-card:hover { 
                 z-index: 50000 !important;
                 transform: translateY(-2px);
+                box-shadow: var(--liquid-outer-shadow-hover) !important;
             }
         }
 
@@ -707,9 +775,19 @@
         .module-icon img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         
         .card-main { min-width: 0; flex: 1; }
+
+        /* 主卡片标题：18号加粗且单行自适应省略[cite: 1] */
         .module-name { 
-            margin: 0; font-size: 20px; line-height: 1.3; font-weight: 400;
-            letter-spacing: -0.2px; color: var(--text-primary); word-break: break-word; 
+            margin: 0; 
+            font-size: clamp(15px, 1.6vw, 18px); 
+            line-height: 1.35; 
+            font-weight: 700;
+            letter-spacing: -0.2px; 
+            color: var(--text-primary); 
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            width: 100%;
         }
         
         .module-meta { 
@@ -761,14 +839,15 @@
             flex: 1 1 auto;
         }
         
+        /* 移除下方分割横线并保持 48px 的舒适物理间距 */
         .card-bottom { 
             display: flex; 
             align-items: center; 
             justify-content: flex-end; 
             gap: 12px; 
-            margin-top: 24px; 
-            padding-top: 24px; 
-            border-top: 1px solid var(--border-subtle); 
+            margin-top: 48px; 
+            padding-top: 0; 
+            border-top: none; 
             flex-shrink: 0;
         }
 
@@ -782,7 +861,7 @@
             transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         
-        /* 次级按钮（带微光光晕） */
+        /* 次级按钮 */
         .button-secondary { 
             position: relative;
             isolation: isolate;
@@ -791,7 +870,7 @@
             border: none !important; 
             padding: 0 16px;
             overflow: visible;
-            transition: transform 0.2s ease, color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.2s ease, color 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         .button-secondary:active { transform: scale(0.96); }
         [data-theme="dark"] .button-secondary { color: #22d3ee; }
@@ -799,8 +878,8 @@
         .button-secondary:hover,
         .button-secondary:active,
         .button-secondary:focus-visible { 
-            background: transparent !important;
-            color: #0891b2;
+            background: transparent !important; 
+            color: #0891b2; 
         }
         .button-secondary:hover::before,
         .button-secondary:active::before,
@@ -813,7 +892,7 @@
             color: #22d3ee;
         }
         
-        /* 主按钮（完全保留渐变色背景与悬浮光晕动效） */
+        /* 主按钮（完全保留渐变色背景与悬浮光晕动效）[cite: 1] */
         .button-primary { 
             background: var(--primary-gradient); 
             color: #FFFFFF; 
@@ -852,14 +931,6 @@
             font-size: 24px;
         }
         
-        .loading-card { 
-            height: 180px; 
-            min-width: 0;
-            --border-radius: var(--radius-card); 
-            animation: skeletonPulse 1.4s infinite; 
-        }
-        @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
-        
         .footer { 
             margin-top: auto;
             padding: 36px 0 20px; 
@@ -870,6 +941,7 @@
             font-weight: 300; 
         }
         
+        /* 浮动提示 */
         .toast { 
             position: fixed; 
             bottom: var(--toast-bottom); 
@@ -887,7 +959,9 @@
         }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-        /* 单列布局与底栏适配规范 */
+        /* =========================================================
+            4. 单列布局与底栏完全重构规范[cite: 1]
+        ========================================================= */
         .control-bar.is-single-column {
             display: block;
             position: sticky;
@@ -910,8 +984,7 @@
             pointer-events: none;
         }
 
-        .control-bar.is-single-column .search-box-inner,
-        .control-bar.is-single-column .back-to-top-btn {
+        .control-bar.is-single-column .search-box-inner {
             pointer-events: auto;
         }
 
@@ -929,12 +1002,13 @@
             justify-content: center;
             pointer-events: none;
             z-index: 999999;
+            max-width: clamp(1080px, 95vw, 2560px);
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .control-bar.is-single-column .tab-bar {
             pointer-events: auto;
-            width: 100%;
-            max-width: clamp(1080px, 95vw, 2560px);
             height: 62px;
             padding: 5px;
             --border-radius: 31px;
@@ -967,8 +1041,9 @@
             .title { font-size: 22px; }
             .tag-pill-badge { height: 15px; font-size: 9px; padding: 0 5px; transform: translateY(calc(2px - 50%)); }
             .module-card { padding: 22px; }
+            .module-name { font-size: 18px; }
             .module-description { flex: none; }
-            .card-bottom { margin-top: 20px; padding-top: 20px; }
+            .card-bottom { margin-top: 36px; padding-top: 0; }
             .search-shortcut { display: none; }
         }
 
@@ -982,11 +1057,11 @@
 </head>
 
 <body>
-    <!-- 注入真实物理光线折射流体的 SVG 滤镜定义 (对应 txt 中的 backdrop-filter: url(#liquid_glass_filter)) -->
+    <!-- 物理折射滤镜 -->
     <svg style="position: fixed; width: 0; height: 0; pointer-events: none;" aria-hidden="true">
         <filter id="liquid_glass_filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
             <feTurbulence type="fractalNoise" baseFrequency="0.04 0.04" numOctaves="1" result="noise" />
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="9" xChannelSelector="R" yChannelSelector="G" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G" />
         </filter>
     </svg>
 
@@ -1018,7 +1093,6 @@
                     </h1>
                 </div>
                 
-                <!-- 右上角功能按钮（替换为液体玻璃拟态，统一采用 txt 的 .icon 居中图层规范） -->
                 <div class="theme-controls">
                     <button id="themeToggle" class="theme-toggle liquid_glass-wrapper" aria-label="切换主题模式">
                         <div class="liquid_glass-outer"></div>
@@ -1062,7 +1136,7 @@
         </header>
 
         <div id="controlBar" class="control-bar">
-            <!-- 标签栏 -->
+            <!-- 标签栏与平滑联动指示条的返回顶部按钮[cite: 1] -->
             <nav class="tab-bar-wrapper" aria-label="资源分类导航">
                 <div class="tab-bar liquid_glass-wrapper" role="tablist">
                     <div class="liquid_glass-outer"></div>
@@ -1075,9 +1149,21 @@
                     <button class="tab-item" role="tab" aria-selected="false" data-tab="manual">使用手册</button>
                     <button class="tab-item" role="tab" aria-selected="false" data-tab="more">更多资源</button>
                 </div>
+
+                <button id="backToTopBtn" class="theme-toggle liquid_glass-wrapper back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
+                    <div class="liquid_glass-outer"></div>
+                    <div class="liquid_glass-cover"></div>
+                    <div class="liquid_glass-reflect"></div>
+                    <div class="liquid_glass-sharp"></div>
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <polyline points="5 12 12 5 19 12"></polyline>
+                        </svg>
+                    </div>
+                </button>
             </nav>
 
-            <!-- 搜索框 -->
             <div class="search-wrapper">
                 <div class="search-box-inner liquid_glass-wrapper" role="search">
                     <div class="liquid_glass-outer"></div>
@@ -1101,19 +1187,6 @@
                         <button id="searchClear" class="search-clear" type="button" title="清空搜索">✕</button>
                     </div>
                 </div>
-
-                <button id="backToTopBtn" class="theme-toggle liquid_glass-wrapper back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
-                    <div class="liquid_glass-outer"></div>
-                    <div class="liquid_glass-cover"></div>
-                    <div class="liquid_glass-reflect"></div>
-                    <div class="liquid_glass-sharp"></div>
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <polyline points="5 12 12 5 19 12"></polyline>
-                        </svg>
-                    </div>
-                </button>
             </div>
         </div>
 
@@ -1125,7 +1198,6 @@
             <div id="countText"></div>
         </div>
 
-        <!-- 主/次卡片列表容器 -->
         <main id="modules" class="modules">
             <div class="loading-card liquid_glass-wrapper"><div class="liquid_glass-outer"></div><div class="liquid_glass-cover"></div><div class="liquid_glass-reflect"></div><div class="liquid_glass-sharp"></div></div>
             <div class="loading-card liquid_glass-wrapper"><div class="liquid_glass-outer"></div><div class="liquid_glass-cover"></div><div class="liquid_glass-reflect"></div><div class="liquid_glass-sharp"></div></div>
@@ -1564,6 +1636,23 @@
         }
 
         let backToTopVisible = false;
+        let indicatorRafId = null;
+
+        function animateIndicatorSmooth(duration = 460) {
+            if (indicatorRafId) cancelAnimationFrame(indicatorRafId);
+            const startTime = performance.now();
+            function step(now) {
+                updateTabIndicator(true);
+                if (now - startTime < duration) {
+                    indicatorRafId = requestAnimationFrame(step);
+                } else {
+                    updateTabIndicator(true);
+                    indicatorRafId = null;
+                }
+            }
+            indicatorRafId = requestAnimationFrame(step);
+        }
+
         function updateSearchLayer() {
             if (!backToTopBtn) return;
             const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
@@ -1571,6 +1660,8 @@
             if (shouldShow === backToTopVisible) return;
             backToTopVisible = shouldShow;
             backToTopBtn.classList.toggle("visible", shouldShow);
+
+            animateIndicatorSmooth(460);
         }
         
         window.addEventListener('scroll', updateSearchLayer, { passive: true });
@@ -1591,20 +1682,16 @@
             const activeTab = document.querySelector(".tab-item.active");
             if (!activeTab || !tabIndicator) return;
 
-            if (!animated && isTabAnimating) return;
-
             if (!animated) {
                 tabIndicator.style.transition = 'none';
             } else {
-                tabIndicator.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1)';
+                tabIndicator.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1), width 0.44s cubic-bezier(0.34, 1.32, 0.64, 1)';
             }
 
             const left = activeTab.offsetLeft;
             const width = activeTab.offsetWidth;
 
-            if (Math.abs(tabIndicator.offsetWidth - width) > 1) {
-                tabIndicator.style.width = `${width}px`;
-            }
+            tabIndicator.style.width = `${width}px`;
             tabIndicator.style.transform = `translate3d(${left}px, 0, 0)`;
 
             if (!animated) {
@@ -1658,6 +1745,13 @@
             }, 80);
         }, { passive: true });
 
+        if (window.ResizeObserver && tabBarEl) {
+            const ro = new ResizeObserver(() => {
+                updateTabIndicator(true);
+            });
+            ro.observe(tabBarEl);
+        }
+
         function renderAuthor(module) {
             const author = module.author || {};
             const avatar = module.authorAvatar;
@@ -1670,7 +1764,6 @@
             return `<span class="author">${avatarHTML}${escapeHTML(authorName)}</span>`;
         }
 
-        /* 生成嵌入液体玻璃结构的卡片 */
         function createModuleCard(module) {
             if (module._domElement) {
                 return module._domElement;
