@@ -18,7 +18,7 @@ const CONFIG = {
 };
 
 const APP_ALIASES = {
-    "私库": ["github"], "🅲🅻🅴🅰🅽🅴🆁": ["github"], "证书": ["github"], "解密": ["github"], "🅳🅴🆅": ["github"], "红果": ["play"], "流媒体": ["netflix"], "影视": ["netflix"], "大师兄": ["netflix"], "talkatone": ["talkatone"],
+    "私库": ["github"], "🅲🅻🅴🅰🅽🅴🆁": ["github"], "证书": ["github"], "解密": ["github"], "🅳🅴🆅": ["github"], "红果": ["play", "红果", "hongguo", "红果短剧"], "流媒体": ["netflix"], "影视": ["netflix"], "大师兄": ["netflix"], "talkatone": ["talkatone"],
     "苹果": ["apple"], "apple": ["apple"], "谷歌": ["google"], "微软": ["microsoft"],
     "油管": ["youtube"], "youtube": ["youtube"], "电报": ["telegram"], "推特": ["twitter", "x"],
     "奈飞": ["netflix"], "网飞": ["netflix"], "迪士尼": ["disney"], "cmcc": ["中国移动"],
