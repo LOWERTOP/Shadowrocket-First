@@ -7,9 +7,9 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#f0f2f5">
+    <meta name="theme-color" content="#ffffff">
     
-    <title>ShadowStore</title>
+    <title>迁移通知 - ShadowStore</title>
 
     <script>
         (function() {
@@ -19,82 +19,76 @@
                 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                 theme = (saved === "dark" || saved === "light") ? saved : (prefersDark ? "dark" : "light");
             } catch (e) {
-                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
                 theme = prefersDark ? "dark" : "light";
             }
             document.documentElement.setAttribute("data-theme", theme);
-            const themeColor = theme === 'dark' ? '#14161a' : '#f0f2f5';
+            const themeColor = theme === 'dark' ? '#14161a' : '#ffffff';
             const themeMeta = document.querySelector('meta[name="theme-color"]');
             if (themeMeta) {
                 themeMeta.setAttribute('content', themeColor);
             }
             document.documentElement.style.backgroundColor = themeColor;
-
-            try {
-                const savedLang = localStorage.getItem("sr_lang_override");
-                let lang = "zh";
-                if (savedLang === "en" || savedLang === "zh") {
-                    lang = savedLang;
-                } else {
-                    const primary = (navigator.languages && navigator.languages.length 
-                        ? navigator.languages[0] 
-                        : (navigator.language || navigator.userLanguage || "")).toLowerCase();
-                    lang = primary.startsWith("zh") ? "zh" : "en";
-                }
-                document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
-            } catch (e) {}
-
-            const isMobileDevice = ('ontouchstart' in window) || 
-                                   (navigator.maxTouchPoints > 0) || 
-                                   (window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches);
-            if (isMobileDevice) {
-                document.documentElement.classList.add('is-mobile');
-            }
-
-            if (window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches) {
-                document.documentElement.classList.add('is-pwa');
-            }
         })();
     </script>
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 stop-color=%22%2306b6d4%22/><stop offset=%2250%25%22 stop-color=%22%233b82f6%22/><stop offset=%22100%25%22 stop-color=%22%238b5cf6%22/></linearGradient></defs><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22url(%23g)%22 stroke=%22rgba(255,255,255,0.6)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowStore.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23768a9e%22 stroke=%22rgba(255,255,255,0.6)%22 stroke-width=%224%22/><text x=%2250%22 y=%2255%22 font-size=%2248%22 text-anchor=%22middle%22 dominant-baseline=%22central%22>🚀</text></svg>">
 
     <style>
         /* =========================================================
-            1. 主题设计令牌 (Theme Tokens)
+            1. 浅色主题设计令牌 (Light Theme Tokens)
         ========================================================= */
         :root, [data-theme="light"] {
-            --layout-gap: 44px;
-            --bg-page-solid: #f0f2f5;
+            --bg-overscroll: #ffffff;
+            --bg-page-base: #ffffff;
+            --bg-page-grad: radial-gradient(circle at 50% 0%, #ffffff 0%, #f0f2f5 35%, #e8ebf0 70%, #dce1e8 100%);
+            
+            --glass-bg: linear-gradient(225deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.02) 100%);
+            --glass-bg-hover: linear-gradient(225deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 40%, rgba(255, 255, 255, 0.05) 100%);
+            
+            --glass-border-t: rgba(255, 255, 255, 0.85);
+            --glass-border-r: rgba(255, 255, 255, 0.6);
+            --glass-border-b: rgba(255, 255, 255, 0.05);
+            --glass-border-l: rgba(255, 255, 255, 0.1);
 
-            /* 浅色模式玻璃阴影单一控制数值 (0.0 ~ 0.2) */
-            --glass-shadow-strength: 0.05;
+            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
 
-            --glass-ambient-shadow: 
-                0 0 16px 2px rgba(0, 0, 0, var(--glass-shadow-strength)), 
-                0 2px 8px 0 rgba(0, 0, 0, calc(var(--glass-shadow-strength) * 0.8));
-            --glass-ambient-shadow-hover: 
-                0 0 22px 3px rgba(0, 0, 0, calc(var(--glass-shadow-strength) * 1.4)), 
-                0 4px 12px 0 rgba(0, 0, 0, calc(var(--glass-shadow-strength) * 1.0));
+            --content-shadow-lg: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
+            --text-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.18);
+            --content-shadow-sm: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+            --text-shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.15);
 
-            --liquid-bg: rgba(255, 255, 255, 0.45);
-            --liquid-sharp-1: rgba(255, 255, 255, 0.7);
-            --liquid-sharp-2: rgba(255, 255, 255, 0.4);
-            --liquid-reflect-1: rgba(255, 255, 255, 0.35);
-            --liquid-reflect-2: rgba(255, 255, 255, 0.15);
+            --shadow-glass-ui: 
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.04),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.65), 
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.08),     
+                -2.5px 7px 4.5px -3px rgba(255, 255, 255, 0.33),
+                -1.3px 8px 6px -3.5px rgba(255, 255, 255, 0.3),
+                -3.5px 10px 7.5px -4px rgba(255, 255, 255, 0.25),
+                -1.8px 12px 9px -4px rgba(255, 255, 255, 0.17),
+                -1px 4px 6px rgba(0, 0, 0, 0.15),        
+                -8px 18px 22px -3px rgba(0, 0, 0, 0.12), 
+                -25px 45px 55px -5px rgba(0, 0, 0, 0.22); 
+
+            --shadow-glass-ui-hover: 
+                inset 0.5px -0.5px 2px rgba(0, 0, 0, 0.05),
+                inset 0 10px 20px -6px rgba(255, 255, 255, 0.75), 
+                inset 0 -10px 20px -6px rgba(0, 0, 0, 0.1),     
+                -3px 8.5px 5px -3px rgba(255, 255, 255, 0.33),
+                -1.6px 9.5px 7px -3.5px rgba(255, 255, 255, 0.3),
+                -4.2px 12px 9px -4px rgba(255, 255, 255, 0.25),
+                -2.2px 14px 10px -4px rgba(255, 255, 255, 0.18),
+                -1.5px 6px 8px rgba(0, 0, 0, 0.15),
+                -10px 20px 25px -3px rgba(0, 0, 0, 0.12),
+                -30px 50px 60px -6px rgba(0, 0, 0, 0.25);
 
             --text-primary: #4a4f59;
             --text-secondary: #7e8596;
             --text-tertiary: #a1a9ba;
 
-            --primary: #0891b2; 
-            --primary-hover: #0e7490;
-            --primary-soft: rgba(6, 182, 212, 0.15);
-
-            --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
-            --primary-gradient-hover: linear-gradient(135deg, #0891b2 0%, #2563eb 50%, #7c3aed 100%);
-            --primary-gradient-shadow: 0 4px 14px rgba(59, 130, 246, 0.08);
+            --primary: #768a9e; 
+            --primary-hover: #62768a;
+            --primary-soft: rgba(118, 138, 158, 0.15);
             
             --bg-surface: #e6eaf0;
             --border-subtle: #d6dbe3;
@@ -106,40 +100,47 @@
 
             --radius-card: 44px;
             --radius-pill: 9999px;
-            --card-width: 380px;
-
-            --bottom-offset: max(16px, calc(env(safe-area-inset-bottom) - 14px));
-            --safe-pad-bottom: max(104px, calc(env(safe-area-inset-bottom) + 70px));
-            --toast-bottom: max(93px, calc(env(safe-area-inset-bottom) + 59px));
+            --toast-bg: #4a4f59;
+            --toast-text: #FFFFFF;
         }
 
+        /* =========================================================
+            2. 暗色主题设计令牌 (Dark Theme Tokens)
+        ========================================================= */
         [data-theme="dark"] {
-            --bg-page-solid: #14161a;
+            --bg-overscroll: #14161a;
+            --bg-page-base: #14161a;
+            --bg-page-grad: none;
+            
+            --glass-bg: none;
+            --glass-bg-hover: none;
+            --glass-border-t: transparent;
+            --glass-border-r: transparent;
+            --glass-border-b: transparent;
+            --glass-border-l: transparent;
 
-            /* 深色模式玻璃阴影单一控制数值 (0.15 ~ 0.5) */
-            --glass-shadow-strength: 0.35;
+            --noise-pattern: url("data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
 
-            --glass-ambient-shadow: 
-                0 0 16px 2px rgba(0, 0, 0, var(--glass-shadow-strength)), 
-                0 2px 8px 0 rgba(0, 0, 0, calc(var(--glass-shadow-strength) * 0.7));
-            --glass-ambient-shadow-hover: 
-                0 0 22px 3px rgba(0, 0, 0, calc(var(--glass-shadow-strength) * 1.3)), 
-                0 4px 12px 0 rgba(0, 0, 0, calc(var(--glass-shadow-strength) * 0.85));
+            --content-shadow-lg: none;
+            --text-shadow-lg: none;
+            --content-shadow-sm: none;
+            --text-shadow-sm: none;
 
-            --liquid-bg: rgba(29, 32, 38, 0.72);
+            --shadow-glass-ui: 
+                0 6px 20px rgba(0, 0, 0, 0.4),
+                0 2px 6px rgba(0, 0, 0, 0.25);
+
+            --shadow-glass-ui-hover: 
+                0 8px 24px rgba(0, 0, 0, 0.5),
+                0 3px 8px rgba(0, 0, 0, 0.3);
 
             --text-primary: #dce1e8;
             --text-secondary: #939aa8;
             --text-tertiary: #6b7280;
 
-            --primary: #0891b2;
-            --primary-hover: #06b6d4;
-            --primary-soft: rgba(6, 182, 212, 0.2);
-
-            --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
-            --primary-gradient-hover: linear-gradient(135deg, #22d3ee 0%, #60a5fa 50%, #a78bfa 100%);
-            --primary-gradient-shadow: 0 4px 16px rgba(59, 130, 246, 0.11);
-
+            --primary: #758b9f;
+            --primary-hover: #8da1b5;
+            --primary-soft: rgba(117, 139, 159, 0.2);
             --bg-surface: #1d2026;
             --border-subtle: #2b3038;
 
@@ -147,107 +148,34 @@
             --accent-mint-soft: rgba(139, 183, 196, 0.2);
             --accent-orange: #c4a991;
             --accent-orange-soft: rgba(196, 169, 145, 0.2);
-        }
 
-        /* =========================================================
-            2. 玻璃控件基础与外围阴影统一联动
-        ========================================================= */
-        .glass-element {
-            position: relative;
-            border-radius: var(--border-radius, 22px);
-            background: transparent !important;
-            border: none !important;
-            box-shadow: var(--glass-ambient-shadow);
-            isolation: isolate;
-            transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .glass-element::before,
-        .glass-element::after {
-            content: "";
-            position: absolute;
-            pointer-events: none;
-            border-radius: inherit;
-        }
-
-        .glass-element::before {
-            inset: 0;
-            z-index: -2;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            background: var(--liquid-bg);
-        }
-
-        .glass-element::after {
-            inset: 0;
-            z-index: -1;
-            box-shadow: 
-                inset 1px 1px 0px 0px var(--liquid-sharp-1), 
-                inset -1px -1px 0px 0px var(--liquid-sharp-2),
-                inset 2px 2px 6px 2px var(--liquid-reflect-1), 
-                inset -2px -2px 4px -1px var(--liquid-reflect-2);
-        }
-
-        [data-theme="dark"] .glass-element::after {
-            display: none !important;
-        }
-
-        html.theme-transitioning,
-        html.theme-transitioning *,
-        html.theme-transitioning *::before,
-        html.theme-transitioning *::after {
-            transition: none !important;
-        }
-
-        html.is-resizing .tab-indicator {
-            transition: none !important;
+            --toast-bg: #dce1e8;
+            --toast-text: #14161a;
         }
 
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         html { 
-            margin: 0; 
-            padding: 0; 
-            scrollbar-gutter: stable; 
-            background-color: var(--bg-page-solid);
-            background-image: none !important;
+            margin: 0; padding: 0;
+            background-color: var(--bg-overscroll);
+            background-image: var(--bg-page-grad);
+            background-attachment: fixed;
             min-height: 100%;
-            transition: background-color 0.4s ease; 
-        }
-
-        html:not(.no-scroll) {
-            overflow-y: scroll;
-            overscroll-behavior-y: auto;
-            -webkit-overscroll-behavior-y: auto;
-        }
-
-        html.no-scroll {
-            overflow-y: hidden;
-            overscroll-behavior-y: none;
-            -webkit-overscroll-behavior-y: none;
-            touch-action: pan-x pinch-zoom;
+            transition: background-color 0.4s ease;
         }
         
         body { 
             margin: 0; 
             min-height: 100vh;
-            min-height: 100dvh;
             display: flex;
             flex-direction: column;
-            padding-top: max(16px, env(safe-area-inset-top));
-            padding-right: 16px;
-            padding-bottom: var(--safe-pad-bottom);
-            padding-left: 16px;
-            background-color: transparent;
+            padding: max(16px, env(safe-area-inset-top)) clamp(16px, 2.5vw, 40px) max(24px, env(safe-area-inset-bottom)); 
+            background: transparent;
             color: var(--text-primary); 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif; 
             -webkit-font-smoothing: antialiased; 
             text-rendering: optimizeLegibility; 
-            transition: color 0.4s ease, padding-top 0.35s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-
-        body.is-list-view {
-            padding-top: max(8px, env(safe-area-inset-top));
+            transition: color 0.4s ease; 
         }
 
         button, input { font: inherit; }
@@ -255,1725 +183,264 @@
         
         .container { 
             width: 100%; 
-            max-width: clamp(1080px, 95vw, 2560px); 
-            margin: 0 auto; 
+            max-width: 580px; 
+            margin: auto; 
             position: relative; 
-            top: 0; 
-            flex: 1;
+        }
+
+        .glass-element {
+            background-color: transparent;
+            background-image: var(--noise-pattern), var(--glass-bg);
+            backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            -webkit-backdrop-filter: blur(32px) saturate(120%) brightness(102%);
+            border-top: 1px solid var(--glass-border-t);
+            border-left: 1px solid var(--glass-border-l);
+            border-right: 1px solid var(--glass-border-r);
+            border-bottom: 1px solid var(--glass-border-b);
+        }
+
+        [data-theme="dark"] .glass-element {
+            background-color: var(--bg-surface);
+            background-image: var(--noise-pattern);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .top-bar {
             display: flex;
-            flex-direction: column;
+            justify-content: flex-end;
+            margin-bottom: 24px;
         }
-
-        .pull-refresh-indicator {
-            --border-radius: var(--radius-pill);
-            position: fixed;
-            top: max(8px, env(safe-area-inset-top));
-            left: 50%;
-            transform: translate3d(-50%, -60px, 0);
-            z-index: 999999;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-            height: 32px;
-            padding: 0 14px;
-            color: var(--text-secondary);
-            font-size: 12.5px;
-            font-weight: 400;
-            pointer-events: none;
-            opacity: 0;
-            will-change: transform, opacity;
-        }
-        .ptr-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 14px;
-            height: 14px;
-            color: var(--primary);
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .ptr-icon svg { width: 100%; height: 100%; }
-        .ptr-icon.rotate { transform: rotate(180deg); }
-
-        .header { 
-            padding: 24px 0 18px; 
-            max-height: 160px;
-            overflow: visible;
-            transition: max-height 0.16s cubic-bezier(0.22, 1, 0.36, 1),
-                        padding 0.16s cubic-bezier(0.22, 1, 0.36, 1),
-                        margin 0.16s cubic-bezier(0.22, 1, 0.36, 1),
-                        opacity 0.14s cubic-bezier(0.22, 1, 0.36, 1),
-                        transform 0.16s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        body.is-list-view .header {
-            max-height: 0 !important;
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-            margin: 0 !important;
-            opacity: 0 !important;
-            transform: translateY(-24px) scale(0.96);
-            pointer-events: none;
-        }
-
-        .header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-        .brand-wrapper { display: flex; align-items: center; gap: 10px; }
-
-        .title { 
-            margin: 0; font-size: 26px; line-height: 1.2;
-            letter-spacing: -0.6px; 
-            display: inline-flex; 
-            align-items: flex-start;
-            gap: 2px; 
-        }
-        .title a { 
-            display: inline-flex; 
-            align-items: baseline; 
-            text-decoration: none; 
-            transition: opacity 0.2s ease; 
-        }
-        .title a:hover { opacity: 0.88; }
-
-        .title-shadow {
-            font-weight: 300;
-            color: #0891b2;
-            transition: color 0.4s ease;
-        }
-
-        [data-theme="dark"] .title-shadow {
-            color: #22d3ee;
-        }
-
-        .title-store {
-            font-weight: 750;
-            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-left: 1px;
-        }
-
-        .tag-pill-badge {
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center;
-            height: 17px; 
-            padding: 0 6px;
-            border-radius: var(--radius-pill); 
-            background: rgba(6, 182, 212, 0.12);
-            color: #0891b2; 
-            font-size: 10px; 
-            font-weight: 600; 
-            letter-spacing: 0.3px;
-            line-height: 1;
-            border: none; 
-            transform: translateY(calc(3px - 20%)); 
-            user-select: none;
-            -webkit-user-select: none;
-            white-space: nowrap;
-        }
-
-        [data-theme="dark"] .tag-pill-badge {
-            background: rgba(6, 182, 212, 0.18);
-            color: #22d3ee;
-        }
-
-        .subtitle { 
-            margin-top: 8px; color: var(--text-secondary); font-size: 14px; 
-            line-height: 1.5; font-weight: 300; 
-        }
-        
-        .theme-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
         .theme-toggle { 
-            --border-radius: 50%;
             display: inline-flex; align-items: center; justify-content: center; 
             width: 44px; height: 44px; padding: 0; margin: 0; 
+            border-radius: 50%; 
             color: var(--text-secondary); cursor: pointer; 
-            transition: 
-                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                background-color 0.3s ease,
-                color 0.2s ease;
+            box-shadow: var(--shadow-glass-ui); 
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         .theme-toggle:hover { 
-            color: var(--text-primary); 
-            transform: translateY(-1px); 
-            box-shadow: var(--glass-ambient-shadow-hover);
+            background-image: var(--noise-pattern), var(--glass-bg-hover);
+            color: var(--text-primary); transform: translateY(-1px); 
+            box-shadow: var(--shadow-glass-ui-hover); 
+        }
+        [data-theme="dark"] .theme-toggle:hover {
+            background-image: var(--noise-pattern);
+            background-color: var(--border-subtle); 
         }
         .theme-toggle:active { transform: scale(0.92); }
-        .theme-toggle.active { 
-            color: var(--primary); background-color: var(--primary-soft); 
-        }
-        
         .theme-toggle svg { 
             display: block; width: 20px; height: 20px; pointer-events: none; stroke-width: 2; 
         }
 
-        /* =========================================================
-            3. 搜索 + 分类控制栏
-        ========================================================= */
-        .control-bar {
-            position: sticky;
-            top: max(12px, env(safe-area-inset-top, 0px));
-            z-index: 999990;
-            display: grid;
-            grid-template-columns: var(--card-width, 380px) minmax(0, 1fr);
-            gap: var(--layout-gap, 44px);
-            align-items: center;
-            width: 100%;
-            margin-bottom: 16px;
-            padding: 4px 0;
-            transition: top 0.35s cubic-bezier(0.16, 1, 0.3, 1), margin-bottom 0.35s ease;
-        }
-
-        /* =========================================================
-            4. 分类标签页
-        ========================================================= */
-        .tab-bar-wrapper {
-            width: 100%;
-            min-width: 0;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 999990;
-        }
-
-        .tab-bar {
-            --border-radius: 22px;
-            position: relative;
-            width: 100%;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 4px;
-            padding: 5px;
-        }
-
-        .tab-indicator {
-            position: absolute;
-            top: 5px;
-            bottom: 5px;
-            left: 0;
-            width: 0;
-            border-radius: 17px;
-            background: var(--primary-gradient);
-            box-shadow: var(--primary-gradient-shadow);
-            pointer-events: none;
-            z-index: 1;
-            will-change: transform;
-            transform: translate3d(0, 0, 0);
-            transition: transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1);
-        }
-
-        .control-bar.is-single-column .tab-indicator {
-            border-radius: 26px;
-        }
-
-        .tab-item,
-        .button-secondary,
-        .alphabet-item-row {
-            position: relative;
-            isolation: isolate;
-            z-index: 2;
-            cursor: pointer;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        .tab-item {
-            flex: 1 1 0;
-            min-width: 0;
-            height: 34px;
-            line-height: 34px;
-            border: none !important;
-            outline: none;
-            padding: 0 8px;
-            border-radius: 17px;
-            font-size: 13.5px;
-            font-weight: 400;
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: visible;
-            text-overflow: ellipsis;
-            transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
-        }
-
-        .tab-item:active {
-            transform: scale(0.92);
-        }
-
-        .tab-item:not(.active) {
-            background: transparent !important;
-            color: var(--text-secondary);
-        }
-
-        .tab-item:not(.active):hover,
-        .tab-item:not(.active):active,
-        .tab-item:not(.active):focus-visible {
-            color: #0891b2;
-            background: transparent !important;
-        }
-
-        [data-theme="dark"] .tab-item:not(.active):hover,
-        [data-theme="dark"] .tab-item:not(.active):active,
-        [data-theme="dark"] .tab-item:not(.active):focus-visible {
-            color: #22d3ee;
-        }
-
-        .tab-item.active {
-            color: #FFFFFF !important;
-            background: transparent !important;
-            font-weight: 400 !important;
-        }
-
-        /* =========================================================
-            5. 搜索框区域
-        ========================================================= */
-        .search-wrapper { 
-            position: relative;
-            height: 44px;
-            min-width: 0;
-            padding: 0; 
-            margin: 0; 
-            background: transparent; 
-            display: flex;
-            align-items: center;
-            width: 100%;
-        }
-
-        .search-box-inner {
-            --border-radius: 22px;
-            position: relative; 
-            flex: 1 1 auto; 
-            min-width: 0; 
-            height: 44px; 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-            padding: 6px; 
-            cursor: text;
-            -webkit-transform: translateZ(0); 
-            transform: translateZ(0);
-        }
-
-        .search-box-inner:focus-within,
-        body.is-list-view .search-box-inner {
-            box-shadow: var(--glass-ambient-shadow-hover);
-        }
-        
-        .search-icon, .list-toggle-icon { 
-            width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%;
-            background: transparent; border: 1px solid var(--border-subtle);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px; color: var(--primary); 
-            user-select: none;
-            -webkit-user-select: none;
-            line-height: 1;
-        }
-
-        .search-icon { pointer-events: none; }
-        
-        .list-toggle-icon {
-            cursor: pointer;
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-            outline: none;
-            padding: 0;
-            border-style: solid;
-        }
-        .list-toggle-icon svg {
-            display: block;
-            width: 15px;
-            height: 15px;
-            pointer-events: none;
-        }
-        .list-toggle-icon:hover {
-            border-color: var(--primary);
-            background-color: var(--primary-soft);
-            transform: scale(1.05);
-        }
-        .list-toggle-icon:active {
-            transform: scale(0.92);
-        }
-        .list-toggle-icon.active {
-            border-color: var(--primary);
-            background-color: var(--primary-soft);
-        }
-        
-        .input-wrapper {
-            position: relative; flex: 1; min-width: 0;
-            height: 32px; overflow: hidden; 
-            display: block;
-        }
-
-        .search { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            display: block; line-height: 32px;
-            padding: 0; margin: 0; border: 0; outline: none; background: transparent;
-            color: var(--text-primary); font-size: 15px; font-weight: 400; vertical-align: middle;
-            -webkit-appearance: none; appearance: none; border-radius: 0;
-            z-index: 2;
-        }
-        
-        .search::placeholder { color: transparent; }
-        .search:disabled { cursor: not-allowed; }
-
-        .placeholder-track {
-            position: absolute; top: 0; left: 0; width: 100%;
-            display: flex; flex-direction: column;
-            transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
-            z-index: 1; pointer-events: none;
-        }
-        
-        .placeholder-item {
-            height: 32px; line-height: 32px;
-            color: var(--text-tertiary); font-size: 15px; font-weight: 300;
-            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-        }
-
-        .search:focus ~ .placeholder-track,
-        .search:not(:placeholder-shown) ~ .placeholder-track,
-        body.is-list-view .placeholder-track {
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-        
-        .search:not(:focus):placeholder-shown ~ .placeholder-track {
-            opacity: 1;
-            transition: opacity 0.3s ease 0.1s;
-        }
-
-        .search-shortcut { 
-            width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            background: transparent; border: none;
-            font-size: 12px; font-weight: 600; 
-            color: var(--text-tertiary); pointer-events: none;
-            transition: color 0.2s ease, opacity 0.2s ease; 
-        }
-
-        .back-to-top-btn {
-            --border-radius: 50%;
-            width: 0;
-            height: 44px;
-            padding: 0;
-            margin-left: 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.6);
-            pointer-events: none;
-            overflow: hidden;
-            flex-shrink: 0;
-            transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        margin-left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        visibility 0.35s ease;
-        }
-        .back-to-top-btn.visible {
-            width: 44px;
-            margin-left: 10px;
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-            pointer-events: auto;
-        }
-        .back-to-top-btn.visible:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--glass-ambient-shadow-hover);
-        }
-        .back-to-top-btn.visible:active { transform: scale(0.92); }
-
-        .status { 
-            display: flex; align-items: center; justify-content: space-between; 
-            min-height: 22px; margin: 0 4px 14px; color: var(--text-secondary); font-size: 13px; font-weight: 400; 
-            transition: opacity 0.15s ease;
-        }
-        .status-left { display: flex; align-items: center; gap: 8px; }
-        .status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--accent-mint); }
-        .status-dot.loading { background: var(--accent-orange); animation: statusPulse 1.2s infinite; }
-        .status-dot.error { background: #c8a3ab; }
-        @keyframes statusPulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
-        
-        .modules { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); 
-            gap: var(--layout-gap, 44px); 
-            align-items: stretch; 
-            padding-bottom: 24px; 
-            min-height: 0; 
-            transition: opacity 0.15s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        @keyframes cardFadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .module-card { 
-            --border-radius: var(--radius-card);
             position: relative; 
-            padding: 28px; 
-            height: auto;
-            min-height: 0;
-            min-width: 0;
-            display: flex;
-            flex-direction: column;
-            animation: cardFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            transition: 
-                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 36px 32px; 
+            border-radius: var(--radius-card); 
+            box-shadow: var(--shadow-glass-ui); 
+            overflow: hidden; 
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-image 0.4s ease;
             -webkit-transform: translateZ(0); transform: translateZ(0); 
         }
 
-        @keyframes targetCardPulse {
-            0% { transform: scale(0.96); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+        .module-card:hover { 
+            transform: translateY(-2px);
+            background-image: var(--noise-pattern), var(--glass-bg-hover);
+            box-shadow: var(--shadow-glass-ui-hover); 
         }
-        .module-card.single-focused {
-            animation: targetCardPulse 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            grid-column: 1;
-            justify-self: start;
-            max-width: var(--card-width, 380px);
-            margin: 0;
-            width: 100%;
+        [data-theme="dark"] .module-card:hover {
+            background-image: var(--noise-pattern);
+            background-color: var(--bg-surface); 
         }
 
-        @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
-            .module-card:hover { 
-                z-index: 50000 !important;
-                transform: translateY(-2px);
-                box-shadow: var(--glass-ambient-shadow-hover);
-            }
+        .card-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 16px; 
         }
-
-        .card-header { display: flex; align-items: center; gap: 20px; }
         
         .module-icon { 
-            width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; 
-            background: transparent; overflow: hidden; 
-            border: none; 
-            -webkit-mask-image: -webkit-radial-gradient(white, black);
-            mask-image: radial-gradient(white, black);
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            display: block;
-            text-decoration: none;
-            cursor: pointer;
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+            width: 52px; height: 52px; flex: 0 0 52px; border-radius: 50%; 
+            background: var(--bg-surface); 
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12); 
+            border: 1px solid var(--border-subtle);
         }
-        .module-icon:hover {
-            transform: scale(1.06);
-            opacity: 0.92;
-        }
-        .module-icon:active {
-            transform: scale(0.95);
-        }
-        .module-icon img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         
         .card-main { min-width: 0; flex: 1; }
         .module-name { 
-            margin: 0; 
-            font-size: 18px; 
-            line-height: 1.3; 
-            font-weight: 700;
-            letter-spacing: -0.2px; 
-            color: var(--text-primary); 
-            word-break: break-word; 
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis; 
+            margin: 0; font-size: 22px; line-height: 1.3; font-weight: 500;
+            letter-spacing: -0.3px; color: var(--text-primary); word-break: break-word; 
+            text-shadow: var(--text-shadow-lg); 
         }
         
-        .module-meta { 
-            display: flex; 
-            align-items: center; 
-            flex-wrap: wrap; 
-            gap: 8px; 
-            margin-top: 6px; 
-            color: var(--text-secondary); 
-            font-size: 13px; 
-            font-weight: 300; 
+        .tag-pill-badge {
+            display: inline-flex; align-items: center; height: 20px; padding: 0 8px;
+            border-radius: var(--radius-pill); background: var(--bg-surface);
+            color: var(--text-secondary); font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+            margin-top: 4px;
         }
-        .meta-separator { opacity: .4; }
-        
-        .author, .source-link { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 6px; 
-            color: var(--text-secondary); 
-            font-size: 13px; 
-            font-weight: 400; 
-            transition: color 0.2s ease; 
-            max-width: 180px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap; 
-        }
-        .author:hover, .source-link:hover:not(.source-link-static) { 
-            color: var(--primary); 
-            text-decoration: underline;
-        }
-        .source-link-static { cursor: default; }
-        
-        .author-avatar { 
-            width: 18px; 
-            height: 18px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            flex-shrink: 0;
-        }
-        
+
         .module-description { 
-            margin-top: 16px; 
+            margin-top: 22px; 
             color: var(--text-secondary); 
-            font-size: 14.5px; 
-            line-height: 1.6; 
+            font-size: 15.5px; 
+            line-height: 1.7; 
             font-weight: 300; 
             word-break: break-word; 
-            flex: 1 1 auto;
+            text-shadow: var(--text-shadow-sm); 
         }
-        
+
+        .migration-highlight {
+            display: block;
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: 18px;
+            background: var(--primary-soft);
+            color: var(--primary);
+            font-weight: 500;
+            word-break: break-all;
+            font-size: 14.5px;
+            border: 1px solid var(--border-subtle);
+        }
+
         .card-bottom { 
             display: flex; 
             align-items: center; 
-            justify-content: flex-end; 
+            justify-content: space-between; 
             gap: 12px; 
-            margin-top: 24px; 
-            padding-top: 0; 
-            border-top: none; 
-            flex-shrink: 0;
+            margin-top: 28px; 
+            padding-top: 24px; 
+            border-top: 1px solid var(--border-subtle); 
         }
 
-        .action-buttons { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            padding: 0 18px;
+            border-radius: 22px;
+            font-size: 13.5px;
+            font-weight: 400;
+            white-space: nowrap;
+            background: var(--bg-surface);
+            color: var(--text-tertiary);
+            border: 1px solid var(--border-subtle);
+            cursor: default;
+            user-select: none;
+        }
+
+        .action-buttons { display: flex; align-items: center; gap: 8px; }
         
         .button { 
             display: inline-flex; align-items: center; justify-content: center; 
             height: 44px; padding: 0 20px; border: 0; border-radius: 22px; 
             font-size: 14px; font-weight: 500; white-space: nowrap; cursor: pointer; 
-            text-decoration: none; 
-            transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
+            text-decoration: none; transition: all 0.2s ease; 
         }
+        .button:active { transform: scale(0.96); }
         
         .button-secondary { 
-            background: transparent !important; 
-            color: #0891b2; 
-            border: none !important; 
-            padding: 0 16px;
-            overflow: visible;
-            transition: 
-                transform 0.2s ease,
-                color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            background: var(--bg-surface); color: var(--text-primary); 
+            border: 1px solid var(--border-subtle);
+            text-shadow: var(--text-shadow-sm); 
         }
-        .button-secondary:active { transform: scale(0.96); }
-        [data-theme="dark"] .button-secondary {
-            color: #22d3ee;
-        }
-        
-        .button-secondary:hover,
-        .button-secondary:active,
-        .button-secondary:focus-visible { 
-            background: transparent !important;
-            border: none !important;
-            color: #0891b2;
-        }
-        [data-theme="dark"] .button-secondary:hover,
-        [data-theme="dark"] .button-secondary:active,
-        [data-theme="dark"] .button-secondary:focus-visible {
-            color: #22d3ee;
-        }
+        .button-secondary:hover { background: var(--border-subtle); }
         
         .button-primary { 
-            background: var(--primary-gradient); 
-            color: #FFFFFF; 
-            border: none; 
-            box-shadow: var(--primary-gradient-shadow); 
-            transform: none !important; 
+            background: var(--primary); color: #FFFFFF; 
+            box-shadow: 0 4px 12px var(--primary-soft); 
+            text-shadow: var(--text-shadow-sm); 
         }
-        .button-primary:hover,
-        .button-primary:active,
-        .button-primary:focus-visible { 
-            background: var(--primary-gradient); 
-            transform: none !important;
-            box-shadow: 
-                0 0 20px 4px rgba(59, 130, 246, 0.17),
-                0 0 30px 8px rgba(6, 182, 212, 0.13),
-                0 0 40px 10px rgba(139, 92, 246, 0.10);
+        .button-primary:hover { 
+            background: var(--primary-hover); transform: translateY(-1px); 
         }
-        [data-theme="dark"] .button-primary:hover,
-        [data-theme="dark"] .button-primary:active,
-        [data-theme="dark"] .button-primary:focus-visible {
-            background: var(--primary-gradient);
-            transform: none !important;
-            box-shadow: 
-                0 0 22px 5px rgba(59, 130, 246, 0.22),
-                0 0 34px 8px rgba(34, 211, 238, 0.17),
-                0 0 44px 12px rgba(167, 139, 250, 0.14);
-        }
-        
-        .sentinel { height: 20px; margin: 10px 0; }
-        .empty { padding: 60px 20px; text-align: center; color: var(--text-secondary); font-size: 15px; font-weight: 300; grid-column: 1 / -1; width: 100%; animation: cardFadeIn 0.3s ease forwards; }
-        .empty-icon { 
-            width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 50%;
-            border: 1px solid var(--border-subtle); background: var(--bg-surface);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 24px; opacity: 1; 
-        }
-        
-        .loading-card { 
-            --border-radius: var(--radius-card);
-            height: 180px; 
-            min-width: 0;
-            animation: skeletonPulse 1.4s infinite; 
-        }
-        @keyframes skeletonPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.85; } }
         
         .footer { 
             margin-top: auto;
-            padding: 36px 0 20px; 
+            padding: 24px 0 8px; 
             color: var(--text-tertiary); 
             text-align: center; 
             font-size: 12.5px; 
-            line-height: 1.6; 
             font-weight: 300; 
-            transition: opacity 0.15s ease;
         }
         
         .toast { 
-            --border-radius: var(--radius-pill);
-            position: fixed; 
-            bottom: var(--toast-bottom); 
-            left: 50%; 
-            transform: translateX(-50%) translateY(100px); 
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); 
             z-index: 999999; 
-            padding: 12px 26px; 
-            color: var(--text-primary); 
-            font-size: 13.5px; 
-            font-weight: 450; 
-            opacity: 0; 
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
+            padding: 12px 24px; border-radius: var(--radius-pill); 
+            background: var(--toast-bg); color: var(--toast-text); 
+            font-size: 14px; font-weight: 400; box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+            opacity: 0; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease; 
             pointer-events: none; 
         }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-        /* =========================================================
-            6. 单列布局与底栏规范
-        ========================================================= */
-        .control-bar.is-single-column {
-            display: block;
-            position: sticky;
-            top: max(12px, env(safe-area-inset-top, 0px));
-            z-index: 999990;
-            width: 100%;
-            margin-bottom: 16px;
-            padding: 4px 0;
-            pointer-events: none;
-        }
-
-        .control-bar.is-single-column .search-wrapper {
-            position: relative;
-            top: auto;
-            width: 100%;
-            height: 44px;
-            padding: 0;
-            margin: 0;
-            z-index: 999995;
-            pointer-events: none;
-        }
-
-        .control-bar.is-single-column .search-box-inner,
-        .control-bar.is-single-column .back-to-top-btn {
-            pointer-events: auto;
-        }
-
-        .control-bar.is-single-column .tab-bar-wrapper {
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: var(--bottom-offset);
-            width: 100%;
-            height: 62px;
-            padding: 0 16px;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: none;
-            z-index: 999999;
-        }
-
-        .control-bar.is-single-column .tab-bar {
-            --border-radius: 31px;
-            pointer-events: auto;
-            width: 100%;
-            max-width: clamp(1080px, 95vw, 2560px);
-            height: 62px;
-            padding: 5px;
-            gap: 4px;
-        }
-
-        .control-bar.is-single-column .tab-item {
-            height: 100%;
-            min-height: 0;
-            line-height: normal;
-            border-radius: 26px;
-            font-size: 14.5px;
-            font-weight: 400;
-            padding: 0 10px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .control-bar.is-single-column .tab-item:not(.active) {
-            background: transparent !important;
-            border: none !important;
-        }
-
-        .control-bar.is-single-column .tab-item.active {
-            color: #FFFFFF !important;
-            background: transparent !important;
-            font-weight: 400 !important;
-        }
-
-        /* =========================================================
-            7. 全局首字母字母表搜索视图与竖向胶囊索引栏
-        ========================================================= */
-        .alphabet-view-container {
-            position: fixed;
-            top: 100px;
-            bottom: 100px;
-            display: none;
-            opacity: 0;
-            transform: translateY(4px);
-            pointer-events: none;
-            z-index: 999980;
-            transition: opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1),
-                        transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: opacity, transform;
-        }
-
-        body.is-list-view .alphabet-view-container {
-            display: flex;
-            pointer-events: auto;
-        }
-
-        body.is-list-view .alphabet-view-container.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        body.is-list-view .status,
-        body.is-list-view .modules,
-        body.is-list-view .sentinel,
-        body.is-list-view .footer {
-            opacity: 0 !important;
-            pointer-events: none !important;
-            visibility: hidden;
-            transition: opacity 0.12s cubic-bezier(0.22, 1, 0.36, 1),
-                        visibility 0.12s linear;
-        }
-
-        .alphabet-content-box {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            padding: 0;
-            margin: 0;
-        }
-
-        .alphabet-scroll-area {
-            flex: 1;
-            height: 100%;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
-            padding-left: 0;
-            padding-right: 36px;
-            padding-bottom: 24px;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 24px, rgba(0,0,0,1) calc(100% - 24px), transparent 100%);
-            mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,1) 24px, rgba(0,0,0,1) calc(100% - 24px), transparent 100%);
-        }
-        .alphabet-scroll-area::-webkit-scrollbar {
-            display: none;
-            width: 0 !important;
-            height: 0 !important;
-        }
-
-        .alphabet-group {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 20px;
-        }
-
-        .alphabet-letter-header {
-            font-size: 13.5px;
-            font-weight: 700;
-            color: var(--primary);
-            padding: 10px 0 6px 0;
-            letter-spacing: 0.5px;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        .alphabet-item-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .alphabet-item-row {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 9px 8px;
-            border-radius: 12px;
-            background: transparent !important;
-            border: none !important;
-            text-decoration: none;
-            transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.15s cubic-bezier(0.2, 0.9, 0.3, 1);
-        }
-
-        .alphabet-item-row:hover,
-        .alphabet-item-row:active,
-        .alphabet-item-row:focus-visible {
-            background: transparent !important;
-            transform: none !important;
-            color: #0891b2;
-        }
-
-        [data-theme="dark"] .alphabet-item-row:hover,
-        [data-theme="dark"] .alphabet-item-row:active,
-        [data-theme="dark"] .alphabet-item-row:focus-visible {
-            color: #22d3ee;
-        }
-
-        .alphabet-item-icon {
-            width: 32px;
-            height: 32px;
-            flex: 0 0 32px;
-            border-radius: 50%;
-            overflow: hidden;
-            background: transparent;
-        }
-        .alphabet-item-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .alphabet-item-name {
-            font-size: 15px;
-            font-weight: 400;
-            color: var(--text-primary);
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            flex: 1;
-        }
-
-        .alphabet-item-row:hover .alphabet-item-name,
-        .alphabet-item-row:active .alphabet-item-name,
-        .alphabet-item-row:focus-visible .alphabet-item-name {
-            color: inherit;
-        }
-
-        .alphabet-item-type {
-            font-size: 11px;
-            font-weight: 400;
-            color: var(--text-tertiary);
-            padding: 2px 8px;
-            border-radius: 10px;
-            background: var(--bg-surface);
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        /* 字母定位导航胶囊卡片：顶部对齐左侧列表上边缘，右侧对齐搜索框右边缘 */
-        .alphabet-fast-index {
-            --border-radius: var(--radius-pill);
-            position: absolute;
-            right: 0;
-            top: 0;
-            transform: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            width: 24px;
-            padding: 8px 0;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: none;
-            z-index: 10;
-        }
-
-        /* 延伸至视口右边缘的不可视触控判定热区 */
-        .alphabet-fast-index::before {
-            content: "";
-            position: absolute;
-            top: -12px;
-            bottom: -12px;
-            left: -10px;
-            right: -24px;
-            pointer-events: auto;
-            background: transparent;
-            z-index: -1;
-        }
-
-        .alphabet-fast-char {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 14px;
-            font-size: 9.5px;
-            font-weight: 600;
-            color: var(--text-tertiary);
-            cursor: pointer;
-            transition: color 0.15s ease, transform 0.15s ease;
-        }
-
-        @media (orientation: portrait) {
-            .alphabet-fast-index {
-                padding: 6px 0;
-            }
-            .alphabet-fast-char {
-                height: 12.5px;
-                font-size: 9px;
-            }
-        }
-
-        .alphabet-fast-char:hover,
-        .alphabet-fast-char.active {
-            color: var(--primary);
-            transform: scale(1.3);
-            font-weight: 700;
-        }
-        .alphabet-fast-char.disabled {
-            opacity: 0.22;
-            cursor: default;
-            pointer-events: none;
-        }
-
-        .alphabet-popup-bubble {
-            --border-radius: 50%;
-            position: absolute;
-            right: 36px;
-            width: 44px;
-            height: 44px;
-            color: var(--text-primary);
-            font-size: 20px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transform: translateY(-50%) scale(0.6);
-            transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                        visibility 0.35s ease;
-            z-index: 100;
-        }
-        .alphabet-popup-bubble.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(-50%) scale(1);
-        }
-
-        /* =========================================================
-            8. 移动与触控设备约束
-        ========================================================= */
-        @media (hover: none), (pointer: coarse), (max-width: 860px) {
-            .modules { 
-                grid-template-columns: 1fr; 
-                min-height: 0;
-                align-items: start;
-            }
-
-            .module-card,
-            .module-card:hover,
-            .module-card:active,
-            .module-card:focus,
-            .module-card:focus-within {
-                height: auto !important;
-                transform: none !important;
-                box-shadow: var(--glass-ambient-shadow) !important;
-                transition: none !important;
-            }
-
-            .tab-item:not(.active):hover,
-            .tab-item:not(.active):active,
-            .tab-item:not(.active):focus-visible,
-            .alphabet-item-row:hover,
-            .alphabet-item-row:active,
-            .alphabet-item-row:focus-visible {
-                color: var(--text-secondary) !important;
-                background: transparent !important;
-            }
-            .alphabet-item-row:hover,
-            .alphabet-item-row:active,
-            .alphabet-item-row:focus-visible {
-                color: var(--text-primary) !important;
-            }
-
-            .button-secondary,
-            .button-secondary:hover,
-            .button-secondary:active,
-            .button-secondary:focus-visible {
-                transform: none !important;
-                background: transparent !important;
-                color: #0891b2 !important;
-            }
-            [data-theme="dark"] .button-secondary,
-            [data-theme="dark"] .button-secondary:hover,
-            [data-theme="dark"] .button-secondary:active,
-            [data-theme="dark"] .button-secondary:focus-visible {
-                color: #22d3ee !important;
-            }
-
-            .button-primary,
-            .button-primary:hover,
-            .button-primary:active,
-            .button-primary:focus-visible {
-                transform: none !important;
-                box-shadow: var(--primary-gradient-shadow) !important;
-                background: var(--primary-gradient) !important;
-            }
-
-            .module-icon,
-            .module-icon:hover,
-            .module-icon:active,
-            .module-icon:focus {
-                transform: none !important;
-                opacity: 1 !important;
-                transition: none !important;
-                -webkit-tap-highlight-color: transparent !important;
-            }
-
-            .theme-toggle:hover,
-            .theme-toggle:active {
-                transform: none !important;
-                box-shadow: var(--glass-ambient-shadow) !important;
-                color: var(--text-secondary) !important;
-            }
-            .theme-toggle.active {
-                color: var(--primary) !important;
-            }
-            .back-to-top-btn.visible:hover,
-            .back-to-top-btn.visible:active {
-                transform: scale(1) !important;
-                box-shadow: var(--glass-ambient-shadow) !important;
-            }
-
-            .title a:hover {
-                opacity: 1 !important;
-            }
-            .author:hover,
-            .source-link:hover:not(.source-link-static) {
-                color: var(--text-secondary) !important;
-                text-decoration: none !important;
-            }
-            .search-clear:hover {
-                color: var(--primary) !important;
-            }
-        }
-
-        html.is-mobile .button-secondary:active,
-        html.is-mobile .theme-toggle:hover,
-        html.is-mobile .theme-toggle:active,
-        html.is-mobile .back-to-top-btn.visible:hover,
-        html.is-mobile .back-to-top-btn.visible:active {
-            transform: none !important;
-        }
-        html.is-mobile .button-primary:hover,
-        html.is-mobile .button-primary:active,
-        html.is-mobile .button-primary:focus-visible {
-            box-shadow: var(--primary-gradient-shadow) !important;
-        }
-        html.is-mobile .module-icon,
-        html.is-mobile .module-icon:hover,
-        html.is-mobile .module-icon:active,
-        html.is-mobile .module-icon:focus {
-            transform: none !important;
-            opacity: 1 !important;
-            transition: none !important;
-        }
-
-        @media (max-width: 600px) {
-            :root {
-                --radius-card: 42px;
-            }
-            .title { font-size: 22px; }
-            .tag-pill-badge { 
-                height: 15px; 
-                font-size: 9px; 
-                padding: 0 5px; 
-                transform: translateY(calc(2px - 50%)); 
-            }
-            .module-card { padding: 22px; }
-            .module-description { flex: none; }
-            .card-bottom { margin-top: 20px; padding-top: 0; }
-            .search-shortcut { display: none; }
-        }
-
-        @media (max-width: 420px) {
+        @media (max-width: 480px) {
+            .module-card { padding: 26px 20px; border-radius: 36px; }
             .card-bottom { flex-direction: column; align-items: stretch; gap: 12px; }
-            .action-buttons { width: 100%; justify-content: flex-end; }
-            .control-bar.is-single-column .tab-bar { padding: 5px; gap: 2px; }
-            .control-bar.is-single-column .tab-item { font-size: 13px; padding: 0 4px; border-radius: 26px; }
+            .status-pill { width: 100%; }
+            .action-buttons { width: 100%; justify-content: stretch; gap: 8px; }
+            .action-buttons .button { flex: 1; }
         }
     </style>
 </head>
 
 <body>
-    <svg id="liquid_glass_svg_defs" style="position: absolute; width: 0; height: 0; pointer-events: none;" aria-hidden="true" focusable="false">
-        <defs>
-            <filter id="liquid_glass_filter">
-                <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" />
-            </filter>
-        </defs>
-    </svg>
+    <div class="container">
+        <div class="top-bar">
+            <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
+        </div>
 
-    <div id="pullRefreshIndicator" class="pull-refresh-indicator glass-element">
-        <span id="ptrIcon" class="ptr-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 5 19 12"></polyline>
-            </svg>
-        </span>
-        <span id="ptrText">继续下拉将强制刷新本站</span>
-    </div>
-
-    <div id="pageContainer" class="container">
-        <header class="header">
-            <div class="header-top">
-                <div class="brand-wrapper">
-                    <h1 class="title">
-                        <a href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener">
-                            <span class="title-shadow">Shadow</span><span class="title-store">/Store</span>
-                        </a>
-                        <span id="tagPillBadge" class="tag-pill-badge">社区资源</span>
-                    </h1>
-                </div>
-                <div class="theme-controls">
-                    <button id="themeToggle" class="theme-toggle glass-element" aria-label="切换主题模式"></button>
-                    <a id="githubStarBtn" class="theme-toggle glass-element" href="https://github.com/LOWERTOP/Shadowrocket-First" target="_blank" rel="noopener" aria-label="访问 GitHub 仓库并点亮 Star" title="前往 GitHub 为仓库点亮 Star">
-                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
-                    </a>
-                    <button id="langToggle" class="theme-toggle glass-element" aria-label="切换语言" title="切换语言">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m5 8 6 6"/>
-                            <path d="m4 14 6-6 2-3"/>
-                            <path d="M2 5h12"/>
-                            <path d="M7 2h1"/>
-                            <path d="m22 22-5-10-5 10"/>
-                            <path d="M14 18h6"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div id="subtitle" class="subtitle">
-                Shadowrocket 开源社区资源聚合检索平台
-            </div>
-        </header>
-
-        <div id="controlBar" class="control-bar">
-            <nav class="tab-bar-wrapper" aria-label="资源分类导航">
-                <div class="tab-bar glass-element" role="tablist">
-                    <div id="tabIndicator" class="tab-indicator"></div>
-                    <button class="tab-item active" role="tab" aria-selected="true" data-tab="module">模块资源</button>
-                    <button class="tab-item" role="tab" aria-selected="false" data-tab="config">配置文件</button>
-                    <button class="tab-item" role="tab" aria-selected="false" data-tab="manual">使用手册</button>
-                    <button class="tab-item" role="tab" aria-selected="false" data-tab="more">更多资源</button>
-                </div>
-            </nav>
-
-            <div class="search-wrapper">
-                <div class="search-box-inner glass-element" role="search">
-                    <div class="search-icon" aria-hidden="true">🔍</div>
-                    
-                    <div class="input-wrapper">
-                        <input id="search" class="search" type="text" inputmode="search" placeholder=" " autocomplete="off" spellcheck="false" aria-label="搜索模块" disabled>
-                        
-                        <div id="placeholderTrack" class="placeholder-track">
-                            <div id="mainPlaceholder" class="placeholder-item">请在加载完成后执行搜索...</div>
-                            <div class="placeholder-item notice-item-1">相关资源均来源于开源社区</div>
-                            <div class="placeholder-item notice-item-2">所有权利责任归原作者所有</div>
-                        </div>
+        <main>
+            <article class="module-card glass-element">
+                <div class="card-header">
+                    <div class="module-icon" aria-hidden="true">🚀</div>
+                    <div class="card-main">
+                        <h1 class="module-name">迁移通知</h1>
+                        <span class="tag-pill-badge">ShadowStore</span>
                     </div>
-
-                    <span class="search-shortcut">/</span>
-                    <button id="listToggleBtn" class="list-toggle-icon" type="button" aria-label="首字母资源列表" title="首字母资源列表">📋</button>
                 </div>
 
-                <button id="backToTopBtn" class="theme-toggle glass-element back-to-top-btn" type="button" aria-label="返回顶部" title="返回顶部">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <polyline points="5 12 12 5 19 12"></polyline>
-                    </svg>
-                </button>
-            </div>
-        </div>
+                <div class="module-description">
+                    本站已经迁移至新域名，本页面将在不久后移除。请及时更新并保存您的浏览器书签以防失联。
+                    <span class="migration-highlight" id="targetUrlText">https://shadowstore.dpdns.org/</span>
+                </div>
 
-        <div class="status">
-            <div class="status-left">
-                <span id="statusDot" class="status-dot loading"></span>
-                <span id="statusText">正在同步资源索引...</span>
-            </div>
-            <div id="countText"></div>
-        </div>
-
-        <main id="modules" class="modules">
-            <div class="loading-card glass-element"></div>
-            <div class="loading-card glass-element"></div>
-            <div class="loading-card glass-element"></div>
+                <div class="card-bottom">
+                    <div class="card-status">
+                        <span class="status-pill">旧版页面即将停用</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="copyBtn" class="button button-secondary" type="button">复制新地址</button>
+                        <a id="targetBtn" class="button button-primary" href="https://shadowstore.dpdns.org/">立即前往</a>
+                    </div>
+                </div>
+            </article>
         </main>
-        
-        <div id="sentinel" class="sentinel"></div>
 
-        <footer id="footerText" class="footer">
-            鸣谢所有开源社区作者<br>
-            著作权归资源作者所有
+        <footer class="footer">
+            ShadowStore
         </footer>
     </div>
-
-    <!-- 首字母列表展示区与动态定位条 -->
-    <div id="alphabetViewContainer" class="alphabet-view-container">
-        <div class="alphabet-content-box">
-            <div id="alphabetScrollArea" class="alphabet-scroll-area"></div>
-            <div id="alphabetFastIndex" class="alphabet-fast-index glass-element" aria-label="字母快速定位导航"></div>
-            <div id="alphabetPopupBubble" class="alphabet-popup-bubble glass-element">#</div>
-        </div>
-    </div>
     
-    <div id="toast" class="toast glass-element">已复制资源链接</div>
+    <div id="toast" class="toast">已复制新站点地址</div>
 
     <script>
-        const CACHE_VERSION = "20260903"; 
-        
-        const CONFIG = {
-            DATA_JSON_URL: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/README/modules.json", 
-            PAGE_SIZE: 16, 
-            CACHE_KEY: `sr_modules_data_${CACHE_VERSION}`, 
-            CACHE_TIME_KEY: `sr_modules_time_${CACHE_VERSION}`,
-            CACHE_MAX_AGE: 6 * 60 * 60 * 1000 
-        };
-
-        const I18N = {
-            zh: {
-                badgeCommunity: "社区资源",
-                subtitle: "Shadowrocket 开源社区资源聚合检索平台",
-                tabs: {
-                    module: "模块资源",
-                    config: "配置文件",
-                    manual: "使用手册",
-                    more: "更多资源"
-                },
-                searchPlaceholderWait: "请在加载完成后执行搜索...",
-                searchPlaceholderReady: "输入关键字全库搜索...",
-                notice1: "相关资源均来源于开源社区",
-                notice2: "所有权利责任归原作者所有",
-                searchClearTitle: "清空搜索",
-                backToTopTitle: "返回顶部",
-                searchInputAria: "搜索资源",
-                statusSyncing: "正在同步资源索引...",
-                statusReady: "已就绪",
-                statusChecking: "正在后台检查最新资源...",
-                statusFetchingStatic: "正在拉取最新静态资源索引...",
-                statusSynced: "已同步最新数据",
-                statusErrorCache: "在线同步异常，当前展示缓存数据",
-                statusErrorStatic: "在线资源同步失败，已展示核心入口",
-                countLabel: { module: "模块", config: "配置", manual: "手册", more: "资源", global: "资源" },
-                countText: (count, label) => `${count} 个${label}`,
-                emptyText: (label) => `没有找到匹配的${label}`,
-                ptrContinue: "继续下拉将强制刷新本站",
-                ptrRelease: "松开将立即强制刷新本站",
-                ptrRefreshing: "正在强制刷新本站...",
-                footer: "鸣谢所有开源社区作者<br>著作权归资源作者所有",
-                btnCopyLink: "复制链接",
-                btnPreInstall: "安装前置",
-                btnInstallModule: "安装模块",
-                btnInstallConfig: "安装配置",
-                btnViewManual: "查阅手册",
-                btnVisitRepo: "访问仓库",
-                openLinkAria: "在新窗口打开资源直链",
-                toastCopiedUrl: "已复制资源直链",
-                toastCopiedRepo: "已复制仓库链接",
-                toastCopiedConfig: "已复制配置直链",
-                toastCopiedManual: "已复制手册链接",
-                toastCopyFailed: "复制失败，请手动复制",
-                toastInvalidLink: "链接无效",
-                toastDataRefreshed: "资源数据已刷新",
-                toastSyncFailed: "在线同步失败，已保留现有数据",
-                themeLightToast: "已切换为浅色模式",
-                themeDarkToast: "已切换为深色模式",
-                themeAutoToast: "已切换为自动跟随系统",
-                langSwitchToast: "已切换为简体中文",
-                langBtnTitle: "切换为英文 (Switch to English)",
-                authorUnknown: "作者信息识别失败",
-                noDesc: "暂无描述"
-            },
-            en: {
-                badgeCommunity: "Community",
-                subtitle: "Shadowrocket Open-Source Community Resource Aggregator",
-                tabs: {
-                    module: "Modules",
-                    config: "Configs",
-                    manual: "Manual",
-                    more: "More"
-                },
-                searchPlaceholderWait: "Please wait for loading to complete...",
-                searchPlaceholderReady: "Type keywords to search all...",
-                notice1: "All resources originate from open source",
-                notice2: "Rights & copyrights belong to authors",
-                searchClearTitle: "Clear search",
-                backToTopTitle: "Back to top",
-                searchInputAria: "Search resources",
-                statusSyncing: "Syncing resource index...",
-                statusReady: "Ready",
-                statusChecking: "Checking for updates in background...",
-                statusFetchingStatic: "Fetching latest static index...",
-                statusSynced: "Synced latest data",
-                statusErrorCache: "Sync failed, showing cached data",
-                statusErrorStatic: "Sync failed, showing core resources",
-                countLabel: { module: "Modules", config: "Configs", manual: "Manuals", more: "Resources", global: "Resources" },
-                countText: (count, label) => `${count} ${label}`,
-                emptyText: (label) => `No matching ${label.toLowerCase()} found`,
-                ptrContinue: "Pull down to force refresh",
-                ptrRelease: "Release to force refresh",
-                ptrRefreshing: "Force refreshing...",
-                footer: "Thanks to all open-source creators<br>All copyrights belong to respective authors",
-                btnCopyLink: "Copy Link",
-                btnPreInstall: "Prerequisite",
-                btnInstallModule: "Install",
-                btnInstallConfig: "Install Config",
-                btnViewManual: "View Manual",
-                btnVisitRepo: "Visit Repo",
-                openLinkAria: "Open direct link in new tab",
-                toastCopiedUrl: "Direct link copied",
-                toastCopiedRepo: "Repository link copied",
-                toastCopiedConfig: "Config link copied",
-                toastCopiedManual: "Manual link copied",
-                toastCopyFailed: "Copy failed, please copy manually",
-                toastInvalidLink: "Invalid link",
-                toastDataRefreshed: "Resource data refreshed",
-                toastSyncFailed: "Online sync failed, showing current data",
-                themeLightToast: "Switched to Light mode",
-                themeDarkToast: "Switched to Dark mode",
-                themeAutoToast: "Switched to Auto system mode",
-                langSwitchToast: "Switched to English",
-                langBtnTitle: "Switch to Chinese (切换为简体中文)",
-                authorUnknown: "Unknown Author",
-                noDesc: "No description available"
-            }
-        };
-
-        const STATIC_RESOURCES_DATA = [
-            {
-                category: "config",
-                i18n: {
-                    zh: {
-                        name: "懒人配置",
-                        description: "懒人配置是开箱即用的配置文件，设有常用的分流代理分组，其他设置也经过了精心调整，同时还备注了详尽的注释说明，是除默认配置外首推的配置文件。",
-                        primaryBtnText: "安装配置"
-                    },
-                    en: {
-                        name: "Lazy Config",
-                        description: "Out-of-the-box configuration with popular routing groups, well-balanced proxy rules, and detailed comments. Highly recommended.",
-                        primaryBtnText: "Install Config"
-                    }
-                },
-                icon: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Shadowrocket.png",
-                author: { name: "LOWERTOP", url: "https://github.com/LOWERTOP", username: "LOWERTOP" },
-                authorAvatar: "https://github.com/LOWERTOP.png?size=64",
-                sourceName: "Shadowrocket",
-                sourceURL: "https://github.com/LOWERTOP/Shadowrocket",
-                rawURL: "https://lowertop.github.io/Shadowrocket/lazy_group.conf",
-                installURL: "shadowrocket://config/add/https://lowertop.github.io/Shadowrocket/lazy_group.conf",
-                isDubious: false,
-                isRepoCard: false
-            },
-            {
-                category: "manual",
-                i18n: {
-                    zh: {
-                        name: "使用手册",
-                        description: "Shadowrocket 使用手册与进阶配置指南，系统收录了协议配置、规则分流、解密等全方位软件设置说明与知识词条。",
-                        primaryBtnText: "查阅手册"
-                    },
-                    en: {
-                        name: "User Manual",
-                        description: "Comprehensive guide and reference manual for Shadowrocket, covering protocols, routing rules, decryption, and advanced setups.",
-                        primaryBtnText: "View Manual"
-                    }
-                },
-                icon: "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Shadowrocket.png",
-                author: { name: "LOWERTOP", url: "https://github.com/LOWERTOP", username: "LOWERTOP" },
-                authorAvatar: "https://github.com/LOWERTOP.png?size=64",
-                sourceName: "Shadowrocket",
-                sourceURL: "https://github.com/LOWERTOP/Shadowrocket",
-                rawURL: "https://github.com/LOWERTOP/Shadowrocket",
-                installURL: "https://github.com/LOWERTOP/Shadowrocket",
-                isDubious: false,
-                isRepoCard: true
-            },
-            {
-                category: "more",
-                i18n: {
-                    zh: {
-                        name: "配色与配置仓库",
-                        description: "Shadowrocket 精选模块、规则、配色方案的聚合类型资源仓库，汇聚了众多开源社区优质资源，也是本站的核心数据处理仓库。",
-                        primaryBtnText: "访问仓库"
-                    },
-                    en: {
-                        name: "Theme & Config Repo",
-                        description: "Curated community repository for modules, rules, and color themes, also serving as the core data processing hub.",
-                        primaryBtnText: "Visit Repo"
-                    }
-                },
-                icon: "https://avatars.githubusercontent.com/u/16624731?v=4",
-                author: { name: "LOWERTOP", url: "https://github.com/LOWERTOP", username: "LOWERTOP" },
-                authorAvatar: "https://github.com/LOWERTOP.png?size=64",
-                sourceName: "Shadowrocket-First",
-                sourceURL: "https://github.com/LOWERTOP/Shadowrocket-First",
-                rawURL: "https://github.com/LOWERTOP/Shadowrocket-First",
-                installURL: "https://github.com/LOWERTOP/Shadowrocket-First",
-                isDubious: false,
-                isRepoCard: true
-            }
-        ];
+        const TARGET_URL = "https://shadowstore.dpdns.org/";
 
         const SYSTEM_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`;
         const MOON_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
         const SUN_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>`;
-        const CLOSE_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
 
-        const tagPillBadge = document.getElementById("tagPillBadge");
-        const subtitleEl = document.getElementById("subtitle");
-        const footerText = document.getElementById("footerText");
-        const langToggleBtn = document.getElementById("langToggle");
         const themeToggleBtn = document.getElementById("themeToggle");
-        const backToTopBtn = document.getElementById("backToTopBtn");
-        const tabItems = document.querySelectorAll(".tab-item");
-        const tabIndicator = document.getElementById("tabIndicator");
-        const tabBarEl = document.querySelector(".tab-bar");
-
-        const controlBarEl = document.getElementById("controlBar");
-        const searchBoxInner = document.querySelector('.search-box-inner');
-        const modulesContainer = document.getElementById("modules");
-        const searchInput = document.getElementById("search");
-        const searchShortcut = document.querySelector(".search-shortcut");
-        const listToggleBtn = document.getElementById("listToggleBtn");
-        const statusText = document.getElementById("statusText");
-        const statusDot = document.getElementById("statusDot");
-        const countText = document.getElementById("countText");
+        const copyBtn = document.getElementById("copyBtn");
         const toast = document.getElementById("toast");
-        const sentinel = document.getElementById("sentinel");
-        const noticeTrack = document.getElementById("placeholderTrack");
-
-        const pageContainer = document.getElementById("pageContainer");
-        const pullRefreshIndicator = document.getElementById("pullRefreshIndicator");
-        const ptrIcon = document.getElementById("ptrIcon");
-        const ptrText = document.getElementById("ptrText");
-
-        const alphabetViewContainer = document.getElementById("alphabetViewContainer");
-        const alphabetScrollArea = document.getElementById("alphabetScrollArea");
-        const alphabetFastIndex = document.getElementById("alphabetFastIndex");
-        const alphabetPopupBubble = document.getElementById("alphabetPopupBubble");
-
-        function getInitialLang() {
-            try {
-                const saved = localStorage.getItem("sr_lang_override");
-                if (saved === "en" || saved === "zh") return saved;
-            } catch (e) {}
-
-            const primary = (navigator.languages && navigator.languages.length 
-                ? navigator.languages[0] 
-                : (navigator.language || navigator.userLanguage || "")).toLowerCase();
-
-            return primary.startsWith("zh") ? "zh" : "en";
-        }
-
-        const state = {
-            currentLang: getInitialLang(),
-            allModules: [],
-            rawNetworkData: [],
-            filteredModules: [],
-            currentlyRendered: 0,
-            isDataLoading: false,
-            isPullRefreshing: false,
-            isListView: false,
-            focusedModuleId: null,
-            activeTab: "module",
-            statusKey: "statusSyncing"
-        };
-
-        let searchTimer = null;
         let toastTimer = null;
-        let isTabAnimating = false;
-        let tabAnimTimer = null;
-        let tabSwitchContentTimer = null;
-        let lastCardWidthVal = 0;
-
-        function checkScrollLock() {
-            const root = document.documentElement;
-            if (state.isListView) {
-                root.classList.add("no-scroll");
-                return;
-            }
-            const contentH = root.scrollHeight;
-            const viewportH = window.innerHeight;
-            const isOverflowing = contentH > viewportH + 3;
-
-            if (isOverflowing) {
-                root.classList.remove("no-scroll");
-            } else {
-                root.classList.add("no-scroll");
-            }
-        }
-
-        function escapeHTML(value) {
-            return String(value ?? "")
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
-
-        function safeURL(value, allowed = ["https:"]) {
-            if (!value || typeof value !== "string") return "";
-            const trimmed = value.trim();
-            try {
-                const parsed = new URL(trimmed, location.href);
-                return allowed.includes(parsed.protocol) ? parsed.href : "";
-            } catch {
-                return "";
-            }
-        }
-
-        function safeInstallURL(value) {
-            return safeURL(value, ["shadowrocket:", "https:"]);
-        }
-
-        function bindImageError(img, fallbackSrc) {
-            if (!img) return;
-            img.addEventListener("error", () => { img.src = fallbackSrc; }, { once: true });
-        }
-
-        function normalizeStaticResources(lang = state.currentLang) {
-            return STATIC_RESOURCES_DATA
-                .filter(item => !item.isDubious)
-                .map((item, idx) => {
-                    const localized = item.i18n[lang] || item.i18n.zh;
-                    const searchTokens = [
-                        localized.name,
-                        localized.description,
-                        item.author.name,
-                        item.sourceName,
-                        item.category,
-                        "shadowrocket",
-                        "手册", "manual",
-                        "教程", "guide",
-                        "仓库", "repo",
-                        "文档", "docs",
-                        "配置", "config"
-                    ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
-
-                    return {
-                        id: `static_${item.category}_${idx}`,
-                        name: localized.name,
-                        category: item.category || "more",
-                        description: localized.description,
-                        icon: item.icon,
-                        author: item.author,
-                        authorAvatar: item.authorAvatar,
-                        sourceName: item.sourceName,
-                        sourceURL: item.sourceURL,
-                        rawURL: item.rawURL,
-                        installURL: item.installURL,
-                        isDubious: false,
-                        isRepoCard: item.isRepoCard,
-                        primaryBtnText: localized.primaryBtnText,
-                        _searchText: searchTokens,
-                        _domElement: null
-                    };
-                });
-        }
-
-        function normalizeModules(data) {
-            if (!Array.isArray(data)) return [];
-            return data
-                .filter(item => item && typeof item === "object" && !item.isDubious)
-                .map((m, idx) => {
-                    const rawURL = safeURL(m.rawURL || m.url || "");
-                    const authorName = m.author?.name || m.author?.username || "";
-                    const authorURL = safeURL(m.author?.url || (m.author?.username ? `https://github.com/${m.author.username}` : ""));
-                    const authorAvatar = safeURL(m.authorAvatar || m.author?.avatar || "");
-                    const sourceName = m.sourceName || "开源仓库";
-                    const sourceURL = safeURL(m.sourceURL || "");
-                    
-                    const customInstall = safeInstallURL(m.installURL || "");
-                    const fallbackInstall = rawURL ? `shadowrocket://install?url=${encodeURIComponent(rawURL)}` : "";
-                    const installURL = customInstall || fallbackInstall;
-                    
-                    let category = "module";
-                    if (m.category) {
-                        const c = String(m.category).toLowerCase();
-                        if (c.includes("config") || c.includes("配置")) category = "config";
-                        else if (c.includes("manual") || c.includes("手册") || c.includes("文档")) category = "manual";
-                        else if (c.includes("more") || c.includes("更多") || c.includes("工具")) category = "more";
-                    }
-
-                    const searchTokens = [
-                        m.name,
-                        m.description,
-                        authorName,
-                        m.author?.username,
-                        sourceName,
-                        category,
-                        m._searchKeywords
-                    ].filter(Boolean).join(" ").normalize("NFKC").toLowerCase();
-
-                    return {
-                        id: `mod_${category}_${idx}_${encodeURIComponent(m.name || '')}`,
-                        name: m.name || "未命名模块",
-                        category: category,
-                        description: m.description || "",
-                        icon: safeURL(m.icon || ""),
-                        author: { name: authorName, url: authorURL, username: m.author?.username || "" },
-                        authorAvatar,
-                        sourceName,
-                        sourceURL,
-                        rawURL,
-                        installURL,
-                        preInstallURL: safeInstallURL(m.preInstallURL || ""),
-                        secondaryBtnText: m.secondaryBtnText || "",
-                        isDubious: false,
-                        isRepoCard: Boolean(m.isRepoCard),
-                        primaryBtnText: m.primaryBtnText || "",
-                        _searchText: searchTokens,
-                        _domElement: null
-                    };
-                });
-        }
 
         function showToast(text) {
             clearTimeout(toastTimer);
@@ -2004,881 +471,14 @@
             return success;
         }
 
-        function createIOSAppIcon(name) {
-            const cleanName = (name || "").trim().replace(/^[\[\(\{#_\-\s【（〔［]+/, "");
-            const char = Array.from(cleanName)[0] || (state.currentLang === "en" ? "M" : "模");
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#06b6d4"/><stop offset="50%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="128" cy="128" r="128" fill="url(#g)"/><text x="128" y="100" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="-apple-system,BlinkMacSystemFont,SF Pro Text,sans-serif" font-size="110" font-weight="700">${escapeHTML(char)}</text></svg>`;
-            return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
-        }
-
-        let backToTopVisible = false;
-        function updateSearchLayer() {
-            if (!backToTopBtn) return;
-            const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
-            const shouldShow = scrollY > 160 && !state.isListView;
-            if (shouldShow === backToTopVisible) return;
-            backToTopVisible = shouldShow;
-            backToTopBtn.classList.toggle("visible", shouldShow);
-        }
-        
-        window.addEventListener('scroll', updateSearchLayer, { passive: true });
-
-        backToTopBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+        copyBtn.addEventListener("click", async () => {
+            const success = await copyToClipboard(TARGET_URL);
+            showToast(success ? "已复制新站点地址" : "复制失败，请手动长按复制");
         });
-
-        if (searchBoxInner) {
-            searchBoxInner.addEventListener("click", (e) => {
-                if (e.target !== listToggleBtn && !searchInput.disabled) {
-                    searchInput.focus();
-                }
-            });
-        }
-
-        function updateTabIndicator(animated = true) {
-            const activeTab = document.querySelector(".tab-item.active");
-            if (!activeTab || !tabIndicator) return;
-
-            if (!animated && isTabAnimating) {
-                return;
-            }
-
-            if (!animated) {
-                tabIndicator.style.transition = 'none';
-            } else {
-                tabIndicator.style.transition = 'transform 0.44s cubic-bezier(0.34, 1.32, 0.64, 1)';
-            }
-
-            const left = activeTab.offsetLeft;
-            const width = activeTab.offsetWidth;
-
-            if (Math.abs(tabIndicator.offsetWidth - width) > 1) {
-                tabIndicator.style.width = `${width}px`;
-            }
-            tabIndicator.style.transform = `translate3d(${left}px, 0, 0)`;
-
-            if (!animated) {
-                void tabIndicator.offsetWidth;
-                tabIndicator.style.transition = '';
-            }
-        }
-
-        function getGridColumns() {
-            const style = window.getComputedStyle(modulesContainer);
-            const template = style.getPropertyValue("grid-template-columns");
-            return template ? template.trim().split(/\s+/).length : 1;
-        }
-
-        function updateControlBarLayout() {
-            const bar = document.getElementById("controlBar");
-            if (!bar || !modulesContainer) return;
-            const columns = getGridColumns();
-            bar.classList.toggle("is-single-column", columns === 1);
-        }
-
-        function updateCardWidth() {
-            const firstCard = modulesContainer.querySelector('.module-card, .loading-card');
-            let newWidth = 0;
-            if (firstCard && firstCard.offsetWidth > 0) {
-                newWidth = firstCard.offsetWidth;
-            } else if (modulesContainer.offsetWidth > 0) {
-                const cols = getGridColumns() || 1;
-                const gap = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--layout-gap")) || 44;
-                const totalGap = (cols - 1) * gap;
-                newWidth = Math.max(0, (modulesContainer.offsetWidth - totalGap) / cols);
-            }
-            if (newWidth > 0 && Math.abs(newWidth - lastCardWidthVal) > 1) {
-                lastCardWidthVal = newWidth;
-                document.documentElement.style.setProperty('--card-width', `${newWidth}px`);
-            }
-        }
-
-        function updateCardLayerOrder() {
-            const cards = modulesContainer.querySelectorAll(".module-card, .loading-card");
-            const count = cards.length;
-            if (!count) return;
-            
-            const cols = getGridColumns() || 1;
-            for (let i = 0; i < count; i++) {
-                const r = Math.floor(i / cols);
-                const c = i % cols;
-                const z = String((r + 1) * 100 + (cols - c));
-                if (cards[i].style.zIndex !== z) {
-                    cards[i].style.zIndex = z;
-                }
-            }
-        }
-
-        let resizeTimer = null;
-        function scheduleCardLayerUpdate() {
-            clearTimeout(resizeTimer);
-            updateControlBarLayout();
-            resizeTimer = setTimeout(() => {
-                updateCardWidth();
-                updateCardLayerOrder();
-                updateControlBarLayout();
-                checkScrollLock();
-            }, 40);
-        }
-
-        let resizeDebounceTimer = null;
-        window.addEventListener("resize", () => {
-            document.documentElement.classList.add("is-resizing");
-            clearTimeout(resizeDebounceTimer);
-            
-            isTabAnimating = false;
-            updateControlBarLayout();
-            updateTabIndicator(false);
-            scheduleCardLayerUpdate();
-            updateAlphabetPosition();
-            
-            resizeDebounceTimer = setTimeout(() => {
-                document.documentElement.classList.remove("is-resizing");
-                updateControlBarLayout();
-                updateTabIndicator(false);
-                checkScrollLock();
-            }, 120);
-        }, { passive: true });
-
-        if (typeof ResizeObserver !== "undefined") {
-            if (modulesContainer) {
-                const gridResizeObserver = new ResizeObserver(() => {
-                    scheduleCardLayerUpdate();
-                });
-                gridResizeObserver.observe(modulesContainer);
-            }
-            if (tabBarEl) {
-                const tabBarObserver = new ResizeObserver(() => {
-                    if (!isTabAnimating) {
-                        updateTabIndicator(false);
-                    }
-                });
-                tabBarObserver.observe(tabBarEl);
-            }
-            if (searchBoxInner) {
-                const searchBoxObserver = new ResizeObserver(() => {
-                    if (state.isListView) {
-                        updateAlphabetPosition();
-                    }
-                });
-                searchBoxObserver.observe(searchBoxInner);
-            }
-        }
 
         /* =========================================================
-            首字母列表与快速选择功能实现
+            主题系统 (智能反色切换)
         ========================================================= */
-        function getItemInitialLetter(name) {
-            const clean = (name || "").trim().replace(/^[\[\(\{#_\-\s【（〔［]+/, "");
-            const first = clean.charAt(0);
-            if (!first) return "#";
-            if (/^[A-Za-z]$/.test(first)) return first.toUpperCase();
-            
-            if (/^[\u4e00-\u9fa5]$/.test(first)) {
-                try {
-                    const zhLetters = [
-                        { l: "A", c: "啊" }, { l: "B", c: "芭" }, { l: "C", c: "擦" }, { l: "D", c: "搭" },
-                        { l: "E", c: "蛾" }, { l: "F", c: "发" }, { l: "G", c: "噶" }, { l: "H", c: "哈" },
-                        { l: "J", c: "击" }, { l: "K", c: "喀" }, { l: "L", c: "垃" }, { l: "M", c: "妈" },
-                        { l: "N", c: "拿" }, { l: "O", c: "哦" }, { l: "P", c: "啪" }, { l: "Q", c: "期" },
-                        { l: "R", c: "然" }, { l: "S", c: "撒" }, { l: "T", c: "塌" }, { l: "W", c: "挖" },
-                        { l: "X", c: "昔" }, { l: "Y", c: "压" }, { l: "Z", c: "匝" }
-                    ];
-                    for (let i = zhLetters.length - 1; i >= 0; i--) {
-                        if (first.localeCompare(zhLetters[i].c, "zh-Hans-CN-u-co-pinyin") >= 0) {
-                            return zhLetters[i].l;
-                        }
-                    }
-                } catch (e) {}
-            }
-            return "#";
-        }
-
-        function updateRightActionButton() {
-            const hasText = searchInput.value.length > 0;
-            const shouldShowClose = state.isListView || hasText || state.focusedModuleId;
-
-            if (shouldShowClose) {
-                listToggleBtn.innerHTML = CLOSE_SVG;
-                listToggleBtn.classList.add("active");
-                listToggleBtn.setAttribute("title", I18N[state.currentLang].searchClearTitle);
-                listToggleBtn.setAttribute("aria-label", I18N[state.currentLang].searchClearTitle);
-                if (searchShortcut) searchShortcut.style.display = "none";
-            } else {
-                listToggleBtn.textContent = "📋";
-                listToggleBtn.classList.remove("active");
-                listToggleBtn.setAttribute("title", "首字母资源列表");
-                listToggleBtn.setAttribute("aria-label", "首字母资源列表");
-                if (searchShortcut) searchShortcut.style.display = "";
-            }
-        }
-
-        function focusSingleResource(mod) {
-            state.focusedModuleId = mod.id;
-            setListViewMode(false);
-
-            searchInput.value = mod.name;
-            updateRightActionButton();
-
-            if (state.activeTab !== mod.category) {
-                state.activeTab = mod.category;
-                tabItems.forEach(t => {
-                    const isActive = t.getAttribute("data-tab") === mod.category;
-                    t.classList.toggle("active", isActive);
-                    t.setAttribute("aria-selected", isActive ? "true" : "false");
-                });
-                updateTabIndicator(true);
-            }
-
-            state.filteredModules = [mod];
-            state.currentlyRendered = 1;
-            modulesContainer.innerHTML = "";
-            sentinel.style.display = "none";
-
-            mod._domElement = null;
-            const singleCard = createModuleCard(mod);
-            singleCard.classList.add("single-focused");
-            modulesContainer.appendChild(singleCard);
-
-            const langObj = I18N[state.currentLang];
-            const currentLabel = langObj.countLabel[mod.category] || langObj.countLabel.more;
-            countText.textContent = langObj.countText(1, currentLabel);
-            statusText.textContent = `已定位：${mod.name}`;
-            statusDot.className = "status-dot";
-
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            scheduleCardLayerUpdate();
-            checkScrollLock();
-        }
-
-        function renderAlphabetList() {
-            if (!alphabetScrollArea || !alphabetFastIndex) return;
-            alphabetScrollArea.innerHTML = "";
-            alphabetFastIndex.innerHTML = "";
-
-            let sourceList = state.allModules;
-            const sorted = [...sourceList].sort((a, b) => {
-                const letterA = getItemInitialLetter(a.name);
-                const letterB = getItemInitialLetter(b.name);
-                if (letterA === "#" && letterB !== "#") return -1;
-                if (letterA !== "#" && letterB === "#") return 1;
-                if (letterA !== letterB) return letterA.localeCompare(letterB);
-                return a.name.localeCompare(b.name, "zh-Hans-CN");
-            });
-
-            const groups = {};
-            sorted.forEach(item => {
-                const l = getItemInitialLetter(item.name);
-                if (!groups[l]) groups[l] = [];
-                groups[l].push(item);
-            });
-
-            const alphabetAll = ["#","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-            const fragment = document.createDocumentFragment();
-
-            alphabetAll.forEach(letter => {
-                const charEl = document.createElement("div");
-                charEl.className = "alphabet-fast-char";
-                charEl.textContent = letter;
-                charEl.dataset.letter = letter;
-                if (!groups[letter] || groups[letter].length === 0) {
-                    charEl.classList.add("disabled");
-                }
-                alphabetFastIndex.appendChild(charEl);
-
-                if (groups[letter] && groups[letter].length > 0) {
-                    const groupContainer = document.createElement("div");
-                    groupContainer.className = "alphabet-group";
-                    groupContainer.id = `alphabet-group-${letter === "#" ? "hash" : letter}`;
-
-                    const headerEl = document.createElement("div");
-                    headerEl.className = "alphabet-letter-header";
-                    headerEl.textContent = letter;
-                    groupContainer.appendChild(headerEl);
-
-                    const listEl = document.createElement("div");
-                    listEl.className = "alphabet-item-list";
-
-                    groups[letter].forEach(mod => {
-                        const row = document.createElement("div");
-                        row.className = "alphabet-item-row";
-                        row.setAttribute("role", "button");
-                        row.setAttribute("tabindex", "0");
-                        
-                        const fallbackIcon = createIOSAppIcon(mod.name);
-                        const iconSrc = mod.icon || fallbackIcon;
-
-                        let catName = "模块";
-                        if (mod.category === "config") catName = "配置";
-                        else if (mod.category === "manual") catName = "手册";
-                        else if (mod.category === "more") catName = "仓库";
-                        if (state.currentLang === "en") {
-                            catName = mod.category ? mod.category.charAt(0).toUpperCase() + mod.category.slice(1) : "Module";
-                        }
-
-                        row.innerHTML = `
-                            <div class="alphabet-item-icon">
-                                <img src="${escapeHTML(iconSrc)}" alt="" decoding="async">
-                            </div>
-                            <span class="alphabet-item-name">${escapeHTML(mod.name)}</span>
-                            <span class="alphabet-item-type">${escapeHTML(catName)}</span>
-                        `;
-
-                        row.addEventListener("click", (e) => {
-                            e.preventDefault();
-                            focusSingleResource(mod);
-                        });
-
-                        bindImageError(row.querySelector("img"), fallbackIcon);
-
-                        listEl.appendChild(row);
-                    });
-
-                    groupContainer.appendChild(listEl);
-                    fragment.appendChild(groupContainer);
-                }
-            });
-
-            alphabetScrollArea.appendChild(fragment);
-            updateAlphabetPosition();
-        }
-
-        function scrollToAlphabetLetter(letter) {
-            const targetEl = document.getElementById(`alphabet-group-${letter === "#" ? "hash" : letter}`);
-            if (targetEl && alphabetScrollArea) {
-                const targetOffset = targetEl.offsetTop;
-                alphabetScrollArea.scrollTop = targetOffset - 6;
-            }
-        }
-
-        let isTouchingIndex = false;
-
-        function updateFastIndexSelection(clientX, clientY) {
-            const target = document.elementFromPoint(clientX, clientY);
-            let charEl = target ? target.closest(".alphabet-fast-char") : null;
-
-            if (!charEl && alphabetFastIndex) {
-                const rect = alphabetFastIndex.getBoundingClientRect();
-                if (clientY >= rect.top && clientY <= rect.bottom) {
-                    const chars = alphabetFastIndex.querySelectorAll(".alphabet-fast-char");
-                    if (chars.length > 0) {
-                        const itemHeight = rect.height / chars.length;
-                        const index = Math.floor((clientY - rect.top) / itemHeight);
-                        if (index >= 0 && index < chars.length) {
-                            charEl = chars[index];
-                        }
-                    }
-                }
-            }
-            
-            if (charEl && !charEl.classList.contains("disabled")) {
-                const letter = charEl.dataset.letter;
-                if (letter) {
-                    scrollToAlphabetLetter(letter);
-                    document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
-                    charEl.classList.add("active");
-
-                    if (alphabetPopupBubble) {
-                        alphabetPopupBubble.textContent = letter;
-                        const containerRect = alphabetViewContainer.getBoundingClientRect();
-                        let relativeY = clientY - containerRect.top;
-                        relativeY = Math.max(35, Math.min(relativeY, containerRect.height - 35));
-                        alphabetPopupBubble.style.top = `${relativeY}px`;
-                        alphabetPopupBubble.classList.add("visible");
-                    }
-                }
-            }
-        }
-
-        alphabetFastIndex.addEventListener("touchstart", (e) => {
-            isTouchingIndex = true;
-            e.preventDefault();
-            const touch = e.touches[0];
-            updateFastIndexSelection(touch.clientX, touch.clientY);
-        }, { passive: false });
-
-        alphabetFastIndex.addEventListener("touchmove", (e) => {
-            if (isTouchingIndex) {
-                e.preventDefault();
-                const touch = e.touches[0];
-                updateFastIndexSelection(touch.clientX, touch.clientY);
-            }
-        }, { passive: false });
-
-        window.addEventListener("touchend", () => {
-            if (isTouchingIndex) {
-                isTouchingIndex = false;
-                if (alphabetPopupBubble) alphabetPopupBubble.classList.remove("visible");
-                document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
-            }
-        });
-
-        alphabetFastIndex.addEventListener("mousedown", (e) => {
-            isTouchingIndex = true;
-            updateFastIndexSelection(e.clientX, e.clientY);
-        });
-
-        window.addEventListener("mousemove", (e) => {
-            if (isTouchingIndex) {
-                updateFastIndexSelection(e.clientX, e.clientY);
-            }
-        });
-
-        window.addEventListener("mouseup", () => {
-            if (isTouchingIndex) {
-                isTouchingIndex = false;
-                if (alphabetPopupBubble) alphabetPopupBubble.classList.remove("visible");
-                document.querySelectorAll(".alphabet-fast-char").forEach(c => c.classList.remove("active"));
-            }
-        });
-
-        function updateAlphabetPosition() {
-            if (!alphabetViewContainer || !searchBoxInner) return;
-
-            const searchRect = searchBoxInner.getBoundingClientRect();
-            
-            alphabetViewContainer.style.top = `100px`;
-            alphabetViewContainer.style.bottom = `100px`;
-            alphabetViewContainer.style.left = `${searchRect.left}px`;
-            alphabetViewContainer.style.width = `${searchRect.width}px`;
-        }
-
-        if (window.visualViewport) {
-            window.visualViewport.addEventListener('resize', updateAlphabetPosition);
-            window.visualViewport.addEventListener('scroll', updateAlphabetPosition);
-        }
-
-        const LIST_VIEW_MAIN_FADE_MS = 120;
-        const LIST_VIEW_FADE_MS = 200;
-        let listViewTransitionTimer = null;
-
-        function setListViewMode(enable) {
-            if (state.isListView === enable) return;
-            state.isListView = enable;
-
-            clearTimeout(listViewTransitionTimer);
-
-            if (enable) {
-                state.focusedModuleId = null;
-                window.scrollTo({ top: 0, behavior: "smooth" });
-                document.body.classList.add("is-list-view");
-                updateRightActionButton();
-
-                renderAlphabetList();
-                updateAlphabetPosition();
-                alphabetViewContainer.classList.remove("is-visible");
-
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        if (!state.isListView) return;
-                        listViewTransitionTimer = setTimeout(() => {
-                            if (!state.isListView) return;
-                            alphabetViewContainer.classList.add("is-visible");
-                        }, LIST_VIEW_MAIN_FADE_MS);
-                    });
-                });
-
-                checkScrollLock();
-            } else {
-                alphabetViewContainer.classList.remove("is-visible");
-
-                listViewTransitionTimer = setTimeout(() => {
-                    if (state.isListView) return;
-                    document.body.classList.remove("is-list-view");
-                    updateRightActionButton();
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                    checkScrollLock();
-                    scheduleCardLayerUpdate();
-                }, LIST_VIEW_FADE_MS);
-            }
-        }
-
-        document.addEventListener("click", (e) => {
-            if (!state.isListView) return;
-            if (e.target.closest("#alphabetViewContainer") || 
-                e.target.closest("#controlBar") || 
-                e.target.closest("#toast") || 
-                e.target.closest("#pullRefreshIndicator")) {
-                return;
-            }
-            setListViewMode(false);
-        });
-
-        searchInput.addEventListener("focus", () => {
-            if (searchInput.value.trim().length === 0 && !state.focusedModuleId) {
-                setListViewMode(true);
-            }
-        });
-
-        listToggleBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const hasText = searchInput.value.length > 0;
-
-            if (state.isListView || hasText || state.focusedModuleId) {
-                state.focusedModuleId = null;
-                searchInput.value = "";
-                setListViewMode(false);
-                filterModules();
-                if (state.statusKey && I18N[state.currentLang][state.statusKey]) {
-                    statusText.textContent = I18N[state.currentLang][state.statusKey];
-                }
-                updateRightActionButton();
-            } else {
-                setListViewMode(true);
-                searchInput.focus();
-            }
-        });
-
-        function renderAuthor(module) {
-            const author = module.author || {};
-            const avatar = module.authorAvatar;
-            const avatarHTML = avatar ? `<img class="author-avatar" src="${escapeHTML(avatar)}" decoding="async" referrerpolicy="no-referrer" alt="">` : "";
-            const authorURL = author.url;
-            const authorName = author.name || author.username || I18N[state.currentLang].authorUnknown;
-            if (authorURL) {
-                return `<a class="author" href="${escapeHTML(authorURL)}" target="_blank" rel="noopener">${avatarHTML}${escapeHTML(authorName)}</a>`;
-            }
-            return `<span class="author">${avatarHTML}${escapeHTML(authorName)}</span>`;
-        }
-
-        function autoFitModuleName(nameElement) {
-            if (!nameElement) return;
-            nameElement.style.fontSize = '18px';
-            nameElement.style.letterSpacing = '-0.2px';
-            
-            if (nameElement.scrollWidth > nameElement.clientWidth) {
-                nameElement.style.fontSize = '16px';
-                nameElement.style.letterSpacing = '-0.4px';
-            }
-            if (nameElement.scrollWidth > nameElement.clientWidth) {
-                nameElement.style.fontSize = '14.5px';
-                nameElement.style.letterSpacing = '-0.6px';
-            }
-            if (nameElement.scrollWidth > nameElement.clientWidth) {
-                nameElement.style.fontSize = '13px';
-                nameElement.style.letterSpacing = '-0.8px';
-            }
-        }
-
-        function createModuleCard(module) {
-            if (module._domElement) {
-                requestAnimationFrame(() => {
-                    const nameEl = module._domElement.querySelector('.module-name');
-                    autoFitModuleName(nameEl);
-                });
-                return module._domElement;
-            }
-
-            const langObj = I18N[state.currentLang];
-            const card = document.createElement("article");
-            card.className = "module-card glass-element";
-            card.dataset.moduleId = module.id;
-
-            const fallbackIcon = createIOSAppIcon(module.name);
-            const icon = module.icon || fallbackIcon;
-            const authorHTML = renderAuthor(module);
-            
-            const isRepo = Boolean(module.isRepoCard);
-
-            const directOpenURL = module.rawURL || module.sourceURL || "";
-            let iconHTML = "";
-            if (directOpenURL) {
-                iconHTML = `
-                    <a class="module-icon" href="${escapeHTML(directOpenURL)}" target="_blank" rel="noopener noreferrer" title="${escapeHTML(langObj.openLinkAria || '在新窗口打开资源直链')}" aria-label="${escapeHTML(langObj.openLinkAria || '在新窗口打开资源直链')}">
-                        <img src="${escapeHTML(icon)}" alt="${escapeHTML(module.name)}" decoding="async" referrerpolicy="no-referrer">
-                    </a>
-                `;
-            } else {
-                iconHTML = `
-                    <div class="module-icon" style="cursor: default;">
-                        <img src="${escapeHTML(icon)}" alt="${escapeHTML(module.name)}" decoding="async" referrerpolicy="no-referrer">
-                    </div>
-                `;
-            }
-
-            const sourceLinkHTML = module.sourceURL
-                ? `<a class="source-link" href="${escapeHTML(module.sourceURL)}" target="_blank" rel="noopener" title="${escapeHTML(module.sourceName)}">${escapeHTML(module.sourceName)}</a>`
-                : `<span class="source-link source-link-static">${escapeHTML(module.sourceName)}</span>`;
-
-            let secondaryBtnHTML = "";
-            if (module.preInstallURL) {
-                const preText = module.secondaryBtnText || langObj.btnPreInstall;
-                secondaryBtnHTML = `<a class="button button-secondary" href="${escapeHTML(module.preInstallURL)}" aria-label="${escapeHTML(preText)} ${escapeHTML(module.name)}">${escapeHTML(preText)}</a>`;
-            } else if (module.rawURL) {
-                secondaryBtnHTML = `<button class="button button-secondary copy-btn" data-url="${escapeHTML(module.rawURL)}" aria-label="${langObj.btnCopyLink} ${escapeHTML(module.name)}">${langObj.btnCopyLink}</button>`;
-            }
-
-            let defaultPrimaryText = langObj.btnInstallModule;
-            if (module.category === "config") defaultPrimaryText = langObj.btnInstallConfig;
-            else if (module.category === "manual") defaultPrimaryText = langObj.btnViewManual;
-            else if (isRepo) defaultPrimaryText = langObj.btnVisitRepo;
-
-            const primaryText = module.primaryBtnText || defaultPrimaryText;
-            const primaryTarget = isRepo ? `target="_blank" rel="noopener"` : "";
-            const installBtnHTML = module.installURL 
-                ? `<a class="button button-primary" href="${escapeHTML(module.installURL)}" ${primaryTarget} aria-label="${escapeHTML(primaryText)} ${escapeHTML(module.name)}">${escapeHTML(primaryText)}</a>` 
-                : "";
-
-            const descriptionText = module.description ? escapeHTML(module.description) : langObj.noDesc;
-
-            card.innerHTML = `
-                <div class="card-header">
-                    ${iconHTML}
-                    <div class="card-main">
-                        <h2 class="module-name">${escapeHTML(module.name)}</h2>
-                        <div class="module-meta">
-                            ${authorHTML}
-                            <span class="meta-separator">/</span>
-                            ${sourceLinkHTML}
-                        </div>
-                    </div>
-                </div>
-                <div class="module-description">${descriptionText}</div>
-                <div class="card-bottom">
-                    <div class="action-buttons">
-                        ${secondaryBtnHTML}
-                        ${installBtnHTML}
-                    </div>
-                </div>
-            `;
-            
-            const nameEl = card.querySelector(".module-name");
-            requestAnimationFrame(() => {
-                autoFitModuleName(nameEl);
-            });
-
-            const copyBtn = card.querySelector(".copy-btn");
-            if (copyBtn) {
-                copyBtn.addEventListener("click", async (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const url = copyBtn.getAttribute("data-url");
-                    if (!url) {
-                        showToast(langObj.toastInvalidLink);
-                        return;
-                    }
-                    const success = await copyToClipboard(url);
-                    let toastMessage = langObj.toastCopiedUrl;
-                    if (isRepo) toastMessage = langObj.toastCopiedRepo;
-                    else if (module.category === "config") toastMessage = langObj.toastCopiedConfig;
-                    else if (module.category === "manual") toastMessage = langObj.toastCopiedManual;
-                    showToast(success ? toastMessage : langObj.toastCopyFailed);
-                });
-            }
-            
-            bindImageError(card.querySelector(".module-icon img"), fallbackIcon);
-            bindImageError(card.querySelector(".author-avatar"), null);
-
-            module._domElement = card;
-            return card;
-        }
-
-        function appendNextBatch() {
-            if (state.focusedModuleId) return;
-            if (state.currentlyRendered >= state.filteredModules.length) {
-                sentinel.style.display = "none";
-                checkScrollLock();
-                return;
-            }
-            const fragment = document.createDocumentFragment();
-            const nextBatch = state.filteredModules.slice(state.currentlyRendered, state.currentlyRendered + CONFIG.PAGE_SIZE);
-            for (let i = 0; i < nextBatch.length; i++) {
-                const module = nextBatch[i];
-                if (module) fragment.appendChild(createModuleCard(module));
-            }
-            modulesContainer.appendChild(fragment);
-            state.currentlyRendered += nextBatch.length;
-            
-            sentinel.style.display = state.currentlyRendered >= state.filteredModules.length ? "none" : "block";
-            
-            updateCardWidth();
-            updateCardLayerOrder();
-            updateSearchLayer();
-            checkScrollLock();
-        }
-
-        function renderFilteredList(list, isGlobalSearch = false) {
-            state.filteredModules = list;
-            state.currentlyRendered = 0;
-            modulesContainer.innerHTML = "";
-
-            const langObj = I18N[state.currentLang];
-            const currentLabel = isGlobalSearch 
-                ? (langObj.countLabel.global || langObj.countLabel.more)
-                : (langObj.countLabel[state.activeTab] || langObj.countLabel.more);
-
-            if (!state.filteredModules.length) {
-                sentinel.style.display = "none";
-                modulesContainer.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div>${escapeHTML(langObj.emptyText(currentLabel))}</div>`;
-                countText.textContent = langObj.countText(0, currentLabel);
-                scheduleCardLayerUpdate();
-                checkScrollLock();
-                return;
-            }
-
-            countText.textContent = langObj.countText(state.filteredModules.length, currentLabel);
-            appendNextBatch();
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !state.isDataLoading && !state.isListView && !state.focusedModuleId) {
-                appendNextBatch();
-            }
-        }, { rootMargin: "300px" });
-        observer.observe(sentinel);
-
-        function filterModules() {
-            const keyword = searchInput.value.trim().normalize("NFKC").toLowerCase();
-            updateRightActionButton();
-
-            let result = [];
-            if (keyword) {
-                // 搜索始终使用全局搜索（检索全库所有分类）
-                result = state.allModules.filter(m => m._searchText && m._searchText.includes(keyword));
-                renderFilteredList(result, true);
-            } else {
-                // 无关键字时恢复展示当前标签页分类
-                result = state.allModules.filter(m => (m.category || "module") === state.activeTab);
-                renderFilteredList(result, false);
-            }
-        }
-
-        tabItems.forEach(tab => {
-            tab.addEventListener("click", () => {
-                const targetTab = tab.getAttribute("data-tab");
-                if (state.isListView) {
-                    setListViewMode(false);
-                }
-                if (state.activeTab === targetTab && !state.focusedModuleId && searchInput.value.trim() === "") return;
-
-                state.focusedModuleId = null;
-                searchInput.value = "";
-                updateRightActionButton();
-
-                state.activeTab = targetTab;
-                tabItems.forEach(t => {
-                    const isActive = t === tab;
-                    t.classList.toggle("active", isActive);
-                    t.setAttribute("aria-selected", isActive ? "true" : "false");
-                });
-
-                isTabAnimating = true;
-                clearTimeout(tabAnimTimer);
-                tabAnimTimer = setTimeout(() => {
-                    isTabAnimating = false;
-                }, 460);
-
-                updateTabIndicator(true);
-
-                clearTimeout(tabSwitchContentTimer);
-                tabSwitchContentTimer = setTimeout(() => {
-                    filterModules();
-                    if (window.scrollY > 0) {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                    }
-                }, 160);
-            });
-        });
-
-        searchInput.addEventListener("input", () => {
-            state.focusedModuleId = null;
-            if (state.isListView) {
-                setListViewMode(false);
-            }
-            clearTimeout(searchTimer);
-            searchTimer = setTimeout(filterModules, 120);
-        });
-
-        window.addEventListener("keydown", (e) => {
-            if (e.key === "/" && document.activeElement !== searchInput) {
-                if (searchInput.disabled) return;
-                e.preventDefault();
-                searchInput.focus();
-                searchInput.select();
-            } else if (e.key === "Escape") {
-                state.focusedModuleId = null;
-                searchInput.value = "";
-                searchInput.blur();
-                setListViewMode(false);
-                filterModules();
-                updateRightActionButton();
-            }
-        });
-
-        function setSearchState(enabled) {
-            searchInput.disabled = !enabled;
-            const langObj = I18N[state.currentLang];
-            const text = enabled ? langObj.searchPlaceholderReady : langObj.searchPlaceholderWait;
-            const mainP = document.getElementById("mainPlaceholder");
-            if (mainP) mainP.textContent = text;
-
-            if (searchShortcut) {
-                searchShortcut.style.opacity = enabled ? "1" : "0.35";
-            }
-
-            if (!enabled) {
-                searchInput.value = "";
-                updateRightActionButton();
-            }
-        }
-
-        let noticeInterval = null;
-        if (noticeTrack) {
-            const firstItemClone = noticeTrack.children[0].cloneNode(true);
-            noticeTrack.appendChild(firstItemClone);
-
-            let noticeIndex = 0;
-            const originalCount = noticeTrack.children.length - 1; 
-            let isAnimating = false;
-
-            function updateNoticePosition() {
-                noticeTrack.style.transition = 'transform 0.45s cubic-bezier(0.25, 1, 0.5, 1)';
-                noticeTrack.style.transform = `translateY(-${noticeIndex * 32}px)`;
-            }
-
-            function nextNotice() {
-                if (document.activeElement === searchInput || searchInput.value.length > 0 || state.isListView || state.focusedModuleId) return;
-                if (isAnimating) return;
-                isAnimating = true;
-                noticeIndex++;
-                updateNoticePosition();
-
-                if (noticeIndex === originalCount) {
-                    setTimeout(() => {
-                        noticeTrack.style.transition = 'none';
-                        noticeIndex = 0;
-                        noticeTrack.style.transform = `translateY(0)`;
-                        void noticeTrack.offsetHeight;
-                        isAnimating = false;
-                    }, 450); 
-                } else {
-                    setTimeout(() => { isAnimating = false; }, 450);
-                }
-            }
-
-            function startNoticeLoop() {
-                if (noticeInterval) clearInterval(noticeInterval);
-                noticeInterval = setInterval(nextNotice, 3800);
-            }
-
-            function stopNoticeLoop() {
-                if (noticeInterval) {
-                    clearInterval(noticeInterval);
-                    noticeInterval = null;
-                }
-            }
-
-            startNoticeLoop();
-
-            document.addEventListener("visibilitychange", () => {
-                if (document.hidden) {
-                    stopNoticeLoop();
-                } else {
-                    startNoticeLoop();
-                }
-            });
-        }
-
         const mediaQueryDark = window.matchMedia("(prefers-color-scheme: dark)");
 
         function getThemeMode() {
@@ -2900,74 +500,63 @@
             const currentTheme = getEffectiveTheme(mode);
             document.documentElement.setAttribute("data-theme", currentTheme);
             
-            const themeColor = currentTheme === "dark" ? "#14161a" : "#f0f2f5";
+            const themeColor = currentTheme === "dark" ? "#14161a" : "#ffffff";
             const themeColorMeta = document.querySelector('meta[name="theme-color"]');
             if (themeColorMeta) {
                 themeColorMeta.setAttribute("content", themeColor);
             }
             document.documentElement.style.backgroundColor = themeColor;
 
-            const isZh = state.currentLang === "zh";
             if (mode === "light") {
                 themeToggleBtn.innerHTML = SUN_ICON;
-                const desc = isZh ? "当前：浅色模式（点击切换深色）" : "Current: Light mode (Click for Dark)";
+                const desc = "当前：浅色模式（点击切换深色）";
                 themeToggleBtn.setAttribute("title", desc);
                 themeToggleBtn.setAttribute("aria-label", desc);
             } else if (mode === "dark") {
                 themeToggleBtn.innerHTML = MOON_ICON;
-                const desc = isZh ? "当前：深色模式（点击切换自动跟随）" : "Current: Dark mode (Click for Auto)";
+                const desc = "当前：深色模式（点击切换自动跟随）";
                 themeToggleBtn.setAttribute("title", desc);
                 themeToggleBtn.setAttribute("aria-label", desc);
             } else {
                 themeToggleBtn.innerHTML = SYSTEM_ICON;
-                const desc = isZh ? "当前：自动跟随系统（点击切换反色模式）" : "Current: Auto System (Click to switch)";
+                const desc = "当前：自动跟随系统（点击切换反色模式）";
                 themeToggleBtn.setAttribute("title", desc);
                 themeToggleBtn.setAttribute("aria-label", desc);
             }
         }
 
         mediaQueryDark.addEventListener("change", () => {
-            if (getThemeMode() === "auto") {
-                document.documentElement.classList.add("theme-transitioning");
-                updateThemeUI();
-                window.requestAnimationFrame(() => {
-                    void document.documentElement.offsetWidth;
-                    document.documentElement.classList.remove("theme-transitioning");
-                });
-            }
+            if (getThemeMode() === "auto") updateThemeUI();
         });
 
         themeToggleBtn.addEventListener("click", () => {
-            document.documentElement.classList.add("theme-transitioning");
-
             const currentMode = getThemeMode();
             const isSystemDark = mediaQueryDark.matches;
             let nextMode, toastText;
-            const langObj = I18N[state.currentLang];
 
             if (currentMode === "auto") {
                 if (isSystemDark) {
                     nextMode = "light";
-                    toastText = langObj.themeLightToast;
+                    toastText = "已切换为浅色模式";
                 } else {
                     nextMode = "dark";
-                    toastText = langObj.themeDarkToast;
+                    toastText = "已切换为深色模式";
                 }
             } else if (currentMode === "light") {
                 if (isSystemDark) {
                     nextMode = "dark";
-                    toastText = langObj.themeDarkToast;
+                    toastText = "已切换为深色模式";
                 } else {
                     nextMode = "auto";
-                    toastText = langObj.themeAutoToast;
+                    toastText = "已切换为自动跟随系统";
                 }
-            } else { 
+            } else {
                 if (isSystemDark) {
                     nextMode = "auto";
-                    toastText = langObj.themeAutoToast;
+                    toastText = "已切换为自动跟随系统";
                 } else {
                     nextMode = "light";
-                    toastText = langObj.themeLightToast;
+                    toastText = "已切换为浅色模式";
                 }
             }
 
@@ -2976,365 +565,9 @@
             } catch (e) {}
             updateThemeUI();
             showToast(toastText);
-
-            window.requestAnimationFrame(() => {
-                void document.documentElement.offsetWidth;
-                window.requestAnimationFrame(() => {
-                    document.documentElement.classList.remove("theme-transitioning");
-                });
-            });
-        });
-
-        function updateLanguageUI() {
-            const lang = state.currentLang;
-            const dict = I18N[lang];
-
-            document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
-            tagPillBadge.textContent = dict.badgeCommunity;
-            subtitleEl.textContent = dict.subtitle;
-            footerText.innerHTML = dict.footer;
-
-            tabItems.forEach(tab => {
-                const key = tab.getAttribute("data-tab");
-                if (dict.tabs[key]) {
-                    tab.textContent = dict.tabs[key];
-                }
-            });
-
-            langToggleBtn.setAttribute("title", dict.langBtnTitle);
-            langToggleBtn.setAttribute("aria-label", dict.langBtnTitle);
-
-            backToTopBtn.setAttribute("title", dict.backToTopTitle);
-            backToTopBtn.setAttribute("aria-label", dict.backToTopTitle);
-            searchInput.setAttribute("aria-label", dict.searchInputAria);
-
-            const notice1 = document.querySelector(".notice-item-1");
-            const notice2 = document.querySelector(".notice-item-2");
-            if (notice1) notice1.textContent = dict.notice1;
-            if (notice2) notice2.textContent = dict.notice2;
-
-            setSearchState(!searchInput.disabled);
-            updateThemeUI();
-            updateRightActionButton();
-
-            if (!state.focusedModuleId && state.statusKey && dict[state.statusKey]) {
-                statusText.textContent = dict[state.statusKey];
-            }
-
-            if (!state.isPullRefreshing) {
-                ptrText.textContent = dict.ptrContinue;
-            }
-
-            const staticItems = normalizeStaticResources(lang);
-            const dynamicItems = normalizeModules(state.rawNetworkData);
-            state.allModules = [...staticItems, ...dynamicItems];
-
-            state.allModules.forEach(m => { m._domElement = null; });
-            filterModules();
-
-            requestAnimationFrame(() => updateTabIndicator(false));
-        }
-
-        langToggleBtn.addEventListener("click", () => {
-            state.currentLang = state.currentLang === "zh" ? "en" : "zh";
-            try {
-                localStorage.setItem("sr_lang_override", state.currentLang);
-            } catch (e) {}
-
-            updateLanguageUI();
-            showToast(I18N[state.currentLang].langSwitchToast);
         });
 
         updateThemeUI();
-
-        let touchStartX = 0, touchStartY = 0, isPulling = false, isPullLocked = false, pullRafId = null;
-        let hasPulledContainer = false;
-        const MIN_DRAG_DEADZONE = 30;
-        const PULL_TRIGGER_DIFF = 150; 
-
-        async function triggerForceReload() {
-            if (state.isPullRefreshing || state.isDataLoading) return;
-            state.isPullRefreshing = true;
-
-            const langObj = I18N[state.currentLang];
-            ptrIcon.classList.remove("rotate");
-            ptrText.textContent = langObj.ptrRefreshing;
-
-            const success = await loadModules(true);
-            showToast(success ? langObj.toastDataRefreshed : langObj.toastSyncFailed);
-            
-            setTimeout(() => {
-                const reboundBezier = 'top 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
-                pageContainer.style.transition = reboundBezier;
-                pageContainer.style.top = '0';
-
-                pullRefreshIndicator.style.transition = `${reboundBezier}, opacity 0.25s ease`;
-                pullRefreshIndicator.style.opacity = '0';
-                pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
-                ptrIcon.classList.remove("rotate");
-                state.isPullRefreshing = false;
-                pageContainer.style.willChange = "auto";
-                hasPulledContainer = false;
-                checkScrollLock();
-            }, 500);
-        }
-
-        function resetPullState() {
-            isPulling = false;
-            isPullLocked = false;
-            if (pullRafId) cancelAnimationFrame(pullRafId);
-
-            if (hasPulledContainer) {
-                const reboundBezier = 'top 0.38s cubic-bezier(0.2, 0.9, 0.3, 1)';
-                pageContainer.style.transition = reboundBezier;
-                pageContainer.style.top = '0';
-                pullRefreshIndicator.style.transition = `${reboundBezier}, opacity 0.25s ease`;
-                pullRefreshIndicator.style.opacity = '0';
-                pullRefreshIndicator.style.transform = 'translate3d(-50%, -60px, 0)';
-            } else {
-                pageContainer.style.transition = 'none';
-                pageContainer.style.top = '0';
-                pullRefreshIndicator.style.transition = 'none';
-                pullRefreshIndicator.style.opacity = '0';
-            }
-            
-            ptrIcon.classList.remove("rotate");
-            pageContainer.style.willChange = "auto";
-            hasPulledContainer = false;
-        }
-
-        window.addEventListener('touchstart', (e) => {
-            if (state.isPullRefreshing || state.isDataLoading || state.isListView) {
-                isPulling = false;
-                return;
-            }
-            if (e.target.closest("input, button, a, textarea, select, label, .module-card, .alphabet-view-container")) {
-                isPulling = false;
-                return;
-            }
-            const isAtTop = (window.scrollY || document.documentElement.scrollTop || 0) <= 0;
-            if (isAtTop) {
-                touchStartX = e.touches[0].clientX;
-                touchStartY = e.touches[0].clientY;
-                isPulling = true;
-                isPullLocked = false;
-                hasPulledContainer = false;
-            } else {
-                isPulling = false;
-            }
-        }, { passive: true });
-
-        window.addEventListener('touchmove', (e) => {
-            if (!isPulling || state.isPullRefreshing || state.isDataLoading || state.isListView) {
-                return;
-            }
-
-            const currentX = e.touches[0].clientX;
-            const currentY = e.touches[0].clientY;
-            const diffX = currentX - touchStartX;
-            const diffY = currentY - touchStartY;
-
-            if (!isPullLocked) {
-                if (Math.abs(diffX) > Math.abs(diffY)) {
-                    isPulling = false;
-                    isPullLocked = true;
-                    return;
-                }
-
-                if (diffY <= 0) {
-                    isPulling = false;
-                    isPullLocked = true;
-                    return;
-                }
-
-                if (diffY > MIN_DRAG_DEADZONE) {
-                    isPullLocked = true;
-                    pageContainer.style.willChange = "top";
-                    pageContainer.style.transition = 'none';
-                    pullRefreshIndicator.style.transition = 'none';
-                }
-            }
-
-            if (isPullLocked && diffY > MIN_DRAG_DEADZONE) {
-                hasPulledContainer = true;
-                const effectiveDiff = diffY - MIN_DRAG_DEADZONE;
-                const containerShift = Math.min(Math.pow(effectiveDiff, 0.65) * 1.3, 48);
-                const indicatorShift = Math.min(containerShift * 0.42, 18);
-                const progress = Math.min(effectiveDiff / (PULL_TRIGGER_DIFF - MIN_DRAG_DEADZONE), 1);
-                const langObj = I18N[state.currentLang];
-
-                if (pullRafId) cancelAnimationFrame(pullRafId);
-                pullRafId = requestAnimationFrame(() => {
-                    pageContainer.style.top = `${containerShift}px`;
-                    pullRefreshIndicator.style.opacity = Math.min(progress * 1.2, 1);
-                    pullRefreshIndicator.style.transform = `translate3d(-50%, ${indicatorShift}px, 0)`;
-
-                    if (diffY >= PULL_TRIGGER_DIFF) {
-                        ptrIcon.classList.add("rotate");
-                        ptrText.textContent = langObj.ptrRelease;
-                    } else {
-                        ptrIcon.classList.remove("rotate");
-                        ptrText.textContent = langObj.ptrContinue;
-                    }
-                });
-
-                if (e.cancelable) e.preventDefault();
-            }
-        }, { passive: false });
-
-        window.addEventListener('touchend', (e) => {
-            if (!isPulling || state.isPullRefreshing || state.isDataLoading || state.isListView) {
-                isPulling = false;
-                return;
-            }
-            isPulling = false;
-            isPullLocked = false;
-            if (pullRafId) cancelAnimationFrame(pullRafId);
-
-            const currentY = e.changedTouches[0].clientY;
-            const diffY = currentY - touchStartY;
-            const isAtTop = (window.scrollY || document.documentElement.scrollTop || 0) <= 0;
-
-            if (hasPulledContainer && diffY >= PULL_TRIGGER_DIFF && isAtTop) {
-                pageContainer.style.transition = 'top 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)';
-                pageContainer.style.top = '38px';
-                
-                pullRefreshIndicator.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.25s ease';
-                pullRefreshIndicator.style.transform = `translate3d(-50%, 16px, 0)`;
-                pullRefreshIndicator.style.opacity = '1';
-                
-                triggerForceReload();
-            } else {
-                resetPullState();
-            }
-        }, { passive: true });
-
-        window.addEventListener('touchcancel', resetPullState, { passive: true });
-
-        function cleanOldCaches() {
-            try {
-                const keysToRemove = [];
-                for (let i = 0; i < localStorage.length; i++) {
-                    const key = localStorage.key(i);
-                    if (key && (key.startsWith("sr_modules_data_") || key.startsWith("sr_modules_time_"))) {
-                        if (key !== CONFIG.CACHE_KEY && key !== CONFIG.CACHE_TIME_KEY) {
-                            keysToRemove.push(key);
-                        }
-                    }
-                }
-                keysToRemove.forEach(k => localStorage.removeItem(k));
-            } catch (e) {}
-        }
-
-        async function loadModules(forceRefresh = false) {
-            state.isDataLoading = true;
-            let cachedData = null;
-            let cachedTime = 0;
-            const staticItems = normalizeStaticResources(state.currentLang);
-            const langObj = I18N[state.currentLang];
-
-            try {
-                cachedData = localStorage.getItem(CONFIG.CACHE_KEY);
-                cachedTime = Number(localStorage.getItem(CONFIG.CACHE_TIME_KEY) || 0);
-            } catch (e) {
-                console.warn("读取本地缓存失败:", e);
-            }
-
-            const isCacheFresh = !forceRefresh && cachedData && cachedTime && (Date.now() - cachedTime < CONFIG.CACHE_MAX_AGE);
-            let hasRenderedCache = false;
-
-            if (!forceRefresh && cachedData) {
-                try {
-                    const parsed = JSON.parse(cachedData);
-                    if (Array.isArray(parsed) && parsed.length > 0) {
-                        state.rawNetworkData = parsed;
-                        const normalized = normalizeModules(parsed);
-                        if (normalized.length > 0) {
-                            state.allModules = [...staticItems, ...normalized];
-                            filterModules();
-                            setSearchState(true);
-                            hasRenderedCache = true;
-
-                            if (isCacheFresh) {
-                                state.statusKey = "statusReady";
-                                statusText.textContent = langObj.statusReady;
-                                statusDot.className = "status-dot";
-                                state.isDataLoading = false;
-                                return true;
-                            }
-
-                            state.statusKey = "statusChecking";
-                            statusText.textContent = langObj.statusChecking;
-                            statusDot.className = "status-dot loading";
-                        }
-                    }
-                } catch (e) {
-                    hasRenderedCache = false;
-                }
-            }
-
-            if (!hasRenderedCache && state.allModules.length === 0) {
-                state.allModules = staticItems;
-                filterModules();
-                setSearchState(false);
-                state.statusKey = "statusFetchingStatic";
-                statusText.textContent = langObj.statusFetchingStatic;
-                statusDot.className = "status-dot loading";
-            }
-
-            try {
-                const fetchUrl = forceRefresh ? `${CONFIG.DATA_JSON_URL}?_t=${Date.now()}` : CONFIG.DATA_JSON_URL;
-                const response = await fetch(fetchUrl, { cache: forceRefresh ? "no-store" : "default" });
-                
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                
-                const data = await response.json();
-                if (!Array.isArray(data) || !data.length) throw new Error("资源列表为空");
-
-                state.rawNetworkData = data;
-                const normalized = normalizeModules(data);
-                if (!normalized.length) throw new Error("未解析到有效资源数据");
-
-                state.allModules = [...staticItems, ...normalized];
-                filterModules();
-                setSearchState(true);
-
-                try {
-                    localStorage.setItem(CONFIG.CACHE_KEY, JSON.stringify(data));
-                    localStorage.setItem(CONFIG.CACHE_TIME_KEY, String(Date.now()));
-                } catch (e) {}
-
-                state.statusKey = "statusSynced";
-                statusText.textContent = langObj.statusSynced;
-                statusDot.className = "status-dot";
-                return true;
-            } catch (error) {
-                console.error("加载 modules.json 失败:", error);
-                
-                if (hasRenderedCache || state.allModules.length > staticItems.length) {
-                    state.statusKey = "statusErrorCache";
-                    statusText.textContent = langObj.statusErrorCache;
-                    statusDot.className = "status-dot error";
-                } else {
-                    setSearchState(true);
-                    state.statusKey = "statusErrorStatic";
-                    statusText.textContent = langObj.statusErrorStatic;
-                    statusDot.className = "status-dot error";
-                }
-                return false;
-            } finally {
-                state.isDataLoading = false;
-                checkScrollLock();
-            }
-        }
-
-        updateLanguageUI();
-        updateCardWidth();
-        updateControlBarLayout();
-        updateTabIndicator(false);
-        updateSearchLayer();
-        cleanOldCaches();
-        loadModules();
     </script>
 </body>
 </html>
