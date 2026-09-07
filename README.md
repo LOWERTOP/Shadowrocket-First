@@ -297,6 +297,24 @@
 > >   
 > > [![安装模块 流量查询](https://img.shields.io/static/v1?label=安装模块&message=流量查询&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Sgmodule/%E6%9C%BA%E5%9C%BA%E6%B5%81%E9%87%8F%E6%9F%A5%E8%AF%A2.module "一键安装本模块")
 >
+> **[高德地图去广告](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE.sgmodule)**
+> 
+> > 本模块是 [向晚](https://github.com/XiangwanGuan) 维护的原生去广告模块，由作者推送至本仓库
+> >
+> > [![安装模块 高德地图](https://img.shields.io/static/v1?label=安装模块&message=高德地图&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE.sgmodule "一键安装本模块")
+>  
+> **[一汽大众去广告](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E4%B8%80%E6%B1%BD%E5%A4%A7%E4%BC%97.sgmodule)**
+> 
+> > 本模块是 [向晚](https://github.com/XiangwanGuan) 维护的原生去广告模块，由作者推送至本仓库
+> >
+> > [![安装模块 一汽大众](https://img.shields.io/static/v1?label=安装模块&message=一汽大众&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E4%B8%80%E6%B1%BD%E5%A4%A7%E4%BC%97.sgmodule "一键安装本模块")
+>  
+> **[彩云天气去广告](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94.sgmodule)**
+> 
+> > 本模块是 [向晚](https://github.com/XiangwanGuan) 维护的原生去广告模块，由作者推送至本仓库
+> >
+> > [![安装模块 彩云天气](https://img.shields.io/static/v1?label=安装模块&message=彩云天气&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94.sgmodule "一键安装本模块")
+>  
 > **[更多资源](#模块收集)**
 > 
 > > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等相关模块
