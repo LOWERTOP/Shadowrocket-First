@@ -9,7 +9,7 @@
 > > 本仓中的所有数据均收集自互联网公开信息，不代表我们支持或使用这些服务。请通过合法的互联网出入口信道访问或使用，并确保在使用过程中符合当地法律法规。若您是相关索引的原作者或权利人，且不希望内容被引用，可点击 [此处](https://github.com/LOWERTOP/Shadowrocket-First/issues/new?title=%E6%9D%83%E5%88%A9%E8%A6%81%E6%B1%82&body=%E8%A6%81%E6%B1%82%E7%AE%80%E8%BF%B0%EF%BC%9A&labels=invalid) 要求剔除
 
 #### [项目目录](#项目目录)
-> * **[Shadow Store 模块中心](#shadowstore-模块中心)**
+> * **[Shadow Store 资源中心](#shadowstore-资源中心)**
 > * **[Shadowrocket 本仓文件](#shadowrocket-本仓文件)**
 > * **[Shadowrocket 社区文件](#shadowrocket-社区文件)**
 > * **[Shadowrocket 配色文件](#shadowrocket-配色文件)**
@@ -20,13 +20,15 @@
 
 ------
 
-# [ShadowStore 模块中心](#shadowstore-模块中心)
+# [ShadowStore 资源中心](#shadowstore-资源中心)
 
-> [ShadowStore](https://github.com/LOWERTOP/ShadowStore) 是一个专为 Shadowrocket 打造的开放资源平台，提供 **资源索引**、**资源检索**、**一键安装**、**一键复制** 等功能，集中收录和整理公开资源。目前已收录超过 1000 款模块及其他多种资源，支持添加网页快捷方式至桌面，并提供应用图标显示，为 Shadowrocket 用户提供更加便捷的资源发现与使用体验
+> [<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/ShadowStore_ScreenShot.png" width="100%">](https://shadowstore.dpdns.org/ "访问页面")
+> 
+> **[ShadowStore](https://github.com/LOWERTOP/ShadowStore)** 是一个专为 Shadowrocket 打造的开源社区资源聚合检索平台，仓库地址是：[ShadowStore](https://github.com/LOWERTOP/ShadowStore)，发布页地址是：[shadowstore.dpdns.org](https://shadowstore.dpdns.org/)。发布页提供 **资源索引**、**资源检索**、**一键安装**、**一键复制** 等功能，集中收录和整理公开资源，目前已收录超过 1000 款模块及其他资源。网页支持添加快捷方式至主屏幕，并提供应用图标显示，为用户提供更加便捷、沉浸的使用体验
 > 
 > 相关资源均直接引用自原始开源仓库。特别鸣谢 **[奶思](https://github.com/fmz200)**、**[zirawell](https://github.com/zirawell)**、**[iab0x00](https://github.com/iab0x00)** 等开源作者
 > 
-> [![访问页面 模块中心](https://img.shields.io/static/v1?label=访问页面&message=模块中心&color=grey&logo=safari&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://shadowstore.dpdns.org/ "访问相应地址")
+> [![访问页面 资源中心](https://img.shields.io/static/v1?label=访问页面&message=资源中心&color=grey&logo=safari&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://shadowstore.dpdns.org/ "访问相应地址")
 
 ------
 
