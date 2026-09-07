@@ -157,11 +157,11 @@
 > 
 > 本章主要是收集自社区有一定规模的公开文件，相关资源本仓均为直接引用原版地址且标注有作者或来源，其效果及有效性请以实际为准。
 > 
-> > 本仓库接受 [Pull Request（PR）](https://github.com/LOWERTOP/Shadowrocket-First/pulls)提交
+> > 本仓库接受 [Pull Request（PR）](https://github.com/LOWERTOP/Shadowrocket-First/pulls)
 > >
-> > 为保证发布页作者信息识别准确及规范化管理仓库，仅接受将新增文件存放于 **[本路径](https://github.com/LOWERTOP/Shadowrocket-First/tree/main/PR)** 下 **与提交者同名** 的子文件夹内
+> > 为确保发布页作者信息能够准确识别，并便于仓库规范化管理，仅接受将新增文件存放于 **[main/PR](https://github.com/LOWERTOP/Shadowrocket-First/tree/main/PR)** 路径下 **与提交者同名** 的子文件夹内
 > >
-> > **请确保您对所提交的文件拥有合法、完整的使用权及相关权利，本仓库不承担提交文件的任何相关责任**
+> > **请确保您对所提交的文件拥有合法、完整的相关权利，或已获得合法授权。本仓库不对提交者上传的文件及其相关权利承担任何责任**
 
 ### [使用手册](#使用手册)
 
