@@ -1,0 +1,18 @@
+#!name=一汽大众
+#!desc=2026-07-18 11:35:27
+
+[Rule]
+DOMAIN-SUFFIX,faw-vw.com,DIRECT
+
+[Body Rewrite]
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/benefits\/benefitsCard\/getInfo\/v\d+\?.* '. = { returnStatus: "SUCCEED", data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(?:collection\/getCollectionList)\/v\d+\?.* '. = { returnStatus: "SUCCEED", data: {} }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(?:customize\/getCustomizePageName|recommend\/getRecommendInfoFlows|activity\/getSquareActivityList|theme\/getThemeList|post\/getPostsByTags|evaluate\/getEvaluateCards)\/v\d+\?.* '. = { returnStatus: "SUCCEED", data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v\d+\?.*showPositionCode=VWAPP_(?:ICE|MEB)_(?:OPEN_SCREEN_ADS|CAR_ZHIHU_COLLEGE) '. = { returnStatus: "SUCCEED", data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v\d+\?.*showPositionCode=VWAPP_(?:ICE|MEB)_HOME_(?:OWNER_BANNER|PROSPECTS_BANNER|CUSTOM_BANNER|KONGO|CUSTOM_KONGO) '. = { returnStatus: "SUCCEED", data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v\d+\?.*showPositionCode=VWAPP_HOME_BUOY '. = { returnStatus: "SUCCEED", data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/miniprogram\/car\/config\/page\/getList\/v\d+\?.* '. = { returnStatus: "SUCCEED", data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/search\/firstPage\/getPromptList\/v\d+\?.* '. = { returnStatus: "SUCCEED", data: [] }'
+
+[MITM]
+hostname = %APPEND% oneapp-api.faw-vw.com

@@ -1,0 +1,14 @@
+#!name=彩云天气
+#!desc=2026-02-06 09:00:03
+
+[Rule]
+DOMAIN,ad.cyapi.cn,REJECT,pre-matching
+DOMAIN,gather.colorfulclouds.net,REJECT,pre-matching
+
+[Body Rewrite]
+http-response-jq ^https?:\/\/starplucker\.cyapi\.cn\/v\d+\/config '(.pic_page_card_orders[]?, .map_page_card_orders[]?) |= select(.name | test("^(A|C01)") | not)'
+http-response-jq ^https?:\/\/starplucker\.cyapi\.cn\/v\d+\/config 'del(.search_suggestions)?'
+http-response-jq ^https?:\/\/wrapper\.cyapi\.cn\/v\d+\/activity\?.*type_id=A03 '.activities[]? |= (if .feature != null then .feature = false else . end)'
+
+[MITM]
+hostname = %APPEND% starplucker.cyapi.cn,wrapper.cyapi.cn
