@@ -116,7 +116,13 @@
 >
 > [![安装模块 苹果助手](https://img.shields.io/static/v1?label=安装模块&message=苹果助手&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Helper.sgmodule "一键安装本模块")
 
-### [私库访问模块](#私库访问模块)
+### [GitHub 禁止缩放模块](#github-禁止缩放模块)
+
+> 解决 iPhone/iPad 访问 GitHub 时，聚焦输入框或进入代码编辑器时导致页面自动放大的问题，针对 GitHub CodeMirror 编辑器进行优化，提升移动端浏览与编辑体验
+> 
+> [![安装模块 禁止缩放](https://img.shields.io/static/v1?label=安装模块&message=禁止缩放&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/GitHub-iOS-No-Zoom.sgmodule "一键安装本模块")
+
+### [GitHub 私库访问模块](#github-私库访问模块)
 
 > 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的基于用户维度的访问 GitHub 私密仓库的多 Token 自动鉴权模块，支持配置 4 个不同的 GitHub 账号，自动匹配 `raw` 或 `gist` 文件地址中的用户名并注入对应的 Token，实现多用户、多仓库的鉴权访问，在 编辑参数 内填写所需内容即可生效
 > 
