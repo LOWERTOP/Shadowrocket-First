@@ -1,7 +1,8 @@
 #!name=🅲🅻🅴🅰🅽🅴🆁
 #!desc=红果短剧、包子漫画网页、知乎网页及小蚁摄像机等去广告。模块仅为自用，不承诺完全去除相应服务的广告
-# 整理作者：LOWERTOP
-# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AdblockPlus.png
+#!author=LOWERTOP
+#!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
 # 放行抖音商城图片地址
