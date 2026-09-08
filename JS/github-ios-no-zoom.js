@@ -1,12 +1,17 @@
 /*
- * GitHub iOS 防自动缩放 V6.1
+ * GitHub iOS 防自动缩放 V4
+ * Shadowrocket HTTP Response Script
  *
- * 核心：iOS 会因为可编辑区域实际字号小于 16px 而触发整页自动放大。
- * 因此采用已验证有效的方案：聚焦前临时将实际编辑节点设为 16px，
- * 待 iOS 完成 focus / page zoom 判定后恢复原始字号。
+ * 针对 GitHub CodeMirror 6 文件编辑器
  *
- * 性能原则：只在用户触摸/聚焦输入区域时工作；不扫描普通页面，
- * 不遍历整个 CodeMirror 文档，不使用全页面 MutationObserver。
+ * 核心：
+ * 1. 不依赖 maximum-scale
+ * 2. 在 CodeMirror 获得焦点之前确保编辑器字号 >= 16px
+ * 3. 同时处理 cm-editor / cm-scroller / cm-content
+ * 4. 处理 CodeMirror 动态创建
+ * 5. 不修改正常页面的 viewport
+ * 6. 不改变代码编辑器的实际视觉字号：
+ *    使用 transform scale 对视觉尺寸进行补偿
  */
 
 const response = $response;
@@ -18,286 +23,542 @@ if (!body) {
 }
 
 const headers = response.headers || {};
-const contentType = headers["Content-Type"] || headers["content-type"] || "";
 
-if (contentType && !/text\/html/i.test(contentType)) {
+const contentType =
+    headers["Content-Type"] ||
+    headers["content-type"] ||
+    "";
+
+if (
+    contentType &&
+    !/text\/html/i.test(contentType)
+) {
     $done({});
     return;
 }
 
-if (body.includes("github-ios-no-zoom-v6-1")) {
+if (
+    body.includes("github-ios-no-zoom-v4")
+) {
     $done({});
     return;
 }
+
+
+/* =========================================================
+ * 注入 CSS
+ * ======================================================= */
 
 const css = `
-<style data-github-ios-no-zoom-v6-1>
-html,
-body,
-input,
-textarea,
-select,
-.cm-editor,
-.cm-editor .cm-scroller,
-.cm-editor .cm-content {
-    -webkit-text-size-adjust: 100% !important;
-    text-size-adjust: 100% !important;
+<style data-github-ios-no-zoom-v4>
+
+@supports (-webkit-touch-callout: none) {
+
+    @media (pointer: coarse) {
+
+        /*
+         * =================================================
+         * GitHub CodeMirror 6
+         * =================================================
+         *
+         * iOS 判断输入控件是否需要 Auto Zoom 时，
+         * 实际涉及的是编辑区域最终的 computed font-size。
+         *
+         * 因此这里不只修改 cm-content，
+         * 而是从整个编辑器层级处理。
+         */
+
+        .cm-editor,
+        .cm-editor .cm-scroller,
+        .cm-editor .cm-content,
+        .cm-editor .cm-line,
+        .cm-editor [contenteditable="true"],
+        .cm-editor [role="textbox"] {
+
+            /*
+             * 关键：
+             * 强制编辑器实际字号达到 16px。
+             */
+            font-size: 16px !important;
+
+            /*
+             * 防止 WebKit 对文字再次进行额外缩放。
+             */
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+        }
+
+
+        /*
+         * CodeMirror 的行内容。
+         */
+        .cm-editor .cm-line {
+            font-size: 16px !important;
+        }
+
+
+        /*
+         * 普通 GitHub 输入框。
+         */
+        input:not(
+            [type="checkbox"],
+            [type="radio"],
+            [type="range"],
+            [type="button"],
+            [type="submit"],
+            [type="reset"],
+            [type="file"],
+            [type="hidden"],
+            [type="image"],
+            [type="color"]
+        ),
+        textarea,
+        select {
+
+            font-size: 16px !important;
+
+            -webkit-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+        }
+
+    }
+
 }
 
-/* 仅在保护窗口内生效；结束后 class 移除，原始字号恢复。 */
-.cm-editor.github-ios-no-zoom-v6-1-active .cm-content[contenteditable="true"] {
-    font-size: 16px !important;
-}
-
-.github-ios-no-zoom-v6-1-input-active {
-    font-size: 16px !important;
-}
 </style>
 `;
 
+
+/* =========================================================
+ * 注入 JS
+ *
+ * CSS 负责“提前”设置。
+ *
+ * JS 负责 GitHub 动态加载后的再次处理。
+ * ======================================================= */
+
 const script = `
-<script data-github-ios-no-zoom-v6-1>
+<script data-github-ios-no-zoom-v4>
+
 (function () {
+
     "use strict";
 
-    if (window.__githubIOSNoZoomV61) return;
-    window.__githubIOSNoZoomV61 = true;
 
-    const ua = navigator.userAgent || "";
-    const isIOS = /iPhone|iPad|iPod/i.test(ua) ||
-        (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+    /*
+     * iOS / iPadOS
+     */
+    function isIOS() {
 
-    if (!isIOS) return;
+        var ua =
+            navigator.userAgent || "";
 
-    const saved = new Map();
-    let activeEditor = null;
-    let restoreTimer = null;
-    let generation = 0;
-    let raf1 = 0;
-    let raf2 = 0;
-    let raf3 = 0;
+        return (
+            /iPhone|iPad|iPod/i.test(ua) ||
+            (
+                /Macintosh/i.test(ua) &&
+                navigator.maxTouchPoints > 1
+            )
+        );
 
-    function saveAndSet16(el) {
-        if (!el || el.nodeType !== 1) return;
+    }
 
-        if (!saved.has(el)) {
-            saved.set(el, {
-                value: el.style.getPropertyValue("font-size"),
-                priority: el.style.getPropertyPriority("font-size")
-            });
+
+    if (!isIOS()) {
+        return;
+    }
+
+
+    /*
+     * =====================================================
+     * 获取 CodeMirror 编辑器
+     * =====================================================
+     */
+
+    function getEditors() {
+
+        return document.querySelectorAll(
+            ".cm-editor"
+        );
+
+    }
+
+
+    /*
+     * =====================================================
+     * 强制 CodeMirror 字号
+     * =====================================================
+     */
+
+    function prepareEditor(editor) {
+
+        if (!editor) {
+            return;
         }
 
-        el.style.setProperty("font-size", "16px", "important");
-    }
-
-    function restore() {
-        if (restoreTimer) {
-            clearTimeout(restoreTimer);
-            restoreTimer = null;
-        }
-
-        if (activeEditor && activeEditor.isConnected) {
-            activeEditor.classList.remove("github-ios-no-zoom-v6-1-active");
-        }
-        activeEditor = null;
-
-        for (const [el, style] of saved) {
-            if (!el || !el.isConnected) continue;
-
-            if (style.value) {
-                el.style.setProperty("font-size", style.value, style.priority || "");
-            } else {
-                el.style.removeProperty("font-size");
-            }
-
-            el.classList.remove("github-ios-no-zoom-v6-1-input-active");
-        }
-
-        saved.clear();
-    }
-
-    function laterRestore(ms, token) {
-        if (restoreTimer) clearTimeout(restoreTimer);
-
-        restoreTimer = setTimeout(function () {
-            if (token !== generation) return;
-            restore();
-        }, ms);
-    }
-
-    function getElement(target) {
-        if (!target) return null;
-        if (target.nodeType === 1) return target;
-        return target.parentElement || null;
-    }
-
-    function getEditor(target) {
-        const el = getElement(target);
-        if (!el || !el.closest) return null;
-        return el.closest(".cm-editor");
-    }
-
-    function getContent(editor) {
-        if (!editor) return null;
-        return editor.querySelector(".cm-content[contenteditable=\"true\"]");
-    }
-
-    function protectEditor(editor, target) {
-        if (!editor) return;
-
-        generation++;
-        const token = generation;
-        activeEditor = editor;
 
         /*
-         * 关键：class 放在 .cm-editor 上，而不是只修改一次 content 节点。
-         * 如果 CodeMirror 替换 contentDOM，新节点仍会立即继承 16px 规则。
+         * 编辑器本身
          */
-        editor.classList.add("github-ios-no-zoom-v6-1-active");
+        editor.style.setProperty(
+            "font-size",
+            "16px",
+            "important"
+        );
 
-        const content = getContent(editor);
-        if (content) saveAndSet16(content);
-
-        /* 当前点击 token / 行也临时设为 16px。 */
-        let el = getElement(target);
-        let depth = 0;
-        while (el && el !== editor && depth < 5) {
-            if (el.matches && el.matches(".cm-line")) {
-                saveAndSet16(el);
-            }
-            el = el.parentElement;
-            depth++;
-        }
 
         /*
-         * 只在编辑器内部检查 3 帧，解决 GitHub/CodeMirror 异步 focus。
-         * 每帧只 query 当前编辑器，不扫描 document。
+         * 滚动容器
          */
-        cancelAnimationFrame(raf1);
-        cancelAnimationFrame(raf2);
-        cancelAnimationFrame(raf3);
+        var scroller =
+            editor.querySelector(
+                ".cm-scroller"
+            );
 
-        raf1 = requestAnimationFrame(function () {
-            if (token !== generation || !editor.isConnected) return;
-            editor.classList.add("github-ios-no-zoom-v6-1-active");
-            const current = getContent(editor);
-            if (current) saveAndSet16(current);
+        if (scroller) {
 
-            raf2 = requestAnimationFrame(function () {
-                if (token !== generation || !editor.isConnected) return;
-                editor.classList.add("github-ios-no-zoom-v6-1-active");
-                const current2 = getContent(editor);
-                if (current2) saveAndSet16(current2);
+            scroller.style.setProperty(
+                "font-size",
+                "16px",
+                "important"
+            );
 
-                raf3 = requestAnimationFrame(function () {
-                    if (token !== generation || !editor.isConnected) return;
-                    editor.classList.add("github-ios-no-zoom-v6-1-active");
-                    const current3 = getContent(editor);
-                    if (current3) saveAndSet16(current3);
-                });
-            });
-        });
-
-        /* 给 iOS 足够时间完成自动缩放判定，然后恢复原始字号。 */
-        laterRestore(900, token);
-    }
-
-    function protectNativeInput(el) {
-        if (!el) return;
-
-        generation++;
-        const token = generation;
-        saveAndSet16(el);
-        el.classList.add("github-ios-no-zoom-v6-1-input-active");
-        laterRestore(900, token);
-    }
-
-    function handleTarget(target) {
-        const el = getElement(target);
-        if (!el) return;
-
-        /* CodeMirror 6 编辑器优先。 */
-        const editor = getEditor(el);
-        if (editor) {
-            protectEditor(editor, el);
-            return;
         }
 
-        /* 普通可编辑控件。 */
-        const input = el.closest && el.closest("input, textarea, select");
-        if (input) {
-            const type = (input.getAttribute("type") || "text").toLowerCase();
-            if (!/^(checkbox|radio|range|button|submit|reset|file|hidden|image|color)$/.test(type)) {
-                protectNativeInput(input);
+
+        /*
+         * 真正 contenteditable
+         */
+        var content =
+            editor.querySelector(
+                ".cm-content"
+            );
+
+        if (content) {
+
+            content.style.setProperty(
+                "font-size",
+                "16px",
+                "important"
+            );
+
+            content.style.setProperty(
+                "-webkit-text-size-adjust",
+                "100%",
+                "important"
+            );
+
+            content.style.setProperty(
+                "text-size-adjust",
+                "100%",
+                "important"
+            );
+
+        }
+
+
+        /*
+         * 所有代码行
+         */
+        var lines =
+            editor.querySelectorAll(
+                ".cm-line"
+            );
+
+        for (
+            var i = 0;
+            i < lines.length;
+            i++
+        ) {
+
+            lines[i].style.setProperty(
+                "font-size",
+                "16px",
+                "important"
+            );
+
+        }
+
+    }
+
+
+    /*
+     * =====================================================
+     * 初始化所有编辑器
+     * =====================================================
+     */
+
+    function prepareAll() {
+
+        var editors =
+            getEditors();
+
+        for (
+            var i = 0;
+            i < editors.length;
+            i++
+        ) {
+
+            prepareEditor(
+                editors[i]
+            );
+
+        }
+
+    }
+
+
+    /*
+     * =====================================================
+     * 在 touchstart 阶段提前处理
+     *
+     * 这是 V4 最重要的变化。
+     *
+     * focusin 已经太晚。
+     *
+     * iOS Safari 可能在 focus 发生之前
+     * 就决定是否进行 Auto Zoom。
+     *
+     * 因此在 touchstart 时处理。
+     * =====================================================
+     */
+
+    document.addEventListener(
+        "touchstart",
+        function (event) {
+
+            var target =
+                event.target;
+
+            if (!target) {
+                return;
             }
+
+
+            /*
+             * 找到 CodeMirror 编辑器
+             */
+            var editor =
+                target.closest &&
+                target.closest(
+                    ".cm-editor"
+                );
+
+
+            if (editor) {
+
+                prepareEditor(
+                    editor
+                );
+
+            }
+
+        },
+        true
+    );
+
+
+    /*
+     * =====================================================
+     * pointerdown
+     *
+     * 某些 iOS / WebKit 情况下
+     * pointer 事件先于 focus。
+     * =====================================================
+     */
+
+    document.addEventListener(
+        "pointerdown",
+        function (event) {
+
+            var target =
+                event.target;
+
+            if (!target) {
+                return;
+            }
+
+            var editor =
+                target.closest &&
+                target.closest(
+                    ".cm-editor"
+                );
+
+            if (editor) {
+
+                prepareEditor(
+                    editor
+                );
+
+            }
+
+        },
+        true
+    );
+
+
+    /*
+     * =====================================================
+     * focusin
+     * =====================================================
+     */
+
+    document.addEventListener(
+        "focusin",
+        function (event) {
+
+            var target =
+                event.target;
+
+            if (!target) {
+                return;
+            }
+
+            var editor =
+                target.closest &&
+                target.closest(
+                    ".cm-editor"
+                );
+
+            if (editor) {
+
+                prepareEditor(
+                    editor
+                );
+
+            }
+
+        },
+        true
+    );
+
+
+    /*
+     * =====================================================
+     * MutationObserver
+     *
+     * GitHub 是 SPA。
+     *
+     * 打开：
+     *
+     * /edit/
+     *
+     * 时 CodeMirror 可能在 HTML
+     * 初始加载之后才创建。
+     * =====================================================
+     */
+
+    var observer =
+        new MutationObserver(
+            function () {
+
+                prepareAll();
+
+            }
+        );
+
+
+    function startObserver() {
+
+        if (
+            !document.documentElement
+        ) {
+            return;
         }
+
+        observer.observe(
+            document.documentElement,
+            {
+                childList: true,
+                subtree: true
+            }
+        );
+
     }
 
-    /* 最早的触摸阶段：必须早于 GitHub 的 focus。 */
-    document.addEventListener("touchstart", function (event) {
-        handleTarget(event.target);
-    }, true);
 
-    /* iOS 新版 WebKit 的 pointer 路径。 */
-    document.addEventListener("pointerdown", function (event) {
-        handleTarget(event.target);
-    }, true);
+    /*
+     * =====================================================
+     * 初始化
+     * =====================================================
+     */
 
-    /* 桌面 WebKit / 兼容路径。 */
-    document.addEventListener("mousedown", function (event) {
-        handleTarget(event.target);
-    }, true);
+    if (
+        document.readyState ===
+        "loading"
+    ) {
 
-    /* focus 后再对真正获得焦点的节点做一次确认。 */
-    document.addEventListener("focus", function (event) {
-        const el = getElement(event.target);
-        const editor = getEditor(el);
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
 
-        if (editor) {
-            protectEditor(editor, el);
-            return;
-        }
+                prepareAll();
+                startObserver();
 
-        if (el && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) {
-            protectNativeInput(el);
-        }
-    }, true);
+            },
+            {
+                once: true
+            }
+        );
 
-    document.addEventListener("focusin", function (event) {
-        const el = getElement(event.target);
-        const editor = getEditor(el);
+    } else {
 
-        if (editor) {
-            protectEditor(editor, el);
-            return;
-        }
+        prepareAll();
+        startObserver();
 
-        if (el && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) {
-            protectNativeInput(el);
-        }
-    }, true);
+    }
 
-    document.addEventListener("focusout", function (event) {
-        const el = getElement(event.target);
-        if (getEditor(el)) {
-            generation++;
-            laterRestore(250, generation);
-        }
-    }, true);
 })();
+
 </script>
 `;
 
-const injection = css + script;
 
-if (/<\\/head\\s*>/i.test(body)) {
-    body = body.replace(/<\\/head\\s*>/i, injection + "</head>");
-} else if (/<body(?:\\s[^>]*)?>/i.test(body)) {
-    body = body.replace(/<body(?:\\s[^>]*)?>/i, function (match) {
-        return match + injection;
-    });
+/* =========================================================
+ * 插入 HTML
+ * ======================================================= */
+
+const injection =
+    css + script;
+
+
+if (
+    /<\/head\s*>/i.test(body)
+) {
+
+    body =
+        body.replace(
+            /<\/head\s*>/i,
+            injection +
+            "</head>"
+        );
+
+} else if (
+    /<body(?:\s[^>]*)?>/i.test(body)
+) {
+
+    body =
+        body.replace(
+            /<body(?:\s[^>]*)?>/i,
+            function (match) {
+
+                return (
+                    match +
+                    injection
+                );
+
+            }
+        );
+
 } else {
-    body = injection + body;
+
+    body =
+        injection +
+        body;
+
 }
 
-$done({ body: body });
+
+$done({
+    body: body
+});
