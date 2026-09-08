@@ -1,11 +1,12 @@
 #!name=🆃🅾🅿🅼🅾🅳🆂 GitHub 禁止缩放
-#!desc=防止访问 GitHub 时聚焦输入框或代码编辑器导致页面自动放大
+#!desc=防止 GitHub 输入框与代码编辑器触发 iOS 自动缩放，同时避免影响普通页面加载性能
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/github_00.png
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
 [Script]
-GitHub iOS 防自动缩放 = type=http-response,pattern=^https?:\/\/github\.com\/.*,requires-body=1,max-size=-1,engine=webview,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/github-ios-no-zoom.js,timeout=10
+# 仅处理真正可能需要输入/编辑的 GitHub 页面，避免拦截仓库主页、README、文件浏览页等普通页面。
+GitHub iOS 防自动缩放 = type=http-response,pattern=^https?:\/\/github\.com\/(?:search(?:\/|\?|$)|[^\/]+\/[^\/]+\/(?:edit|issues|pull|discussions|settings)(?:\/|\?|$)),requires-body=1,max-size=-1,engine=webview,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/github-ios-no-zoom.js,timeout=10
 
 [MITM]
 hostname = %APPEND% github.com
