@@ -1,8 +1,8 @@
 #!name=OKX
 #!desc=OKX 直连规则集
-# 本规则集的目的是收集该服务的地址以使OKX进行直连连接
-# 整理作者：https://github.com/LOWERTOP
-# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+#!desc=本规则集的目的是收集该服务的地址以使OKX进行直连连接
+#!author=LOWERTOP
+#!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 # 类型选择：RULE-SET
 # 策略建议：DIRECT
 
