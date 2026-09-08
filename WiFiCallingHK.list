@@ -1,9 +1,9 @@
 #!name=Wi-Fi Calling HK
-#!desc=香港 SIM 卡 Wi-Fi Calling 配置规则
-# 本规则适用于 CSL、CMHK、3 HK 的香港 SIM 卡的 Wi-Fi Calling 功能，分流节点须是香港节点
+#!desc=香港 SIM 卡 Wi-Fi Calling 配置规则，本规则适用于 CSL、CMHK、3 HK 的香港 SIM 卡的 Wi-Fi Calling 功能，分流节点须是香港节点
+#!author=LOWERTOP
+#!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 # 规则来源：https://github.com/ous50
-# 整理作者：https://github.com/LOWERTOP
-# 仓库地址：https://github.com/LOWERTOP/Shadowrocket-First
+
 
 # 地区检测
 DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com
