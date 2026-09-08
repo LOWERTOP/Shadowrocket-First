@@ -1,19 +1,17 @@
 /*
- * GitHub iOS 防自动缩放 V5.1
+ * GitHub iOS 防自动缩放 V5.2
  * Shadowrocket HTTP Response Script
  *
- * 目标：
- * 1. 阻止 iOS 聚焦普通输入框、textarea、select 以及 GitHub CodeMirror 编辑器时的页面自动放大。
- * 2. 不永久修改网页原本字号；仅在即将获得焦点的瞬间临时提升到 16px。
- * 3. 保留 V4 已验证有效的 touchstart / pointerdown / focusin 处理方式。
- * 4. 兼容 GitHub SPA 动态创建的 CodeMirror 编辑器。
- * 5. 尽可能减少对 GitHub 页面加载和 CodeMirror 大文件编辑的性能影响。
+ * 针对 GitHub 当前文件编辑器（CodeMirror 6）优化。
+ * GitHub 官方文档确认文件编辑器使用 CodeMirror；当前编辑器结构为
+ * .cm-editor → .cm-scroller → .cm-content[contenteditable=true]。
  *
- * V5.1 性能修正版：
- * - 移除 MutationObserver：GitHub 是高频 DOM 更新的 SPA，持续观察整个 document 会产生明显开销。
- * - 不再遍历整个 .cm-line：大文件可能有数千甚至数万行，这是 V5 打开文件变慢的主要原因之一。
- * - CodeMirror 只临时处理 editor / scroller / content 三个必要层级。
- * - 动态创建的编辑器仍可通过事件委托正常捕获，无需预扫描。
+ * 核心原则：
+ * 1. 不修改普通页面的字号。
+ * 2. 不扫描整个 DOM，不使用 MutationObserver。
+ * 3. 点击 CodeMirror 时只处理当前点击行 + 真正的 contenteditable 节点。
+ * 4. 在 iOS 完成 focus/自动缩放判断前保持 >=16px，随后恢复原始字号。
+ * 5. 保留用户正常 pinch-to-zoom 能力。
  */
 
 const response = $response;
@@ -35,19 +33,13 @@ if (contentType && !/text\/html/i.test(contentType)) {
     return;
 }
 
-if (body.includes("github-ios-no-zoom-v5")) {
+if (body.includes("github-ios-no-zoom-v5.2")) {
     $done({});
     return;
 }
 
 const css = `
-<style data-github-ios-no-zoom-v5>
-
-/*
- * 禁止 WebKit 文本自动调整。
- * 注意：这与输入框 focus Auto Zoom 是两套机制，
- * 因此 V5.1 仍通过 JS 在 focus 前临时处理实际字号。
- */
+<style data-github-ios-no-zoom-v5.2>
 html,
 body,
 input,
@@ -59,78 +51,45 @@ select,
     -webkit-text-size-adjust: 100% !important;
     text-size-adjust: 100% !important;
 }
-
 </style>
 `;
 
 const script = `
-<script data-github-ios-no-zoom-v5>
-
+<script data-github-ios-no-zoom-v5.2>
 (function () {
     "use strict";
 
-    if (window.__githubIOSNoZoomV5) {
-        return;
-    }
+    if (window.__githubIOSNoZoomV52) return;
+    window.__githubIOSNoZoomV52 = true;
 
-    window.__githubIOSNoZoomV5 = true;
+    const ua = navigator.userAgent || "";
+    const ios = /iPhone|iPad|iPod/i.test(ua) ||
+        (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
 
-    function isIOS() {
-        const ua = navigator.userAgent || "";
+    if (!ios) return;
 
-        return (
-            /iPhone|iPad|iPod/i.test(ua) ||
-            (
-                /Macintosh/i.test(ua) &&
-                navigator.maxTouchPoints > 1
-            )
-        );
-    }
-
-    if (!isIOS()) {
-        return;
-    }
-
-    /*
-     * 当前一次 focus 预处理所记录的原始样式。
-     * Map 可避免 touchstart / pointerdown / focusin 重复记录。
-     */
     const pending = new Map();
     let restoreTimer = null;
     let restoreToken = 0;
 
     function rememberAndSet16(element) {
-        if (!element || element.nodeType !== 1) {
+        if (!element || element.nodeType !== 1 || pending.has(element)) {
             return;
         }
 
-        if (pending.has(element)) {
-            return;
-        }
-
-        let computedSize = 0;
-
+        let size = 0;
         try {
-            computedSize = parseFloat(
-                window.getComputedStyle(element).fontSize
-            );
+            size = parseFloat(getComputedStyle(element).fontSize);
         } catch (e) {}
 
-        /* 原本已经 >= 16px 时完全不碰。 */
-        if (isFinite(computedSize) && computedSize >= 16) {
-            return;
-        }
+        if (isFinite(size) && size >= 16) return;
 
         pending.set(element, {
             value: element.style.getPropertyValue("font-size"),
             priority: element.style.getPropertyPriority("font-size")
         });
 
-        element.style.setProperty(
-            "font-size",
-            "16px",
-            "important"
-        );
+        element.style.setProperty("font-size", "16px", "important");
     }
 
     function restoreAll() {
@@ -141,9 +100,7 @@ const script = `
             const element = entries[i][0];
             const original = entries[i][1];
 
-            if (!element || !element.isConnected) {
-                continue;
-            }
+            if (!element || !element.isConnected) continue;
 
             if (original.value) {
                 element.style.setProperty(
@@ -162,186 +119,167 @@ const script = `
 
         if (restoreTimer) {
             clearTimeout(restoreTimer);
-            restoreTimer = null;
         }
 
         /*
-         * 连续两帧后恢复原字号。
-         * 这样给 WebKit 留出完成 focus zoom 判断的时间，
-         * 同时不会让 16px 状态长期存在。
+         * 关键修正：不能像 V5.1 一样在约 120ms 后恢复。
+         * GitHub CodeMirror 6 会在点击后完成 focus、selection 和编辑器测量，
+         * iOS 的键盘/缩放判定也可能跨越数帧。
+         *
+         * 500ms 足够覆盖这个过程，但只影响刚刚点击的元素，
+         * 不会影响页面加载性能。
          */
-        requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-                if (token === restoreToken) {
-                    restoreAll();
-                }
-            });
-        });
-
         restoreTimer = setTimeout(function () {
             if (token === restoreToken) {
                 restoreAll();
+                restoreTimer = null;
             }
-        }, 120);
-    }
-
-    function getCodeMirrorEditor(element) {
-        if (!element || !element.closest) {
-            return null;
-        }
-
-        return element.closest(".cm-editor");
-    }
-
-    function prepareCodeMirror(editor) {
-        if (!editor) {
-            return;
-        }
-
-        /*
-         * CodeMirror 6 真正负责输入的节点。
-         * 不再 querySelectorAll(".cm-line")。
-         * 大文件的 .cm-line 数量可能非常多，遍历它们会明显拖慢交互。
-         */
-        const content = editor.querySelector(
-            ".cm-content[contenteditable=\"true\"]," +
-            " .cm-content," +
-            " [contenteditable=\"true\"][role=\"textbox\"]," +
-            " [contenteditable=\"true\"]"
-        );
-
-        if (!content) {
-            return;
-        }
-
-        /*
-         * 只处理三个必要层级：
-         * editor → scroller → content
-         * 不触碰每一行，保持大文件性能。
-         */
-        rememberAndSet16(editor);
-
-        const scroller = editor.querySelector(".cm-scroller");
-        if (scroller) {
-            rememberAndSet16(scroller);
-        }
-
-        rememberAndSet16(content);
+        }, 500);
     }
 
     function isNativeEditable(element) {
-        if (!element || element.nodeType !== 1) {
-            return false;
-        }
+        if (!element || element.nodeType !== 1) return false;
 
         const tag = element.tagName;
 
         if (tag === "INPUT") {
-            const type = (
-                element.getAttribute("type") || "text"
-            ).toLowerCase();
-
+            const type = (element.getAttribute("type") || "text").toLowerCase();
             return !/^(checkbox|radio|range|button|submit|reset|file|hidden|image|color)$/.test(type);
         }
 
         return tag === "TEXTAREA" || tag === "SELECT";
     }
 
-    function prepareTarget(target) {
-        if (!target || target.nodeType !== 1) {
-            return false;
+    function prepareCodeMirrorFromTarget(target) {
+        if (!target || !target.closest) return false;
+
+        const content = target.closest(".cm-content[contenteditable=\"true\"]");
+        const editor = target.closest(".cm-editor");
+
+        if (!content || !editor) return false;
+
+        /*
+         * CodeMirror 6 的真正焦点节点就是 contentDOM（.cm-content）。
+         * 这是最重要的一层。
+         */
+        rememberAndSet16(content);
+
+        /*
+         * 点击的是 .cm-line 时，额外处理当前这一行。
+         *
+         * V5 为了保险曾遍历全部 .cm-line，这会让大文件明显变慢。
+         * V5.2 只处理用户当前点击的这一行，复杂度保持 O(1)。
+         */
+        const line = target.closest(".cm-line");
+        if (line && line.parentElement === content) {
+            rememberAndSet16(line);
         }
 
-        /* 普通输入控件 */
+        return true;
+    }
+
+    function prepareTarget(target) {
+        if (!target || target.nodeType !== 1) return false;
+
         if (isNativeEditable(target)) {
             rememberAndSet16(target);
             return true;
         }
 
-        /* CodeMirror */
-        const editor = getCodeMirrorEditor(target);
-        if (editor) {
-            prepareCodeMirror(editor);
+        if (prepareCodeMirrorFromTarget(target)) {
             return true;
+        }
+
+        /*
+         * 某些 GitHub 点击路径可能先命中编辑器容器，再由 CodeMirror
+         * 异步把焦点放到 contentDOM；此时仍只查询当前编辑器内部的
+         * contenteditable 节点，不扫描整个 document。
+         */
+        const editor = target.closest && target.closest(".cm-editor");
+        if (editor) {
+            const content = editor.querySelector(".cm-content[contenteditable=\"true\"]");
+            if (content) {
+                rememberAndSet16(content);
+                return true;
+            }
         }
 
         return false;
     }
 
-    /*
-     * touchstart / pointerdown 使用 capture，
-     * 确保在 GitHub 自己的事件处理器之前完成字号预处理。
-     */
-    document.addEventListener(
-        "touchstart",
-        function (event) {
-            prepareTarget(event.target);
-        },
-        true
-    );
+    function prepareFocusedTarget(target) {
+        if (!target || target.nodeType !== 1) return;
 
-    document.addEventListener(
-        "pointerdown",
-        function (event) {
-            prepareTarget(event.target);
-        },
-        true
-    );
-
-    /*
-     * focusin：
-     * 某些情况下最终 focus 目标与 touchstart 目标不同，
-     * 因此这里补一次。
-     */
-    document.addEventListener(
-        "focusin",
-        function (event) {
-            prepareTarget(event.target);
+        if (isNativeEditable(target)) {
+            rememberAndSet16(target);
             scheduleRestore();
-        },
-        true
-    );
+            return;
+        }
 
-    /*
-     * focusout：
-     * 防止通过键盘、辅助功能等非触摸方式进入编辑器后留下临时字号。
-     */
-    document.addEventListener(
-        "focusout",
-        function () {
-            if (pending.size) {
+        if (target.matches && target.matches(".cm-content[contenteditable=\"true\"]")) {
+            rememberAndSet16(target);
+            scheduleRestore();
+            return;
+        }
+
+        const editor = target.closest && target.closest(".cm-editor");
+        if (editor) {
+            const content = editor.querySelector(".cm-content[contenteditable=\"true\"]");
+            if (content) {
+                rememberAndSet16(content);
                 scheduleRestore();
             }
-        },
-        true
-    );
+        }
+    }
 
     /*
-     * 不再使用 MutationObserver。
-     *
-     * GitHub 是 SPA，MutationObserver 监听整个 document 的 childList/subtree
-     * 会产生大量回调；而事件委托本身已经可以捕获动态创建的 CodeMirror，
-     * 因此这里无需主动扫描或监听 DOM。
+     * iOS：touchstart 是最关键的时机。
+     * 在 GitHub/CodeMirror 自己处理点击并触发 focus 之前，
+     * 先把真正的 contenteditable 提升到 16px。
      */
-})();
+    document.addEventListener("touchstart", function (event) {
+        prepareTarget(event.target);
+    }, true);
 
+    /* 某些 WebKit/WKWebView 路径主要走 pointer 事件。 */
+    document.addEventListener("pointerdown", function (event) {
+        prepareTarget(event.target);
+    }, true);
+
+    /* 鼠标事件不影响 iOS，但可覆盖部分兼容路径。 */
+    document.addEventListener("mousedown", function (event) {
+        prepareTarget(event.target);
+    }, true);
+
+    /*
+     * focus 本身比 focusin 更早进入捕获阶段；两者都保留，
+     * 但这里只做 O(1) 的当前目标处理。
+     */
+    document.addEventListener("focus", function (event) {
+        prepareFocusedTarget(event.target);
+    }, true);
+
+    document.addEventListener("focusin", function (event) {
+        prepareFocusedTarget(event.target);
+    }, true);
+
+    document.addEventListener("focusout", function () {
+        if (pending.size) {
+            scheduleRestore();
+        }
+    }, true);
+})();
 </script>
 `;
 
 const injection = css + script;
 
 if (/<\\/head\\s*>/i.test(body)) {
-    body = body.replace(
-        /<\\/head\\s*>/i,
-        injection + "</head>"
-    );
+    body = body.replace(/<\\/head\\s*>/i, injection + "</head>");
 } else if (/<body(?:\\s[^>]*)?>/i.test(body)) {
-    body = body.replace(
-        /<body(?:\\s[^>]*)?>/i,
-        function (match) {
-            return match + injection;
-        }
-    );
+    body = body.replace(/<body(?:\\s[^>]*)?>/i, function (match) {
+        return match + injection;
+    });
 } else {
     body = injection + body;
 }
