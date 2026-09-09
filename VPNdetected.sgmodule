@@ -1,5 +1,5 @@
 #!name=🆃🅾🅿🅼🅾🅳🆂 优化VPN检测提示
-#!desc=通过调整部分域名的处理方式，改善部分应用在非 TUN 模式下出现“检测到正在使用 VPN”等提示的问题。规则来源：github.com/mieqq
+#!desc=通过调整部分域名的处理方式，改善部分应用出现 “检测到正在使用 VPN” 等类似提示的问题
 #!arguments=补充跳过代理接口的域名:#英文逗号分隔域名, 补充总是真实IP的域名:#英文逗号分隔域名
 #!arguments-desc=注释：\n\n跳过代理：此选项强制这些地址的连接范围由 TUN 接口来处理，而不是其他接口\n\n总是真实 IP：此选项要求在 TUN 处理 DNS 请求时返回一个真实的 IP 地址而不是假的 IP 地址\n\n更多详情请查看：https://github.com/mieqq/mieqq/blob/master/skip-proxy-lists.sgmodule
 #!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/Shadowrocket_icon.png
