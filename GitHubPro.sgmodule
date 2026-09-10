@@ -1,0 +1,24 @@
+#!name=🅶🅸🆃🅷🆄🅱 功能增强
+#!desc=GitHub 综合增强模块，整合私库访问、语言限制解除及 iOS 页面防自动缩放功能
+#!arguments=GitHub禁止缩放:true, GitHub限制解除:false, GitHub私库用户1:#http, 用户1:填写GitHub用户名, 密钥1:填写你的PAT密钥, GitHub私库用户2:#http, 用户2:填写GitHub用户名, 密钥2:填写你的PAT密钥, GitHub私库用户3:#http, 用户3:填写GitHub用户名, 密钥3:填写你的PAT密钥, GitHub私库用户4:#http, 用户4:填写GitHub用户名, 密钥4:填写你的PAT密钥
+#!arguments-desc=【GitHub 禁止缩放】\n\n防止 iOS GitHub 页面中的输入框及代码编辑器触发自动缩放，默认启用；仅处理 GitHub 仓库页面\n\n【GitHub 限制解除】\n\n解除 GitHub 针对 zh-CN 的语言限制，默认禁用。\n\n【GitHub 私库访问】\n\n按 GitHub 用户名自动为对应的 raw.githubusercontent.com 和 gist.githubusercontent.com 请求注入 PAT，用于访问对应用户需要身份验证的私有资源。默认未启用\n\n· 在“用户”参数中填写 GitHub 用户名\n· 在“密钥”参数中填写对应的 PAT 密钥\n· PAT 通常以 github_pat_ 或 ghp_ 开头\n· 默认未启用，启用用户请将对应参数的 #http 改为 http\n· PAT 属于敏感凭据，请勿分享给他人
+#!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/github_00.png
+#!author=LOWERTOP
+#!homepage=https://github.com/LOWERTOP/Shadowrocket-First
+
+[Script]
+# GitHub iOS 防自动缩放
+GitHub iOS 防自动缩放 = type=http-response,pattern=^https?:\/\/github\.com\/[^\/]+\/[^\/]+(?:\/.*)?$,requires-body=1,max-size=-1,engine=webview,script-path=https://lowertop.github.io/Shadowrocket-First/JS/github-ios-no-zoom.js,timeout=10,enable={{{GitHub禁止缩放}}}
+
+# GitHub 限制解除
+GitHub 限制解除 = type=http-request,pattern=^https:\/\/[a-z0-9-]+\.githubusercontent\.com,script-path=https://lowertop.github.io/Shadowrocket-First/JS/github-header.js,max-size=0,timeout=30,script-update-interval=0,enable={{{GitHub限制解除}}}
+
+[Header Rewrite]
+# GitHub 私库访问
+{{{GitHub私库用户1}}}-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/{{{用户1}}}\/ header-replace Authorization "token {{{密钥1}}}"
+{{{GitHub私库用户2}}}-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/{{{用户2}}}\/ header-replace Authorization "token {{{密钥2}}}"
+{{{GitHub私库用户3}}}-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/{{{用户3}}}\/ header-replace Authorization "token {{{密钥3}}}"
+{{{GitHub私库用户4}}}-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/{{{用户4}}}\/ header-replace Authorization "token {{{密钥4}}}"
+
+[MITM]
+hostname = %APPEND% github.com, *.githubusercontent.com
