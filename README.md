@@ -64,7 +64,7 @@
 
 ### [优化VPN检测提示](#优化vpn检测提示)
 
-> 本模块通过调整部分域名的处理方式，改善部分应用主要在非 TUN 模式下出现 **“检测到正在使用 VPN”** 等提示的问题。并可以以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 的方式补充添加其他域名。规则来源于 [mieqq](https://github.com/mieqq)，详情请查看编辑参数内的说明
+> 本模块通过调整部分域名的处理方式，改善部分应用主要在非 TUN 模式下出现 **“检测到正在使用 VPN”** 等提示的问题。并可以以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 的方式补充添加其他域名。详情请查看编辑参数内的说明，规则来源于 [mieqq](https://github.com/mieqq)，同时提供原作者的原版模块
 > 
 > [![安装模块 检测提示](https://img.shields.io/static/v1?label=安装模块&message=检测提示&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/VPNdetected.sgmodule "一键安装本模块")
 > [![安装模块 原版模块](https://img.shields.io/static/v1?label=安装模块&message=原版模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/mieqq/mieqq/refs/heads/master/skip-proxy-lists.sgmodule "一键安装本模块")
