@@ -1,9 +1,9 @@
 #!name=🆃🅾🅿🅼🅾🅳🆂 优化VPN检测提示
 #!desc=通过调整部分域名的处理方式，改善部分应用出现 “检测到正在使用 VPN” 等类似提示的问题
 #!arguments=补充跳过代理接口的域名:#英文逗号分隔域名, 补充总是真实IP的域名:#英文逗号分隔域名
-#!arguments-desc=注释：\n\n跳过代理：此选项强制这些地址的连接范围由 TUN 接口来处理，而不是其他接口\n\n总是真实 IP：此选项要求在 TUN 处理 DNS 请求时返回一个真实的 IP 地址而不是假的 IP 地址\n\n更多详情请查看：https://github.com/mieqq/mieqq/blob/master/skip-proxy-lists.sgmodule
+#!arguments-desc=注释：\n\n🔘 跳过代理：此选项强制这些地址的连接范围由 TUN 接口来处理，而不是其他接口\n\n🔘 总是真实 IP：此选项要求在 TUN 处理 DNS 请求时返回一个真实的 IP 地址而不是假的 IP 地址\n\n🔘 部分服务使用的检测域名：\n\nwww.baidu.com：网上国网、多看阅读、顺丰金融、广东农信、丰云行、中国银行缤纷生活、通信行程卡 App、趣智校园、趣听音乐、光大手机银行、掌上12333、沃视频\n\nyunbusiness.ccb.com：建行生活\n\nwxh.wo.cn：沃小号\n\ngate.lagou.com：拉勾招聘\n\nwww.abchina.com.cn：中国农业银行\n\nwww.shanbay.com：扇贝单词消息中心\n\nwww.google.com：成都公积金\n\nlogin-service.mobile-bank.psbc.com、mobile-bank.psbc.com：中国邮政储蓄银行\n\neasy-login.10099.com.cn：中国广电\n\n*-update.xoyocdn.com：剑网三无界\n\nid6.me：中国电信一键登录\n\nwww.163.com：交管12123
 #!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/Shadowrocket_icon.png
-#!homepage=https://github.com/mieqq/mieqq/blob/master/skip-proxy-lists.sgmodule
+#!homepage=https://github.com/mieqq/mieqq
 
 [General]
 # 跳过代理。此选项强制这些域名或 IP 的连接范围由 Shadowrocket TUN 接口来处理，而不是 Shadowrocket 代理服务器。此选项用于解决一些应用程序的一些兼容性问题。
@@ -15,3 +15,4 @@ always-real-ip = *-update.xoyocdn.com, easy-login.10099.com.cn, id6.me, open.e.1
 [Rule]
 # 农行VPN检测
 DOMAIN,msmp.abchina.com.cn,REJECT
+
