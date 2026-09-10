@@ -123,17 +123,29 @@
 >
 > [![安装模块 苹果助手](https://img.shields.io/static/v1?label=安装模块&message=苹果助手&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Helper.sgmodule "一键安装本模块")
 
+### [GitHub 功能增强模块](#github-功能增强模块)
+
+> GitHub 综合增强模块，包含下方其他 GitHub 模块的全部功能，整合 GitHub iOS 页面防自动缩放、私库资源访问、中文语言限制解除等功能，是下方模块的整合版本。相应功能请进入 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 启用或修改
+> 
+> [![安装模块 功能增强](https://img.shields.io/static/v1?label=安装模块&message=功能增强&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/GitHubPro.sgmodule "一键安装本模块")
+
 ### [GitHub 禁止缩放模块](#github-禁止缩放模块)
 
-> 解决 iPhone/iPad 访问 GitHub 时，聚焦输入框或进入代码编辑器时导致页面自动放大的问题，针对 GitHub CodeMirror 编辑器进行优化，提升移动端浏览与编辑体验
+> 解决 iPhone/iPad 访问 GitHub 时，聚焦输入框或进入代码编辑器时导致页面自动放大的问题，针对 GitHub CodeMirror 编辑器进行优化，提升移动端浏览与编辑体验。本模块包含在 [功能增强模块](#github-功能增强模块) 中
 > 
 > [![安装模块 禁止缩放](https://img.shields.io/static/v1?label=安装模块&message=禁止缩放&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/GitHub-iOS-No-Zoom.sgmodule "一键安装本模块")
 
 ### [GitHub 私库访问模块](#github-私库访问模块)
 
-> 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的基于用户维度的访问 GitHub 私密仓库的多 Token 自动鉴权模块，支持配置 4 个不同的 GitHub 账号，自动匹配 `raw` 或 `gist` 文件地址中的用户名并注入对应的 Token，实现多用户、多仓库的鉴权访问，在 编辑参数 内填写所需内容即可生效
+> 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的基于用户维度的访问 GitHub 私密仓库的多 Token 自动鉴权模块，支持配置 4 个不同的 GitHub 账号，自动匹配 `raw` 或 `gist` 文件地址中的用户名并注入对应的 Token，实现多用户、多仓库的鉴权访问，在 编辑参数 内填写所需内容即可生效。本模块包含在 [功能增强模块](#github-功能增强模块) 中
 > 
 > [![安装模块 私库模块](https://img.shields.io/static/v1?label=安装模块&message=私库模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Private.module "一键安装本模块")
+
+### [GitHub 限制解除模块](#github-限制解除模块)
+
+> 解除 GitHub 针对中文（zh-CN）语言环境的访问限制。部分 GitHub 资源，尤其是 `raw.githubusercontent.com` 等 `githubusercontent.com` 下的文件，在请求的 `Accept-Language` 包含 `zh-CN` 时可能触发 `429 Too Many Requests`，并显示 `Access has been restricted`。本模块通过将 GitHub 请求的语言标识调整为其他语言，可在一定程度上避免触发该限制。模块仅修改请求头中的语言标识，不改变账户权限或仓库访问权限。本模块包含在 [功能增强模块](#github-功能增强模块) 中
+> 
+> [![安装模块 限制解除](https://img.shields.io/static/v1?label=安装模块&message=限制解除&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/FuckGitHub.sgmodule "一键安装本模块")
 
 ### [证书模块](#证书模块)
 
