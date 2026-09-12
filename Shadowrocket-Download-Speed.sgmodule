@@ -1,0 +1,10 @@
+#!name=🚀 Shadowrocket 实际下载测速
+#!desc=通过 Cloudflare 官方测速服务测试当前节点的实际下载速度
+#!arguments=测速数据量:50
+#!arguments-desc=正式测速数据量，单位 MB，范围 5-95，建议 50
+
+[Script]
+🚀 实际下载测速 = type=generic,timeout=40,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/shadowrocket-download-speed.js,argument=50
+
+[MITM]
+hostname = speed.cloudflare.com
