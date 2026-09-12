@@ -62,19 +62,6 @@
 > 
 > [![安装模块 米家3D打印](https://img.shields.io/static/v1?label=安装模块&message=米家3D打印&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Mi3D-Enhance.sgmodule "一键安装本模块")
 
-### [优化VPN检测提示](#优化vpn检测提示)
-
-> 本模块通过调整部分域名的处理方式，改善部分应用主要在非 TUN 模式下出现 **“检测到正在使用 VPN”** 等提示的问题。并可以以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 的方式补充添加其他域名。详情请查看编辑参数内的说明，规则来源于 [mieqq](https://github.com/mieqq)，同时提供原作者的原版模块
-> 
-> [![安装模块 检测提示](https://img.shields.io/static/v1?label=安装模块&message=检测提示&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/VPNdetected.sgmodule "一键安装本模块")
-> [![安装模块 原版模块](https://img.shields.io/static/v1?label=安装模块&message=原版模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/mieqq/mieqq/refs/heads/master/skip-proxy-lists.sgmodule "一键安装本模块")
-
-### [咪咕直播源模块](#咪咕直播源模块)
-
-> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本模块，理论上应该支持任意网络环境使用咪咕直播源观看 IPTV。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分参数调整选项。若使用上存在问题可以尝试在 [DNS 覆写](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E4%BF%AE%E6%94%B9dns) 中添加 `114.114.114.114`
->
-> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CMCCiTV.sgmodule "一键安装本模块")
-
 ### [DeepSeek](#deepseek)
 
 > DeepSeek 在某些特定地区必须使用手机号注册和登陆使用，本仓提供分流模块和代理规则，可以解锁使用邮箱、谷歌账号等方式注册与登录该服务。同时，模块中屏蔽了部分 **存疑** 地址，也支持在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 内设置分流的代理节点或分组
@@ -117,6 +104,19 @@
 > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUK.sgmodule "一键安装本模块")
 > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUK.list "点击访问规则集")
 
+### [咪咕直播源模块](#咪咕直播源模块)
+
+> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本模块，理论上应该支持任意网络环境使用咪咕直播源观看 IPTV。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分参数调整选项。若使用上存在问题可以尝试在 [DNS 覆写](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E4%BF%AE%E6%94%B9dns) 中添加 `114.114.114.114`
+>
+> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CMCCiTV.sgmodule "一键安装本模块")
+
+### [优化VPN检测提示](#优化vpn检测提示)
+
+> 本模块通过调整部分域名的处理方式，改善部分应用主要在非 TUN 模式下出现 **“检测到正在使用 VPN”** 等提示的问题。并可以以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 的方式补充添加其他域名。详情请查看编辑参数内的说明，规则来源于 [mieqq](https://github.com/mieqq)，同时提供原作者的原版模块
+> 
+> [![安装模块 检测提示](https://img.shields.io/static/v1?label=安装模块&message=检测提示&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/VPNdetected.sgmodule "一键安装本模块")
+> [![安装模块 原版模块](https://img.shields.io/static/v1?label=安装模块&message=原版模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/mieqq/mieqq/refs/heads/master/skip-proxy-lists.sgmodule "一键安装本模块")
+
 ### [苹果助手](#苹果助手)
 
 > 本模块以苹果下载加速功能为主，包含 [苹果商店下载加速](https://t.me/ibilibili/994) 与 [系统升级加速](https://t.me/ibilibili/1014) 功能，应该可以改善部分地区下载更新相对缓慢的情况。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，可根据说明自行测试和修改相关参数
@@ -127,24 +127,14 @@
 
 > GitHub 综合增强模块，包含下方其他 GitHub 模块的全部功能，整合 GitHub iOS 页面防自动缩放、私库资源访问、中文语言限制解除等功能，是下方模块的整合版本。相应功能请进入 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 启用或修改
 > 
+> > * **禁止缩放模块**：解决 iPhone/iPad 访问 GitHub 时，聚焦输入框或进入代码编辑器时导致页面自动放大的问题，针对 GitHub CodeMirror 编辑器进行优化，提升移动端浏览与编辑体验
+> > * **私库访问模块**：本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的基于用户维度的访问 GitHub 私密仓库的多 Token 自动鉴权模块，支持配置 4 个不同的 GitHub 账号，自动匹配 `raw` 或 `gist` 文件地址中的用户名并注入对应的 Token，实现多用户、多仓库的鉴权访问，在 编辑参数 内填写所需内容即可生效
+> > * **限制解除模块**：本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的基于用户维度的访问 GitHub 私密仓库的多 Token 自动鉴权模块，支持配置 4 个不同的 GitHub 账号，自动匹配 `raw` 或 `gist` 文件地址中的用户名并注入对应的 Token，实现多用户、多仓库的鉴权访问，在 编辑参数 内填写所需内容即可生效
+> 
+> 
 > [![安装模块 功能增强](https://img.shields.io/static/v1?label=安装模块&message=功能增强&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/GitHubPro.sgmodule "一键安装本模块")
-
-### [GitHub 禁止缩放模块](#github-禁止缩放模块)
-
-> 解决 iPhone/iPad 访问 GitHub 时，聚焦输入框或进入代码编辑器时导致页面自动放大的问题，针对 GitHub CodeMirror 编辑器进行优化，提升移动端浏览与编辑体验。本模块包含在 [功能增强模块](#github-功能增强模块) 中
-> 
 > [![安装模块 禁止缩放](https://img.shields.io/static/v1?label=安装模块&message=禁止缩放&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/GitHub-iOS-No-Zoom.sgmodule "一键安装本模块")
-
-### [GitHub 私库访问模块](#github-私库访问模块)
-
-> 本模块是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能构建的基于用户维度的访问 GitHub 私密仓库的多 Token 自动鉴权模块，支持配置 4 个不同的 GitHub 账号，自动匹配 `raw` 或 `gist` 文件地址中的用户名并注入对应的 Token，实现多用户、多仓库的鉴权访问，在 编辑参数 内填写所需内容即可生效。本模块包含在 [功能增强模块](#github-功能增强模块) 中
-> 
 > [![安装模块 私库模块](https://img.shields.io/static/v1?label=安装模块&message=私库模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Private.module "一键安装本模块")
-
-### [GitHub 限制解除模块](#github-限制解除模块)
-
-> 解除 GitHub 针对中文（zh-CN）语言环境的访问限制。部分 GitHub 资源，尤其是 `raw.githubusercontent.com` 等 `githubusercontent.com` 下的文件，在请求的 `Accept-Language` 包含 `zh-CN` 时可能触发 `429 Too Many Requests`，并显示 `Access has been restricted`。本模块通过将 GitHub 请求的语言标识调整为其他语言，可在一定程度上避免触发该限制。模块仅修改请求头中的语言标识，不改变账户权限或仓库访问权限。本模块包含在 [功能增强模块](#github-功能增强模块) 中
-> 
 > [![安装模块 限制解除](https://img.shields.io/static/v1?label=安装模块&message=限制解除&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/FuckGitHub.sgmodule "一键安装本模块")
 
 ### [证书模块](#证书模块)
