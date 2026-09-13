@@ -39,6 +39,13 @@
 > 本章主要是为 **特定软件或服务** 所制作的模块、规则集等自制内容<br>
 > 各模块基本都包含有 **编辑参数** 选项，可 [进入编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0) 进行调整
 
+### [DeepSeek](#deepseek)
+
+> DeepSeek 在某些特定地区必须使用手机号注册和登陆使用，本仓提供分流模块和代理规则，可以解锁使用邮箱、谷歌账号等方式注册与登录该服务。同时，模块中屏蔽了部分 **存疑** 地址，也支持在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 内设置分流的代理节点或分组
+> 
+> [![安装模块 DeepSeek](https://img.shields.io/static/v1?label=安装模块&message=DeepSeek&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/DeepSeek.sgmodule "一键安装本模块")
+> [![规则文件 DeepSeek](https://img.shields.io/static/v1?label=规则文件&message=DeepSeek&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/DeepSeek.list "点击访问规则集")
+
 ### [Talkatone](#talkatone)
 
 > 本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供 [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneProxy.list)
@@ -62,12 +69,11 @@
 > 
 > [![安装模块 米家3D打印](https://img.shields.io/static/v1?label=安装模块&message=米家3D打印&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Mi3D-Enhance.sgmodule "一键安装本模块")
 
-### [DeepSeek](#deepseek)
+### [咪咕直播源模块](#咪咕直播源模块)
 
-> DeepSeek 在某些特定地区必须使用手机号注册和登陆使用，本仓提供分流模块和代理规则，可以解锁使用邮箱、谷歌账号等方式注册与登录该服务。同时，模块中屏蔽了部分 **存疑** 地址，也支持在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 内设置分流的代理节点或分组
-> 
-> [![安装模块 DeepSeek](https://img.shields.io/static/v1?label=安装模块&message=DeepSeek&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/DeepSeek.sgmodule "一键安装本模块")
-> [![规则文件 DeepSeek](https://img.shields.io/static/v1?label=规则文件&message=DeepSeek&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/DeepSeek.list "点击访问规则集")
+> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本模块，理论上应该支持任意网络环境使用咪咕直播源观看 IPTV。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分参数调整选项。若使用上存在问题可以尝试在 [DNS 覆写](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E4%BF%AE%E6%94%B9dns) 中添加 `114.114.114.114`
+>
+> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CMCCiTV.sgmodule "一键安装本模块")
 
 ### [Emby分流控制策略](#emby分流控制策略)
 
@@ -89,26 +95,25 @@
 
 > Wi-Fi Calling 相关 **测试配置**，包含适用于美国、英国等地区 SIM 卡的相关模块和规则集。模块内置有代理分组，使用正则表达式自动将所需的地区节点选取到该分组，并使用 URL-TEST 的类型自动进行节点选择。以下模块均提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分可选参数调整选项
 > 
-> **香港地区**：适用于 CSL、CMHK、3 HK 的香港 SIM 卡，可选模块或规则集。相关规则来源于 [ous fifty](https://github.com/ous50)
+> > * **香港地区**：适用于 CSL、CMHK、3 HK 的香港 SIM 卡，可选模块或规则集。相关规则来源于 [ous fifty](https://github.com/ous50)
+> >
+> > * **美国地区**：适用于 Ultra Mobile，原则上也适用 T-Mobile 的 SIM 卡，可选模块或规则集
+> >
+> > * **英国地区**：原则上适用于 **[Giffgaff](http://www.giffgaff.com/orders/affiliate/onone040_1742873967723)**、CMLink 以及沃达丰的 SIM 卡，可选模块或规则集。Giffgaff 的开启条件相对苛刻，查看 [官方要求](https://help.giffgaff.com/en/articles/258841-wifi-calling-and-volte)，查看 [开启教程](https://www.nodeseek.com/post-183470-1)，已知 **`iOS 26`** 暂时无法开启
 > 
 > [![安装模块 WiFiCall-HK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-HK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingHK.sgmodule "一键安装本模块")
-> [![规则文件 WiFiCall-HK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-HK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingHK.list "点击访问规则集")
->
-> **美国地区**：适用于 Ultra Mobile，原则上也适用 T-Mobile 的 SIM 卡，可选模块或规则集
-> 
 > [![安装模块 WiFiCall-US](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-US&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUS.sgmodule "一键安装本模块")
-> [![规则文件 WiFiCall-US](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-US&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUS.list "点击访问规则集")
->
-> **英国地区**：原则上适用于 **[Giffgaff](http://www.giffgaff.com/orders/affiliate/onone040_1742873967723)**、CMLink 以及沃达丰的 SIM 卡，可选模块或规则集。Giffgaff 的开启条件相对苛刻，查看 [官方要求](https://help.giffgaff.com/en/articles/258841-wifi-calling-and-volte)，查看 [开启教程](https://www.nodeseek.com/post-183470-1)，已知 **`iOS 26`** 暂时无法开启
-> 
 > [![安装模块 WiFiCall-UK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-UK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUK.sgmodule "一键安装本模块")
+> 
+> [![规则文件 WiFiCall-HK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-HK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingHK.list "点击访问规则集")
+> [![规则文件 WiFiCall-US](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-US&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUS.list "点击访问规则集")
 > [![规则文件 WiFiCall-UK](https://img.shields.io/static/v1?label=规则文件&message=WiFiCall-UK&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUK.list "点击访问规则集")
 
-### [咪咕直播源模块](#咪咕直播源模块)
+### [苹果助手](#苹果助手)
 
-> 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本模块，理论上应该支持任意网络环境使用咪咕直播源观看 IPTV。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分参数调整选项。若使用上存在问题可以尝试在 [DNS 覆写](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E4%BF%AE%E6%94%B9dns) 中添加 `114.114.114.114`
+> 本模块以苹果下载加速功能为主，包含 [苹果商店下载加速](https://t.me/ibilibili/994) 与 [系统升级加速](https://t.me/ibilibili/1014) 功能，应该可以改善部分地区下载更新相对缓慢的情况。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，可根据说明自行测试和修改相关参数
 >
-> [![安装模块 CMCCiTV](https://img.shields.io/static/v1?label=安装模块&message=CMCCiTV&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CMCCiTV.sgmodule "一键安装本模块")
+> [![安装模块 苹果助手](https://img.shields.io/static/v1?label=安装模块&message=苹果助手&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Helper.sgmodule "一键安装本模块")
 
 ### [优化VPN检测提示](#优化vpn检测提示)
 
@@ -116,12 +121,6 @@
 > 
 > [![安装模块 检测提示](https://img.shields.io/static/v1?label=安装模块&message=检测提示&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/VPNdetected.sgmodule "一键安装本模块")
 > [![安装模块 原版模块](https://img.shields.io/static/v1?label=安装模块&message=原版模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/mieqq/mieqq/refs/heads/master/skip-proxy-lists.sgmodule "一键安装本模块")
-
-### [苹果助手](#苹果助手)
-
-> 本模块以苹果下载加速功能为主，包含 [苹果商店下载加速](https://t.me/ibilibili/994) 与 [系统升级加速](https://t.me/ibilibili/1014) 功能，应该可以改善部分地区下载更新相对缓慢的情况。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，可根据说明自行测试和修改相关参数
->
-> [![安装模块 苹果助手](https://img.shields.io/static/v1?label=安装模块&message=苹果助手&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Helper.sgmodule "一键安装本模块")
 
 ### [GitHub 功能增强模块](#github-功能增强模块)
 
