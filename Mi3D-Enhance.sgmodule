@@ -1,8 +1,8 @@
 #!name=🆁🅴🆂🅸🅽🅿🆁 米家3D打印增强
+#!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/mi3d.png
 #!desc=编辑参数以隐藏底部标签页
 #!arguments=隐藏首页:true, 隐藏社区:true, 隐藏创意:true, 隐藏消息:true, 隐藏我的:false
 #!arguments-desc=切换开关状态并重启软件即可生效
-#!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/mi3d.png
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
