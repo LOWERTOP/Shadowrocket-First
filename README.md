@@ -212,20 +212,6 @@
 > > [![首先安装 解析模块](https://img.shields.io/static/v1?label=首先安装&message=解析模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule "一键安装本模块")
 > > [![其次访问 插件中心](https://img.shields.io/static/v1?label=其次访问&message=插件中心&color=grey&logo=safari&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://hub.kelee.one "访问相应地址")
 > 
-> **[定位修改方案](https://github.com/Yu9191/wloc)**
-> 
-> > 本方案来自 [Yu9191](https://github.com/Yu9191)，可修改 Apple 网络定位服务 (WiFi/基站) 返回的坐标，实现 iOS 网络虚拟定位。本方案包含定位模块和辅助快捷指令，支持使用苹果地图、高德地图进行定位修改。更多信息请查看 [原始仓库](https://github.com/Yu9191/wloc)
-> >
-> > - **准备阶段：** 正确安装下方模块及快捷指令
-> > - **设置位置：** 在地图 App 里选好位置（长按地图选点）→ 共享 → 选「wloc 设置地理位置」快捷指令即可运行切换。在弹出定位设置页面后请关闭定位并等待10秒后重新打开即可完成切换，可在定位类软件中查看是否成功
-> >   - 苹果地图：选点 → 共享 → 「wloc 设置地理位置」快捷指令
-> >   - 高德地图：选点 → 分享 → **更多** → 「wloc 设置地理位置」快捷指令
-> > - **恢复位置：** 点「wloc 清理恢复位置」快捷指令即可恢复真实定位
-> >
-> > [![安装模块 定位修改](https://img.shields.io/static/v1?label=安装模块&message=定位修改&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Yu9191/wloc/refs/heads/main/modules/wloc.module "一键安装本模块")
-> > [![快捷指令 设置位置](https://img.shields.io/static/v1?label=快捷指令&message=设置位置&color=grey&logo=removedotbg&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/a82717d8fdad4e6280866fcf911173f7 "点击安装快捷指令")
-> > [![快捷指令 恢复位置](https://img.shields.io/static/v1?label=快捷指令&message=恢复位置&color=grey&logo=removedotbg&logoColor=white&labelColor=%23855DCD&messageColor=grey)](https://www.icloud.com/shortcuts/f42632d406504f24a2cd163af4fe012f "点击安装快捷指令")
->
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
 > > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可去除软件内各类广告并提供画中画功能（可能需要关闭 YouTube 设置中的“自动播放下一个视频”功能），同时支持 YouTube Music 去广告。模块支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，安装后可点击模块进入编辑参数页面，可选是否屏蔽上传、Shorts、选段等按钮。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块<br>
