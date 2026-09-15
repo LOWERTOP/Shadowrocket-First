@@ -1,0 +1,50 @@
+#!name=🅲🅰🅳🆅🅸🅴🆆 浩辰 CAD 看图王
+#!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/CAD.png
+#!desc=自用测试模块，仅包含规则不包含重写，若有误杀概不负责
+#!author=LOWERTOP
+#!homepage=https://github.com/LOWERTOP/Shadowrocket-First
+
+[Rule]
+# CAD 看图王
+# Adjust - 移动端广告归因与数据分析平台
+DOMAIN-SUFFIX,adjust.com,REJECT
+# Adjust - 归因与数据追踪 API
+DOMAIN-SUFFIX,adjust.io,REJECT
+# AppsFlyer - 移动广告归因与效果追踪
+DOMAIN-SUFFIX,appsflyer.com,REJECT
+# AppsFlyer - 广告追踪与数据上报衍生域名
+DOMAIN-SUFFIX,tappsflyer.com,REJECT
+# Google - Firebase Crashlytics 崩溃日志与性能收集
+DOMAIN-SUFFIX,crashlytics.com,REJECT
+# Google - DoubleClick 广告网络与投放系统
+DOMAIN-SUFFIX,doubleclick.net,REJECT
+# Liftoff (Vungle) - 移动视频广告投放与配置上报
+DOMAIN-SUFFIX,vungle.com,REJECT
+# Mintegral (汇量科技) - 移动广告投放与行为分析 SDK
+DOMAIN-SUFFIX,rayjump.com,REJECT
+# MobTech - 移动开发者服务（设备信息收集与分享组件）
+DOMAIN-SUFFIX,mob.com,REJECT
+# Moss / Hooks - 移动广告交易与打点追踪 (ADX/Tracking)
+DOMAIN-SUFFIX,hookspf.com,REJECT
+# Moss / Hooks - 移动广告追踪与投放服务 (ADX/Tracking)
+DOMAIN-SUFFIX,mosspf.net,REJECT
+# Moss / Hooks - 移动广告分发与策略接口
+DOMAIN-SUFFIX,mossru.com,REJECT
+# TikTok Pangle (穿山甲海外版) - 广告竞价与请求 API
+DOMAIN-SUFFIX,tiktokpangle.us,REJECT
+# TikTok Pangle (穿山甲海外版) - 广告静态素材 CDN
+DOMAIN-SUFFIX,tiktokpangle-cdn-us.com,REJECT
+# TopOn (AnyThink) - 广告聚合平台 SDK 与竞价服务
+DOMAIN-SUFFIX,anythinktech.com,REJECT
+# TopOn - 移动广告聚合瀑布流竞价与请求
+DOMAIN-SUFFIX,toponad.com,REJECT
+# TradPlus - 移动广告聚合平台与归因服务
+DOMAIN-SUFFIX,tradtplusad.com,REJECT
+# 友盟+ (Umeng) - 移动统计与用户行为分析
+DOMAIN-SUFFIX,umeng.com,REJECT
+# 友盟+ (Umeng) - 消息推送与统计云端 API
+DOMAIN-SUFFIX,umengcloud.com,REJECT
+# LLYClub - 第三方广告聚合与设备追踪 SDK
+DOMAIN-SUFFIX,llyclub.cn,REJECT
+# 第三方应用数据分析与统计服务
+DOMAIN-SUFFIX,app-analytics-services.com,REJECT
