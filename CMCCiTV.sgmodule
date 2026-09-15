@@ -7,8 +7,6 @@
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 #!source=https://pixman.io/topics/37
 
-[General]
-
 [Rule]
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaMobile/ChinaMobile.list,DIRECT
 DOMAIN-SUFFIX,cmvideo.cn,DIRECT
