@@ -353,6 +353,11 @@
     </main>
   </div>
 
+<!-- 返回顶部按钮 -->
+<button id="back-to-top" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 p-2.5 rounded-full bg-sky-500 text-white shadow-lg shadow-sky-500/30 opacity-0 pointer-events-none transform translate-y-4 transition-all duration-300 z-40 hover:bg-sky-600 focus:outline-none dark:bg-sky-600 dark:hover:bg-sky-500" title="返回顶部">
+  <i data-lucide="arrow-up" class="w-5 h-5"></i>
+</button>
+  
   <!-- 全文检索弹窗 -->
   <div id="search-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-start justify-center p-3 pt-12 md:pt-20">
     <div class="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden transform transition-all max-h-[80vh]">
@@ -971,6 +976,32 @@
         }
       }
 
+/* ---------- 返回顶部逻辑 ---------- */
+const backToTopBtn = $('back-to-top');
+const scrollContainer = $('content-container');
+
+if (scrollContainer && backToTopBtn) {
+  // 监听滚动，控制按钮显示/隐藏
+  scrollContainer.addEventListener('scroll', () => {
+    if (scrollContainer.scrollTop > 500) {
+      backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+      backToTopBtn.classList.add('opacity-100', 'translate-y-0');
+    } else {
+      backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+      backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+    }
+  }, { passive: true });
+
+  // 点击平滑滚动回顶部
+  backToTopBtn.addEventListener('click', () => {
+    const reduced = prefersReducedMotion.matches;
+    scrollContainer.scrollTo({
+      top: 0,
+      behavior: reduced ? 'auto' : 'smooth'
+    });
+  });
+}
+      
       /* ---------- 响应式视口监听 ---------- */
       function syncSidebarState() {
         if (window.innerWidth < 768) {
