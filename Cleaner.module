@@ -12,6 +12,7 @@ DOMAIN-WILDCARD,*-misc-lq.fqnovel.com,REJECT
 DOMAIN-WILDCARD,*-reading-ad.qznovelvod.com,REJECT
 DOMAIN-WILDCARD,*-ad-sign.byteimg.com,REJECT
 DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,REJECT
+DOMAIN-WILDCARD,ads*-normal-l*.zijieapi.com,REJECT
 DOMAIN-SUFFIX,v11-reading-video.qznovelvod.com,REJECT
 
 # 包子漫画所需特定规则
