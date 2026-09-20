@@ -325,23 +325,23 @@
 >
 > [![社区资源 iab0x00](https://img.shields.io/static/v1?label=社区资源&message=iab0x00&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看")
 >
-> [奶思](https://github.com/fmz200) 维护的仓库，包含数百款独立模块
+> [fmz200](https://github.com/fmz200) 维护的仓库，包含数百款独立模块和多个不同类型的合集类模块
 >
-> [![社区资源 奶思](https://img.shields.io/static/v1?label=社区资源&message=奶思&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/tree/main/Shadowrocket/module "点击查看")
+> [![社区资源 fmz200](https://img.shields.io/static/v1?label=社区资源&message=fmz200&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/tree/main/Shadowrocket/module "点击查看")
 > 
 > [zirawell](https://github.com/zirawell) 维护的仓库，包含数百款独立模块和多个不同类型的合集类模块
 >
 > [![社区资源 zirawell](https://img.shields.io/static/v1?label=社区资源&message=zirawell&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/zirawell/R-Store/tree/main/Rule/Surge/Adblock "点击查看")
 > 
-> [Ling KeQing](https://github.com/QingRex) 维护的资源丰富的 [模块资源仓库](https://github.com/QingRex/LoonKissSurge)，多数可直接使用
+> [QingRex](https://github.com/QingRex) 维护的资源丰富的 [模块资源仓库](https://github.com/QingRex/LoonKissSurge)，多数可直接使用
 >
-> [![社区资源 QingRex](https://img.shields.io/static/v1?label=社区资源&message=KeQing&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看")
+> [![社区资源 QingRex](https://img.shields.io/static/v1?label=社区资源&message=QingRex&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看")
 >
-> [可莉](https://github.com/luestr) 维护的资源，安装 [插件中心专用转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
+> [Kelee](https://github.com/luestr) 维护的资源，安装 [插件中心专用转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
 >
 > [![社区资源 Kelee](https://img.shields.io/static/v1?label=社区资源&message=Kelee&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://hub.kelee.one/ "点击查看")
 > 
-> [Cuttlefish 墨鱼](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块资源网站，需提前安装 [墨鱼专用前置模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
+> [Cuttlefish](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块资源网站，需提前安装 [墨鱼专用前置模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
 >
 > [![社区资源 Cuttlefish](https://img.shields.io/static/v1?label=社区资源&message=Cuttlefish&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://ddgksf2013.top/ "点击查看")
 
