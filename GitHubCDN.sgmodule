@@ -1,38 +1,25 @@
 #!name= 🅶🅸🆃🅷🅴🅻🅿 资源加速
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/github_00.png
-#!desc=自动将 GitHub 资源重定向至国内可用的镜像资源站。包含：头像、Pages、Raw、Release、Gist、源码归档及对象存储资源等
+#!desc=自动将 GitHub 资源重定向至国内可用的镜像资源站。编辑参数可自定义切换分支
+#!arguments=CDN:cdn
+#!arguments-desc=支持选填jsdelivr的其他节点：\n默认填写：cdn\n可选填写：fastly\n可选填写：gcore
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
 # 直连镜像网站
-DOMAIN-SUFFIX,ghproxy.net,DIRECT
+DOMAIN-SUFFIX,jsdelivr.net,DIRECT
 
 [URL Rewrite]
+# 优先匹配带有 refs/heads/ 的 raw 路径
+^https?://raw\.githubusercontent\.com/([^/]+)/([^/]+)/refs/heads/([^/]+)/(.*)$ https://{{{CDN}}}.jsdelivr.net/gh/$1/$2@$3/$4 302
 
-# GitHub 用户头像
-^https?://avatars\.githubusercontent\.com/(.+)$ https://ghproxy.net/https://avatars.githubusercontent.com/$1 302
+^https?://github\.com/([^/]+)/([^/]+)/raw/refs/heads/([^/]+)/(.*)$ https://{{{CDN}}}.jsdelivr.net/gh/$1/$2@$3/$4 302
 
-# GitHub Pages
-^https?://([^/]+)\.github\.io/?(.*)$ https://ghproxy.net/https://$1.github.io/$2 302
+# 匹配标准分支名/标签名/Commit 的 raw 路径
+^https?://raw\.githubusercontent\.com/([^/]+)/([^/]+)/([^/]+)/(.*)$ https://{{{CDN}}}.jsdelivr.net/gh/$1/$2@$3/$4 302
 
-# GitHub Raw
-^https?://raw\.githubusercontent\.com/(.+)$ https://ghproxy.net/https://raw.githubusercontent.com/$1 302
-
-# GitHub Release 附件
-^https?://github\.com/([^/]+)/([^/]+)/releases/download/(.+)$ https://ghproxy.net/https://github.com/$1/$2/releases/download/$3 302
-
-# GitHub 源码归档
-^https?://github\.com/([^/]+)/([^/]+)/archive/(.+)$ https://ghproxy.net/https://github.com/$1/$2/archive/$3 302
-
-# GitHub Raw 文件
-^https?://github\.com/([^/]+)/([^/]+)/raw/(.+)$ https://ghproxy.net/https://github.com/$1/$2/raw/$3 302
-
-# GitHub Gist
-^https?://gist\.githubusercontent\.com/(.+)$ https://ghproxy.net/https://gist.githubusercontent.com/$1 302
-
-# GitHub 对象存储 / Release 大文件
-^https?://objects\.githubusercontent\.com/(.+)$ https://ghproxy.net/https://objects.githubusercontent.com/$1 302
+^https?://github\.com/([^/]+)/([^/]+)/raw/([^/]+)/(.*)$ https://{{{CDN}}}.jsdelivr.net/gh/$1/$2@$3/$4 302
 
 [MITM]
-hostname = %APPEND% avatars.githubusercontent.com, *.github.io, raw.githubusercontent.com, github.com, gist.githubusercontent.com, objects.githubusercontent.com
+hostname = %APPEND% raw.githubusercontent.com, github.com
