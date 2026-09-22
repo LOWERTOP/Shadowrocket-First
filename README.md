@@ -122,6 +122,13 @@
 > [![安装模块 检测提示](https://img.shields.io/static/v1?label=安装模块&message=检测提示&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/VPNdetected.sgmodule "一键安装本模块")
 > [![安装模块 原版模块](https://img.shields.io/static/v1?label=安装模块&message=原版模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/mieqq/mieqq/refs/heads/master/skip-proxy-lists.sgmodule "一键安装本模块")
 
+### [GitHub 资源加速模块](#github-资源加速模块)
+
+> 本模块用于将 GitHub RAW 资源重定向至 jsDelivr CDN，以改善部分地区或节点故障时的资源访问。模块默认会将 jsDelivr 服务分流至直连策略，同时提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，可根据需要自定义选择 jsDelivr CDN 节点
+> 
+> [![安装模块 资源加速](https://img.shields.io/static/v1?label=安装模块&message=资源加速&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/GitHubCDN.sgmodule)
+
+
 ### [GitHub 功能增强模块](#github-功能增强模块)
 
 > GitHub 综合增强模块，包含下方其他 GitHub 模块的全部功能，整合 GitHub iOS 页面防自动缩放、私库资源访问、中文语言限制解除等功能，是下方模块的整合版本。相应功能请进入 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 启用或修改
