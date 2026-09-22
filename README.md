@@ -124,7 +124,7 @@
 
 ### [GitHub 资源加速模块](#github-资源加速模块)
 
-> 本模块用于将 GitHub RAW 资源重定向至 jsDelivr CDN，以改善部分地区或节点故障时的资源访问。模块默认会将 jsDelivr 服务分流至直连策略，同时提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，可根据需要自定义选择 jsDelivr CDN 节点
+> 本模块用于将 GitHub RAW 资源重定向至 jsDelivr CDN，以改善部分地区或节点访问 GitHub RAW 资源时的连接问题。模块默认将 jsDelivr 服务分流至直连策略，并提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，可根据需要自定义选择 jsDelivr CDN 节点
 > 
 > [![安装模块 资源加速](https://img.shields.io/static/v1?label=安装模块&message=资源加速&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/GitHubCDN.sgmodule)
 
