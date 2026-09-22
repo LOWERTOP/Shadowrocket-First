@@ -4,13 +4,17 @@
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
+[Rule]
+# 直连镜像网站
+DOMAIN-SUFFIX,ghproxy.net,DIRECT
+
 [URL Rewrite]
 
 # GitHub 用户头像
-# ^https?://avatars\.githubusercontent\.com/(.+)$ https://ghproxy.net/https://avatars.githubusercontent.com/$1 302
+^https?://avatars\.githubusercontent\.com/(.+)$ https://ghproxy.net/https://avatars.githubusercontent.com/$1 302
 
 # GitHub Pages
-# ^https?://([^/]+)\.github\.io/?(.*)$ https://ghproxy.net/https://$1.github.io/$2 302
+^https?://([^/]+)\.github\.io/?(.*)$ https://ghproxy.net/https://$1.github.io/$2 302
 
 # GitHub Raw
 ^https?://raw\.githubusercontent\.com/(.+)$ https://ghproxy.net/https://raw.githubusercontent.com/$1 302
