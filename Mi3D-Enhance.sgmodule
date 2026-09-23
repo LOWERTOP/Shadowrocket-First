@@ -6,8 +6,8 @@
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
-[Script]
-Mi3D-Enhance = type=http-response,pattern=^https?:\/\/app\.mieco\.net\/api\/utrend-printing\/buttonConfig\/1(?:\?.*)?$,requires-body=1,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/JS/Mi3D-Enhance.js,argument=hide_home={{{隐藏首页}}}&hide_community={{{隐藏社区}}}&hide_creative={{{隐藏创意}}}&hide_message={{{隐藏消息}}}&hide_me={{{隐藏我的}}}
+[Body Rewrite]
+http-response-jq ^https?:\/\/app\.mieco\.net\/api\/utrend-printing\/buttonConfig\/1(?:\?.*)?$ 'if {{{隐藏首页}}} == true then .data |= map(select(.name != "首页")) else . end | if {{{隐藏社区}}} == true then .data |= map(select(.name != "社区")) else . end | if {{{隐藏创意}}} == true then .data |= map(select(.name != "创意")) else . end | if {{{隐藏消息}}} == true then .data |= map(select(.name != "消息")) else . end | if {{{隐藏我的}}} == true then .data |= map(select(.name != "我的")) else . end'
 
 [MITM]
 hostname = %APPEND% app.mieco.net
