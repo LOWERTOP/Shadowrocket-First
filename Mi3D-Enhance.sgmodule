@@ -7,7 +7,7 @@
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
 [Body Rewrite]
-http-response-jq ^https?:\/\/app\.mieco\.net\/api\/utrend-printing\/buttonConfig\/1(?:\?.*)?$ 'if {{{隐藏首页}}} == true then .data |= map(select(.name != "首页")) else . end | if {{{隐藏社区}}} == true then .data |= map(select(.name != "社区")) else . end | if {{{隐藏创意}}} == true then .data |= map(select(.name != "创意")) else . end | if {{{隐藏消息}}} == true then .data |= map(select(.name != "消息")) else . end | if {{{隐藏我的}}} == true then .data |= map(select(.name != "我的")) else . end'
+http-response-jq ^https?:\/\/app\.mieco\.net\/api\/utrend-printing\/buttonConfig\/1(?:\?.*)?$ 'if (.data | type) == "array" then .data |= map(select((.name != "首页" or {{{隐藏首页}}} != true) and (.name != "社区" or {{{隐藏社区}}} != true) and (.name != "创意" or {{{隐藏创意}}} != true) and (.name != "消息" or {{{隐藏消息}}} != true) and (.name != "我的" or {{{隐藏我的}}} != true))) else . end'
 
 [MITM]
 hostname = %APPEND% app.mieco.net
