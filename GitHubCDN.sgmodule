@@ -1,8 +1,8 @@
 #!name= 🅶🅸🆃🅷🅴🅻🅿 资源加速
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/github_00.png
 #!desc=将 GitHub RAW 资源重定向至国内可用的镜像资源站。编辑参数可自定义切换 CDN 节点
-#!arguments=CDN:cdn
-#!arguments-desc=支持选填jsdelivr的其他节点：\n默认填写：cdn\n可选填写：fastly\n可选填写：gcore
+#!arguments=切换CDN节点:cdn
+#!arguments-desc=支持选填 jsdelivr 的其他节点\n  ·默认填写：cdn\n  ·可选填写：fastly\n  ·可选填写：gcore
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
@@ -12,10 +12,10 @@ DOMAIN-SUFFIX,jsdelivr.net,DIRECT
 
 [URL Rewrite]
 # 优先匹配带有 refs/heads/ 的 raw 路径
-^https?://raw\.githubusercontent\.com/([^/]+)/([^/]+)/refs/heads/([^/]+)/(.*)$ https://{{{CDN}}}.jsdelivr.net/gh/$1/$2@$3/$4 302
+^https?://raw\.githubusercontent\.com/([^/]+)/([^/]+)/refs/heads/([^/]+)/(.*)$ https://{{{切换CDN节点}}}.jsdelivr.net/gh/$1/$2@$3/$4 302
 
 # 匹配标准分支名/标签名/Commit 的 raw 路径
-^https?://raw\.githubusercontent\.com/([^/]+)/([^/]+)/([^/]+)/(.*)$ https://{{{CDN}}}.jsdelivr.net/gh/$1/$2@$3/$4 302
+^https?://raw\.githubusercontent\.com/([^/]+)/([^/]+)/([^/]+)/(.*)$ https://{{{切换CDN节点}}}.jsdelivr.net/gh/$1/$2@$3/$4 302
 
 [MITM]
 hostname = %APPEND% raw.githubusercontent.com
