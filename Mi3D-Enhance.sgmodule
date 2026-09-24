@@ -1,7 +1,7 @@
 #!name=🆁🅴🆂🅸🅽🅿🆁 米家3D打印增强
 #!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/mi3d.png
-#!desc=支持隐藏底栏按钮、净化个人主页装扮
-#!arguments=隐藏我的:false, 隐藏首页:true, 隐藏社区:true, 隐藏创意:true, 隐藏消息:true, 净化个人装扮:true
+#!desc=支持自定义隐藏底栏各个按钮、净化个人主页徽章装扮
+#!arguments=隐藏我的:false, 隐藏徽章:true, 隐藏首页:true, 隐藏社区:true, 隐藏创意:true, 隐藏消息:true
 #!arguments-desc=切换开关状态并重启软件即可生效
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
@@ -10,8 +10,8 @@
 # 底部导航栏过滤
 http-response-jq ^https?:\/\/app\.mieco\.net\/api\/utrend-printing\/buttonConfig\/1(?:\?.*)?$ '.data |= map(select((.name != "首页" or {{{隐藏首页}}} != true) and (.name != "社区" or {{{隐藏社区}}} != true) and (.name != "创意" or {{{隐藏创意}}} != true) and (.name != "消息" or {{{隐藏消息}}} != true) and (.name != "我的" or {{{隐藏我的}}} != true)))'
 
-# “我的”主页：剥离顶部背景图、等级角标、经验值清零
-http-response-jq ^https?:\/\/app\.mieco\.net\/api\/utrend-printing\/users(?:\?.*)?$ 'if {{{净化个人装扮}}} then .data.background = "" | .data.userLevelIcon = "" | .data.userLevel = 0 | .data.experience = 0 else . end'
+# “我的”主页：隐藏徽章图标
+http-response-jq ^https?:\/\/app\.mieco\.net\/api\/utrend-printing\/users(?:\?.*)?$ 'if {{{隐藏徽章}}} then .data.background = "" | .data.userLevelIcon = "" | .data.userLevel = 0 | .data.experience = 0 else . end'
 
 [MITM]
 hostname = %APPEND% app.mieco.net
