@@ -22,7 +22,7 @@
 
 # [ShadowStore 资源中心](#shadowstore-资源中心)
 
-> [<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/ShadowStore_ScreenShot.png" width="100%">](https://shadowstore.dpdns.org/ "访问页面")
+> [<img src="https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/ShadowStore_ScreenShot.png" width="100%">](https://shadowstore.dpdns.org/ "访问页面")
 > 
 > **[ShadowStore](https://github.com/LOWERTOP/ShadowStore)** 是一个专为 Shadowrocket 打造的开源社区资源聚合检索平台，仓库地址是：[ShadowStore](https://github.com/LOWERTOP/ShadowStore)，发布页地址是：[shadowstore.dpdns.org](https://shadowstore.dpdns.org/)。发布页提供 **资源索引**、**资源检索**、**一键安装**、**一键复制** 等功能，集中收录和整理公开资源，目前已收录超过 1000 款模块及其他资源。网页支持添加快捷方式至主屏幕，并提供应用图标显示，为用户提供更加便捷、沉浸的使用体验
 > 
@@ -75,6 +75,12 @@
 > 
 > [![安装模块 快速看图](https://img.shields.io/static/v1?label=安装模块&message=快速看图&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/DWG-FastView.sgmodule "一键安装本模块")
 
+### [瑞幸咖啡清洁模块](#瑞幸咖啡清洁模块)
+
+> 本模块可以屏蔽瑞幸咖啡开屏广告及部分其他广告。本模块仅为自用，不保证可以将广告或弹窗全部清理
+> 
+> [![安装模块 瑞幸咖啡](https://img.shields.io/static/v1?label=安装模块&message=瑞星咖啡&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/LuckinCoffee.sgmodule "一键安装本模块")
+
 ### [咪咕直播源模块](#咪咕直播源模块)
 
 > 群友 ["---///"")/"](https://t.me/insterestingtimes) 咨询了一个 [APTV](https://t.me/AptvPlayer) 全运营商使用移动咪咕直播源观看 IPTV 的问题。原方案是 [PIXMAN](https://pixman.io/) 的 [Coding](https://pixman.io/coding) 提供的 [自制DNS映射](https://pixman.io/topics/37) 方案，并由 [YanG-1989](https://github.com/YanG-1989/m3u/blob/main/hosts.txt) 优化，以解决非移动用户访问咪咕源的错误解析问题。本仓借鉴以上内容制作了本模块，理论上应该支持任意网络环境使用咪咕直播源观看 IPTV。模块提供 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 功能，包含部分参数调整选项。若使用上存在问题可以尝试在 [DNS 覆写](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E4%BF%AE%E6%94%B9dns) 中添加 `114.114.114.114`
@@ -126,7 +132,7 @@
 > 本模块通过调整部分域名的处理方式，改善部分应用主要在非 TUN 模式下出现 **“检测到正在使用 VPN”** 等提示的问题。并可以以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 的方式补充添加其他域名。详情请查看编辑参数内的说明，规则来源于 [mieqq](https://github.com/mieqq)，同时提供原作者的原版模块
 > 
 > [![安装模块 检测提示](https://img.shields.io/static/v1?label=安装模块&message=检测提示&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/VPNdetected.sgmodule "一键安装本模块")
-> [![安装模块 原版模块](https://img.shields.io/static/v1?label=安装模块&message=原版模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/mieqq/mieqq/refs/heads/master/skip-proxy-lists.sgmodule "一键安装本模块")
+> [![安装模块 原版模块](https://img.shields.io/static/v1?label=安装模块&message=原版模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/mieqq/mieqq/master/skip-proxy-lists.sgmodule "一键安装本模块")
 
 ### [GitHub 资源加速模块](#github-资源加速模块)
 
@@ -231,19 +237,19 @@
 > > [![安装模块 YouTube 模块](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > > [![安装模块 Maasea 版本](https://img.shields.io/static/v1?label=安装模块&message=Maasea%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Maasea/sgmodule/master/YouTube.Enhance.sgmodule "一键安装本模块")
 > 
-> **[推特网页版去广告](https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/XWebAds.module)**
+> **[推特网页版去广告](https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/XWebAds.module)**
 > 
 > > 本模块来源自 [奶思](https://t.me/inaisi/629)。登录网页版，点击分享，下滑选择“添加到主屏幕”，添加到桌面的网页版和原版应用的差别比较细微，搭配此模块可实现无广告的推特浏览体验
 > >   
-> > [![安装模块 推特网页模块](https://img.shields.io/static/v1?label=安装模块&message=推特网页模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Surge/module/XWebAds.module "一键安装本模块")
+> > [![安装模块 推特网页模块](https://img.shields.io/static/v1?label=安装模块&message=推特网页模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/XWebAds.module "一键安装本模块")
 > 
-> **[哔哩哔哩增强](https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/release/surge/module/bilibili.sgmodule)**
+> **[哔哩哔哩增强](https://raw.githubusercontent.com/kokoryh/Sparkle/master/release/surge/module/bilibili.sgmodule)**
 > 
 > > 本模块来自 [kokoryh](https://github.com/kokoryh)，可在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 界面动态调整最常访问、调整创作中心、过滤置顶评论广告、优化评论区加载，且提供“空降助手”功能等
 > > 
 > > **需要注意**：本模块需要小火箭版本号大于等于 [2.2.81 (3096)](https://t.me/ShadowrocketNews/1355)，且需要开启 [HTTP/2 MITM](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#https%E8%A7%A3%E5%AF%86)。小火箭低于此版本如需使用本模块的，请自行 [排除解密](#证书模块) `-grpc.biliapi.net`
 > >   
-> > [![安装模块 哔哩哔哩增强](https://img.shields.io/static/v1?label=安装模块&message=哔哩哔哩增强&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/release/surge/module/bilibili.sgmodule "一键安装本模块")
+> > [![安装模块 哔哩哔哩增强](https://img.shields.io/static/v1?label=安装模块&message=哔哩哔哩增强&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/kokoryh/Sparkle/master/release/surge/module/bilibili.sgmodule "一键安装本模块")
 >  
 > **[哔哩哔哩国际版](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/BiliIntlClean.sgmodule)**
 > 
@@ -304,7 +310,7 @@
 > >
 > > [![安装模块 app2smile 版本](https://img.shields.io/static/v1?label=安装模块&message=app2smile%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module "一键安装本模块")
 > > [![安装模块 001ProMax 版本](https://img.shields.io/static/v1?label=安装模块&message=001ProMax%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/001ProMax/Surge/main/Module/AD/Spotify.sgmodule "一键安装本模块")
-> > [![安装模块 Reukix 版本](https://img.shields.io/static/v1?label=安装模块&message=Reukix%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/Spotify.sgmodule "一键安装本模块")
+> > [![安装模块 Reukix 版本](https://img.shields.io/static/v1?label=安装模块&message=Reukix%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/main/Script/Spotify.sgmodule "一键安装本模块")
 > 
 > **[机场流量查询模块](https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Sgmodule/%E6%9C%BA%E5%9C%BA%E6%B5%81%E9%87%8F%E6%9F%A5%E8%AF%A2.module)**
 > 
@@ -312,23 +318,23 @@
 > >   
 > > [![安装模块 流量查询](https://img.shields.io/static/v1?label=安装模块&message=流量查询&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Sgmodule/%E6%9C%BA%E5%9C%BA%E6%B5%81%E9%87%8F%E6%9F%A5%E8%AF%A2.module "一键安装本模块")
 >
-> **[高德地图去广告](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE.sgmodule)**
+> **[高德地图去广告](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/PR/XiangwanGuan/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE.sgmodule)**
 > 
 > > 本模块是 [向晚](https://github.com/XiangwanGuan) 维护的原生去广告模块，由作者推送至本仓库
 > >
-> > [![安装模块 高德地图](https://img.shields.io/static/v1?label=安装模块&message=高德地图&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE.sgmodule "一键安装本模块")
+> > [![安装模块 高德地图](https://img.shields.io/static/v1?label=安装模块&message=高德地图&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/PR/XiangwanGuan/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE.sgmodule "一键安装本模块")
 >  
-> **[一汽大众去广告](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E4%B8%80%E6%B1%BD%E5%A4%A7%E4%BC%97.sgmodule)**
+> **[一汽大众去广告](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/PR/XiangwanGuan/%E4%B8%80%E6%B1%BD%E5%A4%A7%E4%BC%97.sgmodule)**
 > 
 > > 本模块是 [向晚](https://github.com/XiangwanGuan) 维护的原生去广告模块，由作者推送至本仓库
 > >
-> > [![安装模块 一汽大众](https://img.shields.io/static/v1?label=安装模块&message=一汽大众&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E4%B8%80%E6%B1%BD%E5%A4%A7%E4%BC%97.sgmodule "一键安装本模块")
+> > [![安装模块 一汽大众](https://img.shields.io/static/v1?label=安装模块&message=一汽大众&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/PR/XiangwanGuan/%E4%B8%80%E6%B1%BD%E5%A4%A7%E4%BC%97.sgmodule "一键安装本模块")
 >  
-> **[彩云天气去广告](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94.sgmodule)**
+> **[彩云天气去广告](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/PR/XiangwanGuan/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94.sgmodule)**
 > 
 > > 本模块是 [向晚](https://github.com/XiangwanGuan) 维护的原生去广告模块，由作者推送至本仓库
 > >
-> > [![安装模块 彩云天气](https://img.shields.io/static/v1?label=安装模块&message=彩云天气&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/PR/XiangwanGuan/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94.sgmodule "一键安装本模块")
+> > [![安装模块 彩云天气](https://img.shields.io/static/v1?label=安装模块&message=彩云天气&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/PR/XiangwanGuan/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94.sgmodule "一键安装本模块")
  
 ### **[更多资源](#模块收集)**
 
@@ -382,7 +388,7 @@
 > 
 > _使用方法：打开下方脚件链接后复制所有内容，粘贴至 **订阅页面** 的 **[过滤](https://github.com/LOWERTOP/Shadowrocket#%E8%AE%A2%E9%98%85%E8%8A%82%E7%82%B9%E7%AD%9B%E9%80%89)** 区域，参考 [说明](https://github.com/GodLike631/Shadow-Rocket/blob/main/README.md) 修改后保存即可_
 > 
-> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/GodLike631/Shadow-Rocket/refs/heads/main/FilterScript "点击查看脚本内容")
+> [![脚本文件 筛选与修改](https://img.shields.io/static/v1?label=脚本文件&message=筛选与修改&color=grey&logo=javascript&logoColor=grey&labelColor=%23F7DF1E&messageColor=grey)](https://raw.githubusercontent.com/GodLike631/Shadow-Rocket/main/FilterScript "点击查看脚本内容")
 
 ### [规则收集](#规则收集)
 
