@@ -22,6 +22,52 @@ DOMAIN-SUFFIX,v11-reading-video.qznovelvod.com,REJECT
 # DOMAIN-SUFFIX,dzmanga.com,DIRECT
 # DOMAIN-SUFFIX,twmanga.com,DIRECT
 # DOMAIN-SUFFIX,baozimhapp.com,REJECT
+# === 搜索引擎与网站分析 ===
+# DOMAIN-SUFFIX,google-analytics.com,REJECT
+# DOMAIN-SUFFIX,statcounter.com,REJECT
+# DOMAIN-SUFFIX,clarity.ms,REJECT
+# DOMAIN-SUFFIX,bitloader.net,REJECT
+# === 内容推荐与原生广告 ===
+DOMAIN-SUFFIX,outbrain.com,REJECT
+DOMAIN-SUFFIX,outbrainimg.com,REJECT
+# === 程序化广告与竞价平台 (DSP/SSP/RTB) ===
+# DOMAIN-SUFFIX,doubleclick.net,REJECT
+DOMAIN-SUFFIX,pubmatic.com,REJECT
+DOMAIN-SUFFIX,openx.net,REJECT
+DOMAIN-SUFFIX,bidswitch.net,REJECT
+DOMAIN-SUFFIX,casalemedia.com,REJECT
+DOMAIN-SUFFIX,adnx.com,REJECT
+DOMAIN-SUFFIX,media.net,REJECT
+DOMAIN-SUFFIX,adform.net,REJECT
+DOMAIN-SUFFIX,seedtag.com,REJECT
+DOMAIN-SUFFIX,tremorhub.com,REJECT
+DOMAIN-SUFFIX,monetixads.com,REJECT
+DOMAIN-SUFFIX,nexx360.io,REJECT
+DOMAIN-SUFFIX,servenobid.com,REJECT
+DOMAIN-SUFFIX,cootlogix.com,REJECT
+DOMAIN-SUFFIX,kueezrtb.com,REJECT
+DOMAIN-SUFFIX,adrubi.com,REJECT
+DOMAIN-SUFFIX,adtarget.biz,REJECT
+DOMAIN-SUFFIX,omni-dex.io,REJECT
+DOMAIN-SUFFIX,4dex.io,REJECT
+DOMAIN-SUFFIX,rfihub.com,REJECT
+DOMAIN-SUFFIX,rfihub.net,REJECT
+# === 数据追踪与受众分析 ===
+DOMAIN-SUFFIX,scorecardresearch.com,REJECT
+DOMAIN-SUFFIX,eyeota.net,REJECT
+DOMAIN-SUFFIX,demdex.net,REJECT
+DOMAIN-SUFFIX,imrworldwide.com,REJECT
+DOMAIN-SUFFIX,liadm.com,REJECT
+DOMAIN-SUFFIX,everesttech.net,REJECT
+DOMAIN-SUFFIX,rezync.com,REJECT
+# === 其他未知或高频追踪分发域名 ===
+DOMAIN-SUFFIX,holmesmind.com,REJECT
+DOMAIN-SUFFIX,rbstsystems.live,REJECT
+DOMAIN-SUFFIX,rtmark.net,REJECT
+DOMAIN-SUFFIX,sootoarathus.net,REJECT
+DOMAIN-SUFFIX,chagnougoalry.net,REJECT
+DOMAIN-SUFFIX,brilliantchap.com,REJECT
+DOMAIN-SUFFIX,aqle3.com,REJECT
 
 [URL Rewrite]
 # 包子漫画横幅APP广告
