@@ -1,6 +1,6 @@
 #!name=🅲🅻🅴🅰🅽🅴🆁
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AdblockPlus.png
-#!desc=红果短剧、包子漫画网页、小蚁摄像机、Pinterest 等去广告。模块仅为自用，不承诺完全去除相应服务的广告
+#!desc=红果短剧、包子漫画网页、小蚁摄像机、德施曼、Pinterest 等去广告。模块仅为自用，不承诺完全去除相应服务的广告
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
@@ -14,6 +14,33 @@ DOMAIN-WILDCARD,*-ad-sign.byteimg.com,REJECT
 DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,REJECT
 DOMAIN-WILDCARD,ads*-normal-l*.zijieapi.com,REJECT
 DOMAIN-SUFFIX,v11-reading-video.qznovelvod.com,REJECT
+
+# 德施曼
+# 多盟（Domob）广告网络：拦截广告图片、静态资源及路由
+DOMAIN-SUFFIX,domop.com,REJECT
+# 第三方广告展示与点击归因跟踪
+DOMAIN-SUFFIX,ad-dr.com,REJECT
+# Talk-Plus 商业广告 SDK 接口
+DOMAIN,sdk-open-ad.talk-plus.com,REJECT
+# VarTrack 用户行为日志与跟踪上报
+DOMAIN-SUFFIX,vartrack.com,REJECT
+# 应用冷启动与性能日志打点
+DOMAIN,loadstart.logg.aerogx.com,REJECT
+# 阿里开放追踪 SDK（仅拦截数据统计，不影响支付）
+DOMAIN,sdk.open-track.alipay.com,REJECT
+# Shopee 客户端打点与登录追踪（不影响购物主体功能）
+DOMAIN,m-stat.m.shopee.tw,REJECT
+DOMAIN,shopee-tracker-sign-in.shopeemobile.com,REJECT
+# 友盟+（数据派）行为统计与数据埋点
+DOMAIN-SUFFIX,shujupie.com,REJECT
+# 统计与点击归因平台
+DOMAIN-SUFFIX,statisticslinks.com,REJECT
+# 动态广告与第三方配置接口（若导致特定 App 内容加载失败可禁用）
+DOMAIN,yumao.puata.info,REJECT
+# 个推（GeTui）设备分析与画像上报
+DOMAIN-SUFFIX,gepush.com,REJECT
+DOMAIN-SUFFIX,getui.com,REJECT
+DOMAIN-SUFFIX,getui.net,REJECT
 
 # 包子漫画所需特定规则
 # DOMAIN-SUFFIX,baozimhcn.com,DIRECT
