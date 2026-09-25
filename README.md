@@ -79,7 +79,7 @@
 
 > 本模块可以屏蔽瑞幸咖啡开屏广告及部分其他广告。本模块仅为自用，不保证可以将广告或弹窗全部清理
 > 
-> [![安装模块 瑞幸咖啡](https://img.shields.io/static/v1?label=安装模块&message=瑞星咖啡&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/LuckinCoffee.sgmodule "一键安装本模块")
+> [![安装模块 瑞幸咖啡](https://img.shields.io/static/v1?label=安装模块&message=瑞幸咖啡&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/LuckinCoffee.sgmodule "一键安装本模块")
 
 ### [咪咕直播源模块](#咪咕直播源模块)
 
