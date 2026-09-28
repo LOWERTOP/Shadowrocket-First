@@ -219,16 +219,6 @@
 > **模块的生效需要遵循自上而下的 [优先级顺序](https://github.com/LOWERTOP/Shadowrocket#%E8%A7%84%E5%88%99%E4%BC%98%E5%85%88%E7%BA%A7)** <br>
 > **部分模块的生效需要清除相应的程序的缓存或者重新安装**
 
-> **[插件中心转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule)**
-> 
-> > 本方案模块由 [iab0x00](https://github.com/iab0x00) 制作，可使小火箭直接安装并使用 [可莉插件中心](https://hub.kelee.one) 的插件/模块。本模块借助 **[Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki)** 的转换功能实现，为方便新手使用已内置 [Script-Hub](https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.rocket.module) 相关代码。感谢 [iab0x00](https://github.com/iab0x00)、[可莉](https://github.com/luestr) 及 [Script-Hub](https://github.com/Script-Hub-Org/Script-Hub/wiki) 的辛苦付出，本案遵循 [可莉的授权说明](https://t.me/ibilibili/1498)
-> > 
-> > * 安装并启用 [本模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule)
-> > * 访问 [插件中心](https://hub.kelee.one/)，选择需要的插件/模块，点击安装即可
-> >   
-> > [![首先安装 解析模块](https://img.shields.io/static/v1?label=首先安装&message=解析模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule "一键安装本模块")
-> > [![其次访问 插件中心](https://img.shields.io/static/v1?label=其次访问&message=插件中心&color=grey&logo=safari&logoColor=white&labelColor=%23E34F26&messageColor=white)](https://hub.kelee.one "访问相应地址")
-> 
 > **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeNoAd.sgmodule)**
 > 
 > > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可去除软件内各类广告并提供画中画功能（可能需要关闭 YouTube 设置中的“自动播放下一个视频”功能），同时支持 YouTube Music 去广告。模块支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，安装后可点击模块进入编辑参数页面，可选是否屏蔽上传、Shorts、选段等按钮。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块<br>
