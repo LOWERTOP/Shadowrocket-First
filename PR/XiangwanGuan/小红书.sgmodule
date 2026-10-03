@@ -1,0 +1,43 @@
+#!name=小红书
+#!desc=2026-10-03 15:27:09
+
+[Rule]
+DOMAIN,apm-fe.xiaohongshu.com,REJECT,pre-matching
+DOMAIN,apm-native.xiaohongshu.com,REJECT,pre-matching
+DOMAIN,spider-tracker.xiaohongshu.com,REJECT,pre-matching
+DOMAIN,t3.xiaohongshu.com,REJECT,pre-matching
+DOMAIN-SUFFIX,miaozhen.com,REJECT,pre-matching
+DOMAIN-WILDCARD,ads-*.xhscdn.com,REJECT,pre-matching
+AND,((PROTOCOL,QUIC),(DOMAIN-SUFFIX,xiaohongshu.com)),REJECT-NO-DROP
+
+[URL Rewrite]
+^https?:\/\/ci\.xiaohongshu\.com\/system_config\/watermark - reject-img
+^https?:\/\/edith\.xiaohongshu\.com\/api\/marketing\/box_trigger\/goods_search - reject-dict
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/guide\/user_banner(?:\?|$) - reject-dict
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/detailfeed\/preload(?:\?|$) - reject-dict
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/surprisebox\/(?:get_style|open|submit_action) - reject-dict
+^https?:\/\/mediacloud\.xiaohongshu\.com\/api\/httpdns\/ - reject
+
+[Body Rewrite]
+http-response-jq ^https?:\/\/(?:edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d+\/homefeed(?:\?|$) 'if type=="object" and (.data|type)=="array" then .data |= map(select((.|type)!="object" or ((.model_type? != "live_v2") and (has("ads_info")|not)))) else . end'
+http-response-jq ^https?:\/\/(?:edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/imagefeed(?:\?|$) 'if type=="object" and (.data|type)=="array" and (.data[0]|type)=="object" and (.data[0].note_list|type)=="array" then .data[0].note_list |= map((if (.media_save_config|type)=="object" then .media_save_config |= (.disable_save=false | .disable_watermark=true | .disable_weibo_cover=true) else . end) | (if (.function_switch|type)=="array" then .function_switch |= map(if (.|type)=="object" and .type? == "image_download" then .enable=true else . end) else . end) | (if (.hash_tag|type)=="array" then .hash_tag |= map(select((.|type)!="object" or .type? != "interact_vote")) else . end) | (if (.share_info|type)=="object" and (.share_info.function_entries|type)=="array" and (.share_info.function_entries|length)>0 and (.share_info.function_entries[0].type? != "video_download") then .share_info.function_entries = [{"type":"video_download"}, .share_info.function_entries[]] else . end) | (if (.note_text_press_options|type)=="array" and ([.note_text_press_options[] | select((.|type)=="object" and .key? == "copy")]|length)==0 then .note_text_press_options = [.note_text_press_options[], {"key":"copy","extra":""}] else . end)) else . end'
+http-response-jq ^https?:\/\/(?:edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/video\/save(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data|has("disable")) then delpaths([["data","disable"],["data","msg"]]) else . end'
+http-response-jq ^https?:\/\/(?:edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/video\/save(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data|has("disable")) then setpath(["data","status"]; 2) else . end'
+http-response-jq ^https?:\/\/(?:edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/videofeed(?:\?|$) 'if type=="object" and (.data|type)=="array" then .data |= map((if (.media_save_config|type)=="object" then .media_save_config |= (.disable_save=false | .disable_watermark=true | .disable_weibo_cover=true) else . end) | (if (.function_switch|type)=="array" then .function_switch |= map(if (.|type)=="object" and .type? == "video_download" then (.enable=true | del(.reason)) else . end) else . end) | (if (.share_info|type)=="object" and (.share_info.function_entries|type)=="array" and ([.share_info.function_entries[] | select((.|type)=="object" and .type? == "video_download")]|length)==0 then .share_info.function_entries = [.share_info.function_entries[], {"type":"video_download"}] else . end)) else . end'
+http-response-jq ^https?:\/\/(?:so|edith)\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.items|type)=="array" then .data.items |= map(select((.|type)=="object" and .model_type? == "note")) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/ads\/resource(?:\?|$) 'if type=="object" and (.data|type)=="array" then setpath(["data"]; []) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/comment\/list(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.comments|type)=="array" then .data.comments |= map((if .comment_type? == 3 then .comment_type=2 else . end) | (if .media_source_type? == 1 then .media_source_type=0 else . end) | (if (.sub_comments|type)=="array" then .sub_comments |= map((if .comment_type? == 3 then .comment_type=2 else . end) | (if .media_source_type? == 1 then .media_source_type=0 else . end)) else . end)) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/widgets(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.widget_list|type)=="array" then .data.widget_list |= map(select((.|type)!="object" or (((.track.name? // "") | IN("ACTIVITY_COMPONENT","GOODS_C2C"))|not))) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/widgets(?:\?|$) 'if type=="object" and (.data|type)=="object" then delpaths([["data","generic"]]) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/recommend\/user\/follow_recommend(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.rec_users|type)=="array" and (.data.rec_users|length)>0 then setpath(["data"]; {}) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/trending(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.data|type)=="object" then setpath(["data","data","hint_word"]; {}) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/trending(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.data|type)=="object" then setpath(["data","data","queries"]; []) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/trending(?:\?|$) 'if type=="object" and (.data|type)=="object" then delpaths([["data","card_entry"]]) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/config(?:\?|$) 'if type=="object" and (.data|type)=="object" then delpaths([["data","loading_img"],["data","splash"],["data","store"]]) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/splash_config(?:\?|$) 'if type=="object" and (.data|type)=="object" then setpath(["data","ads_groups"]; []) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/splash_config(?:\?|$) 'if type=="object" and (.data|type)=="object" then setpath(["data","bidding_ads"]; []) else . end'
+http-response-jq ^https?:\/\/search\.xiaohongshu\.com\/api\/search\/fls\/placeholder(?:\?|$) 'if type=="object" and (.data|type)=="object" then setpath(["data","placeholder"]; []) else . end'
+http-response-jq ^https?:\/\/so\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/recommend(?:\?|$) 'if type=="object" and (.data|type)=="object" then setpath(["data","items"]; []) else . end'
+
+[MITM]
+hostname = %APPEND% ci.xiaohongshu.com,edith.xiaohongshu.com,mediacloud.xiaohongshu.com,rec.xiaohongshu.com,search.xiaohongshu.com,so.xiaohongshu.com,www.xiaohongshu.com
