@@ -328,10 +328,6 @@
 > [QingRex](https://github.com/QingRex) 维护的资源丰富的 [模块资源仓库](https://github.com/QingRex/LoonKissSurge)，多数可直接使用
 >
 > [![社区资源 QingRex](https://img.shields.io/static/v1?label=社区资源&message=QingRex&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://surge.qingr.moe "点击查看")
->
-> [Kelee](https://github.com/luestr) 维护的资源，安装 [插件中心专用转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
->
-> [![社区资源 Kelee](https://img.shields.io/static/v1?label=社区资源&message=Kelee&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://hub.kelee.one/ "点击查看")
 > 
 > [Cuttlefish](https://github.com/ddgksf2013/ddgksf2013) 维护的可适用小火箭的模块资源网站，需提前安装 [墨鱼专用前置模块](https://ddgksf2013.top/module/ScriptHub.Rocket.sgmodule)
 >
