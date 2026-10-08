@@ -54,13 +54,13 @@
 > [![安装模块 Talkatone](https://img.shields.io/static/v1?label=安装模块&message=Talkatone&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Talkatone.sgmodule "一键安装本模块")
 > [![规则文件 去广告规则](https://img.shields.io/static/v1?label=规则文件&message=去广告规则&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list "点击访问规则集")
 
-### [红果短剧去广告](#红果短剧去广告)
+### [红果果皮箱](#红果果皮箱)
 
 > 本模块主要以规则的方式去除 **红果短剧** 的部分广告并放行可能影响其他应用的地址<br>
 > 另外提供同时包含 **红果短剧**、**包子漫画网页版** 及 **小蚁摄像机** 等去广告功能的清洁模块
 > > 模块仅为自用，不承诺完全去除相应服务的广告
 > 
-> [![安装模块 红果短剧](https://img.shields.io/static/v1?label=安装模块&message=红果短剧&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/HongGuo.module "一键安装本模块")
+> [![安装模块 红果果皮箱](https://img.shields.io/static/v1?label=安装模块&message=红果果皮箱&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/HongGuo.module "一键安装本模块")
 > [![安装模块 清洁模块](https://img.shields.io/static/v1?label=安装模块&message=清洁模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Cleaner.module "一键安装本模块")
 
 ### [米家3D打印增强](#米家3d打印增强)
