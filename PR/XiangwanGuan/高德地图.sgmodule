@@ -1,5 +1,5 @@
 #!name=高德地图
-#!desc=2026-10-09 23:03:24
+#!desc=2026-10-10 15:27:29
 
 [Rule]
 DOMAIN,amap-aos-info-nogw.amap.com,REJECT,pre-matching
@@ -14,7 +14,7 @@ URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch,REJECT
 ^https?:\/\/m5\.amap\.com\/ws\/(?:mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword) - reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/aos\/main\/page\/product\/list\? - reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/c3frontend\/af-comment\/contentNearbyCard\? - reject-dict
-^https?:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(?:main-page-assets|main-page-location|ridewalk-end-fc) - reject-dict
+^https?:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(?:main-page-assets|main-page-location|ridewalk-end-fc|usr-profile-fc\/homeV2) - reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(?:car-end|route-plan) - reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? - reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword\? - reject-dict
