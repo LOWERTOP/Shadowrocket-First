@@ -7,10 +7,26 @@
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
 [URL Rewrite]
-# 屏蔽开屏广告
-^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew(?:\?.*)?$ - reject
-# 屏蔽部分弹窗
+# --- 核心页面（首页 / 菜单） ---
+^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/core\/v2\/homepage\/homePageCoffeeList(?:\?.*)?$ - reject
+^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/core\/v2\/menu\/ordinaryUserLayeredArea(?:\?.*)?$ - reject
+
+# --- 交易与点单弹窗 ---
 ^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList(?:\?.*)?$ - reject
+
+# --- 营销活动与养成系统 ---
+^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/growUp\/calendarList(?:\?.*)?$ - reject
+^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/promotion\/giftCard\/topPage(?:\?.*)?$ - reject
+
+# --- 系统通用与广告弹窗 ---
+^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew(?:\?.*)?$ - reject
+^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/sys\/base\/myLittleLuck(?:\?.*)?$ - reject
+^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/sys\/common\/modules(?:\?.*)?$ - reject
+
+# 屏蔽开屏广告
+# ^https:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew(?:\?.*)?$ - reject
+# 屏蔽部分弹窗
+# ^https:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList(?:\?.*)?$ - reject
 
 [Map Local]
 # 屏蔽广告图片
