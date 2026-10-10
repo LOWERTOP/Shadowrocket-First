@@ -1,5 +1,5 @@
 #!name=小红书
-#!desc=2026-10-09 13:15:00
+#!desc=2026-10-10 12:01:04
 
 [Rule]
 DOMAIN,apm-fe.xiaohongshu.com,REJECT,pre-matching
@@ -41,8 +41,8 @@ http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/im\/v\d+\/get_banner_
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/ads\/resource(?:\?|$) 'if type=="object" and (.data|type)=="array" then setpath(["data"]; []) else . end'
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/content\/video\/get_ads_info(?:\?|$) 'if type=="object" and (.data|type)=="object" then setpath(["data"]; {}) else . end'
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/comment\/list(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.comments|type)=="array" then .data.comments |= map((if .comment_type? == 3 then .comment_type=2 else . end) | (if .media_source_type? == 1 then .media_source_type=0 else . end) | (if (.sub_comments|type)=="array" then .sub_comments |= map((if .comment_type? == 3 then .comment_type=2 else . end) | (if .media_source_type? == 1 then .media_source_type=0 else . end)) else . end)) else . end'
-http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/widgets(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.widget_list|type)=="array" then .data.widget_list |= map(select((.|type)!="object" or (((.biz_type? // "") | test("(goods|buyable|packed|product|brand|ads_|pgy_|cooperate_)"))|not))) else . end'
-http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/widgets(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.widget_list|type)=="array" then .data.widget_list |= map(select((.|type)!="object" or (((.track.name? // "") | test("(GOODS|BUYABLE|PACKED|PRODUCT|BRAND|ADS_|PGY_|COOPERATE_|ACTIVITY_COMPONENT)"))|not))) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/widgets(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.widget_list|type)=="array" then .data.widget_list |= map(select((.|type)!="object" or (((.biz_type|type)=="string" and (.biz_type|test("(goods|buyable|packed|product|brand|ads_|pgy_|cooperate_)"; "i")))|not))) else . end'
+http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/widgets(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.widget_list|type)=="array" then .data.widget_list |= map(select((.|type)!="object" or (((.track.name|type)=="string" and (.track.name|test("(GOODS|BUYABLE|PACKED|PRODUCT|BRAND|ADS_|PGY_|COOPERATE_|ACTIVITY_COMPONENT)"; "i")))|not))) else . end'
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/widgets(?:\?|$) 'if type=="object" and (.data|type)=="object" then delpaths([["data","goods_comment_section_card"],["data","generic","pin_search_highlights"]]) else . end'
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/recommend\/user\/follow_recommend(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.rec_users|type)=="array" and (.data.rec_users|length)>0 then setpath(["data"]; {}) else . end'
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/trending(?:\?|$) 'if type=="object" and (.data|type)=="object" and (.data.data|type)=="object" then .data.data |= with_entries(select(.key | IN("title","type","queries","hint_word","word_request_id"))) else . end'
