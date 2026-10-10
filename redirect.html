@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Redirector</title>
-
-    <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg?v=1.0">
-
+    <title>自动跳转页面</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin-top: 20%;
         }
-
         .btn-group {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -20,7 +16,6 @@
             width: 320px;
             margin: 0 auto;
         }
-
         .btn-group a {
             display: block;
             padding: 12px 0;
@@ -30,21 +25,17 @@
             border-radius: 6px;
             text-align: center;
         }
-
         .btn-group a:hover {
             background-color: #0056b3;
         }
-
         #back-link {
             grid-column: 1 / -1;
         }
     </style>
 </head>
-
 <body>
-    <h1 style="text-align:center;">自动跳转页面</h1>
-    <p style="text-align:center;">若有弹出窗口，须点击【允许】</p>
-
+    <h1 style="text-align: center;">自动跳转页面</h1>
+    <p style="text-align: center;">若有弹出窗口，须点击【允许】</p>
     <div class="btn-group">
         <a id="redirect-link" href="#">手动跳转</a>
         <a id="raw-link" href="#">访问原始链接</a>
@@ -53,7 +44,13 @@
     <script>
         function getQueryParam(param) {
             const params = new URLSearchParams(window.location.search);
-            return params.get(param);
+            let val = params.get(param);
+            // 兼容直接以 ?https://... 或无 key 形式传参的情况
+            if (!val && window.location.search.length > 1) {
+                const search = window.location.search.substring(1);
+                val = search.replace(/^url=/, '');
+            }
+            return val;
         }
 
         function decodeUrl(url) {
@@ -68,36 +65,61 @@
             return !/^(javascript|data|vbscript):/i.test(url);
         }
 
+        // 规范化 HTTP/HTTPS 直链：将实体空格安全转为 %20，中文转为标准 UTF-8 编码，防止二次编码
+        function formatUrl(url) {
+            if (!url) return '';
+            try {
+                url = decodeURI(url.trim());
+            } catch (e) {
+                url = url.trim();
+            }
+            return encodeURI(url);
+        }
+
         const rawUrl = getQueryParam('url');
-        const targetUrl = decodeUrl(rawUrl || "");
+        const targetUrl = decodeUrl(rawUrl || '');
 
         if (targetUrl && isSafeUrl(targetUrl)) {
+            // 1. 完整提取原始 HTTP/HTTPS 链接（允许路径包含空格与中文，不再在 \s 处截断）
+            let pureUrl = '';
+            const httpMatch = targetUrl.match(/https?:\/\/.+/i);
+            if (httpMatch) {
+                // 剔除末尾潜在的包裹字符（如引号、尖括号等）
+                pureUrl = httpMatch[0].replace(/["'<>]+$/, '').trim();
+            } else {
+                pureUrl = targetUrl.trim();
+            }
 
-            // 手动跳转
-            document.getElementById('redirect-link').href = targetUrl;
-            document.getElementById('redirect-link').textContent = '点击一键安装';
+            // 归一化直达链接（确保 GitHub Raw 能正确响应带有空格和中文的文件路径）
+            pureUrl = formatUrl(pureUrl);
 
-            // 提取 https
-            let pureUrl = rawUrl || "#";
+            // 2. 构造一键安装链接
+            let installUrl = '';
+            if (/^shadowrocket:\/\//i.test(targetUrl)) {
+                // 若原参数已带有 shadowrocket 协议前缀，提取前缀并重新安全打包 pureUrl
+                const prefixMatch = targetUrl.match(/^shadowrocket:\/\/[^?]+\?url=/i);
+                const prefix = prefixMatch ? prefixMatch[0] : 'shadowrocket://install?url=';
+                installUrl = prefix + encodeURIComponent(pureUrl);
+            } else {
+                // 默认封装为 Shadowrocket 安装协议
+                installUrl = 'shadowrocket://install?url=' + encodeURIComponent(pureUrl);
+            }
 
-            try {
-                const match = targetUrl.match(/https:\/\/[^\s"'<>]+/i);
-                if (match) {
-                    pureUrl = match[0];
-                }
-            } catch (e) {}
+            // 3. 渲染页面按钮
+            const redirectBtn = document.getElementById('redirect-link');
+            if (redirectBtn) {
+                redirectBtn.href = installUrl;
+                redirectBtn.textContent = '点击一键安装';
+            }
 
-            document.getElementById('raw-link').href = pureUrl;
-            document.getElementById('raw-link').textContent = '访问直达链接';
+            const rawBtn = document.getElementById('raw-link');
+            if (rawBtn) {
+                rawBtn.href = pureUrl;
+                rawBtn.textContent = '访问直达链接';
+            }
 
-            // 自动跳转
-            window.location.href = targetUrl;
-
-        } else {
-            document.body.innerHTML = `
-                <h1 style="text-align:center;">无效的链接！</h1>
-                <p style="text-align:center;">请检查 URL 是否正确。</p>
-            `;
+            // 4. 执行自动跳转
+            window.location.href = installUrl;
         }
     </script>
 </body>
