@@ -1,5 +1,5 @@
 #!name=小红书
-#!desc=2026-10-12 19:27:46
+#!desc=2026-10-12 22:20:07
 
 [Rule]
 DOMAIN,apm-fe.xiaohongshu.com,REJECT,pre-matching
@@ -21,8 +21,6 @@ AND,((PROTOCOL,QUIC),(DOMAIN-SUFFIX,xiaohongshu.com)),REJECT-NO-DROP
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/detailfeed\/preload(?:\?|$) - reject-dict
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/surprisebox\/(?:get_style|open|submit_action) - reject-dict
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/usergrowth\/mallbanner(?:\?|$) - reject-dict
-^https?:\/\/gslb\.xiaohongshu\.com\/api\/httpdns\/ - reject
-^https?:\/\/mediacloud\.xiaohongshu\.com\/api\/httpdns\/ - reject
 ^https?:\/\/referee\.xiaohongshu\.com\/v\d+\/stateReport(?:\?|$) - reject
 ^https?:\/\/referee\.xiaohongshu\.com\/v\d+\/third\/collect(?:\?|$) - reject
 ^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d+\/ads\/apple\/record(?:\?|$) - reject
@@ -65,4 +63,4 @@ http-response-jq ^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d+\/tag\/ads_eng
 http-response-jq ^https?:\/\/www\.xiaohongshu\.com\/api\/store\/jpd\/edith\/native\/payment_marketing(?:\?|$) 'if type=="object" and (.data|type)=="object" then setpath(["data"]; {}) else . end'
 
 [MITM]
-hostname = %APPEND% ci.xiaohongshu.com,edith.xiaohongshu.com,gslb.xiaohongshu.com,live-go.xiaohongshu.com,live-mall.xiaohongshu.com,live-room.xiaohongshu.com,mediacloud.xiaohongshu.com,rec.xiaohongshu.com,referee.xiaohongshu.com,search.xiaohongshu.com,so.xiaohongshu.com,www.xiaohongshu.com
+hostname = %APPEND% ci.xiaohongshu.com,edith.xiaohongshu.com,live-go.xiaohongshu.com,live-mall.xiaohongshu.com,live-room.xiaohongshu.com,rec.xiaohongshu.com,referee.xiaohongshu.com,search.xiaohongshu.com,so.xiaohongshu.com,www.xiaohongshu.com
