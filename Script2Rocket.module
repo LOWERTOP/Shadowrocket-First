@@ -1,7 +1,7 @@
 #!name=🅿🅻🆄🅶🅺🅸🆃 插件中心转换器
 #!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/Shadowrocket_icon.png
 #!desc=将可莉插件中心转换给小火箭使用; 插件中心 https://pluginhub.kelee.one; 此版集成Script-Hub，若有侵权可联系我们立马删除
-#!author=iab0x00，LOWERTOP，感谢资源作者@iKeLee(https://github.com/luestr) 和 Script-Hub(https://github.com/Script-Hub-Org)作者(@小白脸 @xream @keywos @ckyb)，感谢兼容脚本作者@jasonperter(https://github.com/jasonperter)
+#!author=iab0x00，LOWERTOP，感谢资源作者@iKeLee(https://github.com/luestr) 和 Script-Hub(https://github.com/Script-Hub-Org)作者(@小白脸 @xream @keywos @ckyb)
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
 [General]
@@ -14,10 +14,13 @@ http-response ^https://hub\.kelee\.one/list\.json "loon://import\?plugin=(https:
 http-request ^https://hub\.kelee\.one/list\.json header-del if-none-match
 
 [Script]
-# Script Hub
+# Script Hub Beta
 Script Hub: 前端 = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.beta.js, timeout=300
+
 Script Hub: 重写转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|shadowrocket-module|loon-plugin|all-module), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/Rewrite-Parser.beta.js, timeout=300
+
 Script Hub: 规则集转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/rule-parser.beta.js, timeout=300,
+
 Script Hub: 脚本转换 = type=http-request, pattern=^https?:\/\/script\.hub\/convert\/, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-converter.beta.js, timeout=300
 
 [MITM]
