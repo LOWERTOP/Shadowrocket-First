@@ -1,8 +1,8 @@
 #!name=🅼🅾🅳🆂🅷🆄🅱
 #!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/Shadowrocket_icon.png
 #!desc=多功能转换模块，编辑参数以使用
-#!arguments=Script-Hub:true, 原版转换脚本:false, 兼容转换脚本:true, Cuttle-Fish:true, Plugin-Hub:http, 资源网站策略:随机节点
-#!arguments-desc=🔘Script-Hub\n\n· 默认启用，若禁用则下方设置无效\n\n🔘 Cuttle-Fish\n\n· 墨鱼手记网页变身，默认启用\n\n🔘 Plugin-Hub\n\n· 可莉插件中心变身，默认启用，填入 # 可禁用\n\n🔘 原版转换脚本\n\n· 不兼容 Loon 新语法，默认禁用\n\n🔘 兼容转换脚本\n\n· 可兼容 Loon 新语法，默认启用，需要禁用原版脚本\n\n🔘 资源网站策略\n\n· 默认使用模块内置随机节点代理分组以免下载受限
+#!arguments=Script-Hub:true, Cuttle-Fish:true, Plugin-Hub:http, 资源网站策略:随机节点
+#!arguments-desc=🔘Script-Hub\n\n· 默认启用，Beta 版本，若禁用则下方设置无效\n\n🔘 Cuttle-Fish\n\n· 墨鱼手记网页变身，默认启用\n\n🔘 Plugin-Hub\n\n· 可莉插件中心变身，默认启用，填入 # 可禁用\n\n🔘 资源网站策略\n\n· 默认使用模块内置随机节点代理分组以免下载受限
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
@@ -30,16 +30,10 @@ DOMAIN-SUFFIX,ddgksf2013.top,{{{资源网站策略}}}
 
 [Script]
 # Script Hub
-Script Hub: 前端 = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.js, timeout=300, enable={{{Script-Hub}}}
-
-# 原版转换脚本
-Script Hub: 重写转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/Rewrite-Parser.js, timeout=300, enable={{{原版转换脚本}}}
-
-# 兼容转换脚本，借用 jasonperter 版本
-Script Hub: 重写转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|loon-plugin|all-module), script-path=https://raw.githubusercontent.com/jasonperter/Script-Hub/main/Rewrite-Parser.js, timeout=300, enable={{{兼容转换脚本}}}
-
-Script Hub: 规则集转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/rule-parser.js, timeout=300, enable={{{Script-Hub}}}
-Script Hub: 脚本转换 = type=http-request, pattern=^https?:\/\/script\.hub\/convert\/, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-converter.js, timeout=300, enable={{{Script-Hub}}}
+Script Hub: 前端 = type=http-request, pattern=^https?:\/\/script\.hub\/($|edit\/|reload), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.beta.js, timeout=300, enable={{{Script-Hub}}}
+Script Hub: 重写转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=(?:qx-rewrite|surge-module|shadowrocket-module|loon-plugin|all-module), script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/Rewrite-Parser.beta.js, timeout=300, enable={{{Script-Hub}}}
+Script Hub: 规则集转换 = type=http-request, pattern=^https?:\/\/script\.hub\/file\/_start_\/.+type=rule-set, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/rule-parser.beta.js, timeout=300, enable={{{Script-Hub}}}
+Script Hub: 脚本转换 = type=http-request, pattern=^https?:\/\/script\.hub\/convert\/, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-converter.beta.js, timeout=300, enable={{{Script-Hub}}}
 
 # Cuttle-Fish
 网页变身 = type=http-response, pattern=^https?:\/\/ddgksf2013.top\/$,requires-body=1,max-size=-1,script-path=https://ddgksf2013.top/scripts/web.rocket.js,enable={{{Cuttle-Fish}}}, timeout=3500
