@@ -3,7 +3,7 @@
 #!desc=将可莉插件中心转换给小火箭使用; 插件中心 https://pluginhub.kelee.one; 此版集成Script-Hub，若有侵权可联系我们立马删除
 #!arguments=Script-Hub:true, 原版转换脚本:false, 兼容转换脚本:true, Plugin-Hub:http
 #!arguments-desc=🔘Script-Hub\n\n· 默认启用，若禁用则下方设置无效\n\n🔘 Plugin-Hub\n\n· 可莉插件中心变身，默认启用，填入 # 可禁用\n\n🔘 原版转换脚本\n\n· 不兼容 Loon 新语法，默认禁用\n\n🔘 兼容转换脚本\n\n· 可兼容 Loon 新语法，默认启用，需要禁用原版脚本
-#!author=iab0x00，LOWERTOP，感谢资源作者@iKeLee(https://github.com/luestr) 和 Script-Hub(https://github.com/Script-Hub-Org)作者(@小白脸 @xream @keywos @ckyb)
+#!author=iab0x00，LOWERTOP，感谢资源作者@iKeLee(https://github.com/luestr) 和 Script-Hub(https://github.com/Script-Hub-Org)作者(@小白脸 @xream @keywos @ckyb)，感谢兼容脚本作者@jasonperter(https://github.com/jasonperter)
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
 [General]
