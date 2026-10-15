@@ -46,6 +46,12 @@
 > [![安装模块 DeepSeek](https://img.shields.io/static/v1?label=安装模块&message=DeepSeek&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/DeepSeek.sgmodule "一键安装本模块")
 > [![规则文件 DeepSeek](https://img.shields.io/static/v1?label=规则文件&message=DeepSeek&color=grey&logo=todoist&logoColor=white&labelColor=%2325A162&messageColor=white)](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/DeepSeek.list "点击访问规则集")
 
+### [Discord 翻译](#discord-翻译)
+
+> 本模块基于 MITM 机制，自动拦截 Discord 频道与帖子历史消息的拉取接口，智能识别纯外文内容（自动跳过纯表情、链接及已有大段中文的消息），合并后调用 Google 免费翻译接口生成双语对照。支持浏览历史消息及上滑加载，新消息由于走 WebSocket 实时流式长连接，需通过重新进入频道触发刷新
+> 
+> [![安装模块 Discord](https://img.shields.io/static/v1?label=安装模块&message=Discord&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Discord.sgmodule "一键安装本模块")
+
 ### [Talkatone](#talkatone)
 
 > 本模块包含去广告规则，能够去除软件内的第三方广告。除模块外还提供 [去广告规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneAntiAds.list) 以及 [全局代理规则集](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/TalkatoneProxy.list)
