@@ -48,7 +48,7 @@
 
 ### [Discord 翻译](#discord-翻译)
 
-> 本模块基于 MITM 机制，自动拦截 Discord 频道与帖子历史消息的拉取接口，智能识别纯外文内容（自动跳过纯表情、链接及已有大段中文的消息），合并后调用 Google 免费翻译接口生成双语对照。支持浏览历史消息及上滑加载，新消息由于走 WebSocket 实时流式长连接，需通过重新进入频道触发刷新
+> 本模块基于 MITM 机制，自动拦截 Discord 频道与帖子历史消息的拉取接口，智能识别纯外文内容（自动跳过纯表情、链接及已有大段中文的消息），合并后调用 Google 免费翻译接口生成双语对照。支持在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 内自定义翻译条目数量与目标语言。支持浏览历史消息及上滑加载，新消息由于走 WebSocket 实时流式长连接，需通过重新进入频道触发刷新
 > 
 > [![安装模块 Discord](https://img.shields.io/static/v1?label=安装模块&message=Discord&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Discord.sgmodule "一键安装本模块")
 
