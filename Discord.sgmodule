@@ -1,6 +1,6 @@
 #!name=🅳🅸🆂🅲🅾🆁🅳 Discord 翻译
 #!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Discord.png
-#!desc=调用 Google 翻译为 Discord 历史消息生成双语对照，静默追加译文；受限说明：仅确认支持历史消息加载与上滑翻页，实时新消息可能因加密无法自动翻译
+#!desc=调用 Google 翻译为 Discord 历史消息生成双语对照，静默追加译文；支持浏览历史消息及上滑加载，新消息由于走 WebSocket 实时流式长连接，需通过重新进入频道触发刷新
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
