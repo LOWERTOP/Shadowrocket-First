@@ -1,8 +1,8 @@
 #!name=🅳🅸🆂🅲🅾🆁🅳 Discord 翻译
 #!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Discord.png
-#!desc=调用 Google 翻译为 Discord 历史消息生成双语对照，静默追加译文；支持自定义翻译条目数量与目标语言；支持浏览历史消息及上滑加载。新消息由于走 WebSocket 实时流式长连接，可能需通过重新进入频道触发刷新
+#!desc=调用 Google 翻译为 Discord 历史消息生成双语对照，支持自定义翻译条目数量、目标语言及对应旗帜；新消息可能需重新进入频道触发刷新
 #!arguments=翻译条目数量:50, 翻译目标语言:zh-CN
-#!arguments-desc=翻译条目数量：单次请求最多翻译的消息条数，默认 50。\n\n翻译目标语言：指定译文语言，填写 Google 翻译支持的语言代码，默认 zh-CN（简体中文）。例如 zh-TW（台湾繁体）、zh-HK（香港繁体）、ja（日语）、ko（韩语）
+#!arguments-desc=翻译条目数量：单次响应最多筛选的消息条数，默认 50，最大 1000。\n\n翻译目标语言：填写 Google 翻译支持的语言代码，默认 zh-CN（简体中文）。支持 zh-TW（台湾繁体）、zh-HK（香港繁体）、ja（日语）、ko（韩语）等。\n\n两个参数可以独立修改。
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
