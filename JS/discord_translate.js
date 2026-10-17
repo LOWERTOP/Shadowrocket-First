@@ -252,7 +252,7 @@
         // 追加译文并为每行添加引用格式
         const formattedTranslation = translatedText
           .split(/\r?\n/)
-          .map(line => "> " + line)
+          .map(line => "> **" + line + "**")
           .join("\n");
 
         messages[target.index].content +=
