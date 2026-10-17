@@ -172,27 +172,24 @@
             return;
           }
 
-          let flagAdded = false;
+// 追加加粗译文：空行不添加引用符号，旗帜只显示一次
+let flagAdded = false;
 
-          const formattedTranslation = translatedText
-            .split(/\r?\n/)
-            .map(line => {
-              if (!line.trim()) {
-                return ">";
-              }
+const formattedTranslation = translatedText
+  .split(/\r?\n/)
+  .map(line => {
+    if (!line.trim()) {
+      return "";
+    }
 
-              const prefix = flagAdded
-                ? ""
-                : `${TRANSLATE_FLAG} `;
+    const prefix = flagAdded ? "" : `${TRANSLATE_FLAG} `;
+    flagAdded = true;
 
-              flagAdded = true;
+    return `> ${prefix}**${line}**`;
+  })
+  .join("\n");
 
-              return `> ${prefix}**${line}**`;
-            })
-            .join("\n");
-
-          messages[target.index].content +=
-            `\n${formattedTranslation}`;
+messages[target.index].content += `\n${formattedTranslation}`;
         });
 
         return $done({
