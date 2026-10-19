@@ -1,4 +1,4 @@
-#!name=🅳🅸🆂🅲🅾🆁🅳 Discord 翻译
+#!name=🅳🅸🆂🅲🅾🆁🅳 Discord 自动翻译
 #!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/img/Discord.png
 #!desc=调用 Google 翻译为 Discord 历史消息生成双语对照，支持自定义翻译条目数量、目标语言及对应旗帜；新消息可能需重新进入频道触发刷新
 #!arguments=翻译条目数量:50, 翻译目标语言:zh-CN
