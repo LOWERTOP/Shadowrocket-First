@@ -95,7 +95,7 @@
 > >
 > > * **美国地区**：适用于 Ultra Mobile，原则上也适用 T-Mobile 的 SIM 卡，可选模块或规则集
 > >
-> > * **英国地区**：原则上适用于 **[Giffgaff](http://www.giffgaff.com/orders/affiliate/onone040_1742873967723)**、CMLink 以及沃达丰的 SIM 卡，可选模块或规则集。Giffgaff 的开启条件相对苛刻，查看 [官方要求](https://help.giffgaff.com/en/articles/258841-wifi-calling-and-volte)，查看 [开启教程](https://www.nodeseek.com/post-183470-1)，已知 **`iOS 26`** 暂时无法开启
+> > * **英国地区**：原则上适用于 **[Giffgaff](http://www.giffgaff.com/orders/affiliate/onone040_1742873967723)**、CMLink 以及沃达丰的 SIM 卡，可选模块或规则集。Giffgaff 的开启条件相对苛刻，查看 [官方要求](https://help.giffgaff.com/en/articles/258841-wifi-calling-and-volte)，查看 [开启教程](https://www.nodeseek.com/post-183470-1)，已知 **`iOS 26`** 及以上系统暂时无法单纯通过模块开启 Wi-Fi Calling
 > 
 > [![安装模块 WiFiCall-HK](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-HK&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingHK.sgmodule "一键安装本模块")
 > [![安装模块 WiFiCall-US](https://img.shields.io/static/v1?label=安装模块&message=WiFiCall-US&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/WiFiCallingUS.sgmodule "一键安装本模块")
