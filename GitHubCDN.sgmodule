@@ -1,6 +1,6 @@
 #!name= 🅶🅸🆃🅷🅴🅻🅿 资源加速
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/github_00.png
-#!desc=将 GitHub RAW 资源重定向至国内可用的镜像资源站。编辑参数可自定义切换 CDN 节点
+#!desc=将 GitHub RAW 资源重定向至国内可用的镜像资源站，可一定程度上缓解节点问题导致的远程资源失效。编辑参数可自定义切换 CDN 节点
 #!arguments=默认CDN节点:cdn, 默认CDN策略:DIRECT
 #!arguments-desc=将 GitHub RAW 资源重定向至国内可用的镜像资源站。支持选填 jsdelivr 的其他 CDN 节点，默认CDN策略为直连策略，可自定义其他策略，若直连正常则不建议修改\n🔘 默认CDN节点\n· 默认填写：cdn\n· 可选填写：fastly\n· 可选填写：gcore\n🔘 默认CDN策略：\n· 默认填写：DIRECT\n· 可选填写：PROXY 或其他节点、代理分组的完整名称
 #!author=LOWERTOP
