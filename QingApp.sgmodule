@@ -1,8 +1,8 @@
 #!name=🆀🅸🅽🅶🅰🅿🅿 Qing 净化增强
 #!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/Qing.png
-#!desc=移除开屏广告、阻断火山引擎与 MobTech 隐私追踪、禁用 HTTPDNS；支持本地解锁 VIP/真实视界、隐身消息配额满载、动态媒体下载解锁及强制透视附近的人隐藏活跃时间
-#!arguments=功能解锁:true,活跃时间:true,允许下载:true,隐身配额:true,更新弹窗:true
-#!arguments-desc=功能解锁: 解锁 VIP 标识、真实视界、最高资料可见度与超长视频限制 \n活跃时间: 强制透视附近的人隐藏的最后活跃时间 \n允许下载: 解锁动态图片与视频保存下载权限 \n隐身配额: 隐身消息发送配额修改为 999 \n更新弹窗: 屏蔽版本更新提示弹窗
+#!desc=移除开屏广告、阻断火山引擎与 MobTech 隐私追踪、禁用 HTTPDNS；可在编辑参数页面启用本地解锁真实视界、隐身消息配额满载、动态媒体下载解锁及强制透视附近的人隐藏活跃时间等
+#!arguments=功能解锁:false,活跃时间:false,允许下载:false,隐身配额:false,更新弹窗:false
+#!arguments-desc=🔘 功能解锁: 显示 VIP 标识、真实视界、最高资料可见度与超长视频限制 \n🔘 活跃时间: 强制透视附近的人隐藏的最后活跃时间 \n🔘 允许下载: 解锁动态图片与视频保存下载权限 \n🔘 隐身配额: 隐身消息发送配额修改为 999 \n🔘 更新弹窗: 屏蔽版本更新提示弹窗
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
