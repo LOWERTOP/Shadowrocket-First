@@ -1,8 +1,8 @@
 #!name=🆀🅸🅽🅶🅰🅿🅿 Qing 净化增强
 #!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/Qing.png
-#!desc=移除开屏广告、阻断火山引擎与 MobTech 隐私追踪、禁用 HTTPDNS；可在编辑参数页面启用本地解锁真实视界、隐身消息配额满载、动态媒体下载解锁、地图位置切换限制及强制透视附近的人隐身活跃状态等
+#!desc=移除开屏广告、阻断火山引擎与 MobTech 隐私追踪、禁用 HTTPDNS；可在编辑参数页面启用本地解锁真实视界、隐身消息配额满载、动态媒体下载解锁、强制透视附近的人隐身活跃状态及实验性测试增加地图位置切换限制次数
 #!arguments=功能解锁:false,活跃时间:false,允许下载:false,隐身配额:false,更新弹窗:false,地图次数:false
-#!arguments-desc=🔘 功能解锁: 显示 VIP 标识、真实视界、最高资料可见度与超长视频限制 \n🔘 活跃时间: 强制透视附近的人隐藏的最后活跃时间 \n🔘 允许下载: 解锁动态图片与视频保存下载权限 \n🔘 隐身配额: 隐身消息发送配额修改为 999 \n🔘 更新弹窗: 屏蔽版本更新提示弹窗 \n🔘 地图次数: 修改每日地图位置切换次数固定为 999
+#!arguments-desc=🔘 功能解锁: 显示 VIP 标识、真实视界、最高资料可见度与超长视频限制 \n🔘 活跃时间: 强制透视附近的人隐藏的最后活跃时间 \n🔘 允许下载: 解锁动态图片与视频保存下载权限 \n🔘 隐身配额: 隐身消息发送配额修改为 999 \n🔘 更新弹窗: 屏蔽版本更新提示弹窗 \n🔘 地图次数: 实验性测试提高每日地图位置切换次数，固定值为 20
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 [Rule]
@@ -51,7 +51,7 @@ http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/me\/default_pa
 # 隐身消息发送配额增强
 http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/users\/chat\/invisible_msg\/quota 'if ({{{隐身配额}}} == true) then (.data.max_count = 999 | .data.remain_count = 999) else . end'
 # 实验性修改地图每日位置切换限制 (HAR 中仅确认 daily_switch_location_limit 字段)
-http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/vibes\/nearby\/config 'if ({{{地图次数}}} == true and (.data | type == "object") and (.data | has("daily_switch_location_limit"))) then (.data.daily_switch_location_limit = 999) else . end'
+http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/vibes\/nearby\/config 'if ({{{地图次数}}} == true and (.data | type == "object") and (.data | has("daily_switch_location_limit"))) then (.data.daily_switch_location_limit = 20) else . end'
 # 恢复附近的人列表中被隐藏的活跃时间
 http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/vibes\/nearby\/list 'if ({{{活跃时间}}} == true and (.data.list | type == "array")) then (.data.list |= map(if (.user_last_active_at == 0 and .last_active_at > 0) then (.user_last_active_at = .last_active_at | .user_last_active_at_str = "👁️隐身活跃") else . end)) else . end'
 # 动态流媒体下载权限解锁
