@@ -3,9 +3,8 @@
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 #!icon=https://cdn.qing2000.com/app/enter-default.png
-#!arguments=功能解锁:true,活跃时间:true,AllowDownload:true,隐身配额:true,更新弹窗:true,客服入口:true,ShowInvite:false
-#!arguments-desc=功能解锁: 解锁 VIP 标识、真实视界、最高资料可见度与超长视频限制 \n活跃时间: 强制透视附近的人隐藏的最后活跃时间 \nAllowDownload: 解锁动态图片与视频保存下载权限 \n隐身配额: 隐身消息发送配额修改为 999 \n更新弹窗: 屏蔽版本更新提示弹窗 \n客服入口: 保留个人中心客服入口 \nShowInvite: 显示邀请码入口 
-#!category=去广告
+#!arguments=功能解锁:true,活跃时间:true,允许下载:true,隐身配额:true,更新弹窗:true,客服入口:true,邀请入口:false
+#!arguments-desc=功能解锁: 解锁 VIP 标识、真实视界、最高资料可见度与超长视频限制 \n活跃时间: 强制透视附近的人隐藏的最后活跃时间 \n允许下载: 解锁动态图片与视频保存下载权限 \n隐身配额: 隐身消息发送配额修改为 999 \n更新弹窗: 屏蔽版本更新提示弹窗 \n客服入口: 保留个人中心客服入口 \n邀请入口: 显示邀请码入口 
 
 [Rule]
 # > 阻断字节跳动火山引擎 APMPlus 与 Gator 遥测埋点
@@ -48,7 +47,7 @@ IP-CIDR6,2401:b180:7001::/48,REJECT,no-resolve
 
 [Body Rewrite]
 # > 1. 核心全局配置：清空开屏广告、关闭内置 HTTPDNS、提升资料可见等级为 4
-http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/users\/app\/config '.data.splash_config = [] | .data.http_dns_disabled = true | .data.hide_in_review_features = false | .data.show_customer_service = ({{{客服入口}}} == true) | .data.show_invite_code_entry = ({{{ShowInvite}}} == true) | if ({{{功能解锁}}} == true) then (.data.user_profile_visible_level = 4) else . end'
+http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/users\/app\/config '.data.splash_config = [] | .data.http_dns_disabled = true | .data.hide_in_review_features = false | .data.show_customer_service = ({{{客服入口}}} == true) | .data.show_invite_code_entry = ({{{邀请入口}}} == true) | if ({{{功能解锁}}} == true) then (.data.user_profile_visible_level = 4) else . end'
 
 # > 2. 屏蔽版本更新弹窗
 http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/app\/config\/version-update 'if ({{{更新弹窗}}} == true) then (.data.update = false | .data.is_latest_version = true | .data.mode = "" | .data.title = "" | .data.message = "" | .data.update_url = "") else . end'
@@ -67,7 +66,7 @@ http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/users\/chat\/i
 http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/vibes\/nearby\/list 'if ({{{活跃时间}}} == true and (.data.list | type == "array")) then (.data.list |= map(if (.user_last_active_at == 0 and .last_active_at > 0) then (.user_last_active_at = .last_active_at | .user_last_active_at_str = "👁️隐身活跃") else . end)) else . end'
 
 # > 7. 动态流媒体下载权限解锁 (通配通知与动态列表接口)
-http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/feeds\/moments\/ 'if ({{{AllowDownload}}} == true) then walk(if type == "object" and has("allow_download_medias") then .allow_download_medias = true else . end) else . end'
+http-response-jq ^https?:\/\/api\.qing2000\.(com|net|cc|cn)\/api\/feeds\/moments\/ 'if ({{{允许下载}}} == true) then walk(if type == "object" and has("allow_download_medias") then .allow_download_medias = true else . end) else . end'
 
 [MITM]
 hostname = %APPEND% api.qing2000.com, api.qing2000.net, api.qing2000.cc, api.qing2000.cn, 223.5.5.5
