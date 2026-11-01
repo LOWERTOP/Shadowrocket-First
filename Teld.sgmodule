@@ -1,0 +1,44 @@
+#!name=🆃🅴🅻🅳🅰🅿🅿 特来电增强
+#!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/Teld.png
+#!desc=阻断开屏广告聚合与各家广告 SDK，屏蔽 App 广告位接口，可选屏蔽福利中心推广位与统计埋点。支持在编辑参数页面开启「记录签到请求」与「自动签到」(实验性，需开启签到记录开关并在 App 内手动签到一次)
+#!arguments=屏蔽弹窗:true, 屏蔽推广:true, 统计策略:REJECT, 记录签到:false, 自动签到:false, 签到时间:10 8 * * *
+#!arguments-desc=🔘 屏蔽弹窗: 清空 App 广告位接口 (CMS-GetAppAd) \n🔘 屏蔽推广: 清空商城轮播、PLUS 促销、券包售卖与福利群二维码，默认关闭以免误伤券包购买入口 \n🔘 统计策略: 友盟、Bugly、字节埋点等统计上报，默认 REJECT，填 DIRECT 可放行 \n🔘 记录签到: 在 App 内手动签到时保存请求与登录态到本机，供自动签到使用 \n🔘 自动签到: 按下方时间自动重放已记录的签到请求，实验性，令牌过期会失败并通知 \n🔘 签到时间: 五段式 cron 表达式，默认每天 08:10
+#!author=LOWERTOP
+#!homepage=https://github.com/LOWERTOP/Shadowrocket-First
+
+[Rule]
+# 激活鸟 SSP - 开屏广告聚合 (取令牌、广告位配置、竞价与上报)
+DOMAIN-SUFFIX,jihuoniao.com,REJECT
+# 腾讯广告 优量汇 (广点通) - 广告请求、事件上报与素材 CDN
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN-SUFFIX,e.qq.com,REJECT
+DOMAIN-SUFFIX,ugdtimg.com,REJECT
+# 穿山甲 - 广告请求、配置与渲染组件
+DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
+DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
+DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
+# 快手联盟 - 广告配置与请求
+DOMAIN,open.e.kuaishou.com,REJECT
+DOMAIN,gdfp.gifshow.com,REJECT
+# 淘宝联盟 Tanx - 广告配置与请求
+DOMAIN-SUFFIX,tanx.com,REJECT
+# 统计与埋点 (友盟、字节 App 日志、火山引擎 APM、Bugly、H5 页面日志)
+DOMAIN-SUFFIX,umeng.com,{{{统计策略}}}
+DOMAIN-SUFFIX,umengcloud.com,{{{统计策略}}}
+DOMAIN-SUFFIX,ctobsnssdk.com,{{{统计策略}}}
+DOMAIN-SUFFIX,apmplus.volces.com,{{{统计策略}}}
+DOMAIN-SUFFIX,bugly.qq.com,{{{统计策略}}}
+DOMAIN,umini.shujupie.com,{{{统计策略}}}
+
+[Body Rewrite]
+# App 广告位接口 (请求体 filter 含 Type/Range/CityCode，抓包时无响应体，按常见结构清空 data)
+http-response-jq ^https?:\/\/sgi\.teld\.(cn|cc)\/api\/[Ii]nvoke\?SID=CMS-GetAppAd 'if {{{屏蔽弹窗}}} == true then (if (.data | type) == "array" then .data = [] elif (.data | type) == "object" then .data = {} else . end) else . end'
+# 福利中心与商城推广位：商城轮播、PLUS 促销、券包售卖、福利群二维码
+http-response-jq ^https?:\/\/sgi\.teld\.(cn|cc)\/api\/[Ii]nvoke\?SID=(Mall-Banner-GetPageTypeBanners|ATMS-PLUSV3-QueryBenefitPromotion|CMS-QueryCouponSaleList|AAPI-V0700-GetSocialGroupQRCodeList) 'if {{{屏蔽推广}}} == true then (if (.data | type) == "array" then .data = [] elif (.data | type) == "object" then .data = {} else . end) else . end'
+
+[Script]
+特来电-记录签到 = type=http-request,pattern=^https?:\/\/sgi\.teld\.(cn|cc)\/api\/[Ii]nvoke\?SID=ProSrv-CompleteCheckInTask,requires-body=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/Teld.js,argument=record={{{记录签到}}}
+特来电-自动签到 = type=cron,cronexp="{{{签到时间}}}",timeout=30,wake-system=1,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/Teld.js,argument=auto={{{自动签到}}}
+
+[MITM]
+hostname = %APPEND% sgi.teld.cn, sgi.teld.cc
