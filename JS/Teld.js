@@ -20,7 +20,10 @@ function parseArgs(s) {
   });
   return o;
 }
-const args = parseArgs(typeof $argument === 'string' ? $argument : '');
+const rawArg = typeof $argument === 'string' ? $argument : '';
+const args = parseArgs(rawArg);
+const argInfo = rawArg ? '收到参数: ' + rawArg : '未收到任何参数 (小火箭可能没有传递 argument)';
+console.log('[特来电] ' + argInfo);
 
 function notify(sub, body) {
   $notification.post(NAME, sub, body || '');
@@ -31,7 +34,10 @@ function beijingDay() {
 }
 
 function capture() {
-  if (args.record !== 'true') return $done({});
+  if (args.record !== 'true') {
+    notify('未记录签到请求', '「记录签到」未开启。' + argInfo);
+    return $done({});
+  }
   const skip = ['content-length', 'host', 'accept-encoding'];
   const headers = {};
   Object.keys($request.headers || {}).forEach((k) => {
@@ -44,9 +50,15 @@ function capture() {
 }
 
 function run() {
-  if (args.auto !== 'true') return $done();
+  if (args.auto !== 'true') {
+    notify('自动签到未执行', '「自动签到」未开启。' + argInfo);
+    return $done();
+  }
   const today = beijingDay();
-  if ($persistentStore.read(KEY_DAY) === today) return $done();
+  if ($persistentStore.read(KEY_DAY) === today) {
+    notify('自动签到已跳过', '今天 (' + today + ') 已签到成功，无需重复执行');
+    return $done();
+  }
 
   const raw = $persistentStore.read(KEY_REQ);
   if (!raw) {
