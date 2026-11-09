@@ -54,9 +54,15 @@
 > [![安装模块 红果果皮箱](https://img.shields.io/static/v1?label=安装模块&message=红果果皮箱&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/HongGuo.module "一键安装本模块")
 > [![安装模块 清洁模块](https://img.shields.io/static/v1?label=安装模块&message=清洁模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Cleaner.module "一键安装本模块")
 
+### [携程去广告](#携程去广告)
+
+> 携程去广告模块，纯 jq 实现、无需脚本，过滤携程 App 的开屏广告、首页弹窗和信息流广告，并可拦截广告埋点。支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，开屏、弹窗、信息流等去广告功能均可通过参数独立开关，默认全部开启
+> 
+> [![安装模块 携程去广告](https://img.shields.io/static/v1?label=安装模块&message=携程去广告&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/CtripAdBlock.sgmoudle "一键安装本模块")
+
 ### [特来电增强](#特来电增强)
 
-> 阻断开屏广告聚合与各家广告 SDK，屏蔽 App 广告位接口，可选屏蔽福利中心推广位与统计埋点。支持在 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 页面开启「记录签到请求」与「自动签到」(实验性功能，首次运行需开启签到记录开关并在 App 内手动签到一次，完成后关闭签到记录开关并打开自动签到)
+> 阻断开屏广告聚合与各家广告 SDK，屏蔽 App 广告位接口，可选屏蔽福利中心推广位与统计埋点。支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 
 > 
 > [![安装模块 特来电增强](https://img.shields.io/static/v1?label=安装模块&message=特来电增强&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Teld.sgmodule "一键安装本模块")
 
