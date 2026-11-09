@@ -1,8 +1,11 @@
 #!name=🅲🆃🆁🅸🅿🅰🅳 携程去广告
-#!desc=过滤 tripAds 接口的开屏 / 弹窗 / 瀑布流广告。支持编辑参数
+#!icon=https://raw.githubusercontent.com/LOWERTOP/ShadowRule/master/icon/task/ctrip.png
+#!desc=过滤携程 App 的开屏广告、首页弹窗和信息流广告，并可拦截广告埋点等。支持编辑参数，开屏、弹窗、信息流等去广告功能均可通过参数独立开关，默认全部开启
 #!category=去广告
 #!arguments=开屏广告:true,弹窗广告:true,瀑布广告:true,追踪埋点:REJECT,携程网关:DIRECT
 #!arguments-desc=开屏广告：去开屏广告（true=开启，false=关闭）\n弹窗广告：去首页弹窗广告（true=开启，false=关闭）\n瀑布广告：去信息流/Banner 广告（true=开启，false=关闭）\n追踪埋点：广告埋点 ma-adx.ctrip.com（REJECT=拦截，DIRECT=放行）\n携程网关：携程 TCP 网关（REJECT=强制回退 HTTPS，DIRECT=放行；去广告不生效时改为 REJECT）
+#!author=LOWERTOP
+#!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
 DOMAIN,ma-adx.ctrip.com,{{{追踪埋点}}}
