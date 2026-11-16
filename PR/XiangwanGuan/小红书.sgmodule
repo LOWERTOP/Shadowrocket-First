@@ -1,10 +1,12 @@
 #!name=小红书
-#!desc=2026-11-16 17:22:17
+#!desc=2026-11-16 18:10:05
 
 [Rule]
 DOMAIN,apm-fe.xiaohongshu.com,REJECT,pre-matching
 DOMAIN,apm-native.xiaohongshu.com,REJECT,pre-matching
+DOMAIN,lng.xiaohongshu.com,REJECT,pre-matching
 DOMAIN,spider-tracker.xiaohongshu.com,REJECT,pre-matching
+DOMAIN,t2.xiaohongshu.com,REJECT,pre-matching
 DOMAIN,t3.xiaohongshu.com,REJECT,pre-matching
 DOMAIN-SUFFIX,miaozhen.com,REJECT,pre-matching
 DOMAIN-WILDCARD,ads-*.xhscdn.com,REJECT,pre-matching
