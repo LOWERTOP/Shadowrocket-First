@@ -2,9 +2,9 @@
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Spotify_01.png
 #!desc=自用测试模块，编辑参数以使用
 #!arguments=歌词:"true",翻译:"true",语言:"zh-CN"
-#!arguments-desc=歌词：启用歌词补全。\n\n翻译：启用歌词翻译。\n\n语言：翻译目标语言，默认 zh-CN。\n\n已有官方歌词优先保留；外部歌词按歌名、歌手和时长匹配。\n\n更新后请停用其他 Spotify 歌词模块，避免重复处理同一接口。
+#!arguments-desc=歌词：启用歌词补全。\n\n翻译：启用歌词翻译。\n\n语言：翻译目标语言，默认 zh-CN。\n\n已有官方歌词优先保留；外部歌词按歌名、歌手和时长匹配。\n\n更新后请停用其他 Spotify 歌词模块，避免重复处理同一接口。\n\n作者：Reukix
 #!author=Reukix
-#!homepage=https://github.com//Reukix/ukix
+#!homepage=https://github.com/Reukix/ukix
 
 [Rule]
 AND,((DOMAIN-SUFFIX, spotify.com), (PROTOCOL, QUIC)),REJECT
