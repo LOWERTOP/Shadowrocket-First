@@ -324,7 +324,7 @@
 > > [![安装模块 比价折线版](https://img.shields.io/static/v1?label=安装模块&message=比价折线版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/githubdulong/Script/master/Surge/jd_price.sgmodule "一键安装本模块")
 > > [![安装模块 比价表格版](https://img.shields.io/static/v1?label=安装模块&message=比价表格版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/githubdulong/Script/master/Surge/jd_price2.sgmodule "一键安装本模块")
 >  
-> **[Spotify 模块](https://raw.githubusercontent.com/001ProMax/Surge/main/Module/AD/Spotify.sgmodule)**
+> **[Spotify 模块](https://raw.githubusercontent.com/Reukix/ukix/main/Script/Spotify.sgmodule)**
 > 
 > > 模块来自 [Reukix](https://github.com/Reukix)，原则上启用会员配置，包含去除首页广告和播放页广告，支持编辑参数，可以调整歌词等选项。同时提供 [001ProMax](https://github.com/001ProMax) 和 [app2smile](https://github.com/app2smile) 的版本，各版本的差异和有效性请自行测试
 > >
