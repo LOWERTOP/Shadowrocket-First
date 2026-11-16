@@ -1,30 +1,34 @@
 #!name=🆂🅿🅾🆃🅸🅵🆈 声破天解锁
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Spotify_01.png
 #!desc=自用测试模块，编辑参数以使用
-#!arguments=歌词翻译:false, 翻译账户:申请并填入百度翻译AppID, 翻译密钥:申请并填入百度翻译密钥, 精简底栏:true, 接力功能:true
-#!arguments-desc=歌词翻译功能说明\n\n· 需申请百度翻译API的ID和密钥并填入，推荐高级版\n\n· 申请时建议使用桌面设备，移动设备可能访问失败\n\n· 成功启用后，歌词界面左下角即可看到翻译按钮\n\n - 注册百度翻译个人开发者，高级版需要实名认证: \n\n    http://api.fanyi.baidu.com/register\n\n - 开通(通用文本翻译)API服务: \n\n    https://fanyi-api.baidu.com/choose\n\n - 成功后即可看到自己的AppID和密钥(不要泄露): \n\n    http://api.fanyi.baidu.com/manage/developer
-#!author=LOWERTOP
-#!homepage=https://github.com/LOWERTOP/Shadowrocket-First
-#!source=https://github.com/app2smile
-#!source=https://github.com/001ProMax
+#!arguments=歌词:"true",翻译:"true",语言:"zh-CN"
+#!arguments-desc=歌词：启用歌词补全。\n\n翻译：启用歌词翻译。\n\n语言：翻译目标语言，默认 zh-CN。\n\n已有官方歌词优先保留；外部歌词按歌名、歌手和时长匹配。\n\n更新后请停用其他 Spotify 歌词模块，避免重复处理同一接口。
+#!author=Reukix
+#!homepage=https://github.com//Reukix/ukix
 
 [Rule]
-# Spotify QUIC BLOCK
-AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,QUIC)),REJECT-NO-DROP
+AND,((DOMAIN-SUFFIX, spotify.com), (PROTOCOL, QUIC)),REJECT
+DOMAIN,aet.spotify.com,REJECT
+
+[Header Rewrite]
+http-request ^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/(?:user-customization-service\/v1\/customize|nebula\/v1\/configuration\/attributes|remote-config-resolver\/v3\/configuration)\/?(?:\?[^#]*)?$ header-del if-none-match
 
 [URL Rewrite]
-# 001ProMax
-^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad header
+^https:\/\/(spclient\.wg|.*-spclient)\.spotify\.com(:443)?\/pendragon - reject
+^https:\/\/.*-spclient\.spotify\.com(:443)?\/pam-view-service\/ - reject
+^https:\/\/.*37i9dQZF1EYkqdzj48dyYq - reject
 
 [Map Local]
-# 001ProMax
-^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:ad-|pendragon) data-type=text data="" status-code=200
+^https:\/\/(.*-spclient\.spotify\.com(:443)?|spclient\.wg\.spotify\.com)\/gabo-receiver-service data-type=text data="" status-code=200 header="Cache-Control:no-cache|Content-Length:0"
 
 [Script]
-# 001ProMax
-Spotify.Crack = type=http-response, pattern=^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service), script-path=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js,max-size=0,requires-body=true,binary-body-mode=true,argument=tab={{{精简底栏}}}&useractivity={{{接力功能}}}
-# app2smile
-spotify歌词翻译 = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/,requires-body=1,binary-body-mode=1,max-size=0,timeout=10,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-lyric.js,enable={{{歌词翻译}}},argument=appid={{{翻译账户}}}&securityKey={{{翻译密钥}}}
+spotify-home = type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/casita\/v1\/home\/default\/?(?:\?[^#]*)?$,requires-body=1,binary-body-mode=1,max-size=2097152,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-home.js?v=0e4692c6dc47,timeout=5
+spotify-search = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/browsita\/v.\/browse,requires-body=1,binary-body-mode=1,max-size=2097152,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-search.js?v=511d67b05081,timeout=5
+spotify-scroll=type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/scrollsita\/v[0-9]+\/scroll\/spotify:[^?#]+(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,timeout=8,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-lyrics.js?v=caf13ded9c7b,argument=Lyrics={{{歌词}}}&Translate={{{翻译}}}&TargetLanguage={{{语言}}}
+spotify-lyrics=type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/color-lyrics\/v2\/track\/[A-Za-z0-9]{22}(?:\/image\/[^/?#]+)?\/?(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,timeout=20,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-lyrics.js?v=caf13ded9c7b,argument=Lyrics={{{歌词}}}&Translate={{{翻译}}}&TargetLanguage={{{语言}}}
+spotify-lyrics-metadata=type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/(?:extended-metadata\/v0\/extended-metadata|metadata\/4\/track\/[a-fA-F0-9]{32})(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-lyrics.js?v=caf13ded9c7b,argument=Lyrics={{{歌词}}}&Translate={{{翻译}}}&TargetLanguage={{{语言}}},timeout=5
+spotify-lyrics-playback=type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/connect-state\/v1\/devices\/[^/?#]+\/?(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-lyrics.js?v=caf13ded9c7b,argument=Lyrics={{{歌词}}}&Translate={{{翻译}}}&TargetLanguage={{{语言}}},timeout=5
+spotify-proto = type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/(?:bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize|nebula\/v1\/configuration\/attributes|remote-config-resolver\/v3\/configuration)\/?(?:\?[^#]*)?$,requires-body=1,binary-body-mode=1,max-size=2097152,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-proto.js?v=0321ac8dbef4,script-update-interval=86400,timeout=5
 
 [MITM]
-hostname = %APPEND% spclient.wg.spotify.com, *spclient.spotify.com
+hostname = %APPEND% spclient.wg.spotify.com, *spclient.spotify.com, *-spclient.wg.spotify.com
