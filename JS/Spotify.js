@@ -18,6 +18,10 @@
 // Skip translation (2026-11-17): when the lyrics themselves are already in
 // the target language (detected by script for zh/ja/ko), no translation is
 // triggered at all.
+// Cache v2 + native conversion (2026-11-17): the cache key was bumped to v2
+// so pre-fix Traditional lyrics / English translations are discarded;
+// cached returns are also converted/validated, and Spotify's own native
+// lyrics (status 200, JSON and proto) are converted to Simplified too.
 (() => {
   // ================= protobufjs runtime (from Spotify-proto.js) =================
 let protobuf;
@@ -17004,7 +17008,7 @@ $done({ body });
 //       15 s lyrics). -> 6 s scroll / 18 s lyrics (module timeouts are
 //       8 s / 20 s, so the script still finishes inside them).
   async function runLyrics() {
-  const KEY = "UKIX.Spotify.Lyrics.v1";
+  const KEY = "UKIX.Spotify.Lyrics.v2";
   const DAY = 86400000;
   const MAX_LINES = 500;
   const now = () => Date.now();
@@ -17174,8 +17178,8 @@ $done({ body });
   function cache() {
     try {
       const value = JSON.parse($persistentStore.read(KEY) || "{}");
-      return value.version === 1 && value.tracks && typeof value.tracks === "object" ? value : { version: 1, tracks: {}, cooldowns: {} };
-    } catch (_) { return { version: 1, tracks: {}, cooldowns: {} }; }
+      return value.version === 2 && value.tracks && typeof value.tracks === "object" ? value : { version: 2, tracks: {}, cooldowns: {} };
+    } catch (_) { return { version: 2, tracks: {}, cooldowns: {} }; }
   }
   function save(change) {
     try {
@@ -17332,7 +17336,14 @@ $done({ body });
   }
   async function external(id) {
     const entry = cache().tracks[id];
-    if (entry?.expires > now()) return entry.result || null;
+    if (entry?.expires > now()) {
+      const cached = entry.result || null;
+      if (cached && SIMPLIFIED_TARGET) {
+        cached.lines = simplifyLineWords(cached.lines);
+        for (const alt of cached.alternatives || []) alt.lines = simplifyStrings(alt.lines);
+      }
+      return cached;
+    }
     const info = await infoFor(id);
     if (!info) return null;
     let complete = true;
@@ -17531,7 +17542,12 @@ $done({ body });
     if (!translate || alternatives.some(a => languageKey(a.language) === languageKey(target))) return null;
     if (lyricsAlreadyTarget(lines)) return null;
     const source = lines.map(line => line.words).join("\n"), saved = cache().tracks[id]?.translations?.[target];
-    if (saved?.source === source && saved.expires > now()) return saved.lines;
+    if (saved?.source === source && saved.expires > now()) {
+      // A cached translation from before the language check may be in the
+      // wrong language (e.g. English for a Chinese target); reject it so a
+      // fresh translation is attempted instead of showing the wrong language.
+      if (matchesTarget(saved.lines.join("\n"))) return saved.lines;
+    }
     const groups = []; let group = [], length = 0;
     for (const line of lines) {
       if (line.words.length > 900) return null;
@@ -17690,9 +17706,44 @@ $done({ body });
       if (native && !native.lines.some(line => line.words.trim())) native = null;
     }
     if (native) {
+      if (SIMPLIFIED_TARGET) {
+        // Spotify's own lyrics (Musixmatch etc.) are often Traditional for
+        // Chinese songs. Convert the native lyrics themselves, not just the
+        // fallback sources. For JSON, update the document that is returned;
+        // for proto, rebuild the line (2) and alternative (9) fields in
+        // native.list so the rebuilt response carries Simplified text.
+        if (format === "json" && document?.lyrics) {
+          for (const line of document.lyrics.lines || []) line.words = toSimplified(String(line.words || ""));
+          for (const alt of document.lyrics.alternatives || []) alt.lines = (alt.lines || []).map(l => toSimplified(l));
+        } else if (native.list) {
+          const convertField = (field, num) => {
+            const row = fields(field.payload), parts = [];
+            for (const sub of row) {
+              if (sub.number === 2 && sub.wire === 2) parts.push(string(2, toSimplified(text(sub.payload))));
+              else parts.push(sub.raw);
+            }
+            field.raw = blob(num, join(parts));
+          };
+          for (const f of native.list) {
+            if (f.number === 2 && f.wire === 2) convertField(f, 2);
+            else if (f.number === 9 && f.wire === 2) convertField(f, 9);
+          }
+        }
+        native.lines = simplifyLineWords(native.lines);
+        for (const alt of native.alternatives || []) alt.lines = simplifyStrings(alt.lines);
+      }
       let translated;
       try { translated = await translations(id, native.lines, native.alternatives); } catch (_) { console.log("Spotify lyrics: translation unavailable"); }
-      if (!translated) return {};
+      if (!translated) {
+        // No translation (already the target language, or translation
+        // disabled/failed). If the native lyrics were converted to
+        // Simplified above, return the converted document instead of
+        // passing the original Traditional response through unchanged.
+        if (!SIMPLIFIED_TARGET) return {};
+        if (format === "json") return response(utf8(JSON.stringify(document)), 200, format);
+        const payload = join([...native.list.filter(f => !(f.number === 8 && f.wire === 0)).map(f => f.raw), scalar(8, Number(native.alternatives.length > 0))]);
+        return response(join(native.top.map(f => f === native.lyric ? blob(1, payload) : f.raw)), 200, format);
+      }
       const extra = { language: languageKey(target), lines: translated };
       if (format === "json") {
         document.lyrics.alternatives = [...native.alternatives, extra]; document.lyrics.showTranslation = true;
