@@ -237,14 +237,6 @@
 > **模块的生效需要遵循自上而下的 [优先级顺序](https://github.com/LOWERTOP/Shadowrocket#%E8%A7%84%E5%88%99%E4%BC%98%E5%85%88%E7%BA%A7)** <br>
 > **部分模块的生效需要清除相应的程序的缓存或者重新安装**
 
-> **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeNoAd.sgmodule)**
-> 
-> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可去除软件内各类广告并提供画中画功能（可能需要关闭 YouTube 设置中的“自动播放下一个视频”功能），同时支持 YouTube Music 去广告。模块支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，安装后可点击模块进入编辑参数页面，可选是否屏蔽上传、Shorts、选段等按钮。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块<br>
-> > 同时提供 [Maasea](https://github.com/Maasea) 制作的 [原版模块](https://raw.githubusercontent.com/Maasea/sgmodule/master/YouTube.Enhance.sgmodule) 的安装路径
-> >   
-> > [![安装模块 YouTube 模块](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
-> > [![安装模块 Maasea 版本](https://img.shields.io/static/v1?label=安装模块&message=Maasea%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Maasea/sgmodule/master/YouTube.Enhance.sgmodule "一键安装本模块")
-> 
 > **[Spotify 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)**
 > 
 > > 模块主要代码来自 [Reukix](https://github.com/Reukix)，原则上可以启用会员配置，包含去除首页广告和播放页广告。支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，可以调整歌词等选项，模块在原版代码的基础上增加百度翻译服务，原则上启用百度翻译后可以支持所有语言歌词的翻译，并可更大程度上避免翻译失效的问题。同时提供 [Reukix](https://github.com/Reukix) 的原始版本，各版本的差异和有效性请自行测试
@@ -253,6 +245,14 @@
 > >
 > > [![安装模块 本仓版本](https://img.shields.io/static/v1?label=安装模块&message=本仓版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule "一键安装本模块")
 > > [![安装模块 原始版本](https://img.shields.io/static/v1?label=安装模块&message=原始版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/main/Script/Spotify.sgmodule "一键安装本模块")
+> 
+> **[YouTube 模块](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeNoAd.sgmodule)**
+> 
+> > 本模块由 [iab0x00](https://github.com/iab0x00) 维护，可去除软件内各类广告并提供画中画功能（可能需要关闭 YouTube 设置中的“自动播放下一个视频”功能），同时支持 YouTube Music 去广告。模块支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，安装后可点击模块进入编辑参数页面，可选是否屏蔽上传、Shorts、选段等按钮。需要注意，TV 版 YouTube 不支持解密，不可使用类似模块<br>
+> > 同时提供 [Maasea](https://github.com/Maasea) 制作的 [原版模块](https://raw.githubusercontent.com/Maasea/sgmodule/master/YouTube.Enhance.sgmodule) 的安装路径
+> >   
+> > [![安装模块 YouTube 模块](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
+> > [![安装模块 Maasea 版本](https://img.shields.io/static/v1?label=安装模块&message=Maasea%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Maasea/sgmodule/master/YouTube.Enhance.sgmodule "一键安装本模块")
 > 
 > **[推特网页版去广告](https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/XWebAds.module)**
 > 
