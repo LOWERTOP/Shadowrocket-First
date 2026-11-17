@@ -18,7 +18,7 @@
 // Skip translation (2026-11-17): when the lyrics themselves are already in
 // the target language (detected by script for zh/ja/ko), no translation is
 // triggered at all.
-// Cache v2 + native conversion (2026-11-17): the cache key was bumped to v2
+// Cache v3 (2026-11-17): the cache key was bumped to v3
 // so pre-fix Traditional lyrics / English translations are discarded;
 // cached returns are also converted/validated, and Spotify's own native
 // lyrics (status 200, JSON and proto) are converted to Simplified too.
@@ -17008,7 +17008,7 @@ $done({ body });
 //       15 s lyrics). -> 6 s scroll / 18 s lyrics (module timeouts are
 //       8 s / 20 s, so the script still finishes inside them).
   async function runLyrics() {
-  const KEY = "UKIX.Spotify.Lyrics.v2";
+  const KEY = "UKIX.Spotify.Lyrics.v3";
   const DAY = 86400000;
   const MAX_LINES = 500;
   const now = () => Date.now();
@@ -17178,8 +17178,8 @@ $done({ body });
   function cache() {
     try {
       const value = JSON.parse($persistentStore.read(KEY) || "{}");
-      return value.version === 2 && value.tracks && typeof value.tracks === "object" ? value : { version: 2, tracks: {}, cooldowns: {} };
-    } catch (_) { return { version: 2, tracks: {}, cooldowns: {} }; }
+      return value.version === 3 && value.tracks && typeof value.tracks === "object" ? value : { version: 3, tracks: {}, cooldowns: {} };
+    } catch (_) { return { version: 3, tracks: {}, cooldowns: {} }; }
   }
   function save(change) {
     try {
@@ -17348,11 +17348,17 @@ $done({ body });
       try {
         const result = await provider(info);
         if (result) {
+          let ttl = 7 * DAY;
           if (SIMPLIFIED_TARGET) {
+            const before = result.lines;
             result.lines = await toSimplifiedLines(result.lines);
             for (const alt of result.alternatives || []) alt.lines = await toSimplifiedStrings(alt.lines);
+            // If the lines are unchanged but Chinese lines exist, the
+            // conversion service failed (e.g. rate-limited). Don't poison
+            // the cache for 7 days; retry in an hour instead.
+            if (result.lines === before && result.lines.some(l => isChineseText(l.words))) ttl = 3600000;
           }
-          storeTrack(id, { result, expires: now() + 7 * DAY }); return result;
+          storeTrack(id, { result, expires: now() + ttl }); return result;
         }
       } catch (_) { complete = false; }
     }
