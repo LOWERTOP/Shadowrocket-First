@@ -5,8 +5,8 @@
 //   Spotify-proto.js (embedded protobufjs runtime + bootstrap/customization patch).
 // The module points every [Script] entry at this one file; the dispatcher at the
 // bottom routes by URL, so each entry keeps its own pattern / timeout / max-size.
-// Translation providers (in order): Baidu (when BaiduTranslate=true + appid/key
-// supplied) -> Netease human translation (zh) -> Google gtx -> MyMemory.
+// Translation providers (in order): Netease human translation (zh) ->
+// Baidu (when BaiduTranslate=true + appid/key supplied) -> Google gtx -> MyMemory.
 (() => {
   // ================= protobufjs runtime (from Spotify-proto.js) =================
 let protobuf;
@@ -16953,9 +16953,10 @@ $done({ body });
 // Spotify lyrics: one response pipeline, native wire format, independent cache.
 // FIXED 2026-11-17 (based on Reukix/ukix main, Spotify-lyrics.js v=caf13ded9c7b)
 // + Baidu Translate support (2026-11-17): set module arguments BaiduTranslate
-//   = "true", BaiduAppId and BaiduKey to use Baidu as the first-choice
-//   translation provider (sign = MD5(appid+q+salt+key), pure-JS MD5 included).
-//   Falls back to Netease human translation -> Google -> MyMemory.
+//   = "true", BaiduAppId and BaiduKey to use Baidu as the second-choice
+//   translation provider, after Netease human translation
+//   (sign = MD5(appid+q+salt+key), pure-JS MD5 included).
+//   Falls back to Google -> MyMemory.
 // Fixes: [L1-L4] lyrics matching / duration / has_lyrics flag / deadlines;
 //   [T1-T3] Google gtx parsing, translation fallbacks, line alignment.
 // Fixes:
@@ -17006,7 +17007,8 @@ $done({ body });
   const translate = args.Translate !== "false";
   const target = /^[a-z]{2,3}(?:-[A-Za-z]{2,4})?$/.test(args.TargetLanguage || "") ? args.TargetLanguage : "zh-CN";
   // Baidu Translate (optional, user-supplied credentials). When enabled it is
-  // the first-choice translation provider. Requires BaiduAppId + BaiduKey.
+  // the second-choice translation provider, after Netease human translation.
+  // Requires BaiduAppId + BaiduKey.
   const baiduAppId = String(args.BaiduAppId || "").trim();
   const baiduKey = String(args.BaiduKey || "").trim();
   const baiduOn = args.BaiduTranslate === "true" && Boolean(baiduAppId) && Boolean(baiduKey);
@@ -17459,13 +17461,8 @@ $done({ body });
       storeTrack(id, { translations: { ...(cache().tracks[id]?.translations || {}), [target]: { source, lines: output, expires: now() + 7 * DAY } } });
       return output;
     }
-    // 1) Baidu first when enabled (user-supplied API credentials).
-    if (baiduOn) {
-      const kept = keep(await translateAll(["baidu"]));
-      if (kept) return kept;
-    }
-    // 2) Netease human translation (Chinese target; skipped when the lyrics
-    // themselves already came from Netease).
+    // 1) Netease human translation first (highest priority, Chinese target;
+    //    skipped when the lyrics themselves already came from Netease).
     if (provider !== "NeteaseMusic") {
       try {
         const human = await neteaseTranslation(cache().tracks[id]?.info, lines);
@@ -17474,6 +17471,11 @@ $done({ body });
           if (kept) return kept;
         }
       } catch (_) { /* fall through to machine translation */ }
+    }
+    // 2) Baidu (user-supplied API credentials).
+    if (baiduOn) {
+      const kept = keep(await translateAll(["baidu"]));
+      if (kept) return kept;
     }
     // 3) Google, then MyMemory.
     return keep(await translateAll(["google", "mymemory"]));
