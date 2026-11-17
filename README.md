@@ -245,6 +245,15 @@
 > > [![安装模块 YouTube 模块](https://img.shields.io/static/v1?label=安装模块&message=YouTube%20模块&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/YouTubeNoAd.sgmodule "一键安装本模块")
 > > [![安装模块 Maasea 版本](https://img.shields.io/static/v1?label=安装模块&message=Maasea%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Maasea/sgmodule/master/YouTube.Enhance.sgmodule "一键安装本模块")
 > 
+> **[Spotify 模块](https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule)**
+> 
+> > 模块主要代码来自 [Reukix](https://github.com/Reukix)，原则上可以启用会员配置，包含去除首页广告和播放页广告。支持 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)**，可以调整歌词等选项，模块在原版代码的基础上增加百度翻译服务，原则上启用百度翻译后可以支持所有语言歌词的翻译，并可更大程度上避免翻译失效的问题。同时提供 [Reukix](https://github.com/Reukix) 的原始版本，各版本的差异和有效性请自行测试
+> >
+> > **软件分流节点须同注册地保持一致，首次登录或软件更新后可能需要重启软件方可生效，极端情况下可能需要重新登录或重装**
+> >
+> > [![安装模块 本仓版本](https://img.shields.io/static/v1?label=安装模块&message=本仓版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/Spotify.sgmodule "一键安装本模块")
+> > [![安装模块 原始版本](https://img.shields.io/static/v1?label=安装模块&message=原始版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/main/Script/Spotify.sgmodule "一键安装本模块")
+> 
 > **[推特网页版去广告](https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/XWebAds.module)**
 > 
 > > 本模块来源自 [奶思](https://t.me/inaisi/629)。登录网页版，点击分享，下滑选择“添加到主屏幕”，添加到桌面的网页版和原版应用的差别比较细微，搭配此模块可实现无广告的推特浏览体验
@@ -324,16 +333,6 @@
 > > [![安装模块 比价折线版](https://img.shields.io/static/v1?label=安装模块&message=比价折线版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/githubdulong/Script/master/Surge/jd_price.sgmodule "一键安装本模块")
 > > [![安装模块 比价表格版](https://img.shields.io/static/v1?label=安装模块&message=比价表格版&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/githubdulong/Script/master/Surge/jd_price2.sgmodule "一键安装本模块")
 >  
-> **[Spotify 模块](https://raw.githubusercontent.com/Reukix/ukix/main/Script/Spotify.sgmodule)**
-> 
-> > 模块来自 [Reukix](https://github.com/Reukix)，原则上启用会员配置，包含去除首页广告和播放页广告，支持编辑参数，可以调整歌词等选项。同时提供 [001ProMax](https://github.com/001ProMax) 和 [app2smile](https://github.com/app2smile) 的版本，各版本的差异和有效性请自行测试
-> >
-> > **软件音质不能设置为超高，分流节点须同注册地保持一致，首次登录或软件更新后可能需要重启软件方可生效，极端情况下可能需要重新登录或重装。软件的更新可能导致相关模块部分或全部功能受限，可以尝试回滚软件至旧版**
-> >
-> > [![安装模块 Reukix 版本](https://img.shields.io/static/v1?label=安装模块&message=Reukix%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/main/Script/Spotify.sgmodule "一键安装本模块")
-> > [![安装模块 001ProMax 版本](https://img.shields.io/static/v1?label=安装模块&message=001ProMax%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/001ProMax/Surge/main/Module/AD/Spotify.sgmodule "一键安装本模块")
-> > [![安装模块 app2smile 版本](https://img.shields.io/static/v1?label=安装模块&message=app2smile%20版本&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module "一键安装本模块")
-> 
 > **[机场流量查询模块](https://raw.githubusercontent.com/huskydsb/Shadowrocket/main/Sgmodule/%E6%9C%BA%E5%9C%BA%E6%B5%81%E9%87%8F%E6%9F%A5%E8%AF%A2.module)**
 > 
 > > 本模块由 [Sage](https://github.com/huskydsb) 制作并维护，是以 **[编辑参数](https://github.com/LOWERTOP/Shadowrocket?tab=readme-ov-file#%E7%BC%96%E8%BE%91%E5%8F%82%E6%95%B0)** 为基础使用手段的定期检测订阅信息的模块，主要可以定期查询并提醒服务器订阅的当前信息，如上传流量、下载流量、流量总量、到期时间等提醒。安装后点击模块进入编辑参数页面设置，其时间间隔使用 Cron 表达式填写，其他内容参见编辑参数内的说明
