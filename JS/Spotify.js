@@ -7,6 +7,17 @@
 // bottom routes by URL, so each entry keeps its own pattern / timeout / max-size.
 // Translation providers (in order): Netease human translation (zh) ->
 // Baidu (when BaiduTranslate=true + appid/key supplied) -> Google gtx -> MyMemory.
+// Traditional -> Simplified normalisation (2026-11-17): when the target is
+// Simplified Chinese, lyrics and translations are converted to Simplified,
+// because LRCLIB (fallback source) returns Traditional for Chinese songs.
+// Multilingual / wrong-language fixes (2026-11-17): translations are checked
+// to actually be in the target language (a Netease tlyric or MyMemory result
+// in English is rejected for a Chinese target); when a bulk translation
+// merges/drops lines (common for Korean+English mixes), the chunk is
+// retried line-by-line so no paragraph goes blank.
+// Skip translation (2026-11-17): when the lyrics themselves are already in
+// the target language (detected by script for zh/ja/ko), no translation is
+// triggered at all.
 (() => {
   // ================= protobufjs runtime (from Spotify-proto.js) =================
 let protobuf;
@@ -17300,7 +17311,7 @@ $done({ body });
       const translated = lrc(result.tlyric?.lyric), alternatives = [];
       if (/^zh(?:-|$)/i.test(target) && translated.length) {
         const aligned = lines.map(line => translated.find(t => Math.abs(t.start - line.start) <= 150)?.words || "");
-        if (aligned.some(Boolean)) alternatives.push({ language: "zh", lines: aligned });
+        if (aligned.some(Boolean) && matchesTarget(aligned.join(" "))) alternatives.push({ language: "zh", lines: aligned });
       }
       return { sync: words.length ? 2 : 1, lines, provider: "NeteaseMusic", providerId: String(song.id), alternatives };
     }
@@ -17328,13 +17339,64 @@ $done({ body });
     for (const provider of [netease, lrclib]) {
       try {
         const result = await provider(info);
-        if (result) { storeTrack(id, { result, expires: now() + 7 * DAY }); return result; }
+        if (result) {
+          if (SIMPLIFIED_TARGET) {
+            result.lines = simplifyLineWords(result.lines);
+            for (const alt of result.alternatives || []) alt.lines = simplifyStrings(alt.lines);
+          }
+          storeTrack(id, { result, expires: now() + 7 * DAY }); return result;
+        }
       } catch (_) { complete = false; }
     }
     if (complete) storeTrack(id, { result: null, expires: now() + 15 * 60000 });
     return null;
   }
   const languageKey = lang => /^zh(?:-|$)/i.test(lang) ? "zh" : String(lang).toLowerCase();
+  // Traditional -> Simplified conversion (412 common chars). Netease returns
+  // Simplified lyrics, but LRCLIB (the fallback source) returns Traditional
+  // for Chinese songs. When the translation target is Simplified Chinese
+  // (zh-CN / zh-SG / zh), normalise lyrics and translations to Simplified so
+  // the user never sees Traditional regardless of which source matched.
+  const TRAD_CHARS = "學讓還麼為與說東後發長樂萬國會傳轉廣廠馬魚鳥黃龍龜齊劉關開問間聞雲電讀邊進遠選對導異靈灣臺愛親頭體麵點髮這個們過時來麽幾裡給業叢絲丟兩嚴喪豐臨麗舉義烏喬習鄉書買亂爭於亞億僅僕兒養獸內圓冊寫軍農決況凍淨準涼減湊測溼溫濕滿漁漿漢漸潔潛潤澤濃濟濛濤濫濱濾瀝瀟瀾爐獻環現畫當疊癢皺盜盡監盤盧著確禮禦禍離種積稱穩穫窮竊競筆簡約紅純紙級細終組結絕繞繪繼續纏罷羨翹聰聲聽膽臉臘興舊莊葉蓋蓮藝藥蘇蘭處虛號虧蟲衛衝裝製複見覺覽計記討講許論設試話該詳語誤誰調談請諒諮謂謝謠謙謹貝貞負財貧貨販貪貫責費賀貴貸貿資賈賤賺賽贊贏跡踐較載輪輕輝輛輩辭迴運連週遊達違遙遜遺遼邏邁鄰鄭鄧銀銅鐵鉛門閒閣閱陽陰階際隨險隱隻難霧靜韋頁頂項順須預領題顏額風飛館駭驚驗鬆鬢鬧魯鮮鳴鹽麥黴黨攔飲嗎嚮噹噸嚇嚐囉囑囂嚥嚨囈鬱憂憶應擁擇擊擋擔擠據擴擺攝攜敵數斷無晉曆曇曉條楊棄歸殘毀殺歲歷殼氣汙沒淺淚燒燈牆牽獨獲單從飄蕩鞦韆倉傘傷儘償儲兌凜憑凱勵勞勝匯層屬嶼嶺巔韁韓韜韻響頃盪";
+  const SIMP_CHARS = "学让还么为与说东后发长乐万国会传转广厂马鱼鸟黄龙龟齐刘关开问间闻云电读边进远选对导异灵湾台爱亲头体面点发这个们过时来么几里给业丛丝丢两严丧丰临丽举义乌乔习乡书买乱争于亚亿仅仆儿养兽内圆册写军农决况冻净准凉减凑测湿温湿满渔浆汉渐洁潜润泽浓济蒙涛滥滨滤沥潇澜炉献环现画当叠痒皱盗尽监盘卢着确礼御祸离种积称稳获穷窃竞笔简约红纯纸级细终组结绝绕绘继续缠罢羡翘聪声听胆脸腊兴旧庄叶盖莲艺药苏兰处虚号亏虫卫冲装制复见觉览计记讨讲许论设试话该详语误谁调谈请谅咨谓谢谣谦谨贝贞负财贫货贩贪贯责费贺贵贷贸资贾贱赚赛赞赢迹践较载轮轻辉辆辈辞回运连周游达违遥逊遗辽逻迈邻郑邓银铜铁铅门闲阁阅阳阴阶际随险隐只难雾静韦页顶项顺须预领题颜额风飞馆骇惊验松鬓闹鲁鲜鸣盐麦霉党拦饮吗向当吨吓尝啰嘱嚣咽咙呓郁忧忆应拥择击挡担挤据扩摆摄携敌数断无晋历昙晓条杨弃归残毁杀岁历壳气污没浅泪烧灯墙牵独获单从飘荡秋千仓伞伤尽偿储兑凛凭凯励劳胜汇层属屿岭巅缰韩韬韵响顷荡";
+  const SIMPLIFIED_TARGET = /^zh(-cn|-sg)?$/i.test(target);
+  const toSimplified = text => SIMPLIFIED_TARGET
+    ? String(text).split("").map(ch => { const i = TRAD_CHARS.indexOf(ch); return i >= 0 ? SIMP_CHARS[i] : ch; }).join("")
+    : String(text);
+  const simplifyLineWords = lines => lines.map(line => ({ ...line, words: toSimplified(line.words) }));
+  const simplifyStrings = arr => arr.map(s => toSimplified(s));
+  // Validate that a translation is actually in the target language. The
+  // Netease tlyric for some songs is English (or credits/junk), and the
+  // machine fallback (MyMemory) can return English for ja/ko -> zh. For a
+  // Chinese target, require the text to be mostly CJK; a mostly-Latin result
+  // is rejected so the next provider is tried instead of showing English.
+  const matchesTarget = text => {
+    if (!/^zh/i.test(target)) return true;
+    const s = String(text || "");
+    const cjk = (s.match(/[\u4e00-\u9fff]/g) || []).length;
+    const latin = (s.match(/[A-Za-z]/g) || []).length;
+    if (cjk + latin === 0) return true;
+    return cjk / (cjk + latin) >= 0.3;
+  };
+  // Skip translation when the lyrics are already in the target language.
+  // Detected by script, which is reliable for CJK languages: Chinese is CJK
+  // with no Hangul/Kana; Japanese carries Kana; Korean carries Hangul.
+  // (Latin-script targets are not skipped on script alone, since English,
+  // French, Spanish etc. share the Latin script and cannot be told apart.)
+  const lyricsAlreadyTarget = lines => {
+    const text = lines.map(l => l.words).join(" ");
+    const cjk = (text.match(/[\u4e00-\u9fff]/g) || []).length;
+    const hangul = (text.match(/[\uac00-\ud7a3]/g) || []).length;
+    const kana = (text.match(/[\u3040-\u30ff]/g) || []).length;
+    const latin = (text.match(/[A-Za-z]/g) || []).length;
+    const cyrillic = (text.match(/[\u0400-\u04ff]/g) || []).length;
+    const total = cjk + hangul + kana + latin + cyrillic;
+    if (total === 0) return false;
+    if (/^zh/i.test(target)) return cjk / total >= 0.5 && hangul === 0 && kana === 0;
+    if (/^ja/i.test(target)) return kana > 0 && hangul === 0 && (kana + cjk) / total >= 0.5;
+    if (/^ko/i.test(target)) return hangul / total >= 0.5;
+    return false;
+  };
   // [T1] Parse a Google gtx response into one translated string per source
   // line. Each segment may itself contain "\n"; segments must be split
   // individually and flattened. Joining them with "" first (the old code)
@@ -17392,21 +17454,58 @@ $done({ body });
     }
     const rows = data.trans_result;
     if (!Array.isArray(rows) || !rows.length) return null;
-    return alignLines(rows.map(r => String(r.dst || "")), chunk.length);
+    return rows.map(r => String(r.dst || ""));
   }
-  async function translateChunk(chunk, vendor) {
+  // Raw translation for one chunk (no line-count fix-up). Returns null when
+  // the vendor fails or returns a result in the wrong language.
+  async function translateRaw(chunk, vendor) {
     const text = chunk.join("\n");
-    if (vendor === "baidu") return baiduTranslate(chunk);
-    if (vendor === "google") {
+    let raw = null;
+    if (vendor === "baidu") raw = await baiduTranslate(chunk);
+    else if (vendor === "google") {
       const data = await json("https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=" + encodeURIComponent(target) + "&dt=t&q=" + encodeURIComponent(text), "google");
-      return alignLines(gtxLines(data), chunk.length);
+      raw = gtxLines(data);
+    } else {
+      // MyMemory fallback (anonymous quota is small; only used when Google fails).
+      const data = await json("https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) + "&langpair=auto|" + encodeURIComponent(target), "mymemory");
+      if (Number(data?.responseStatus) !== 200) return null;
+      const translated = String(data?.responseData?.translatedText || "");
+      if (!translated || /MYMEMORY WARNING/i.test(translated)) return null;
+      raw = translated.replace(/\r/g, "").split("\n");
     }
-    // MyMemory fallback (anonymous quota is small; only used when Google fails).
-    const data = await json("https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) + "&langpair=auto|" + encodeURIComponent(target), "mymemory");
-    if (Number(data?.responseStatus) !== 200) return null;
-    const translated = String(data?.responseData?.translatedText || "");
-    if (!translated || /MYMEMORY WARNING/i.test(translated)) return null;
-    return alignLines(translated.replace(/\r/g, "").split("\n"), chunk.length);
+    if (!raw) return null;
+    return raw;
+  }
+  // Translate one chunk. For multilingual songs (e.g. Korean + English) the
+  // bulk translation can merge or drop lines, which used to leave blank
+  // paragraphs (alignLines padded with ""). When the line count mismatches,
+  // retry the chunk line-by-line so every paragraph gets a translation; a
+  // line that still fails keeps its original text instead of going blank.
+  async function translateChunk(chunk, vendor) {
+    const raw = await translateRaw(chunk, vendor);
+    if (!raw) return null;
+    // Validate the whole chunk in the target language. (Checked here on the
+    // aggregate, not per single line: a short line can legitimately carry
+    // mostly Latin words, e.g. names, and would be wrongly rejected.)
+    if (raw.length === chunk.length) {
+      if (!matchesTarget(raw.join("\n"))) return null;
+      return raw;
+    }
+    const out = [];
+    for (const line of chunk) {
+      if (!line.trim()) { out.push(""); continue; }
+      if (now() >= deadline) break;
+      let one = null;
+      try { one = await translateRaw([line], vendor); } catch (_) { one = null; }
+      out.push(one && one.length ? one[0] : line);
+    }
+    if (out.length !== chunk.length) {
+      const aligned = alignLines(raw, chunk.length);
+      if (!matchesTarget(aligned.join("\n"))) return null;
+      return aligned;
+    }
+    if (!matchesTarget(out.join("\n"))) return null;
+    return out;
   }
   // [T2] Human translation from Netease (Chinese target only), aligned to our
   // lines by timestamp. Used when the lyrics did not already come from
@@ -17424,12 +17523,13 @@ $done({ body });
       const translated = lrc(result.tlyric?.lyric);
       if (!translated.length) continue;
       const aligned = lines.map(line => translated.find(t => Math.abs(t.start - line.start) <= 150)?.words || "");
-      if (aligned.some(Boolean)) return aligned;
+      if (aligned.some(Boolean) && matchesTarget(aligned.join(" "))) return aligned;
     }
     return null;
   }
   async function translations(id, lines, alternatives, provider) {
     if (!translate || alternatives.some(a => languageKey(a.language) === languageKey(target))) return null;
+    if (lyricsAlreadyTarget(lines)) return null;
     const source = lines.map(line => line.words).join("\n"), saved = cache().tracks[id]?.translations?.[target];
     if (saved?.source === source && saved.expires > now()) return saved.lines;
     const groups = []; let group = [], length = 0;
@@ -17457,7 +17557,9 @@ $done({ body });
       return output;
     }
     function keep(output) {
-      if (!output || output.every((line, i) => line === lines[i].words)) return null;
+      if (!output) return null;
+      if (SIMPLIFIED_TARGET) output = simplifyStrings(output);
+      if (output.every((line, i) => line === lines[i].words)) return null;
       storeTrack(id, { translations: { ...(cache().tracks[id]?.translations || {}), [target]: { source, lines: output, expires: now() + 7 * DAY } } });
       return output;
     }
