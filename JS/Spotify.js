@@ -17816,22 +17816,25 @@ $done({ body });
         if (interleaved !== native.lines) {
           const origLines = native.lines;
           native.lines = interleaved;
-          // Keep the translation as an alternative too, so the lyrics page
-          // still shows its translate button (tapping it toggles the
-          // alternative view). The interleaved lines already carry the
-          // translation for the song-page scrolling view.
-          const extra = { language: languageKey(target), lines: toInterleave };
+          // The translation lives ONLY in the interleaved lines. Do NOT
+          // also add it as an alternative: the app renders both, so the
+          // translation would appear twice (original + Chinese + translation
+          // = 3 rows per lyric). Clearing alternatives also hides the
+          // lyrics-page translate button; that is the trade-off for the
+          // song-page interleaved view (toggle via module Translate=false).
+          native.alternatives = [];
           if (format === "json" && document?.lyrics) {
             document.lyrics.lines = interleaved.map(line => ({ startTimeMs: String(line.start), words: line.words, endTimeMs: String(line.end || 0) }));
-            document.lyrics.alternatives = [...native.alternatives, extra];
-            document.lyrics.showTranslation = true;
+            document.lyrics.alternatives = [];
+            document.lyrics.showTranslation = false;
             return response(utf8(JSON.stringify(document)), 200, format);
           }
           if (native.list) {
             const parts = [];
             let li = 0;
             for (const f of native.list) {
-              if (f.number === 8 && f.wire === 0) continue; // drop old hasTranslation flag; re-add below
+              if (f.number === 8 && f.wire === 0) continue; // drop old hasTranslation flag
+              if (f.number === 9 && f.wire === 2) continue; // drop alternatives (now in lines)
               if (f.number === 2 && f.wire === 2) {
                 parts.push(f.raw);
                 const trans = toInterleave[li];
@@ -17840,11 +17843,7 @@ $done({ body });
                 if (trans !== undefined && orig) parts.push(blob(2, join([scalar(1, orig.start), string(2, trans)])));
               } else parts.push(f.raw);
             }
-            // Re-add kept native alternatives (if any) + the new one, and set hasTranslation.
-            for (const f of native.list) {
-              if (f.number === 9 && f.wire === 2) parts.push(f.raw);
-            }
-            parts.push(scalar(8, 1), alternative(extra));
+            parts.push(scalar(8, 0)); // hasTranslation = false (no alternatives)
             const payload = join(parts);
             return response(join(native.top.map(f => f === native.lyric ? blob(1, payload) : f.raw)), 200, format);
           }
@@ -17891,10 +17890,11 @@ $done({ body });
       const interleaved = interleaveTranslation(output.lines, toInterleave);
       if (interleaved !== output.lines) {
         output.lines = interleaved;
-        // Keep the translation as an alternative too, so the lyrics page
-        // still shows its translate button. The interleaved lines carry
-        // the translation for the song-page scrolling view.
-        if (translated) output.alternatives.push({ language: languageKey(target), lines: translated });
+        // Translation lives ONLY in the interleaved lines. Do NOT also add
+        // it as an alternative, or the app renders it twice (3 rows per
+        // lyric). Clearing alternatives hides the translate button; that
+        // is the trade-off for the song-page interleaved view.
+        output.alternatives = [];
       } else if (translated) {
         output.alternatives.push({ language: languageKey(target), lines: translated });
       }
