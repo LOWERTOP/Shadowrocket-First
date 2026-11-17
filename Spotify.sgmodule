@@ -1,6 +1,6 @@
 #!name=🆂🅿🅾🆃🅸🅵🆈 声破天解锁
 #!icon=https://raw.githubusercontent.com/LOWERTOP/ShadowRule/refs/heads/master/icon/color/spotify.png
-#!desc=会员配置、首页与播放页去广告，集成歌词补全和双语翻译。包含去除首页广告和播放页广告，支持编辑参数，可以调整歌词等选项。脚本来源：Reukix
+#!desc=会员配置、首页与播放页去广告，集成歌词补全和双语翻译。支持编辑参数，可以调整歌词部分选项，增加百度翻译开放平台服务以增强翻译成功率。脚本来源：Reukix
 #!arguments=歌词补全:"true",歌词翻译:"true",翻译语言:"zh-CN",百度翻译:"false",翻译账户:"自行申请并填写",翻译密钥:"自行申请并填写"
 #!arguments-desc=\n\n模块说明：请停用其他 Spotify 歌词模块，避免重复处理同一接口。若歌词存在官方歌词则优先选用；外部歌词按歌名、歌手和时长匹配；默认使用网易、谷歌等翻译，支持选填百度翻译APPID，启用后若不存在网易人工翻译，则首选百度翻译，可一定程度上避免翻译受限。 \n\n脚本来源：Reukix \n\n歌词补全：启用歌词补全 \n\n歌词翻译：启用歌词翻译 \n\n翻译语言：翻译目标语言，默认 zh-CN \n\n百度翻译：启用百度翻译 \n\n翻译账户：百度翻译开放平台的 APP ID \n\n翻译密钥：百度翻译开放平台的密钥
 #!version=Based on @Reukix v2026.11.16.1
