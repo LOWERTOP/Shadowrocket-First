@@ -14,3 +14,4 @@ DOMAIN-WILDCARD,*-ad-sign.byteimg.com,REJECT
 DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,REJECT
 DOMAIN-WILDCARD,ads*-normal-l*.zijieapi.com,REJECT
 DOMAIN-SUFFIX,v11-reading-video.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v11-cold1.douyinvod.com,REJECT
