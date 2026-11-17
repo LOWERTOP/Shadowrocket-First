@@ -1,10 +1,10 @@
 #!name=🆂🅿🅾🆃🅸🅵🆈 声破天解锁
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Spotify_01.png
-#!desc=自用测试模块，编辑参数以使用
-#!arguments=歌词:"true",翻译:"true",语言:"zh-CN"
-#!arguments-desc=歌词：启用歌词补全。\n\n翻译：启用歌词翻译。\n\n语言：翻译目标语言，默认 zh-CN。\n\n已有官方歌词优先保留；外部歌词按歌名、歌手和时长匹配。\n\n更新后请停用其他 Spotify 歌词模块，避免重复处理同一接口。\n\n作者：Reukix
-#!author=Reukix
-#!homepage=https://github.com/Reukix/ukix
+#!desc=会员配置、首页与播放页去广告，集成歌词补全和双语翻译。包含去除首页广告和播放页广告，支持编辑参数，可以调整歌词等选项，翻译支持百度翻译（需填 appid 与密钥，启用后为首选）。脚本来源：Reukix
+#!arguments=歌词补全:"true",歌词翻译:"true",翻译语言:"zh-CN",百度翻译:"false",百度AppID:"自行申请并填写",百度密钥:"自行申请并填写"
+#!arguments-desc=\n\n说明：已有官方歌词优先保留；外部歌词按歌名、歌手和时长匹配；默认使用网易、谷歌翻译，支持选填百度翻译APPID，启用后百度为首选翻译，可避免翻译受限。\n\n请停用其他 Spotify 歌词模块，避免重复处理同一接口 \n\n脚本来源：Reukix \n\n歌词补全：启用歌词补全 \n\n歌词翻译：启用歌词翻译 \n\n翻译语言：翻译目标语言，默认 zh-CN \n\n百度翻译：启用百度翻译 \n\n百度AppID：百度翻译开放平台的 APP ID \n\n百度密钥：百度翻译开放平台的密钥
+#!author=LOWERTOP
+#!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
 AND,((DOMAIN-SUFFIX, spotify.com), (PROTOCOL, QUIC)),REJECT
@@ -22,19 +22,19 @@ http-request ^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::44
 ^https:\/\/(.*-spclient\.spotify\.com(:443)?|spclient\.wg\.spotify\.com)\/gabo-receiver-service data-type=text data="" status-code=200 header="Cache-Control:no-cache|Content-Length:0"
 
 [Script]
-spotify-home = type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/casita\/v1\/home\/default\/?(?:\?[^#]*)?$,requires-body=1,binary-body-mode=1,max-size=2097152,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-home.js?v=0e4692c6dc47,timeout=5
+spotify-home = type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/casita\/v1\/home\/default\/?(?:\?[^#]*)?$,requires-body=1,binary-body-mode=1,max-size=2097152,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/Spotify.js,timeout=5
 
-spotify-search = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/browsita\/v.\/browse,requires-body=1,binary-body-mode=1,max-size=2097152,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-search.js?v=511d67b05081,timeout=5
+spotify-search = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/browsita\/v.\/browse,requires-body=1,binary-body-mode=1,max-size=2097152,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/Spotify.js,timeout=5
 
-spotify-scroll = type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/scrollsita\/v[0-9]+\/scroll\/spotify:[^?#]+(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,timeout=8,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-lyrics.js?v=caf13ded9c7b,argument=Lyrics={{{歌词}}}&Translate={{{翻译}}}&TargetLanguage={{{语言}}}
+spotify-scroll=type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/scrollsita\/v[0-9]+\/scroll\/spotify:[^?#]+(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,timeout=8,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/Spotify.js,argument=Lyrics={{{歌词补全}}}&Translate={{{歌词翻译}}}&TargetLanguage={{{翻译语言}}}&BaiduTranslate={{{百度翻译}}}&BaiduAppId={{{百度AppID}}}&BaiduKey={{{百度密钥}}}
 
-spotify-lyrics = type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/color-lyrics\/v2\/track\/[A-Za-z0-9]{22}(?:\/image\/[^/?#]+)?\/?(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,timeout=20,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-lyrics.js?v=caf13ded9c7b,argument=Lyrics={{{歌词}}}&Translate={{{翻译}}}&TargetLanguage={{{语言}}}
+spotify-lyrics=type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/color-lyrics\/v2\/track\/[A-Za-z0-9]{22}(?:\/image\/[^/?#]+)?\/?(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,timeout=20,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/Spotify.js,argument=Lyrics={{{歌词补全}}}&Translate={{{歌词翻译}}}&TargetLanguage={{{翻译语言}}}&BaiduTranslate={{{百度翻译}}}&BaiduAppId={{{百度AppID}}}&BaiduKey={{{百度密钥}}}
 
-spotify-lyrics-metadata = type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/(?:extended-metadata\/v0\/extended-metadata|metadata\/4\/track\/[a-fA-F0-9]{32})(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-lyrics.js?v=caf13ded9c7b,argument=Lyrics={{{歌词}}}&Translate={{{翻译}}}&TargetLanguage={{{语言}}},timeout=5
+spotify-lyrics-metadata=type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/(?:extended-metadata\/v0\/extended-metadata|metadata\/4\/track\/[a-fA-F0-9]{32})(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/Spotify.js,argument=Lyrics={{{歌词补全}}}&Translate={{{歌词翻译}}}&TargetLanguage={{{翻译语言}}}&BaiduTranslate={{{百度翻译}}}&BaiduAppId={{{百度AppID}}}&BaiduKey={{{百度密钥}}},timeout=5
 
-spotify-lyrics-playback = type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/connect-state\/v1\/devices\/[^/?#]+\/?(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-lyrics.js?v=caf13ded9c7b,argument=Lyrics={{{歌词}}}&Translate={{{翻译}}}&TargetLanguage={{{语言}}},timeout=5
+spotify-lyrics-playback=type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/connect-state\/v1\/devices\/[^/?#]+\/?(?:\?[^#]*)?$,requires-body=true,binary-body-mode=true,max-size=2097152,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/Spotify.js,argument=Lyrics={{{歌词补全}}}&Translate={{{歌词翻译}}}&TargetLanguage={{{翻译语言}}}&BaiduTranslate={{{百度翻译}}}&BaiduAppId={{{百度AppID}}}&BaiduKey={{{百度密钥}}},timeout=5
 
-spotify-proto = type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/(?:bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize|nebula\/v1\/configuration\/attributes|remote-config-resolver\/v3\/configuration)\/?(?:\?[^#]*)?$,requires-body=1,binary-body-mode=1,max-size=2097152,script-path=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/js/Spotify-proto.js?v=0321ac8dbef4,script-update-interval=86400,timeout=5
+spotify-proto = type=http-response,pattern=^https:\/\/(?:[A-Za-z0-9-]+-)?spclient(?:\.wg)?\.spotify\.com(?::443)?\/(?:bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize|nebula\/v1\/configuration\/attributes|remote-config-resolver\/v3\/configuration)\/?(?:\?[^#]*)?$,requires-body=1,binary-body-mode=1,max-size=2097152,script-path=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/JS/Spotify.js,script-update-interval=86400,timeout=5
 
 [MITM]
-hostname = %APPEND% spclient.wg.spotify.com, *spclient.spotify.com, *-spclient.wg.spotify.com
+hostname = %APPEND% spclient.wg.spotify.com, spclient.spotify.com, *spclient.spotify.com, *-spclient.wg.spotify.com
