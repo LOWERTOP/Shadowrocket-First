@@ -17339,8 +17339,8 @@ $done({ body });
     if (entry?.expires > now()) {
       const cached = entry.result || null;
       if (cached && SIMPLIFIED_TARGET) {
-        cached.lines = simplifyLineWords(cached.lines);
-        for (const alt of cached.alternatives || []) alt.lines = simplifyStrings(alt.lines);
+        cached.lines = await toSimplifiedLines(cached.lines);
+        for (const alt of cached.alternatives || []) alt.lines = await toSimplifiedStrings(alt.lines);
       }
       return cached;
     }
@@ -17352,8 +17352,8 @@ $done({ body });
         const result = await provider(info);
         if (result) {
           if (SIMPLIFIED_TARGET) {
-            result.lines = simplifyLineWords(result.lines);
-            for (const alt of result.alternatives || []) alt.lines = simplifyStrings(alt.lines);
+            result.lines = await toSimplifiedLines(result.lines);
+            for (const alt of result.alternatives || []) alt.lines = await toSimplifiedStrings(alt.lines);
           }
           storeTrack(id, { result, expires: now() + 7 * DAY }); return result;
         }
@@ -17363,19 +17363,62 @@ $done({ body });
     return null;
   }
   const languageKey = lang => /^zh(?:-|$)/i.test(lang) ? "zh" : String(lang).toLowerCase();
-  // Traditional -> Simplified conversion (412 common chars). Netease returns
-  // Simplified lyrics, but LRCLIB (the fallback source) returns Traditional
-  // for Chinese songs. When the translation target is Simplified Chinese
-  // (zh-CN / zh-SG / zh), normalise lyrics and translations to Simplified so
-  // the user never sees Traditional regardless of which source matched.
-  const TRAD_CHARS = "學讓還麼為與說東後發長樂萬國會傳轉廣廠馬魚鳥黃龍龜齊劉關開問間聞雲電讀邊進遠選對導異靈灣臺愛親頭體麵點髮這個們過時來麽幾裡給業叢絲丟兩嚴喪豐臨麗舉義烏喬習鄉書買亂爭於亞億僅僕兒養獸內圓冊寫軍農決況凍淨準涼減湊測溼溫濕滿漁漿漢漸潔潛潤澤濃濟濛濤濫濱濾瀝瀟瀾爐獻環現畫當疊癢皺盜盡監盤盧著確禮禦禍離種積稱穩穫窮竊競筆簡約紅純紙級細終組結絕繞繪繼續纏罷羨翹聰聲聽膽臉臘興舊莊葉蓋蓮藝藥蘇蘭處虛號虧蟲衛衝裝製複見覺覽計記討講許論設試話該詳語誤誰調談請諒諮謂謝謠謙謹貝貞負財貧貨販貪貫責費賀貴貸貿資賈賤賺賽贊贏跡踐較載輪輕輝輛輩辭迴運連週遊達違遙遜遺遼邏邁鄰鄭鄧銀銅鐵鉛門閒閣閱陽陰階際隨險隱隻難霧靜韋頁頂項順須預領題顏額風飛館駭驚驗鬆鬢鬧魯鮮鳴鹽麥黴黨攔飲嗎嚮噹噸嚇嚐囉囑囂嚥嚨囈鬱憂憶應擁擇擊擋擔擠據擴擺攝攜敵數斷無晉曆曇曉條楊棄歸殘毀殺歲歷殼氣汙沒淺淚燒燈牆牽獨獲單從飄蕩鞦韆倉傘傷儘償儲兌凜憑凱勵勞勝匯層屬嶼嶺巔韁韓韜韻響頃盪";
-  const SIMP_CHARS = "学让还么为与说东后发长乐万国会传转广厂马鱼鸟黄龙龟齐刘关开问间闻云电读边进远选对导异灵湾台爱亲头体面点发这个们过时来么几里给业丛丝丢两严丧丰临丽举义乌乔习乡书买乱争于亚亿仅仆儿养兽内圆册写军农决况冻净准凉减凑测湿温湿满渔浆汉渐洁潜润泽浓济蒙涛滥滨滤沥潇澜炉献环现画当叠痒皱盗尽监盘卢着确礼御祸离种积称稳获穷窃竞笔简约红纯纸级细终组结绝绕绘继续缠罢羡翘聪声听胆脸腊兴旧庄叶盖莲艺药苏兰处虚号亏虫卫冲装制复见觉览计记讨讲许论设试话该详语误谁调谈请谅咨谓谢谣谦谨贝贞负财贫货贩贪贯责费贺贵贷贸资贾贱赚赛赞赢迹践较载轮轻辉辆辈辞回运连周游达违遥逊遗辽逻迈邻郑邓银铜铁铅门闲阁阅阳阴阶际随险隐只难雾静韦页顶项顺须预领题颜额风飞馆骇惊验松鬓闹鲁鲜鸣盐麦霉党拦饮吗向当吨吓尝啰嘱嚣咽咙呓郁忧忆应拥择击挡担挤据扩摆摄携敌数断无晋历昙晓条杨弃归残毁杀岁历壳气污没浅泪烧灯墙牵独获单从飘荡秋千仓伞伤尽偿储兑凛凭凯励劳胜汇层属屿岭巅缰韩韬韵响顷荡";
+  // Traditional -> Simplified via the translation service (no character
+  // table). When the target is Simplified Chinese, normalise lyrics and
+  // translations through the translation service (Baidu when the user
+  // enabled it, else Google, then MyMemory). The service returns Simplified
+  // for Traditional input and leaves already-Simplified text unchanged.
+  // If the service is unavailable the original text is kept.
   const SIMPLIFIED_TARGET = /^zh(-cn|-sg)?$/i.test(target);
-  const toSimplified = text => SIMPLIFIED_TARGET
-    ? String(text).split("").map(ch => { const i = TRAD_CHARS.indexOf(ch); return i >= 0 ? SIMP_CHARS[i] : ch; }).join("")
-    : String(text);
-  const simplifyLineWords = lines => lines.map(line => ({ ...line, words: toSimplified(line.words) }));
-  const simplifyStrings = arr => arr.map(s => toSimplified(s));
+  // True when the text is Chinese (CJK-dominant, no Kana/Hangul). Used to
+  // guard Traditional->Simplified conversion: Japanese/Korean text must
+  // NOT be sent to the conversion service, or it would be translated to
+  // Chinese instead of just having its script converted.
+  function isChineseText(text) {
+    let cjk = 0, kana = 0, hangul = 0, total = 0;
+    for (const ch of String(text)) {
+      const cp = ch.codePointAt(0);
+      if ((cp >= 0x4e00 && cp <= 0x9fff) || (cp >= 0x3400 && cp <= 0x4dbf)) { cjk++; total++; }
+      else if ((cp >= 0x3040 && cp <= 0x309f) || (cp >= 0x30a0 && cp <= 0x30ff)) { kana++; total++; }
+      else if (cp >= 0xac00 && cp <= 0xd7af) { hangul++; total++; }
+    }
+    return total > 0 && cjk / total >= 0.5 && kana === 0 && hangul === 0;
+  }
+  async function toSimplifiedStrings(arr) {
+    if (!SIMPLIFIED_TARGET || !arr.length) return arr;
+    if (!arr.some(s => isChineseText(s))) return arr;
+    const vendors = baiduOn ? ["baidu", "google", "mymemory"] : ["google", "mymemory"];
+    for (const vendor of vendors) {
+      try {
+        const out = await translateChunk(arr, vendor);
+        if (out && out.length === arr.length) return out;
+      } catch (_) { /* try next vendor */ }
+      if (now() >= deadline) break;
+    }
+    return arr;
+  }
+  async function toSimplifiedLines(lines) {
+    if (!SIMPLIFIED_TARGET || !lines.length) return lines;
+    const words = lines.map(l => l.words);
+    const converted = await toSimplifiedStrings(words);
+    if (converted === words) return lines;
+    return lines.map((line, i) => ({ ...line, words: converted[i] }));
+  }
+  // Interleave a translation into the main lines for the song-page scrolling
+  // view: [Orig1, Trans1, Orig2, Trans2, ...]. Each translation line takes
+  // its original line's start (and end) time so it displays together when
+  // scrolling. Returns the original lines unchanged when the translation
+  // is missing, misaligned, or would exceed MAX_LINES.
+  function interleaveTranslation(lines, translated) {
+    if (!translated || translated.length !== lines.length) return lines;
+    if (lines.length * 2 > MAX_LINES) return lines;
+    const out = [];
+    for (let i = 0; i < lines.length; i++) {
+      out.push(lines[i]);
+      out.push({ start: lines[i].start, words: translated[i], end: lines[i].end, syllables: [] });
+    }
+    return out;
+  }
   // Validate that a translation is actually in the target language. The
   // Netease tlyric for some songs is English (or credits/junk), and the
   // machine fallback (MyMemory) can return English for ja/ko -> zh. For a
@@ -17572,9 +17615,9 @@ $done({ body });
       }
       return output;
     }
-    function keep(output) {
+    async function keep(output) {
       if (!output) return null;
-      if (SIMPLIFIED_TARGET) output = simplifyStrings(output);
+      if (SIMPLIFIED_TARGET) output = await toSimplifiedStrings(output);
       if (output.every((line, i) => line === lines[i].words)) return null;
       storeTrack(id, { translations: { ...(cache().tracks[id]?.translations || {}), [target]: { source, lines: output, expires: now() + 7 * DAY } } });
       return output;
@@ -17585,18 +17628,18 @@ $done({ body });
       try {
         const human = await neteaseTranslation(cache().tracks[id]?.info, lines);
         if (human && human.some(Boolean)) {
-          const kept = keep(human);
+          const kept = await keep(human);
           if (kept) return kept;
         }
       } catch (_) { /* fall through to machine translation */ }
     }
     // 2) Baidu (user-supplied API credentials).
     if (baiduOn) {
-      const kept = keep(await translateAll(["baidu"]));
+      const kept = await keep(await translateAll(["baidu"]));
       if (kept) return kept;
     }
     // 3) Google, then MyMemory.
-    return keep(await translateAll(["google", "mymemory"]));
+    return await keep(await translateAll(["google", "mymemory"]));
   }
   function nativeTrack(track, expectedId) {
     const list = fields(track), gid = one(list, 1)?.payload;
@@ -17708,32 +17751,89 @@ $done({ body });
     if (native) {
       if (SIMPLIFIED_TARGET) {
         // Spotify's own lyrics (Musixmatch etc.) are often Traditional for
-        // Chinese songs. Convert the native lyrics themselves, not just the
-        // fallback sources. For JSON, update the document that is returned;
-        // for proto, rebuild the line (2) and alternative (9) fields in
-        // native.list so the rebuilt response carries Simplified text.
+        // Chinese songs. Convert the native lyrics via the translation
+        // service (no character table), then rebuild the JSON document /
+        // proto fields from the converted lines so the returned response
+        // carries Simplified text.
+        native.lines = await toSimplifiedLines(native.lines);
+        for (const alt of native.alternatives || []) alt.lines = await toSimplifiedStrings(alt.lines);
         if (format === "json" && document?.lyrics) {
-          for (const line of document.lyrics.lines || []) line.words = toSimplified(String(line.words || ""));
-          for (const alt of document.lyrics.alternatives || []) alt.lines = (alt.lines || []).map(l => toSimplified(l));
+          for (let i = 0; i < (document.lyrics.lines || []).length; i++) {
+            if (native.lines[i]) document.lyrics.lines[i].words = native.lines[i].words;
+          }
+          for (let i = 0; i < (document.lyrics.alternatives || []).length; i++) {
+            if (native.alternatives[i]) document.lyrics.alternatives[i].lines = native.alternatives[i].lines;
+          }
         } else if (native.list) {
-          const convertField = (field, num) => {
-            const row = fields(field.payload), parts = [];
-            for (const sub of row) {
-              if (sub.number === 2 && sub.wire === 2) parts.push(string(2, toSimplified(text(sub.payload))));
-              else parts.push(sub.raw);
-            }
-            field.raw = blob(num, join(parts));
-          };
+          let li = 0, ai = 0;
           for (const f of native.list) {
-            if (f.number === 2 && f.wire === 2) convertField(f, 2);
-            else if (f.number === 9 && f.wire === 2) convertField(f, 9);
+            if (f.number === 2 && f.wire === 2) {
+              const line = native.lines[li++];
+              if (!line) continue;
+              const row = fields(f.payload), parts = [];
+              for (const sub of row) {
+                if (sub.number === 2 && sub.wire === 2) parts.push(string(2, line.words));
+                else parts.push(sub.raw);
+              }
+              f.raw = blob(2, join(parts));
+            } else if (f.number === 9 && f.wire === 2) {
+              const alt = native.alternatives[ai++];
+              if (!alt) continue;
+              const row = fields(f.payload), parts = [];
+              let si = 0;
+              for (const sub of row) {
+                if (sub.number === 2 && sub.wire === 2) parts.push(string(2, alt.lines[si++] || ""));
+                else parts.push(sub.raw);
+              }
+              f.raw = blob(9, join(parts));
+            }
           }
         }
-        native.lines = simplifyLineWords(native.lines);
-        for (const alt of native.alternatives || []) alt.lines = simplifyStrings(alt.lines);
       }
       let translated;
       try { translated = await translations(id, native.lines, native.alternatives); } catch (_) { console.log("Spotify lyrics: translation unavailable"); }
+      // Song-page scrolling lyrics: interleave one original line + one
+      // translation line so the translation shows without opening the
+      // lyrics panel or tapping translate. Prefer the service translation;
+      // else an existing alternative already in the target language.
+      let toInterleave = translated;
+      if (!toInterleave && translate) {
+        const alt = (native.alternatives || []).find(a => languageKey(a.language) === languageKey(target));
+        if (alt) toInterleave = alt.lines;
+      }
+      if (toInterleave) {
+        const interleaved = interleaveTranslation(native.lines, toInterleave);
+        if (interleaved !== native.lines) {
+          const origLines = native.lines;
+          native.lines = interleaved;
+          native.alternatives = []; // translation is now in lines; avoid misalignment
+          if (format === "json" && document?.lyrics) {
+            document.lyrics.lines = interleaved.map(line => ({ startTimeMs: String(line.start), words: line.words, endTimeMs: String(line.end || 0) }));
+            document.lyrics.alternatives = [];
+            document.lyrics.showTranslation = false;
+            return response(utf8(JSON.stringify(document)), 200, format);
+          }
+          if (native.list) {
+            const parts = [];
+            let li = 0;
+            for (const f of native.list) {
+              if (f.number === 8 && f.wire === 0) continue; // drop old hasTranslation flag
+              if (f.number === 9 && f.wire === 2) continue; // drop alternatives (now in lines)
+              if (f.number === 2 && f.wire === 2) {
+                parts.push(f.raw);
+                const trans = toInterleave[li];
+                const orig = origLines[li];
+                li++;
+                if (trans !== undefined && orig) parts.push(blob(2, join([scalar(1, orig.start), string(2, trans)])));
+              } else parts.push(f.raw);
+            }
+            parts.push(scalar(8, 0)); // hasTranslation = false (no alternatives)
+            const payload = join(parts);
+            return response(join(native.top.map(f => f === native.lyric ? blob(1, payload) : f.raw)), 200, format);
+          }
+          return {};
+        }
+      }
       if (!translated) {
         // No translation (already the target language, or translation
         // disabled/failed). If the native lyrics were converted to
@@ -17756,9 +17856,28 @@ $done({ body });
     if (!result) return {};
     // Clone cached data so a request with translation disabled cannot erase it.
     const output = { ...result, alternatives: translate ? [...result.alternatives] : [] };
+    let translated = null;
     if (translate) {
-      try { const translated = await translations(id, result.lines, output.alternatives, result.provider); if (translated) output.alternatives.push({ language: languageKey(target), lines: translated }); }
+      try { translated = await translations(id, result.lines, output.alternatives, result.provider); }
       catch (_) { console.log("Spotify lyrics: translation unavailable"); }
+    }
+    // Song-page scrolling lyrics: show one original line + one translation
+    // line, interleaved, so the translation is visible without opening the
+    // lyrics panel or tapping translate. Prefer the service translation;
+    // else an existing alternative already in the target language.
+    let toInterleave = translated;
+    if (!toInterleave && translate) {
+      const alt = (output.alternatives || []).find(a => languageKey(a.language) === languageKey(target));
+      if (alt) toInterleave = alt.lines;
+    }
+    if (toInterleave) {
+      const interleaved = interleaveTranslation(output.lines, toInterleave);
+      if (interleaved !== output.lines) {
+        output.lines = interleaved;
+        output.alternatives = []; // translation is now in lines; avoid misalignment
+      } else if (translated) {
+        output.alternatives.push({ language: languageKey(target), lines: translated });
+      }
     }
     if (format === "json") return response(utf8(JSON.stringify({ lyrics: {
       syncType: ["UNSYNCED", "LINE_SYNCED", "SYLLABLE_SYNCED"][output.sync],
