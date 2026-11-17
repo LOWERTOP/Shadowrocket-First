@@ -17411,21 +17411,6 @@ $done({ body });
     if (converted === words) return lines;
     return lines.map((line, i) => ({ ...line, words: converted[i] }));
   }
-  // Interleave a translation into the main lines for the song-page scrolling
-  // view: [Orig1, Trans1, Orig2, Trans2, ...]. Each translation line takes
-  // its original line's start (and end) time so it displays together when
-  // scrolling. Returns the original lines unchanged when the translation
-  // is missing, misaligned, or would exceed MAX_LINES.
-  function interleaveTranslation(lines, translated) {
-    if (!translated || translated.length !== lines.length) return lines;
-    if (lines.length * 2 > MAX_LINES) return lines;
-    const out = [];
-    for (let i = 0; i < lines.length; i++) {
-      out.push(lines[i]);
-      out.push({ start: lines[i].start, words: translated[i], end: lines[i].end, syllables: [] });
-    }
-    return out;
-  }
   // Validate that a translation is actually in the target language. The
   // Netease tlyric for some songs is English (or credits/junk), and the
   // machine fallback (MyMemory) can return English for ja/ko -> zh. For a
@@ -17802,54 +17787,6 @@ $done({ body });
       }
       let translated;
       try { translated = await translations(id, native.lines, native.alternatives); } catch (_) { console.log("Spotify lyrics: translation unavailable"); }
-      // Song-page scrolling lyrics: interleave one original line + one
-      // translation line so the translation shows without opening the
-      // lyrics panel or tapping translate. Prefer the service translation;
-      // else an existing alternative already in the target language.
-      let toInterleave = translated;
-      if (!toInterleave && translate) {
-        const alt = (native.alternatives || []).find(a => languageKey(a.language) === languageKey(target));
-        if (alt) toInterleave = alt.lines;
-      }
-      if (toInterleave) {
-        const interleaved = interleaveTranslation(native.lines, toInterleave);
-        if (interleaved !== native.lines) {
-          const origLines = native.lines;
-          native.lines = interleaved;
-          // The translation lives ONLY in the interleaved lines. Do NOT
-          // also add it as an alternative: the app renders both, so the
-          // translation would appear twice (original + Chinese + translation
-          // = 3 rows per lyric). Clearing alternatives also hides the
-          // lyrics-page translate button; that is the trade-off for the
-          // song-page interleaved view (toggle via module Translate=false).
-          native.alternatives = [];
-          if (format === "json" && document?.lyrics) {
-            document.lyrics.lines = interleaved.map(line => ({ startTimeMs: String(line.start), words: line.words, endTimeMs: String(line.end || 0) }));
-            document.lyrics.alternatives = [];
-            document.lyrics.showTranslation = false;
-            return response(utf8(JSON.stringify(document)), 200, format);
-          }
-          if (native.list) {
-            const parts = [];
-            let li = 0;
-            for (const f of native.list) {
-              if (f.number === 8 && f.wire === 0) continue; // drop old hasTranslation flag
-              if (f.number === 9 && f.wire === 2) continue; // drop alternatives (now in lines)
-              if (f.number === 2 && f.wire === 2) {
-                parts.push(f.raw);
-                const trans = toInterleave[li];
-                const orig = origLines[li];
-                li++;
-                if (trans !== undefined && orig) parts.push(blob(2, join([scalar(1, orig.start), string(2, trans)])));
-              } else parts.push(f.raw);
-            }
-            parts.push(scalar(8, 0)); // hasTranslation = false (no alternatives)
-            const payload = join(parts);
-            return response(join(native.top.map(f => f === native.lyric ? blob(1, payload) : f.raw)), 200, format);
-          }
-          return {};
-        }
-      }
       if (!translated) {
         // No translation (already the target language, or translation
         // disabled/failed). If the native lyrics were converted to
@@ -17877,28 +17814,10 @@ $done({ body });
       try { translated = await translations(id, result.lines, output.alternatives, result.provider); }
       catch (_) { console.log("Spotify lyrics: translation unavailable"); }
     }
-    // Song-page scrolling lyrics: show one original line + one translation
-    // line, interleaved, so the translation is visible without opening the
-    // lyrics panel or tapping translate. Prefer the service translation;
-    // else an existing alternative already in the target language.
-    let toInterleave = translated;
-    if (!toInterleave && translate) {
-      const alt = (output.alternatives || []).find(a => languageKey(a.language) === languageKey(target));
-      if (alt) toInterleave = alt.lines;
-    }
-    if (toInterleave) {
-      const interleaved = interleaveTranslation(output.lines, toInterleave);
-      if (interleaved !== output.lines) {
-        output.lines = interleaved;
-        // Translation lives ONLY in the interleaved lines. Do NOT also add
-        // it as an alternative, or the app renders it twice (3 rows per
-        // lyric). Clearing alternatives hides the translate button; that
-        // is the trade-off for the song-page interleaved view.
-        output.alternatives = [];
-      } else if (translated) {
-        output.alternatives.push({ language: languageKey(target), lines: translated });
-      }
-    }
+    // Original button-based translation: lines stay in the original
+    // language; the translation goes ONLY into alternatives, and
+    // showTranslation=true makes the lyrics-page translate button appear.
+    if (translated) output.alternatives.push({ language: languageKey(target), lines: translated });
     if (format === "json") return response(utf8(JSON.stringify({ lyrics: {
       syncType: ["UNSYNCED", "LINE_SYNCED", "SYLLABLE_SYNCED"][output.sync],
       lines: output.lines.map(line => ({ startTimeMs: String(line.start), words: line.words, syllables: line.syllables || [], endTimeMs: String(line.end || 0) })),
