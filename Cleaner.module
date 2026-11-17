@@ -14,6 +14,7 @@ DOMAIN-WILDCARD,*-ad-sign.byteimg.com,REJECT
 DOMAIN-WILDCARD,*-iosreadingvideo.qznovelvod.com,REJECT
 DOMAIN-WILDCARD,ads*-normal-l*.zijieapi.com,REJECT
 DOMAIN-SUFFIX,v11-reading-video.qznovelvod.com,REJECT
+DOMAIN-SUFFIX,v11-cold1.douyinvod.com,REJECT
 
 # 德施曼
 # 多盟（Domob）广告网络：拦截广告图片、静态资源及路由
