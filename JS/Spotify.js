@@ -17337,12 +17337,9 @@ $done({ body });
   async function external(id) {
     const entry = cache().tracks[id];
     if (entry?.expires > now()) {
-      const cached = entry.result || null;
-      if (cached && SIMPLIFIED_TARGET) {
-        cached.lines = await toSimplifiedLines(cached.lines);
-        for (const alt of cached.alternatives || []) alt.lines = await toSimplifiedStrings(alt.lines);
-      }
-      return cached;
+      // Cached result was already converted to Simplified before it was
+      // stored; return it as-is instead of calling the service again.
+      return entry.result || null;
     }
     const info = await infoFor(id);
     if (!info) return null;
@@ -17386,12 +17383,22 @@ $done({ body });
   }
   async function toSimplifiedStrings(arr) {
     if (!SIMPLIFIED_TARGET || !arr.length) return arr;
-    if (!arr.some(s => isChineseText(s))) return arr;
+    // Only Chinese lines are sent to the conversion service; other
+    // languages are left untouched (otherwise Google would translate
+    // them to Chinese). The source language is forced to Traditional
+    // (zh-TW) so the service converts the script instead of translating.
+    const idx = [], chinese = [];
+    arr.forEach((s, i) => { if (isChineseText(s)) { idx.push(i); chinese.push(s); } });
+    if (!chinese.length) return arr;
     const vendors = baiduOn ? ["baidu", "google", "mymemory"] : ["google", "mymemory"];
     for (const vendor of vendors) {
       try {
-        const out = await translateChunk(arr, vendor);
-        if (out && out.length === arr.length) return out;
+        const out = await translateChunk(chinese, vendor, "zh-TW");
+        if (out && out.length === chinese.length) {
+          const res = [...arr];
+          idx.forEach((origIdx, j) => { res[origIdx] = out[j]; });
+          return res;
+        }
       } catch (_) { /* try next vendor */ }
       if (now() >= deadline) break;
     }
@@ -17487,13 +17494,13 @@ $done({ body });
   }
   // Baidu Translate (通用翻译 API). sign = MD5(appid + q + salt + key).
   // Returns one translated string per source line, or null on any failure.
-  async function baiduTranslate(chunk) {
+  async function baiduTranslate(chunk, sourceLang) {
     if (!baiduOn) return null;
     const text = chunk.join("\n");
     const salt = String(Math.floor(Math.random() * 100000) + 10000);
     const sign = md5Hex(utf8(baiduAppId + text + salt + baiduKey));
     const body = "q=" + encodeURIComponent(text)
-      + "&from=auto&to=" + encodeURIComponent(baiduLang(target))
+      + "&from=" + (sourceLang ? "cht" : "auto") + "&to=" + encodeURIComponent(baiduLang(target))
       + "&appid=" + encodeURIComponent(baiduAppId)
       + "&salt=" + encodeURIComponent(salt)
       + "&sign=" + encodeURIComponent(sign);
@@ -17512,16 +17519,18 @@ $done({ body });
   }
   // Raw translation for one chunk (no line-count fix-up). Returns null when
   // the vendor fails or returns a result in the wrong language.
-  async function translateRaw(chunk, vendor) {
+  async function translateRaw(chunk, vendor, sourceLang) {
     const text = chunk.join("\n");
     let raw = null;
-    if (vendor === "baidu") raw = await baiduTranslate(chunk);
+    if (vendor === "baidu") raw = await baiduTranslate(chunk, sourceLang);
     else if (vendor === "google") {
-      const data = await json("https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=" + encodeURIComponent(target) + "&dt=t&q=" + encodeURIComponent(text), "google");
+      const sl = sourceLang ? "zh-TW" : "auto";
+      const data = await json("https://translate.googleapis.com/translate_a/single?client=gtx&sl=" + sl + "&tl=" + encodeURIComponent(target) + "&dt=t&q=" + encodeURIComponent(text), "google");
       raw = gtxLines(data);
     } else {
       // MyMemory fallback (anonymous quota is small; only used when Google fails).
-      const data = await json("https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) + "&langpair=auto|" + encodeURIComponent(target), "mymemory");
+      const pair = (sourceLang ? "zh-TW|" : "auto|") + encodeURIComponent(target);
+      const data = await json("https://api.mymemory.translated.net/get?q=" + encodeURIComponent(text) + "&langpair=" + pair, "mymemory");
       if (Number(data?.responseStatus) !== 200) return null;
       const translated = String(data?.responseData?.translatedText || "");
       if (!translated || /MYMEMORY WARNING/i.test(translated)) return null;
@@ -17535,8 +17544,8 @@ $done({ body });
   // paragraphs (alignLines padded with ""). When the line count mismatches,
   // retry the chunk line-by-line so every paragraph gets a translation; a
   // line that still fails keeps its original text instead of going blank.
-  async function translateChunk(chunk, vendor) {
-    const raw = await translateRaw(chunk, vendor);
+  async function translateChunk(chunk, vendor, sourceLang) {
+    const raw = await translateRaw(chunk, vendor, sourceLang);
     if (!raw) return null;
     // Validate the whole chunk in the target language. (Checked here on the
     // aggregate, not per single line: a short line can legitimately carry
@@ -17550,7 +17559,7 @@ $done({ body });
       if (!line.trim()) { out.push(""); continue; }
       if (now() >= deadline) break;
       let one = null;
-      try { one = await translateRaw([line], vendor); } catch (_) { one = null; }
+      try { one = await translateRaw([line], vendor, sourceLang); } catch (_) { one = null; }
       out.push(one && one.length ? one[0] : line);
     }
     if (out.length !== chunk.length) {
@@ -17617,7 +17626,8 @@ $done({ body });
     }
     async function keep(output) {
       if (!output) return null;
-      if (SIMPLIFIED_TARGET) output = await toSimplifiedStrings(output);
+      // Translation services already output Simplified for a zh-CN target;
+      // no re-conversion here (it would waste a service call per song).
       if (output.every((line, i) => line === lines[i].words)) return null;
       storeTrack(id, { translations: { ...(cache().tracks[id]?.translations || {}), [target]: { source, lines: output, expires: now() + 7 * DAY } } });
       return output;
@@ -17806,19 +17816,22 @@ $done({ body });
         if (interleaved !== native.lines) {
           const origLines = native.lines;
           native.lines = interleaved;
-          native.alternatives = []; // translation is now in lines; avoid misalignment
+          // Keep the translation as an alternative too, so the lyrics page
+          // still shows its translate button (tapping it toggles the
+          // alternative view). The interleaved lines already carry the
+          // translation for the song-page scrolling view.
+          const extra = { language: languageKey(target), lines: toInterleave };
           if (format === "json" && document?.lyrics) {
             document.lyrics.lines = interleaved.map(line => ({ startTimeMs: String(line.start), words: line.words, endTimeMs: String(line.end || 0) }));
-            document.lyrics.alternatives = [];
-            document.lyrics.showTranslation = false;
+            document.lyrics.alternatives = [...native.alternatives, extra];
+            document.lyrics.showTranslation = true;
             return response(utf8(JSON.stringify(document)), 200, format);
           }
           if (native.list) {
             const parts = [];
             let li = 0;
             for (const f of native.list) {
-              if (f.number === 8 && f.wire === 0) continue; // drop old hasTranslation flag
-              if (f.number === 9 && f.wire === 2) continue; // drop alternatives (now in lines)
+              if (f.number === 8 && f.wire === 0) continue; // drop old hasTranslation flag; re-add below
               if (f.number === 2 && f.wire === 2) {
                 parts.push(f.raw);
                 const trans = toInterleave[li];
@@ -17827,7 +17840,11 @@ $done({ body });
                 if (trans !== undefined && orig) parts.push(blob(2, join([scalar(1, orig.start), string(2, trans)])));
               } else parts.push(f.raw);
             }
-            parts.push(scalar(8, 0)); // hasTranslation = false (no alternatives)
+            // Re-add kept native alternatives (if any) + the new one, and set hasTranslation.
+            for (const f of native.list) {
+              if (f.number === 9 && f.wire === 2) parts.push(f.raw);
+            }
+            parts.push(scalar(8, 1), alternative(extra));
             const payload = join(parts);
             return response(join(native.top.map(f => f === native.lyric ? blob(1, payload) : f.raw)), 200, format);
           }
@@ -17874,7 +17891,10 @@ $done({ body });
       const interleaved = interleaveTranslation(output.lines, toInterleave);
       if (interleaved !== output.lines) {
         output.lines = interleaved;
-        output.alternatives = []; // translation is now in lines; avoid misalignment
+        // Keep the translation as an alternative too, so the lyrics page
+        // still shows its translate button. The interleaved lines carry
+        // the translation for the song-page scrolling view.
+        if (translated) output.alternatives.push({ language: languageKey(target), lines: translated });
       } else if (translated) {
         output.alternatives.push({ language: languageKey(target), lines: translated });
       }
