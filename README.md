@@ -411,17 +411,17 @@
 >
 > [![社区资源 iab0x00](https://img.shields.io/static/v1?label=社区资源&message=iab0x00&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/iab0x00/ProxyRules "点击查看")
 >
-> [fmz200](https://github.com/fmz200) 维护的仓库，包含数百款独立模块和多个不同类型的合集类模块
+> [fmz200](https://github.com/fmz200) 维护的仓库，包含数百款不同类型的模块
 >
 > [![社区资源 fmz200](https://img.shields.io/static/v1?label=社区资源&message=fmz200&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/tree/main/Shadowrocket/module "点击查看")
 > 
-> [Reukix](https://github.com/Reukix) 维护的仓库，包含数多款不同类型的模块
->
-> [![社区资源 Reukix](https://img.shields.io/static/v1?label=社区资源&message=Reukix&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/Reukix/ukix/tree/main/Script "点击查看")
-> 
-> [zirawell](https://github.com/zirawell) 维护的仓库，包含数百款独立模块和多个不同类型的合集类模块
+> [zirawell](https://github.com/zirawell) 维护的仓库，包含数百款不同类型的模块
 >
 > [![社区资源 zirawell](https://img.shields.io/static/v1?label=社区资源&message=zirawell&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/zirawell/R-Store/tree/main/Rule/Surge/Adblock "点击查看")
+> 
+> [Reukix](https://github.com/Reukix) 维护的仓库，包含多款不同类型的模块
+>
+> [![社区资源 Reukix](https://img.shields.io/static/v1?label=社区资源&message=Reukix&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/Reukix/ukix/tree/main/Script "点击查看")
 > 
 > [QingRex](https://github.com/QingRex) 维护的资源丰富的 [模块资源仓库](https://github.com/QingRex/LoonKissSurge)，多数可直接使用
 >
@@ -434,6 +434,14 @@
 > [Kelee](https://github.com/luestr) 维护的资源，安装 [插件中心专用转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
 >
 > [![社区资源 Kelee](https://img.shields.io/static/v1?label=社区资源&message=Kelee&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://hub.kelee.one/ "点击查看")
+>
+> [Kelee](https://github.com/luestr) 维护的资源，安装 [插件中心专用转换器](https://raw.githubusercontent.com/iab0x00/ProxyRules/main/Rewrite/Plugin2Rocket.srmodule) 后可用于小火箭
+>
+> [![社区资源 Kelee](https://img.shields.io/static/v1?label=社区资源&message=Kelee&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://hub.kelee.one/ "点击查看")
+> 
+> [blackmatrix7](https://github.com/blackmatrix7) 维护的开源规则集仓库 [ios_rule_script](https://github.com/blackmatrix7/ios_rule_script) 将在 2026 年底 [停止维护](https://github.com/blackmatrix7/ios_rule_script/issues/1747)，其作者重新上线了新版闭源规则集网站
+>
+> [![社区资源 MagicRule](https://img.shields.io/static/v1?label=社区资源&message=MagicRule&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://magicrule.pages.dev/#/c/Shadowrocket "点击查看")
 
 ### [进阶工具](#进阶工具)
 
