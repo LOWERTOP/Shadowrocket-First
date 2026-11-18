@@ -362,8 +362,49 @@
 > > 本模块是 [向晚](https://github.com/XiangwanGuan) 维护的原生去广告模块，由作者推送至本仓库
 > >
 > > [![安装模块 小红书](https://img.shields.io/static/v1?label=安装模块&message=小红书&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/PR/XiangwanGuan/%E5%B0%8F%E7%BA%A2%E4%B9%A6.sgmodule "一键安装本模块")
- 
- 
+> >
+> **[米家去广告](https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/MiHome.sgmodule)**
+> 
+> > 本模块是 [Reukix](https://github.com/Reukix) 维护的模块，可以移除米家开屏、我的页面轮播推广及底栏活动图标
+> >
+> > [![安装模块 米家](https://img.shields.io/static/v1?label=安装模块&message=米家&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/MiHome.sgmodule "一键安装本模块")
+> >
+> **[咸鱼去广告](https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/FleaMarket.sgmodule)**
+> 
+> > 本模块是 [Reukix](https://github.com/Reukix) 维护的模块，可以移除咸鱼部分广告
+> >
+> > [![安装模块 咸鱼](https://img.shields.io/static/v1?label=安装模块&message=咸鱼&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/FleaMarket.sgmodule "一键安装本模块")
+> >
+> **[京东去广告](https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/JD.sgmodule)**
+> 
+> > 本模块是 [Reukix](https://github.com/Reukix) 维护的模块，可以过滤开屏广告和推广楼层等广告形式
+> >
+> > [![安装模块 京东](https://img.shields.io/static/v1?label=安装模块&message=京东&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/JD.sgmodule "一键安装本模块")
+> >
+> **[拼多多去广告](https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/Pinduoduo.sgmodule)**
+> 
+> > 本模块是 [Reukix](https://github.com/Reukix) 维护的模块，可以过滤开屏广告等广告形式
+> >
+> > [![安装模块 拼多多](https://img.shields.io/static/v1?label=安装模块&message=拼多多&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/Pinduoduo.sgmodule "一键安装本模块")
+> >
+> **[淘宝去广告](https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/Taobao.sgmodule)**
+> 
+> > 本模块是 [Reukix](https://github.com/Reukix) 维护的模块，可以过滤开屏广告等广告形式
+> >
+> > [![安装模块 淘宝](https://img.shields.io/static/v1?label=安装模块&message=淘宝&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/Taobao.sgmodule "一键安装本模块")
+> >
+> **[美团去广告](https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/meituan.sgmodule)**
+> 
+> > 本模块是 [Reukix](https://github.com/Reukix) 维护的模块，可以过滤美团部分广告
+> >
+> > [![安装模块 美团](https://img.shields.io/static/v1?label=安装模块&message=美团&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/meituan.sgmodule "一键安装本模块")
+> > 
+> **[小红书去广告](https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/Xiaohongshu.sgmodule)**
+> 
+> > 本模块是 [Reukix](https://github.com/Reukix) 维护的模块，可以过滤信息流推广、移除图片及视频水印等
+> >
+> > [![安装模块 小红书](https://img.shields.io/static/v1?label=安装模块&message=小红书&color=grey&logo=educative&logoColor=white&labelColor=blue&messageColor=white)](https://lowertop.github.io/Shadowrocket-First/redirect.html?url=shadowrocket://install?module=https://raw.githubusercontent.com/Reukix/ukix/refs/heads/main/Script/Xiaohongshu.sgmodule "一键安装本模块")
+
 ### **[更多资源](#模块收集)**
 
 > [iab0x00](https://github.com/iab0x00) 创建并维护的小火箭原生模块仓库，包含 YouTube、滴滴出行、酷安、小红书等相关模块
@@ -373,6 +414,10 @@
 > [fmz200](https://github.com/fmz200) 维护的仓库，包含数百款独立模块和多个不同类型的合集类模块
 >
 > [![社区资源 fmz200](https://img.shields.io/static/v1?label=社区资源&message=fmz200&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/fmz200/wool_scripts/tree/main/Shadowrocket/module "点击查看")
+> 
+> [Reukix](https://github.com/Reukix) 维护的仓库，包含数多款不同类型的模块
+>
+> [![社区资源 Reukix](https://img.shields.io/static/v1?label=社区资源&message=Reukix&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://github.com/Reukix/ukix/tree/main/Script "点击查看")
 > 
 > [zirawell](https://github.com/zirawell) 维护的仓库，包含数百款独立模块和多个不同类型的合集类模块
 >
