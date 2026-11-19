@@ -423,7 +423,7 @@
 >
 > [![社区资源 Kelee](https://img.shields.io/static/v1?label=社区资源&message=Kelee&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://hub.kelee.one/ "点击查看")
 >
-> [blackmatrix7](https://github.com/blackmatrix7) 维护的开源规则集仓库 [ios rule script](https://github.com/blackmatrix7/ios_rule_script) 将在 2026 年底 [停止维护](https://github.com/blackmatrix7/ios_rule_script/issues/1747)，其作者重新上线了新版闭源规则集网站
+> [blackmatrix7](https://github.com/blackmatrix7) 维护的开源规则集仓库 [ios rule script](https://github.com/blackmatrix7/ios_rule_script) 将在 2026 年底 [停止维护](https://github.com/blackmatrix7/ios_rule_script/issues/1747)，并上线了闭源网站 [MagicRule](https://magicrule.pages.dev/#/c/Shadowrocket)
 >
 > [![社区资源 MagicRule](https://img.shields.io/static/v1?label=社区资源&message=MagicRule&color=grey&logo=safari&logoColor=white&labelColor=blue&messageColor=white)](https://magicrule.pages.dev/#/c/Shadowrocket "点击查看")
 
