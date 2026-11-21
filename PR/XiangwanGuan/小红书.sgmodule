@@ -1,5 +1,5 @@
 #!name=小红书
-#!desc=2026-11-22 00:17:53
+#!desc=2026-11-22 00:34:38
 
 [Rule]
 DOMAIN,apm-fe.xiaohongshu.com,REJECT,pre-matching
@@ -13,7 +13,6 @@ DOMAIN-WILDCARD,ads-*.xhscdn.com,REJECT,pre-matching
 AND,((PROTOCOL,QUIC),(DOMAIN-SUFFIX,xiaohongshu.com)),REJECT-NO-DROP
 
 [URL Rewrite]
-^https?:\/\/ci\.xiaohongshu\.com\/system_config\/watermark - reject-img
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/ads\/material\/guide\? - reject-dict
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/marketing\/box\/trigger\? - reject-dict
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/marketing\/box_trigger\/goods_search - reject-dict
@@ -64,4 +63,4 @@ http-response-jq ^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d+\/tag\/ads_eng
 http-response-jq ^https?:\/\/www\.xiaohongshu\.com\/api\/store\/jpd\/edith\/native\/payment_marketing$ 'if type=="object" and (.data|type)=="object" then setpath(["data"]; {}) else . end'
 
 [MITM]
-hostname = %APPEND% ci.xiaohongshu.com,edith.xiaohongshu.com,live-go.xiaohongshu.com,live-mall.xiaohongshu.com,live-room.xiaohongshu.com,rec.xiaohongshu.com,referee.xiaohongshu.com,search.xiaohongshu.com,so.xiaohongshu.com,www.xiaohongshu.com
+hostname = %APPEND% edith.xiaohongshu.com,live-go.xiaohongshu.com,live-mall.xiaohongshu.com,live-room.xiaohongshu.com,rec.xiaohongshu.com,referee.xiaohongshu.com,search.xiaohongshu.com,so.xiaohongshu.com,www.xiaohongshu.com
