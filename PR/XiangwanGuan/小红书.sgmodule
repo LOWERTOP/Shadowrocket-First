@@ -1,5 +1,5 @@
 #!name=小红书
-#!desc=2026-11-22 00:34:38
+#!desc=2026-11-22 12:48:58
 
 [Rule]
 DOMAIN,apm-fe.xiaohongshu.com,REJECT,pre-matching
@@ -53,8 +53,8 @@ http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_ser
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/splash_config$ 'if type=="object" and (.data|type)=="object" then (setpath(["data","ads_groups"]; []) | setpath(["data","bidding_ads"]; [])) else . end'
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/usergrowth\/task\/query$ 'if (.data.taskDetailList|type)=="array" then .data.taskDetailList |= map(if (.terminalConfig|type)=="string" then .terminalConfig |= (fromjson | if type=="object" then del(.reminder) else . end | tojson) else . end) else . end'
 http-response-jq ^https?:\/\/live-go\.xiaohongshu\.com\/api\/sns\/red\/live\/app\/v\d+\/ecology\/inform_card\/active_card\? 'if type=="object" and (.data|type)=="object" then setpath(["data","inform_cards"]; []) else . end'
+http-response-jq ^https?:\/\/live-mall\.xiaohongshu\.com\/api\/sns\/red\/live\/rank\/entrance\/list\? 'if type=="object" and (.data|type)=="object" then setpath(["data","entrances"]; []) else . end'
 http-response-jq ^https?:\/\/live-mall\.xiaohongshu\.com\/api\/sns\/red\/livemall\/app\/marketing\/get_config\? 'if type=="object" and (.data|type)=="object" then delpaths([["data","coupon_config"],["data","flash_buy"]]) else . end'
-http-response-jq ^https?:\/\/live-room\.xiaohongshu\.com\/api\/sns\/red\/live\/rank\/entrance\/list\? 'if type=="object" and (.data|type)=="object" then setpath(["data","entrances"]; []) else . end'
 http-response-jq ^https?:\/\/live-room\.xiaohongshu\.com\/api\/sns\/v\d+\/live\/feed\/waterfall$ 'if type=="object" and (.data|type)=="object" and (.data.feeds|type)=="array" then .data.feeds |= map(select((.|type)!="object" or (((.ads_live? // false) != true) and ((.ads_info? // "{}") == "{}")))) else . end'
 http-response-jq ^https?:\/\/rec\.xiaohongshu\.com\/api\/sns\/v\d+\/user\/followings\/dualfeed\? 'if type=="object" and (.data|type)=="object" and (.data.note_infos|type)=="array" then .data.note_infos |= map(select((.|type)!="object" or (((((.type? // "") | tostring) | test("^live")) or ((.live|type)=="object" and (.live|length)>0)) | not))) else . end'
 http-response-jq ^https?:\/\/search\.xiaohongshu\.com\/api\/search\/fls\/placeholder\? 'if type=="object" and (.data|type)=="object" then setpath(["data","placeholder"]; []) else . end'
