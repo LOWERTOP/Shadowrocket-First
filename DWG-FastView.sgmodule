@@ -1,50 +1,88 @@
 #!name=🅲🅰🅳🆅🅸🅴🆆 浩辰CAD看图王
 #!icon=https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/main/img/CAD.png
-#!desc=模块为自用，仅包含规则不包含重写，不承诺完全去除相应服务的广告
+#!desc=移除开屏广告、视频广告、横幅内容等。模块为自用，不承诺完全去除广告
 #!author=LOWERTOP
 #!homepage=https://github.com/LOWERTOP/Shadowrocket-First
 
 [Rule]
-# CAD 看图王
-# Adjust - 移动端广告归因与数据分析平台
-DOMAIN-SUFFIX,adjust.com,REJECT
-# Adjust - 归因与数据追踪 API
-DOMAIN-SUFFIX,adjust.io,REJECT
-# AppsFlyer - 移动广告归因与效果追踪
-DOMAIN-SUFFIX,appsflyer.com,REJECT
-# AppsFlyer - 广告追踪与数据上报衍生域名
-DOMAIN-SUFFIX,tappsflyer.com,REJECT
-# Google - Firebase Crashlytics 崩溃日志与性能收集
-DOMAIN-SUFFIX,crashlytics.com,REJECT
-# Google - DoubleClick 广告网络与投放系统
-DOMAIN-SUFFIX,doubleclick.net,REJECT
-# Liftoff (Vungle) - 移动视频广告投放与配置上报
+# 广告配置接口（需 MITM）
+URL-REGEX,^https://engsapi\.dwgfastview\.com/ad/v5/adSetting,REJECT
+# AppLovin - 移动广告
+DOMAIN-SUFFIX,applovin.com,REJECT
+# Liftoff (Vungle) - 移动视频广告
 DOMAIN-SUFFIX,vungle.com,REJECT
-# Mintegral (汇量科技) - 移动广告投放与行为分析 SDK
-DOMAIN-SUFFIX,rayjump.com,REJECT
-# MobTech - 移动开发者服务（设备信息收集与分享组件）
-DOMAIN-SUFFIX,mob.com,REJECT
-# Moss / Hooks - 移动广告交易与打点追踪 (ADX/Tracking)
-DOMAIN-SUFFIX,hookspf.com,REJECT
-# Moss / Hooks - 移动广告追踪与投放服务 (ADX/Tracking)
-DOMAIN-SUFFIX,mosspf.net,REJECT
-# Moss / Hooks - 移动广告分发与策略接口
-DOMAIN-SUFFIX,mossru.com,REJECT
-# TikTok Pangle (穿山甲海外版) - 广告竞价与请求 API
+DOMAIN-SUFFIX,chinaliftoff-creatives.io,REJECT
+DOMAIN-SUFFIX,chinaliftoff.io,REJECT
+# 穿山甲 Pangle - 字节广告
+DOMAIN-SUFFIX,pangle.io,REJECT
+DOMAIN-SUFFIX,pangle-b.io,REJECT
+DOMAIN-SUFFIX,pglstatp.com,REJECT
+DOMAIN-SUFFIX,i18n-pglstatp.com,REJECT
 DOMAIN-SUFFIX,tiktokpangle.us,REJECT
-# TikTok Pangle (穿山甲海外版) - 广告静态素材 CDN
 DOMAIN-SUFFIX,tiktokpangle-cdn-us.com,REJECT
-# TopOn (AnyThink) - 广告聚合平台 SDK 与竞价服务
+# Google 广告
+DOMAIN-SUFFIX,doubleclick.net,REJECT
+DOMAIN-SUFFIX,googlesyndication.com,REJECT
+DOMAIN,imasdk.googleapis.com,REJECT
+DOMAIN,fundingchoicesmessages.google.com,REJECT
+DOMAIN-SUFFIX,crashlytics.com,REJECT
+DOMAIN,firebaselogging-pa.googleapis.com,REJECT
+# Moss / Hooks - 移动广告
+DOMAIN-SUFFIX,hookspf.com,REJECT
+DOMAIN-SUFFIX,mosspf.net,REJECT
+DOMAIN-SUFFIX,mosspf.cn,REJECT
+DOMAIN-SUFFIX,mossru.com,REJECT
+# TradPlus - 移动广告聚合
+DOMAIN-SUFFIX,tradplusad.com,REJECT
+# TopOn (AnyThink) - 广告聚合
 DOMAIN-SUFFIX,anythinktech.com,REJECT
-# TopOn - 移动广告聚合瀑布流竞价与请求
 DOMAIN-SUFFIX,toponad.com,REJECT
-# TradPlus - 移动广告聚合平台与归因服务
-DOMAIN-SUFFIX,tradtplusad.com,REJECT
-# 友盟+ (Umeng) - 移动统计与用户行为分析
+# Mintegral (汇量科技) - 移动广告
+DOMAIN-SUFFIX,rayjump.com,REJECT
+# Smadex - 移动广告
+DOMAIN-SUFFIX,smadex.com,REJECT
+# InMobi - 广告
+DOMAIN-SUFFIX,inmobicdn.net,REJECT
+# Maticoo - 广告
+DOMAIN-SUFFIX,maticooads.com,REJECT
+DOMAIN-SUFFIX,maticooadstrack.com,REJECT
+DOMAIN-SUFFIX,zmaticoo.com,REJECT
+# SonicsAds - 广告聚合配置
+DOMAIN-SUFFIX,firwinds.site,REJECT
+DOMAIN-SUFFIX,sonicsads.com,REJECT
+DOMAIN-SUFFIX,ibl-video.site,REJECT
+DOMAIN-SUFFIX,pinpopt.site,REJECT
+DOMAIN-SUFFIX,haobird.site,REJECT
+DOMAIN,ad-host-backup-europe.s3.eu-central-1.amazonaws.com,REJECT
+# Bidease - 广告
+DOMAIN-SUFFIX,bidease.com,REJECT
+# zztfly - 广告/统计
+DOMAIN-SUFFIX,zztfly.com,REJECT
+# Adjust - 广告归因
+DOMAIN-SUFFIX,adjust.com,REJECT
+DOMAIN-SUFFIX,adjust.io,REJECT
+DOMAIN-SUFFIX,sng.link,REJECT
+# AppsFlyer - 广告归因
+DOMAIN-SUFFIX,appsflyer.com,REJECT
+DOMAIN-SUFFIX,tappsflyer.com,REJECT
+# 友盟+ (Umeng) - 统计
 DOMAIN-SUFFIX,umeng.com,REJECT
-# 友盟+ (Umeng) - 消息推送与统计云端 API
 DOMAIN-SUFFIX,umengcloud.com,REJECT
-# LLYClub - 第三方广告聚合与设备追踪 SDK
+# MobTech - 开发者服务
+DOMAIN-SUFFIX,mob.com,REJECT
+# LLYClub - 广告聚合
 DOMAIN-SUFFIX,llyclub.cn,REJECT
-# 第三方应用数据分析与统计服务
+# 应用数据分析
 DOMAIN-SUFFIX,app-analytics-services.com,REJECT
+# Apple 应用广告服务
+DOMAIN-SUFFIX,app-ads-services.com,REJECT
+# Facebook 事件上报
+DOMAIN,ep7.facebook.com,REJECT
+# 广告 host 备份
+DOMAIN,ad-host-backup-america.oss-us-west-1.aliyuncs.com,REJECT
+# 反作弊日志上报
+DOMAIN-SUFFIX,puata.info,REJECT
+# 浩辰自家埋点
+DOMAIN,metrical.gstarcad.com,REJECT
+[MITM]
+hostname = %APPEND% engsapi.dwgfastview.com
