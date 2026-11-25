@@ -93,16 +93,16 @@
             // 归一化直达链接（确保 GitHub Raw 能正确响应带有空格和中文的文件路径）
             pureUrl = formatUrl(pureUrl);
 
-            // 2. 构造一键安装链接
+            // 2. 构造一键安装链接：保留原始协议前缀，只把里面的 http 链接换成规范化后的
             let installUrl = '';
             if (/^shadowrocket:\/\//i.test(targetUrl)) {
-                // 若原参数已带有 shadowrocket 协议前缀，提取前缀并重新安全打包 pureUrl
-                const prefixMatch = targetUrl.match(/^shadowrocket:\/\/[^?]+\?url=/i);
-                const prefix = prefixMatch ? prefixMatch[0] : 'shadowrocket://install?url=';
-                installUrl = prefix + encodeURIComponent(pureUrl);
+                // 提取 shadowrocket:// 后、http(s):// 之前的原始前缀（如 install?module=、config/add/），原样保留
+                const prefixMatch = targetUrl.match(/^shadowrocket:\/\/.*?(?=https?:\/\/)/i);
+                const prefix = prefixMatch ? prefixMatch[0] : 'shadowrocket://install?module=';
+                installUrl = prefix + pureUrl;
             } else {
-                // 默认封装为 Shadowrocket 安装协议
-                installUrl = 'shadowrocket://install?url=' + encodeURIComponent(pureUrl);
+                // 只传了裸的 http 链接，默认按模块处理
+                installUrl = 'shadowrocket://install?module=' + pureUrl;
             }
 
             // 3. 渲染页面按钮
